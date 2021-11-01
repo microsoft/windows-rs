@@ -1,6 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[cfg(feature = "ApplicationModel_Email_DataProvider")]
 pub mod DataProvider;
+#[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EmailAttachment(::windows::runtime::IInspectable);
@@ -12,6 +13,7 @@ impl EmailAttachment {
         static mut SHARED: ::windows::runtime::FactoryCache<EmailAttachment, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn FileName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -19,11 +21,13 @@ impl EmailAttachment {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetFileName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Storage_Streams`*"]
     pub fn Data(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
         let this = self;
         unsafe {
@@ -32,10 +36,12 @@ impl EmailAttachment {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Storage_Streams`*"]
     pub fn SetData<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IEmailAttachment2>(self)?;
         unsafe {
@@ -43,6 +49,7 @@ impl EmailAttachment {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn ContentId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IEmailAttachment2>(self)?;
         unsafe {
@@ -50,10 +57,12 @@ impl EmailAttachment {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetContentId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IEmailAttachment2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn ContentLocation(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IEmailAttachment2>(self)?;
         unsafe {
@@ -61,10 +70,12 @@ impl EmailAttachment {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetContentLocation<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IEmailAttachment2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn DownloadState(&self) -> ::windows::runtime::Result<EmailAttachmentDownloadState> {
         let this = &::windows::runtime::Interface::cast::<IEmailAttachment2>(self)?;
         unsafe {
@@ -72,10 +83,12 @@ impl EmailAttachment {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<EmailAttachmentDownloadState>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetDownloadState(&self, value: EmailAttachmentDownloadState) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IEmailAttachment2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn EstimatedDownloadSizeInBytes(&self) -> ::windows::runtime::Result<u64> {
         let this = &::windows::runtime::Interface::cast::<IEmailAttachment2>(self)?;
         unsafe {
@@ -83,10 +96,12 @@ impl EmailAttachment {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetEstimatedDownloadSizeInBytes(&self, value: u64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IEmailAttachment2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn IsFromBaseMessage(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IEmailAttachment2>(self)?;
         unsafe {
@@ -94,6 +109,7 @@ impl EmailAttachment {
             (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn IsInline(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IEmailAttachment2>(self)?;
         unsafe {
@@ -101,10 +117,12 @@ impl EmailAttachment {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetIsInline(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IEmailAttachment2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn MimeType(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IEmailAttachment2>(self)?;
         unsafe {
@@ -112,11 +130,13 @@ impl EmailAttachment {
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetMimeType<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IEmailAttachment2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Storage_Streams`*"]
     pub fn Create<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference>>(filename: Param0, data: Param1) -> ::windows::runtime::Result<EmailAttachment> {
         Self::IEmailAttachmentFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -124,6 +144,7 @@ impl EmailAttachment {
         })
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Storage_Streams`*"]
     pub fn Create2<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(filename: Param0, data: Param1, mimetype: Param2) -> ::windows::runtime::Result<EmailAttachment> {
         Self::IEmailAttachmentFactory2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -191,6 +212,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for EmailAttachment {}
 unsafe impl ::std::marker::Sync for EmailAttachment {}
+#[doc = "*Required features: `ApplicationModel_Email`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EmailAttachmentDownloadState(pub i32);
@@ -212,6 +234,7 @@ unsafe impl ::windows::runtime::Abi for EmailAttachmentDownloadState {
 unsafe impl ::windows::runtime::RuntimeType for EmailAttachmentDownloadState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailAttachmentDownloadState;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Email`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EmailBatchStatus(pub i32);
@@ -232,6 +255,7 @@ unsafe impl ::windows::runtime::Abi for EmailBatchStatus {
 unsafe impl ::windows::runtime::RuntimeType for EmailBatchStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailBatchStatus;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Email`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EmailCertificateValidationStatus(pub i32);
@@ -260,10 +284,12 @@ unsafe impl ::windows::runtime::Abi for EmailCertificateValidationStatus {
 unsafe impl ::windows::runtime::RuntimeType for EmailCertificateValidationStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailCertificateValidationStatus;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EmailConversation(::windows::runtime::IInspectable);
 impl EmailConversation {
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -271,6 +297,7 @@ impl EmailConversation {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn MailboxId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -278,6 +305,7 @@ impl EmailConversation {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn FlagState(&self) -> ::windows::runtime::Result<EmailFlagState> {
         let this = self;
         unsafe {
@@ -285,6 +313,7 @@ impl EmailConversation {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<EmailFlagState>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn HasAttachment(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -292,6 +321,7 @@ impl EmailConversation {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn Importance(&self) -> ::windows::runtime::Result<EmailImportance> {
         let this = self;
         unsafe {
@@ -299,6 +329,7 @@ impl EmailConversation {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<EmailImportance>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn LastEmailResponseKind(&self) -> ::windows::runtime::Result<EmailMessageResponseKind> {
         let this = self;
         unsafe {
@@ -306,6 +337,7 @@ impl EmailConversation {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<EmailMessageResponseKind>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn MessageCount(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -313,6 +345,7 @@ impl EmailConversation {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn MostRecentMessageId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -321,6 +354,7 @@ impl EmailConversation {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn MostRecentMessageTime(&self) -> ::windows::runtime::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -328,6 +362,7 @@ impl EmailConversation {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn Preview(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -335,6 +370,7 @@ impl EmailConversation {
             (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn LatestSender(&self) -> ::windows::runtime::Result<EmailRecipient> {
         let this = self;
         unsafe {
@@ -342,6 +378,7 @@ impl EmailConversation {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<EmailRecipient>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn Subject(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -349,6 +386,7 @@ impl EmailConversation {
             (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn UnreadMessageCount(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -357,6 +395,7 @@ impl EmailConversation {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`, `Foundation_Collections`*"]
     pub fn FindMessagesAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<EmailMessage>>> {
         let this = self;
         unsafe {
@@ -365,6 +404,7 @@ impl EmailConversation {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`, `Foundation_Collections`*"]
     pub fn FindMessagesWithCountAsync(&self, count: u32) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<EmailMessage>>> {
         let this = self;
         unsafe {
@@ -425,11 +465,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for EmailConversation {}
 unsafe impl ::std::marker::Sync for EmailConversation {}
+#[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EmailConversationBatch(::windows::runtime::IInspectable);
 impl EmailConversationBatch {
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation_Collections`*"]
     pub fn Conversations(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<EmailConversation>> {
         let this = self;
         unsafe {
@@ -437,6 +479,7 @@ impl EmailConversationBatch {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<EmailConversation>>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<EmailBatchStatus> {
         let this = self;
         unsafe {
@@ -497,11 +540,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for EmailConversationBatch {}
 unsafe impl ::std::marker::Sync for EmailConversationBatch {}
+#[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EmailConversationReader(::windows::runtime::IInspectable);
 impl EmailConversationReader {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn ReadBatchAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<EmailConversationBatch>> {
         let this = self;
         unsafe {
@@ -562,6 +607,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for EmailConversationReader {}
 unsafe impl ::std::marker::Sync for EmailConversationReader {}
+#[doc = "*Required features: `ApplicationModel_Email`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EmailFlagState(pub i32);
@@ -583,10 +629,12 @@ unsafe impl ::windows::runtime::Abi for EmailFlagState {
 unsafe impl ::windows::runtime::RuntimeType for EmailFlagState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailFlagState;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EmailFolder(::windows::runtime::IInspectable);
 impl EmailFolder {
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -594,6 +642,7 @@ impl EmailFolder {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn RemoteId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -601,10 +650,12 @@ impl EmailFolder {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetRemoteId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn MailboxId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -612,6 +663,7 @@ impl EmailFolder {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn ParentFolderId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -619,6 +671,7 @@ impl EmailFolder {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn DisplayName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -626,10 +679,12 @@ impl EmailFolder {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetDisplayName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn IsSyncEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -637,11 +692,13 @@ impl EmailFolder {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetIsSyncEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn LastSuccessfulSyncTime(&self) -> ::windows::runtime::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -650,10 +707,12 @@ impl EmailFolder {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn SetLastSuccessfulSyncTime<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::DateTime>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn Kind(&self) -> ::windows::runtime::Result<EmailSpecialFolderKind> {
         let this = self;
         unsafe {
@@ -662,6 +721,7 @@ impl EmailFolder {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn CreateFolderAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, name: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<EmailFolder>> {
         let this = self;
         unsafe {
@@ -670,6 +730,7 @@ impl EmailFolder {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn DeleteAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -678,6 +739,7 @@ impl EmailFolder {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`, `Foundation_Collections`*"]
     pub fn FindChildFoldersAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<EmailFolder>>> {
         let this = self;
         unsafe {
@@ -685,6 +747,7 @@ impl EmailFolder {
             (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<EmailFolder>>>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn GetConversationReader(&self) -> ::windows::runtime::Result<EmailConversationReader> {
         let this = self;
         unsafe {
@@ -692,6 +755,7 @@ impl EmailFolder {
             (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), &mut result__).from_abi::<EmailConversationReader>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn GetConversationReaderWithOptions<'a, Param0: ::windows::runtime::IntoParam<'a, EmailQueryOptions>>(&self, options: Param0) -> ::windows::runtime::Result<EmailConversationReader> {
         let this = self;
         unsafe {
@@ -700,6 +764,7 @@ impl EmailFolder {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn GetMessageAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, id: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<EmailMessage>> {
         let this = self;
         unsafe {
@@ -707,6 +772,7 @@ impl EmailFolder {
             (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), id.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<EmailMessage>>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn GetMessageReader(&self) -> ::windows::runtime::Result<EmailMessageReader> {
         let this = self;
         unsafe {
@@ -714,6 +780,7 @@ impl EmailFolder {
             (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), &mut result__).from_abi::<EmailMessageReader>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn GetMessageReaderWithOptions<'a, Param0: ::windows::runtime::IntoParam<'a, EmailQueryOptions>>(&self, options: Param0) -> ::windows::runtime::Result<EmailMessageReader> {
         let this = self;
         unsafe {
@@ -722,6 +789,7 @@ impl EmailFolder {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn GetMessageCountsAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<EmailItemCounts>> {
         let this = self;
         unsafe {
@@ -730,6 +798,7 @@ impl EmailFolder {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn TryMoveAsync<'a, Param0: ::windows::runtime::IntoParam<'a, EmailFolder>>(&self, newparentfolder: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
@@ -738,6 +807,7 @@ impl EmailFolder {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn TryMoveWithNewNameAsync<'a, Param0: ::windows::runtime::IntoParam<'a, EmailFolder>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, newparentfolder: Param0, newfoldername: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
@@ -746,6 +816,7 @@ impl EmailFolder {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn TrySaveAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
@@ -754,6 +825,7 @@ impl EmailFolder {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn SaveMessageAsync<'a, Param0: ::windows::runtime::IntoParam<'a, EmailMessage>>(&self, message: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -814,6 +886,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for EmailFolder {}
 unsafe impl ::std::marker::Sync for EmailFolder {}
+#[doc = "*Required features: `ApplicationModel_Email`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EmailImportance(pub i32);
@@ -834,6 +907,7 @@ unsafe impl ::windows::runtime::Abi for EmailImportance {
 unsafe impl ::windows::runtime::RuntimeType for EmailImportance {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailImportance;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EmailIrmInfo(::windows::runtime::IInspectable);
@@ -845,6 +919,7 @@ impl EmailIrmInfo {
         static mut SHARED: ::windows::runtime::FactoryCache<EmailIrmInfo, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn CanEdit(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -852,10 +927,12 @@ impl EmailIrmInfo {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetCanEdit(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn CanExtractData(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -863,10 +940,12 @@ impl EmailIrmInfo {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetCanExtractData(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn CanForward(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -874,10 +953,12 @@ impl EmailIrmInfo {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetCanForward(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn CanModifyRecipientsOnResponse(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -885,10 +966,12 @@ impl EmailIrmInfo {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetCanModifyRecipientsOnResponse(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn CanPrintData(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -896,10 +979,12 @@ impl EmailIrmInfo {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetCanPrintData(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn CanRemoveIrmOnResponse(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -907,10 +992,12 @@ impl EmailIrmInfo {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetCanRemoveIrmOnResponse(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn CanReply(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -918,10 +1005,12 @@ impl EmailIrmInfo {
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetCanReply(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn CanReplyAll(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -929,11 +1018,13 @@ impl EmailIrmInfo {
             (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetCanReplyAll(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn ExpirationDate(&self) -> ::windows::runtime::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -942,10 +1033,12 @@ impl EmailIrmInfo {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn SetExpirationDate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::DateTime>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn IsIrmOriginator(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -953,10 +1046,12 @@ impl EmailIrmInfo {
             (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetIsIrmOriginator(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn IsProgramaticAccessAllowed(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -964,10 +1059,12 @@ impl EmailIrmInfo {
             (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetIsProgramaticAccessAllowed(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn Template(&self) -> ::windows::runtime::Result<EmailIrmTemplate> {
         let this = self;
         unsafe {
@@ -975,11 +1072,13 @@ impl EmailIrmInfo {
             (::windows::runtime::Interface::vtable(this).28)(::std::mem::transmute_copy(this), &mut result__).from_abi::<EmailIrmTemplate>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetTemplate<'a, Param0: ::windows::runtime::IntoParam<'a, EmailIrmTemplate>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).29)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn Create<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::DateTime>, Param1: ::windows::runtime::IntoParam<'a, EmailIrmTemplate>>(expiration: Param0, irmtemplate: Param1) -> ::windows::runtime::Result<EmailIrmInfo> {
         Self::IEmailIrmInfoFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1043,6 +1142,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for EmailIrmInfo {}
 unsafe impl ::std::marker::Sync for EmailIrmInfo {}
+#[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EmailIrmTemplate(::windows::runtime::IInspectable);
@@ -1054,6 +1154,7 @@ impl EmailIrmTemplate {
         static mut SHARED: ::windows::runtime::FactoryCache<EmailIrmTemplate, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1061,10 +1162,12 @@ impl EmailIrmTemplate {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn Description(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1072,10 +1175,12 @@ impl EmailIrmTemplate {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetDescription<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1083,10 +1188,12 @@ impl EmailIrmTemplate {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn Create<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(id: Param0, name: Param1, description: Param2) -> ::windows::runtime::Result<EmailIrmTemplate> {
         Self::IEmailIrmTemplateFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1150,10 +1257,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for EmailIrmTemplate {}
 unsafe impl ::std::marker::Sync for EmailIrmTemplate {}
+#[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EmailItemCounts(::windows::runtime::IInspectable);
 impl EmailItemCounts {
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn Flagged(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -1161,6 +1270,7 @@ impl EmailItemCounts {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn Important(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -1168,6 +1278,7 @@ impl EmailItemCounts {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn Total(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -1175,6 +1286,7 @@ impl EmailItemCounts {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn Unread(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -1235,10 +1347,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for EmailItemCounts {}
 unsafe impl ::std::marker::Sync for EmailItemCounts {}
+#[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EmailMailbox(::windows::runtime::IInspectable);
 impl EmailMailbox {
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn Capabilities(&self) -> ::windows::runtime::Result<EmailMailboxCapabilities> {
         let this = self;
         unsafe {
@@ -1246,6 +1360,7 @@ impl EmailMailbox {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<EmailMailboxCapabilities>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn ChangeTracker(&self) -> ::windows::runtime::Result<EmailMailboxChangeTracker> {
         let this = self;
         unsafe {
@@ -1253,6 +1368,7 @@ impl EmailMailbox {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<EmailMailboxChangeTracker>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn DisplayName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1260,10 +1376,12 @@ impl EmailMailbox {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetDisplayName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1271,6 +1389,7 @@ impl EmailMailbox {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn IsOwnedByCurrentApp(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1278,6 +1397,7 @@ impl EmailMailbox {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn IsDataEncryptedUnderLock(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1285,6 +1405,7 @@ impl EmailMailbox {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn MailAddress(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1292,11 +1413,13 @@ impl EmailMailbox {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetMailAddress<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation_Collections`*"]
     pub fn MailAddressAliases(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -1304,6 +1427,7 @@ impl EmailMailbox {
             (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn OtherAppReadAccess(&self) -> ::windows::runtime::Result<EmailMailboxOtherAppReadAccess> {
         let this = self;
         unsafe {
@@ -1311,10 +1435,12 @@ impl EmailMailbox {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<EmailMailboxOtherAppReadAccess>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetOtherAppReadAccess(&self, value: EmailMailboxOtherAppReadAccess) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn OtherAppWriteAccess(&self) -> ::windows::runtime::Result<EmailMailboxOtherAppWriteAccess> {
         let this = self;
         unsafe {
@@ -1322,10 +1448,12 @@ impl EmailMailbox {
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<EmailMailboxOtherAppWriteAccess>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetOtherAppWriteAccess(&self, value: EmailMailboxOtherAppWriteAccess) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn Policies(&self) -> ::windows::runtime::Result<EmailMailboxPolicies> {
         let this = self;
         unsafe {
@@ -1333,6 +1461,7 @@ impl EmailMailbox {
             (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), &mut result__).from_abi::<EmailMailboxPolicies>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SourceDisplayName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1340,6 +1469,7 @@ impl EmailMailbox {
             (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SyncManager(&self) -> ::windows::runtime::Result<EmailMailboxSyncManager> {
         let this = self;
         unsafe {
@@ -1347,6 +1477,7 @@ impl EmailMailbox {
             (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), &mut result__).from_abi::<EmailMailboxSyncManager>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn UserDataAccountId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1354,6 +1485,7 @@ impl EmailMailbox {
             (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn GetConversationReader(&self) -> ::windows::runtime::Result<EmailConversationReader> {
         let this = self;
         unsafe {
@@ -1361,6 +1493,7 @@ impl EmailMailbox {
             (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), &mut result__).from_abi::<EmailConversationReader>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn GetConversationReaderWithOptions<'a, Param0: ::windows::runtime::IntoParam<'a, EmailQueryOptions>>(&self, options: Param0) -> ::windows::runtime::Result<EmailConversationReader> {
         let this = self;
         unsafe {
@@ -1368,6 +1501,7 @@ impl EmailMailbox {
             (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), options.into_param().abi(), &mut result__).from_abi::<EmailConversationReader>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn GetMessageReader(&self) -> ::windows::runtime::Result<EmailMessageReader> {
         let this = self;
         unsafe {
@@ -1375,6 +1509,7 @@ impl EmailMailbox {
             (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), &mut result__).from_abi::<EmailMessageReader>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn GetMessageReaderWithOptions<'a, Param0: ::windows::runtime::IntoParam<'a, EmailQueryOptions>>(&self, options: Param0) -> ::windows::runtime::Result<EmailMessageReader> {
         let this = self;
         unsafe {
@@ -1383,6 +1518,7 @@ impl EmailMailbox {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn DeleteAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -1391,6 +1527,7 @@ impl EmailMailbox {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn GetConversationAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, id: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<EmailConversation>> {
         let this = self;
         unsafe {
@@ -1399,6 +1536,7 @@ impl EmailMailbox {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn GetFolderAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, id: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<EmailFolder>> {
         let this = self;
         unsafe {
@@ -1407,6 +1545,7 @@ impl EmailMailbox {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn GetMessageAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, id: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<EmailMessage>> {
         let this = self;
         unsafe {
@@ -1415,6 +1554,7 @@ impl EmailMailbox {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn GetSpecialFolderAsync(&self, foldertype: EmailSpecialFolderKind) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<EmailFolder>> {
         let this = self;
         unsafe {
@@ -1423,6 +1563,7 @@ impl EmailMailbox {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn SaveAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -1431,6 +1572,7 @@ impl EmailMailbox {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn MarkMessageAsSeenAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, messageid: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -1439,6 +1581,7 @@ impl EmailMailbox {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn MarkFolderAsSeenAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, folderid: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -1447,6 +1590,7 @@ impl EmailMailbox {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn MarkMessageReadAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, messageid: Param0, isread: bool) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -1455,6 +1599,7 @@ impl EmailMailbox {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn ChangeMessageFlagStateAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, messageid: Param0, flagstate: EmailFlagState) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -1463,6 +1608,7 @@ impl EmailMailbox {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn TryMoveMessageAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, messageid: Param0, newparentfolderid: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
@@ -1471,6 +1617,7 @@ impl EmailMailbox {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn TryMoveFolderAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, folderid: Param0, newparentfolderid: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
@@ -1479,6 +1626,7 @@ impl EmailMailbox {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn TryMoveFolderWithNewNameAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, folderid: Param0, newparentfolderid: Param1, newfoldername: Param2) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
@@ -1487,6 +1635,7 @@ impl EmailMailbox {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn DeleteMessageAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, messageid: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -1495,6 +1644,7 @@ impl EmailMailbox {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn MarkFolderSyncEnabledAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, folderid: Param0, issyncenabled: bool) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -1503,6 +1653,7 @@ impl EmailMailbox {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn SendMessageAsync<'a, Param0: ::windows::runtime::IntoParam<'a, EmailMessage>>(&self, message: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -1511,6 +1662,7 @@ impl EmailMailbox {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn SaveDraftAsync<'a, Param0: ::windows::runtime::IntoParam<'a, EmailMessage>>(&self, message: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -1519,6 +1671,7 @@ impl EmailMailbox {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn DownloadMessageAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, messageid: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -1527,6 +1680,7 @@ impl EmailMailbox {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn DownloadAttachmentAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, attachmentid: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -1535,6 +1689,7 @@ impl EmailMailbox {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn CreateResponseMessageAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param4: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, messageid: Param0, responsetype: EmailMessageResponseKind, subject: Param2, responseheadertype: EmailMessageBodyKind, responseheader: Param4) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<EmailMessage>> {
         let this = self;
         unsafe {
@@ -1543,6 +1698,7 @@ impl EmailMailbox {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn TryUpdateMeetingResponseAsync<'a, Param0: ::windows::runtime::IntoParam<'a, EmailMessage>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, meeting: Param0, response: EmailMeetingResponseType, subject: Param2, comment: Param3, sendupdate: bool) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
@@ -1551,6 +1707,7 @@ impl EmailMailbox {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`, `Foundation_Collections`*"]
     pub fn TryForwardMeetingAsync<'a, Param0: ::windows::runtime::IntoParam<'a, EmailMessage>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<EmailRecipient>>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param4: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param5: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(
         &self,
         meeting: Param0,
@@ -1567,6 +1724,7 @@ impl EmailMailbox {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn TryProposeNewTimeForMeetingAsync<'a, Param0: ::windows::runtime::IntoParam<'a, EmailMessage>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::DateTime>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::TimeSpan>, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param4: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(
         &self,
         meeting: Param0,
@@ -1582,6 +1740,7 @@ impl EmailMailbox {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn MailboxChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<EmailMailbox, EmailMailboxChangedEventArgs>>>(&self, phandler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1590,11 +1749,13 @@ impl EmailMailbox {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn RemoveMailboxChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).52)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn SmartSendMessageAsync<'a, Param0: ::windows::runtime::IntoParam<'a, EmailMessage>>(&self, message: Param0, smartsend: bool) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -1603,6 +1764,7 @@ impl EmailMailbox {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn TrySetAutoReplySettingsAsync<'a, Param0: ::windows::runtime::IntoParam<'a, EmailMailboxAutoReplySettings>>(&self, autoreplysettings: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
@@ -1611,6 +1773,7 @@ impl EmailMailbox {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn TryGetAutoReplySettingsAsync(&self, requestedformat: EmailMailboxAutoReplyMessageResponseKind) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<EmailMailboxAutoReplySettings>> {
         let this = self;
         unsafe {
@@ -1618,6 +1781,7 @@ impl EmailMailbox {
             (::windows::runtime::Interface::vtable(this).55)(::std::mem::transmute_copy(this), requestedformat, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<EmailMailboxAutoReplySettings>>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn LinkedMailboxId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IEmailMailbox2>(self)?;
         unsafe {
@@ -1625,6 +1789,7 @@ impl EmailMailbox {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn NetworkAccountId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IEmailMailbox2>(self)?;
         unsafe {
@@ -1632,6 +1797,7 @@ impl EmailMailbox {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn NetworkId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IEmailMailbox2>(self)?;
         unsafe {
@@ -1640,6 +1806,7 @@ impl EmailMailbox {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`, `Foundation_Collections`*"]
     pub fn ResolveRecipientsAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>>(&self, recipients: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<EmailRecipientResolutionResult>>> {
         let this = &::windows::runtime::Interface::cast::<IEmailMailbox3>(self)?;
         unsafe {
@@ -1648,6 +1815,7 @@ impl EmailMailbox {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`, `Foundation_Collections`, `Security_Cryptography_Certificates`*"]
     pub fn ValidateCertificatesAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Security::Cryptography::Certificates::Certificate>>>(&self, certificates: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<EmailCertificateValidationStatus>>> {
         let this = &::windows::runtime::Interface::cast::<IEmailMailbox3>(self)?;
         unsafe {
@@ -1656,6 +1824,7 @@ impl EmailMailbox {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn TryEmptyFolderAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, folderid: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<EmailMailboxEmptyFolderStatus>> {
         let this = &::windows::runtime::Interface::cast::<IEmailMailbox3>(self)?;
         unsafe {
@@ -1664,6 +1833,7 @@ impl EmailMailbox {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn TryCreateFolderAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, parentfolderid: Param0, name: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<EmailMailboxCreateFolderResult>> {
         let this = &::windows::runtime::Interface::cast::<IEmailMailbox3>(self)?;
         unsafe {
@@ -1672,6 +1842,7 @@ impl EmailMailbox {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn TryDeleteFolderAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, folderid: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<EmailMailboxDeleteFolderStatus>> {
         let this = &::windows::runtime::Interface::cast::<IEmailMailbox3>(self)?;
         unsafe {
@@ -1680,6 +1851,7 @@ impl EmailMailbox {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn RegisterSyncManagerAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows::runtime::Interface::cast::<IEmailMailbox4>(self)?;
         unsafe {
@@ -1687,6 +1859,7 @@ impl EmailMailbox {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn GetChangeTracker<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, identity: Param0) -> ::windows::runtime::Result<EmailMailboxChangeTracker> {
         let this = &::windows::runtime::Interface::cast::<IEmailMailbox5>(self)?;
         unsafe {
@@ -1747,10 +1920,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for EmailMailbox {}
 unsafe impl ::std::marker::Sync for EmailMailbox {}
+#[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EmailMailboxAction(::windows::runtime::IInspectable);
 impl EmailMailboxAction {
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn Kind(&self) -> ::windows::runtime::Result<EmailMailboxActionKind> {
         let this = self;
         unsafe {
@@ -1758,6 +1933,7 @@ impl EmailMailboxAction {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<EmailMailboxActionKind>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn ChangeNumber(&self) -> ::windows::runtime::Result<u64> {
         let this = self;
         unsafe {
@@ -1818,6 +1994,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for EmailMailboxAction {}
 unsafe impl ::std::marker::Sync for EmailMailboxAction {}
+#[doc = "*Required features: `ApplicationModel_Email`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EmailMailboxActionKind(pub i32);
@@ -1846,6 +2023,7 @@ unsafe impl ::windows::runtime::Abi for EmailMailboxActionKind {
 unsafe impl ::windows::runtime::RuntimeType for EmailMailboxActionKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxActionKind;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Email`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation(pub i32);
@@ -1866,10 +2044,12 @@ unsafe impl ::windows::runtime::Abi for EmailMailboxAllowedSmimeEncryptionAlgori
 unsafe impl ::windows::runtime::RuntimeType for EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EmailMailboxAutoReply(::windows::runtime::IInspectable);
 impl EmailMailboxAutoReply {
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn IsEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1877,10 +2057,12 @@ impl EmailMailboxAutoReply {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetIsEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn Response(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1888,6 +2070,7 @@ impl EmailMailboxAutoReply {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetResponse<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -1945,6 +2128,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for EmailMailboxAutoReply {}
 unsafe impl ::std::marker::Sync for EmailMailboxAutoReply {}
+#[doc = "*Required features: `ApplicationModel_Email`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EmailMailboxAutoReplyMessageResponseKind(pub i32);
@@ -1964,6 +2148,7 @@ unsafe impl ::windows::runtime::Abi for EmailMailboxAutoReplyMessageResponseKind
 unsafe impl ::windows::runtime::RuntimeType for EmailMailboxAutoReplyMessageResponseKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxAutoReplyMessageResponseKind;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EmailMailboxAutoReplySettings(::windows::runtime::IInspectable);
@@ -1975,6 +2160,7 @@ impl EmailMailboxAutoReplySettings {
         static mut SHARED: ::windows::runtime::FactoryCache<EmailMailboxAutoReplySettings, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn IsEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1982,10 +2168,12 @@ impl EmailMailboxAutoReplySettings {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetIsEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn ResponseKind(&self) -> ::windows::runtime::Result<EmailMailboxAutoReplyMessageResponseKind> {
         let this = self;
         unsafe {
@@ -1993,11 +2181,13 @@ impl EmailMailboxAutoReplySettings {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<EmailMailboxAutoReplyMessageResponseKind>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetResponseKind(&self, value: EmailMailboxAutoReplyMessageResponseKind) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn StartTime(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = self;
         unsafe {
@@ -2006,11 +2196,13 @@ impl EmailMailboxAutoReplySettings {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn SetStartTime<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<super::super::Foundation::DateTime>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn EndTime(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = self;
         unsafe {
@@ -2019,10 +2211,12 @@ impl EmailMailboxAutoReplySettings {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn SetEndTime<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<super::super::Foundation::DateTime>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn InternalReply(&self) -> ::windows::runtime::Result<EmailMailboxAutoReply> {
         let this = self;
         unsafe {
@@ -2030,6 +2224,7 @@ impl EmailMailboxAutoReplySettings {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<EmailMailboxAutoReply>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn KnownExternalReply(&self) -> ::windows::runtime::Result<EmailMailboxAutoReply> {
         let this = self;
         unsafe {
@@ -2037,6 +2232,7 @@ impl EmailMailboxAutoReplySettings {
             (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<EmailMailboxAutoReply>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn UnknownExternalReply(&self) -> ::windows::runtime::Result<EmailMailboxAutoReply> {
         let this = self;
         unsafe {
@@ -2097,10 +2293,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for EmailMailboxAutoReplySettings {}
 unsafe impl ::std::marker::Sync for EmailMailboxAutoReplySettings {}
+#[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EmailMailboxCapabilities(::windows::runtime::IInspectable);
 impl EmailMailboxCapabilities {
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn CanForwardMeetings(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -2108,6 +2306,7 @@ impl EmailMailboxCapabilities {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn CanGetAndSetExternalAutoReplies(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -2115,6 +2314,7 @@ impl EmailMailboxCapabilities {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn CanGetAndSetInternalAutoReplies(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -2122,6 +2322,7 @@ impl EmailMailboxCapabilities {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn CanUpdateMeetingResponses(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -2129,6 +2330,7 @@ impl EmailMailboxCapabilities {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn CanServerSearchFolders(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -2136,6 +2338,7 @@ impl EmailMailboxCapabilities {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn CanServerSearchMailbox(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -2143,6 +2346,7 @@ impl EmailMailboxCapabilities {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn CanProposeNewTimeForMeetings(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -2150,6 +2354,7 @@ impl EmailMailboxCapabilities {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn CanSmartSend(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -2157,6 +2362,7 @@ impl EmailMailboxCapabilities {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn CanResolveRecipients(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IEmailMailboxCapabilities2>(self)?;
         unsafe {
@@ -2164,6 +2370,7 @@ impl EmailMailboxCapabilities {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn CanValidateCertificates(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IEmailMailboxCapabilities2>(self)?;
         unsafe {
@@ -2171,6 +2378,7 @@ impl EmailMailboxCapabilities {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn CanEmptyFolder(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IEmailMailboxCapabilities2>(self)?;
         unsafe {
@@ -2178,6 +2386,7 @@ impl EmailMailboxCapabilities {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn CanCreateFolder(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IEmailMailboxCapabilities2>(self)?;
         unsafe {
@@ -2185,6 +2394,7 @@ impl EmailMailboxCapabilities {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn CanDeleteFolder(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IEmailMailboxCapabilities2>(self)?;
         unsafe {
@@ -2192,6 +2402,7 @@ impl EmailMailboxCapabilities {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn CanMoveFolder(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IEmailMailboxCapabilities2>(self)?;
         unsafe {
@@ -2199,58 +2410,72 @@ impl EmailMailboxCapabilities {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetCanForwardMeetings(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IEmailMailboxCapabilities3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetCanGetAndSetExternalAutoReplies(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IEmailMailboxCapabilities3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetCanGetAndSetInternalAutoReplies(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IEmailMailboxCapabilities3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetCanUpdateMeetingResponses(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IEmailMailboxCapabilities3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetCanServerSearchFolders(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IEmailMailboxCapabilities3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetCanServerSearchMailbox(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IEmailMailboxCapabilities3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetCanProposeNewTimeForMeetings(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IEmailMailboxCapabilities3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetCanSmartSend(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IEmailMailboxCapabilities3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetCanResolveRecipients(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IEmailMailboxCapabilities3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetCanValidateCertificates(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IEmailMailboxCapabilities3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetCanEmptyFolder(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IEmailMailboxCapabilities3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetCanCreateFolder(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IEmailMailboxCapabilities3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetCanDeleteFolder(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IEmailMailboxCapabilities3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetCanMoveFolder(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IEmailMailboxCapabilities3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), value).ok() }
@@ -2308,10 +2533,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for EmailMailboxCapabilities {}
 unsafe impl ::std::marker::Sync for EmailMailboxCapabilities {}
+#[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EmailMailboxChange(::windows::runtime::IInspectable);
 impl EmailMailboxChange {
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn ChangeType(&self) -> ::windows::runtime::Result<EmailMailboxChangeType> {
         let this = self;
         unsafe {
@@ -2320,6 +2547,7 @@ impl EmailMailboxChange {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation_Collections`*"]
     pub fn MailboxActions(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<EmailMailboxAction>> {
         let this = self;
         unsafe {
@@ -2327,6 +2555,7 @@ impl EmailMailboxChange {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<EmailMailboxAction>>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn Message(&self) -> ::windows::runtime::Result<EmailMessage> {
         let this = self;
         unsafe {
@@ -2334,6 +2563,7 @@ impl EmailMailboxChange {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<EmailMessage>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn Folder(&self) -> ::windows::runtime::Result<EmailFolder> {
         let this = self;
         unsafe {
@@ -2394,19 +2624,23 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for EmailMailboxChange {}
 unsafe impl ::std::marker::Sync for EmailMailboxChange {}
+#[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EmailMailboxChangeReader(::windows::runtime::IInspectable);
 impl EmailMailboxChangeReader {
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn AcceptChanges(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn AcceptChangesThrough<'a, Param0: ::windows::runtime::IntoParam<'a, EmailMailboxChange>>(&self, lastchangetoacknowledge: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), lastchangetoacknowledge.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`, `Foundation_Collections`*"]
     pub fn ReadBatchAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<EmailMailboxChange>>> {
         let this = self;
         unsafe {
@@ -2467,10 +2701,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for EmailMailboxChangeReader {}
 unsafe impl ::std::marker::Sync for EmailMailboxChangeReader {}
+#[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EmailMailboxChangeTracker(::windows::runtime::IInspectable);
 impl EmailMailboxChangeTracker {
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn IsTracking(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -2478,10 +2714,12 @@ impl EmailMailboxChangeTracker {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn Enable(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn GetChangeReader(&self) -> ::windows::runtime::Result<EmailMailboxChangeReader> {
         let this = self;
         unsafe {
@@ -2489,6 +2727,7 @@ impl EmailMailboxChangeTracker {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<EmailMailboxChangeReader>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn Reset(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this)).ok() }
@@ -2546,6 +2785,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for EmailMailboxChangeTracker {}
 unsafe impl ::std::marker::Sync for EmailMailboxChangeTracker {}
+#[doc = "*Required features: `ApplicationModel_Email`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EmailMailboxChangeType(pub i32);
@@ -2570,10 +2810,12 @@ unsafe impl ::windows::runtime::Abi for EmailMailboxChangeType {
 unsafe impl ::windows::runtime::RuntimeType for EmailMailboxChangeType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxChangeType;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EmailMailboxChangedDeferral(::windows::runtime::IInspectable);
 impl EmailMailboxChangedDeferral {
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn Complete(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
@@ -2631,10 +2873,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for EmailMailboxChangedDeferral {}
 unsafe impl ::std::marker::Sync for EmailMailboxChangedDeferral {}
+#[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EmailMailboxChangedEventArgs(::windows::runtime::IInspectable);
 impl EmailMailboxChangedEventArgs {
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<EmailMailboxChangedDeferral> {
         let this = self;
         unsafe {
@@ -2695,10 +2939,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for EmailMailboxChangedEventArgs {}
 unsafe impl ::std::marker::Sync for EmailMailboxChangedEventArgs {}
+#[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EmailMailboxCreateFolderResult(::windows::runtime::IInspectable);
 impl EmailMailboxCreateFolderResult {
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<EmailMailboxCreateFolderStatus> {
         let this = self;
         unsafe {
@@ -2706,6 +2952,7 @@ impl EmailMailboxCreateFolderResult {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<EmailMailboxCreateFolderStatus>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn Folder(&self) -> ::windows::runtime::Result<EmailFolder> {
         let this = self;
         unsafe {
@@ -2766,6 +3013,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for EmailMailboxCreateFolderResult {}
 unsafe impl ::std::marker::Sync for EmailMailboxCreateFolderResult {}
+#[doc = "*Required features: `ApplicationModel_Email`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EmailMailboxCreateFolderStatus(pub i32);
@@ -2790,6 +3038,7 @@ unsafe impl ::windows::runtime::Abi for EmailMailboxCreateFolderStatus {
 unsafe impl ::windows::runtime::RuntimeType for EmailMailboxCreateFolderStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxCreateFolderStatus;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Email`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EmailMailboxDeleteFolderStatus(pub i32);
@@ -2813,6 +3062,7 @@ unsafe impl ::windows::runtime::Abi for EmailMailboxDeleteFolderStatus {
 unsafe impl ::windows::runtime::RuntimeType for EmailMailboxDeleteFolderStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxDeleteFolderStatus;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Email`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EmailMailboxEmptyFolderStatus(pub i32);
@@ -2836,6 +3086,7 @@ unsafe impl ::windows::runtime::Abi for EmailMailboxEmptyFolderStatus {
 unsafe impl ::windows::runtime::RuntimeType for EmailMailboxEmptyFolderStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxEmptyFolderStatus;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Email`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EmailMailboxOtherAppReadAccess(pub i32);
@@ -2856,6 +3107,7 @@ unsafe impl ::windows::runtime::Abi for EmailMailboxOtherAppReadAccess {
 unsafe impl ::windows::runtime::RuntimeType for EmailMailboxOtherAppReadAccess {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxOtherAppReadAccess;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Email`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EmailMailboxOtherAppWriteAccess(pub i32);
@@ -2875,10 +3127,12 @@ unsafe impl ::windows::runtime::Abi for EmailMailboxOtherAppWriteAccess {
 unsafe impl ::windows::runtime::RuntimeType for EmailMailboxOtherAppWriteAccess {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxOtherAppWriteAccess;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EmailMailboxPolicies(::windows::runtime::IInspectable);
 impl EmailMailboxPolicies {
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn AllowedSmimeEncryptionAlgorithmNegotiation(&self) -> ::windows::runtime::Result<EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation> {
         let this = self;
         unsafe {
@@ -2886,6 +3140,7 @@ impl EmailMailboxPolicies {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn AllowSmimeSoftCertificates(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -2894,6 +3149,7 @@ impl EmailMailboxPolicies {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn RequiredSmimeEncryptionAlgorithm(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<EmailMailboxSmimeEncryptionAlgorithm>> {
         let this = self;
         unsafe {
@@ -2902,6 +3158,7 @@ impl EmailMailboxPolicies {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn RequiredSmimeSigningAlgorithm(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<EmailMailboxSmimeSigningAlgorithm>> {
         let this = self;
         unsafe {
@@ -2909,6 +3166,7 @@ impl EmailMailboxPolicies {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<EmailMailboxSmimeSigningAlgorithm>>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn MustEncryptSmimeMessages(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IEmailMailboxPolicies2>(self)?;
         unsafe {
@@ -2916,6 +3174,7 @@ impl EmailMailboxPolicies {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn MustSignSmimeMessages(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IEmailMailboxPolicies2>(self)?;
         unsafe {
@@ -2923,28 +3182,34 @@ impl EmailMailboxPolicies {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetAllowedSmimeEncryptionAlgorithmNegotiation(&self, value: EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IEmailMailboxPolicies3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetAllowSmimeSoftCertificates(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IEmailMailboxPolicies3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn SetRequiredSmimeEncryptionAlgorithm<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<EmailMailboxSmimeEncryptionAlgorithm>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IEmailMailboxPolicies3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn SetRequiredSmimeSigningAlgorithm<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<EmailMailboxSmimeSigningAlgorithm>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IEmailMailboxPolicies3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetMustEncryptSmimeMessages(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IEmailMailboxPolicies3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetMustSignSmimeMessages(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IEmailMailboxPolicies3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
@@ -3002,6 +3267,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for EmailMailboxPolicies {}
 unsafe impl ::std::marker::Sync for EmailMailboxPolicies {}
+#[doc = "*Required features: `ApplicationModel_Email`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EmailMailboxSmimeEncryptionAlgorithm(pub i32);
@@ -3025,6 +3291,7 @@ unsafe impl ::windows::runtime::Abi for EmailMailboxSmimeEncryptionAlgorithm {
 unsafe impl ::windows::runtime::RuntimeType for EmailMailboxSmimeEncryptionAlgorithm {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxSmimeEncryptionAlgorithm;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Email`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EmailMailboxSmimeSigningAlgorithm(pub i32);
@@ -3045,10 +3312,12 @@ unsafe impl ::windows::runtime::Abi for EmailMailboxSmimeSigningAlgorithm {
 unsafe impl ::windows::runtime::RuntimeType for EmailMailboxSmimeSigningAlgorithm {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxSmimeSigningAlgorithm;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EmailMailboxSyncManager(::windows::runtime::IInspectable);
 impl EmailMailboxSyncManager {
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<EmailMailboxSyncStatus> {
         let this = self;
         unsafe {
@@ -3057,6 +3326,7 @@ impl EmailMailboxSyncManager {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn LastSuccessfulSyncTime(&self) -> ::windows::runtime::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -3065,6 +3335,7 @@ impl EmailMailboxSyncManager {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn LastAttemptedSyncTime(&self) -> ::windows::runtime::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -3073,6 +3344,7 @@ impl EmailMailboxSyncManager {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn SyncAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
@@ -3081,6 +3353,7 @@ impl EmailMailboxSyncManager {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn SyncStatusChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<EmailMailboxSyncManager, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -3089,20 +3362,24 @@ impl EmailMailboxSyncManager {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn RemoveSyncStatusChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetStatus(&self, value: EmailMailboxSyncStatus) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IEmailMailboxSyncManager2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn SetLastSuccessfulSyncTime<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::DateTime>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IEmailMailboxSyncManager2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn SetLastAttemptedSyncTime<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::DateTime>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IEmailMailboxSyncManager2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -3160,6 +3437,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for EmailMailboxSyncManager {}
 unsafe impl ::std::marker::Sync for EmailMailboxSyncManager {}
+#[doc = "*Required features: `ApplicationModel_Email`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EmailMailboxSyncStatus(pub i32);
@@ -3184,9 +3462,11 @@ unsafe impl ::windows::runtime::Abi for EmailMailboxSyncStatus {
 unsafe impl ::windows::runtime::RuntimeType for EmailMailboxSyncStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxSyncStatus;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Email`*"]
 pub struct EmailManager {}
 impl EmailManager {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn ShowComposeNewEmailAsync<'a, Param0: ::windows::runtime::IntoParam<'a, EmailMessage>>(message: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         Self::IEmailManagerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -3194,6 +3474,7 @@ impl EmailManager {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn RequestStoreAsync(accesstype: EmailStoreAccessType) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<EmailStore>> {
         Self::IEmailManagerStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -3201,6 +3482,7 @@ impl EmailManager {
         })
     }
     #[cfg(feature = "System")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `System`*"]
     pub fn GetForUser<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::User>>(user: Param0) -> ::windows::runtime::Result<EmailManagerForUser> {
         Self::IEmailManagerStatics3(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -3223,11 +3505,13 @@ impl EmailManager {
 impl ::windows::runtime::RuntimeName for EmailManager {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailManager";
 }
+#[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EmailManagerForUser(::windows::runtime::IInspectable);
 impl EmailManagerForUser {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn ShowComposeNewEmailAsync<'a, Param0: ::windows::runtime::IntoParam<'a, EmailMessage>>(&self, message: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -3236,6 +3520,7 @@ impl EmailManagerForUser {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn RequestStoreAsync(&self, accesstype: EmailStoreAccessType) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<EmailStore>> {
         let this = self;
         unsafe {
@@ -3244,6 +3529,7 @@ impl EmailManagerForUser {
         }
     }
     #[cfg(feature = "System")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `System`*"]
     pub fn User(&self) -> ::windows::runtime::Result<super::super::System::User> {
         let this = self;
         unsafe {
@@ -3304,6 +3590,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for EmailManagerForUser {}
 unsafe impl ::std::marker::Sync for EmailManagerForUser {}
+#[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EmailMeetingInfo(::windows::runtime::IInspectable);
@@ -3315,6 +3602,7 @@ impl EmailMeetingInfo {
         static mut SHARED: ::windows::runtime::FactoryCache<EmailMeetingInfo, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn AllowNewTimeProposal(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -3322,10 +3610,12 @@ impl EmailMeetingInfo {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetAllowNewTimeProposal(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn AppointmentRoamingId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -3333,11 +3623,13 @@ impl EmailMeetingInfo {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetAppointmentRoamingId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn AppointmentOriginalStartTime(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = self;
         unsafe {
@@ -3346,11 +3638,13 @@ impl EmailMeetingInfo {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn SetAppointmentOriginalStartTime<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<super::super::Foundation::DateTime>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn Duration(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -3359,10 +3653,12 @@ impl EmailMeetingInfo {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn SetDuration<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn IsAllDay(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -3370,10 +3666,12 @@ impl EmailMeetingInfo {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetIsAllDay(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn IsResponseRequested(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -3381,10 +3679,12 @@ impl EmailMeetingInfo {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetIsResponseRequested(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn Location(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -3392,11 +3692,13 @@ impl EmailMeetingInfo {
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetLocation<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn ProposedStartTime(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = self;
         unsafe {
@@ -3405,11 +3707,13 @@ impl EmailMeetingInfo {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn SetProposedStartTime<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<super::super::Foundation::DateTime>>>(&self, proposedstarttime: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), proposedstarttime.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn ProposedDuration(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
         let this = self;
         unsafe {
@@ -3418,11 +3722,13 @@ impl EmailMeetingInfo {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn SetProposedDuration<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>>(&self, duration: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), duration.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn RecurrenceStartTime(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = self;
         unsafe {
@@ -3431,11 +3737,13 @@ impl EmailMeetingInfo {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn SetRecurrenceStartTime<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<super::super::Foundation::DateTime>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "ApplicationModel_Appointments")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `ApplicationModel_Appointments`*"]
     pub fn Recurrence(&self) -> ::windows::runtime::Result<super::Appointments::AppointmentRecurrence> {
         let this = self;
         unsafe {
@@ -3444,10 +3752,12 @@ impl EmailMeetingInfo {
         }
     }
     #[cfg(feature = "ApplicationModel_Appointments")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `ApplicationModel_Appointments`*"]
     pub fn SetRecurrence<'a, Param0: ::windows::runtime::IntoParam<'a, super::Appointments::AppointmentRecurrence>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn RemoteChangeNumber(&self) -> ::windows::runtime::Result<u64> {
         let this = self;
         unsafe {
@@ -3455,11 +3765,13 @@ impl EmailMeetingInfo {
             (::windows::runtime::Interface::vtable(this).28)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetRemoteChangeNumber(&self, value: u64) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).29)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn StartTime(&self) -> ::windows::runtime::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -3468,10 +3780,12 @@ impl EmailMeetingInfo {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn SetStartTime<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::DateTime>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).31)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn IsReportedOutOfDateByServer(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IEmailMeetingInfo2>(self)?;
         unsafe {
@@ -3532,6 +3846,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for EmailMeetingInfo {}
 unsafe impl ::std::marker::Sync for EmailMeetingInfo {}
+#[doc = "*Required features: `ApplicationModel_Email`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EmailMeetingResponseType(pub i32);
@@ -3552,6 +3867,7 @@ unsafe impl ::windows::runtime::Abi for EmailMeetingResponseType {
 unsafe impl ::windows::runtime::RuntimeType for EmailMeetingResponseType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMeetingResponseType;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EmailMessage(::windows::runtime::IInspectable);
@@ -3563,6 +3879,7 @@ impl EmailMessage {
         static mut SHARED: ::windows::runtime::FactoryCache<EmailMessage, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn Subject(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -3570,10 +3887,12 @@ impl EmailMessage {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetSubject<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn Body(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -3581,11 +3900,13 @@ impl EmailMessage {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetBody<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation_Collections`*"]
     pub fn To(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<EmailRecipient>> {
         let this = self;
         unsafe {
@@ -3594,6 +3915,7 @@ impl EmailMessage {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation_Collections`*"]
     pub fn CC(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<EmailRecipient>> {
         let this = self;
         unsafe {
@@ -3602,6 +3924,7 @@ impl EmailMessage {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation_Collections`*"]
     pub fn Bcc(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<EmailRecipient>> {
         let this = self;
         unsafe {
@@ -3610,6 +3933,7 @@ impl EmailMessage {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation_Collections`*"]
     pub fn Attachments(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<EmailAttachment>> {
         let this = self;
         unsafe {
@@ -3617,6 +3941,7 @@ impl EmailMessage {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<EmailAttachment>>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IEmailMessage2>(self)?;
         unsafe {
@@ -3624,6 +3949,7 @@ impl EmailMessage {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn RemoteId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IEmailMessage2>(self)?;
         unsafe {
@@ -3631,10 +3957,12 @@ impl EmailMessage {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetRemoteId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IEmailMessage2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn MailboxId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IEmailMessage2>(self)?;
         unsafe {
@@ -3642,6 +3970,7 @@ impl EmailMessage {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn ConversationId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IEmailMessage2>(self)?;
         unsafe {
@@ -3649,6 +3978,7 @@ impl EmailMessage {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn FolderId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IEmailMessage2>(self)?;
         unsafe {
@@ -3656,6 +3986,7 @@ impl EmailMessage {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn AllowInternetImages(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IEmailMessage2>(self)?;
         unsafe {
@@ -3663,10 +3994,12 @@ impl EmailMessage {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetAllowInternetImages(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IEmailMessage2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn ChangeNumber(&self) -> ::windows::runtime::Result<u64> {
         let this = &::windows::runtime::Interface::cast::<IEmailMessage2>(self)?;
         unsafe {
@@ -3674,6 +4007,7 @@ impl EmailMessage {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn DownloadState(&self) -> ::windows::runtime::Result<EmailMessageDownloadState> {
         let this = &::windows::runtime::Interface::cast::<IEmailMessage2>(self)?;
         unsafe {
@@ -3681,10 +4015,12 @@ impl EmailMessage {
             (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<EmailMessageDownloadState>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetDownloadState(&self, value: EmailMessageDownloadState) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IEmailMessage2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn EstimatedDownloadSizeInBytes(&self) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<IEmailMessage2>(self)?;
         unsafe {
@@ -3692,10 +4028,12 @@ impl EmailMessage {
             (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetEstimatedDownloadSizeInBytes(&self, value: u32) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IEmailMessage2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn FlagState(&self) -> ::windows::runtime::Result<EmailFlagState> {
         let this = &::windows::runtime::Interface::cast::<IEmailMessage2>(self)?;
         unsafe {
@@ -3703,10 +4041,12 @@ impl EmailMessage {
             (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), &mut result__).from_abi::<EmailFlagState>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetFlagState(&self, value: EmailFlagState) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IEmailMessage2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn HasPartialBodies(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IEmailMessage2>(self)?;
         unsafe {
@@ -3714,6 +4054,7 @@ impl EmailMessage {
             (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn Importance(&self) -> ::windows::runtime::Result<EmailImportance> {
         let this = &::windows::runtime::Interface::cast::<IEmailMessage2>(self)?;
         unsafe {
@@ -3721,10 +4062,12 @@ impl EmailMessage {
             (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), &mut result__).from_abi::<EmailImportance>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetImportance(&self, value: EmailImportance) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IEmailMessage2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn InResponseToMessageId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IEmailMessage2>(self)?;
         unsafe {
@@ -3732,6 +4075,7 @@ impl EmailMessage {
             (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn IrmInfo(&self) -> ::windows::runtime::Result<EmailIrmInfo> {
         let this = &::windows::runtime::Interface::cast::<IEmailMessage2>(self)?;
         unsafe {
@@ -3739,10 +4083,12 @@ impl EmailMessage {
             (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), &mut result__).from_abi::<EmailIrmInfo>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetIrmInfo<'a, Param0: ::windows::runtime::IntoParam<'a, EmailIrmInfo>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IEmailMessage2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn IsDraftMessage(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IEmailMessage2>(self)?;
         unsafe {
@@ -3750,6 +4096,7 @@ impl EmailMessage {
             (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn IsRead(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IEmailMessage2>(self)?;
         unsafe {
@@ -3757,10 +4104,12 @@ impl EmailMessage {
             (::windows::runtime::Interface::vtable(this).28)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetIsRead(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IEmailMessage2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).29)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn IsSeen(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IEmailMessage2>(self)?;
         unsafe {
@@ -3768,10 +4117,12 @@ impl EmailMessage {
             (::windows::runtime::Interface::vtable(this).30)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetIsSeen(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IEmailMessage2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).31)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn IsServerSearchMessage(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IEmailMessage2>(self)?;
         unsafe {
@@ -3779,6 +4130,7 @@ impl EmailMessage {
             (::windows::runtime::Interface::vtable(this).32)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn IsSmartSendable(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IEmailMessage2>(self)?;
         unsafe {
@@ -3786,6 +4138,7 @@ impl EmailMessage {
             (::windows::runtime::Interface::vtable(this).33)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn MessageClass(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IEmailMessage2>(self)?;
         unsafe {
@@ -3793,10 +4146,12 @@ impl EmailMessage {
             (::windows::runtime::Interface::vtable(this).34)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetMessageClass<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IEmailMessage2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).35)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn NormalizedSubject(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IEmailMessage2>(self)?;
         unsafe {
@@ -3804,6 +4159,7 @@ impl EmailMessage {
             (::windows::runtime::Interface::vtable(this).36)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn OriginalCodePage(&self) -> ::windows::runtime::Result<i32> {
         let this = &::windows::runtime::Interface::cast::<IEmailMessage2>(self)?;
         unsafe {
@@ -3811,10 +4167,12 @@ impl EmailMessage {
             (::windows::runtime::Interface::vtable(this).37)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetOriginalCodePage(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IEmailMessage2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).38)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn Preview(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IEmailMessage2>(self)?;
         unsafe {
@@ -3822,10 +4180,12 @@ impl EmailMessage {
             (::windows::runtime::Interface::vtable(this).39)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetPreview<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IEmailMessage2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).40)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn LastResponseKind(&self) -> ::windows::runtime::Result<EmailMessageResponseKind> {
         let this = &::windows::runtime::Interface::cast::<IEmailMessage2>(self)?;
         unsafe {
@@ -3833,10 +4193,12 @@ impl EmailMessage {
             (::windows::runtime::Interface::vtable(this).41)(::std::mem::transmute_copy(this), &mut result__).from_abi::<EmailMessageResponseKind>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetLastResponseKind(&self, value: EmailMessageResponseKind) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IEmailMessage2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).42)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn Sender(&self) -> ::windows::runtime::Result<EmailRecipient> {
         let this = &::windows::runtime::Interface::cast::<IEmailMessage2>(self)?;
         unsafe {
@@ -3844,11 +4206,13 @@ impl EmailMessage {
             (::windows::runtime::Interface::vtable(this).43)(::std::mem::transmute_copy(this), &mut result__).from_abi::<EmailRecipient>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetSender<'a, Param0: ::windows::runtime::IntoParam<'a, EmailRecipient>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IEmailMessage2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).44)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn SentTime(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = &::windows::runtime::Interface::cast::<IEmailMessage2>(self)?;
         unsafe {
@@ -3857,10 +4221,12 @@ impl EmailMessage {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn SetSentTime<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<super::super::Foundation::DateTime>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IEmailMessage2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).46)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn MeetingInfo(&self) -> ::windows::runtime::Result<EmailMeetingInfo> {
         let this = &::windows::runtime::Interface::cast::<IEmailMessage2>(self)?;
         unsafe {
@@ -3868,11 +4234,13 @@ impl EmailMessage {
             (::windows::runtime::Interface::vtable(this).47)(::std::mem::transmute_copy(this), &mut result__).from_abi::<EmailMeetingInfo>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetMeetingInfo<'a, Param0: ::windows::runtime::IntoParam<'a, EmailMeetingInfo>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IEmailMessage2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).48)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Storage_Streams`*"]
     pub fn GetBodyStream(&self, r#type: EmailMessageBodyKind) -> ::windows::runtime::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
         let this = &::windows::runtime::Interface::cast::<IEmailMessage2>(self)?;
         unsafe {
@@ -3881,11 +4249,13 @@ impl EmailMessage {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Storage_Streams`*"]
     pub fn SetBodyStream<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference>>(&self, r#type: EmailMessageBodyKind, stream: Param1) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IEmailMessage2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).50)(::std::mem::transmute_copy(this), r#type, stream.into_param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Storage_Streams`*"]
     pub fn SmimeData(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
         let this = &::windows::runtime::Interface::cast::<IEmailMessage3>(self)?;
         unsafe {
@@ -3894,10 +4264,12 @@ impl EmailMessage {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Storage_Streams`*"]
     pub fn SetSmimeData<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IEmailMessage3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SmimeKind(&self) -> ::windows::runtime::Result<EmailMessageSmimeKind> {
         let this = &::windows::runtime::Interface::cast::<IEmailMessage3>(self)?;
         unsafe {
@@ -3905,11 +4277,13 @@ impl EmailMessage {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<EmailMessageSmimeKind>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetSmimeKind(&self, value: EmailMessageSmimeKind) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IEmailMessage3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation_Collections`*"]
     pub fn ReplyTo(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<EmailRecipient>> {
         let this = &::windows::runtime::Interface::cast::<IEmailMessage4>(self)?;
         unsafe {
@@ -3917,6 +4291,7 @@ impl EmailMessage {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<EmailRecipient>>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SentRepresenting(&self) -> ::windows::runtime::Result<EmailRecipient> {
         let this = &::windows::runtime::Interface::cast::<IEmailMessage4>(self)?;
         unsafe {
@@ -3924,6 +4299,7 @@ impl EmailMessage {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<EmailRecipient>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetSentRepresenting<'a, Param0: ::windows::runtime::IntoParam<'a, EmailRecipient>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IEmailMessage4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -3981,11 +4357,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for EmailMessage {}
 unsafe impl ::std::marker::Sync for EmailMessage {}
+#[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EmailMessageBatch(::windows::runtime::IInspectable);
 impl EmailMessageBatch {
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation_Collections`*"]
     pub fn Messages(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<EmailMessage>> {
         let this = self;
         unsafe {
@@ -3993,6 +4371,7 @@ impl EmailMessageBatch {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<EmailMessage>>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<EmailBatchStatus> {
         let this = self;
         unsafe {
@@ -4053,6 +4432,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for EmailMessageBatch {}
 unsafe impl ::std::marker::Sync for EmailMessageBatch {}
+#[doc = "*Required features: `ApplicationModel_Email`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EmailMessageBodyKind(pub i32);
@@ -4072,6 +4452,7 @@ unsafe impl ::windows::runtime::Abi for EmailMessageBodyKind {
 unsafe impl ::windows::runtime::RuntimeType for EmailMessageBodyKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMessageBodyKind;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Email`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EmailMessageDownloadState(pub i32);
@@ -4093,11 +4474,13 @@ unsafe impl ::windows::runtime::Abi for EmailMessageDownloadState {
 unsafe impl ::windows::runtime::RuntimeType for EmailMessageDownloadState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMessageDownloadState;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EmailMessageReader(::windows::runtime::IInspectable);
 impl EmailMessageReader {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn ReadBatchAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<EmailMessageBatch>> {
         let this = self;
         unsafe {
@@ -4158,6 +4541,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for EmailMessageReader {}
 unsafe impl ::std::marker::Sync for EmailMessageReader {}
+#[doc = "*Required features: `ApplicationModel_Email`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EmailMessageResponseKind(pub i32);
@@ -4179,6 +4563,7 @@ unsafe impl ::windows::runtime::Abi for EmailMessageResponseKind {
 unsafe impl ::windows::runtime::RuntimeType for EmailMessageResponseKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMessageResponseKind;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Email`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EmailMessageSmimeKind(pub i32);
@@ -4200,6 +4585,7 @@ unsafe impl ::windows::runtime::Abi for EmailMessageSmimeKind {
 unsafe impl ::windows::runtime::RuntimeType for EmailMessageSmimeKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMessageSmimeKind;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Email`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EmailQueryKind(pub i32);
@@ -4223,6 +4609,7 @@ unsafe impl ::windows::runtime::Abi for EmailQueryKind {
 unsafe impl ::windows::runtime::RuntimeType for EmailQueryKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailQueryKind;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EmailQueryOptions(::windows::runtime::IInspectable);
@@ -4234,6 +4621,7 @@ impl EmailQueryOptions {
         static mut SHARED: ::windows::runtime::FactoryCache<EmailQueryOptions, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn TextSearch(&self) -> ::windows::runtime::Result<EmailQueryTextSearch> {
         let this = self;
         unsafe {
@@ -4241,6 +4629,7 @@ impl EmailQueryOptions {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<EmailQueryTextSearch>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SortDirection(&self) -> ::windows::runtime::Result<EmailQuerySortDirection> {
         let this = self;
         unsafe {
@@ -4248,10 +4637,12 @@ impl EmailQueryOptions {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<EmailQuerySortDirection>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetSortDirection(&self, value: EmailQuerySortDirection) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SortProperty(&self) -> ::windows::runtime::Result<EmailQuerySortProperty> {
         let this = self;
         unsafe {
@@ -4259,10 +4650,12 @@ impl EmailQueryOptions {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<EmailQuerySortProperty>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetSortProperty(&self, value: EmailQuerySortProperty) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn Kind(&self) -> ::windows::runtime::Result<EmailQueryKind> {
         let this = self;
         unsafe {
@@ -4270,11 +4663,13 @@ impl EmailQueryOptions {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<EmailQueryKind>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetKind(&self, value: EmailQueryKind) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation_Collections`*"]
     pub fn FolderIds(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -4282,12 +4677,14 @@ impl EmailQueryOptions {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn CreateWithText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(text: Param0) -> ::windows::runtime::Result<EmailQueryOptions> {
         Self::IEmailQueryOptionsFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), text.into_param().abi(), &mut result__).from_abi::<EmailQueryOptions>(result__)
         })
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn CreateWithTextAndFields<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(text: Param0, fields: EmailQuerySearchFields) -> ::windows::runtime::Result<EmailQueryOptions> {
         Self::IEmailQueryOptionsFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -4351,6 +4748,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for EmailQueryOptions {}
 unsafe impl ::std::marker::Sync for EmailQueryOptions {}
+#[doc = "*Required features: `ApplicationModel_Email`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EmailQuerySearchFields(pub u32);
@@ -4402,6 +4800,7 @@ impl ::std::ops::Not for EmailQuerySearchFields {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `ApplicationModel_Email`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EmailQuerySearchScope(pub i32);
@@ -4421,6 +4820,7 @@ unsafe impl ::windows::runtime::Abi for EmailQuerySearchScope {
 unsafe impl ::windows::runtime::RuntimeType for EmailQuerySearchScope {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailQuerySearchScope;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Email`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EmailQuerySortDirection(pub i32);
@@ -4440,6 +4840,7 @@ unsafe impl ::windows::runtime::Abi for EmailQuerySortDirection {
 unsafe impl ::windows::runtime::RuntimeType for EmailQuerySortDirection {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailQuerySortDirection;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Email`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EmailQuerySortProperty(pub i32);
@@ -4458,10 +4859,12 @@ unsafe impl ::windows::runtime::Abi for EmailQuerySortProperty {
 unsafe impl ::windows::runtime::RuntimeType for EmailQuerySortProperty {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailQuerySortProperty;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EmailQueryTextSearch(::windows::runtime::IInspectable);
 impl EmailQueryTextSearch {
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn Fields(&self) -> ::windows::runtime::Result<EmailQuerySearchFields> {
         let this = self;
         unsafe {
@@ -4469,10 +4872,12 @@ impl EmailQueryTextSearch {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<EmailQuerySearchFields>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetFields(&self, value: EmailQuerySearchFields) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SearchScope(&self) -> ::windows::runtime::Result<EmailQuerySearchScope> {
         let this = self;
         unsafe {
@@ -4480,10 +4885,12 @@ impl EmailQueryTextSearch {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<EmailQuerySearchScope>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetSearchScope(&self, value: EmailQuerySearchScope) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn Text(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -4491,6 +4898,7 @@ impl EmailQueryTextSearch {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -4548,6 +4956,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for EmailQueryTextSearch {}
 unsafe impl ::std::marker::Sync for EmailQueryTextSearch {}
+#[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EmailRecipient(::windows::runtime::IInspectable);
@@ -4559,6 +4968,7 @@ impl EmailRecipient {
         static mut SHARED: ::windows::runtime::FactoryCache<EmailRecipient, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -4566,10 +4976,12 @@ impl EmailRecipient {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn Address(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -4577,16 +4989,19 @@ impl EmailRecipient {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetAddress<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn Create<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(address: Param0) -> ::windows::runtime::Result<EmailRecipient> {
         Self::IEmailRecipientFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), address.into_param().abi(), &mut result__).from_abi::<EmailRecipient>(result__)
         })
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn CreateWithName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(address: Param0, name: Param1) -> ::windows::runtime::Result<EmailRecipient> {
         Self::IEmailRecipientFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -4650,6 +5065,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for EmailRecipient {}
 unsafe impl ::std::marker::Sync for EmailRecipient {}
+#[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EmailRecipientResolutionResult(::windows::runtime::IInspectable);
@@ -4661,6 +5077,7 @@ impl EmailRecipientResolutionResult {
         static mut SHARED: ::windows::runtime::FactoryCache<EmailRecipientResolutionResult, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<EmailRecipientResolutionStatus> {
         let this = self;
         unsafe {
@@ -4669,6 +5086,7 @@ impl EmailRecipientResolutionResult {
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation_Collections`, `Security_Cryptography_Certificates`*"]
     pub fn PublicKeys(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::Certificate>> {
         let this = self;
         unsafe {
@@ -4676,11 +5094,13 @@ impl EmailRecipientResolutionResult {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::Certificate>>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn SetStatus(&self, value: EmailRecipientResolutionStatus) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IEmailRecipientResolutionResult2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation_Collections`, `Security_Cryptography_Certificates`*"]
     pub fn SetPublicKeys<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Security::Cryptography::Certificates::Certificate>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IEmailRecipientResolutionResult2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -4738,6 +5158,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for EmailRecipientResolutionResult {}
 unsafe impl ::std::marker::Sync for EmailRecipientResolutionResult {}
+#[doc = "*Required features: `ApplicationModel_Email`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EmailRecipientResolutionStatus(pub i32);
@@ -4763,6 +5184,7 @@ unsafe impl ::windows::runtime::Abi for EmailRecipientResolutionStatus {
 unsafe impl ::windows::runtime::RuntimeType for EmailRecipientResolutionStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailRecipientResolutionStatus;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Email`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EmailSpecialFolderKind(pub i32);
@@ -4787,11 +5209,13 @@ unsafe impl ::windows::runtime::Abi for EmailSpecialFolderKind {
 unsafe impl ::windows::runtime::RuntimeType for EmailSpecialFolderKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailSpecialFolderKind;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EmailStore(::windows::runtime::IInspectable);
 impl EmailStore {
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`, `Foundation_Collections`*"]
     pub fn FindMailboxesAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<EmailMailbox>>> {
         let this = self;
         unsafe {
@@ -4799,6 +5223,7 @@ impl EmailStore {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<EmailMailbox>>>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn GetConversationReader(&self) -> ::windows::runtime::Result<EmailConversationReader> {
         let this = self;
         unsafe {
@@ -4806,6 +5231,7 @@ impl EmailStore {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<EmailConversationReader>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn GetConversationReaderWithOptions<'a, Param0: ::windows::runtime::IntoParam<'a, EmailQueryOptions>>(&self, options: Param0) -> ::windows::runtime::Result<EmailConversationReader> {
         let this = self;
         unsafe {
@@ -4813,6 +5239,7 @@ impl EmailStore {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), options.into_param().abi(), &mut result__).from_abi::<EmailConversationReader>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn GetMessageReader(&self) -> ::windows::runtime::Result<EmailMessageReader> {
         let this = self;
         unsafe {
@@ -4820,6 +5247,7 @@ impl EmailStore {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<EmailMessageReader>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn GetMessageReaderWithOptions<'a, Param0: ::windows::runtime::IntoParam<'a, EmailQueryOptions>>(&self, options: Param0) -> ::windows::runtime::Result<EmailMessageReader> {
         let this = self;
         unsafe {
@@ -4828,6 +5256,7 @@ impl EmailStore {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn GetMailboxAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, id: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<EmailMailbox>> {
         let this = self;
         unsafe {
@@ -4836,6 +5265,7 @@ impl EmailStore {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn GetConversationAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, id: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<EmailConversation>> {
         let this = self;
         unsafe {
@@ -4844,6 +5274,7 @@ impl EmailStore {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn GetFolderAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, id: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<EmailFolder>> {
         let this = self;
         unsafe {
@@ -4852,6 +5283,7 @@ impl EmailStore {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn GetMessageAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, id: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<EmailMessage>> {
         let this = self;
         unsafe {
@@ -4860,6 +5292,7 @@ impl EmailStore {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn CreateMailboxAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, accountname: Param0, accountaddress: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<EmailMailbox>> {
         let this = self;
         unsafe {
@@ -4868,6 +5301,7 @@ impl EmailStore {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
     pub fn CreateMailboxInAccountAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, accountname: Param0, accountaddress: Param1, userdataaccountid: Param2) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<EmailMailbox>> {
         let this = self;
         unsafe {
@@ -4928,6 +5362,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for EmailStore {}
 unsafe impl ::std::marker::Sync for EmailStore {}
+#[doc = "*Required features: `ApplicationModel_Email`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EmailStoreAccessType(pub i32);
@@ -4947,6 +5382,7 @@ unsafe impl ::windows::runtime::Abi for EmailStoreAccessType {
 unsafe impl ::windows::runtime::RuntimeType for EmailStoreAccessType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailStoreAccessType;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EmailStoreNotificationTriggerDetails(::windows::runtime::IInspectable);

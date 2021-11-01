@@ -1,6 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[cfg(feature = "Phone_PersonalInformation_Provisioning")]
 pub mod Provisioning;
+#[doc = "*Required features: `Phone_PersonalInformation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ContactAddress(::windows::runtime::IInspectable);
@@ -12,6 +13,7 @@ impl ContactAddress {
         static mut SHARED: ::windows::runtime::FactoryCache<ContactAddress, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn Country(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -19,10 +21,12 @@ impl ContactAddress {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn SetCountry<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn Locality(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -30,10 +34,12 @@ impl ContactAddress {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn SetLocality<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn Region(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -41,10 +47,12 @@ impl ContactAddress {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn SetRegion<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn PostalCode(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -52,10 +60,12 @@ impl ContactAddress {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn SetPostalCode<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn StreetAddress(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -63,6 +73,7 @@ impl ContactAddress {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn SetStreetAddress<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -120,10 +131,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for ContactAddress {}
 unsafe impl ::std::marker::Sync for ContactAddress {}
+#[doc = "*Required features: `Phone_PersonalInformation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ContactChangeRecord(::windows::runtime::IInspectable);
 impl ContactChangeRecord {
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn ChangeType(&self) -> ::windows::runtime::Result<ContactChangeType> {
         let this = self;
         unsafe {
@@ -131,6 +144,7 @@ impl ContactChangeRecord {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ContactChangeType>(result__)
         }
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn RevisionNumber(&self) -> ::windows::runtime::Result<u64> {
         let this = self;
         unsafe {
@@ -138,6 +152,7 @@ impl ContactChangeRecord {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -145,6 +160,7 @@ impl ContactChangeRecord {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn RemoteId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -205,6 +221,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for ContactChangeRecord {}
 unsafe impl ::std::marker::Sync for ContactChangeRecord {}
+#[doc = "*Required features: `Phone_PersonalInformation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ContactChangeType(pub i32);
@@ -225,6 +242,7 @@ unsafe impl ::windows::runtime::Abi for ContactChangeType {
 unsafe impl ::windows::runtime::RuntimeType for ContactChangeType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Phone.PersonalInformation.ContactChangeType;i4)");
 }
+#[doc = "*Required features: `Phone_PersonalInformation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ContactInformation(::windows::runtime::IInspectable);
@@ -236,6 +254,7 @@ impl ContactInformation {
         static mut SHARED: ::windows::runtime::FactoryCache<ContactInformation, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn DisplayName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -243,10 +262,12 @@ impl ContactInformation {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn SetDisplayName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn FamilyName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -254,10 +275,12 @@ impl ContactInformation {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn SetFamilyName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn GivenName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -265,10 +288,12 @@ impl ContactInformation {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn SetGivenName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn HonorificPrefix(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -276,10 +301,12 @@ impl ContactInformation {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn SetHonorificPrefix<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn HonorificSuffix(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -287,11 +314,13 @@ impl ContactInformation {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn SetHonorificSuffix<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Phone_PersonalInformation`, `Foundation`, `Storage_Streams`*"]
     pub fn GetDisplayPictureAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStream>> {
         let this = self;
         unsafe {
@@ -300,6 +329,7 @@ impl ContactInformation {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Phone_PersonalInformation`, `Foundation`, `Storage_Streams`*"]
     pub fn SetDisplayPictureAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IInputStream>>(&self, stream: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -308,6 +338,7 @@ impl ContactInformation {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Phone_PersonalInformation`, `Storage_Streams`*"]
     pub fn DisplayPicture(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
         let this = self;
         unsafe {
@@ -316,6 +347,7 @@ impl ContactInformation {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Phone_PersonalInformation`, `Foundation`, `Foundation_Collections`*"]
     pub fn GetPropertiesAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>> {
         let this = self;
         unsafe {
@@ -324,6 +356,7 @@ impl ContactInformation {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Phone_PersonalInformation`, `Foundation`, `Storage_Streams`*"]
     pub fn ToVcardAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStream>> {
         let this = self;
         unsafe {
@@ -332,6 +365,7 @@ impl ContactInformation {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Phone_PersonalInformation`, `Foundation`, `Storage_Streams`*"]
     pub fn ToVcardWithOptionsAsync(&self, format: VCardFormat) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStream>> {
         let this = self;
         unsafe {
@@ -340,6 +374,7 @@ impl ContactInformation {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Phone_PersonalInformation`, `Foundation`, `Storage_Streams`*"]
     pub fn ParseVcardAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IInputStream>>(vcard: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<ContactInformation>> {
         Self::IContactInformationStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -423,6 +458,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IContactInformation> for &ContactInfo
 }
 unsafe impl ::std::marker::Send for ContactInformation {}
 unsafe impl ::std::marker::Sync for ContactInformation {}
+#[doc = "*Required features: `Phone_PersonalInformation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ContactQueryOptions(::windows::runtime::IInspectable);
@@ -435,6 +471,7 @@ impl ContactQueryOptions {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Phone_PersonalInformation`, `Foundation_Collections`*"]
     pub fn DesiredFields(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -442,6 +479,7 @@ impl ContactQueryOptions {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>>(result__)
         }
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn OrderBy(&self) -> ::windows::runtime::Result<ContactQueryResultOrdering> {
         let this = self;
         unsafe {
@@ -449,6 +487,7 @@ impl ContactQueryOptions {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ContactQueryResultOrdering>(result__)
         }
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn SetOrderBy(&self, value: ContactQueryResultOrdering) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value).ok() }
@@ -506,11 +545,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for ContactQueryOptions {}
 unsafe impl ::std::marker::Sync for ContactQueryOptions {}
+#[doc = "*Required features: `Phone_PersonalInformation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ContactQueryResult(::windows::runtime::IInspectable);
 impl ContactQueryResult {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Phone_PersonalInformation`, `Foundation`*"]
     pub fn GetContactCountAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<u32>> {
         let this = self;
         unsafe {
@@ -519,6 +560,7 @@ impl ContactQueryResult {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Phone_PersonalInformation`, `Foundation`, `Foundation_Collections`*"]
     pub fn GetContactsAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<StoredContact>>> {
         let this = self;
         unsafe {
@@ -527,6 +569,7 @@ impl ContactQueryResult {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Phone_PersonalInformation`, `Foundation`, `Foundation_Collections`*"]
     pub fn GetContactsAsyncInRange(&self, startindex: u32, maxnumberofitems: u32) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<StoredContact>>> {
         let this = self;
         unsafe {
@@ -534,6 +577,7 @@ impl ContactQueryResult {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), startindex, maxnumberofitems, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<StoredContact>>>(result__)
         }
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn GetCurrentQueryOptions(&self) -> ::windows::runtime::Result<ContactQueryOptions> {
         let this = self;
         unsafe {
@@ -594,6 +638,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for ContactQueryResult {}
 unsafe impl ::std::marker::Sync for ContactQueryResult {}
+#[doc = "*Required features: `Phone_PersonalInformation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ContactQueryResultOrdering(pub i32);
@@ -614,11 +659,13 @@ unsafe impl ::windows::runtime::Abi for ContactQueryResultOrdering {
 unsafe impl ::windows::runtime::RuntimeType for ContactQueryResultOrdering {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Phone.PersonalInformation.ContactQueryResultOrdering;i4)");
 }
+#[doc = "*Required features: `Phone_PersonalInformation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ContactStore(::windows::runtime::IInspectable);
 impl ContactStore {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Phone_PersonalInformation`, `Foundation`*"]
     pub fn FindContactByRemoteIdAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, id: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<StoredContact>> {
         let this = self;
         unsafe {
@@ -627,6 +674,7 @@ impl ContactStore {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Phone_PersonalInformation`, `Foundation`*"]
     pub fn FindContactByIdAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, id: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<StoredContact>> {
         let this = self;
         unsafe {
@@ -635,6 +683,7 @@ impl ContactStore {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Phone_PersonalInformation`, `Foundation`*"]
     pub fn DeleteContactAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, id: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -642,6 +691,7 @@ impl ContactStore {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), id.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn CreateContactQueryDefault(&self) -> ::windows::runtime::Result<ContactQueryResult> {
         let this = self;
         unsafe {
@@ -649,6 +699,7 @@ impl ContactStore {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ContactQueryResult>(result__)
         }
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn CreateContactQueryWithOptions<'a, Param0: ::windows::runtime::IntoParam<'a, ContactQueryOptions>>(&self, options: Param0) -> ::windows::runtime::Result<ContactQueryResult> {
         let this = self;
         unsafe {
@@ -657,6 +708,7 @@ impl ContactStore {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Phone_PersonalInformation`, `Foundation`*"]
     pub fn DeleteAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -664,6 +716,7 @@ impl ContactStore {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn RevisionNumber(&self) -> ::windows::runtime::Result<u64> {
         let this = self;
         unsafe {
@@ -672,6 +725,7 @@ impl ContactStore {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Phone_PersonalInformation`, `Foundation`, `Foundation_Collections`*"]
     pub fn GetChangesAsync(&self, baserevisionnumber: u64) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactChangeRecord>>> {
         let this = self;
         unsafe {
@@ -680,6 +734,7 @@ impl ContactStore {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Phone_PersonalInformation`, `Foundation`, `Foundation_Collections`*"]
     pub fn LoadExtendedPropertiesAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>> {
         let this = self;
         unsafe {
@@ -688,6 +743,7 @@ impl ContactStore {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Phone_PersonalInformation`, `Foundation`, `Foundation_Collections`*"]
     pub fn SaveExtendedPropertiesAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>>(&self, data: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -696,6 +752,7 @@ impl ContactStore {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Phone_PersonalInformation`, `Foundation`*"]
     pub fn CreateMeContactAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, id: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<StoredContact>> {
         let this = &::windows::runtime::Interface::cast::<IContactStore2>(self)?;
         unsafe {
@@ -704,6 +761,7 @@ impl ContactStore {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Phone_PersonalInformation`, `Foundation`*"]
     pub fn CreateOrOpenAsync() -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<ContactStore>> {
         Self::IContactStoreStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -711,6 +769,7 @@ impl ContactStore {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Phone_PersonalInformation`, `Foundation`*"]
     pub fn CreateOrOpenWithOptionsAsync(access: ContactStoreSystemAccessMode, sharing: ContactStoreApplicationAccessMode) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<ContactStore>> {
         Self::IContactStoreStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -774,6 +833,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for ContactStore {}
 unsafe impl ::std::marker::Sync for ContactStore {}
+#[doc = "*Required features: `Phone_PersonalInformation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ContactStoreApplicationAccessMode(pub i32);
@@ -793,6 +853,7 @@ unsafe impl ::windows::runtime::Abi for ContactStoreApplicationAccessMode {
 unsafe impl ::windows::runtime::RuntimeType for ContactStoreApplicationAccessMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Phone.PersonalInformation.ContactStoreApplicationAccessMode;i4)");
 }
+#[doc = "*Required features: `Phone_PersonalInformation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ContactStoreSystemAccessMode(pub i32);
@@ -864,12 +925,14 @@ pub struct IContactChangeRecord_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Phone_PersonalInformation`*"]
 pub struct IContactInformation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactInformation {
     type Vtable = IContactInformation_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3803521020, 59282, 19127, [177, 91, 242, 224, 120, 102, 77, 234]);
 }
 impl IContactInformation {
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn DisplayName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -877,10 +940,12 @@ impl IContactInformation {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn SetDisplayName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn FamilyName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -888,10 +953,12 @@ impl IContactInformation {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn SetFamilyName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn GivenName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -899,10 +966,12 @@ impl IContactInformation {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn SetGivenName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn HonorificPrefix(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -910,10 +979,12 @@ impl IContactInformation {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn SetHonorificPrefix<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn HonorificSuffix(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -921,11 +992,13 @@ impl IContactInformation {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn SetHonorificSuffix<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Phone_PersonalInformation`, `Foundation`, `Storage_Streams`*"]
     pub fn GetDisplayPictureAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStream>> {
         let this = self;
         unsafe {
@@ -934,6 +1007,7 @@ impl IContactInformation {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Phone_PersonalInformation`, `Foundation`, `Storage_Streams`*"]
     pub fn SetDisplayPictureAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IInputStream>>(&self, stream: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -942,6 +1016,7 @@ impl IContactInformation {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Phone_PersonalInformation`, `Storage_Streams`*"]
     pub fn DisplayPicture(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
         let this = self;
         unsafe {
@@ -950,6 +1025,7 @@ impl IContactInformation {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Phone_PersonalInformation`, `Foundation`, `Foundation_Collections`*"]
     pub fn GetPropertiesAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>> {
         let this = self;
         unsafe {
@@ -958,6 +1034,7 @@ impl IContactInformation {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Phone_PersonalInformation`, `Foundation`, `Storage_Streams`*"]
     pub fn ToVcardAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStream>> {
         let this = self;
         unsafe {
@@ -966,6 +1043,7 @@ impl IContactInformation {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Phone_PersonalInformation`, `Foundation`, `Storage_Streams`*"]
     pub fn ToVcardWithOptionsAsync(&self, format: VCardFormat) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStream>> {
         let this = self;
         unsafe {
@@ -1051,6 +1129,7 @@ pub struct IContactInformation_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Phone_PersonalInformation`*"]
 pub struct IContactInformation2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactInformation2 {
     type Vtable = IContactInformation2_abi;
@@ -1058,6 +1137,7 @@ unsafe impl ::windows::runtime::Interface for IContactInformation2 {
 }
 impl IContactInformation2 {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Phone_PersonalInformation`, `Foundation`*"]
     pub fn DisplayPictureDate(&self) -> ::windows::runtime::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -1066,6 +1146,7 @@ impl IContactInformation2 {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Phone_PersonalInformation`, `Foundation`*"]
     pub fn SetDisplayPictureDate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::DateTime>>(&self, returnvalue: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), returnvalue.into_param().abi()).ok() }
@@ -1373,212 +1454,248 @@ pub struct IStoredContactFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, store: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, store: ::windows::runtime::RawPtr, contact: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Phone_PersonalInformation`*"]
 pub struct KnownContactProperties {}
 impl KnownContactProperties {
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn DisplayName() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownContactPropertiesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn FamilyName() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownContactPropertiesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn GivenName() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownContactPropertiesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn HonorificPrefix() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownContactPropertiesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn HonorificSuffix() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownContactPropertiesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn AdditionalName() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownContactPropertiesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn Address() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownContactPropertiesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn OtherAddress() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownContactPropertiesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn Email() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownContactPropertiesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn WorkAddress() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownContactPropertiesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn WorkTelephone() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownContactPropertiesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn JobTitle() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownContactPropertiesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn Birthdate() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownContactPropertiesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn Anniversary() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownContactPropertiesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn Telephone() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownContactPropertiesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn MobileTelephone() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownContactPropertiesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn Url() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownContactPropertiesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn Notes() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownContactPropertiesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn WorkFax() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownContactPropertiesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn Children() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownContactPropertiesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn SignificantOther() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownContactPropertiesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn CompanyName() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownContactPropertiesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn CompanyTelephone() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownContactPropertiesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).28)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn HomeFax() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownContactPropertiesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).29)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn AlternateTelephone() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownContactPropertiesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).30)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn Manager() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownContactPropertiesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).31)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn Nickname() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownContactPropertiesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).32)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn OfficeLocation() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownContactPropertiesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).33)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn WorkEmail() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownContactPropertiesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).34)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn YomiGivenName() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownContactPropertiesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).35)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn YomiFamilyName() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownContactPropertiesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).36)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn YomiCompanyName() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownContactPropertiesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).37)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn OtherEmail() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownContactPropertiesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).38)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn AlternateMobileTelephone() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownContactPropertiesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).39)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn AlternateWorkTelephone() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownContactPropertiesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
@@ -1593,10 +1710,12 @@ impl KnownContactProperties {
 impl ::windows::runtime::RuntimeName for KnownContactProperties {
     const NAME: &'static str = "Windows.Phone.PersonalInformation.KnownContactProperties";
 }
+#[doc = "*Required features: `Phone_PersonalInformation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct StoredContact(::windows::runtime::IInspectable);
 impl StoredContact {
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn Store(&self) -> ::windows::runtime::Result<ContactStore> {
         let this = self;
         unsafe {
@@ -1604,6 +1723,7 @@ impl StoredContact {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ContactStore>(result__)
         }
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1611,6 +1731,7 @@ impl StoredContact {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn RemoteId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1618,11 +1739,13 @@ impl StoredContact {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn SetRemoteId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Phone_PersonalInformation`, `Foundation`, `Foundation_Collections`*"]
     pub fn GetExtendedPropertiesAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>> {
         let this = self;
         unsafe {
@@ -1631,6 +1754,7 @@ impl StoredContact {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Phone_PersonalInformation`, `Foundation`*"]
     pub fn SaveAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -1639,6 +1763,7 @@ impl StoredContact {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Phone_PersonalInformation`, `Foundation`*"]
     pub fn ReplaceExistingContactAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, id: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -1646,6 +1771,7 @@ impl StoredContact {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), id.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn DisplayName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IContactInformation>(self)?;
         unsafe {
@@ -1653,10 +1779,12 @@ impl StoredContact {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn SetDisplayName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IContactInformation>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn FamilyName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IContactInformation>(self)?;
         unsafe {
@@ -1664,10 +1792,12 @@ impl StoredContact {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn SetFamilyName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IContactInformation>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn GivenName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IContactInformation>(self)?;
         unsafe {
@@ -1675,10 +1805,12 @@ impl StoredContact {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn SetGivenName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IContactInformation>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn HonorificPrefix(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IContactInformation>(self)?;
         unsafe {
@@ -1686,10 +1818,12 @@ impl StoredContact {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn SetHonorificPrefix<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IContactInformation>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn HonorificSuffix(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IContactInformation>(self)?;
         unsafe {
@@ -1697,11 +1831,13 @@ impl StoredContact {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn SetHonorificSuffix<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IContactInformation>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Phone_PersonalInformation`, `Foundation`, `Storage_Streams`*"]
     pub fn GetDisplayPictureAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStream>> {
         let this = &::windows::runtime::Interface::cast::<IContactInformation>(self)?;
         unsafe {
@@ -1710,6 +1846,7 @@ impl StoredContact {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Phone_PersonalInformation`, `Foundation`, `Storage_Streams`*"]
     pub fn SetDisplayPictureAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IInputStream>>(&self, stream: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows::runtime::Interface::cast::<IContactInformation>(self)?;
         unsafe {
@@ -1718,6 +1855,7 @@ impl StoredContact {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Phone_PersonalInformation`, `Storage_Streams`*"]
     pub fn DisplayPicture(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
         let this = &::windows::runtime::Interface::cast::<IContactInformation>(self)?;
         unsafe {
@@ -1726,6 +1864,7 @@ impl StoredContact {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Phone_PersonalInformation`, `Foundation`, `Foundation_Collections`*"]
     pub fn GetPropertiesAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>> {
         let this = &::windows::runtime::Interface::cast::<IContactInformation>(self)?;
         unsafe {
@@ -1734,6 +1873,7 @@ impl StoredContact {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Phone_PersonalInformation`, `Foundation`, `Storage_Streams`*"]
     pub fn ToVcardAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStream>> {
         let this = &::windows::runtime::Interface::cast::<IContactInformation>(self)?;
         unsafe {
@@ -1742,6 +1882,7 @@ impl StoredContact {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Phone_PersonalInformation`, `Foundation`, `Storage_Streams`*"]
     pub fn ToVcardWithOptionsAsync(&self, format: VCardFormat) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStream>> {
         let this = &::windows::runtime::Interface::cast::<IContactInformation>(self)?;
         unsafe {
@@ -1750,6 +1891,7 @@ impl StoredContact {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Phone_PersonalInformation`, `Foundation`*"]
     pub fn DisplayPictureDate(&self) -> ::windows::runtime::Result<super::super::Foundation::DateTime> {
         let this = &::windows::runtime::Interface::cast::<IContactInformation2>(self)?;
         unsafe {
@@ -1758,16 +1900,19 @@ impl StoredContact {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Phone_PersonalInformation`, `Foundation`*"]
     pub fn SetDisplayPictureDate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::DateTime>>(&self, returnvalue: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IContactInformation2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), returnvalue.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn CreateStoredContact<'a, Param0: ::windows::runtime::IntoParam<'a, ContactStore>>(store: Param0) -> ::windows::runtime::Result<StoredContact> {
         Self::IStoredContactFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), store.into_param().abi(), &mut result__).from_abi::<StoredContact>(result__)
         })
     }
+    #[doc = "*Required features: `Phone_PersonalInformation`*"]
     pub fn CreateStoredContactFromInformation<'a, Param0: ::windows::runtime::IntoParam<'a, ContactStore>, Param1: ::windows::runtime::IntoParam<'a, ContactInformation>>(store: Param0, contact: Param1) -> ::windows::runtime::Result<StoredContact> {
         Self::IStoredContactFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1875,6 +2020,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IContactInformation2> for &StoredCont
 }
 unsafe impl ::std::marker::Send for StoredContact {}
 unsafe impl ::std::marker::Sync for StoredContact {}
+#[doc = "*Required features: `Phone_PersonalInformation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct VCardFormat(pub i32);

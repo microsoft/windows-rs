@@ -1,4 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Win32_UI_InteractionContext`*"]
 #[inline]
 pub unsafe fn AddPointerInteractionContext<'a, Param0: ::windows::runtime::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, pointerid: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -13,6 +14,7 @@ pub unsafe fn AddPointerInteractionContext<'a, Param0: ::windows::runtime::IntoP
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: `Win32_UI_InteractionContext`, `Win32_Foundation`, `Win32_UI_Input_Pointer`, `Win32_UI_WindowsAndMessaging`*"]
 #[inline]
 pub unsafe fn BufferPointerPacketsInteractionContext<'a, Param0: ::windows::runtime::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, entriescount: u32, pointerinfo: *const super::Input::Pointer::POINTER_INFO) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -26,6 +28,7 @@ pub unsafe fn BufferPointerPacketsInteractionContext<'a, Param0: ::windows::runt
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_InteractionContext`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CROSS_SLIDE_FLAGS(pub u32);
@@ -73,6 +76,7 @@ impl ::std::ops::Not for CROSS_SLIDE_FLAGS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_InteractionContext`*"]
 pub struct CROSS_SLIDE_PARAMETER {
     pub threshold: CROSS_SLIDE_THRESHOLD,
     pub distance: f32,
@@ -98,6 +102,7 @@ unsafe impl ::windows::runtime::Abi for CROSS_SLIDE_PARAMETER {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_InteractionContext`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CROSS_SLIDE_THRESHOLD(pub i32);
@@ -116,6 +121,7 @@ unsafe impl ::windows::runtime::Abi for CROSS_SLIDE_THRESHOLD {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_InteractionContext`*"]
 #[inline]
 pub unsafe fn CreateInteractionContext() -> ::windows::runtime::Result<HINTERACTIONCONTEXT> {
     #[cfg(windows)]
@@ -130,6 +136,7 @@ pub unsafe fn CreateInteractionContext() -> ::windows::runtime::Result<HINTERACT
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_InteractionContext`*"]
 #[inline]
 pub unsafe fn DestroyInteractionContext<'a, Param0: ::windows::runtime::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -143,6 +150,7 @@ pub unsafe fn DestroyInteractionContext<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_InteractionContext`*"]
 #[inline]
 pub unsafe fn GetCrossSlideParameterInteractionContext<'a, Param0: ::windows::runtime::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, threshold: CROSS_SLIDE_THRESHOLD) -> ::windows::runtime::Result<f32> {
     #[cfg(windows)]
@@ -157,6 +165,7 @@ pub unsafe fn GetCrossSlideParameterInteractionContext<'a, Param0: ::windows::ru
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_InteractionContext`*"]
 #[inline]
 pub unsafe fn GetHoldParameterInteractionContext<'a, Param0: ::windows::runtime::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, parameter: HOLD_PARAMETER) -> ::windows::runtime::Result<f32> {
     #[cfg(windows)]
@@ -171,6 +180,7 @@ pub unsafe fn GetHoldParameterInteractionContext<'a, Param0: ::windows::runtime:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_InteractionContext`*"]
 #[inline]
 pub unsafe fn GetInertiaParameterInteractionContext<'a, Param0: ::windows::runtime::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, inertiaparameter: INERTIA_PARAMETER) -> ::windows::runtime::Result<f32> {
     #[cfg(windows)]
@@ -185,6 +195,7 @@ pub unsafe fn GetInertiaParameterInteractionContext<'a, Param0: ::windows::runti
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_InteractionContext`*"]
 #[inline]
 pub unsafe fn GetInteractionConfigurationInteractionContext<'a, Param0: ::windows::runtime::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, configurationcount: u32, configuration: *mut INTERACTION_CONTEXT_CONFIGURATION) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -198,6 +209,7 @@ pub unsafe fn GetInteractionConfigurationInteractionContext<'a, Param0: ::window
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_InteractionContext`*"]
 #[inline]
 pub unsafe fn GetMouseWheelParameterInteractionContext<'a, Param0: ::windows::runtime::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, parameter: MOUSE_WHEEL_PARAMETER) -> ::windows::runtime::Result<f32> {
     #[cfg(windows)]
@@ -212,6 +224,7 @@ pub unsafe fn GetMouseWheelParameterInteractionContext<'a, Param0: ::windows::ru
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_InteractionContext`*"]
 #[inline]
 pub unsafe fn GetPropertyInteractionContext<'a, Param0: ::windows::runtime::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, contextproperty: INTERACTION_CONTEXT_PROPERTY) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
@@ -227,6 +240,7 @@ pub unsafe fn GetPropertyInteractionContext<'a, Param0: ::windows::runtime::Into
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: `Win32_UI_InteractionContext`, `Win32_Foundation`, `Win32_UI_Input_Pointer`, `Win32_UI_WindowsAndMessaging`*"]
 #[inline]
 pub unsafe fn GetStateInteractionContext<'a, Param0: ::windows::runtime::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, pointerinfo: *const super::Input::Pointer::POINTER_INFO) -> ::windows::runtime::Result<INTERACTION_STATE> {
     #[cfg(windows)]
@@ -241,6 +255,7 @@ pub unsafe fn GetStateInteractionContext<'a, Param0: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_InteractionContext`*"]
 #[inline]
 pub unsafe fn GetTapParameterInteractionContext<'a, Param0: ::windows::runtime::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, parameter: TAP_PARAMETER) -> ::windows::runtime::Result<f32> {
     #[cfg(windows)]
@@ -255,6 +270,7 @@ pub unsafe fn GetTapParameterInteractionContext<'a, Param0: ::windows::runtime::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_InteractionContext`*"]
 #[inline]
 pub unsafe fn GetTranslationParameterInteractionContext<'a, Param0: ::windows::runtime::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, parameter: TRANSLATION_PARAMETER) -> ::windows::runtime::Result<f32> {
     #[cfg(windows)]
@@ -282,6 +298,7 @@ unsafe impl ::windows::runtime::Abi for HINTERACTIONCONTEXT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_InteractionContext`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HOLD_PARAMETER(pub i32);
@@ -299,6 +316,7 @@ unsafe impl ::windows::runtime::Abi for HOLD_PARAMETER {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_InteractionContext`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct INERTIA_PARAMETER(pub i32);
@@ -320,6 +338,7 @@ unsafe impl ::windows::runtime::Abi for INERTIA_PARAMETER {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_InteractionContext`*"]
 pub struct INTERACTION_ARGUMENTS_CROSS_SLIDE {
     pub flags: CROSS_SLIDE_FLAGS,
 }
@@ -346,6 +365,7 @@ unsafe impl ::windows::runtime::Abi for INTERACTION_ARGUMENTS_CROSS_SLIDE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_InteractionContext`*"]
 pub struct INTERACTION_ARGUMENTS_MANIPULATION {
     pub delta: MANIPULATION_TRANSFORM,
     pub cumulative: MANIPULATION_TRANSFORM,
@@ -375,6 +395,7 @@ unsafe impl ::windows::runtime::Abi for INTERACTION_ARGUMENTS_MANIPULATION {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_InteractionContext`*"]
 pub struct INTERACTION_ARGUMENTS_TAP {
     pub count: u32,
 }
@@ -399,6 +420,7 @@ unsafe impl ::windows::runtime::Abi for INTERACTION_ARGUMENTS_TAP {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_InteractionContext`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct INTERACTION_CONFIGURATION_FLAGS(pub u32);
@@ -469,6 +491,7 @@ impl ::std::ops::Not for INTERACTION_CONFIGURATION_FLAGS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_InteractionContext`*"]
 pub struct INTERACTION_CONTEXT_CONFIGURATION {
     pub interactionId: INTERACTION_ID,
     pub enable: INTERACTION_CONFIGURATION_FLAGS,
@@ -497,6 +520,7 @@ unsafe impl ::windows::runtime::Abi for INTERACTION_CONTEXT_CONFIGURATION {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[doc = "*Required features: `Win32_UI_InteractionContext`, `Win32_UI_WindowsAndMessaging`*"]
 pub struct INTERACTION_CONTEXT_OUTPUT {
     pub interactionId: INTERACTION_ID,
     pub interactionFlags: INTERACTION_FLAGS,
@@ -528,6 +552,7 @@ unsafe impl ::windows::runtime::Abi for INTERACTION_CONTEXT_OUTPUT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_InteractionContext`*"]
 pub union INTERACTION_CONTEXT_OUTPUT_0 {
     pub manipulation: INTERACTION_ARGUMENTS_MANIPULATION,
     pub tap: INTERACTION_ARGUMENTS_TAP,
@@ -552,6 +577,7 @@ unsafe impl ::windows::runtime::Abi for INTERACTION_CONTEXT_OUTPUT_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[doc = "*Required features: `Win32_UI_InteractionContext`, `Win32_UI_WindowsAndMessaging`*"]
 pub struct INTERACTION_CONTEXT_OUTPUT2 {
     pub interactionId: INTERACTION_ID,
     pub interactionFlags: INTERACTION_FLAGS,
@@ -585,6 +611,7 @@ unsafe impl ::windows::runtime::Abi for INTERACTION_CONTEXT_OUTPUT2 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_InteractionContext`*"]
 pub union INTERACTION_CONTEXT_OUTPUT2_0 {
     pub manipulation: INTERACTION_ARGUMENTS_MANIPULATION,
     pub tap: INTERACTION_ARGUMENTS_TAP,
@@ -610,6 +637,7 @@ unsafe impl ::windows::runtime::Abi for INTERACTION_CONTEXT_OUTPUT2_0 {
 pub type INTERACTION_CONTEXT_OUTPUT_CALLBACK = unsafe extern "system" fn(clientdata: *const ::std::ffi::c_void, output: *const INTERACTION_CONTEXT_OUTPUT);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub type INTERACTION_CONTEXT_OUTPUT_CALLBACK2 = unsafe extern "system" fn(clientdata: *const ::std::ffi::c_void, output: *const INTERACTION_CONTEXT_OUTPUT2);
+#[doc = "*Required features: `Win32_UI_InteractionContext`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct INTERACTION_CONTEXT_PROPERTY(pub i32);
@@ -626,6 +654,7 @@ unsafe impl ::windows::runtime::Abi for INTERACTION_CONTEXT_PROPERTY {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_InteractionContext`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct INTERACTION_FLAGS(pub u32);
@@ -672,6 +701,7 @@ impl ::std::ops::Not for INTERACTION_FLAGS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_UI_InteractionContext`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct INTERACTION_ID(pub i32);
@@ -692,6 +722,7 @@ unsafe impl ::windows::runtime::Abi for INTERACTION_ID {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_InteractionContext`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct INTERACTION_STATE(pub i32);
@@ -708,6 +739,7 @@ unsafe impl ::windows::runtime::Abi for INTERACTION_STATE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_InteractionContext`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MANIPULATION_RAILS_STATE(pub i32);
@@ -726,6 +758,7 @@ unsafe impl ::windows::runtime::Abi for MANIPULATION_RAILS_STATE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_InteractionContext`*"]
 pub struct MANIPULATION_TRANSFORM {
     pub translationX: f32,
     pub translationY: f32,
@@ -756,6 +789,7 @@ unsafe impl ::windows::runtime::Abi for MANIPULATION_TRANSFORM {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_InteractionContext`*"]
 pub struct MANIPULATION_VELOCITY {
     pub velocityX: f32,
     pub velocityY: f32,
@@ -783,6 +817,7 @@ unsafe impl ::windows::runtime::Abi for MANIPULATION_VELOCITY {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_InteractionContext`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MOUSE_WHEEL_PARAMETER(pub i32);
@@ -802,6 +837,7 @@ unsafe impl ::windows::runtime::Abi for MOUSE_WHEEL_PARAMETER {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_InteractionContext`*"]
 #[inline]
 pub unsafe fn ProcessBufferedPacketsInteractionContext<'a, Param0: ::windows::runtime::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -815,6 +851,7 @@ pub unsafe fn ProcessBufferedPacketsInteractionContext<'a, Param0: ::windows::ru
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_InteractionContext`*"]
 #[inline]
 pub unsafe fn ProcessInertiaInteractionContext<'a, Param0: ::windows::runtime::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -829,6 +866,7 @@ pub unsafe fn ProcessInertiaInteractionContext<'a, Param0: ::windows::runtime::I
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: `Win32_UI_InteractionContext`, `Win32_Foundation`, `Win32_UI_Input_Pointer`, `Win32_UI_WindowsAndMessaging`*"]
 #[inline]
 pub unsafe fn ProcessPointerFramesInteractionContext<'a, Param0: ::windows::runtime::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, entriescount: u32, pointercount: u32, pointerinfo: *const super::Input::Pointer::POINTER_INFO) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -843,6 +881,7 @@ pub unsafe fn ProcessPointerFramesInteractionContext<'a, Param0: ::windows::runt
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[doc = "*Required features: `Win32_UI_InteractionContext`, `Win32_UI_WindowsAndMessaging`*"]
 #[inline]
 pub unsafe fn RegisterOutputCallbackInteractionContext<'a, Param0: ::windows::runtime::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, outputcallback: ::std::option::Option<INTERACTION_CONTEXT_OUTPUT_CALLBACK>, clientdata: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -857,6 +896,7 @@ pub unsafe fn RegisterOutputCallbackInteractionContext<'a, Param0: ::windows::ru
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[doc = "*Required features: `Win32_UI_InteractionContext`, `Win32_UI_WindowsAndMessaging`*"]
 #[inline]
 pub unsafe fn RegisterOutputCallbackInteractionContext2<'a, Param0: ::windows::runtime::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, outputcallback: ::std::option::Option<INTERACTION_CONTEXT_OUTPUT_CALLBACK2>, clientdata: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -870,6 +910,7 @@ pub unsafe fn RegisterOutputCallbackInteractionContext2<'a, Param0: ::windows::r
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_InteractionContext`*"]
 #[inline]
 pub unsafe fn RemovePointerInteractionContext<'a, Param0: ::windows::runtime::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, pointerid: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -883,6 +924,7 @@ pub unsafe fn RemovePointerInteractionContext<'a, Param0: ::windows::runtime::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_InteractionContext`*"]
 #[inline]
 pub unsafe fn ResetInteractionContext<'a, Param0: ::windows::runtime::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -896,6 +938,7 @@ pub unsafe fn ResetInteractionContext<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_InteractionContext`*"]
 #[inline]
 pub unsafe fn SetCrossSlideParametersInteractionContext<'a, Param0: ::windows::runtime::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, parametercount: u32, crossslideparameters: *const CROSS_SLIDE_PARAMETER) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -909,6 +952,7 @@ pub unsafe fn SetCrossSlideParametersInteractionContext<'a, Param0: ::windows::r
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_InteractionContext`*"]
 #[inline]
 pub unsafe fn SetHoldParameterInteractionContext<'a, Param0: ::windows::runtime::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, parameter: HOLD_PARAMETER, value: f32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -922,6 +966,7 @@ pub unsafe fn SetHoldParameterInteractionContext<'a, Param0: ::windows::runtime:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_InteractionContext`*"]
 #[inline]
 pub unsafe fn SetInertiaParameterInteractionContext<'a, Param0: ::windows::runtime::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, inertiaparameter: INERTIA_PARAMETER, value: f32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -935,6 +980,7 @@ pub unsafe fn SetInertiaParameterInteractionContext<'a, Param0: ::windows::runti
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_InteractionContext`*"]
 #[inline]
 pub unsafe fn SetInteractionConfigurationInteractionContext<'a, Param0: ::windows::runtime::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, configurationcount: u32, configuration: *const INTERACTION_CONTEXT_CONFIGURATION) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -948,6 +994,7 @@ pub unsafe fn SetInteractionConfigurationInteractionContext<'a, Param0: ::window
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_InteractionContext`*"]
 #[inline]
 pub unsafe fn SetMouseWheelParameterInteractionContext<'a, Param0: ::windows::runtime::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, parameter: MOUSE_WHEEL_PARAMETER, value: f32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -961,6 +1008,7 @@ pub unsafe fn SetMouseWheelParameterInteractionContext<'a, Param0: ::windows::ru
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_InteractionContext`*"]
 #[inline]
 pub unsafe fn SetPivotInteractionContext<'a, Param0: ::windows::runtime::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, x: f32, y: f32, radius: f32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -974,6 +1022,7 @@ pub unsafe fn SetPivotInteractionContext<'a, Param0: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_InteractionContext`*"]
 #[inline]
 pub unsafe fn SetPropertyInteractionContext<'a, Param0: ::windows::runtime::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, contextproperty: INTERACTION_CONTEXT_PROPERTY, value: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -987,6 +1036,7 @@ pub unsafe fn SetPropertyInteractionContext<'a, Param0: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_InteractionContext`*"]
 #[inline]
 pub unsafe fn SetTapParameterInteractionContext<'a, Param0: ::windows::runtime::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, parameter: TAP_PARAMETER, value: f32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1000,6 +1050,7 @@ pub unsafe fn SetTapParameterInteractionContext<'a, Param0: ::windows::runtime::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_InteractionContext`*"]
 #[inline]
 pub unsafe fn SetTranslationParameterInteractionContext<'a, Param0: ::windows::runtime::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, parameter: TRANSLATION_PARAMETER, value: f32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1013,6 +1064,7 @@ pub unsafe fn SetTranslationParameterInteractionContext<'a, Param0: ::windows::r
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_InteractionContext`*"]
 #[inline]
 pub unsafe fn StopInteractionContext<'a, Param0: ::windows::runtime::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1026,6 +1078,7 @@ pub unsafe fn StopInteractionContext<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_InteractionContext`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TAP_PARAMETER(pub i32);
@@ -1041,6 +1094,7 @@ unsafe impl ::windows::runtime::Abi for TAP_PARAMETER {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_InteractionContext`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TRANSLATION_PARAMETER(pub i32);

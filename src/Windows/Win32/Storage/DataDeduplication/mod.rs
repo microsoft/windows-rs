@@ -1,6 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Storage_DataDeduplication`*"]
 pub struct DDP_FILE_EXTENT {
     pub Length: i64,
     pub Offset: i64,
@@ -26,6 +27,7 @@ unsafe impl ::windows::runtime::Abi for DDP_FILE_EXTENT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_DataDeduplication`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DEDUP_BACKUP_SUPPORT_PARAM_TYPE(pub i32);
@@ -40,9 +42,11 @@ unsafe impl ::windows::runtime::Abi for DEDUP_BACKUP_SUPPORT_PARAM_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_DataDeduplication`*"]
 pub const DEDUP_CHUNKLIB_MAX_CHUNKS_ENUM: u32 = 1024u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Storage_DataDeduplication`*"]
 pub struct DEDUP_CHUNK_INFO_HASH32 {
     pub ChunkFlags: u32,
     pub ChunkOffsetInStream: u64,
@@ -72,6 +76,7 @@ unsafe impl ::windows::runtime::Abi for DEDUP_CHUNK_INFO_HASH32 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Storage_DataDeduplication`*"]
 pub struct DEDUP_CONTAINER_EXTENT {
     pub ContainerIndex: u32,
     pub StartOffset: i64,
@@ -98,6 +103,7 @@ unsafe impl ::windows::runtime::Abi for DEDUP_CONTAINER_EXTENT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_DataDeduplication`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DEDUP_SET_PARAM_TYPE(pub i32);
@@ -118,6 +124,7 @@ unsafe impl ::windows::runtime::Abi for DEDUP_SET_PARAM_TYPE {
 pub const DedupBackupSupport: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1943450285, 10628, 18197, [178, 227, 146, 76, 20, 151, 68, 221]);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Storage_DataDeduplication`*"]
 pub struct DedupChunk {
     pub Hash: DedupHash,
     pub Flags: DedupChunkFlags,
@@ -145,6 +152,7 @@ unsafe impl ::windows::runtime::Abi for DedupChunk {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_DataDeduplication`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DedupChunkFlags(pub i32);
@@ -159,6 +167,7 @@ unsafe impl ::windows::runtime::Abi for DedupChunkFlags {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_DataDeduplication`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DedupChunkingAlgorithm(pub i32);
@@ -173,6 +182,7 @@ unsafe impl ::windows::runtime::Abi for DedupChunkingAlgorithm {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_DataDeduplication`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DedupCompressionAlgorithm(pub i32);
@@ -188,6 +198,7 @@ unsafe impl ::windows::runtime::Abi for DedupCompressionAlgorithm {
     type DefaultType = Self;
 }
 pub const DedupDataPort: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2400219655, 6185, 18610, [166, 75, 230, 31, 142, 13, 154, 203]);
+#[doc = "*Required features: `Win32_Storage_DataDeduplication`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DedupDataPortManagerOption(pub i32);
@@ -203,6 +214,7 @@ unsafe impl ::windows::runtime::Abi for DedupDataPortManagerOption {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_DataDeduplication`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DedupDataPortRequestStatus(pub i32);
@@ -221,6 +233,7 @@ unsafe impl ::windows::runtime::Abi for DedupDataPortRequestStatus {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_DataDeduplication`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DedupDataPortVolumeStatus(pub i32);
@@ -242,6 +255,7 @@ unsafe impl ::windows::runtime::Abi for DedupDataPortVolumeStatus {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Storage_DataDeduplication`*"]
 pub struct DedupHash {
     pub Hash: [u8; 32],
 }
@@ -266,6 +280,7 @@ unsafe impl ::windows::runtime::Abi for DedupHash {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_DataDeduplication`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DedupHashingAlgorithm(pub i32);
@@ -283,6 +298,7 @@ unsafe impl ::windows::runtime::Abi for DedupHashingAlgorithm {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_DataDeduplication`, `Win32_Foundation`*"]
 pub struct DedupStream {
     pub Path: super::super::Foundation::BSTR,
     pub Offset: u64,
@@ -318,6 +334,7 @@ unsafe impl ::windows::runtime::Abi for DedupStream {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Storage_DataDeduplication`*"]
 pub struct DedupStreamEntry {
     pub Hash: DedupHash,
     pub LogicalSize: u32,
@@ -344,11 +361,13 @@ unsafe impl ::windows::runtime::Abi for DedupStreamEntry {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_DataDeduplication`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDedupBackupSupport(::windows::runtime::IUnknown);
 impl IDedupBackupSupport {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_DataDeduplication`, `Win32_Foundation`*"]
     pub unsafe fn RestoreFiles<'a, Param2: ::windows::runtime::IntoParam<'a, IDedupReadFileCallback>>(&self, numberoffiles: u32, filefullpaths: *const super::super::Foundation::BSTR, store: Param2, flags: u32, fileresults: *mut ::windows::runtime::HRESULT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(numberoffiles), ::std::mem::transmute(filefullpaths), store.into_param().abi(), ::std::mem::transmute(flags), ::std::mem::transmute(fileresults)).ok()
     }
@@ -386,20 +405,25 @@ pub struct IDedupBackupSupport_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, numberoffiles: u32, filefullpaths: *const ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, store: ::windows::runtime::RawPtr, flags: u32, fileresults: *mut ::windows::runtime::HRESULT) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Storage_DataDeduplication`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDedupChunkLibrary(::windows::runtime::IUnknown);
 impl IDedupChunkLibrary {
+    #[doc = "*Required features: `Win32_Storage_DataDeduplication`*"]
     pub unsafe fn InitializeForPushBuffers(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_DataDeduplication`*"]
     pub unsafe fn Uninitialize(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Storage_DataDeduplication`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetParameter<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, dwparamtype: u32, vparamvalue: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwparamtype), vparamvalue.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_DataDeduplication`*"]
     pub unsafe fn StartChunking<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, iiditeratorinterfaceid: Param0) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
         let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), iiditeratorinterfaceid.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
@@ -441,42 +465,51 @@ pub struct IDedupChunkLibrary_abi(
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iiditeratorinterfaceid: ::windows::runtime::GUID, ppchunksenum: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Storage_DataDeduplication`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDedupDataPort(::windows::runtime::IUnknown);
 impl IDedupDataPort {
+    #[doc = "*Required features: `Win32_Storage_DataDeduplication`*"]
     pub unsafe fn GetStatus(&self, pstatus: *mut DedupDataPortVolumeStatus, pdataheadroommb: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pstatus), ::std::mem::transmute(pdataheadroommb)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_DataDeduplication`*"]
     pub unsafe fn LookupChunks(&self, count: u32, phashes: *const DedupHash) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(count), ::std::mem::transmute(phashes), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_DataDeduplication`*"]
     pub unsafe fn InsertChunks(&self, chunkcount: u32, pchunkmetadata: *const DedupChunk, databytecount: u32, pchunkdata: *const u8) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(chunkcount), ::std::mem::transmute(pchunkmetadata), ::std::mem::transmute(databytecount), ::std::mem::transmute(pchunkdata), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Storage_DataDeduplication`, `Win32_System_Com`*"]
     pub unsafe fn InsertChunksWithStream<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>>(&self, chunkcount: u32, pchunkmetadata: *const DedupChunk, databytecount: u32, pchunkdatastream: Param3) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(chunkcount), ::std::mem::transmute(pchunkmetadata), ::std::mem::transmute(databytecount), pchunkdatastream.into_param().abi(), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_DataDeduplication`, `Win32_Foundation`*"]
     pub unsafe fn CommitStreams(&self, streamcount: u32, pstreams: *const DedupStream, entrycount: u32, pentries: *const DedupStreamEntry) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(streamcount), ::std::mem::transmute(pstreams), ::std::mem::transmute(entrycount), ::std::mem::transmute(pentries), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_Storage_DataDeduplication`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn CommitStreamsWithStream<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>>(&self, streamcount: u32, pstreams: *const DedupStream, entrycount: u32, pentriesstream: Param3) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(streamcount), ::std::mem::transmute(pstreams), ::std::mem::transmute(entrycount), pentriesstream.into_param().abi(), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_DataDeduplication`, `Win32_Foundation`*"]
     pub unsafe fn GetStreams(&self, streamcount: u32, pstreampaths: *const super::super::Foundation::BSTR) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(streamcount), ::std::mem::transmute(pstreampaths), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_DataDeduplication`, `Win32_Foundation`*"]
     pub unsafe fn GetStreamsResults<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, requestid: Param0, maxwaitms: u32, streamentryindex: u32, pstreamcount: *mut u32, ppstreams: *mut *mut DedupStream, pentrycount: *mut u32, ppentries: *mut *mut DedupStreamEntry, pstatus: *mut DedupDataPortRequestStatus, ppitemresults: *mut *mut ::windows::runtime::HRESULT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(
             ::std::mem::transmute_copy(self),
@@ -492,10 +525,12 @@ impl IDedupDataPort {
         )
         .ok()
     }
+    #[doc = "*Required features: `Win32_Storage_DataDeduplication`*"]
     pub unsafe fn GetChunks(&self, count: u32, phashes: *const DedupHash) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(count), ::std::mem::transmute(phashes), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_DataDeduplication`*"]
     pub unsafe fn GetChunksResults<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, requestid: Param0, maxwaitms: u32, chunkindex: u32, pchunkcount: *mut u32, ppchunkmetadata: *mut *mut DedupChunk, pdatabytecount: *mut u32, ppchunkdata: *mut *mut u8, pstatus: *mut DedupDataPortRequestStatus, ppitemresults: *mut *mut ::windows::runtime::HRESULT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(
             ::std::mem::transmute_copy(self),
@@ -511,10 +546,12 @@ impl IDedupDataPort {
         )
         .ok()
     }
+    #[doc = "*Required features: `Win32_Storage_DataDeduplication`*"]
     pub unsafe fn GetRequestStatus<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, requestid: Param0) -> ::windows::runtime::Result<DedupDataPortRequestStatus> {
         let mut result__: <DedupDataPortRequestStatus as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), requestid.into_param().abi(), &mut result__).from_abi::<DedupDataPortRequestStatus>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_DataDeduplication`*"]
     pub unsafe fn GetRequestResults<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, requestid: Param0, maxwaitms: u32, pbatchresult: *mut ::windows::runtime::HRESULT, pbatchcount: *mut u32, pstatus: *mut DedupDataPortRequestStatus, ppitemresults: *mut *mut ::windows::runtime::HRESULT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), requestid.into_param().abi(), ::std::mem::transmute(maxwaitms), ::std::mem::transmute(pbatchresult), ::std::mem::transmute(pbatchcount), ::std::mem::transmute(pstatus), ::std::mem::transmute(ppitemresults)).ok()
     }
@@ -567,19 +604,23 @@ pub struct IDedupDataPort_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, requestid: ::windows::runtime::GUID, pstatus: *mut DedupDataPortRequestStatus) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, requestid: ::windows::runtime::GUID, maxwaitms: u32, pbatchresult: *mut ::windows::runtime::HRESULT, pbatchcount: *mut u32, pstatus: *mut DedupDataPortRequestStatus, ppitemresults: *mut *mut ::windows::runtime::HRESULT) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Storage_DataDeduplication`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDedupDataPortManager(::windows::runtime::IUnknown);
 impl IDedupDataPortManager {
+    #[doc = "*Required features: `Win32_Storage_DataDeduplication`*"]
     pub unsafe fn GetConfiguration(&self, pminchunksize: *mut u32, pmaxchunksize: *mut u32, pchunkingalgorithm: *mut DedupChunkingAlgorithm, phashingalgorithm: *mut DedupHashingAlgorithm, pcompressionalgorithm: *mut DedupCompressionAlgorithm) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pminchunksize), ::std::mem::transmute(pmaxchunksize), ::std::mem::transmute(pchunkingalgorithm), ::std::mem::transmute(phashingalgorithm), ::std::mem::transmute(pcompressionalgorithm)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_DataDeduplication`, `Win32_Foundation`*"]
     pub unsafe fn GetVolumeStatus<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, options: u32, path: Param1) -> ::windows::runtime::Result<DedupDataPortVolumeStatus> {
         let mut result__: <DedupDataPortVolumeStatus as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(options), path.into_param().abi(), &mut result__).from_abi::<DedupDataPortVolumeStatus>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_DataDeduplication`, `Win32_Foundation`*"]
     pub unsafe fn GetVolumeDataPort<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, options: u32, path: Param1) -> ::windows::runtime::Result<IDedupDataPort> {
         let mut result__: <IDedupDataPort as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(options), path.into_param().abi(), &mut result__).from_abi::<IDedupDataPort>(result__)
@@ -621,19 +662,24 @@ pub struct IDedupDataPortManager_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, options: u32, path: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppdataport: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Storage_DataDeduplication`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDedupIterateChunksHash32(::windows::runtime::IUnknown);
 impl IDedupIterateChunksHash32 {
+    #[doc = "*Required features: `Win32_Storage_DataDeduplication`*"]
     pub unsafe fn PushBuffer(&self, pbuffer: *const u8, ulbufferlength: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pbuffer), ::std::mem::transmute(ulbufferlength)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_DataDeduplication`*"]
     pub unsafe fn Next(&self, ulmaxchunks: u32, parrchunks: *mut DEDUP_CHUNK_INFO_HASH32, pulfetched: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulmaxchunks), ::std::mem::transmute(parrchunks), ::std::mem::transmute(pulfetched)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_DataDeduplication`*"]
     pub unsafe fn Drain(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_DataDeduplication`*"]
     pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self)).ok()
     }
@@ -673,19 +719,23 @@ pub struct IDedupIterateChunksHash32_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Storage_DataDeduplication`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDedupReadFileCallback(::windows::runtime::IUnknown);
 impl IDedupReadFileCallback {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_DataDeduplication`, `Win32_Foundation`*"]
     pub unsafe fn ReadBackupFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, filefullpath: Param0, fileoffset: i64, sizetoread: u32, filebuffer: *mut u8, returnedsize: *mut u32, flags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), filefullpath.into_param().abi(), ::std::mem::transmute(fileoffset), ::std::mem::transmute(sizetoread), ::std::mem::transmute(filebuffer), ::std::mem::transmute(returnedsize), ::std::mem::transmute(flags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_DataDeduplication`, `Win32_Foundation`*"]
     pub unsafe fn OrderContainersRestore(&self, numberofcontainers: u32, containerpaths: *const super::super::Foundation::BSTR, readplanentries: *mut u32, readplan: *mut *mut DEDUP_CONTAINER_EXTENT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(numberofcontainers), ::std::mem::transmute(containerpaths), ::std::mem::transmute(readplanentries), ::std::mem::transmute(readplan)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Storage_DataDeduplication`, `Win32_Foundation`*"]
     pub unsafe fn PreviewContainerRead<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, filefullpath: Param0, numberofreads: u32, readoffsets: *const DDP_FILE_EXTENT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), filefullpath.into_param().abi(), ::std::mem::transmute(numberofreads), ::std::mem::transmute(readoffsets)).ok()
     }

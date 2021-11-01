@@ -108,10 +108,12 @@ pub struct IResourceIndexerFactory2_abi(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, projectroot: ::windows::runtime::RawPtr, extensiondllpath: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: `ApplicationModel_Resources_Management`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IndexedResourceCandidate(::windows::runtime::IInspectable);
 impl IndexedResourceCandidate {
+    #[doc = "*Required features: `ApplicationModel_Resources_Management`*"]
     pub fn Type(&self) -> ::windows::runtime::Result<IndexedResourceType> {
         let this = self;
         unsafe {
@@ -120,6 +122,7 @@ impl IndexedResourceCandidate {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Resources_Management`, `Foundation`*"]
     pub fn Uri(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Uri> {
         let this = self;
         unsafe {
@@ -128,6 +131,7 @@ impl IndexedResourceCandidate {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Resources_Management`, `Foundation_Collections`*"]
     pub fn Metadata(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, ::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -136,6 +140,7 @@ impl IndexedResourceCandidate {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Resources_Management`, `Foundation_Collections`*"]
     pub fn Qualifiers(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<IndexedResourceQualifier>> {
         let this = self;
         unsafe {
@@ -143,6 +148,7 @@ impl IndexedResourceCandidate {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<IndexedResourceQualifier>>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Resources_Management`*"]
     pub fn ValueAsString(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -150,6 +156,7 @@ impl IndexedResourceCandidate {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Resources_Management`*"]
     pub fn GetQualifierValue<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, qualifiername: Param0) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -210,10 +217,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for IndexedResourceCandidate {}
 unsafe impl ::std::marker::Sync for IndexedResourceCandidate {}
+#[doc = "*Required features: `ApplicationModel_Resources_Management`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IndexedResourceQualifier(::windows::runtime::IInspectable);
 impl IndexedResourceQualifier {
+    #[doc = "*Required features: `ApplicationModel_Resources_Management`*"]
     pub fn QualifierName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -221,6 +230,7 @@ impl IndexedResourceQualifier {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Resources_Management`*"]
     pub fn QualifierValue(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -281,6 +291,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for IndexedResourceQualifier {}
 unsafe impl ::std::marker::Sync for IndexedResourceQualifier {}
+#[doc = "*Required features: `ApplicationModel_Resources_Management`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IndexedResourceType(pub i32);
@@ -301,12 +312,14 @@ unsafe impl ::windows::runtime::Abi for IndexedResourceType {
 unsafe impl ::windows::runtime::RuntimeType for IndexedResourceType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Resources.Management.IndexedResourceType;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Resources_Management`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ResourceIndexer(::windows::runtime::IInspectable);
 impl ResourceIndexer {
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Resources_Management`, `Foundation`*"]
     pub fn IndexFilePath<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Uri>>(&self, filepath: Param0) -> ::windows::runtime::Result<IndexedResourceCandidate> {
         let this = self;
         unsafe {
@@ -316,6 +329,7 @@ impl ResourceIndexer {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `ApplicationModel_Resources_Management`, `Foundation`, `Foundation_Collections`*"]
     pub fn IndexFileContentsAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Uri>>(&self, file: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<IndexedResourceCandidate>>> {
         let this = self;
         unsafe {
@@ -325,6 +339,7 @@ impl ResourceIndexer {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Resources_Management`, `Foundation`*"]
     pub fn CreateResourceIndexer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Uri>>(projectroot: Param0) -> ::windows::runtime::Result<ResourceIndexer> {
         Self::IResourceIndexerFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -333,6 +348,7 @@ impl ResourceIndexer {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Resources_Management`, `Foundation`*"]
     pub fn CreateResourceIndexerWithExtension<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Uri>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Uri>>(projectroot: Param0, extensiondllpath: Param1) -> ::windows::runtime::Result<ResourceIndexer> {
         Self::IResourceIndexerFactory2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();

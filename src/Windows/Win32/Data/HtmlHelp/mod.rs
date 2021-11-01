@@ -15,6 +15,7 @@ pub const CLSID_ITEngStemmer: ::windows::runtime::GUID = ::windows::runtime::GUI
 pub const CLSID_ITStdBreaker: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1180883631, 54163, 4560, [154, 86, 0, 192, 79, 182, 139, 247]);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub struct COLUMNSTATUS {
     pub cPropCount: i32,
     pub cPropsLoaded: i32,
@@ -43,6 +44,7 @@ unsafe impl ::windows::runtime::Abi for COLUMNSTATUS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Data_HtmlHelp`, `Win32_Foundation`*"]
 pub struct CProperty {
     pub dwPropID: u32,
     pub cbData: u32,
@@ -74,6 +76,7 @@ unsafe impl ::windows::runtime::Abi for CProperty {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Data_HtmlHelp`, `Win32_Foundation`*"]
 pub union CProperty_0 {
     pub lpszwData: super::super::Foundation::PWSTR,
     pub lpvData: *mut ::std::ffi::c_void,
@@ -100,95 +103,182 @@ unsafe impl ::windows::runtime::Abi for CProperty_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const E_ALL_WILD: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479467i32 as _);
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const E_ALREADYINIT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479421i32 as _);
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const E_ALREADYOPEN: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479533i32 as _);
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const E_ASSERT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479546i32 as _);
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const E_BADBREAKER: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479469i32 as _);
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const E_BADFILE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479549i32 as _);
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const E_BADFILTERSIZE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479528i32 as _);
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const E_BADFORMAT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479548i32 as _);
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const E_BADINDEXFLAGS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479456i32 as _);
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const E_BADPARAM: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479535i32 as _);
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const E_BADRANGEOP: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479459i32 as _);
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const E_BADVALUE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479468i32 as _);
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const E_BADVERSION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479550i32 as _);
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const E_CANTFINDDLL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479538i32 as _);
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const E_DISKFULL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479496i32 as _);
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const E_DUPLICATE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479551i32 as _);
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const E_EXPECTEDTERM: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479465i32 as _);
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const E_FILECLOSE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479503i32 as _);
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const E_FILECREATE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479504i32 as _);
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const E_FILEDELETE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479499i32 as _);
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const E_FILEINVALID: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479498i32 as _);
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const E_FILENOTFOUND: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479497i32 as _);
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const E_FILEREAD: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479502i32 as _);
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const E_FILESEEK: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479501i32 as _);
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const E_FILEWRITE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479500i32 as _);
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const E_GETLASTERROR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479536i32 as _);
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const E_GROUPIDTOOBIG: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479542i32 as _);
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const E_INTERRUPT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479545i32 as _);
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const E_INVALIDSTATE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479534i32 as _);
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const E_MISSINGPROP: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479424i32 as _);
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const E_MISSLPAREN: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479464i32 as _);
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const E_MISSQUOTE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479462i32 as _);
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const E_MISSRPAREN: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479463i32 as _);
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const E_NAMETOOLONG: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479520i32 as _);
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const E_NOHANDLE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479537i32 as _);
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const E_NOKEYPROP: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479417i32 as _);
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const E_NOMERGEDDATA: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479540i32 as _);
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const E_NOPERMISSION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479547i32 as _);
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const E_NOSTEMMER: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479454i32 as _);
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const E_NOTEXIST: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479552i32 as _);
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const E_NOTFOUND: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479539i32 as _);
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const E_NOTINIT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479420i32 as _);
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const E_NOTOPEN: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479533i32 as _);
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const E_NOTSUPPORTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479544i32 as _);
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const E_NULLQUERY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479461i32 as _);
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const E_OUTOFRANGE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479543i32 as _);
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const E_PROPLISTEMPTY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479422i32 as _);
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const E_PROPLISTNOTEMPTY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479423i32 as _);
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const E_RESULTSETEMPTY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479419i32 as _);
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const E_STOPWORD: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479460i32 as _);
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const E_TOODEEP: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479466i32 as _);
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const E_TOOMANYCOLUMNS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479418i32 as _);
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const E_TOOMANYDUPS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479471i32 as _);
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const E_TOOMANYOBJECTS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479527i32 as _);
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const E_TOOMANYTITLES: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479541i32 as _);
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const E_TOOMANYTOPICS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479472i32 as _);
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const E_TREETOOBIG: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479470i32 as _);
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const E_UNKNOWN_TRANSPORT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479530i32 as _);
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const E_UNMATCHEDTYPE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479458i32 as _);
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const E_UNSUPPORTED_TRANSPORT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479529i32 as _);
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const E_WILD_IN_DTYPE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479455i32 as _);
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const E_WORDTOOLONG: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479457i32 as _);
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHACT_BACK: i32 = 7i32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHACT_CONTRACT: i32 = 6i32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHACT_CUSTOMIZE: i32 = 16i32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHACT_EXPAND: i32 = 5i32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHACT_FORWARD: i32 = 8i32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHACT_HIGHLIGHT: i32 = 15i32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHACT_HOME: i32 = 11i32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHACT_JUMP1: i32 = 17i32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHACT_JUMP2: i32 = 18i32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHACT_LAST_ENUM: i32 = 23i32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHACT_NOTES: i32 = 22i32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHACT_OPTIONS: i32 = 13i32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHACT_PRINT: i32 = 14i32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHACT_REFRESH: i32 = 10i32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHACT_STOP: i32 = 9i32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHACT_SYNC: i32 = 12i32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHACT_TAB_CONTENTS: i32 = 0i32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHACT_TAB_FAVORITES: i32 = 4i32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHACT_TAB_HISTORY: i32 = 3i32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHACT_TAB_INDEX: i32 = 1i32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHACT_TAB_SEARCH: i32 = 2i32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHACT_TOC_NEXT: i32 = 20i32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHACT_TOC_PREV: i32 = 21i32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHACT_ZOOM: i32 = 19i32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
+#[doc = "*Required features: `Win32_Data_HtmlHelp`, `Win32_Foundation`, `Win32_UI_Controls`*"]
 pub struct HHNTRACK {
     pub hdr: super::super::UI::Controls::NMHDR,
     pub pszCurUrl: super::super::Foundation::PSTR,
@@ -225,6 +315,7 @@ unsafe impl ::windows::runtime::Abi for HHNTRACK {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
+#[doc = "*Required features: `Win32_Data_HtmlHelp`, `Win32_Foundation`, `Win32_UI_Controls`*"]
 pub struct HHN_NOTIFY {
     pub hdr: super::super::UI::Controls::NMHDR,
     pub pszUrl: super::super::Foundation::PSTR,
@@ -256,83 +347,158 @@ unsafe impl ::windows::runtime::Abi for HHN_NOTIFY {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_BUTTON_BACK: u32 = 4u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_BUTTON_BROWSE_BCK: u32 = 256u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_BUTTON_BROWSE_FWD: u32 = 128u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_BUTTON_CONTENTS: u32 = 1024u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_BUTTON_EXPAND: u32 = 2u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_BUTTON_FAVORITES: u32 = 131072u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_BUTTON_FORWARD: u32 = 8u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_BUTTON_HISTORY: u32 = 65536u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_BUTTON_HOME: u32 = 64u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_BUTTON_INDEX: u32 = 16384u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_BUTTON_JUMP1: u32 = 262144u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_BUTTON_JUMP2: u32 = 524288u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_BUTTON_NOTES: u32 = 512u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_BUTTON_OPTIONS: u32 = 4096u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_BUTTON_PRINT: u32 = 8192u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_BUTTON_REFRESH: u32 = 32u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_BUTTON_SEARCH: u32 = 32768u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_BUTTON_STOP: u32 = 16u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_BUTTON_SYNC: u32 = 2048u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_BUTTON_TOC_NEXT: u32 = 2097152u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_BUTTON_TOC_PREV: u32 = 4194304u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_BUTTON_ZOOM: u32 = 1048576u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_NAVTAB_BOTTOM: i32 = 2i32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_NAVTAB_LEFT: i32 = 1i32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_NAVTAB_TOP: i32 = 0i32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_NAVTYPE_AUTHOR: i32 = 5i32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_NAVTYPE_CUSTOM_FIRST: i32 = 11i32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_NAVTYPE_FAVORITES: i32 = 3i32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_NAVTYPE_HISTORY: i32 = 4i32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_NAVTYPE_INDEX: i32 = 1i32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_NAVTYPE_SEARCH: i32 = 2i32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_NAVTYPE_TOC: i32 = 0i32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_PARAM_CUR_TAB: u32 = 8192u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_PARAM_EXPANSION: u32 = 512u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_PARAM_EXSTYLES: u32 = 8u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_PARAM_HISTORY_COUNT: u32 = 4096u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_PARAM_INFOTYPES: u32 = 128u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_PARAM_NAV_WIDTH: u32 = 32u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_PARAM_PROPERTIES: u32 = 2u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_PARAM_RECT: u32 = 16u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_PARAM_SHOWSTATE: u32 = 64u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_PARAM_STYLES: u32 = 4u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_PARAM_TABORDER: u32 = 2048u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_PARAM_TABPOS: u32 = 1024u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_PARAM_TB_FLAGS: u32 = 256u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_PROP_AUTO_SYNC: u32 = 256u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_PROP_CHANGE_TITLE: u32 = 8192u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_PROP_MENU: u32 = 65536u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_PROP_NAV_ONLY_WIN: u32 = 16384u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_PROP_NODEF_EXSTYLES: u32 = 16u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_PROP_NODEF_STYLES: u32 = 8u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_PROP_NOTB_TEXT: u32 = 64u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_PROP_NOTITLEBAR: u32 = 4u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_PROP_NO_TOOLBAR: u32 = 32768u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_PROP_ONTOP: u32 = 2u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_PROP_POST_QUIT: u32 = 128u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_PROP_TAB_ADVSEARCH: u32 = 131072u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_PROP_TAB_AUTOHIDESHOW: u32 = 1u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_PROP_TAB_CUSTOM1: u32 = 524288u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_PROP_TAB_CUSTOM2: u32 = 1048576u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_PROP_TAB_CUSTOM3: u32 = 2097152u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_PROP_TAB_CUSTOM4: u32 = 4194304u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_PROP_TAB_CUSTOM5: u32 = 8388608u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_PROP_TAB_CUSTOM6: u32 = 16777216u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_PROP_TAB_CUSTOM7: u32 = 33554432u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_PROP_TAB_CUSTOM8: u32 = 67108864u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_PROP_TAB_CUSTOM9: u32 = 134217728u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_PROP_TAB_FAVORITES: u32 = 4096u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_PROP_TAB_HISTORY: u32 = 2048u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_PROP_TAB_SEARCH: u32 = 1024u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_PROP_TRACKING: u32 = 512u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_PROP_TRI_PANE: u32 = 32u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_PROP_USER_POS: u32 = 262144u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_TB_MARGIN: u32 = 268435456u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Data_HtmlHelp`, `Win32_Foundation`*"]
 pub struct HH_AKLINK {
     pub cbStruct: i32,
     pub fReserved: super::super::Foundation::BOOL,
@@ -379,16 +545,24 @@ unsafe impl ::windows::runtime::Abi for HH_AKLINK {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HH_ALINK_LOOKUP: u32 = 19u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HH_CLOSE_ALL: u32 = 18u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HH_DISPLAY_INDEX: u32 = 2u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HH_DISPLAY_SEARCH: u32 = 3u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HH_DISPLAY_TEXT_POPUP: u32 = 14u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HH_DISPLAY_TOC: u32 = 1u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HH_DISPLAY_TOPIC: u32 = 0u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Data_HtmlHelp`, `Win32_Foundation`*"]
 pub struct HH_ENUM_CAT {
     pub cbStruct: i32,
     pub pszCatName: super::super::Foundation::PSTR,
@@ -421,12 +595,16 @@ unsafe impl ::windows::runtime::Abi for HH_ENUM_CAT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HH_ENUM_CATEGORY: u32 = 21u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HH_ENUM_CATEGORY_IT: u32 = 22u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HH_ENUM_INFO_TYPE: u32 = 7u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Data_HtmlHelp`, `Win32_Foundation`*"]
 pub struct HH_ENUM_IT {
     pub cbStruct: i32,
     pub iType: i32,
@@ -461,10 +639,12 @@ unsafe impl ::windows::runtime::Abi for HH_ENUM_IT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HH_FTS_DEFAULT_PROXIMITY: i32 = -1i32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Data_HtmlHelp`, `Win32_Foundation`*"]
 pub struct HH_FTS_QUERY {
     pub cbStruct: i32,
     pub fUniCodeStrings: super::super::Foundation::BOOL,
@@ -511,8 +691,11 @@ unsafe impl ::windows::runtime::Abi for HH_FTS_QUERY {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HH_GET_LAST_ERROR: u32 = 20u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HH_GET_WIN_HANDLE: u32 = 6u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HH_GET_WIN_TYPE: u32 = 5u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 impl ::std::clone::Clone for HH_GLOBAL_PROPERTY {
@@ -522,6 +705,7 @@ impl ::std::clone::Clone for HH_GLOBAL_PROPERTY {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+#[doc = "*Required features: `Win32_Data_HtmlHelp`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
 pub struct HH_GLOBAL_PROPERTY {
     pub id: HH_GPROPID,
     pub var: super::super::System::Com::VARIANT,
@@ -547,6 +731,7 @@ unsafe impl ::windows::runtime::Abi for HH_GLOBAL_PROPERTY {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HH_GPROPID(pub i32);
@@ -564,14 +749,20 @@ unsafe impl ::windows::runtime::Abi for HH_GPROPID {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HH_HELP_CONTEXT: u32 = 15u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HH_HELP_FINDER: u32 = 0u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HH_INITIALIZE: u32 = 28u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HH_KEYWORD_LOOKUP: u32 = 13u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HH_MAX_TABS: u32 = 19u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Data_HtmlHelp`, `Win32_Foundation`*"]
 pub struct HH_POPUP {
     pub cbStruct: i32,
     pub hinst: super::super::Foundation::HINSTANCE,
@@ -620,18 +811,28 @@ unsafe impl ::windows::runtime::Abi for HH_POPUP {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HH_PRETRANSLATEMESSAGE: u32 = 253u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HH_RESERVED1: u32 = 10u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HH_RESERVED2: u32 = 11u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HH_RESERVED3: u32 = 12u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HH_RESET_IT_FILTER: u32 = 23u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HH_SAFE_DISPLAY_TOPIC: u32 = 32u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HH_SET_EXCLUSIVE_FILTER: u32 = 25u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HH_SET_GLOBAL_PROPERTY: u32 = 252u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HH_SET_INCLUSIVE_FILTER: u32 = 24u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Data_HtmlHelp`, `Win32_Foundation`*"]
 pub struct HH_SET_INFOTYPE {
     pub cbStruct: i32,
     pub pszCatName: super::super::Foundation::PSTR,
@@ -664,24 +865,40 @@ unsafe impl ::windows::runtime::Abi for HH_SET_INFOTYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HH_SET_INFO_TYPE: u32 = 8u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HH_SET_QUERYSERVICE: u32 = 30u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HH_SET_WIN_TYPE: u32 = 4u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HH_SYNC: u32 = 9u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HH_TAB_AUTHOR: i32 = 5i32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HH_TAB_CONTENTS: i32 = 0i32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HH_TAB_CUSTOM_FIRST: i32 = 11i32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HH_TAB_CUSTOM_LAST: i32 = 19i32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HH_TAB_FAVORITES: i32 = 3i32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HH_TAB_HISTORY: i32 = 4i32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HH_TAB_INDEX: i32 = 1i32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HH_TAB_SEARCH: i32 = 2i32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HH_TP_HELP_CONTEXTMENU: u32 = 16u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HH_TP_HELP_WM_HELP: u32 = 17u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HH_UNINITIALIZE: u32 = 29u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Data_HtmlHelp`, `Win32_Foundation`*"]
 pub struct HH_WINTYPE {
     pub cbStruct: i32,
     pub fUniCodeStrings: super::super::Foundation::BOOL,
@@ -819,48 +1036,78 @@ unsafe impl ::windows::runtime::Abi for HH_WINTYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const IDTB_BACK: u32 = 204u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const IDTB_BROWSE_BACK: u32 = 212u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const IDTB_BROWSE_FWD: u32 = 211u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const IDTB_CONTENTS: u32 = 213u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const IDTB_CONTRACT: u32 = 201u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const IDTB_CUSTOMIZE: u32 = 221u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const IDTB_EXPAND: u32 = 200u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const IDTB_FAVORITES: u32 = 217u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const IDTB_FORWARD: u32 = 209u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const IDTB_HISTORY: u32 = 216u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const IDTB_HOME: u32 = 205u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const IDTB_INDEX: u32 = 214u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const IDTB_JUMP1: u32 = 218u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const IDTB_JUMP2: u32 = 219u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const IDTB_NOTES: u32 = 210u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const IDTB_OPTIONS: u32 = 208u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const IDTB_PRINT: u32 = 207u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const IDTB_REFRESH: u32 = 203u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const IDTB_SEARCH: u32 = 215u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const IDTB_STOP: u32 = 202u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const IDTB_SYNC: u32 = 206u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const IDTB_TOC_NEXT: u32 = 223u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const IDTB_TOC_PREV: u32 = 224u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const IDTB_ZOOM: u32 = 222u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IITDatabase(::windows::runtime::IUnknown);
 impl IITDatabase {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`, `Win32_Foundation`*"]
     pub unsafe fn Open<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, lpszhost: Param0, lpszmoniker: Param1, dwflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), lpszhost.into_param().abi(), lpszmoniker.into_param().abi(), ::std::mem::transmute(dwflags)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
     pub unsafe fn Close(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
     pub unsafe fn CreateObject(&self, rclsid: *const ::windows::runtime::GUID, pdwobjinstance: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(rclsid), ::std::mem::transmute(pdwobjinstance)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
     pub unsafe fn GetObject(&self, dwobjinstance: u32, riid: *const ::windows::runtime::GUID, ppvobj: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwobjinstance), ::std::mem::transmute(riid), ::std::mem::transmute(ppvobj)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`, `Win32_Foundation`*"]
     pub unsafe fn GetObjectPersistence<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, lpwszobject: Param0, dwobjinstance: u32, ppvpersistence: *mut *mut ::std::ffi::c_void, fstream: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), lpwszobject.into_param().abi(), ::std::mem::transmute(dwobjinstance), ::std::mem::transmute(ppvpersistence), fstream.into_param().abi()).ok()
     }
@@ -906,91 +1153,116 @@ pub struct IITDatabase_abi(
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
 pub struct IITGroup(pub u8);
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IITPropList(::windows::runtime::IUnknown);
 impl IITPropList {
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
     pub unsafe fn GetClassID(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
     pub unsafe fn IsDirty(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`, `Win32_System_Com`*"]
     pub unsafe fn Load<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>>(&self, pstm: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), pstm.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn Save<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pstm: Param0, fcleardirty: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), pstm.into_param().abi(), fcleardirty.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
     pub unsafe fn GetSizeMax(&self) -> ::windows::runtime::Result<u64> {
         let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u64>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
     pub unsafe fn InitNew(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`, `Win32_Foundation`*"]
     pub unsafe fn Set<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, propid: u32, lpszwstring: Param1, dwoperation: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(propid), lpszwstring.into_param().abi(), ::std::mem::transmute(dwoperation)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
     pub unsafe fn Set2(&self, propid: u32, lpvdata: *mut ::std::ffi::c_void, cbdata: u32, dwoperation: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(propid), ::std::mem::transmute(lpvdata), ::std::mem::transmute(cbdata), ::std::mem::transmute(dwoperation)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
     pub unsafe fn Set3(&self, propid: u32, dwdata: u32, dwoperation: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(propid), ::std::mem::transmute(dwdata), ::std::mem::transmute(dwoperation)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`, `Win32_Foundation`*"]
     pub unsafe fn Add(&self, prop: *mut CProperty) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(prop)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`, `Win32_Foundation`*"]
     pub unsafe fn Get(&self, propid: u32, property: *mut CProperty) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(propid), ::std::mem::transmute(property)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
     pub unsafe fn Clear(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`, `Win32_Foundation`*"]
     pub unsafe fn SetPersist<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fpersist: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), fpersist.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`, `Win32_Foundation`*"]
     pub unsafe fn SetPersist2<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, propid: u32, fpersist: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(propid), fpersist.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`, `Win32_Foundation`*"]
     pub unsafe fn GetFirst(&self, property: *mut CProperty) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(property)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`, `Win32_Foundation`*"]
     pub unsafe fn GetNext(&self, property: *mut CProperty) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(property)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
     pub unsafe fn GetPropCount(&self, cprop: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(cprop)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
     pub unsafe fn SaveHeader(&self, lpvdata: *mut ::std::ffi::c_void, dwhdrsize: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(lpvdata), ::std::mem::transmute(dwhdrsize)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
     pub unsafe fn SaveData(&self, lpvheader: *mut ::std::ffi::c_void, dwhdrsize: u32, lpvdata: *mut ::std::ffi::c_void, dwbufsize: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(lpvheader), ::std::mem::transmute(dwhdrsize), ::std::mem::transmute(lpvdata), ::std::mem::transmute(dwbufsize)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
     pub unsafe fn GetHeaderSize(&self, dwhdrsize: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwhdrsize)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
     pub unsafe fn GetDataSize(&self, lpvheader: *mut ::std::ffi::c_void, dwhdrsize: u32, dwdatasize: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), ::std::mem::transmute(lpvheader), ::std::mem::transmute(dwhdrsize), ::std::mem::transmute(dwdatasize)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`, `Win32_System_Com`*"]
     pub unsafe fn SaveDataToStream<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>>(&self, lpvheader: *mut ::std::ffi::c_void, dwhdrsize: u32, pstream: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), ::std::mem::transmute(lpvheader), ::std::mem::transmute(dwhdrsize), pstream.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
     pub unsafe fn LoadFromMem(&self, lpvdata: *mut ::std::ffi::c_void, dwbufsize: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), ::std::mem::transmute(lpvdata), ::std::mem::transmute(dwbufsize)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
     pub unsafe fn SaveToMem(&self, lpvdata: *mut ::std::ffi::c_void, dwbufsize: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), ::std::mem::transmute(lpvdata), ::std::mem::transmute(dwbufsize)).ok()
     }
@@ -1111,101 +1383,132 @@ pub struct IITPropList_abi(
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
 pub struct IITQuery(pub u8);
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IITResultSet(::windows::runtime::IUnknown);
 impl IITResultSet {
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
     pub unsafe fn SetColumnPriority(&self, lcolumnindex: i32, columnpriority: PRIORITY) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(lcolumnindex), ::std::mem::transmute(columnpriority)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
     pub unsafe fn SetColumnHeap(&self, lcolumnindex: i32, lpvheap: *mut ::std::ffi::c_void, pfncolheapfree: ::std::option::Option<PFNCOLHEAPFREE>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(lcolumnindex), ::std::mem::transmute(lpvheap), ::std::mem::transmute(pfncolheapfree)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
     pub unsafe fn SetKeyProp(&self, propid: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(propid)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
     pub unsafe fn Add(&self, propid: u32, dwdefaultdata: u32, priority: PRIORITY) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(propid), ::std::mem::transmute(dwdefaultdata), ::std::mem::transmute(priority)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`, `Win32_Foundation`*"]
     pub unsafe fn Add2<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, propid: u32, lpszwdefault: Param1, priority: PRIORITY) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(propid), lpszwdefault.into_param().abi(), ::std::mem::transmute(priority)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
     pub unsafe fn Add3(&self, propid: u32, lpvdefaultdata: *mut ::std::ffi::c_void, cbdata: u32, priority: PRIORITY) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(propid), ::std::mem::transmute(lpvdefaultdata), ::std::mem::transmute(cbdata), ::std::mem::transmute(priority)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
     pub unsafe fn Add4(&self, lpvhdr: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(lpvhdr)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
     pub unsafe fn Append(&self, lpvhdr: *mut ::std::ffi::c_void, lpvdata: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(lpvhdr), ::std::mem::transmute(lpvdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
     pub unsafe fn Set(&self, lrowindex: i32, lcolumnindex: i32, lpvdata: *mut ::std::ffi::c_void, cbdata: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(lrowindex), ::std::mem::transmute(lcolumnindex), ::std::mem::transmute(lpvdata), ::std::mem::transmute(cbdata)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`, `Win32_Foundation`*"]
     pub unsafe fn Set2<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, lrowindex: i32, lcolumnindex: i32, lpwstr: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(lrowindex), ::std::mem::transmute(lcolumnindex), lpwstr.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
     pub unsafe fn Set3(&self, lrowindex: i32, lcolumnindex: i32, dwdata: usize) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(lrowindex), ::std::mem::transmute(lcolumnindex), ::std::mem::transmute(dwdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
     pub unsafe fn Set4(&self, lrowindex: i32, lpvhdr: *mut ::std::ffi::c_void, lpvdata: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(lrowindex), ::std::mem::transmute(lpvhdr), ::std::mem::transmute(lpvdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
     pub unsafe fn Copy<'a, Param0: ::windows::runtime::IntoParam<'a, IITResultSet>>(&self, prscopy: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), prscopy.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
     pub unsafe fn AppendRows<'a, Param0: ::windows::runtime::IntoParam<'a, IITResultSet>>(&self, pressrc: Param0, lrowsrcfirst: i32, csrcrows: i32, lrowfirstdest: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), pressrc.into_param().abi(), ::std::mem::transmute(lrowsrcfirst), ::std::mem::transmute(csrcrows), ::std::mem::transmute(lrowfirstdest)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`, `Win32_Foundation`*"]
     pub unsafe fn Get(&self, lrowindex: i32, lcolumnindex: i32, prop: *mut CProperty) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(lrowindex), ::std::mem::transmute(lcolumnindex), ::std::mem::transmute(prop)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
     pub unsafe fn GetKeyProp(&self, keypropid: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(keypropid)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
     pub unsafe fn GetColumnPriority(&self, lcolumnindex: i32, columnpriority: *mut PRIORITY) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(lcolumnindex), ::std::mem::transmute(columnpriority)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
     pub unsafe fn GetRowCount(&self, lnumberofrows: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(lnumberofrows)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
     pub unsafe fn GetColumnCount(&self, lnumberofcolumns: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(lnumberofcolumns)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
     pub unsafe fn GetColumn(&self, lcolumnindex: i32, propid: *mut u32, dwtype: *mut u32, lpvdefaultvalue: *mut *mut ::std::ffi::c_void, cbsize: *mut u32, columnpriority: *mut PRIORITY) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(lcolumnindex), ::std::mem::transmute(propid), ::std::mem::transmute(dwtype), ::std::mem::transmute(lpvdefaultvalue), ::std::mem::transmute(cbsize), ::std::mem::transmute(columnpriority)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
     pub unsafe fn GetColumn2(&self, lcolumnindex: i32, propid: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), ::std::mem::transmute(lcolumnindex), ::std::mem::transmute(propid)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
     pub unsafe fn GetColumnFromPropID(&self, propid: u32, lcolumnindex: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), ::std::mem::transmute(propid), ::std::mem::transmute(lcolumnindex)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
     pub unsafe fn Clear(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
     pub unsafe fn ClearRows(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
     pub unsafe fn Free(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
     pub unsafe fn IsCompleted(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
     pub unsafe fn Cancel(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`, `Win32_Foundation`*"]
     pub unsafe fn Pause<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fpause: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), fpause.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
     pub unsafe fn GetRowStatus(&self, lrowfirst: i32, crows: i32, lprowstatus: *mut ROWSTATUS) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self), ::std::mem::transmute(lrowfirst), ::std::mem::transmute(crows), ::std::mem::transmute(lprowstatus)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
     pub unsafe fn GetColumnStatus(&self, lpcolstatus: *mut COLUMNSTATUS) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).32)(::std::mem::transmute_copy(self), ::std::mem::transmute(lpcolstatus)).ok()
     }
@@ -1278,50 +1581,66 @@ pub struct IITResultSet_abi(
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
 pub struct IITStopWordList(pub u8);
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const IITWBC_BREAK_ACCEPT_WILDCARDS: u32 = 1u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const IITWBC_BREAK_AND_STEM: u32 = 2u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IITWordWheel(::windows::runtime::IUnknown);
 impl IITWordWheel {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`, `Win32_Foundation`*"]
     pub unsafe fn Open<'a, Param0: ::windows::runtime::IntoParam<'a, IITDatabase>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, lpitdb: Param0, lpszmoniker: Param1, dwflags: WORD_WHEEL_OPEN_FLAGS) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), lpitdb.into_param().abi(), lpszmoniker.into_param().abi(), ::std::mem::transmute(dwflags)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
     pub unsafe fn Close(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
     pub unsafe fn GetLocaleInfo(&self, pdwcodepageid: *mut u32, plcid: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwcodepageid), ::std::mem::transmute(plcid)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
     pub unsafe fn GetSorterInstance(&self, pdwobjinstance: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwobjinstance)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
     pub unsafe fn Count(&self, pcentries: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcentries)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`, `Win32_Foundation`*"]
     pub unsafe fn Lookup<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, lpcvprefix: *const ::std::ffi::c_void, fexactmatch: Param1, plentry: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(lpcvprefix), fexactmatch.into_param().abi(), ::std::mem::transmute(plentry)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
     pub unsafe fn Lookup2<'a, Param1: ::windows::runtime::IntoParam<'a, IITResultSet>>(&self, lentry: i32, lpitresult: Param1, centries: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(lentry), lpitresult.into_param().abi(), ::std::mem::transmute(centries)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
     pub unsafe fn Lookup3(&self, lentry: i32, lpvkeybuf: *mut ::std::ffi::c_void, cbkeybuf: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(lentry), ::std::mem::transmute(lpvkeybuf), ::std::mem::transmute(cbkeybuf)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
     pub unsafe fn SetGroup(&self, piitgroup: *mut IITGroup) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(piitgroup)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
     pub unsafe fn GetGroup(&self, ppiitgroup: *mut *mut IITGroup) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppiitgroup)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
     pub unsafe fn GetDataCount(&self, lentry: i32, pdwcount: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(lentry), ::std::mem::transmute(pdwcount)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
     pub unsafe fn GetData<'a, Param1: ::windows::runtime::IntoParam<'a, IITResultSet>>(&self, lentry: i32, lpitresult: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(lentry), lpitresult.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
     pub unsafe fn GetDataColumns<'a, Param0: ::windows::runtime::IntoParam<'a, IITResultSet>>(&self, prs: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), prs.into_param().abi()).ok()
     }
@@ -1372,15 +1691,18 @@ pub struct IITWordWheel_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lentry: i32, lpitresult: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, prs: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IStemSink(::windows::runtime::IUnknown);
 impl IStemSink {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`, `Win32_Foundation`*"]
     pub unsafe fn PutAltWord<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwcinbuf: Param0, cwc: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pwcinbuf.into_param().abi(), ::std::mem::transmute(cwc)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`, `Win32_Foundation`*"]
     pub unsafe fn PutWord<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwcinbuf: Param0, cwc: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pwcinbuf.into_param().abi(), ::std::mem::transmute(cwc)).ok()
     }
@@ -1420,23 +1742,29 @@ pub struct IStemSink_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwcinbuf: super::super::Foundation::PWSTR, cwc: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IStemmerConfig(::windows::runtime::IUnknown);
 impl IStemmerConfig {
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
     pub unsafe fn SetLocaleInfo(&self, dwcodepageid: u32, lcid: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwcodepageid), ::std::mem::transmute(lcid)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
     pub unsafe fn GetLocaleInfo(&self, pdwcodepageid: *mut u32, plcid: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwcodepageid), ::std::mem::transmute(plcid)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
     pub unsafe fn SetControlInfo(&self, grfstemflags: u32, dwreserved: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(grfstemflags), ::std::mem::transmute(dwreserved)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
     pub unsafe fn GetControlInfo(&self, pgrfstemflags: *mut u32, pdwreserved: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(pgrfstemflags), ::std::mem::transmute(pdwreserved)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`, `Win32_System_Com`*"]
     pub unsafe fn LoadExternalStemmerData<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>>(&self, pstream: Param0, dwextdatatype: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), pstream.into_param().abi(), ::std::mem::transmute(dwextdatatype)).ok()
     }
@@ -1478,42 +1806,57 @@ pub struct IStemmerConfig_abi(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pstream: ::windows::runtime::RawPtr, dwextdatatype: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const ITWW_CBKEY_MAX: u32 = 1024u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const ITWW_OPEN_NOCONNECT: u32 = 1u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const IT_EXCLUSIVE: i32 = 1i32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const IT_HIDDEN: i32 = 2i32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const IT_INCLUSIVE: i32 = 0i32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWordBreakerConfig(::windows::runtime::IUnknown);
 impl IWordBreakerConfig {
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
     pub unsafe fn SetLocaleInfo(&self, dwcodepageid: u32, lcid: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwcodepageid), ::std::mem::transmute(lcid)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
     pub unsafe fn GetLocaleInfo(&self, pdwcodepageid: *mut u32, plcid: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwcodepageid), ::std::mem::transmute(plcid)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
     pub unsafe fn SetBreakWordType(&self, dwbreakwordtype: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwbreakwordtype)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
     pub unsafe fn GetBreakWordType(&self, pdwbreakwordtype: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwbreakwordtype)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
     pub unsafe fn SetControlInfo(&self, grfbreakflags: u32, dwreserved: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(grfbreakflags), ::std::mem::transmute(dwreserved)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
     pub unsafe fn GetControlInfo(&self, pgrfbreakflags: *mut u32, pdwreserved: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(pgrfbreakflags), ::std::mem::transmute(pdwreserved)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`, `Win32_System_Com`*"]
     pub unsafe fn LoadExternalBreakerData<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>>(&self, pstream: Param0, dwextdatatype: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), pstream.into_param().abi(), ::std::mem::transmute(dwextdatatype)).ok()
     }
     #[cfg(feature = "Win32_System_Search")]
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`, `Win32_System_Search`*"]
     pub unsafe fn SetWordStemmer<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::System::Search::IStemmer>>(&self, rclsid: *const ::windows::runtime::GUID, pstemmer: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(rclsid), pstemmer.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Search")]
+    #[doc = "*Required features: `Win32_Data_HtmlHelp`, `Win32_System_Search`*"]
     pub unsafe fn GetWordStemmer(&self) -> ::windows::runtime::Result<super::super::System::Search::IStemmer> {
         let mut result__: <super::super::System::Search::IStemmer as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Search::IStemmer>(result__)
@@ -1562,8 +1905,10 @@ pub struct IWordBreakerConfig_abi(
     #[cfg(feature = "Win32_System_Search")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppstemmer: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Search"))] usize,
 );
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const MAX_COLUMNS: u32 = 256u32;
 pub type PFNCOLHEAPFREE = unsafe extern "system" fn(param0: *mut ::std::ffi::c_void) -> i32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PRIORITY(pub i32);
@@ -1579,11 +1924,15 @@ unsafe impl ::windows::runtime::Abi for PRIORITY {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const PROP_ADD: u32 = 0u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const PROP_DELETE: u32 = 1u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const PROP_UPDATE: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub struct ROWSTATUS {
     pub lRowFirst: i32,
     pub cRows: i32,
@@ -1611,25 +1960,45 @@ unsafe impl ::windows::runtime::Abi for ROWSTATUS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const STDPROP_DISPLAYKEY: u32 = 101u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const STDPROP_INDEX_BREAK: u32 = 204u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const STDPROP_INDEX_DTYPE: u32 = 202u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const STDPROP_INDEX_LENGTH: u32 = 203u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const STDPROP_INDEX_TERM: u32 = 210u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const STDPROP_INDEX_TERM_RAW_LENGTH: u32 = 211u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const STDPROP_INDEX_TEXT: u32 = 200u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const STDPROP_INDEX_VFLD: u32 = 201u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const STDPROP_KEY: u32 = 4u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const STDPROP_SORTKEY: u32 = 100u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const STDPROP_SORTORDINAL: u32 = 102u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const STDPROP_TITLE: u32 = 2u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const STDPROP_UID: u32 = 1u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const STDPROP_USERDATA: u32 = 3u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const STDPROP_USERPROP_BASE: u32 = 65536u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const STDPROP_USERPROP_MAX: u32 = 2147483647u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const TYPE_POINTER: u32 = 1u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const TYPE_STRING: u32 = 2u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const TYPE_VALUE: u32 = 0u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WORD_WHEEL_OPEN_FLAGS(pub u32);

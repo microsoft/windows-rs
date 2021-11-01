@@ -1,14 +1,22 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3D9_RESOURCE_PRIORITY_HIGH: u32 = 2684354560u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3D9_RESOURCE_PRIORITY_LOW: u32 = 1342177280u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3D9_RESOURCE_PRIORITY_MAXIMUM: u32 = 3355443200u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3D9_RESOURCE_PRIORITY_MINIMUM: u32 = 671088640u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3D9_RESOURCE_PRIORITY_NORMAL: u32 = 2013265920u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3D9b_SDK_VERSION: u32 = 31u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DADAPTER_DEFAULT: u32 = 0u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
 pub struct D3DADAPTER_IDENTIFIER9 {
     pub Driver: [super::super::Foundation::CHAR; 512],
     pub Description: [super::super::Foundation::CHAR; 512],
@@ -61,6 +69,7 @@ unsafe impl ::windows::runtime::Abi for D3DADAPTER_IDENTIFIER9 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub struct D3DAES_CTR_IV {
     pub IV: u64,
     pub Count: u64,
@@ -86,6 +95,7 @@ unsafe impl ::windows::runtime::Abi for D3DAES_CTR_IV {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3DAUTHENTICATEDCHANNELTYPE(pub i32);
@@ -104,6 +114,7 @@ unsafe impl ::windows::runtime::Abi for D3DAUTHENTICATEDCHANNELTYPE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
 pub struct D3DAUTHENTICATEDCHANNEL_CONFIGURECRYPTOSESSION {
     pub Parameters: D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT,
     pub DXVA2DecodeHandle: super::super::Foundation::HANDLE,
@@ -140,6 +151,7 @@ unsafe impl ::windows::runtime::Abi for D3DAUTHENTICATEDCHANNEL_CONFIGURECRYPTOS
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
 pub struct D3DAUTHENTICATEDCHANNEL_CONFIGUREINITIALIZE {
     pub Parameters: D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT,
     pub StartSequenceQuery: u32,
@@ -175,6 +187,7 @@ unsafe impl ::windows::runtime::Abi for D3DAUTHENTICATEDCHANNEL_CONFIGUREINITIAL
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
 pub struct D3DAUTHENTICATEDCHANNEL_CONFIGUREPROTECTION {
     pub Parameters: D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT,
     pub Protections: D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS,
@@ -203,6 +216,7 @@ unsafe impl ::windows::runtime::Abi for D3DAUTHENTICATEDCHANNEL_CONFIGUREPROTECT
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
 pub struct D3DAUTHENTICATEDCHANNEL_CONFIGURESHAREDRESOURCE {
     pub Parameters: D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT,
     pub ProcessIdentiferType: D3DAUTHENTICATEDCHANNEL_PROCESSIDENTIFIERTYPE,
@@ -239,6 +253,7 @@ unsafe impl ::windows::runtime::Abi for D3DAUTHENTICATEDCHANNEL_CONFIGURESHAREDR
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
 pub struct D3DAUTHENTICATEDCHANNEL_CONFIGUREUNCOMPRESSEDENCRYPTION {
     pub Parameters: D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT,
     pub EncryptionGuid: ::windows::runtime::GUID,
@@ -273,6 +288,7 @@ unsafe impl ::windows::runtime::Abi for D3DAUTHENTICATEDCHANNEL_CONFIGUREUNCOMPR
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
 pub struct D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT {
     pub omac: D3D_OMAC,
     pub ConfigureType: ::windows::runtime::GUID,
@@ -309,6 +325,7 @@ unsafe impl ::windows::runtime::Abi for D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT 
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
 pub struct D3DAUTHENTICATEDCHANNEL_CONFIGURE_OUTPUT {
     pub omac: D3D_OMAC,
     pub ConfigureType: ::windows::runtime::GUID,
@@ -343,6 +360,7 @@ unsafe impl ::windows::runtime::Abi for D3DAUTHENTICATEDCHANNEL_CONFIGURE_OUTPUT
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3DAUTHENTICATEDCHANNEL_PROCESSIDENTIFIERTYPE(pub i32);
@@ -360,6 +378,7 @@ unsafe impl ::windows::runtime::Abi for D3DAUTHENTICATEDCHANNEL_PROCESSIDENTIFIE
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub struct D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS {
     pub Anonymous: D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS_0,
 }
@@ -381,6 +400,7 @@ unsafe impl ::windows::runtime::Abi for D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub union D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS_0 {
     pub Anonymous: D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS_0_0,
     pub Value: u32,
@@ -403,6 +423,7 @@ unsafe impl ::windows::runtime::Abi for D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub struct D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS_0_0 {
     pub _bitfield: u32,
 }
@@ -430,6 +451,7 @@ unsafe impl ::windows::runtime::Abi for D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYCHANNELTYPE_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
     pub ChannelType: D3DAUTHENTICATEDCHANNELTYPE,
@@ -464,6 +486,7 @@ unsafe impl ::windows::runtime::Abi for D3DAUTHENTICATEDCHANNEL_QUERYCHANNELTYPE
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYCRYPTOSESSION_INPUT {
     pub Input: D3DAUTHENTICATEDCHANNEL_QUERY_INPUT,
     pub DXVA2DecodeHandle: super::super::Foundation::HANDLE,
@@ -498,6 +521,7 @@ unsafe impl ::windows::runtime::Abi for D3DAUTHENTICATEDCHANNEL_QUERYCRYPTOSESSI
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYCRYPTOSESSION_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
     pub DXVA2DecodeHandle: super::super::Foundation::HANDLE,
@@ -534,6 +558,7 @@ unsafe impl ::windows::runtime::Abi for D3DAUTHENTICATEDCHANNEL_QUERYCRYPTOSESSI
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYDEVICEHANDLE_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
     pub DeviceHandle: super::super::Foundation::HANDLE,
@@ -568,6 +593,7 @@ unsafe impl ::windows::runtime::Abi for D3DAUTHENTICATEDCHANNEL_QUERYDEVICEHANDL
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYEVICTIONENCRYPTIONGUIDCOUNT_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
     pub NumEncryptionGuids: u32,
@@ -602,6 +628,7 @@ unsafe impl ::windows::runtime::Abi for D3DAUTHENTICATEDCHANNEL_QUERYEVICTIONENC
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYEVICTIONENCRYPTIONGUID_INPUT {
     pub Input: D3DAUTHENTICATEDCHANNEL_QUERY_INPUT,
     pub EncryptionGuidIndex: u32,
@@ -636,6 +663,7 @@ unsafe impl ::windows::runtime::Abi for D3DAUTHENTICATEDCHANNEL_QUERYEVICTIONENC
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYEVICTIONENCRYPTIONGUID_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
     pub EncryptionGuidIndex: u32,
@@ -671,6 +699,7 @@ unsafe impl ::windows::runtime::Abi for D3DAUTHENTICATEDCHANNEL_QUERYEVICTIONENC
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYINFOBUSTYPE_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
     pub BusType: D3DBUSTYPE,
@@ -707,6 +736,7 @@ unsafe impl ::windows::runtime::Abi for D3DAUTHENTICATEDCHANNEL_QUERYINFOBUSTYPE
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTIDCOUNT_INPUT {
     pub Input: D3DAUTHENTICATEDCHANNEL_QUERY_INPUT,
     pub DeviceHandle: super::super::Foundation::HANDLE,
@@ -742,6 +772,7 @@ unsafe impl ::windows::runtime::Abi for D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTIDCOU
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTIDCOUNT_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
     pub DeviceHandle: super::super::Foundation::HANDLE,
@@ -778,6 +809,7 @@ unsafe impl ::windows::runtime::Abi for D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTIDCOU
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_INPUT {
     pub Input: D3DAUTHENTICATEDCHANNEL_QUERY_INPUT,
     pub DeviceHandle: super::super::Foundation::HANDLE,
@@ -814,6 +846,7 @@ unsafe impl ::windows::runtime::Abi for D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_IN
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
     pub DeviceHandle: super::super::Foundation::HANDLE,
@@ -851,6 +884,7 @@ unsafe impl ::windows::runtime::Abi for D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_OU
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYPROTECTION_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
     pub ProtectionFlags: D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS,
@@ -879,6 +913,7 @@ unsafe impl ::windows::runtime::Abi for D3DAUTHENTICATEDCHANNEL_QUERYPROTECTION_
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYRESTRICTEDSHAREDRESOURCEPROCESSCOUNT_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
     pub NumRestrictedSharedResourceProcesses: u32,
@@ -913,6 +948,7 @@ unsafe impl ::windows::runtime::Abi for D3DAUTHENTICATEDCHANNEL_QUERYRESTRICTEDS
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYRESTRICTEDSHAREDRESOURCEPROCESS_INPUT {
     pub Input: D3DAUTHENTICATEDCHANNEL_QUERY_INPUT,
     pub ProcessIndex: u32,
@@ -947,6 +983,7 @@ unsafe impl ::windows::runtime::Abi for D3DAUTHENTICATEDCHANNEL_QUERYRESTRICTEDS
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYRESTRICTEDSHAREDRESOURCEPROCESS_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
     pub ProcessIndex: u32,
@@ -983,6 +1020,7 @@ unsafe impl ::windows::runtime::Abi for D3DAUTHENTICATEDCHANNEL_QUERYRESTRICTEDS
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYUNCOMPRESSEDENCRYPTIONLEVEL_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
     pub EncryptionGuid: ::windows::runtime::GUID,
@@ -1017,6 +1055,7 @@ unsafe impl ::windows::runtime::Abi for D3DAUTHENTICATEDCHANNEL_QUERYUNCOMPRESSE
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYUNRESTRICTEDPROTECTEDSHAREDRESOURCECOUNT_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
     pub NumUnrestrictedProtectedSharedResources: u32,
@@ -1051,6 +1090,7 @@ unsafe impl ::windows::runtime::Abi for D3DAUTHENTICATEDCHANNEL_QUERYUNRESTRICTE
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERY_INPUT {
     pub QueryType: ::windows::runtime::GUID,
     pub hChannel: super::super::Foundation::HANDLE,
@@ -1086,6 +1126,7 @@ unsafe impl ::windows::runtime::Abi for D3DAUTHENTICATEDCHANNEL_QUERY_INPUT {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT {
     pub omac: D3D_OMAC,
     pub QueryType: ::windows::runtime::GUID,
@@ -1138,6 +1179,7 @@ pub const D3DAUTHENTICATEDQUERY_PROTECTION: ::windows::runtime::GUID = ::windows
 pub const D3DAUTHENTICATEDQUERY_RESTRICTEDSHAREDRESOURCEPROCESS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1687927515, 61684, 17977, [161, 91, 36, 57, 63, 195, 171, 172]);
 pub const D3DAUTHENTICATEDQUERY_RESTRICTEDSHAREDRESOURCEPROCESSCOUNT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(229771187, 37968, 18086, [130, 222, 27, 150, 212, 79, 156, 242]);
 pub const D3DAUTHENTICATEDQUERY_UNRESTRICTEDPROTECTEDSHAREDRESOURCECOUNT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(19860438, 58978, 17524, [190, 253, 170, 83, 229, 20, 60, 109]);
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3DBACKBUFFER_TYPE(pub u32);
@@ -1182,6 +1224,7 @@ impl ::std::ops::Not for D3DBACKBUFFER_TYPE {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3DBASISTYPE(pub i32);
@@ -1198,6 +1241,7 @@ unsafe impl ::windows::runtime::Abi for D3DBASISTYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3DBLEND(pub u32);
@@ -1256,6 +1300,7 @@ impl ::std::ops::Not for D3DBLEND {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3DBLENDOP(pub u32);
@@ -1304,6 +1349,7 @@ impl ::std::ops::Not for D3DBLENDOP {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub struct D3DBOX {
     pub Left: u32,
     pub Top: u32,
@@ -1333,6 +1379,7 @@ unsafe impl ::windows::runtime::Abi for D3DBOX {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3DBUSTYPE(pub i32);
@@ -1356,22 +1403,37 @@ unsafe impl ::windows::runtime::Abi for D3DBUSTYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DCAPS2_CANAUTOGENMIPMAP: i32 = 1073741824i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DCAPS2_CANCALIBRATEGAMMA: i32 = 1048576i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DCAPS2_CANMANAGERESOURCE: i32 = 268435456i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DCAPS2_CANSHARERESOURCE: i32 = -2147483648i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DCAPS2_DYNAMICTEXTURES: i32 = 536870912i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DCAPS2_FULLSCREENGAMMA: i32 = 131072i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DCAPS2_RESERVED: i32 = 33554432i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DCAPS3_ALPHA_FULLSCREEN_FLIP_OR_DISCARD: i32 = 32i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DCAPS3_COPY_TO_SYSTEMMEM: i32 = 512i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DCAPS3_COPY_TO_VIDMEM: i32 = 256i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DCAPS3_DXVAHD: i32 = 1024i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DCAPS3_DXVAHD_LIMITED: i32 = 2048i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DCAPS3_LINEAR_TO_SRGB_PRESENTATION: i32 = 128i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DCAPS3_RESERVED: i32 = -2147483617i32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub struct D3DCAPS9 {
     pub DeviceType: D3DDEVTYPE,
     pub AdapterOrdinal: u32,
@@ -1602,10 +1664,13 @@ unsafe impl ::windows::runtime::Abi for D3DCAPS9 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DCAPS_OVERLAY: i32 = 2048i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DCAPS_READ_SCANLINE: i32 = 131072i32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub struct D3DCLIPSTATUS9 {
     pub ClipUnion: u32,
     pub ClipIntersection: u32,
@@ -1631,6 +1696,7 @@ unsafe impl ::windows::runtime::Abi for D3DCLIPSTATUS9 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3DCMPFUNC(pub i32);
@@ -1654,6 +1720,7 @@ unsafe impl ::windows::runtime::Abi for D3DCMPFUNC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub struct D3DCOLORVALUE {
     pub r: f32,
     pub g: f32,
@@ -1683,6 +1750,7 @@ unsafe impl ::windows::runtime::Abi for D3DCOLORVALUE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub struct D3DCOMPOSERECTDESC {
     pub X: u16,
     pub Y: u16,
@@ -1712,6 +1780,7 @@ unsafe impl ::windows::runtime::Abi for D3DCOMPOSERECTDESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub struct D3DCOMPOSERECTDESTINATION {
     pub SrcRectIndex: u16,
     pub Reserved: u16,
@@ -1739,6 +1808,7 @@ unsafe impl ::windows::runtime::Abi for D3DCOMPOSERECTDESTINATION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3DCOMPOSERECTSOP(pub i32);
@@ -1756,47 +1826,87 @@ unsafe impl ::windows::runtime::Abi for D3DCOMPOSERECTSOP {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DCOMPOSERECTS_MAXNUMRECTS: u32 = 65535u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DCONVOLUTIONMONO_MAXHEIGHT: u32 = 7u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DCONVOLUTIONMONO_MAXWIDTH: u32 = 7u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DCPCAPS_CONTENTKEY: u32 = 16u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DCPCAPS_ENCRYPTEDREADBACK: u32 = 64u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DCPCAPS_ENCRYPTEDREADBACKKEY: u32 = 128u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DCPCAPS_ENCRYPTSLICEDATAONLY: u32 = 512u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DCPCAPS_FRESHENSESSIONKEY: u32 = 32u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DCPCAPS_HARDWARE: u32 = 2u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DCPCAPS_PARTIALDECRYPTION: u32 = 8u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DCPCAPS_PROTECTIONALWAYSON: u32 = 4u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DCPCAPS_SEQUENTIAL_CTR_IV: u32 = 256u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DCPCAPS_SOFTWARE: u32 = 1u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DCREATE_ADAPTERGROUP_DEVICE: i32 = 512i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DCREATE_DISABLE_DRIVER_MANAGEMENT: i32 = 256i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DCREATE_DISABLE_DRIVER_MANAGEMENT_EX: i32 = 1024i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DCREATE_DISABLE_PRINTSCREEN: i32 = 32768i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DCREATE_DISABLE_PSGP_THREADING: i32 = 8192i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DCREATE_ENABLE_PRESENTSTATS: i32 = 16384i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DCREATE_FPU_PRESERVE: i32 = 2i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DCREATE_HARDWARE_VERTEXPROCESSING: i32 = 64i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DCREATE_MIXED_VERTEXPROCESSING: i32 = 128i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DCREATE_MULTITHREADED: i32 = 4i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DCREATE_NOWINDOWCHANGES: i32 = 2048i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DCREATE_PUREDEVICE: i32 = 16i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DCREATE_SCREENSAVER: i32 = 268435456i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DCREATE_SOFTWARE_VERTEXPROCESSING: i32 = 32i32;
 pub const D3DCRYPTOTYPE_AES128_CTR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2607535889, 20340, 16841, [158, 123, 11, 226, 215, 217, 59, 79]);
 pub const D3DCRYPTOTYPE_PROPRIETARY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2874055421, 7452, 18150, [167, 47, 8, 105, 145, 123, 13, 232]);
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DCS_BACK: i32 = 32i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DCS_BOTTOM: i32 = 8i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DCS_FRONT: i32 = 16i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DCS_LEFT: i32 = 1i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DCS_PLANE0: i32 = 64i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DCS_PLANE1: i32 = 128i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DCS_PLANE2: i32 = 256i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DCS_PLANE3: i32 = 512i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DCS_PLANE4: i32 = 1024i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DCS_PLANE5: i32 = 2048i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DCS_RIGHT: i32 = 2i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DCS_TOP: i32 = 4i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3DCUBEMAP_FACES(pub i32);
@@ -1816,6 +1926,7 @@ unsafe impl ::windows::runtime::Abi for D3DCUBEMAP_FACES {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3DCULL(pub u32);
@@ -1860,9 +1971,13 @@ impl ::std::ops::Not for D3DCULL {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DCURSORCAPS_COLOR: i32 = 1i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DCURSORCAPS_LOWRES: i32 = 2i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DCURSOR_IMMEDIATE_UPDATE: i32 = 1i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3DDEBUGMONITORTOKENS(pub i32);
@@ -1878,6 +1993,7 @@ unsafe impl ::windows::runtime::Abi for D3DDEBUGMONITORTOKENS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3DDECLMETHOD(pub i32);
@@ -1897,6 +2013,7 @@ unsafe impl ::windows::runtime::Abi for D3DDECLMETHOD {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3DDECLTYPE(pub i32);
@@ -1927,6 +2044,7 @@ unsafe impl ::windows::runtime::Abi for D3DDECLTYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3DDECLUSAGE(pub i32);
@@ -1953,6 +2071,7 @@ unsafe impl ::windows::runtime::Abi for D3DDECLUSAGE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3DDEGREETYPE(pub i32);
@@ -1970,21 +2089,34 @@ unsafe impl ::windows::runtime::Abi for D3DDEGREETYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DDEVCAPS2_ADAPTIVETESSNPATCH: i32 = 8i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DDEVCAPS2_ADAPTIVETESSRTPATCH: i32 = 4i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DDEVCAPS2_CAN_STRETCHRECT_FROM_TEXTURES: i32 = 16i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DDEVCAPS2_DMAPNPATCH: i32 = 2i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DDEVCAPS2_PRESAMPLEDDMAPNPATCH: i32 = 32i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DDEVCAPS2_STREAMOFFSET: i32 = 1i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DDEVCAPS2_VERTEXELEMENTSCANSHARESTREAMOFFSET: i32 = 64i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DDEVCAPS_NPATCHES: i32 = 16777216i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DDEVCAPS_PUREDEVICE: i32 = 1048576i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DDEVCAPS_QUINTICRTPATCHES: i32 = 2097152i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DDEVCAPS_RTPATCHES: i32 = 4194304i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DDEVCAPS_RTPATCHHANDLEZERO: i32 = 8388608i32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
 pub struct D3DDEVICE_CREATION_PARAMETERS {
     pub AdapterOrdinal: u32,
     pub DeviceType: D3DDEVTYPE,
@@ -2020,6 +2152,7 @@ unsafe impl ::windows::runtime::Abi for D3DDEVICE_CREATION_PARAMETERS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub struct D3DDEVINFO_D3D9BANDWIDTHTIMINGS {
     pub MaxBandwidthUtilized: f32,
     pub FrontEndUploadMemoryUtilizedPercent: f32,
@@ -2056,6 +2189,7 @@ unsafe impl ::windows::runtime::Abi for D3DDEVINFO_D3D9BANDWIDTHTIMINGS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub struct D3DDEVINFO_D3D9CACHEUTILIZATION {
     pub TextureCacheHitRate: f32,
     pub PostTransformVertexCacheHitRate: f32,
@@ -2083,6 +2217,7 @@ unsafe impl ::windows::runtime::Abi for D3DDEVINFO_D3D9CACHEUTILIZATION {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub struct D3DDEVINFO_D3D9INTERFACETIMINGS {
     pub WaitingForGPUToUseApplicationResourceTimePercent: f32,
     pub WaitingForGPUToAcceptMoreCommandsTimePercent: f32,
@@ -2123,6 +2258,7 @@ unsafe impl ::windows::runtime::Abi for D3DDEVINFO_D3D9INTERFACETIMINGS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub struct D3DDEVINFO_D3D9PIPELINETIMINGS {
     pub VertexProcessingTimePercent: f32,
     pub PixelProcessingTimePercent: f32,
@@ -2157,6 +2293,7 @@ unsafe impl ::windows::runtime::Abi for D3DDEVINFO_D3D9PIPELINETIMINGS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub struct D3DDEVINFO_D3D9STAGETIMINGS {
     pub MemoryProcessingPercent: f32,
     pub ComputationProcessingPercent: f32,
@@ -2184,6 +2321,7 @@ unsafe impl ::windows::runtime::Abi for D3DDEVINFO_D3D9STAGETIMINGS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub struct D3DDEVINFO_D3DVERTEXSTATS {
     pub NumRenderedTriangles: u32,
     pub NumExtraClippingTriangles: u32,
@@ -2212,6 +2350,7 @@ unsafe impl ::windows::runtime::Abi for D3DDEVINFO_D3DVERTEXSTATS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
 pub struct D3DDEVINFO_RESOURCEMANAGER {
     pub stats: [D3DRESOURCESTATS; 8],
 }
@@ -2244,6 +2383,7 @@ unsafe impl ::windows::runtime::Abi for D3DDEVINFO_RESOURCEMANAGER {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub struct D3DDEVINFO_VCACHE {
     pub Pattern: u32,
     pub OptMethod: u32,
@@ -2271,6 +2411,7 @@ unsafe impl ::windows::runtime::Abi for D3DDEVINFO_VCACHE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3DDEVTYPE(pub u32);
@@ -2318,6 +2459,7 @@ impl ::std::ops::Not for D3DDEVTYPE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub struct D3DDISPLAYMODE {
     pub Width: u32,
     pub Height: u32,
@@ -2347,6 +2489,7 @@ unsafe impl ::windows::runtime::Abi for D3DDISPLAYMODE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub struct D3DDISPLAYMODEEX {
     pub Size: u32,
     pub Width: u32,
@@ -2378,6 +2521,7 @@ unsafe impl ::windows::runtime::Abi for D3DDISPLAYMODEEX {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub struct D3DDISPLAYMODEFILTER {
     pub Size: u32,
     pub Format: D3DFORMAT,
@@ -2404,6 +2548,7 @@ unsafe impl ::windows::runtime::Abi for D3DDISPLAYMODEFILTER {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3DDISPLAYROTATION(pub i32);
@@ -2420,19 +2565,31 @@ unsafe impl ::windows::runtime::Abi for D3DDISPLAYROTATION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DDMAPSAMPLER: u32 = 256u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DDTCAPS_DEC3N: i32 = 128i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DDTCAPS_FLOAT16_2: i32 = 256i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DDTCAPS_FLOAT16_4: i32 = 512i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DDTCAPS_SHORT2N: i32 = 4i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DDTCAPS_SHORT4N: i32 = 8i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DDTCAPS_UBYTE4: i32 = 1i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DDTCAPS_UBYTE4N: i32 = 2i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DDTCAPS_UDEC3: i32 = 64i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DDTCAPS_USHORT2N: i32 = 16i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DDTCAPS_USHORT4N: i32 = 32i32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub struct D3DENCRYPTED_BLOCK_INFO {
     pub NumEncryptedBytesAtBeginning: u32,
     pub NumBytesInSkipPattern: u32,
@@ -2459,8 +2616,11 @@ unsafe impl ::windows::runtime::Abi for D3DENCRYPTED_BLOCK_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DENUM_NO_DRIVERVERSION: i32 = 4i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DENUM_WHQL_LEVEL: i32 = 2i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3DFILLMODE(pub i32);
@@ -2477,8 +2637,11 @@ unsafe impl ::windows::runtime::Abi for D3DFILLMODE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DFMT_A1_SURFACE_MAXHEIGHT: u32 = 2048u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DFMT_A1_SURFACE_MAXWIDTH: u32 = 8192u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3DFOGMODE(pub i32);
@@ -2496,6 +2659,7 @@ unsafe impl ::windows::runtime::Abi for D3DFOGMODE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3DFORMAT(pub u32);
@@ -2602,13 +2766,19 @@ impl ::std::ops::Not for D3DFORMAT {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DFVFCAPS_PSIZE: i32 = 1048576i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DFVF_LASTBETA_D3DCOLOR: u32 = 32768u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DFVF_LASTBETA_UBYTE4: u32 = 4096u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DFVF_PSIZE: u32 = 32u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DFVF_XYZW: u32 = 16386u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub struct D3DGAMMARAMP {
     pub red: [u16; 256],
     pub green: [u16; 256],
@@ -2635,9 +2805,11 @@ unsafe impl ::windows::runtime::Abi for D3DGAMMARAMP {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DGETDATA_FLUSH: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub struct D3DINDEXBUFFER_DESC {
     pub Format: D3DFORMAT,
     pub Type: D3DRESOURCETYPE,
@@ -2666,12 +2838,15 @@ unsafe impl ::windows::runtime::Abi for D3DINDEXBUFFER_DESC {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DISSUE_BEGIN: u32 = 2u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DISSUE_END: u32 = 1u32;
 pub const D3DKEYEXCHANGE_DXVA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1137932124, 14565, 18724, [141, 134, 211, 252, 207, 21, 62, 155]);
 pub const D3DKEYEXCHANGE_RSAES_OAEP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3247741077, 55082, 18973, [142, 93, 237, 133, 125, 23, 21, 32]);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub struct D3DLIGHT9 {
     pub Type: D3DLIGHTTYPE,
     pub Diffuse: D3DCOLORVALUE,
@@ -2722,6 +2897,7 @@ unsafe impl ::windows::runtime::Abi for D3DLIGHT9 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3DLIGHTTYPE(pub i32);
@@ -2738,14 +2914,21 @@ unsafe impl ::windows::runtime::Abi for D3DLIGHTTYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DLINECAPS_ALPHACMP: i32 = 8i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DLINECAPS_ANTIALIAS: i32 = 32i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DLINECAPS_BLEND: i32 = 4i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DLINECAPS_FOG: i32 = 16i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DLINECAPS_TEXTURE: i32 = 1i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DLINECAPS_ZTEST: i32 = 2i32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub struct D3DLOCKED_BOX {
     pub RowPitch: i32,
     pub SlicePitch: i32,
@@ -2774,6 +2957,7 @@ unsafe impl ::windows::runtime::Abi for D3DLOCKED_BOX {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub struct D3DLOCKED_RECT {
     pub Pitch: i32,
     pub pBits: *mut ::std::ffi::c_void,
@@ -2799,14 +2983,21 @@ unsafe impl ::windows::runtime::Abi for D3DLOCKED_RECT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DLOCK_DISCARD: i32 = 8192i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DLOCK_DONOTWAIT: i32 = 16384i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DLOCK_NOOVERWRITE: i32 = 4096i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DLOCK_NOSYSLOCK: i32 = 2048i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DLOCK_NO_DIRTY_UPDATE: i32 = 32768i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DLOCK_READONLY: i32 = 16i32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub struct D3DMATERIAL9 {
     pub Diffuse: D3DCOLORVALUE,
     pub Ambient: D3DCOLORVALUE,
@@ -2835,6 +3026,7 @@ unsafe impl ::windows::runtime::Abi for D3DMATERIAL9 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3DMATERIALCOLORSOURCE(pub i32);
@@ -2853,6 +3045,7 @@ unsafe impl ::windows::runtime::Abi for D3DMATERIALCOLORSOURCE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub struct D3DMATRIX {
     pub Anonymous: D3DMATRIX_0,
 }
@@ -2874,6 +3067,7 @@ unsafe impl ::windows::runtime::Abi for D3DMATRIX {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub union D3DMATRIX_0 {
     pub Anonymous: D3DMATRIX_0_0,
     pub m: [f32; 16],
@@ -2896,6 +3090,7 @@ unsafe impl ::windows::runtime::Abi for D3DMATRIX_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub struct D3DMATRIX_0_0 {
     pub _11: f32,
     pub _12: f32,
@@ -2952,9 +3147,11 @@ unsafe impl ::windows::runtime::Abi for D3DMATRIX_0_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DMAX30SHADERINSTRUCTIONS: u32 = 32768u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub struct D3DMEMORYPRESSURE {
     pub BytesEvictedFromProcess: u64,
     pub SizeOfInefficientAllocation: u64,
@@ -2981,7 +3178,9 @@ unsafe impl ::windows::runtime::Abi for D3DMEMORYPRESSURE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DMIN30SHADERINSTRUCTIONS: u32 = 512u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3DMULTISAMPLE_TYPE(pub i32);
@@ -3012,14 +3211,23 @@ unsafe impl ::windows::runtime::Abi for D3DMULTISAMPLE_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DOVERLAYCAPS_FULLRANGERGB: u32 = 1u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DOVERLAYCAPS_LIMITEDRANGERGB: u32 = 2u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DOVERLAYCAPS_STRETCHX: u32 = 64u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DOVERLAYCAPS_STRETCHY: u32 = 128u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DOVERLAYCAPS_YCbCr_BT601: u32 = 4u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DOVERLAYCAPS_YCbCr_BT601_xvYCC: u32 = 16u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DOVERLAYCAPS_YCbCr_BT709: u32 = 8u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DOVERLAYCAPS_YCbCr_BT709_xvYCC: u32 = 32u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3DPATCHEDGESTYLE(pub i32);
@@ -3035,10 +3243,14 @@ unsafe impl ::windows::runtime::Abi for D3DPATCHEDGESTYLE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPBLENDCAPS_BLENDFACTOR: i32 = 8192i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPBLENDCAPS_INVSRCCOLOR2: i32 = 32768i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPBLENDCAPS_SRCCOLOR2: i32 = 16384i32;
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn D3DPERF_BeginEvent<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(col: u32, wszname: Param1) -> i32 {
     #[cfg(windows)]
@@ -3052,6 +3264,7 @@ pub unsafe fn D3DPERF_BeginEvent<'a, Param1: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[inline]
 pub unsafe fn D3DPERF_EndEvent() -> i32 {
     #[cfg(windows)]
@@ -3065,6 +3278,7 @@ pub unsafe fn D3DPERF_EndEvent() -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[inline]
 pub unsafe fn D3DPERF_GetStatus() -> u32 {
     #[cfg(windows)]
@@ -3079,6 +3293,7 @@ pub unsafe fn D3DPERF_GetStatus() -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn D3DPERF_QueryRepeatFrame() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -3093,6 +3308,7 @@ pub unsafe fn D3DPERF_QueryRepeatFrame() -> super::super::Foundation::BOOL {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn D3DPERF_SetMarker<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(col: u32, wszname: Param1) {
     #[cfg(windows)]
@@ -3106,6 +3322,7 @@ pub unsafe fn D3DPERF_SetMarker<'a, Param1: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[inline]
 pub unsafe fn D3DPERF_SetOptions(dwoptions: u32) {
     #[cfg(windows)]
@@ -3120,6 +3337,7 @@ pub unsafe fn D3DPERF_SetOptions(dwoptions: u32) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn D3DPERF_SetRegion<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(col: u32, wszname: Param1) {
     #[cfg(windows)]
@@ -3133,20 +3351,35 @@ pub unsafe fn D3DPERF_SetRegion<'a, Param1: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPMISCCAPS_BLENDOP: i32 = 2048i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPMISCCAPS_CLIPPLANESCALEDPOINTS: i32 = 256i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPMISCCAPS_CLIPTLVERTS: i32 = 512i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPMISCCAPS_COLORWRITEENABLE: i32 = 128i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPMISCCAPS_FOGANDSPECULARALPHA: i32 = 65536i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPMISCCAPS_FOGVERTEXCLAMPED: i32 = 1048576i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPMISCCAPS_INDEPENDENTWRITEMASKS: i32 = 16384i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPMISCCAPS_MRTINDEPENDENTBITDEPTHS: i32 = 262144i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPMISCCAPS_MRTPOSTPIXELSHADERBLENDING: i32 = 524288i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPMISCCAPS_NULLREFERENCE: i32 = 4096i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPMISCCAPS_PERSTAGECONSTANT: i32 = 32768i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPMISCCAPS_POSTBLENDSRGBCONVERT: i32 = 2097152i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPMISCCAPS_SEPARATEALPHABLEND: i32 = 131072i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPMISCCAPS_TSSARGTEMP: i32 = 1024i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3DPOOL(pub u32);
@@ -3192,24 +3425,41 @@ impl ::std::ops::Not for D3DPOOL {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPRASTERCAPS_COLORPERSPECTIVE: i32 = 4194304i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPRASTERCAPS_DEPTHBIAS: i32 = 67108864i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPRASTERCAPS_MULTISAMPLE_TOGGLE: i32 = 134217728i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPRASTERCAPS_SCISSORTEST: i32 = 16777216i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPRASTERCAPS_SLOPESCALEDEPTHBIAS: i32 = 33554432i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPRESENTFLAG_DEVICECLIP: u32 = 4u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPRESENTFLAG_DISCARD_DEPTHSTENCIL: u32 = 2u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPRESENTFLAG_LOCKABLE_BACKBUFFER: u32 = 1u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPRESENTFLAG_NOAUTOROTATE: u32 = 32u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPRESENTFLAG_OVERLAY_LIMITEDRGB: u32 = 128u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPRESENTFLAG_OVERLAY_YCbCr_BT709: u32 = 256u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPRESENTFLAG_OVERLAY_YCbCr_xvYCC: u32 = 512u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPRESENTFLAG_RESTRICTED_CONTENT: u32 = 1024u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPRESENTFLAG_RESTRICT_SHARED_RESOURCE_DRIVER: u32 = 2048u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPRESENTFLAG_UNPRUNEDMODE: u32 = 64u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPRESENTFLAG_VIDEO: u32 = 16u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub struct D3DPRESENTSTATS {
     pub PresentCount: u32,
     pub PresentRefreshCount: u32,
@@ -3238,23 +3488,38 @@ unsafe impl ::windows::runtime::Abi for D3DPRESENTSTATS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPRESENT_BACK_BUFFERS_MAX: i32 = 3i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPRESENT_BACK_BUFFERS_MAX_EX: i32 = 30i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPRESENT_DONOTFLIP: i32 = 4i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPRESENT_DONOTWAIT: i32 = 1i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPRESENT_FLIPRESTART: i32 = 8i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPRESENT_FORCEIMMEDIATE: i32 = 256i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPRESENT_HIDEOVERLAY: i32 = 64i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPRESENT_INTERVAL_DEFAULT: i32 = 0i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPRESENT_INTERVAL_FOUR: i32 = 8i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPRESENT_INTERVAL_IMMEDIATE: i32 = -2147483648i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPRESENT_INTERVAL_ONE: i32 = 1i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPRESENT_INTERVAL_THREE: i32 = 4i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPRESENT_INTERVAL_TWO: i32 = 2i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPRESENT_LINEAR_CONTENT: i32 = 2i32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
 pub struct D3DPRESENT_PARAMETERS {
     pub BackBufferWidth: u32,
     pub BackBufferHeight: u32,
@@ -3326,10 +3591,15 @@ unsafe impl ::windows::runtime::Abi for D3DPRESENT_PARAMETERS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPRESENT_RATE_DEFAULT: u32 = 0u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPRESENT_UPDATECOLORKEY: i32 = 128i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPRESENT_UPDATEOVERLAYONLY: i32 = 32i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPRESENT_VIDEO_RESTRICT_TO_MONITOR: i32 = 16i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3DPRIMITIVETYPE(pub i32);
@@ -3349,21 +3619,35 @@ unsafe impl ::windows::runtime::Abi for D3DPRIMITIVETYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPS20CAPS_ARBITRARYSWIZZLE: u32 = 1u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPS20CAPS_GRADIENTINSTRUCTIONS: u32 = 2u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPS20CAPS_NODEPENDENTREADLIMIT: u32 = 8u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPS20CAPS_NOTEXINSTRUCTIONLIMIT: u32 = 16u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPS20CAPS_PREDICATION: u32 = 4u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPS20_MAX_DYNAMICFLOWCONTROLDEPTH: u32 = 24u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPS20_MAX_NUMINSTRUCTIONSLOTS: u32 = 512u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPS20_MAX_NUMTEMPS: u32 = 32u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPS20_MAX_STATICFLOWCONTROLDEPTH: u32 = 4u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPS20_MIN_DYNAMICFLOWCONTROLDEPTH: u32 = 0u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPS20_MIN_NUMINSTRUCTIONSLOTS: u32 = 96u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPS20_MIN_NUMTEMPS: u32 = 12u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPS20_MIN_STATICFLOWCONTROLDEPTH: u32 = 0u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub struct D3DPSHADERCAPS2_0 {
     pub Caps: u32,
     pub DynamicFlowControlDepth: i32,
@@ -3392,19 +3676,33 @@ unsafe impl ::windows::runtime::Abi for D3DPSHADERCAPS2_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPTADDRESSCAPS_MIRRORONCE: i32 = 32i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPTEXTURECAPS_CUBEMAP_POW2: i32 = 131072i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPTEXTURECAPS_MIPCUBEMAP: i32 = 65536i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPTEXTURECAPS_MIPMAP: i32 = 16384i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPTEXTURECAPS_MIPVOLUMEMAP: i32 = 32768i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPTEXTURECAPS_NOPROJECTEDBUMPENV: i32 = 2097152i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPTEXTURECAPS_VOLUMEMAP: i32 = 8192i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPTEXTURECAPS_VOLUMEMAP_POW2: i32 = 262144i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPTFILTERCAPS_CONVOLUTIONMONO: i32 = 262144i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPTFILTERCAPS_MAGFGAUSSIANQUAD: i32 = 268435456i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPTFILTERCAPS_MAGFPYRAMIDALQUAD: i32 = 134217728i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPTFILTERCAPS_MINFGAUSSIANQUAD: i32 = 4096i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPTFILTERCAPS_MINFPYRAMIDALQUAD: i32 = 2048i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3DQUERYTYPE(pub i32);
@@ -3434,6 +3732,7 @@ unsafe impl ::windows::runtime::Abi for D3DQUERYTYPE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub struct D3DRANGE {
     pub Offset: u32,
     pub Size: u32,
@@ -3462,6 +3761,7 @@ unsafe impl ::windows::runtime::Abi for D3DRANGE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
 pub struct D3DRASTER_STATUS {
     pub InVBlank: super::super::Foundation::BOOL,
     pub ScanLine: u32,
@@ -3495,6 +3795,7 @@ unsafe impl ::windows::runtime::Abi for D3DRASTER_STATUS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub struct D3DRECT {
     pub x1: i32,
     pub y1: i32,
@@ -3524,6 +3825,7 @@ unsafe impl ::windows::runtime::Abi for D3DRECT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub struct D3DRECTPATCH_INFO {
     pub StartVertexOffsetWidth: u32,
     pub StartVertexOffsetHeight: u32,
@@ -3562,6 +3864,7 @@ unsafe impl ::windows::runtime::Abi for D3DRECTPATCH_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3DRENDERSTATETYPE(pub i32);
@@ -3681,6 +3984,7 @@ unsafe impl ::windows::runtime::Abi for D3DRENDERSTATETYPE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
 pub struct D3DRESOURCESTATS {
     pub bThrashing: super::super::Foundation::BOOL,
     pub ApproxBytesDownloaded: u32,
@@ -3733,6 +4037,7 @@ unsafe impl ::windows::runtime::Abi for D3DRESOURCESTATS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3DRESOURCETYPE(pub i32);
@@ -3753,7 +4058,9 @@ unsafe impl ::windows::runtime::Abi for D3DRESOURCETYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DRTYPECOUNT: u32 = 8u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3DSAMPLERSTATETYPE(pub i32);
@@ -3780,6 +4087,7 @@ unsafe impl ::windows::runtime::Abi for D3DSAMPLERSTATETYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3DSAMPLER_TEXTURE_TYPE(pub i32);
@@ -3797,6 +4105,7 @@ unsafe impl ::windows::runtime::Abi for D3DSAMPLER_TEXTURE_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3DSCANLINEORDERING(pub i32);
@@ -3812,8 +4121,11 @@ unsafe impl ::windows::runtime::Abi for D3DSCANLINEORDERING {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DSGR_CALIBRATE: i32 = 1i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DSGR_NO_CALIBRATION: i32 = 0i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3DSHADEMODE(pub i32);
@@ -3830,7 +4142,9 @@ unsafe impl ::windows::runtime::Abi for D3DSHADEMODE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DSHADER_ADDRESSMODE_SHIFT: u32 = 13u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3DSHADER_ADDRESSMODE_TYPE(pub i32);
@@ -3846,6 +4160,7 @@ unsafe impl ::windows::runtime::Abi for D3DSHADER_ADDRESSMODE_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3DSHADER_COMPARISON(pub i32);
@@ -3866,7 +4181,9 @@ unsafe impl ::windows::runtime::Abi for D3DSHADER_COMPARISON {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DSHADER_COMPARISON_SHIFT: u32 = 16u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3DSHADER_INSTRUCTION_OPCODE_TYPE(pub i32);
@@ -3965,6 +4282,7 @@ unsafe impl ::windows::runtime::Abi for D3DSHADER_INSTRUCTION_OPCODE_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3DSHADER_MIN_PRECISION(pub i32);
@@ -3980,6 +4298,7 @@ unsafe impl ::windows::runtime::Abi for D3DSHADER_MIN_PRECISION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3DSHADER_MISCTYPE_OFFSETS(pub i32);
@@ -3994,6 +4313,7 @@ unsafe impl ::windows::runtime::Abi for D3DSHADER_MISCTYPE_OFFSETS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3DSHADER_PARAM_REGISTER_TYPE(pub i32);
@@ -4029,6 +4349,7 @@ unsafe impl ::windows::runtime::Abi for D3DSHADER_PARAM_REGISTER_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3DSHADER_PARAM_SRCMOD_TYPE(pub i32);
@@ -4056,41 +4377,77 @@ unsafe impl ::windows::runtime::Abi for D3DSHADER_PARAM_SRCMOD_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DSI_COISSUE: u32 = 1073741824u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DSI_COMMENTSIZE_MASK: u32 = 2147418112u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DSI_COMMENTSIZE_SHIFT: u32 = 16u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DSI_INSTLENGTH_MASK: u32 = 251658240u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DSI_INSTLENGTH_SHIFT: u32 = 24u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DSI_OPCODE_MASK: u32 = 65535u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DSPD_IUNKNOWN: i32 = 1i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DSP_DCL_USAGEINDEX_MASK: u32 = 983040u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DSP_DCL_USAGEINDEX_SHIFT: u32 = 16u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DSP_DCL_USAGE_MASK: u32 = 15u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DSP_DCL_USAGE_SHIFT: u32 = 0u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DSP_DSTMOD_MASK: u32 = 15728640u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DSP_DSTMOD_SHIFT: u32 = 20u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DSP_DSTSHIFT_MASK: u32 = 251658240u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DSP_DSTSHIFT_SHIFT: u32 = 24u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DSP_MIN_PRECISION_MASK: u32 = 49152u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DSP_MIN_PRECISION_SHIFT: u32 = 14u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DSP_OPCODESPECIFICCONTROL_MASK: u32 = 16711680u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DSP_OPCODESPECIFICCONTROL_SHIFT: u32 = 16u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DSP_REGNUM_MASK: u32 = 2047u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DSP_REGTYPE_MASK: u32 = 1879048192u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DSP_REGTYPE_MASK2: u32 = 6144u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DSP_REGTYPE_SHIFT: u32 = 28u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DSP_REGTYPE_SHIFT2: u32 = 8u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DSP_SRCMOD_MASK: u32 = 251658240u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DSP_SRCMOD_SHIFT: u32 = 24u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DSP_SWIZZLE_MASK: u32 = 16711680u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DSP_SWIZZLE_SHIFT: u32 = 16u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DSP_TEXTURETYPE_MASK: u32 = 2013265920u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DSP_TEXTURETYPE_SHIFT: u32 = 27u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DSP_WRITEMASK_0: u32 = 65536u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DSP_WRITEMASK_1: u32 = 131072u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DSP_WRITEMASK_2: u32 = 262144u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DSP_WRITEMASK_3: u32 = 524288u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DSP_WRITEMASK_ALL: u32 = 983040u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3DSTATEBLOCKTYPE(pub i32);
@@ -4107,7 +4464,9 @@ unsafe impl ::windows::runtime::Abi for D3DSTATEBLOCKTYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DSTENCILCAPS_TWOSIDED: i32 = 256i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3DSTENCILOP(pub u32);
@@ -4157,10 +4516,13 @@ impl ::std::ops::Not for D3DSTENCILOP {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DSTREAMSOURCE_INDEXEDDATA: u32 = 1073741824u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DSTREAMSOURCE_INSTANCEDATA: u32 = 2147483648u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub struct D3DSURFACE_DESC {
     pub Format: D3DFORMAT,
     pub Type: D3DRESOURCETYPE,
@@ -4201,6 +4563,7 @@ unsafe impl ::windows::runtime::Abi for D3DSURFACE_DESC {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3DSWAPEFFECT(pub u32);
@@ -4247,10 +4610,15 @@ impl ::std::ops::Not for D3DSWAPEFFECT {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DTA_CONSTANT: u32 = 6u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DTA_TEMP: u32 = 5u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DTEXOPCAPS_LERP: i32 = 33554432i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DTEXOPCAPS_MULTIPLYADD: i32 = 16777216i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3DTEXTUREADDRESS(pub i32);
@@ -4269,6 +4637,7 @@ unsafe impl ::windows::runtime::Abi for D3DTEXTUREADDRESS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3DTEXTUREFILTERTYPE(pub i32);
@@ -4289,6 +4658,7 @@ unsafe impl ::windows::runtime::Abi for D3DTEXTUREFILTERTYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3DTEXTUREOP(pub i32);
@@ -4328,6 +4698,7 @@ unsafe impl ::windows::runtime::Abi for D3DTEXTUREOP {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3DTEXTURESTAGESTATETYPE(pub i32);
@@ -4359,6 +4730,7 @@ unsafe impl ::windows::runtime::Abi for D3DTEXTURESTAGESTATETYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3DTEXTURETRANSFORMFLAGS(pub i32);
@@ -4378,6 +4750,7 @@ unsafe impl ::windows::runtime::Abi for D3DTEXTURETRANSFORMFLAGS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3DTRANSFORMSTATETYPE(pub i32);
@@ -4403,6 +4776,7 @@ unsafe impl ::windows::runtime::Abi for D3DTRANSFORMSTATETYPE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub struct D3DTRIPATCH_INFO {
     pub StartVertexOffset: u32,
     pub NumVertices: u32,
@@ -4430,32 +4804,57 @@ unsafe impl ::windows::runtime::Abi for D3DTRIPATCH_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DTSS_TCI_SPHEREMAP: u32 = 262144u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DUSAGE_AUTOGENMIPMAP: i32 = 1024i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DUSAGE_DEPTHSTENCIL: i32 = 2i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DUSAGE_DMAP: i32 = 16384i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DUSAGE_DONOTCLIP: i32 = 32i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DUSAGE_DYNAMIC: i32 = 512i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DUSAGE_NONSECURE: i32 = 8388608i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DUSAGE_NPATCHES: i32 = 256i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DUSAGE_POINTS: i32 = 64i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DUSAGE_QUERY_FILTER: i32 = 131072i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DUSAGE_QUERY_LEGACYBUMPMAP: i32 = 32768i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DUSAGE_QUERY_POSTPIXELSHADER_BLENDING: i32 = 524288i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DUSAGE_QUERY_SRGBREAD: i32 = 65536i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DUSAGE_QUERY_SRGBWRITE: i32 = 262144i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DUSAGE_QUERY_VERTEXTEXTURE: i32 = 1048576i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DUSAGE_QUERY_WRAPANDMIP: i32 = 2097152i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DUSAGE_RENDERTARGET: i32 = 1i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DUSAGE_RESTRICTED_CONTENT: i32 = 2048i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DUSAGE_RESTRICT_SHARED_RESOURCE: i32 = 8192i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DUSAGE_RESTRICT_SHARED_RESOURCE_DRIVER: i32 = 4096i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DUSAGE_RTPATCHES: i32 = 128i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DUSAGE_SOFTWAREPROCESSING: i32 = 16i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DUSAGE_TEXTAPI: i32 = 268435456i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DUSAGE_WRITEONLY: i32 = 8i32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub struct D3DVECTOR {
     pub x: f32,
     pub y: f32,
@@ -4482,6 +4881,7 @@ unsafe impl ::windows::runtime::Abi for D3DVECTOR {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3DVERTEXBLENDFLAGS(pub i32);
@@ -4503,6 +4903,7 @@ unsafe impl ::windows::runtime::Abi for D3DVERTEXBLENDFLAGS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub struct D3DVERTEXBUFFER_DESC {
     pub Format: D3DFORMAT,
     pub Type: D3DRESOURCETYPE,
@@ -4534,6 +4935,7 @@ unsafe impl ::windows::runtime::Abi for D3DVERTEXBUFFER_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub struct D3DVERTEXELEMENT9 {
     pub Stream: u16,
     pub Offset: u16,
@@ -4563,12 +4965,17 @@ unsafe impl ::windows::runtime::Abi for D3DVERTEXELEMENT9 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DVERTEXTEXTURESAMPLER0: u32 = 257u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DVERTEXTEXTURESAMPLER1: u32 = 258u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DVERTEXTEXTURESAMPLER2: u32 = 259u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DVERTEXTEXTURESAMPLER3: u32 = 260u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub struct D3DVIEWPORT9 {
     pub X: u32,
     pub Y: u32,
@@ -4600,6 +5007,7 @@ unsafe impl ::windows::runtime::Abi for D3DVIEWPORT9 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub struct D3DVOLUME_DESC {
     pub Format: D3DFORMAT,
     pub Type: D3DRESOURCETYPE,
@@ -4630,15 +5038,23 @@ unsafe impl ::windows::runtime::Abi for D3DVOLUME_DESC {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DVS20CAPS_PREDICATION: u32 = 1u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DVS20_MAX_DYNAMICFLOWCONTROLDEPTH: u32 = 24u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DVS20_MAX_NUMTEMPS: u32 = 32u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DVS20_MAX_STATICFLOWCONTROLDEPTH: u32 = 4u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DVS20_MIN_DYNAMICFLOWCONTROLDEPTH: u32 = 0u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DVS20_MIN_NUMTEMPS: u32 = 12u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DVS20_MIN_STATICFLOWCONTROLDEPTH: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub struct D3DVSHADERCAPS2_0 {
     pub Caps: u32,
     pub DynamicFlowControlDepth: i32,
@@ -4666,7 +5082,9 @@ unsafe impl ::windows::runtime::Abi for D3DVSHADERCAPS2_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DVS_ADDRESSMODE_SHIFT: u32 = 13u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3DVS_ADDRESSMODE_TYPE(pub i32);
@@ -4682,6 +5100,7 @@ unsafe impl ::windows::runtime::Abi for D3DVS_ADDRESSMODE_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3DVS_RASTOUT_OFFSETS(pub i32);
@@ -4698,12 +5117,19 @@ unsafe impl ::windows::runtime::Abi for D3DVS_RASTOUT_OFFSETS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DVS_SWIZZLE_MASK: u32 = 16711680u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DVS_SWIZZLE_SHIFT: u32 = 16u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DVTXPCAPS_NO_TEXGEN_NONLOCALVIEWER: i32 = 512i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DVTXPCAPS_TEXGEN_SPHEREMAP: i32 = 256i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DVTXPCAPS_TWEENING: i32 = 64i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DWRAP_W: i32 = 4i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3DZBUFFERTYPE(pub i32);
@@ -4720,9 +5146,11 @@ unsafe impl ::windows::runtime::Abi for D3DZBUFFERTYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3D_MAX_SIMULTANEOUS_RENDERTARGETS: u32 = 4u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub struct D3D_OMAC {
     pub Omac: [u8; 16],
 }
@@ -4747,8 +5175,11 @@ unsafe impl ::windows::runtime::Abi for D3D_OMAC {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3D_OMAC_SIZE: u32 = 16u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3D_SDK_VERSION: u32 = 32u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[inline]
 pub unsafe fn Direct3DCreate9(sdkversion: u32) -> ::std::option::Option<IDirect3D9> {
     #[cfg(windows)]
@@ -4762,6 +5193,7 @@ pub unsafe fn Direct3DCreate9(sdkversion: u32) -> ::std::option::Option<IDirect3
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[inline]
 pub unsafe fn Direct3DCreate9Ex(sdkversion: u32) -> ::windows::runtime::Result<IDirect3D9Ex> {
     #[cfg(windows)]
@@ -4776,54 +5208,69 @@ pub unsafe fn Direct3DCreate9Ex(sdkversion: u32) -> ::windows::runtime::Result<I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirect3D9(::windows::runtime::IUnknown);
 impl IDirect3D9 {
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn RegisterSoftwareDevice(&self, pinitializefunction: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pinitializefunction)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetAdapterCount(&self) -> u32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn GetAdapterIdentifier(&self, adapter: u32, flags: u32, pidentifier: *mut D3DADAPTER_IDENTIFIER9) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(adapter), ::std::mem::transmute(flags), ::std::mem::transmute(pidentifier)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetAdapterModeCount(&self, adapter: u32, format: D3DFORMAT) -> u32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(adapter), ::std::mem::transmute(format)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn EnumAdapterModes(&self, adapter: u32, format: D3DFORMAT, mode: u32, pmode: *mut D3DDISPLAYMODE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(adapter), ::std::mem::transmute(format), ::std::mem::transmute(mode), ::std::mem::transmute(pmode)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetAdapterDisplayMode(&self, adapter: u32, pmode: *mut D3DDISPLAYMODE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(adapter), ::std::mem::transmute(pmode)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn CheckDeviceType<'a, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, adapter: u32, devtype: D3DDEVTYPE, adapterformat: D3DFORMAT, backbufferformat: D3DFORMAT, bwindowed: Param4) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(adapter), ::std::mem::transmute(devtype), ::std::mem::transmute(adapterformat), ::std::mem::transmute(backbufferformat), bwindowed.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn CheckDeviceFormat(&self, adapter: u32, devicetype: D3DDEVTYPE, adapterformat: D3DFORMAT, usage: u32, rtype: D3DRESOURCETYPE, checkformat: D3DFORMAT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(adapter), ::std::mem::transmute(devicetype), ::std::mem::transmute(adapterformat), ::std::mem::transmute(usage), ::std::mem::transmute(rtype), ::std::mem::transmute(checkformat)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn CheckDeviceMultiSampleType<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, adapter: u32, devicetype: D3DDEVTYPE, surfaceformat: D3DFORMAT, windowed: Param3, multisampletype: D3DMULTISAMPLE_TYPE, pqualitylevels: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(adapter), ::std::mem::transmute(devicetype), ::std::mem::transmute(surfaceformat), windowed.into_param().abi(), ::std::mem::transmute(multisampletype), ::std::mem::transmute(pqualitylevels)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn CheckDepthStencilMatch(&self, adapter: u32, devicetype: D3DDEVTYPE, adapterformat: D3DFORMAT, rendertargetformat: D3DFORMAT, depthstencilformat: D3DFORMAT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(adapter), ::std::mem::transmute(devicetype), ::std::mem::transmute(adapterformat), ::std::mem::transmute(rendertargetformat), ::std::mem::transmute(depthstencilformat)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn CheckDeviceFormatConversion(&self, adapter: u32, devicetype: D3DDEVTYPE, sourceformat: D3DFORMAT, targetformat: D3DFORMAT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(adapter), ::std::mem::transmute(devicetype), ::std::mem::transmute(sourceformat), ::std::mem::transmute(targetformat)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetDeviceCaps(&self, adapter: u32, devicetype: D3DDEVTYPE, pcaps: *mut D3DCAPS9) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(adapter), ::std::mem::transmute(devicetype), ::std::mem::transmute(pcaps)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Graphics_Gdi`*"]
     pub unsafe fn GetAdapterMonitor(&self, adapter: u32) -> super::Gdi::HMONITOR {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(adapter)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn CreateDevice<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, adapter: u32, devicetype: D3DDEVTYPE, hfocuswindow: Param2, behaviorflags: u32, ppresentationparameters: *mut D3DPRESENT_PARAMETERS, ppreturneddeviceinterface: *mut ::std::option::Option<IDirect3DDevice9>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(adapter), ::std::mem::transmute(devicetype), hfocuswindow.into_param().abi(), ::std::mem::transmute(behaviorflags), ::std::mem::transmute(ppresentationparameters), ::std::mem::transmute(ppreturneddeviceinterface)).ok()
     }
@@ -4878,67 +5325,86 @@ pub struct IDirect3D9_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, adapter: u32, devicetype: D3DDEVTYPE, hfocuswindow: super::super::Foundation::HWND, behaviorflags: u32, ppresentationparameters: *mut D3DPRESENT_PARAMETERS, ppreturneddeviceinterface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirect3D9Ex(::windows::runtime::IUnknown);
 impl IDirect3D9Ex {
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn RegisterSoftwareDevice(&self, pinitializefunction: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pinitializefunction)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetAdapterCount(&self) -> u32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn GetAdapterIdentifier(&self, adapter: u32, flags: u32, pidentifier: *mut D3DADAPTER_IDENTIFIER9) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(adapter), ::std::mem::transmute(flags), ::std::mem::transmute(pidentifier)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetAdapterModeCount(&self, adapter: u32, format: D3DFORMAT) -> u32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(adapter), ::std::mem::transmute(format)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn EnumAdapterModes(&self, adapter: u32, format: D3DFORMAT, mode: u32, pmode: *mut D3DDISPLAYMODE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(adapter), ::std::mem::transmute(format), ::std::mem::transmute(mode), ::std::mem::transmute(pmode)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetAdapterDisplayMode(&self, adapter: u32, pmode: *mut D3DDISPLAYMODE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(adapter), ::std::mem::transmute(pmode)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn CheckDeviceType<'a, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, adapter: u32, devtype: D3DDEVTYPE, adapterformat: D3DFORMAT, backbufferformat: D3DFORMAT, bwindowed: Param4) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(adapter), ::std::mem::transmute(devtype), ::std::mem::transmute(adapterformat), ::std::mem::transmute(backbufferformat), bwindowed.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn CheckDeviceFormat(&self, adapter: u32, devicetype: D3DDEVTYPE, adapterformat: D3DFORMAT, usage: u32, rtype: D3DRESOURCETYPE, checkformat: D3DFORMAT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(adapter), ::std::mem::transmute(devicetype), ::std::mem::transmute(adapterformat), ::std::mem::transmute(usage), ::std::mem::transmute(rtype), ::std::mem::transmute(checkformat)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn CheckDeviceMultiSampleType<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, adapter: u32, devicetype: D3DDEVTYPE, surfaceformat: D3DFORMAT, windowed: Param3, multisampletype: D3DMULTISAMPLE_TYPE, pqualitylevels: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(adapter), ::std::mem::transmute(devicetype), ::std::mem::transmute(surfaceformat), windowed.into_param().abi(), ::std::mem::transmute(multisampletype), ::std::mem::transmute(pqualitylevels)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn CheckDepthStencilMatch(&self, adapter: u32, devicetype: D3DDEVTYPE, adapterformat: D3DFORMAT, rendertargetformat: D3DFORMAT, depthstencilformat: D3DFORMAT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(adapter), ::std::mem::transmute(devicetype), ::std::mem::transmute(adapterformat), ::std::mem::transmute(rendertargetformat), ::std::mem::transmute(depthstencilformat)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn CheckDeviceFormatConversion(&self, adapter: u32, devicetype: D3DDEVTYPE, sourceformat: D3DFORMAT, targetformat: D3DFORMAT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(adapter), ::std::mem::transmute(devicetype), ::std::mem::transmute(sourceformat), ::std::mem::transmute(targetformat)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetDeviceCaps(&self, adapter: u32, devicetype: D3DDEVTYPE, pcaps: *mut D3DCAPS9) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(adapter), ::std::mem::transmute(devicetype), ::std::mem::transmute(pcaps)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Graphics_Gdi`*"]
     pub unsafe fn GetAdapterMonitor(&self, adapter: u32) -> super::Gdi::HMONITOR {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(adapter)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn CreateDevice<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, adapter: u32, devicetype: D3DDEVTYPE, hfocuswindow: Param2, behaviorflags: u32, ppresentationparameters: *mut D3DPRESENT_PARAMETERS, ppreturneddeviceinterface: *mut ::std::option::Option<IDirect3DDevice9>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(adapter), ::std::mem::transmute(devicetype), hfocuswindow.into_param().abi(), ::std::mem::transmute(behaviorflags), ::std::mem::transmute(ppresentationparameters), ::std::mem::transmute(ppreturneddeviceinterface)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetAdapterModeCountEx(&self, adapter: u32, pfilter: *const D3DDISPLAYMODEFILTER) -> u32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(adapter), ::std::mem::transmute(pfilter)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn EnumAdapterModesEx(&self, adapter: u32, pfilter: *const D3DDISPLAYMODEFILTER, mode: u32, pmode: *mut D3DDISPLAYMODEEX) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(adapter), ::std::mem::transmute(pfilter), ::std::mem::transmute(mode), ::std::mem::transmute(pmode)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetAdapterDisplayModeEx(&self, adapter: u32, pmode: *mut D3DDISPLAYMODEEX, protation: *mut D3DDISPLAYROTATION) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(adapter), ::std::mem::transmute(pmode), ::std::mem::transmute(protation)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn CreateDeviceEx<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, adapter: u32, devicetype: D3DDEVTYPE, hfocuswindow: Param2, behaviorflags: u32, ppresentationparameters: *mut D3DPRESENT_PARAMETERS, pfullscreendisplaymode: *mut D3DDISPLAYMODEEX, ppreturneddeviceinterface: *mut ::std::option::Option<IDirect3DDevice9Ex>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).20)(
             ::std::mem::transmute_copy(self),
@@ -4953,6 +5419,7 @@ impl IDirect3D9Ex {
         .ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn GetAdapterLUID(&self, adapter: u32, pluid: *mut super::super::Foundation::LUID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(adapter), ::std::mem::transmute(pluid)).ok()
     }
@@ -5034,50 +5501,65 @@ pub struct IDirect3D9Ex_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, adapter: u32, pluid: *mut super::super::Foundation::LUID) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirect3DBaseTexture9(::windows::runtime::IUnknown);
 impl IDirect3DBaseTexture9 {
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetDevice(&self) -> ::windows::runtime::Result<IDirect3DDevice9> {
         let mut result__: <IDirect3DDevice9 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IDirect3DDevice9>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetPrivateData(&self, refguid: *const ::windows::runtime::GUID, pdata: *const ::std::ffi::c_void, sizeofdata: u32, flags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(refguid), ::std::mem::transmute(pdata), ::std::mem::transmute(sizeofdata), ::std::mem::transmute(flags)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetPrivateData(&self, refguid: *const ::windows::runtime::GUID, pdata: *mut ::std::ffi::c_void, psizeofdata: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(refguid), ::std::mem::transmute(pdata), ::std::mem::transmute(psizeofdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn FreePrivateData(&self, refguid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(refguid)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetPriority(&self, prioritynew: u32) -> u32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(prioritynew)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetPriority(&self) -> u32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn PreLoad(&self) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetType(&self) -> D3DRESOURCETYPE {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetLOD(&self, lodnew: u32) -> u32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(lodnew)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetLOD(&self) -> u32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetLevelCount(&self) -> u32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetAutoGenFilterType(&self, filtertype: D3DTEXTUREFILTERTYPE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(filtertype)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetAutoGenFilterType(&self) -> D3DTEXTUREFILTERTYPE {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GenerateMipSubLevels(&self) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self)))
     }
@@ -5147,68 +5629,88 @@ pub struct IDirect3DBaseTexture9_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> D3DTEXTUREFILTERTYPE,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr),
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirect3DCubeTexture9(::windows::runtime::IUnknown);
 impl IDirect3DCubeTexture9 {
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetDevice(&self) -> ::windows::runtime::Result<IDirect3DDevice9> {
         let mut result__: <IDirect3DDevice9 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IDirect3DDevice9>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetPrivateData(&self, refguid: *const ::windows::runtime::GUID, pdata: *const ::std::ffi::c_void, sizeofdata: u32, flags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(refguid), ::std::mem::transmute(pdata), ::std::mem::transmute(sizeofdata), ::std::mem::transmute(flags)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetPrivateData(&self, refguid: *const ::windows::runtime::GUID, pdata: *mut ::std::ffi::c_void, psizeofdata: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(refguid), ::std::mem::transmute(pdata), ::std::mem::transmute(psizeofdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn FreePrivateData(&self, refguid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(refguid)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetPriority(&self, prioritynew: u32) -> u32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(prioritynew)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetPriority(&self) -> u32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn PreLoad(&self) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetType(&self) -> D3DRESOURCETYPE {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetLOD(&self, lodnew: u32) -> u32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(lodnew)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetLOD(&self) -> u32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetLevelCount(&self) -> u32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetAutoGenFilterType(&self, filtertype: D3DTEXTUREFILTERTYPE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(filtertype)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetAutoGenFilterType(&self) -> D3DTEXTUREFILTERTYPE {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GenerateMipSubLevels(&self) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetLevelDesc(&self, level: u32, pdesc: *mut D3DSURFACE_DESC) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(level), ::std::mem::transmute(pdesc)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetCubeMapSurface(&self, facetype: D3DCUBEMAP_FACES, level: u32) -> ::windows::runtime::Result<IDirect3DSurface9> {
         let mut result__: <IDirect3DSurface9 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(facetype), ::std::mem::transmute(level), &mut result__).from_abi::<IDirect3DSurface9>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn LockRect(&self, facetype: D3DCUBEMAP_FACES, level: u32, plockedrect: *mut D3DLOCKED_RECT, prect: *const super::super::Foundation::RECT, flags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(facetype), ::std::mem::transmute(level), ::std::mem::transmute(plockedrect), ::std::mem::transmute(prect), ::std::mem::transmute(flags)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn UnlockRect(&self, facetype: D3DCUBEMAP_FACES, level: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(facetype), ::std::mem::transmute(level)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn AddDirtyRect(&self, facetype: D3DCUBEMAP_FACES, pdirtyrect: *const super::super::Foundation::RECT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(facetype), ::std::mem::transmute(pdirtyrect)).ok()
     }
@@ -5305,85 +5807,108 @@ pub struct IDirect3DCubeTexture9_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, facetype: D3DCUBEMAP_FACES, pdirtyrect: *const super::super::Foundation::RECT) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirect3DDevice9(::windows::runtime::IUnknown);
 impl IDirect3DDevice9 {
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn TestCooperativeLevel(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetAvailableTextureMem(&self) -> u32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn EvictManagedResources(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetDirect3D(&self) -> ::windows::runtime::Result<IDirect3D9> {
         let mut result__: <IDirect3D9 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IDirect3D9>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetDeviceCaps(&self, pcaps: *mut D3DCAPS9) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcaps)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetDisplayMode(&self, iswapchain: u32, pmode: *mut D3DDISPLAYMODE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(iswapchain), ::std::mem::transmute(pmode)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn GetCreationParameters(&self, pparameters: *mut D3DDEVICE_CREATION_PARAMETERS) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(pparameters)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetCursorProperties<'a, Param2: ::windows::runtime::IntoParam<'a, IDirect3DSurface9>>(&self, xhotspot: u32, yhotspot: u32, pcursorbitmap: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(xhotspot), ::std::mem::transmute(yhotspot), pcursorbitmap.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetCursorPosition(&self, x: i32, y: i32, flags: u32) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(x), ::std::mem::transmute(y), ::std::mem::transmute(flags)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn ShowCursor<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bshow: Param0) -> super::super::Foundation::BOOL {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), bshow.into_param().abi()))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn CreateAdditionalSwapChain(&self, ppresentationparameters: *mut D3DPRESENT_PARAMETERS, pswapchain: *mut ::std::option::Option<IDirect3DSwapChain9>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppresentationparameters), ::std::mem::transmute(pswapchain)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetSwapChain(&self, iswapchain: u32) -> ::windows::runtime::Result<IDirect3DSwapChain9> {
         let mut result__: <IDirect3DSwapChain9 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(iswapchain), &mut result__).from_abi::<IDirect3DSwapChain9>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetNumberOfSwapChains(&self) -> u32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn Reset(&self, ppresentationparameters: *mut D3DPRESENT_PARAMETERS) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppresentationparameters)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
     pub unsafe fn Present<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, psourcerect: *const super::super::Foundation::RECT, pdestrect: *const super::super::Foundation::RECT, hdestwindowoverride: Param2, pdirtyregion: *const super::Gdi::RGNDATA) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(psourcerect), ::std::mem::transmute(pdestrect), hdestwindowoverride.into_param().abi(), ::std::mem::transmute(pdirtyregion)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetBackBuffer(&self, iswapchain: u32, ibackbuffer: u32, r#type: D3DBACKBUFFER_TYPE) -> ::windows::runtime::Result<IDirect3DSurface9> {
         let mut result__: <IDirect3DSurface9 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(iswapchain), ::std::mem::transmute(ibackbuffer), ::std::mem::transmute(r#type), &mut result__).from_abi::<IDirect3DSurface9>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn GetRasterStatus(&self, iswapchain: u32, prasterstatus: *mut D3DRASTER_STATUS) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(iswapchain), ::std::mem::transmute(prasterstatus)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn SetDialogBoxMode<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, benabledialogs: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), benabledialogs.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetGammaRamp(&self, iswapchain: u32, flags: u32, pramp: *const D3DGAMMARAMP) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(iswapchain), ::std::mem::transmute(flags), ::std::mem::transmute(pramp)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetGammaRamp(&self, iswapchain: u32, pramp: *mut D3DGAMMARAMP) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(iswapchain), ::std::mem::transmute(pramp)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn CreateTexture(&self, width: u32, height: u32, levels: u32, usage: u32, format: D3DFORMAT, pool: D3DPOOL, pptexture: *mut ::std::option::Option<IDirect3DTexture9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), ::std::mem::transmute(width), ::std::mem::transmute(height), ::std::mem::transmute(levels), ::std::mem::transmute(usage), ::std::mem::transmute(format), ::std::mem::transmute(pool), ::std::mem::transmute(pptexture), ::std::mem::transmute(psharedhandle)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn CreateVolumeTexture(&self, width: u32, height: u32, depth: u32, levels: u32, usage: u32, format: D3DFORMAT, pool: D3DPOOL, ppvolumetexture: *mut ::std::option::Option<IDirect3DVolumeTexture9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).24)(
             ::std::mem::transmute_copy(self),
@@ -5400,18 +5925,22 @@ impl IDirect3DDevice9 {
         .ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn CreateCubeTexture(&self, edgelength: u32, levels: u32, usage: u32, format: D3DFORMAT, pool: D3DPOOL, ppcubetexture: *mut ::std::option::Option<IDirect3DCubeTexture9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), ::std::mem::transmute(edgelength), ::std::mem::transmute(levels), ::std::mem::transmute(usage), ::std::mem::transmute(format), ::std::mem::transmute(pool), ::std::mem::transmute(ppcubetexture), ::std::mem::transmute(psharedhandle)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn CreateVertexBuffer(&self, length: u32, usage: u32, fvf: u32, pool: D3DPOOL, ppvertexbuffer: *mut ::std::option::Option<IDirect3DVertexBuffer9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), ::std::mem::transmute(length), ::std::mem::transmute(usage), ::std::mem::transmute(fvf), ::std::mem::transmute(pool), ::std::mem::transmute(ppvertexbuffer), ::std::mem::transmute(psharedhandle)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn CreateIndexBuffer(&self, length: u32, usage: u32, format: D3DFORMAT, pool: D3DPOOL, ppindexbuffer: *mut ::std::option::Option<IDirect3DIndexBuffer9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), ::std::mem::transmute(length), ::std::mem::transmute(usage), ::std::mem::transmute(format), ::std::mem::transmute(pool), ::std::mem::transmute(ppindexbuffer), ::std::mem::transmute(psharedhandle)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn CreateRenderTarget<'a, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, width: u32, height: u32, format: D3DFORMAT, multisample: D3DMULTISAMPLE_TYPE, multisamplequality: u32, lockable: Param5, ppsurface: *mut ::std::option::Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).28)(
             ::std::mem::transmute_copy(self),
@@ -5427,6 +5956,7 @@ impl IDirect3DDevice9 {
         .ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn CreateDepthStencilSurface<'a, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, width: u32, height: u32, format: D3DFORMAT, multisample: D3DMULTISAMPLE_TYPE, multisamplequality: u32, discard: Param5, ppsurface: *mut ::std::option::Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).29)(
             ::std::mem::transmute_copy(self),
@@ -5442,184 +5972,239 @@ impl IDirect3DDevice9 {
         .ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn UpdateSurface<'a, Param0: ::windows::runtime::IntoParam<'a, IDirect3DSurface9>, Param2: ::windows::runtime::IntoParam<'a, IDirect3DSurface9>>(&self, psourcesurface: Param0, psourcerect: *const super::super::Foundation::RECT, pdestinationsurface: Param2, pdestpoint: *const super::super::Foundation::POINT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), psourcesurface.into_param().abi(), ::std::mem::transmute(psourcerect), pdestinationsurface.into_param().abi(), ::std::mem::transmute(pdestpoint)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn UpdateTexture<'a, Param0: ::windows::runtime::IntoParam<'a, IDirect3DBaseTexture9>, Param1: ::windows::runtime::IntoParam<'a, IDirect3DBaseTexture9>>(&self, psourcetexture: Param0, pdestinationtexture: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self), psourcetexture.into_param().abi(), pdestinationtexture.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetRenderTargetData<'a, Param0: ::windows::runtime::IntoParam<'a, IDirect3DSurface9>, Param1: ::windows::runtime::IntoParam<'a, IDirect3DSurface9>>(&self, prendertarget: Param0, pdestsurface: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).32)(::std::mem::transmute_copy(self), prendertarget.into_param().abi(), pdestsurface.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetFrontBufferData<'a, Param1: ::windows::runtime::IntoParam<'a, IDirect3DSurface9>>(&self, iswapchain: u32, pdestsurface: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).33)(::std::mem::transmute_copy(self), ::std::mem::transmute(iswapchain), pdestsurface.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn StretchRect<'a, Param0: ::windows::runtime::IntoParam<'a, IDirect3DSurface9>, Param2: ::windows::runtime::IntoParam<'a, IDirect3DSurface9>>(&self, psourcesurface: Param0, psourcerect: *const super::super::Foundation::RECT, pdestsurface: Param2, pdestrect: *const super::super::Foundation::RECT, filter: D3DTEXTUREFILTERTYPE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).34)(::std::mem::transmute_copy(self), psourcesurface.into_param().abi(), ::std::mem::transmute(psourcerect), pdestsurface.into_param().abi(), ::std::mem::transmute(pdestrect), ::std::mem::transmute(filter)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn ColorFill<'a, Param0: ::windows::runtime::IntoParam<'a, IDirect3DSurface9>>(&self, psurface: Param0, prect: *const super::super::Foundation::RECT, color: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).35)(::std::mem::transmute_copy(self), psurface.into_param().abi(), ::std::mem::transmute(prect), ::std::mem::transmute(color)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn CreateOffscreenPlainSurface(&self, width: u32, height: u32, format: D3DFORMAT, pool: D3DPOOL, ppsurface: *mut ::std::option::Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).36)(::std::mem::transmute_copy(self), ::std::mem::transmute(width), ::std::mem::transmute(height), ::std::mem::transmute(format), ::std::mem::transmute(pool), ::std::mem::transmute(ppsurface), ::std::mem::transmute(psharedhandle)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetRenderTarget<'a, Param1: ::windows::runtime::IntoParam<'a, IDirect3DSurface9>>(&self, rendertargetindex: u32, prendertarget: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).37)(::std::mem::transmute_copy(self), ::std::mem::transmute(rendertargetindex), prendertarget.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetRenderTarget(&self, rendertargetindex: u32) -> ::windows::runtime::Result<IDirect3DSurface9> {
         let mut result__: <IDirect3DSurface9 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).38)(::std::mem::transmute_copy(self), ::std::mem::transmute(rendertargetindex), &mut result__).from_abi::<IDirect3DSurface9>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetDepthStencilSurface<'a, Param0: ::windows::runtime::IntoParam<'a, IDirect3DSurface9>>(&self, pnewzstencil: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).39)(::std::mem::transmute_copy(self), pnewzstencil.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetDepthStencilSurface(&self) -> ::windows::runtime::Result<IDirect3DSurface9> {
         let mut result__: <IDirect3DSurface9 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).40)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IDirect3DSurface9>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn BeginScene(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).41)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn EndScene(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).42)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn Clear(&self, count: u32, prects: *const D3DRECT, flags: u32, color: u32, z: f32, stencil: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).43)(::std::mem::transmute_copy(self), ::std::mem::transmute(count), ::std::mem::transmute(prects), ::std::mem::transmute(flags), ::std::mem::transmute(color), ::std::mem::transmute(z), ::std::mem::transmute(stencil)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetTransform(&self, state: D3DTRANSFORMSTATETYPE, pmatrix: *const D3DMATRIX) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).44)(::std::mem::transmute_copy(self), ::std::mem::transmute(state), ::std::mem::transmute(pmatrix)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetTransform(&self, state: D3DTRANSFORMSTATETYPE, pmatrix: *mut D3DMATRIX) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).45)(::std::mem::transmute_copy(self), ::std::mem::transmute(state), ::std::mem::transmute(pmatrix)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn MultiplyTransform(&self, param0: D3DTRANSFORMSTATETYPE, param1: *const D3DMATRIX) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).46)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetViewport(&self, pviewport: *const D3DVIEWPORT9) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).47)(::std::mem::transmute_copy(self), ::std::mem::transmute(pviewport)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetViewport(&self, pviewport: *mut D3DVIEWPORT9) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).48)(::std::mem::transmute_copy(self), ::std::mem::transmute(pviewport)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetMaterial(&self, pmaterial: *const D3DMATERIAL9) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).49)(::std::mem::transmute_copy(self), ::std::mem::transmute(pmaterial)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetMaterial(&self, pmaterial: *mut D3DMATERIAL9) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).50)(::std::mem::transmute_copy(self), ::std::mem::transmute(pmaterial)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetLight(&self, index: u32, param1: *const D3DLIGHT9) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).51)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), ::std::mem::transmute(param1)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetLight(&self, index: u32, param1: *mut D3DLIGHT9) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).52)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), ::std::mem::transmute(param1)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn LightEnable<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, index: u32, enable: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).53)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), enable.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn GetLightEnable(&self, index: u32, penable: *mut super::super::Foundation::BOOL) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).54)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), ::std::mem::transmute(penable)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetClipPlane(&self, index: u32, pplane: *const f32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).55)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), ::std::mem::transmute(pplane)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetClipPlane(&self, index: u32, pplane: *mut f32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).56)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), ::std::mem::transmute(pplane)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetRenderState(&self, state: D3DRENDERSTATETYPE, value: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).57)(::std::mem::transmute_copy(self), ::std::mem::transmute(state), ::std::mem::transmute(value)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetRenderState(&self, state: D3DRENDERSTATETYPE, pvalue: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).58)(::std::mem::transmute_copy(self), ::std::mem::transmute(state), ::std::mem::transmute(pvalue)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn CreateStateBlock(&self, r#type: D3DSTATEBLOCKTYPE) -> ::windows::runtime::Result<IDirect3DStateBlock9> {
         let mut result__: <IDirect3DStateBlock9 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).59)(::std::mem::transmute_copy(self), ::std::mem::transmute(r#type), &mut result__).from_abi::<IDirect3DStateBlock9>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn BeginStateBlock(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).60)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn EndStateBlock(&self) -> ::windows::runtime::Result<IDirect3DStateBlock9> {
         let mut result__: <IDirect3DStateBlock9 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).61)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IDirect3DStateBlock9>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetClipStatus(&self, pclipstatus: *const D3DCLIPSTATUS9) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).62)(::std::mem::transmute_copy(self), ::std::mem::transmute(pclipstatus)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetClipStatus(&self, pclipstatus: *mut D3DCLIPSTATUS9) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).63)(::std::mem::transmute_copy(self), ::std::mem::transmute(pclipstatus)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetTexture(&self, stage: u32) -> ::windows::runtime::Result<IDirect3DBaseTexture9> {
         let mut result__: <IDirect3DBaseTexture9 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).64)(::std::mem::transmute_copy(self), ::std::mem::transmute(stage), &mut result__).from_abi::<IDirect3DBaseTexture9>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetTexture<'a, Param1: ::windows::runtime::IntoParam<'a, IDirect3DBaseTexture9>>(&self, stage: u32, ptexture: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).65)(::std::mem::transmute_copy(self), ::std::mem::transmute(stage), ptexture.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetTextureStageState(&self, stage: u32, r#type: D3DTEXTURESTAGESTATETYPE, pvalue: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).66)(::std::mem::transmute_copy(self), ::std::mem::transmute(stage), ::std::mem::transmute(r#type), ::std::mem::transmute(pvalue)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetTextureStageState(&self, stage: u32, r#type: D3DTEXTURESTAGESTATETYPE, value: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).67)(::std::mem::transmute_copy(self), ::std::mem::transmute(stage), ::std::mem::transmute(r#type), ::std::mem::transmute(value)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetSamplerState(&self, sampler: u32, r#type: D3DSAMPLERSTATETYPE, pvalue: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).68)(::std::mem::transmute_copy(self), ::std::mem::transmute(sampler), ::std::mem::transmute(r#type), ::std::mem::transmute(pvalue)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetSamplerState(&self, sampler: u32, r#type: D3DSAMPLERSTATETYPE, value: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).69)(::std::mem::transmute_copy(self), ::std::mem::transmute(sampler), ::std::mem::transmute(r#type), ::std::mem::transmute(value)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn ValidateDevice(&self, pnumpasses: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).70)(::std::mem::transmute_copy(self), ::std::mem::transmute(pnumpasses)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Graphics_Gdi`*"]
     pub unsafe fn SetPaletteEntries(&self, palettenumber: u32, pentries: *const super::Gdi::PALETTEENTRY) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).71)(::std::mem::transmute_copy(self), ::std::mem::transmute(palettenumber), ::std::mem::transmute(pentries)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Graphics_Gdi`*"]
     pub unsafe fn GetPaletteEntries(&self, palettenumber: u32, pentries: *mut super::Gdi::PALETTEENTRY) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).72)(::std::mem::transmute_copy(self), ::std::mem::transmute(palettenumber), ::std::mem::transmute(pentries)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetCurrentTexturePalette(&self, palettenumber: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).73)(::std::mem::transmute_copy(self), ::std::mem::transmute(palettenumber)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetCurrentTexturePalette(&self, palettenumber: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).74)(::std::mem::transmute_copy(self), ::std::mem::transmute(palettenumber)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn SetScissorRect(&self, prect: *const super::super::Foundation::RECT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).75)(::std::mem::transmute_copy(self), ::std::mem::transmute(prect)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn GetScissorRect(&self, prect: *mut super::super::Foundation::RECT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).76)(::std::mem::transmute_copy(self), ::std::mem::transmute(prect)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn SetSoftwareVertexProcessing<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bsoftware: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).77)(::std::mem::transmute_copy(self), bsoftware.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn GetSoftwareVertexProcessing(&self) -> super::super::Foundation::BOOL {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).78)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetNPatchMode(&self, nsegments: f32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).79)(::std::mem::transmute_copy(self), ::std::mem::transmute(nsegments)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetNPatchMode(&self) -> f32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).80)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn DrawPrimitive(&self, primitivetype: D3DPRIMITIVETYPE, startvertex: u32, primitivecount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).81)(::std::mem::transmute_copy(self), ::std::mem::transmute(primitivetype), ::std::mem::transmute(startvertex), ::std::mem::transmute(primitivecount)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn DrawIndexedPrimitive(&self, param0: D3DPRIMITIVETYPE, basevertexindex: i32, minvertexindex: u32, numvertices: u32, startindex: u32, primcount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).82)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(basevertexindex), ::std::mem::transmute(minvertexindex), ::std::mem::transmute(numvertices), ::std::mem::transmute(startindex), ::std::mem::transmute(primcount)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn DrawPrimitiveUP(&self, primitivetype: D3DPRIMITIVETYPE, primitivecount: u32, pvertexstreamzerodata: *const ::std::ffi::c_void, vertexstreamzerostride: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).83)(::std::mem::transmute_copy(self), ::std::mem::transmute(primitivetype), ::std::mem::transmute(primitivecount), ::std::mem::transmute(pvertexstreamzerodata), ::std::mem::transmute(vertexstreamzerostride)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn DrawIndexedPrimitiveUP(&self, primitivetype: D3DPRIMITIVETYPE, minvertexindex: u32, numvertices: u32, primitivecount: u32, pindexdata: *const ::std::ffi::c_void, indexdataformat: D3DFORMAT, pvertexstreamzerodata: *const ::std::ffi::c_void, vertexstreamzerostride: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).84)(
             ::std::mem::transmute_copy(self),
@@ -5634,116 +6219,150 @@ impl IDirect3DDevice9 {
         )
         .ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn ProcessVertices<'a, Param3: ::windows::runtime::IntoParam<'a, IDirect3DVertexBuffer9>, Param4: ::windows::runtime::IntoParam<'a, IDirect3DVertexDeclaration9>>(&self, srcstartindex: u32, destindex: u32, vertexcount: u32, pdestbuffer: Param3, pvertexdecl: Param4, flags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).85)(::std::mem::transmute_copy(self), ::std::mem::transmute(srcstartindex), ::std::mem::transmute(destindex), ::std::mem::transmute(vertexcount), pdestbuffer.into_param().abi(), pvertexdecl.into_param().abi(), ::std::mem::transmute(flags)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn CreateVertexDeclaration(&self, pvertexelements: *const D3DVERTEXELEMENT9) -> ::windows::runtime::Result<IDirect3DVertexDeclaration9> {
         let mut result__: <IDirect3DVertexDeclaration9 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).86)(::std::mem::transmute_copy(self), ::std::mem::transmute(pvertexelements), &mut result__).from_abi::<IDirect3DVertexDeclaration9>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetVertexDeclaration<'a, Param0: ::windows::runtime::IntoParam<'a, IDirect3DVertexDeclaration9>>(&self, pdecl: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).87)(::std::mem::transmute_copy(self), pdecl.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetVertexDeclaration(&self) -> ::windows::runtime::Result<IDirect3DVertexDeclaration9> {
         let mut result__: <IDirect3DVertexDeclaration9 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).88)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IDirect3DVertexDeclaration9>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetFVF(&self, fvf: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).89)(::std::mem::transmute_copy(self), ::std::mem::transmute(fvf)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetFVF(&self, pfvf: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).90)(::std::mem::transmute_copy(self), ::std::mem::transmute(pfvf)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn CreateVertexShader(&self, pfunction: *const u32) -> ::windows::runtime::Result<IDirect3DVertexShader9> {
         let mut result__: <IDirect3DVertexShader9 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).91)(::std::mem::transmute_copy(self), ::std::mem::transmute(pfunction), &mut result__).from_abi::<IDirect3DVertexShader9>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetVertexShader<'a, Param0: ::windows::runtime::IntoParam<'a, IDirect3DVertexShader9>>(&self, pshader: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).92)(::std::mem::transmute_copy(self), pshader.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetVertexShader(&self) -> ::windows::runtime::Result<IDirect3DVertexShader9> {
         let mut result__: <IDirect3DVertexShader9 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).93)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IDirect3DVertexShader9>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetVertexShaderConstantF(&self, startregister: u32, pconstantdata: *const f32, vector4fcount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).94)(::std::mem::transmute_copy(self), ::std::mem::transmute(startregister), ::std::mem::transmute(pconstantdata), ::std::mem::transmute(vector4fcount)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetVertexShaderConstantF(&self, startregister: u32, pconstantdata: *mut f32, vector4fcount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).95)(::std::mem::transmute_copy(self), ::std::mem::transmute(startregister), ::std::mem::transmute(pconstantdata), ::std::mem::transmute(vector4fcount)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetVertexShaderConstantI(&self, startregister: u32, pconstantdata: *const i32, vector4icount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).96)(::std::mem::transmute_copy(self), ::std::mem::transmute(startregister), ::std::mem::transmute(pconstantdata), ::std::mem::transmute(vector4icount)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetVertexShaderConstantI(&self, startregister: u32, pconstantdata: *mut i32, vector4icount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).97)(::std::mem::transmute_copy(self), ::std::mem::transmute(startregister), ::std::mem::transmute(pconstantdata), ::std::mem::transmute(vector4icount)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn SetVertexShaderConstantB(&self, startregister: u32, pconstantdata: *const super::super::Foundation::BOOL, boolcount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).98)(::std::mem::transmute_copy(self), ::std::mem::transmute(startregister), ::std::mem::transmute(pconstantdata), ::std::mem::transmute(boolcount)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn GetVertexShaderConstantB(&self, startregister: u32, pconstantdata: *mut super::super::Foundation::BOOL, boolcount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).99)(::std::mem::transmute_copy(self), ::std::mem::transmute(startregister), ::std::mem::transmute(pconstantdata), ::std::mem::transmute(boolcount)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetStreamSource<'a, Param1: ::windows::runtime::IntoParam<'a, IDirect3DVertexBuffer9>>(&self, streamnumber: u32, pstreamdata: Param1, offsetinbytes: u32, stride: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).100)(::std::mem::transmute_copy(self), ::std::mem::transmute(streamnumber), pstreamdata.into_param().abi(), ::std::mem::transmute(offsetinbytes), ::std::mem::transmute(stride)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetStreamSource(&self, streamnumber: u32, ppstreamdata: *mut ::std::option::Option<IDirect3DVertexBuffer9>, poffsetinbytes: *mut u32, pstride: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).101)(::std::mem::transmute_copy(self), ::std::mem::transmute(streamnumber), ::std::mem::transmute(ppstreamdata), ::std::mem::transmute(poffsetinbytes), ::std::mem::transmute(pstride)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetStreamSourceFreq(&self, streamnumber: u32, setting: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).102)(::std::mem::transmute_copy(self), ::std::mem::transmute(streamnumber), ::std::mem::transmute(setting)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetStreamSourceFreq(&self, streamnumber: u32, psetting: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).103)(::std::mem::transmute_copy(self), ::std::mem::transmute(streamnumber), ::std::mem::transmute(psetting)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetIndices<'a, Param0: ::windows::runtime::IntoParam<'a, IDirect3DIndexBuffer9>>(&self, pindexdata: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).104)(::std::mem::transmute_copy(self), pindexdata.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetIndices(&self) -> ::windows::runtime::Result<IDirect3DIndexBuffer9> {
         let mut result__: <IDirect3DIndexBuffer9 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).105)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IDirect3DIndexBuffer9>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn CreatePixelShader(&self, pfunction: *const u32) -> ::windows::runtime::Result<IDirect3DPixelShader9> {
         let mut result__: <IDirect3DPixelShader9 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).106)(::std::mem::transmute_copy(self), ::std::mem::transmute(pfunction), &mut result__).from_abi::<IDirect3DPixelShader9>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetPixelShader<'a, Param0: ::windows::runtime::IntoParam<'a, IDirect3DPixelShader9>>(&self, pshader: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).107)(::std::mem::transmute_copy(self), pshader.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetPixelShader(&self) -> ::windows::runtime::Result<IDirect3DPixelShader9> {
         let mut result__: <IDirect3DPixelShader9 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).108)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IDirect3DPixelShader9>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetPixelShaderConstantF(&self, startregister: u32, pconstantdata: *const f32, vector4fcount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).109)(::std::mem::transmute_copy(self), ::std::mem::transmute(startregister), ::std::mem::transmute(pconstantdata), ::std::mem::transmute(vector4fcount)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetPixelShaderConstantF(&self, startregister: u32, pconstantdata: *mut f32, vector4fcount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).110)(::std::mem::transmute_copy(self), ::std::mem::transmute(startregister), ::std::mem::transmute(pconstantdata), ::std::mem::transmute(vector4fcount)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetPixelShaderConstantI(&self, startregister: u32, pconstantdata: *const i32, vector4icount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).111)(::std::mem::transmute_copy(self), ::std::mem::transmute(startregister), ::std::mem::transmute(pconstantdata), ::std::mem::transmute(vector4icount)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetPixelShaderConstantI(&self, startregister: u32, pconstantdata: *mut i32, vector4icount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).112)(::std::mem::transmute_copy(self), ::std::mem::transmute(startregister), ::std::mem::transmute(pconstantdata), ::std::mem::transmute(vector4icount)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn SetPixelShaderConstantB(&self, startregister: u32, pconstantdata: *const super::super::Foundation::BOOL, boolcount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).113)(::std::mem::transmute_copy(self), ::std::mem::transmute(startregister), ::std::mem::transmute(pconstantdata), ::std::mem::transmute(boolcount)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn GetPixelShaderConstantB(&self, startregister: u32, pconstantdata: *mut super::super::Foundation::BOOL, boolcount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).114)(::std::mem::transmute_copy(self), ::std::mem::transmute(startregister), ::std::mem::transmute(pconstantdata), ::std::mem::transmute(boolcount)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn DrawRectPatch(&self, handle: u32, pnumsegs: *const f32, prectpatchinfo: *const D3DRECTPATCH_INFO) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).115)(::std::mem::transmute_copy(self), ::std::mem::transmute(handle), ::std::mem::transmute(pnumsegs), ::std::mem::transmute(prectpatchinfo)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn DrawTriPatch(&self, handle: u32, pnumsegs: *const f32, ptripatchinfo: *const D3DTRIPATCH_INFO) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).116)(::std::mem::transmute_copy(self), ::std::mem::transmute(handle), ::std::mem::transmute(pnumsegs), ::std::mem::transmute(ptripatchinfo)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn DeletePatch(&self, handle: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).117)(::std::mem::transmute_copy(self), ::std::mem::transmute(handle)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn CreateQuery(&self, r#type: D3DQUERYTYPE) -> ::windows::runtime::Result<IDirect3DQuery9> {
         let mut result__: <IDirect3DQuery9 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).118)(::std::mem::transmute_copy(self), ::std::mem::transmute(r#type), &mut result__).from_abi::<IDirect3DQuery9>(result__)
@@ -5926,85 +6545,108 @@ pub struct IDirect3DDevice9_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, handle: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, r#type: D3DQUERYTYPE, ppquery: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirect3DDevice9Ex(::windows::runtime::IUnknown);
 impl IDirect3DDevice9Ex {
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn TestCooperativeLevel(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetAvailableTextureMem(&self) -> u32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn EvictManagedResources(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetDirect3D(&self) -> ::windows::runtime::Result<IDirect3D9> {
         let mut result__: <IDirect3D9 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IDirect3D9>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetDeviceCaps(&self, pcaps: *mut D3DCAPS9) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcaps)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetDisplayMode(&self, iswapchain: u32, pmode: *mut D3DDISPLAYMODE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(iswapchain), ::std::mem::transmute(pmode)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn GetCreationParameters(&self, pparameters: *mut D3DDEVICE_CREATION_PARAMETERS) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(pparameters)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetCursorProperties<'a, Param2: ::windows::runtime::IntoParam<'a, IDirect3DSurface9>>(&self, xhotspot: u32, yhotspot: u32, pcursorbitmap: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(xhotspot), ::std::mem::transmute(yhotspot), pcursorbitmap.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetCursorPosition(&self, x: i32, y: i32, flags: u32) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(x), ::std::mem::transmute(y), ::std::mem::transmute(flags)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn ShowCursor<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bshow: Param0) -> super::super::Foundation::BOOL {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), bshow.into_param().abi()))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn CreateAdditionalSwapChain(&self, ppresentationparameters: *mut D3DPRESENT_PARAMETERS, pswapchain: *mut ::std::option::Option<IDirect3DSwapChain9>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppresentationparameters), ::std::mem::transmute(pswapchain)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetSwapChain(&self, iswapchain: u32) -> ::windows::runtime::Result<IDirect3DSwapChain9> {
         let mut result__: <IDirect3DSwapChain9 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(iswapchain), &mut result__).from_abi::<IDirect3DSwapChain9>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetNumberOfSwapChains(&self) -> u32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn Reset(&self, ppresentationparameters: *mut D3DPRESENT_PARAMETERS) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppresentationparameters)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
     pub unsafe fn Present<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, psourcerect: *const super::super::Foundation::RECT, pdestrect: *const super::super::Foundation::RECT, hdestwindowoverride: Param2, pdirtyregion: *const super::Gdi::RGNDATA) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(psourcerect), ::std::mem::transmute(pdestrect), hdestwindowoverride.into_param().abi(), ::std::mem::transmute(pdirtyregion)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetBackBuffer(&self, iswapchain: u32, ibackbuffer: u32, r#type: D3DBACKBUFFER_TYPE) -> ::windows::runtime::Result<IDirect3DSurface9> {
         let mut result__: <IDirect3DSurface9 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(iswapchain), ::std::mem::transmute(ibackbuffer), ::std::mem::transmute(r#type), &mut result__).from_abi::<IDirect3DSurface9>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn GetRasterStatus(&self, iswapchain: u32, prasterstatus: *mut D3DRASTER_STATUS) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(iswapchain), ::std::mem::transmute(prasterstatus)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn SetDialogBoxMode<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, benabledialogs: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), benabledialogs.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetGammaRamp(&self, iswapchain: u32, flags: u32, pramp: *const D3DGAMMARAMP) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(iswapchain), ::std::mem::transmute(flags), ::std::mem::transmute(pramp)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetGammaRamp(&self, iswapchain: u32, pramp: *mut D3DGAMMARAMP) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(iswapchain), ::std::mem::transmute(pramp)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn CreateTexture(&self, width: u32, height: u32, levels: u32, usage: u32, format: D3DFORMAT, pool: D3DPOOL, pptexture: *mut ::std::option::Option<IDirect3DTexture9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), ::std::mem::transmute(width), ::std::mem::transmute(height), ::std::mem::transmute(levels), ::std::mem::transmute(usage), ::std::mem::transmute(format), ::std::mem::transmute(pool), ::std::mem::transmute(pptexture), ::std::mem::transmute(psharedhandle)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn CreateVolumeTexture(&self, width: u32, height: u32, depth: u32, levels: u32, usage: u32, format: D3DFORMAT, pool: D3DPOOL, ppvolumetexture: *mut ::std::option::Option<IDirect3DVolumeTexture9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).24)(
             ::std::mem::transmute_copy(self),
@@ -6021,18 +6663,22 @@ impl IDirect3DDevice9Ex {
         .ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn CreateCubeTexture(&self, edgelength: u32, levels: u32, usage: u32, format: D3DFORMAT, pool: D3DPOOL, ppcubetexture: *mut ::std::option::Option<IDirect3DCubeTexture9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), ::std::mem::transmute(edgelength), ::std::mem::transmute(levels), ::std::mem::transmute(usage), ::std::mem::transmute(format), ::std::mem::transmute(pool), ::std::mem::transmute(ppcubetexture), ::std::mem::transmute(psharedhandle)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn CreateVertexBuffer(&self, length: u32, usage: u32, fvf: u32, pool: D3DPOOL, ppvertexbuffer: *mut ::std::option::Option<IDirect3DVertexBuffer9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), ::std::mem::transmute(length), ::std::mem::transmute(usage), ::std::mem::transmute(fvf), ::std::mem::transmute(pool), ::std::mem::transmute(ppvertexbuffer), ::std::mem::transmute(psharedhandle)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn CreateIndexBuffer(&self, length: u32, usage: u32, format: D3DFORMAT, pool: D3DPOOL, ppindexbuffer: *mut ::std::option::Option<IDirect3DIndexBuffer9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), ::std::mem::transmute(length), ::std::mem::transmute(usage), ::std::mem::transmute(format), ::std::mem::transmute(pool), ::std::mem::transmute(ppindexbuffer), ::std::mem::transmute(psharedhandle)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn CreateRenderTarget<'a, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, width: u32, height: u32, format: D3DFORMAT, multisample: D3DMULTISAMPLE_TYPE, multisamplequality: u32, lockable: Param5, ppsurface: *mut ::std::option::Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).28)(
             ::std::mem::transmute_copy(self),
@@ -6048,6 +6694,7 @@ impl IDirect3DDevice9Ex {
         .ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn CreateDepthStencilSurface<'a, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, width: u32, height: u32, format: D3DFORMAT, multisample: D3DMULTISAMPLE_TYPE, multisamplequality: u32, discard: Param5, ppsurface: *mut ::std::option::Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).29)(
             ::std::mem::transmute_copy(self),
@@ -6063,184 +6710,239 @@ impl IDirect3DDevice9Ex {
         .ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn UpdateSurface<'a, Param0: ::windows::runtime::IntoParam<'a, IDirect3DSurface9>, Param2: ::windows::runtime::IntoParam<'a, IDirect3DSurface9>>(&self, psourcesurface: Param0, psourcerect: *const super::super::Foundation::RECT, pdestinationsurface: Param2, pdestpoint: *const super::super::Foundation::POINT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), psourcesurface.into_param().abi(), ::std::mem::transmute(psourcerect), pdestinationsurface.into_param().abi(), ::std::mem::transmute(pdestpoint)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn UpdateTexture<'a, Param0: ::windows::runtime::IntoParam<'a, IDirect3DBaseTexture9>, Param1: ::windows::runtime::IntoParam<'a, IDirect3DBaseTexture9>>(&self, psourcetexture: Param0, pdestinationtexture: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self), psourcetexture.into_param().abi(), pdestinationtexture.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetRenderTargetData<'a, Param0: ::windows::runtime::IntoParam<'a, IDirect3DSurface9>, Param1: ::windows::runtime::IntoParam<'a, IDirect3DSurface9>>(&self, prendertarget: Param0, pdestsurface: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).32)(::std::mem::transmute_copy(self), prendertarget.into_param().abi(), pdestsurface.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetFrontBufferData<'a, Param1: ::windows::runtime::IntoParam<'a, IDirect3DSurface9>>(&self, iswapchain: u32, pdestsurface: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).33)(::std::mem::transmute_copy(self), ::std::mem::transmute(iswapchain), pdestsurface.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn StretchRect<'a, Param0: ::windows::runtime::IntoParam<'a, IDirect3DSurface9>, Param2: ::windows::runtime::IntoParam<'a, IDirect3DSurface9>>(&self, psourcesurface: Param0, psourcerect: *const super::super::Foundation::RECT, pdestsurface: Param2, pdestrect: *const super::super::Foundation::RECT, filter: D3DTEXTUREFILTERTYPE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).34)(::std::mem::transmute_copy(self), psourcesurface.into_param().abi(), ::std::mem::transmute(psourcerect), pdestsurface.into_param().abi(), ::std::mem::transmute(pdestrect), ::std::mem::transmute(filter)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn ColorFill<'a, Param0: ::windows::runtime::IntoParam<'a, IDirect3DSurface9>>(&self, psurface: Param0, prect: *const super::super::Foundation::RECT, color: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).35)(::std::mem::transmute_copy(self), psurface.into_param().abi(), ::std::mem::transmute(prect), ::std::mem::transmute(color)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn CreateOffscreenPlainSurface(&self, width: u32, height: u32, format: D3DFORMAT, pool: D3DPOOL, ppsurface: *mut ::std::option::Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).36)(::std::mem::transmute_copy(self), ::std::mem::transmute(width), ::std::mem::transmute(height), ::std::mem::transmute(format), ::std::mem::transmute(pool), ::std::mem::transmute(ppsurface), ::std::mem::transmute(psharedhandle)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetRenderTarget<'a, Param1: ::windows::runtime::IntoParam<'a, IDirect3DSurface9>>(&self, rendertargetindex: u32, prendertarget: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).37)(::std::mem::transmute_copy(self), ::std::mem::transmute(rendertargetindex), prendertarget.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetRenderTarget(&self, rendertargetindex: u32) -> ::windows::runtime::Result<IDirect3DSurface9> {
         let mut result__: <IDirect3DSurface9 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).38)(::std::mem::transmute_copy(self), ::std::mem::transmute(rendertargetindex), &mut result__).from_abi::<IDirect3DSurface9>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetDepthStencilSurface<'a, Param0: ::windows::runtime::IntoParam<'a, IDirect3DSurface9>>(&self, pnewzstencil: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).39)(::std::mem::transmute_copy(self), pnewzstencil.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetDepthStencilSurface(&self) -> ::windows::runtime::Result<IDirect3DSurface9> {
         let mut result__: <IDirect3DSurface9 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).40)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IDirect3DSurface9>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn BeginScene(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).41)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn EndScene(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).42)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn Clear(&self, count: u32, prects: *const D3DRECT, flags: u32, color: u32, z: f32, stencil: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).43)(::std::mem::transmute_copy(self), ::std::mem::transmute(count), ::std::mem::transmute(prects), ::std::mem::transmute(flags), ::std::mem::transmute(color), ::std::mem::transmute(z), ::std::mem::transmute(stencil)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetTransform(&self, state: D3DTRANSFORMSTATETYPE, pmatrix: *const D3DMATRIX) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).44)(::std::mem::transmute_copy(self), ::std::mem::transmute(state), ::std::mem::transmute(pmatrix)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetTransform(&self, state: D3DTRANSFORMSTATETYPE, pmatrix: *mut D3DMATRIX) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).45)(::std::mem::transmute_copy(self), ::std::mem::transmute(state), ::std::mem::transmute(pmatrix)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn MultiplyTransform(&self, param0: D3DTRANSFORMSTATETYPE, param1: *const D3DMATRIX) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).46)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetViewport(&self, pviewport: *const D3DVIEWPORT9) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).47)(::std::mem::transmute_copy(self), ::std::mem::transmute(pviewport)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetViewport(&self, pviewport: *mut D3DVIEWPORT9) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).48)(::std::mem::transmute_copy(self), ::std::mem::transmute(pviewport)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetMaterial(&self, pmaterial: *const D3DMATERIAL9) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).49)(::std::mem::transmute_copy(self), ::std::mem::transmute(pmaterial)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetMaterial(&self, pmaterial: *mut D3DMATERIAL9) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).50)(::std::mem::transmute_copy(self), ::std::mem::transmute(pmaterial)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetLight(&self, index: u32, param1: *const D3DLIGHT9) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).51)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), ::std::mem::transmute(param1)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetLight(&self, index: u32, param1: *mut D3DLIGHT9) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).52)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), ::std::mem::transmute(param1)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn LightEnable<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, index: u32, enable: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).53)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), enable.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn GetLightEnable(&self, index: u32, penable: *mut super::super::Foundation::BOOL) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).54)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), ::std::mem::transmute(penable)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetClipPlane(&self, index: u32, pplane: *const f32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).55)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), ::std::mem::transmute(pplane)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetClipPlane(&self, index: u32, pplane: *mut f32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).56)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), ::std::mem::transmute(pplane)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetRenderState(&self, state: D3DRENDERSTATETYPE, value: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).57)(::std::mem::transmute_copy(self), ::std::mem::transmute(state), ::std::mem::transmute(value)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetRenderState(&self, state: D3DRENDERSTATETYPE, pvalue: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).58)(::std::mem::transmute_copy(self), ::std::mem::transmute(state), ::std::mem::transmute(pvalue)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn CreateStateBlock(&self, r#type: D3DSTATEBLOCKTYPE) -> ::windows::runtime::Result<IDirect3DStateBlock9> {
         let mut result__: <IDirect3DStateBlock9 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).59)(::std::mem::transmute_copy(self), ::std::mem::transmute(r#type), &mut result__).from_abi::<IDirect3DStateBlock9>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn BeginStateBlock(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).60)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn EndStateBlock(&self) -> ::windows::runtime::Result<IDirect3DStateBlock9> {
         let mut result__: <IDirect3DStateBlock9 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).61)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IDirect3DStateBlock9>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetClipStatus(&self, pclipstatus: *const D3DCLIPSTATUS9) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).62)(::std::mem::transmute_copy(self), ::std::mem::transmute(pclipstatus)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetClipStatus(&self, pclipstatus: *mut D3DCLIPSTATUS9) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).63)(::std::mem::transmute_copy(self), ::std::mem::transmute(pclipstatus)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetTexture(&self, stage: u32) -> ::windows::runtime::Result<IDirect3DBaseTexture9> {
         let mut result__: <IDirect3DBaseTexture9 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).64)(::std::mem::transmute_copy(self), ::std::mem::transmute(stage), &mut result__).from_abi::<IDirect3DBaseTexture9>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetTexture<'a, Param1: ::windows::runtime::IntoParam<'a, IDirect3DBaseTexture9>>(&self, stage: u32, ptexture: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).65)(::std::mem::transmute_copy(self), ::std::mem::transmute(stage), ptexture.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetTextureStageState(&self, stage: u32, r#type: D3DTEXTURESTAGESTATETYPE, pvalue: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).66)(::std::mem::transmute_copy(self), ::std::mem::transmute(stage), ::std::mem::transmute(r#type), ::std::mem::transmute(pvalue)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetTextureStageState(&self, stage: u32, r#type: D3DTEXTURESTAGESTATETYPE, value: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).67)(::std::mem::transmute_copy(self), ::std::mem::transmute(stage), ::std::mem::transmute(r#type), ::std::mem::transmute(value)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetSamplerState(&self, sampler: u32, r#type: D3DSAMPLERSTATETYPE, pvalue: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).68)(::std::mem::transmute_copy(self), ::std::mem::transmute(sampler), ::std::mem::transmute(r#type), ::std::mem::transmute(pvalue)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetSamplerState(&self, sampler: u32, r#type: D3DSAMPLERSTATETYPE, value: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).69)(::std::mem::transmute_copy(self), ::std::mem::transmute(sampler), ::std::mem::transmute(r#type), ::std::mem::transmute(value)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn ValidateDevice(&self, pnumpasses: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).70)(::std::mem::transmute_copy(self), ::std::mem::transmute(pnumpasses)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Graphics_Gdi`*"]
     pub unsafe fn SetPaletteEntries(&self, palettenumber: u32, pentries: *const super::Gdi::PALETTEENTRY) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).71)(::std::mem::transmute_copy(self), ::std::mem::transmute(palettenumber), ::std::mem::transmute(pentries)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Graphics_Gdi`*"]
     pub unsafe fn GetPaletteEntries(&self, palettenumber: u32, pentries: *mut super::Gdi::PALETTEENTRY) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).72)(::std::mem::transmute_copy(self), ::std::mem::transmute(palettenumber), ::std::mem::transmute(pentries)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetCurrentTexturePalette(&self, palettenumber: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).73)(::std::mem::transmute_copy(self), ::std::mem::transmute(palettenumber)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetCurrentTexturePalette(&self, palettenumber: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).74)(::std::mem::transmute_copy(self), ::std::mem::transmute(palettenumber)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn SetScissorRect(&self, prect: *const super::super::Foundation::RECT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).75)(::std::mem::transmute_copy(self), ::std::mem::transmute(prect)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn GetScissorRect(&self, prect: *mut super::super::Foundation::RECT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).76)(::std::mem::transmute_copy(self), ::std::mem::transmute(prect)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn SetSoftwareVertexProcessing<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bsoftware: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).77)(::std::mem::transmute_copy(self), bsoftware.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn GetSoftwareVertexProcessing(&self) -> super::super::Foundation::BOOL {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).78)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetNPatchMode(&self, nsegments: f32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).79)(::std::mem::transmute_copy(self), ::std::mem::transmute(nsegments)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetNPatchMode(&self) -> f32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).80)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn DrawPrimitive(&self, primitivetype: D3DPRIMITIVETYPE, startvertex: u32, primitivecount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).81)(::std::mem::transmute_copy(self), ::std::mem::transmute(primitivetype), ::std::mem::transmute(startvertex), ::std::mem::transmute(primitivecount)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn DrawIndexedPrimitive(&self, param0: D3DPRIMITIVETYPE, basevertexindex: i32, minvertexindex: u32, numvertices: u32, startindex: u32, primcount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).82)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(basevertexindex), ::std::mem::transmute(minvertexindex), ::std::mem::transmute(numvertices), ::std::mem::transmute(startindex), ::std::mem::transmute(primcount)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn DrawPrimitiveUP(&self, primitivetype: D3DPRIMITIVETYPE, primitivecount: u32, pvertexstreamzerodata: *const ::std::ffi::c_void, vertexstreamzerostride: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).83)(::std::mem::transmute_copy(self), ::std::mem::transmute(primitivetype), ::std::mem::transmute(primitivecount), ::std::mem::transmute(pvertexstreamzerodata), ::std::mem::transmute(vertexstreamzerostride)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn DrawIndexedPrimitiveUP(&self, primitivetype: D3DPRIMITIVETYPE, minvertexindex: u32, numvertices: u32, primitivecount: u32, pindexdata: *const ::std::ffi::c_void, indexdataformat: D3DFORMAT, pvertexstreamzerodata: *const ::std::ffi::c_void, vertexstreamzerostride: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).84)(
             ::std::mem::transmute_copy(self),
@@ -6255,153 +6957,198 @@ impl IDirect3DDevice9Ex {
         )
         .ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn ProcessVertices<'a, Param3: ::windows::runtime::IntoParam<'a, IDirect3DVertexBuffer9>, Param4: ::windows::runtime::IntoParam<'a, IDirect3DVertexDeclaration9>>(&self, srcstartindex: u32, destindex: u32, vertexcount: u32, pdestbuffer: Param3, pvertexdecl: Param4, flags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).85)(::std::mem::transmute_copy(self), ::std::mem::transmute(srcstartindex), ::std::mem::transmute(destindex), ::std::mem::transmute(vertexcount), pdestbuffer.into_param().abi(), pvertexdecl.into_param().abi(), ::std::mem::transmute(flags)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn CreateVertexDeclaration(&self, pvertexelements: *const D3DVERTEXELEMENT9) -> ::windows::runtime::Result<IDirect3DVertexDeclaration9> {
         let mut result__: <IDirect3DVertexDeclaration9 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).86)(::std::mem::transmute_copy(self), ::std::mem::transmute(pvertexelements), &mut result__).from_abi::<IDirect3DVertexDeclaration9>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetVertexDeclaration<'a, Param0: ::windows::runtime::IntoParam<'a, IDirect3DVertexDeclaration9>>(&self, pdecl: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).87)(::std::mem::transmute_copy(self), pdecl.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetVertexDeclaration(&self) -> ::windows::runtime::Result<IDirect3DVertexDeclaration9> {
         let mut result__: <IDirect3DVertexDeclaration9 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).88)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IDirect3DVertexDeclaration9>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetFVF(&self, fvf: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).89)(::std::mem::transmute_copy(self), ::std::mem::transmute(fvf)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetFVF(&self, pfvf: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).90)(::std::mem::transmute_copy(self), ::std::mem::transmute(pfvf)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn CreateVertexShader(&self, pfunction: *const u32) -> ::windows::runtime::Result<IDirect3DVertexShader9> {
         let mut result__: <IDirect3DVertexShader9 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).91)(::std::mem::transmute_copy(self), ::std::mem::transmute(pfunction), &mut result__).from_abi::<IDirect3DVertexShader9>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetVertexShader<'a, Param0: ::windows::runtime::IntoParam<'a, IDirect3DVertexShader9>>(&self, pshader: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).92)(::std::mem::transmute_copy(self), pshader.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetVertexShader(&self) -> ::windows::runtime::Result<IDirect3DVertexShader9> {
         let mut result__: <IDirect3DVertexShader9 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).93)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IDirect3DVertexShader9>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetVertexShaderConstantF(&self, startregister: u32, pconstantdata: *const f32, vector4fcount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).94)(::std::mem::transmute_copy(self), ::std::mem::transmute(startregister), ::std::mem::transmute(pconstantdata), ::std::mem::transmute(vector4fcount)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetVertexShaderConstantF(&self, startregister: u32, pconstantdata: *mut f32, vector4fcount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).95)(::std::mem::transmute_copy(self), ::std::mem::transmute(startregister), ::std::mem::transmute(pconstantdata), ::std::mem::transmute(vector4fcount)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetVertexShaderConstantI(&self, startregister: u32, pconstantdata: *const i32, vector4icount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).96)(::std::mem::transmute_copy(self), ::std::mem::transmute(startregister), ::std::mem::transmute(pconstantdata), ::std::mem::transmute(vector4icount)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetVertexShaderConstantI(&self, startregister: u32, pconstantdata: *mut i32, vector4icount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).97)(::std::mem::transmute_copy(self), ::std::mem::transmute(startregister), ::std::mem::transmute(pconstantdata), ::std::mem::transmute(vector4icount)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn SetVertexShaderConstantB(&self, startregister: u32, pconstantdata: *const super::super::Foundation::BOOL, boolcount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).98)(::std::mem::transmute_copy(self), ::std::mem::transmute(startregister), ::std::mem::transmute(pconstantdata), ::std::mem::transmute(boolcount)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn GetVertexShaderConstantB(&self, startregister: u32, pconstantdata: *mut super::super::Foundation::BOOL, boolcount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).99)(::std::mem::transmute_copy(self), ::std::mem::transmute(startregister), ::std::mem::transmute(pconstantdata), ::std::mem::transmute(boolcount)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetStreamSource<'a, Param1: ::windows::runtime::IntoParam<'a, IDirect3DVertexBuffer9>>(&self, streamnumber: u32, pstreamdata: Param1, offsetinbytes: u32, stride: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).100)(::std::mem::transmute_copy(self), ::std::mem::transmute(streamnumber), pstreamdata.into_param().abi(), ::std::mem::transmute(offsetinbytes), ::std::mem::transmute(stride)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetStreamSource(&self, streamnumber: u32, ppstreamdata: *mut ::std::option::Option<IDirect3DVertexBuffer9>, poffsetinbytes: *mut u32, pstride: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).101)(::std::mem::transmute_copy(self), ::std::mem::transmute(streamnumber), ::std::mem::transmute(ppstreamdata), ::std::mem::transmute(poffsetinbytes), ::std::mem::transmute(pstride)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetStreamSourceFreq(&self, streamnumber: u32, setting: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).102)(::std::mem::transmute_copy(self), ::std::mem::transmute(streamnumber), ::std::mem::transmute(setting)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetStreamSourceFreq(&self, streamnumber: u32, psetting: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).103)(::std::mem::transmute_copy(self), ::std::mem::transmute(streamnumber), ::std::mem::transmute(psetting)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetIndices<'a, Param0: ::windows::runtime::IntoParam<'a, IDirect3DIndexBuffer9>>(&self, pindexdata: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).104)(::std::mem::transmute_copy(self), pindexdata.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetIndices(&self) -> ::windows::runtime::Result<IDirect3DIndexBuffer9> {
         let mut result__: <IDirect3DIndexBuffer9 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).105)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IDirect3DIndexBuffer9>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn CreatePixelShader(&self, pfunction: *const u32) -> ::windows::runtime::Result<IDirect3DPixelShader9> {
         let mut result__: <IDirect3DPixelShader9 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).106)(::std::mem::transmute_copy(self), ::std::mem::transmute(pfunction), &mut result__).from_abi::<IDirect3DPixelShader9>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetPixelShader<'a, Param0: ::windows::runtime::IntoParam<'a, IDirect3DPixelShader9>>(&self, pshader: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).107)(::std::mem::transmute_copy(self), pshader.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetPixelShader(&self) -> ::windows::runtime::Result<IDirect3DPixelShader9> {
         let mut result__: <IDirect3DPixelShader9 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).108)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IDirect3DPixelShader9>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetPixelShaderConstantF(&self, startregister: u32, pconstantdata: *const f32, vector4fcount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).109)(::std::mem::transmute_copy(self), ::std::mem::transmute(startregister), ::std::mem::transmute(pconstantdata), ::std::mem::transmute(vector4fcount)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetPixelShaderConstantF(&self, startregister: u32, pconstantdata: *mut f32, vector4fcount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).110)(::std::mem::transmute_copy(self), ::std::mem::transmute(startregister), ::std::mem::transmute(pconstantdata), ::std::mem::transmute(vector4fcount)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetPixelShaderConstantI(&self, startregister: u32, pconstantdata: *const i32, vector4icount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).111)(::std::mem::transmute_copy(self), ::std::mem::transmute(startregister), ::std::mem::transmute(pconstantdata), ::std::mem::transmute(vector4icount)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetPixelShaderConstantI(&self, startregister: u32, pconstantdata: *mut i32, vector4icount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).112)(::std::mem::transmute_copy(self), ::std::mem::transmute(startregister), ::std::mem::transmute(pconstantdata), ::std::mem::transmute(vector4icount)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn SetPixelShaderConstantB(&self, startregister: u32, pconstantdata: *const super::super::Foundation::BOOL, boolcount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).113)(::std::mem::transmute_copy(self), ::std::mem::transmute(startregister), ::std::mem::transmute(pconstantdata), ::std::mem::transmute(boolcount)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn GetPixelShaderConstantB(&self, startregister: u32, pconstantdata: *mut super::super::Foundation::BOOL, boolcount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).114)(::std::mem::transmute_copy(self), ::std::mem::transmute(startregister), ::std::mem::transmute(pconstantdata), ::std::mem::transmute(boolcount)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn DrawRectPatch(&self, handle: u32, pnumsegs: *const f32, prectpatchinfo: *const D3DRECTPATCH_INFO) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).115)(::std::mem::transmute_copy(self), ::std::mem::transmute(handle), ::std::mem::transmute(pnumsegs), ::std::mem::transmute(prectpatchinfo)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn DrawTriPatch(&self, handle: u32, pnumsegs: *const f32, ptripatchinfo: *const D3DTRIPATCH_INFO) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).116)(::std::mem::transmute_copy(self), ::std::mem::transmute(handle), ::std::mem::transmute(pnumsegs), ::std::mem::transmute(ptripatchinfo)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn DeletePatch(&self, handle: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).117)(::std::mem::transmute_copy(self), ::std::mem::transmute(handle)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn CreateQuery(&self, r#type: D3DQUERYTYPE) -> ::windows::runtime::Result<IDirect3DQuery9> {
         let mut result__: <IDirect3DQuery9 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).118)(::std::mem::transmute_copy(self), ::std::mem::transmute(r#type), &mut result__).from_abi::<IDirect3DQuery9>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetConvolutionMonoKernel(&self, width: u32, height: u32, rows: *mut f32, columns: *mut f32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).119)(::std::mem::transmute_copy(self), ::std::mem::transmute(width), ::std::mem::transmute(height), ::std::mem::transmute(rows), ::std::mem::transmute(columns)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn ComposeRects<'a, Param0: ::windows::runtime::IntoParam<'a, IDirect3DSurface9>, Param1: ::windows::runtime::IntoParam<'a, IDirect3DSurface9>, Param2: ::windows::runtime::IntoParam<'a, IDirect3DVertexBuffer9>, Param4: ::windows::runtime::IntoParam<'a, IDirect3DVertexBuffer9>>(&self, psrc: Param0, pdst: Param1, psrcrectdescs: Param2, numrects: u32, pdstrectdescs: Param4, operation: D3DCOMPOSERECTSOP, xoffset: i32, yoffset: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).120)(::std::mem::transmute_copy(self), psrc.into_param().abi(), pdst.into_param().abi(), psrcrectdescs.into_param().abi(), ::std::mem::transmute(numrects), pdstrectdescs.into_param().abi(), ::std::mem::transmute(operation), ::std::mem::transmute(xoffset), ::std::mem::transmute(yoffset)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
     pub unsafe fn PresentEx<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, psourcerect: *const super::super::Foundation::RECT, pdestrect: *const super::super::Foundation::RECT, hdestwindowoverride: Param2, pdirtyregion: *const super::Gdi::RGNDATA, dwflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).121)(::std::mem::transmute_copy(self), ::std::mem::transmute(psourcerect), ::std::mem::transmute(pdestrect), hdestwindowoverride.into_param().abi(), ::std::mem::transmute(pdirtyregion), ::std::mem::transmute(dwflags)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetGPUThreadPriority(&self, ppriority: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).122)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppriority)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetGPUThreadPriority(&self, priority: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).123)(::std::mem::transmute_copy(self), ::std::mem::transmute(priority)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn WaitForVBlank(&self, iswapchain: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).124)(::std::mem::transmute_copy(self), ::std::mem::transmute(iswapchain)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn CheckResourceResidency(&self, presourcearray: *mut ::std::option::Option<IDirect3DResource9>, numresources: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).125)(::std::mem::transmute_copy(self), ::std::mem::transmute(presourcearray), ::std::mem::transmute(numresources)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetMaximumFrameLatency(&self, maxlatency: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).126)(::std::mem::transmute_copy(self), ::std::mem::transmute(maxlatency)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetMaximumFrameLatency(&self, pmaxlatency: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).127)(::std::mem::transmute_copy(self), ::std::mem::transmute(pmaxlatency)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn CheckDeviceState<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, hdestinationwindow: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).128)(::std::mem::transmute_copy(self), hdestinationwindow.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn CreateRenderTargetEx<'a, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, width: u32, height: u32, format: D3DFORMAT, multisample: D3DMULTISAMPLE_TYPE, multisamplequality: u32, lockable: Param5, ppsurface: *mut ::std::option::Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE, usage: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).129)(
             ::std::mem::transmute_copy(self),
@@ -6418,10 +7165,12 @@ impl IDirect3DDevice9Ex {
         .ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn CreateOffscreenPlainSurfaceEx(&self, width: u32, height: u32, format: D3DFORMAT, pool: D3DPOOL, ppsurface: *mut ::std::option::Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE, usage: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).130)(::std::mem::transmute_copy(self), ::std::mem::transmute(width), ::std::mem::transmute(height), ::std::mem::transmute(format), ::std::mem::transmute(pool), ::std::mem::transmute(ppsurface), ::std::mem::transmute(psharedhandle), ::std::mem::transmute(usage)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn CreateDepthStencilSurfaceEx<'a, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, width: u32, height: u32, format: D3DFORMAT, multisample: D3DMULTISAMPLE_TYPE, multisamplequality: u32, discard: Param5, ppsurface: *mut ::std::option::Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE, usage: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).131)(
             ::std::mem::transmute_copy(self),
@@ -6438,9 +7187,11 @@ impl IDirect3DDevice9Ex {
         .ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn ResetEx(&self, ppresentationparameters: *mut D3DPRESENT_PARAMETERS, pfullscreendisplaymode: *mut D3DDISPLAYMODEEX) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).132)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppresentationparameters), ::std::mem::transmute(pfullscreendisplaymode)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetDisplayModeEx(&self, iswapchain: u32, pmode: *mut D3DDISPLAYMODEEX, protation: *mut D3DDISPLAYROTATION) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).133)(::std::mem::transmute_copy(self), ::std::mem::transmute(iswapchain), ::std::mem::transmute(pmode), ::std::mem::transmute(protation)).ok()
     }
@@ -6663,41 +7414,53 @@ pub struct IDirect3DDevice9Ex_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iswapchain: u32, pmode: *mut D3DDISPLAYMODEEX, protation: *mut D3DDISPLAYROTATION) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirect3DIndexBuffer9(::windows::runtime::IUnknown);
 impl IDirect3DIndexBuffer9 {
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetDevice(&self) -> ::windows::runtime::Result<IDirect3DDevice9> {
         let mut result__: <IDirect3DDevice9 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IDirect3DDevice9>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetPrivateData(&self, refguid: *const ::windows::runtime::GUID, pdata: *const ::std::ffi::c_void, sizeofdata: u32, flags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(refguid), ::std::mem::transmute(pdata), ::std::mem::transmute(sizeofdata), ::std::mem::transmute(flags)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetPrivateData(&self, refguid: *const ::windows::runtime::GUID, pdata: *mut ::std::ffi::c_void, psizeofdata: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(refguid), ::std::mem::transmute(pdata), ::std::mem::transmute(psizeofdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn FreePrivateData(&self, refguid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(refguid)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetPriority(&self, prioritynew: u32) -> u32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(prioritynew)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetPriority(&self) -> u32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn PreLoad(&self) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetType(&self) -> D3DRESOURCETYPE {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn Lock(&self, offsettolock: u32, sizetolock: u32, ppbdata: *mut *mut ::std::ffi::c_void, flags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(offsettolock), ::std::mem::transmute(sizetolock), ::std::mem::transmute(ppbdata), ::std::mem::transmute(flags)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn Unlock(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetDesc(&self, pdesc: *mut D3DINDEXBUFFER_DESC) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdesc)).ok()
     }
@@ -6764,14 +7527,17 @@ pub struct IDirect3DIndexBuffer9_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut D3DINDEXBUFFER_DESC) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirect3DPixelShader9(::windows::runtime::IUnknown);
 impl IDirect3DPixelShader9 {
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetDevice(&self) -> ::windows::runtime::Result<IDirect3DDevice9> {
         let mut result__: <IDirect3DDevice9 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IDirect3DDevice9>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetFunction(&self, param0: *mut ::std::ffi::c_void, psizeofdata: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(psizeofdata)).ok()
     }
@@ -6809,23 +7575,29 @@ pub struct IDirect3DPixelShader9_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppdevice: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut ::std::ffi::c_void, psizeofdata: *mut u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirect3DQuery9(::windows::runtime::IUnknown);
 impl IDirect3DQuery9 {
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetDevice(&self) -> ::windows::runtime::Result<IDirect3DDevice9> {
         let mut result__: <IDirect3DDevice9 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IDirect3DDevice9>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetType(&self) -> D3DQUERYTYPE {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetDataSize(&self) -> u32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn Issue(&self, dwissueflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwissueflags)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetData(&self, pdata: *mut ::std::ffi::c_void, dwsize: u32, dwgetdataflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata), ::std::mem::transmute(dwsize), ::std::mem::transmute(dwgetdataflags)).ok()
     }
@@ -6866,32 +7638,41 @@ pub struct IDirect3DQuery9_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwissueflags: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdata: *mut ::std::ffi::c_void, dwsize: u32, dwgetdataflags: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirect3DResource9(::windows::runtime::IUnknown);
 impl IDirect3DResource9 {
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetDevice(&self) -> ::windows::runtime::Result<IDirect3DDevice9> {
         let mut result__: <IDirect3DDevice9 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IDirect3DDevice9>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetPrivateData(&self, refguid: *const ::windows::runtime::GUID, pdata: *const ::std::ffi::c_void, sizeofdata: u32, flags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(refguid), ::std::mem::transmute(pdata), ::std::mem::transmute(sizeofdata), ::std::mem::transmute(flags)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetPrivateData(&self, refguid: *const ::windows::runtime::GUID, pdata: *mut ::std::ffi::c_void, psizeofdata: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(refguid), ::std::mem::transmute(pdata), ::std::mem::transmute(psizeofdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn FreePrivateData(&self, refguid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(refguid)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetPriority(&self, prioritynew: u32) -> u32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(prioritynew)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetPriority(&self) -> u32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn PreLoad(&self) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetType(&self) -> D3DRESOURCETYPE {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)))
     }
@@ -6935,17 +7716,21 @@ pub struct IDirect3DResource9_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> D3DRESOURCETYPE,
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirect3DStateBlock9(::windows::runtime::IUnknown);
 impl IDirect3DStateBlock9 {
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetDevice(&self) -> ::windows::runtime::Result<IDirect3DDevice9> {
         let mut result__: <IDirect3DDevice9 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IDirect3DDevice9>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn Capture(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn Apply(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
@@ -6984,53 +7769,68 @@ pub struct IDirect3DStateBlock9_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirect3DSurface9(::windows::runtime::IUnknown);
 impl IDirect3DSurface9 {
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetDevice(&self) -> ::windows::runtime::Result<IDirect3DDevice9> {
         let mut result__: <IDirect3DDevice9 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IDirect3DDevice9>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetPrivateData(&self, refguid: *const ::windows::runtime::GUID, pdata: *const ::std::ffi::c_void, sizeofdata: u32, flags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(refguid), ::std::mem::transmute(pdata), ::std::mem::transmute(sizeofdata), ::std::mem::transmute(flags)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetPrivateData(&self, refguid: *const ::windows::runtime::GUID, pdata: *mut ::std::ffi::c_void, psizeofdata: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(refguid), ::std::mem::transmute(pdata), ::std::mem::transmute(psizeofdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn FreePrivateData(&self, refguid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(refguid)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetPriority(&self, prioritynew: u32) -> u32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(prioritynew)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetPriority(&self) -> u32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn PreLoad(&self) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetType(&self) -> D3DRESOURCETYPE {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetContainer(&self, riid: *const ::windows::runtime::GUID, ppcontainer: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(ppcontainer)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetDesc(&self, pdesc: *mut D3DSURFACE_DESC) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdesc)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn LockRect(&self, plockedrect: *mut D3DLOCKED_RECT, prect: *const super::super::Foundation::RECT, flags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(plockedrect), ::std::mem::transmute(prect), ::std::mem::transmute(flags)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn UnlockRect(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Graphics_Gdi`*"]
     pub unsafe fn GetDC(&self, phdc: *mut super::Gdi::HDC) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(phdc)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Graphics_Gdi`*"]
     pub unsafe fn ReleaseDC<'a, Param0: ::windows::runtime::IntoParam<'a, super::Gdi::HDC>>(&self, hdc: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), hdc.into_param().abi()).ok()
     }
@@ -7103,33 +7903,41 @@ pub struct IDirect3DSurface9_abi(
     #[cfg(feature = "Win32_Graphics_Gdi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hdc: super::Gdi::HDC) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))] usize,
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirect3DSwapChain9(::windows::runtime::IUnknown);
 impl IDirect3DSwapChain9 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
     pub unsafe fn Present<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, psourcerect: *const super::super::Foundation::RECT, pdestrect: *const super::super::Foundation::RECT, hdestwindowoverride: Param2, pdirtyregion: *const super::Gdi::RGNDATA, dwflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(psourcerect), ::std::mem::transmute(pdestrect), hdestwindowoverride.into_param().abi(), ::std::mem::transmute(pdirtyregion), ::std::mem::transmute(dwflags)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetFrontBufferData<'a, Param0: ::windows::runtime::IntoParam<'a, IDirect3DSurface9>>(&self, pdestsurface: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pdestsurface.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetBackBuffer(&self, ibackbuffer: u32, r#type: D3DBACKBUFFER_TYPE) -> ::windows::runtime::Result<IDirect3DSurface9> {
         let mut result__: <IDirect3DSurface9 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(ibackbuffer), ::std::mem::transmute(r#type), &mut result__).from_abi::<IDirect3DSurface9>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn GetRasterStatus(&self, prasterstatus: *mut D3DRASTER_STATUS) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(prasterstatus)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetDisplayMode(&self, pmode: *mut D3DDISPLAYMODE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(pmode)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetDevice(&self) -> ::windows::runtime::Result<IDirect3DDevice9> {
         let mut result__: <IDirect3DDevice9 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IDirect3DDevice9>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn GetPresentParameters(&self, ppresentationparameters: *mut D3DPRESENT_PARAMETERS) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppresentationparameters)).ok()
     }
@@ -7175,42 +7983,53 @@ pub struct IDirect3DSwapChain9_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppresentationparameters: *mut D3DPRESENT_PARAMETERS) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirect3DSwapChain9Ex(::windows::runtime::IUnknown);
 impl IDirect3DSwapChain9Ex {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
     pub unsafe fn Present<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, psourcerect: *const super::super::Foundation::RECT, pdestrect: *const super::super::Foundation::RECT, hdestwindowoverride: Param2, pdirtyregion: *const super::Gdi::RGNDATA, dwflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(psourcerect), ::std::mem::transmute(pdestrect), hdestwindowoverride.into_param().abi(), ::std::mem::transmute(pdirtyregion), ::std::mem::transmute(dwflags)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetFrontBufferData<'a, Param0: ::windows::runtime::IntoParam<'a, IDirect3DSurface9>>(&self, pdestsurface: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pdestsurface.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetBackBuffer(&self, ibackbuffer: u32, r#type: D3DBACKBUFFER_TYPE) -> ::windows::runtime::Result<IDirect3DSurface9> {
         let mut result__: <IDirect3DSurface9 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(ibackbuffer), ::std::mem::transmute(r#type), &mut result__).from_abi::<IDirect3DSurface9>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn GetRasterStatus(&self, prasterstatus: *mut D3DRASTER_STATUS) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(prasterstatus)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetDisplayMode(&self, pmode: *mut D3DDISPLAYMODE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(pmode)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetDevice(&self) -> ::windows::runtime::Result<IDirect3DDevice9> {
         let mut result__: <IDirect3DDevice9 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IDirect3DDevice9>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn GetPresentParameters(&self, ppresentationparameters: *mut D3DPRESENT_PARAMETERS) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppresentationparameters)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetLastPresentCount(&self, plastpresentcount: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(plastpresentcount)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetPresentStats(&self, ppresentationstatistics: *mut D3DPRESENTSTATS) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppresentationstatistics)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetDisplayModeEx(&self, pmode: *mut D3DDISPLAYMODEEX, protation: *mut D3DDISPLAYROTATION) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(pmode), ::std::mem::transmute(protation)).ok()
     }
@@ -7279,68 +8098,88 @@ pub struct IDirect3DSwapChain9Ex_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppresentationstatistics: *mut D3DPRESENTSTATS) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pmode: *mut D3DDISPLAYMODEEX, protation: *mut D3DDISPLAYROTATION) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirect3DTexture9(::windows::runtime::IUnknown);
 impl IDirect3DTexture9 {
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetDevice(&self) -> ::windows::runtime::Result<IDirect3DDevice9> {
         let mut result__: <IDirect3DDevice9 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IDirect3DDevice9>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetPrivateData(&self, refguid: *const ::windows::runtime::GUID, pdata: *const ::std::ffi::c_void, sizeofdata: u32, flags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(refguid), ::std::mem::transmute(pdata), ::std::mem::transmute(sizeofdata), ::std::mem::transmute(flags)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetPrivateData(&self, refguid: *const ::windows::runtime::GUID, pdata: *mut ::std::ffi::c_void, psizeofdata: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(refguid), ::std::mem::transmute(pdata), ::std::mem::transmute(psizeofdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn FreePrivateData(&self, refguid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(refguid)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetPriority(&self, prioritynew: u32) -> u32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(prioritynew)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetPriority(&self) -> u32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn PreLoad(&self) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetType(&self) -> D3DRESOURCETYPE {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetLOD(&self, lodnew: u32) -> u32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(lodnew)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetLOD(&self) -> u32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetLevelCount(&self) -> u32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetAutoGenFilterType(&self, filtertype: D3DTEXTUREFILTERTYPE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(filtertype)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetAutoGenFilterType(&self) -> D3DTEXTUREFILTERTYPE {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GenerateMipSubLevels(&self) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetLevelDesc(&self, level: u32, pdesc: *mut D3DSURFACE_DESC) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(level), ::std::mem::transmute(pdesc)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetSurfaceLevel(&self, level: u32) -> ::windows::runtime::Result<IDirect3DSurface9> {
         let mut result__: <IDirect3DSurface9 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(level), &mut result__).from_abi::<IDirect3DSurface9>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn LockRect(&self, level: u32, plockedrect: *mut D3DLOCKED_RECT, prect: *const super::super::Foundation::RECT, flags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(level), ::std::mem::transmute(plockedrect), ::std::mem::transmute(prect), ::std::mem::transmute(flags)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn UnlockRect(&self, level: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(level)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
     pub unsafe fn AddDirtyRect(&self, pdirtyrect: *const super::super::Foundation::RECT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdirtyrect)).ok()
     }
@@ -7437,41 +8276,53 @@ pub struct IDirect3DTexture9_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdirtyrect: *const super::super::Foundation::RECT) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirect3DVertexBuffer9(::windows::runtime::IUnknown);
 impl IDirect3DVertexBuffer9 {
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetDevice(&self) -> ::windows::runtime::Result<IDirect3DDevice9> {
         let mut result__: <IDirect3DDevice9 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IDirect3DDevice9>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetPrivateData(&self, refguid: *const ::windows::runtime::GUID, pdata: *const ::std::ffi::c_void, sizeofdata: u32, flags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(refguid), ::std::mem::transmute(pdata), ::std::mem::transmute(sizeofdata), ::std::mem::transmute(flags)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetPrivateData(&self, refguid: *const ::windows::runtime::GUID, pdata: *mut ::std::ffi::c_void, psizeofdata: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(refguid), ::std::mem::transmute(pdata), ::std::mem::transmute(psizeofdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn FreePrivateData(&self, refguid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(refguid)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetPriority(&self, prioritynew: u32) -> u32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(prioritynew)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetPriority(&self) -> u32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn PreLoad(&self) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetType(&self) -> D3DRESOURCETYPE {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn Lock(&self, offsettolock: u32, sizetolock: u32, ppbdata: *mut *mut ::std::ffi::c_void, flags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(offsettolock), ::std::mem::transmute(sizetolock), ::std::mem::transmute(ppbdata), ::std::mem::transmute(flags)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn Unlock(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetDesc(&self, pdesc: *mut D3DVERTEXBUFFER_DESC) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdesc)).ok()
     }
@@ -7538,14 +8389,17 @@ pub struct IDirect3DVertexBuffer9_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut D3DVERTEXBUFFER_DESC) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirect3DVertexDeclaration9(::windows::runtime::IUnknown);
 impl IDirect3DVertexDeclaration9 {
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetDevice(&self) -> ::windows::runtime::Result<IDirect3DDevice9> {
         let mut result__: <IDirect3DDevice9 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IDirect3DDevice9>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetDeclaration(&self, pelement: *mut D3DVERTEXELEMENT9, pnumelements: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pelement), ::std::mem::transmute(pnumelements)).ok()
     }
@@ -7583,14 +8437,17 @@ pub struct IDirect3DVertexDeclaration9_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppdevice: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pelement: *mut D3DVERTEXELEMENT9, pnumelements: *mut u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirect3DVertexShader9(::windows::runtime::IUnknown);
 impl IDirect3DVertexShader9 {
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetDevice(&self) -> ::windows::runtime::Result<IDirect3DDevice9> {
         let mut result__: <IDirect3DDevice9 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IDirect3DDevice9>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetFunction(&self, param0: *mut ::std::ffi::c_void, psizeofdata: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(psizeofdata)).ok()
     }
@@ -7628,32 +8485,41 @@ pub struct IDirect3DVertexShader9_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppdevice: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut ::std::ffi::c_void, psizeofdata: *mut u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirect3DVolume9(::windows::runtime::IUnknown);
 impl IDirect3DVolume9 {
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetDevice(&self) -> ::windows::runtime::Result<IDirect3DDevice9> {
         let mut result__: <IDirect3DDevice9 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IDirect3DDevice9>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetPrivateData(&self, refguid: *const ::windows::runtime::GUID, pdata: *const ::std::ffi::c_void, sizeofdata: u32, flags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(refguid), ::std::mem::transmute(pdata), ::std::mem::transmute(sizeofdata), ::std::mem::transmute(flags)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetPrivateData(&self, refguid: *const ::windows::runtime::GUID, pdata: *mut ::std::ffi::c_void, psizeofdata: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(refguid), ::std::mem::transmute(pdata), ::std::mem::transmute(psizeofdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn FreePrivateData(&self, refguid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(refguid)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetContainer(&self, riid: *const ::windows::runtime::GUID, ppcontainer: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(ppcontainer)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetDesc(&self, pdesc: *mut D3DVOLUME_DESC) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdesc)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn LockBox(&self, plockedvolume: *mut D3DLOCKED_BOX, pbox: *const D3DBOX, flags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(plockedvolume), ::std::mem::transmute(pbox), ::std::mem::transmute(flags)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn UnlockBox(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)).ok()
     }
@@ -7697,66 +8563,86 @@ pub struct IDirect3DVolume9_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, plockedvolume: *mut D3DLOCKED_BOX, pbox: *const D3DBOX, flags: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirect3DVolumeTexture9(::windows::runtime::IUnknown);
 impl IDirect3DVolumeTexture9 {
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetDevice(&self) -> ::windows::runtime::Result<IDirect3DDevice9> {
         let mut result__: <IDirect3DDevice9 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IDirect3DDevice9>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetPrivateData(&self, refguid: *const ::windows::runtime::GUID, pdata: *const ::std::ffi::c_void, sizeofdata: u32, flags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(refguid), ::std::mem::transmute(pdata), ::std::mem::transmute(sizeofdata), ::std::mem::transmute(flags)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetPrivateData(&self, refguid: *const ::windows::runtime::GUID, pdata: *mut ::std::ffi::c_void, psizeofdata: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(refguid), ::std::mem::transmute(pdata), ::std::mem::transmute(psizeofdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn FreePrivateData(&self, refguid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(refguid)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetPriority(&self, prioritynew: u32) -> u32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(prioritynew)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetPriority(&self) -> u32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn PreLoad(&self) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetType(&self) -> D3DRESOURCETYPE {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetLOD(&self, lodnew: u32) -> u32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(lodnew)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetLOD(&self) -> u32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetLevelCount(&self) -> u32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetAutoGenFilterType(&self, filtertype: D3DTEXTUREFILTERTYPE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(filtertype)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetAutoGenFilterType(&self) -> D3DTEXTUREFILTERTYPE {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GenerateMipSubLevels(&self) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetLevelDesc(&self, level: u32, pdesc: *mut D3DVOLUME_DESC) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(level), ::std::mem::transmute(pdesc)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetVolumeLevel(&self, level: u32) -> ::windows::runtime::Result<IDirect3DVolume9> {
         let mut result__: <IDirect3DVolume9 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(level), &mut result__).from_abi::<IDirect3DVolume9>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn LockBox(&self, level: u32, plockedvolume: *mut D3DLOCKED_BOX, pbox: *const D3DBOX, flags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(level), ::std::mem::transmute(plockedvolume), ::std::mem::transmute(pbox), ::std::mem::transmute(flags)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn UnlockBox(&self, level: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(level)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn AddDirtyBox(&self, pdirtybox: *const D3DBOX) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdirtybox)).ok()
     }
@@ -7851,7 +8737,11 @@ pub struct IDirect3DVolumeTexture9_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, level: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdirtybox: *const D3DBOX) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const MAXD3DDECLLENGTH: u32 = 64u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const MAXD3DDECLUSAGEINDEX: u32 = 15u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const MAX_DEVICE_IDENTIFIER_STRING: u32 = 512u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const _FACD3D: u32 = 2166u32;

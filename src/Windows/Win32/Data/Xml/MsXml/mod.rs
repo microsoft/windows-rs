@@ -1,553 +1,1100 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_ATTRIBUTE: u32 = 117u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_ATTRIBUTE_GETNAME: u32 = 118u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_ATTRIBUTE_SPECIFIED: u32 = 119u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_ATTRIBUTE_VALUE: u32 = 120u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_ATTRIBUTE__TOP: u32 = 121u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_BASE: u32 = 1u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_COLLECTION_BASE: u32 = 1000000u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_COLLECTION_MAX: u32 = 2999999u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_DATA: u32 = 108u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_DATA_APPEND: u32 = 112u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_DATA_DATA: u32 = 109u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_DATA_DELETE: u32 = 114u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_DATA_INSERT: u32 = 113u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_DATA_LENGTH: u32 = 110u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_DATA_REPLACE: u32 = 115u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_DATA_SUBSTRING: u32 = 111u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_DATA__TOP: u32 = 116u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_DOCUMENT: u32 = 37u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_DOCUMENTFRAGMENT: u32 = 94u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_DOCUMENTFRAGMENT__TOP: u32 = 95u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_DOCUMENTTYPE: u32 = 130u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_DOCUMENTTYPE_ENTITIES: u32 = 132u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_DOCUMENTTYPE_NAME: u32 = 131u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_DOCUMENTTYPE_NOTATIONS: u32 = 133u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_DOCUMENTTYPE__TOP: u32 = 134u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_DOCUMENT_CREATEATTRIBUTE: u32 = 47u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_DOCUMENT_CREATECDATASECTION: u32 = 45u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_DOCUMENT_CREATECOMMENT: u32 = 44u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_DOCUMENT_CREATEDOCUMENTFRAGMENT: u32 = 42u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_DOCUMENT_CREATEELEMENT: u32 = 41u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_DOCUMENT_CREATEENTITY: u32 = 48u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_DOCUMENT_CREATEENTITYREFERENCE: u32 = 49u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_DOCUMENT_CREATEPROCESSINGINSTRUCTION: u32 = 46u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_DOCUMENT_CREATETEXTNODE: u32 = 43u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_DOCUMENT_DOCTYPE: u32 = 38u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_DOCUMENT_DOCUMENTELEMENT: u32 = 40u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_DOCUMENT_GETELEMENTSBYTAGNAME: u32 = 50u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_DOCUMENT_IMPLEMENTATION: u32 = 39u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_DOCUMENT_TOP: u32 = 51u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_ELEMENT: u32 = 96u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_ELEMENT_GETATTRIBUTE: u32 = 99u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_ELEMENT_GETATTRIBUTENODE: u32 = 102u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_ELEMENT_GETATTRIBUTES: u32 = 98u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_ELEMENT_GETELEMENTSBYTAGNAME: u32 = 105u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_ELEMENT_GETTAGNAME: u32 = 97u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_ELEMENT_NORMALIZE: u32 = 106u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_ELEMENT_REMOVEATTRIBUTE: u32 = 101u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_ELEMENT_REMOVEATTRIBUTENODE: u32 = 104u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_ELEMENT_SETATTRIBUTE: u32 = 100u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_ELEMENT_SETATTRIBUTENODE: u32 = 103u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_ELEMENT__TOP: u32 = 107u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_ENTITY: u32 = 139u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_ENTITY_NOTATIONNAME: u32 = 142u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_ENTITY_PUBLICID: u32 = 140u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_ENTITY_SYSTEMID: u32 = 141u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_ENTITY__TOP: u32 = 143u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_ERROR: u32 = 177u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_ERROR2: u32 = 186u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_ERROR2_ALLERRORS: u32 = 187u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_ERROR2_ERRORPARAMETERS: u32 = 188u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_ERROR2_ERRORPARAMETERSCOUNT: u32 = 189u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_ERROR2_ERRORXPATH: u32 = 190u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_ERROR2__TOP: u32 = 191u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_ERRORCOLLECTION: u32 = 192u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_ERRORCOLLECTION_LENGTH: u32 = 193u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_ERRORCOLLECTION_NEXT: u32 = 194u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_ERRORCOLLECTION_RESET: u32 = 195u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_ERRORCOLLECTION__TOP: u32 = 196u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_ERROR_ERRORCODE: u32 = 178u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_ERROR_FILEPOS: u32 = 184u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_ERROR_LINE: u32 = 182u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_ERROR_LINEPOS: u32 = 183u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_ERROR_REASON: u32 = 180u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_ERROR_SRCTEXT: u32 = 181u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_ERROR_URL: u32 = 179u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_ERROR__TOP: u32 = 185u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_IMPLEMENTATION: u32 = 144u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_IMPLEMENTATION_HASFEATURE: u32 = 145u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_IMPLEMENTATION__TOP: u32 = 146u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_NAMEDNODEMAP: u32 = 80u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_NAMEDNODEMAP_GETNAMEDITEM: u32 = 83u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_NAMEDNODEMAP_REMOVENAMEDITEM: u32 = 85u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_NAMEDNODEMAP_SETNAMEDITEM: u32 = 84u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_NODE: u32 = 1u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_NODELIST: u32 = 72u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_NODELIST_ITEM: u32 = 73u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_NODELIST_LENGTH: u32 = 74u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_NODE_APPENDCHILD: u32 = 16u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_NODE_ATTRIBUTES: u32 = 12u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_NODE_CHILDNODES: u32 = 7u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_NODE_CLONENODE: u32 = 19u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_NODE_FIRSTCHILD: u32 = 8u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_NODE_HASCHILDNODES: u32 = 17u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_NODE_INSERTBEFORE: u32 = 13u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_NODE_LASTCHILD: u32 = 9u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_NODE_NEXTSIBLING: u32 = 11u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_NODE_NODENAME: u32 = 2u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_NODE_NODETYPE: u32 = 4u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_NODE_NODETYPEENUM: u32 = 5u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_NODE_NODEVALUE: u32 = 3u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_NODE_OWNERDOC: u32 = 18u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_NODE_PARENTNODE: u32 = 6u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_NODE_PREVIOUSSIBLING: u32 = 10u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_NODE_REMOVECHILD: u32 = 15u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_NODE_REPLACECHILD: u32 = 14u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_NOTATION: u32 = 135u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_NOTATION_PUBLICID: u32 = 136u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_NOTATION_SYSTEMID: u32 = 137u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_NOTATION__TOP: u32 = 138u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_PI: u32 = 126u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_PI_DATA: u32 = 128u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_PI_TARGET: u32 = 127u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_PI__TOP: u32 = 129u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_TEXT: u32 = 122u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_TEXT_JOINTEXT: u32 = 124u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_TEXT_SPLITTEXT: u32 = 123u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_TEXT__TOP: u32 = 125u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_W3CWRAPPERS: u32 = 93u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM_W3CWRAPPERS_TOP: u32 = 143u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_DOM__TOP: u32 = 176u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_MXXML_FILTER: u32 = 1418u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_MXXML_FILTER_CONTENTHANDLER: u32 = 1419u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_MXXML_FILTER_DTDHANDLER: u32 = 1420u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_MXXML_FILTER_ENTITYRESOLVER: u32 = 1421u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_MXXML_FILTER_ERRORHANDLER: u32 = 1422u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_MXXML_FILTER_GETFEATURE: u32 = 1423u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_MXXML_FILTER_GETPROPERTY: u32 = 1424u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_MXXML_FILTER_PUTFEATURE: u32 = 1425u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_MXXML_FILTER_PUTPROPERTY: u32 = 1426u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_MXXML_FILTER__BASE: u32 = 1418u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_MXXML_FILTER__TOP: u32 = 1427u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_MX_ATTRIBUTES: u32 = 1372u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_MX_ATTRIBUTES_ADDATTRIBUTE: u32 = 1373u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_MX_ATTRIBUTES_ADDATTRIBUTEFROMINDEX: u32 = 1383u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_MX_ATTRIBUTES_CLEAR: u32 = 1374u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_MX_ATTRIBUTES_REMOVEATTRIBUTE: u32 = 1375u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_MX_ATTRIBUTES_SETATTRIBUTE: u32 = 1376u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_MX_ATTRIBUTES_SETATTRIBUTES: u32 = 1377u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_MX_ATTRIBUTES_SETLOCALNAME: u32 = 1378u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_MX_ATTRIBUTES_SETQNAME: u32 = 1379u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_MX_ATTRIBUTES_SETTYPE: u32 = 1380u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_MX_ATTRIBUTES_SETURI: u32 = 1381u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_MX_ATTRIBUTES_SETVALUE: u32 = 1382u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_MX_ATTRIBUTES__BASE: u32 = 1372u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_MX_ATTRIBUTES__TOP: u32 = 1383u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_MX_NSMGR: u32 = 1405u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_MX_NSMGR_ALLOWOVERRIDE: u32 = 1406u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_MX_NSMGR_DECLAREPREFIX: u32 = 1411u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_MX_NSMGR_GETDECLAREDPREFIXES: u32 = 1412u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_MX_NSMGR_GETPREFIXES: u32 = 1413u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_MX_NSMGR_GETURI: u32 = 1414u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_MX_NSMGR_GETURIFROMNODE: u32 = 1415u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_MX_NSMGR_LENGTH: u32 = 1416u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_MX_NSMGR_POPCONTEXT: u32 = 1410u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_MX_NSMGR_PUSHCONTEXT: u32 = 1408u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_MX_NSMGR_PUSHNODECONTEXT: u32 = 1409u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_MX_NSMGR_RESET: u32 = 1407u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_MX_NSMGR__BASE: u32 = 1405u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_MX_NSMGR__TOP: u32 = 1417u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_MX_READER_CONTROL: u32 = 1397u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_MX_READER_CONTROL_ABORT: u32 = 1398u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_MX_READER_CONTROL_RESUME: u32 = 1399u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_MX_READER_CONTROL_SUSPEND: u32 = 1400u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_MX_READER_CONTROL__BASE: u32 = 1397u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_MX_READER_CONTROL__TOP: u32 = 1401u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_MX_SCHEMADECLHANDLER: u32 = 1402u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_MX_SCHEMADECLHANDLER_SCHEMAELEMENTDECL: u32 = 1403u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_MX_SCHEMADECLHANDLER__BASE: u32 = 1402u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_MX_SCHEMADECLHANDLER__TOP: u32 = 1404u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_MX_WRITER: u32 = 1384u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_MX_WRITER_BYTEORDERMARK: u32 = 1388u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_MX_WRITER_DESTINATION: u32 = 1386u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_MX_WRITER_DISABLEOUTPUTESCAPING: u32 = 1393u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_MX_WRITER_ENCODING: u32 = 1387u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_MX_WRITER_FLUSH: u32 = 1394u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_MX_WRITER_INDENT: u32 = 1389u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_MX_WRITER_OMITXMLDECLARATION: u32 = 1391u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_MX_WRITER_OUTPUT: u32 = 1385u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_MX_WRITER_RESET: u32 = 1395u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_MX_WRITER_STANDALONE: u32 = 1390u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_MX_WRITER_VERSION: u32 = 1392u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_MX_WRITER__BASE: u32 = 1384u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_MX_WRITER__TOP: u32 = 1396u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_NODE: u32 = 66036u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_NODELIST: u32 = 66136u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_NODELIST_CURRENT: u32 = 66139u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_NODELIST_ITEM: u32 = 66143u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_NODELIST_LENGTH: u32 = 66142u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_NODELIST_MOVE: u32 = 66140u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_NODELIST_MOVETONODE: u32 = 66141u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_NODELIST_NEWENUM: u32 = 66137u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_NODELIST_NEXT: u32 = 66138u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_NODE_ADD: u32 = 66045u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_NODE_ATTRIBUTES: u32 = 66044u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_NODE_CHILDREN: u32 = 66047u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_NODE_GETATTRIBUTE: u32 = 66042u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_NODE_NAME: u32 = 66037u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_NODE_PARENT: u32 = 66038u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_NODE_REMOVE: u32 = 66046u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_NODE_REMOVEATTRIBUTE: u32 = 66043u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_NODE_SETATTRIBUTE: u32 = 66041u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_NODE_TYPE: u32 = 66039u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_NODE_VALUE: u32 = 66040u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_ATTRIBUTES: u32 = 1343u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_ATTRIBUTES_GETINDEXFROMNAME: u32 = 1348u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_ATTRIBUTES_GETINDEXFROMQNAME: u32 = 1349u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_ATTRIBUTES_GETLOCALNAME: u32 = 1346u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_ATTRIBUTES_GETQNAME: u32 = 1347u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_ATTRIBUTES_GETTYPE: u32 = 1350u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_ATTRIBUTES_GETTYPEFROMNAME: u32 = 1351u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_ATTRIBUTES_GETTYPEFROMQNAME: u32 = 1352u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_ATTRIBUTES_GETURI: u32 = 1345u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_ATTRIBUTES_GETVALUE: u32 = 1353u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_ATTRIBUTES_GETVALUEFROMNAME: u32 = 1354u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_ATTRIBUTES_GETVALUEFROMQNAME: u32 = 1355u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_ATTRIBUTES_LENGTH: u32 = 1344u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_ATTRIBUTES__BASE: u32 = 1343u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_ATTRIBUTES__TOP: u32 = 1356u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_CONTENTHANDLER: u32 = 1321u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_CONTENTHANDLER_CHARACTERS: u32 = 1329u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_CONTENTHANDLER_DOCUMENTLOCATOR: u32 = 1322u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_CONTENTHANDLER_ENDDOCUMENT: u32 = 1324u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_CONTENTHANDLER_ENDELEMENT: u32 = 1328u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_CONTENTHANDLER_ENDPREFIXMAPPING: u32 = 1326u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_CONTENTHANDLER_IGNORABLEWHITESPACE: u32 = 1330u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_CONTENTHANDLER_PROCESSINGINSTRUCTION: u32 = 1331u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_CONTENTHANDLER_SKIPPEDENTITY: u32 = 1332u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_CONTENTHANDLER_STARTDOCUMENT: u32 = 1323u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_CONTENTHANDLER_STARTELEMENT: u32 = 1327u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_CONTENTHANDLER_STARTPREFIXMAPPING: u32 = 1325u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_CONTENTHANDLER__BASE: u32 = 1321u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_CONTENTHANDLER__TOP: u32 = 1333u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_DECLHANDLER: u32 = 1366u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_DECLHANDLER_ATTRIBUTEDECL: u32 = 1368u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_DECLHANDLER_ELEMENTDECL: u32 = 1367u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_DECLHANDLER_EXTERNALENTITYDECL: u32 = 1370u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_DECLHANDLER_INTERNALENTITYDECL: u32 = 1369u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_DECLHANDLER__BASE: u32 = 1366u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_DECLHANDLER__TOP: u32 = 1371u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_DTDHANDLER: u32 = 1334u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_DTDHANDLER_NOTATIONDECL: u32 = 1335u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_DTDHANDLER_UNPARSEDENTITYDECL: u32 = 1336u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_DTDHANDLER__BASE: u32 = 1334u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_DTDHANDLER__TOP: u32 = 1337u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_ENTITYRESOLVER: u32 = 1318u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_ENTITYRESOLVER_RESOLVEENTITY: u32 = 1319u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_ENTITYRESOLVER__BASE: u32 = 1318u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_ENTITYRESOLVER__TOP: u32 = 1320u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_ERRORHANDLER: u32 = 1338u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_ERRORHANDLER_ERROR: u32 = 1339u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_ERRORHANDLER_FATALERROR: u32 = 1340u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_ERRORHANDLER_IGNORABLEWARNING: u32 = 1341u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_ERRORHANDLER__BASE: u32 = 1338u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_ERRORHANDLER__TOP: u32 = 1342u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_LEXICALHANDLER: u32 = 1357u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_LEXICALHANDLER_COMMENT: u32 = 1364u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_LEXICALHANDLER_ENDCDATA: u32 = 1363u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_LEXICALHANDLER_ENDDTD: u32 = 1359u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_LEXICALHANDLER_ENDENTITY: u32 = 1361u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_LEXICALHANDLER_STARTCDATA: u32 = 1362u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_LEXICALHANDLER_STARTDTD: u32 = 1358u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_LEXICALHANDLER_STARTENTITY: u32 = 1360u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_LEXICALHANDLER__BASE: u32 = 1357u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_LEXICALHANDLER__TOP: u32 = 1365u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_LOCATOR: u32 = 1312u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_LOCATOR_COLUMNNUMBER: u32 = 1313u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_LOCATOR_LINENUMBER: u32 = 1314u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_LOCATOR_PUBLICID: u32 = 1315u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_LOCATOR_SYSTEMID: u32 = 1316u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_LOCATOR__BASE: u32 = 1312u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_LOCATOR__TOP: u32 = 1317u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_XMLFILTER: u32 = 1296u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_XMLFILTER_BASEURL: u32 = 1305u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_XMLFILTER_CONTENTHANDLER: u32 = 1302u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_XMLFILTER_DTDHANDLER: u32 = 1303u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_XMLFILTER_ENTITYRESOLVER: u32 = 1301u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_XMLFILTER_ERRORHANDLER: u32 = 1304u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_XMLFILTER_GETFEATURE: u32 = 1297u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_XMLFILTER_GETPROPERTY: u32 = 1299u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_XMLFILTER_PARENT: u32 = 1309u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_XMLFILTER_PARSE: u32 = 1307u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_XMLFILTER_PARSEURL: u32 = 1308u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_XMLFILTER_PUTFEATURE: u32 = 1298u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_XMLFILTER_PUTPROPERTY: u32 = 1300u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_XMLFILTER_SECUREBASEURL: u32 = 1306u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_XMLFILTER__BASE: u32 = 1296u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_XMLFILTER__TOP: u32 = 1311u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_XMLREADER: u32 = 1281u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_XMLREADER_BASEURL: u32 = 1290u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_XMLREADER_CONTENTHANDLER: u32 = 1287u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_XMLREADER_DTDHANDLER: u32 = 1288u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_XMLREADER_ENTITYRESOLVER: u32 = 1286u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_XMLREADER_ERRORHANDLER: u32 = 1289u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_XMLREADER_GETFEATURE: u32 = 1282u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_XMLREADER_GETPROPERTY: u32 = 1284u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_XMLREADER_PARENT: u32 = 1294u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_XMLREADER_PARSE: u32 = 1292u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_XMLREADER_PARSEURL: u32 = 1293u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_XMLREADER_PUTFEATURE: u32 = 1283u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_XMLREADER_PUTPROPERTY: u32 = 1285u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_XMLREADER_SECUREBASEURL: u32 = 1291u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_XMLREADER__BASE: u32 = 1281u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_XMLREADER__MAX: u32 = 65536u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_XMLREADER__MIN: u32 = 1281u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SAX_XMLREADER__TOP: u32 = 1295u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SOM: u32 = 1418u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SOM_ANYATTRIBUTE: u32 = 1425u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SOM_ATTRIBUTEGROUPS: u32 = 1426u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SOM_ATTRIBUTES: u32 = 1427u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SOM_BASETYPES: u32 = 1428u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SOM_CONTENTMODEL: u32 = 1429u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SOM_CONTENTTYPE: u32 = 1430u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SOM_DEFAULTVALUE: u32 = 1431u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SOM_DERIVEDBY: u32 = 1432u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SOM_DISALLOWED: u32 = 1433u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SOM_ELEMENTS: u32 = 1434u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SOM_ENUMERATION: u32 = 1435u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SOM_EXCLUSIONS: u32 = 1472u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SOM_FIELDS: u32 = 1436u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SOM_FINAL: u32 = 1437u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SOM_FIXEDVALUE: u32 = 1438u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SOM_FRACTIONDIGITS: u32 = 1439u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SOM_GETDECLARATION: u32 = 1422u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SOM_GETSCHEMA: u32 = 1421u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SOM_ID: u32 = 1440u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SOM_IDCONSTRAINTS: u32 = 1441u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SOM_ISABSTRACT: u32 = 1442u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SOM_ISNILLABLE: u32 = 1443u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SOM_ISREFERENCE: u32 = 1444u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SOM_ISVALID: u32 = 1445u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SOM_ITEMBYNAME: u32 = 1423u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SOM_ITEMBYQNAME: u32 = 1424u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SOM_ITEMTYPE: u32 = 1446u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SOM_LENGTH: u32 = 1447u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SOM_MAXEXCLUSIVE: u32 = 1448u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SOM_MAXINCLUSIVE: u32 = 1449u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SOM_MAXLENGTH: u32 = 1450u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SOM_MAXOCCURS: u32 = 1451u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SOM_MINEXCLUSIVE: u32 = 1452u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SOM_MININCLUSIVE: u32 = 1453u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SOM_MINLENGTH: u32 = 1454u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SOM_MINOCCURS: u32 = 1455u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SOM_MODELGROUPS: u32 = 1456u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SOM_NAME: u32 = 1457u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SOM_NAMESPACES: u32 = 1458u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SOM_NAMESPACEURI: u32 = 1459u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SOM_NOTATIONS: u32 = 1460u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SOM_PARTICLES: u32 = 1461u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SOM_PATTERNS: u32 = 1462u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SOM_PROCESSCONTENTS: u32 = 1463u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SOM_PROHIBITED: u32 = 1464u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SOM_PUBLICIDENTIFIER: u32 = 1465u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SOM_REFERENCEDKEY: u32 = 1466u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SOM_SCHEMA: u32 = 1467u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SOM_SCHEMALOCATIONS: u32 = 1468u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SOM_SCOPE: u32 = 1469u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SOM_SELECTOR: u32 = 1470u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SOM_SUBSTITUTIONGROUP: u32 = 1471u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SOM_SYSTEMIDENTIFIER: u32 = 1473u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SOM_TARGETNAMESPACE: u32 = 1474u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SOM_TOP: u32 = 1484u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SOM_TOTALDIGITS: u32 = 1475u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SOM_TYPE: u32 = 1476u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SOM_TYPES: u32 = 1477u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SOM_UNHANDLEDATTRS: u32 = 1478u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SOM_USE: u32 = 1479u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SOM_VALIDATE: u32 = 1419u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SOM_VALIDATEONLOAD: u32 = 1420u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SOM_VARIETY: u32 = 1480u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SOM_VERSION: u32 = 1481u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SOM_WHITESPACE: u32 = 1482u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_SOM_WRITEANNOTATION: u32 = 1483u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLATTRIBUTE: u32 = 65936u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLATTRIBUTE_NAME: u32 = 65937u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLATTRIBUTE_VALUE: u32 = 65938u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOCUMENT: u32 = 65636u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOCUMENT_ASYNC: u32 = 65649u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOCUMENT_BASEURL: u32 = 65651u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOCUMENT_CASEINSENSITIVE: u32 = 65650u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOCUMENT_CHARSET: u32 = 65645u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOCUMENT_COMMIT: u32 = 65655u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOCUMENT_CREATEELEMENT: u32 = 65644u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOCUMENT_DOCTYPE: u32 = 65647u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOCUMENT_DTDURL: u32 = 65648u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOCUMENT_FILEMODIFIEDDATE: u32 = 65639u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOCUMENT_FILESIZE: u32 = 65638u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOCUMENT_FILEUPDATEDDATE: u32 = 65640u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOCUMENT_LASTERROR: u32 = 65653u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOCUMENT_MIMETYPE: u32 = 65642u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOCUMENT_READYSTATE: u32 = 65643u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOCUMENT_ROOT: u32 = 65637u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOCUMENT_TRIMWHITESPACE: u32 = 65654u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOCUMENT_URL: u32 = 65641u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOCUMENT_VERSION: u32 = 65646u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOCUMENT_XML: u32 = 65652u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOMEVENT: u32 = 197u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOMEVENT_ONDATAAVAILABLE: u32 = 198u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOMEVENT_ONREADYSTATECHANGE: i32 = -609i32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOMEVENT__TOP: u32 = 199u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_DOCUMENT: u32 = 52u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_DOCUMENT2: u32 = 200u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_DOCUMENT2_GETPROPERTY: u32 = 205u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_DOCUMENT2_NAMESPACES: u32 = 201u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_DOCUMENT2_SCHEMAS: u32 = 202u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_DOCUMENT2_SETPROPERTY: u32 = 204u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_DOCUMENT2_VALIDATE: u32 = 203u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_DOCUMENT2__TOP: u32 = 206u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_DOCUMENT3: u32 = 207u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_DOCUMENT3_IMPORTNODE: u32 = 209u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_DOCUMENT3_VALIDATENODE: u32 = 208u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_DOCUMENT3__TOP: u32 = 210u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_DOCUMENT_ABORT: u32 = 62u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_DOCUMENT_ASYNC: u32 = 61u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_DOCUMENT_CREATENODE: u32 = 54u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_DOCUMENT_CREATENODEEX: u32 = 55u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_DOCUMENT_DOCUMENTNAMESPACES: u32 = 57u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_DOCUMENT_DOCUMENTNODE: u32 = 53u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_DOCUMENT_LOAD: u32 = 58u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_DOCUMENT_LOADXML: u32 = 63u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_DOCUMENT_NODEFROMID: u32 = 56u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_DOCUMENT_ONDATAAVAILABLE: u32 = 69u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_DOCUMENT_ONREADYSTATECHANGE: u32 = 68u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_DOCUMENT_ONTRANSFORMNODE: u32 = 70u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_DOCUMENT_PARSEERROR: u32 = 59u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_DOCUMENT_PRESERVEWHITESPACE: u32 = 67u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_DOCUMENT_RESOLVENAMESPACE: u32 = 66u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_DOCUMENT_SAVE: u32 = 64u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_DOCUMENT_URL: u32 = 60u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_DOCUMENT_VALIDATE: u32 = 65u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_DOCUMENT__TOP: u32 = 71u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_NAMEDNODEMAP: u32 = 86u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_NAMEDNODEMAP_GETQUALIFIEDITEM: u32 = 87u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_NAMEDNODEMAP_NEWENUM: u32 = 91u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_NAMEDNODEMAP_NEXTNODE: u32 = 89u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_NAMEDNODEMAP_REMOVEQUALIFIEDITEM: u32 = 88u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_NAMEDNODEMAP_RESET: u32 = 90u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_NAMEDNODEMAP__TOP: u32 = 92u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_NODE: u32 = 20u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_NODELIST: u32 = 75u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_NODELIST_NEWENUM: u32 = 78u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_NODELIST_NEXTNODE: u32 = 76u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_NODELIST_RESET: u32 = 77u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_NODELIST__TOP: u32 = 79u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_NODE_BASENAME: u32 = 34u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_NODE_DATATYPE: u32 = 26u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_NODE_DEFINITION: u32 = 23u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_NODE_NAMESPACE: u32 = 32u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_NODE_NODETYPEDVALUE: u32 = 25u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_NODE_PARSED: u32 = 31u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_NODE_PREFIX: u32 = 33u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_NODE_SELECTNODES: u32 = 29u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_NODE_SELECTSINGLENODE: u32 = 30u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_NODE_SPECIFIED: u32 = 22u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_NODE_STRINGTYPE: u32 = 21u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_NODE_TEXT: u32 = 24u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_NODE_TRANSFORMNODE: u32 = 28u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_NODE_TRANSFORMNODETOOBJECT: u32 = 35u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_NODE_XML: u32 = 27u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_NODE__TOP: u32 = 36u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_PROCESSOR: u32 = 1u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_PROCESSOR_ADDOBJECT: u32 = 12u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_PROCESSOR_ADDPARAMETER: u32 = 11u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_PROCESSOR_INPUT: u32 = 2u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_PROCESSOR_OUTPUT: u32 = 7u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_PROCESSOR_READYSTATE: u32 = 10u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_PROCESSOR_RESET: u32 = 9u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_PROCESSOR_SETSTARTMODE: u32 = 4u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_PROCESSOR_STARTMODE: u32 = 5u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_PROCESSOR_STARTMODEURI: u32 = 6u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_PROCESSOR_STYLESHEET: u32 = 13u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_PROCESSOR_TRANSFORM: u32 = 8u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_PROCESSOR_XSLTEMPLATE: u32 = 3u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_PROCESSOR__TOP: u32 = 14u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_SCHEMACOLLECTION: u32 = 2u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_SCHEMACOLLECTION_ADD: u32 = 3u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_SCHEMACOLLECTION_ADDCOLLECTION: u32 = 8u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_SCHEMACOLLECTION_GET: u32 = 4u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_SCHEMACOLLECTION_LENGTH: u32 = 6u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_SCHEMACOLLECTION_NAMESPACEURI: u32 = 7u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_SCHEMACOLLECTION_REMOVE: u32 = 5u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_SCHEMACOLLECTION__TOP: u32 = 9u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_SELECTION: u32 = 80u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_SELECTION_CLONE: u32 = 87u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_SELECTION_CONTEXT: u32 = 82u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_SELECTION_EXPR: u32 = 81u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_SELECTION_GETPROPERTY: u32 = 88u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_SELECTION_MATCHES: u32 = 84u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_SELECTION_PEEKNODE: u32 = 83u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_SELECTION_REMOVEALL: u32 = 86u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_SELECTION_REMOVENEXT: u32 = 85u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_SELECTION_SETPROPERTY: u32 = 89u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_SELECTION__TOP: u32 = 90u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_TEMPLATE: u32 = 1u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_TEMPLATE_CREATEPROCESSOR: u32 = 3u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_TEMPLATE_STYLESHEET: u32 = 2u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDOM_TEMPLATE__TOP: u32 = 4u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDSIG: u32 = 1u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDSIG_CREATEKEYFROMCSP: u32 = 1u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDSIG_CREATEKEYFROMHMACSECRET: u32 = 2u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDSIG_CREATEKEYFROMNODE: u32 = 3u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDSIG_CREATESAXPROXY: u32 = 4u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDSIG_GETVERIFYINGCERTIFICATE: u32 = 5u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDSIG_SETREFERENCEDATA: u32 = 6u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDSIG_SIGN: u32 = 7u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDSIG_SIGNATURE: u32 = 8u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDSIG_STORE: u32 = 9u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDSIG_VERIFY: u32 = 10u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDSO: u32 = 65536u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDSO_DOCUMENT: u32 = 65537u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLDSO_JAVADSOCOMPATIBLE: u32 = 65538u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLELEMENT: u32 = 65736u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLELEMENTCOLLECTION: u32 = 65536u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLELEMENTCOLLECTION_ITEM: u32 = 65539u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLELEMENTCOLLECTION_LENGTH: u32 = 65537u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLELEMENTCOLLECTION_NEWENUM: i32 = -4i32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLELEMENT_ADDCHILD: u32 = 65745u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLELEMENT_ATTRIBUTES: u32 = 65747u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLELEMENT_CHILDREN: u32 = 65742u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLELEMENT_GETATTRIBUTE: u32 = 65740u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLELEMENT_PARENT: u32 = 65738u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLELEMENT_REMOVEATTRIBUTE: u32 = 65741u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLELEMENT_REMOVECHILD: u32 = 65746u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLELEMENT_SETATTRIBUTE: u32 = 65739u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLELEMENT_TAGNAME: u32 = 65737u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLELEMENT_TEXT: u32 = 65744u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLELEMENT_TYPE: u32 = 65743u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLERROR: u32 = 65936u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLERROR_LINE: u32 = 65938u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLERROR_POS: u32 = 65939u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLERROR_REASON: u32 = 65937u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLNOTIFSINK: u32 = 65836u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XMLNOTIFSINK_CHILDADDED: u32 = 65837u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XOBJ_BASE: u32 = 65536u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XOBJ_MAX: u32 = 131071u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XOBJ_MIN: u32 = 65536u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XTLRUNTIME: u32 = 186u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XTLRUNTIME_ABSOLUTECHILDNUMBER: u32 = 191u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XTLRUNTIME_ANCESTORCHILDNUMBER: u32 = 190u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XTLRUNTIME_CHILDNUMBER: u32 = 189u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XTLRUNTIME_DEPTH: u32 = 188u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XTLRUNTIME_FORMATDATE: u32 = 194u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XTLRUNTIME_FORMATINDEX: u32 = 192u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XTLRUNTIME_FORMATNUMBER: u32 = 193u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XTLRUNTIME_FORMATTIME: u32 = 195u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XTLRUNTIME_UNIQUEID: u32 = 187u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const DISPID_XTLRUNTIME__TOP: u32 = 196u32;
 pub const DOMDocument: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(691257232, 31542, 4562, [178, 14, 0, 192, 79, 152, 62, 96]);
 pub const DOMDocument60: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2295949829, 61842, 4564, [166, 95, 0, 64, 150, 50, 81, 229]);
 pub const DOMFreeThreadedDocument: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(691257233, 31542, 4562, [178, 14, 0, 192, 79, 152, 62, 96]);
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DOMNodeType(pub i32);
@@ -573,17 +1120,23 @@ unsafe impl ::windows::runtime::Abi for DOMNodeType {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const E_XML_BUFFERTOOSMALL: i32 = -1072897498i32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const E_XML_INVALID: i32 = -1072897499i32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const E_XML_NODTD: i32 = -1072897500i32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const E_XML_NOTWF: i32 = -1072897501i32;
 pub const FreeThreadedDOMDocument60: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2295949830, 61842, 4564, [166, 95, 0, 64, 150, 50, 81, 229]);
 pub const FreeThreadedXMLHTTP60: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2295949833, 61842, 4564, [166, 95, 0, 64, 150, 50, 81, 229]);
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMXAttributes(::windows::runtime::IUnknown);
 impl IMXAttributes {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn addAttribute<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(
         &self,
         struri: Param0,
@@ -595,16 +1148,20 @@ impl IMXAttributes {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), struri.into_param().abi(), strlocalname.into_param().abi(), strqname.into_param().abi(), strtype.into_param().abi(), strvalue.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn addAttributeFromIndex<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, varatts: Param0, nindex: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), varatts.into_param().abi(), ::std::mem::transmute(nindex)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn clear(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn removeAttribute(&self, nindex: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(nindex)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn setAttribute<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(
         &self,
         nindex: i32,
@@ -617,26 +1174,32 @@ impl IMXAttributes {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(nindex), struri.into_param().abi(), strlocalname.into_param().abi(), strqname.into_param().abi(), strtype.into_param().abi(), strvalue.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn setAttributes<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, varatts: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), varatts.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn setLocalName<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, nindex: i32, strlocalname: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(nindex), strlocalname.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn setQName<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, nindex: i32, strqname: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(nindex), strqname.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn setType<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, nindex: i32, strtype: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(nindex), strtype.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn setURI<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, nindex: i32, struri: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(nindex), struri.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn setValue<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, nindex: i32, strvalue: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(nindex), strvalue.into_param().abi()).ok()
     }
@@ -726,42 +1289,53 @@ pub struct IMXAttributes_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, nindex: i32, strvalue: ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMXNamespaceManager(::windows::runtime::IUnknown);
 impl IMXNamespaceManager {
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn putAllowOverride(&self, foverride: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(foverride)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn getAllowOverride(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn reset(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn pushContext(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn pushNodeContext<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, contextnode: Param0, fdeep: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), contextnode.into_param().abi(), ::std::mem::transmute(fdeep)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn popContext(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn declarePrefix<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, prefix: Param0, namespaceuri: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), prefix.into_param().abi(), namespaceuri.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn getDeclaredPrefix(&self, nindex: i32, pwchprefix: super::super::super::Foundation::PWSTR, pcchprefix: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(nindex), ::std::mem::transmute(pwchprefix), ::std::mem::transmute(pcchprefix)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn getPrefix<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwsznamespaceuri: Param0, nindex: i32, pwchprefix: super::super::super::Foundation::PWSTR, pcchprefix: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), pwsznamespaceuri.into_param().abi(), ::std::mem::transmute(nindex), ::std::mem::transmute(pwchprefix), ::std::mem::transmute(pcchprefix)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn getURI<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, pwchprefix: Param0, pcontextnode: Param1, pwchuri: super::super::super::Foundation::PWSTR, pcchuri: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), pwchprefix.into_param().abi(), pcontextnode.into_param().abi(), ::std::mem::transmute(pwchuri), ::std::mem::transmute(pcchuri)).ok()
     }
@@ -811,19 +1385,23 @@ pub struct IMXNamespaceManager_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwchprefix: super::super::super::Foundation::PWSTR, pcontextnode: ::windows::runtime::RawPtr, pwchuri: super::super::super::Foundation::PWSTR, pcchuri: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMXNamespacePrefixes(::windows::runtime::IUnknown);
 impl IMXNamespacePrefixes {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn item(&self, index: i32) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn length(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn _newEnum(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
         let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
@@ -896,16 +1474,20 @@ pub struct IMXNamespacePrefixes_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, length: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppunk: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMXReaderControl(::windows::runtime::IUnknown);
 impl IMXReaderControl {
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn abort(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn resume(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn suspend(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self)).ok()
     }
@@ -976,10 +1558,12 @@ pub struct IMXReaderControl_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMXSchemaDeclHandler(::windows::runtime::IUnknown);
 impl IMXSchemaDeclHandler {
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn schemaElementDecl<'a, Param0: ::windows::runtime::IntoParam<'a, ISchemaElement>>(&self, oschemaelement: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), oschemaelement.into_param().abi()).ok()
     }
@@ -1048,72 +1632,90 @@ pub struct IMXSchemaDeclHandler_abi(
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, oschemaelement: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMXWriter(::windows::runtime::IUnknown);
 impl IMXWriter {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Setoutput<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, vardestination: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), vardestination.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn output(&self) -> ::windows::runtime::Result<super::super::super::System::Com::VARIANT> {
         let mut result__: <super::super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn Setencoding<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, strencoding: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), strencoding.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn encoding(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn SetbyteOrderMark(&self, fwritebyteordermark: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(fwritebyteordermark)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn byteOrderMark(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn Setindent(&self, findentmode: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(findentmode)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn indent(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn Setstandalone(&self, fvalue: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(fvalue)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn standalone(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn SetomitXMLDeclaration(&self, fvalue: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(fvalue)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn omitXMLDeclaration(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn Setversion<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, strversion: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), strversion.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn version(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn SetdisableOutputEscaping(&self, fvalue: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(fvalue)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn disableOutputEscaping(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn flush(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self)).ok()
     }
@@ -1204,53 +1806,66 @@ pub struct IMXWriter_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fvalue: *mut i16) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMXXMLFilter(::windows::runtime::IUnknown);
 impl IMXXMLFilter {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn getFeature<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, strname: Param0) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), strname.into_param().abi(), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn putFeature<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, strname: Param0, fvalue: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), strname.into_param().abi(), ::std::mem::transmute(fvalue)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn getProperty<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, strname: Param0) -> ::windows::runtime::Result<super::super::super::System::Com::VARIANT> {
         let mut result__: <super::super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), strname.into_param().abi(), &mut result__).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn putProperty<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, strname: Param0, varvalue: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), strname.into_param().abi(), varvalue.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn entityResolver(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
         let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn putref_entityResolver<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, oresolver: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), oresolver.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn contentHandler(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
         let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn putref_contentHandler<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, ohandler: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ohandler.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn dtdHandler(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
         let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn putref_dtdHandler<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, ohandler: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ohandler.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn errorHandler(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
         let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn putref_errorHandler<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, ohandler: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ohandler.into_param().abi()).ok()
     }
@@ -1334,55 +1949,69 @@ pub struct IMXXMLFilter_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ohandler: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ohandler: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISAXAttributes(::windows::runtime::IUnknown);
 impl ISAXAttributes {
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn getLength(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn getURI(&self, nindex: i32, ppwchuri: *mut *mut u16, pcchuri: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(nindex), ::std::mem::transmute(ppwchuri), ::std::mem::transmute(pcchuri)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn getLocalName(&self, nindex: i32, ppwchlocalname: *mut *mut u16, pcchlocalname: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(nindex), ::std::mem::transmute(ppwchlocalname), ::std::mem::transmute(pcchlocalname)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn getQName(&self, nindex: i32, ppwchqname: *mut *mut u16, pcchqname: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(nindex), ::std::mem::transmute(ppwchqname), ::std::mem::transmute(pcchqname)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn getName(&self, nindex: i32, ppwchuri: *mut *mut u16, pcchuri: *mut i32, ppwchlocalname: *mut *mut u16, pcchlocalname: *mut i32, ppwchqname: *mut *mut u16, pcchqname: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(nindex), ::std::mem::transmute(ppwchuri), ::std::mem::transmute(pcchuri), ::std::mem::transmute(ppwchlocalname), ::std::mem::transmute(pcchlocalname), ::std::mem::transmute(ppwchqname), ::std::mem::transmute(pcchqname)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn getIndexFromName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwchuri: Param0, cchuri: i32, pwchlocalname: Param2, cchlocalname: i32) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), pwchuri.into_param().abi(), ::std::mem::transmute(cchuri), pwchlocalname.into_param().abi(), ::std::mem::transmute(cchlocalname), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn getIndexFromQName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwchqname: Param0, cchqname: i32) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), pwchqname.into_param().abi(), ::std::mem::transmute(cchqname), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn getType(&self, nindex: i32, ppwchtype: *mut *mut u16, pcchtype: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(nindex), ::std::mem::transmute(ppwchtype), ::std::mem::transmute(pcchtype)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn getTypeFromName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwchuri: Param0, cchuri: i32, pwchlocalname: Param2, cchlocalname: i32, ppwchtype: *mut *mut u16, pcchtype: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), pwchuri.into_param().abi(), ::std::mem::transmute(cchuri), pwchlocalname.into_param().abi(), ::std::mem::transmute(cchlocalname), ::std::mem::transmute(ppwchtype), ::std::mem::transmute(pcchtype)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn getTypeFromQName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwchqname: Param0, cchqname: i32, ppwchtype: *mut *mut u16, pcchtype: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), pwchqname.into_param().abi(), ::std::mem::transmute(cchqname), ::std::mem::transmute(ppwchtype), ::std::mem::transmute(pcchtype)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn getValue(&self, nindex: i32, ppwchvalue: *mut *mut u16, pcchvalue: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(nindex), ::std::mem::transmute(ppwchvalue), ::std::mem::transmute(pcchvalue)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn getValueFromName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwchuri: Param0, cchuri: i32, pwchlocalname: Param2, cchlocalname: i32, ppwchvalue: *mut *mut u16, pcchvalue: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), pwchuri.into_param().abi(), ::std::mem::transmute(cchuri), pwchlocalname.into_param().abi(), ::std::mem::transmute(cchlocalname), ::std::mem::transmute(ppwchvalue), ::std::mem::transmute(pcchvalue)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn getValueFromQName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwchqname: Param0, cchqname: i32, ppwchvalue: *mut *mut u16, pcchvalue: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), pwchqname.into_param().abi(), ::std::mem::transmute(cchqname), ::std::mem::transmute(ppwchvalue), ::std::mem::transmute(pcchvalue)).ok()
     }
@@ -1437,28 +2066,35 @@ pub struct ISAXAttributes_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwchqname: super::super::super::Foundation::PWSTR, cchqname: i32, ppwchvalue: *mut *mut u16, pcchvalue: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISAXContentHandler(::windows::runtime::IUnknown);
 impl ISAXContentHandler {
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn putDocumentLocator<'a, Param0: ::windows::runtime::IntoParam<'a, ISAXLocator>>(&self, plocator: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), plocator.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn startDocument(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn endDocument(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn startPrefixMapping<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwchprefix: Param0, cchprefix: i32, pwchuri: Param2, cchuri: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), pwchprefix.into_param().abi(), ::std::mem::transmute(cchprefix), pwchuri.into_param().abi(), ::std::mem::transmute(cchuri)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn endPrefixMapping<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwchprefix: Param0, cchprefix: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), pwchprefix.into_param().abi(), ::std::mem::transmute(cchprefix)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn startElement<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param6: ::windows::runtime::IntoParam<'a, ISAXAttributes>>(
         &self,
         pwchnamespaceuri: Param0,
@@ -1472,22 +2108,27 @@ impl ISAXContentHandler {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), pwchnamespaceuri.into_param().abi(), ::std::mem::transmute(cchnamespaceuri), pwchlocalname.into_param().abi(), ::std::mem::transmute(cchlocalname), pwchqname.into_param().abi(), ::std::mem::transmute(cchqname), pattributes.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn endElement<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwchnamespaceuri: Param0, cchnamespaceuri: i32, pwchlocalname: Param2, cchlocalname: i32, pwchqname: Param4, cchqname: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), pwchnamespaceuri.into_param().abi(), ::std::mem::transmute(cchnamespaceuri), pwchlocalname.into_param().abi(), ::std::mem::transmute(cchlocalname), pwchqname.into_param().abi(), ::std::mem::transmute(cchqname)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn characters<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwchchars: Param0, cchchars: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), pwchchars.into_param().abi(), ::std::mem::transmute(cchchars)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn ignorableWhitespace<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwchchars: Param0, cchchars: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), pwchchars.into_param().abi(), ::std::mem::transmute(cchchars)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn processingInstruction<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwchtarget: Param0, cchtarget: i32, pwchdata: Param2, cchdata: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), pwchtarget.into_param().abi(), ::std::mem::transmute(cchtarget), pwchdata.into_param().abi(), ::std::mem::transmute(cchdata)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn skippedEntity<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwchname: Param0, cchname: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), pwchname.into_param().abi(), ::std::mem::transmute(cchname)).ok()
     }
@@ -1542,15 +2183,18 @@ pub struct ISAXContentHandler_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwchname: super::super::super::Foundation::PWSTR, cchname: i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISAXDTDHandler(::windows::runtime::IUnknown);
 impl ISAXDTDHandler {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn notationDecl<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwchname: Param0, cchname: i32, pwchpublicid: Param2, cchpublicid: i32, pwchsystemid: Param4, cchsystemid: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pwchname.into_param().abi(), ::std::mem::transmute(cchname), pwchpublicid.into_param().abi(), ::std::mem::transmute(cchpublicid), pwchsystemid.into_param().abi(), ::std::mem::transmute(cchsystemid)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn unparsedEntityDecl<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param6: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(
         &self,
         pwchname: Param0,
@@ -1611,15 +2255,18 @@ pub struct ISAXDTDHandler_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwchname: super::super::super::Foundation::PWSTR, cchname: i32, pwchpublicid: super::super::super::Foundation::PWSTR, cchpublicid: i32, pwchsystemid: super::super::super::Foundation::PWSTR, cchsystemid: i32, pwchnotationname: super::super::super::Foundation::PWSTR, cchnotationname: i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISAXDeclHandler(::windows::runtime::IUnknown);
 impl ISAXDeclHandler {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn elementDecl<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwchname: Param0, cchname: i32, pwchmodel: Param2, cchmodel: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pwchname.into_param().abi(), ::std::mem::transmute(cchname), pwchmodel.into_param().abi(), ::std::mem::transmute(cchmodel)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn attributeDecl<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param6: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param8: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(
         &self,
         pwchelementname: Param0,
@@ -1649,10 +2296,12 @@ impl ISAXDeclHandler {
         .ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn internalEntityDecl<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwchname: Param0, cchname: i32, pwchvalue: Param2, cchvalue: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), pwchname.into_param().abi(), ::std::mem::transmute(cchname), pwchvalue.into_param().abi(), ::std::mem::transmute(cchvalue)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn externalEntityDecl<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwchname: Param0, cchname: i32, pwchpublicid: Param2, cchpublicid: i32, pwchsystemid: Param4, cchsystemid: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), pwchname.into_param().abi(), ::std::mem::transmute(cchname), pwchpublicid.into_param().abi(), ::std::mem::transmute(cchpublicid), pwchsystemid.into_param().abi(), ::std::mem::transmute(cchsystemid)).ok()
     }
@@ -1697,11 +2346,13 @@ pub struct ISAXDeclHandler_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwchname: super::super::super::Foundation::PWSTR, cchname: i32, pwchpublicid: super::super::super::Foundation::PWSTR, cchpublicid: i32, pwchsystemid: super::super::super::Foundation::PWSTR, cchsystemid: i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISAXEntityResolver(::windows::runtime::IUnknown);
 impl ISAXEntityResolver {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn resolveEntity<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwchpublicid: Param0, pwchsystemid: Param1) -> ::windows::runtime::Result<super::super::super::System::Com::VARIANT> {
         let mut result__: <super::super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pwchpublicid.into_param().abi(), pwchsystemid.into_param().abi(), &mut result__).from_abi::<super::super::super::System::Com::VARIANT>(result__)
@@ -1740,19 +2391,23 @@ pub struct ISAXEntityResolver_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwchpublicid: super::super::super::Foundation::PWSTR, pwchsystemid: super::super::super::Foundation::PWSTR, pvarinput: *mut ::std::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISAXErrorHandler(::windows::runtime::IUnknown);
 impl ISAXErrorHandler {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn error<'a, Param0: ::windows::runtime::IntoParam<'a, ISAXLocator>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, plocator: Param0, pwcherrormessage: Param1, hrerrorcode: ::windows::runtime::HRESULT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), plocator.into_param().abi(), pwcherrormessage.into_param().abi(), ::std::mem::transmute(hrerrorcode)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn fatalError<'a, Param0: ::windows::runtime::IntoParam<'a, ISAXLocator>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, plocator: Param0, pwcherrormessage: Param1, hrerrorcode: ::windows::runtime::HRESULT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), plocator.into_param().abi(), pwcherrormessage.into_param().abi(), ::std::mem::transmute(hrerrorcode)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn ignorableWarning<'a, Param0: ::windows::runtime::IntoParam<'a, ISAXLocator>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, plocator: Param0, pwcherrormessage: Param1, hrerrorcode: ::windows::runtime::HRESULT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), plocator.into_param().abi(), pwcherrormessage.into_param().abi(), ::std::mem::transmute(hrerrorcode)).ok()
     }
@@ -1794,32 +2449,40 @@ pub struct ISAXErrorHandler_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, plocator: ::windows::runtime::RawPtr, pwcherrormessage: super::super::super::Foundation::PWSTR, hrerrorcode: ::windows::runtime::HRESULT) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISAXLexicalHandler(::windows::runtime::IUnknown);
 impl ISAXLexicalHandler {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn startDTD<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwchname: Param0, cchname: i32, pwchpublicid: Param2, cchpublicid: i32, pwchsystemid: Param4, cchsystemid: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pwchname.into_param().abi(), ::std::mem::transmute(cchname), pwchpublicid.into_param().abi(), ::std::mem::transmute(cchpublicid), pwchsystemid.into_param().abi(), ::std::mem::transmute(cchsystemid)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn endDTD(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn startEntity<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwchname: Param0, cchname: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), pwchname.into_param().abi(), ::std::mem::transmute(cchname)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn endEntity<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwchname: Param0, cchname: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), pwchname.into_param().abi(), ::std::mem::transmute(cchname)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn startCDATA(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn endCDATA(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn comment<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwchchars: Param0, cchchars: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), pwchchars.into_param().abi(), ::std::mem::transmute(cchchars)).ok()
     }
@@ -1866,22 +2529,27 @@ pub struct ISAXLexicalHandler_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwchchars: super::super::super::Foundation::PWSTR, cchchars: i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISAXLocator(::windows::runtime::IUnknown);
 impl ISAXLocator {
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn getColumnNumber(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn getLineNumber(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn getPublicId(&self) -> ::windows::runtime::Result<*mut u16> {
         let mut result__: <*mut u16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut u16>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn getSystemId(&self) -> ::windows::runtime::Result<*mut u16> {
         let mut result__: <*mut u16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut u16>(result__)
@@ -1922,84 +2590,105 @@ pub struct ISAXLocator_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppwchpublicid: *mut *mut u16) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppwchsystemid: *mut *mut u16) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISAXXMLFilter(::windows::runtime::IUnknown);
 impl ISAXXMLFilter {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn getFeature<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwchname: Param0) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pwchname.into_param().abi(), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn putFeature<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwchname: Param0, vfvalue: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pwchname.into_param().abi(), ::std::mem::transmute(vfvalue)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn getProperty<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwchname: Param0) -> ::windows::runtime::Result<super::super::super::System::Com::VARIANT> {
         let mut result__: <super::super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), pwchname.into_param().abi(), &mut result__).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn putProperty<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, pwchname: Param0, varvalue: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), pwchname.into_param().abi(), varvalue.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn getEntityResolver(&self) -> ::windows::runtime::Result<ISAXEntityResolver> {
         let mut result__: <ISAXEntityResolver as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISAXEntityResolver>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn putEntityResolver<'a, Param0: ::windows::runtime::IntoParam<'a, ISAXEntityResolver>>(&self, presolver: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), presolver.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn getContentHandler(&self) -> ::windows::runtime::Result<ISAXContentHandler> {
         let mut result__: <ISAXContentHandler as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISAXContentHandler>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn putContentHandler<'a, Param0: ::windows::runtime::IntoParam<'a, ISAXContentHandler>>(&self, phandler: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), phandler.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn getDTDHandler(&self) -> ::windows::runtime::Result<ISAXDTDHandler> {
         let mut result__: <ISAXDTDHandler as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISAXDTDHandler>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn putDTDHandler<'a, Param0: ::windows::runtime::IntoParam<'a, ISAXDTDHandler>>(&self, phandler: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), phandler.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn getErrorHandler(&self) -> ::windows::runtime::Result<ISAXErrorHandler> {
         let mut result__: <ISAXErrorHandler as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISAXErrorHandler>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn putErrorHandler<'a, Param0: ::windows::runtime::IntoParam<'a, ISAXErrorHandler>>(&self, phandler: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), phandler.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn getBaseURL(&self) -> ::windows::runtime::Result<*mut u16> {
         let mut result__: <*mut u16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut u16>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn putBaseURL<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwchbaseurl: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), pwchbaseurl.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn getSecureBaseURL(&self) -> ::windows::runtime::Result<*mut u16> {
         let mut result__: <*mut u16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut u16>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn putSecureBaseURL<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwchsecurebaseurl: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), pwchsecurebaseurl.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn parse<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, varinput: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), varinput.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn parseURL<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwchurl: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), pwchurl.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn getParent(&self) -> ::windows::runtime::Result<ISAXXMLReader> {
         let mut result__: <ISAXXMLReader as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISAXXMLReader>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn putParent<'a, Param0: ::windows::runtime::IntoParam<'a, ISAXXMLReader>>(&self, preader: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), preader.into_param().abi()).ok()
     }
@@ -2083,77 +2772,96 @@ pub struct ISAXXMLFilter_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppreader: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, preader: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISAXXMLReader(::windows::runtime::IUnknown);
 impl ISAXXMLReader {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn getFeature<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwchname: Param0) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pwchname.into_param().abi(), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn putFeature<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwchname: Param0, vfvalue: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pwchname.into_param().abi(), ::std::mem::transmute(vfvalue)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn getProperty<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwchname: Param0) -> ::windows::runtime::Result<super::super::super::System::Com::VARIANT> {
         let mut result__: <super::super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), pwchname.into_param().abi(), &mut result__).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn putProperty<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, pwchname: Param0, varvalue: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), pwchname.into_param().abi(), varvalue.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn getEntityResolver(&self) -> ::windows::runtime::Result<ISAXEntityResolver> {
         let mut result__: <ISAXEntityResolver as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISAXEntityResolver>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn putEntityResolver<'a, Param0: ::windows::runtime::IntoParam<'a, ISAXEntityResolver>>(&self, presolver: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), presolver.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn getContentHandler(&self) -> ::windows::runtime::Result<ISAXContentHandler> {
         let mut result__: <ISAXContentHandler as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISAXContentHandler>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn putContentHandler<'a, Param0: ::windows::runtime::IntoParam<'a, ISAXContentHandler>>(&self, phandler: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), phandler.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn getDTDHandler(&self) -> ::windows::runtime::Result<ISAXDTDHandler> {
         let mut result__: <ISAXDTDHandler as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISAXDTDHandler>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn putDTDHandler<'a, Param0: ::windows::runtime::IntoParam<'a, ISAXDTDHandler>>(&self, phandler: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), phandler.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn getErrorHandler(&self) -> ::windows::runtime::Result<ISAXErrorHandler> {
         let mut result__: <ISAXErrorHandler as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISAXErrorHandler>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn putErrorHandler<'a, Param0: ::windows::runtime::IntoParam<'a, ISAXErrorHandler>>(&self, phandler: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), phandler.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn getBaseURL(&self) -> ::windows::runtime::Result<*mut u16> {
         let mut result__: <*mut u16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut u16>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn putBaseURL<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwchbaseurl: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), pwchbaseurl.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn getSecureBaseURL(&self) -> ::windows::runtime::Result<*mut u16> {
         let mut result__: <*mut u16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut u16>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn putSecureBaseURL<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwchsecurebaseurl: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), pwchsecurebaseurl.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn parse<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, varinput: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), varinput.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn parseURL<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwchurl: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), pwchurl.into_param().abi()).ok()
     }
@@ -2215,92 +2923,113 @@ pub struct ISAXXMLReader_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwchurl: super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISchema(::windows::runtime::IUnknown);
 impl ISchema {
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::super::System::Ole::Automation::ITypeInfo> {
         let mut result__: <super::super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::super::super::System::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn name(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn namespaceURI(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn schema(&self) -> ::windows::runtime::Result<ISchema> {
         let mut result__: <ISchema as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISchema>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn id(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn itemType(&self) -> ::windows::runtime::Result<SOMITEMTYPE> {
         let mut result__: <SOMITEMTYPE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<SOMITEMTYPE>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn unhandledAttributes(&self) -> ::windows::runtime::Result<IVBSAXAttributes> {
         let mut result__: <IVBSAXAttributes as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IVBSAXAttributes>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn writeAnnotation<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, annotationsink: Param0) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), annotationsink.into_param().abi(), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn targetNamespace(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn version(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn types(&self) -> ::windows::runtime::Result<ISchemaItemCollection> {
         let mut result__: <ISchemaItemCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISchemaItemCollection>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn elements(&self) -> ::windows::runtime::Result<ISchemaItemCollection> {
         let mut result__: <ISchemaItemCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISchemaItemCollection>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn attributes(&self) -> ::windows::runtime::Result<ISchemaItemCollection> {
         let mut result__: <ISchemaItemCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISchemaItemCollection>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn attributeGroups(&self) -> ::windows::runtime::Result<ISchemaItemCollection> {
         let mut result__: <ISchemaItemCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISchemaItemCollection>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn modelGroups(&self) -> ::windows::runtime::Result<ISchemaItemCollection> {
         let mut result__: <ISchemaItemCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISchemaItemCollection>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn notations(&self) -> ::windows::runtime::Result<ISchemaItemCollection> {
         let mut result__: <ISchemaItemCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISchemaItemCollection>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn schemaLocations(&self) -> ::windows::runtime::Result<ISchemaStringCollection> {
         let mut result__: <ISchemaStringCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISchemaStringCollection>(result__)
@@ -2410,72 +3139,88 @@ pub struct ISchema_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, notations: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, schemalocations: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISchemaAny(::windows::runtime::IUnknown);
 impl ISchemaAny {
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::super::System::Ole::Automation::ITypeInfo> {
         let mut result__: <super::super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::super::super::System::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn name(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn namespaceURI(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn schema(&self) -> ::windows::runtime::Result<ISchema> {
         let mut result__: <ISchema as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISchema>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn id(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn itemType(&self) -> ::windows::runtime::Result<SOMITEMTYPE> {
         let mut result__: <SOMITEMTYPE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<SOMITEMTYPE>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn unhandledAttributes(&self) -> ::windows::runtime::Result<IVBSAXAttributes> {
         let mut result__: <IVBSAXAttributes as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IVBSAXAttributes>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn writeAnnotation<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, annotationsink: Param0) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), annotationsink.into_param().abi(), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn minOccurs(&self) -> ::windows::runtime::Result<super::super::super::System::Com::VARIANT> {
         let mut result__: <super::super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn maxOccurs(&self) -> ::windows::runtime::Result<super::super::super::System::Com::VARIANT> {
         let mut result__: <super::super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn namespaces(&self) -> ::windows::runtime::Result<ISchemaStringCollection> {
         let mut result__: <ISchemaStringCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISchemaStringCollection>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn processContents(&self) -> ::windows::runtime::Result<SCHEMAPROCESSCONTENTS> {
         let mut result__: <SCHEMAPROCESSCONTENTS as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<SCHEMAPROCESSCONTENTS>(result__)
@@ -2600,80 +3345,98 @@ pub struct ISchemaAny_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, namespaces: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, processcontents: *mut SCHEMAPROCESSCONTENTS) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISchemaAttribute(::windows::runtime::IUnknown);
 impl ISchemaAttribute {
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::super::System::Ole::Automation::ITypeInfo> {
         let mut result__: <super::super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::super::super::System::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn name(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn namespaceURI(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn schema(&self) -> ::windows::runtime::Result<ISchema> {
         let mut result__: <ISchema as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISchema>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn id(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn itemType(&self) -> ::windows::runtime::Result<SOMITEMTYPE> {
         let mut result__: <SOMITEMTYPE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<SOMITEMTYPE>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn unhandledAttributes(&self) -> ::windows::runtime::Result<IVBSAXAttributes> {
         let mut result__: <IVBSAXAttributes as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IVBSAXAttributes>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn writeAnnotation<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, annotationsink: Param0) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), annotationsink.into_param().abi(), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn r#type(&self) -> ::windows::runtime::Result<ISchemaType> {
         let mut result__: <ISchemaType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISchemaType>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn scope(&self) -> ::windows::runtime::Result<ISchemaComplexType> {
         let mut result__: <ISchemaComplexType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISchemaComplexType>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn defaultValue(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn fixedValue(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn r#use(&self) -> ::windows::runtime::Result<SCHEMAUSE> {
         let mut result__: <SCHEMAUSE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), &mut result__).from_abi::<SCHEMAUSE>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn isReference(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
@@ -2780,62 +3543,76 @@ pub struct ISchemaAttribute_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, r#use: *mut SCHEMAUSE) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, reference: *mut i16) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISchemaAttributeGroup(::windows::runtime::IUnknown);
 impl ISchemaAttributeGroup {
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::super::System::Ole::Automation::ITypeInfo> {
         let mut result__: <super::super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::super::super::System::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn name(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn namespaceURI(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn schema(&self) -> ::windows::runtime::Result<ISchema> {
         let mut result__: <ISchema as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISchema>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn id(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn itemType(&self) -> ::windows::runtime::Result<SOMITEMTYPE> {
         let mut result__: <SOMITEMTYPE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<SOMITEMTYPE>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn unhandledAttributes(&self) -> ::windows::runtime::Result<IVBSAXAttributes> {
         let mut result__: <IVBSAXAttributes as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IVBSAXAttributes>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn writeAnnotation<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, annotationsink: Param0) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), annotationsink.into_param().abi(), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn anyAttribute(&self) -> ::windows::runtime::Result<ISchemaAny> {
         let mut result__: <ISchemaAny as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISchemaAny>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn attributes(&self) -> ::windows::runtime::Result<ISchemaItemCollection> {
         let mut result__: <ISchemaItemCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISchemaItemCollection>(result__)
@@ -2936,156 +3713,191 @@ pub struct ISchemaAttributeGroup_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, anyattribute: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, attributes: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISchemaComplexType(::windows::runtime::IUnknown);
 impl ISchemaComplexType {
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::super::System::Ole::Automation::ITypeInfo> {
         let mut result__: <super::super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::super::super::System::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn name(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn namespaceURI(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn schema(&self) -> ::windows::runtime::Result<ISchema> {
         let mut result__: <ISchema as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISchema>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn id(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn itemType(&self) -> ::windows::runtime::Result<SOMITEMTYPE> {
         let mut result__: <SOMITEMTYPE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<SOMITEMTYPE>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn unhandledAttributes(&self) -> ::windows::runtime::Result<IVBSAXAttributes> {
         let mut result__: <IVBSAXAttributes as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IVBSAXAttributes>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn writeAnnotation<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, annotationsink: Param0) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), annotationsink.into_param().abi(), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn baseTypes(&self) -> ::windows::runtime::Result<ISchemaItemCollection> {
         let mut result__: <ISchemaItemCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISchemaItemCollection>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn r#final(&self) -> ::windows::runtime::Result<SCHEMADERIVATIONMETHOD> {
         let mut result__: <SCHEMADERIVATIONMETHOD as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<SCHEMADERIVATIONMETHOD>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn variety(&self) -> ::windows::runtime::Result<SCHEMATYPEVARIETY> {
         let mut result__: <SCHEMATYPEVARIETY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<SCHEMATYPEVARIETY>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn derivedBy(&self) -> ::windows::runtime::Result<SCHEMADERIVATIONMETHOD> {
         let mut result__: <SCHEMADERIVATIONMETHOD as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<SCHEMADERIVATIONMETHOD>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn isValid<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, data: Param0) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), data.into_param().abi(), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn minExclusive(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn minInclusive(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn maxExclusive(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn maxInclusive(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn totalDigits(&self) -> ::windows::runtime::Result<super::super::super::System::Com::VARIANT> {
         let mut result__: <super::super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn fractionDigits(&self) -> ::windows::runtime::Result<super::super::super::System::Com::VARIANT> {
         let mut result__: <super::super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn length(&self) -> ::windows::runtime::Result<super::super::super::System::Com::VARIANT> {
         let mut result__: <super::super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn minLength(&self) -> ::windows::runtime::Result<super::super::super::System::Com::VARIANT> {
         let mut result__: <super::super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn maxLength(&self) -> ::windows::runtime::Result<super::super::super::System::Com::VARIANT> {
         let mut result__: <super::super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn enumeration(&self) -> ::windows::runtime::Result<ISchemaStringCollection> {
         let mut result__: <ISchemaStringCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISchemaStringCollection>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn whitespace(&self) -> ::windows::runtime::Result<SCHEMAWHITESPACE> {
         let mut result__: <SCHEMAWHITESPACE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), &mut result__).from_abi::<SCHEMAWHITESPACE>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn patterns(&self) -> ::windows::runtime::Result<ISchemaStringCollection> {
         let mut result__: <ISchemaStringCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISchemaStringCollection>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn isAbstract(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn anyAttribute(&self) -> ::windows::runtime::Result<ISchemaAny> {
         let mut result__: <ISchemaAny as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).32)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISchemaAny>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn attributes(&self) -> ::windows::runtime::Result<ISchemaItemCollection> {
         let mut result__: <ISchemaItemCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).33)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISchemaItemCollection>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn contentType(&self) -> ::windows::runtime::Result<SCHEMACONTENTTYPE> {
         let mut result__: <SCHEMACONTENTTYPE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).34)(::std::mem::transmute_copy(self), &mut result__).from_abi::<SCHEMACONTENTTYPE>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn contentModel(&self) -> ::windows::runtime::Result<ISchemaModelGroup> {
         let mut result__: <ISchemaModelGroup as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).35)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISchemaModelGroup>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn prohibitedSubstitutions(&self) -> ::windows::runtime::Result<SCHEMADERIVATIONMETHOD> {
         let mut result__: <SCHEMADERIVATIONMETHOD as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).36)(::std::mem::transmute_copy(self), &mut result__).from_abi::<SCHEMADERIVATIONMETHOD>(result__)
@@ -3237,110 +4049,135 @@ pub struct ISchemaComplexType_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, contentmodel: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, prohibited: *mut SCHEMADERIVATIONMETHOD) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISchemaElement(::windows::runtime::IUnknown);
 impl ISchemaElement {
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::super::System::Ole::Automation::ITypeInfo> {
         let mut result__: <super::super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::super::super::System::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn name(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn namespaceURI(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn schema(&self) -> ::windows::runtime::Result<ISchema> {
         let mut result__: <ISchema as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISchema>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn id(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn itemType(&self) -> ::windows::runtime::Result<SOMITEMTYPE> {
         let mut result__: <SOMITEMTYPE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<SOMITEMTYPE>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn unhandledAttributes(&self) -> ::windows::runtime::Result<IVBSAXAttributes> {
         let mut result__: <IVBSAXAttributes as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IVBSAXAttributes>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn writeAnnotation<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, annotationsink: Param0) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), annotationsink.into_param().abi(), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn minOccurs(&self) -> ::windows::runtime::Result<super::super::super::System::Com::VARIANT> {
         let mut result__: <super::super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn maxOccurs(&self) -> ::windows::runtime::Result<super::super::super::System::Com::VARIANT> {
         let mut result__: <super::super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn r#type(&self) -> ::windows::runtime::Result<ISchemaType> {
         let mut result__: <ISchemaType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISchemaType>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn scope(&self) -> ::windows::runtime::Result<ISchemaComplexType> {
         let mut result__: <ISchemaComplexType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISchemaComplexType>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn defaultValue(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn fixedValue(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn isNillable(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn identityConstraints(&self) -> ::windows::runtime::Result<ISchemaItemCollection> {
         let mut result__: <ISchemaItemCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISchemaItemCollection>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn substitutionGroup(&self) -> ::windows::runtime::Result<ISchemaElement> {
         let mut result__: <ISchemaElement as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISchemaElement>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn substitutionGroupExclusions(&self) -> ::windows::runtime::Result<SCHEMADERIVATIONMETHOD> {
         let mut result__: <SCHEMADERIVATIONMETHOD as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), &mut result__).from_abi::<SCHEMADERIVATIONMETHOD>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn disallowedSubstitutions(&self) -> ::windows::runtime::Result<SCHEMADERIVATIONMETHOD> {
         let mut result__: <SCHEMADERIVATIONMETHOD as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), &mut result__).from_abi::<SCHEMADERIVATIONMETHOD>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn isAbstract(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn isReference(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
@@ -3476,67 +4313,82 @@ pub struct ISchemaElement_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, r#abstract: *mut i16) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, reference: *mut i16) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISchemaIdentityConstraint(::windows::runtime::IUnknown);
 impl ISchemaIdentityConstraint {
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::super::System::Ole::Automation::ITypeInfo> {
         let mut result__: <super::super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::super::super::System::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn name(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn namespaceURI(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn schema(&self) -> ::windows::runtime::Result<ISchema> {
         let mut result__: <ISchema as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISchema>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn id(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn itemType(&self) -> ::windows::runtime::Result<SOMITEMTYPE> {
         let mut result__: <SOMITEMTYPE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<SOMITEMTYPE>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn unhandledAttributes(&self) -> ::windows::runtime::Result<IVBSAXAttributes> {
         let mut result__: <IVBSAXAttributes as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IVBSAXAttributes>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn writeAnnotation<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, annotationsink: Param0) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), annotationsink.into_param().abi(), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn selector(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn fields(&self) -> ::windows::runtime::Result<ISchemaStringCollection> {
         let mut result__: <ISchemaStringCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISchemaStringCollection>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn referencedKey(&self) -> ::windows::runtime::Result<ISchemaIdentityConstraint> {
         let mut result__: <ISchemaIdentityConstraint as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISchemaIdentityConstraint>(result__)
@@ -3639,37 +4491,45 @@ pub struct ISchemaIdentityConstraint_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fields: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, key: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISchemaItem(::windows::runtime::IUnknown);
 impl ISchemaItem {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn name(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn namespaceURI(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn schema(&self) -> ::windows::runtime::Result<ISchema> {
         let mut result__: <ISchema as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISchema>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn id(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn itemType(&self) -> ::windows::runtime::Result<SOMITEMTYPE> {
         let mut result__: <SOMITEMTYPE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<SOMITEMTYPE>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn unhandledAttributes(&self) -> ::windows::runtime::Result<IVBSAXAttributes> {
         let mut result__: <IVBSAXAttributes as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IVBSAXAttributes>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn writeAnnotation<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, annotationsink: Param0) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), annotationsink.into_param().abi(), &mut result__).from_abi::<i16>(result__)
@@ -3748,28 +4608,34 @@ pub struct ISchemaItem_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, attributes: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, annotationsink: ::windows::runtime::RawPtr, iswritten: *mut i16) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISchemaItemCollection(::windows::runtime::IUnknown);
 impl ISchemaItemCollection {
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn item(&self, index: i32) -> ::windows::runtime::Result<ISchemaItem> {
         let mut result__: <ISchemaItem as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), &mut result__).from_abi::<ISchemaItem>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn itemByName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::runtime::Result<ISchemaItem> {
         let mut result__: <ISchemaItem as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), name.into_param().abi(), &mut result__).from_abi::<ISchemaItem>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn itemByQName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, name: Param0, namespaceuri: Param1) -> ::windows::runtime::Result<ISchemaItem> {
         let mut result__: <ISchemaItem as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), name.into_param().abi(), namespaceuri.into_param().abi(), &mut result__).from_abi::<ISchemaItem>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn length(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn _newEnum(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
         let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
@@ -3845,68 +4711,83 @@ pub struct ISchemaItemCollection_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, length: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppunk: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISchemaModelGroup(::windows::runtime::IUnknown);
 impl ISchemaModelGroup {
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::super::System::Ole::Automation::ITypeInfo> {
         let mut result__: <super::super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::super::super::System::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn name(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn namespaceURI(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn schema(&self) -> ::windows::runtime::Result<ISchema> {
         let mut result__: <ISchema as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISchema>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn id(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn itemType(&self) -> ::windows::runtime::Result<SOMITEMTYPE> {
         let mut result__: <SOMITEMTYPE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<SOMITEMTYPE>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn unhandledAttributes(&self) -> ::windows::runtime::Result<IVBSAXAttributes> {
         let mut result__: <IVBSAXAttributes as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IVBSAXAttributes>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn writeAnnotation<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, annotationsink: Param0) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), annotationsink.into_param().abi(), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn minOccurs(&self) -> ::windows::runtime::Result<super::super::super::System::Com::VARIANT> {
         let mut result__: <super::super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn maxOccurs(&self) -> ::windows::runtime::Result<super::super::super::System::Com::VARIANT> {
         let mut result__: <super::super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn particles(&self) -> ::windows::runtime::Result<ISchemaItemCollection> {
         let mut result__: <ISchemaItemCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISchemaItemCollection>(result__)
@@ -4030,64 +4911,78 @@ pub struct ISchemaModelGroup_abi(
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, particles: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISchemaNotation(::windows::runtime::IUnknown);
 impl ISchemaNotation {
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::super::System::Ole::Automation::ITypeInfo> {
         let mut result__: <super::super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::super::super::System::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn name(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn namespaceURI(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn schema(&self) -> ::windows::runtime::Result<ISchema> {
         let mut result__: <ISchema as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISchema>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn id(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn itemType(&self) -> ::windows::runtime::Result<SOMITEMTYPE> {
         let mut result__: <SOMITEMTYPE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<SOMITEMTYPE>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn unhandledAttributes(&self) -> ::windows::runtime::Result<IVBSAXAttributes> {
         let mut result__: <IVBSAXAttributes as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IVBSAXAttributes>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn writeAnnotation<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, annotationsink: Param0) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), annotationsink.into_param().abi(), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn systemIdentifier(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn publicIdentifier(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
@@ -4190,64 +5085,78 @@ pub struct ISchemaNotation_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, uri: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISchemaParticle(::windows::runtime::IUnknown);
 impl ISchemaParticle {
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::super::System::Ole::Automation::ITypeInfo> {
         let mut result__: <super::super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::super::super::System::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn name(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn namespaceURI(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn schema(&self) -> ::windows::runtime::Result<ISchema> {
         let mut result__: <ISchema as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISchema>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn id(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn itemType(&self) -> ::windows::runtime::Result<SOMITEMTYPE> {
         let mut result__: <SOMITEMTYPE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<SOMITEMTYPE>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn unhandledAttributes(&self) -> ::windows::runtime::Result<IVBSAXAttributes> {
         let mut result__: <IVBSAXAttributes as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IVBSAXAttributes>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn writeAnnotation<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, annotationsink: Param0) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), annotationsink.into_param().abi(), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn minOccurs(&self) -> ::windows::runtime::Result<super::super::super::System::Com::VARIANT> {
         let mut result__: <super::super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn maxOccurs(&self) -> ::windows::runtime::Result<super::super::super::System::Com::VARIANT> {
         let mut result__: <super::super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::System::Com::VARIANT>(result__)
@@ -4350,19 +5259,23 @@ pub struct ISchemaParticle_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, maxoccurs: *mut ::std::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISchemaStringCollection(::windows::runtime::IUnknown);
 impl ISchemaStringCollection {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn item(&self, index: i32) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn length(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn _newEnum(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
         let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
@@ -4435,132 +5348,161 @@ pub struct ISchemaStringCollection_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, length: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppunk: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISchemaType(::windows::runtime::IUnknown);
 impl ISchemaType {
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::super::System::Ole::Automation::ITypeInfo> {
         let mut result__: <super::super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::super::super::System::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn name(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn namespaceURI(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn schema(&self) -> ::windows::runtime::Result<ISchema> {
         let mut result__: <ISchema as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISchema>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn id(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn itemType(&self) -> ::windows::runtime::Result<SOMITEMTYPE> {
         let mut result__: <SOMITEMTYPE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<SOMITEMTYPE>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn unhandledAttributes(&self) -> ::windows::runtime::Result<IVBSAXAttributes> {
         let mut result__: <IVBSAXAttributes as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IVBSAXAttributes>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn writeAnnotation<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, annotationsink: Param0) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), annotationsink.into_param().abi(), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn baseTypes(&self) -> ::windows::runtime::Result<ISchemaItemCollection> {
         let mut result__: <ISchemaItemCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISchemaItemCollection>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn r#final(&self) -> ::windows::runtime::Result<SCHEMADERIVATIONMETHOD> {
         let mut result__: <SCHEMADERIVATIONMETHOD as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<SCHEMADERIVATIONMETHOD>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn variety(&self) -> ::windows::runtime::Result<SCHEMATYPEVARIETY> {
         let mut result__: <SCHEMATYPEVARIETY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<SCHEMATYPEVARIETY>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn derivedBy(&self) -> ::windows::runtime::Result<SCHEMADERIVATIONMETHOD> {
         let mut result__: <SCHEMADERIVATIONMETHOD as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<SCHEMADERIVATIONMETHOD>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn isValid<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, data: Param0) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), data.into_param().abi(), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn minExclusive(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn minInclusive(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn maxExclusive(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn maxInclusive(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn totalDigits(&self) -> ::windows::runtime::Result<super::super::super::System::Com::VARIANT> {
         let mut result__: <super::super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn fractionDigits(&self) -> ::windows::runtime::Result<super::super::super::System::Com::VARIANT> {
         let mut result__: <super::super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn length(&self) -> ::windows::runtime::Result<super::super::super::System::Com::VARIANT> {
         let mut result__: <super::super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn minLength(&self) -> ::windows::runtime::Result<super::super::super::System::Com::VARIANT> {
         let mut result__: <super::super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn maxLength(&self) -> ::windows::runtime::Result<super::super::super::System::Com::VARIANT> {
         let mut result__: <super::super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn enumeration(&self) -> ::windows::runtime::Result<ISchemaStringCollection> {
         let mut result__: <ISchemaStringCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISchemaStringCollection>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn whitespace(&self) -> ::windows::runtime::Result<SCHEMAWHITESPACE> {
         let mut result__: <SCHEMAWHITESPACE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), &mut result__).from_abi::<SCHEMAWHITESPACE>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn patterns(&self) -> ::windows::runtime::Result<ISchemaStringCollection> {
         let mut result__: <ISchemaStringCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISchemaStringCollection>(result__)
@@ -4686,28 +5628,34 @@ pub struct ISchemaType_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, whitespace: *mut SCHEMAWHITESPACE) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, patterns: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IServerXMLHTTPRequest(::windows::runtime::IUnknown);
 impl IServerXMLHTTPRequest {
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::super::System::Ole::Automation::ITypeInfo> {
         let mut result__: <super::super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::super::super::System::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn open<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>, Param3: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>, Param4: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(
         &self,
         bstrmethod: Param0,
@@ -4719,77 +5667,94 @@ impl IServerXMLHTTPRequest {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), bstrmethod.into_param().abi(), bstrurl.into_param().abi(), varasync.into_param().abi(), bstruser.into_param().abi(), bstrpassword.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn setRequestHeader<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstrheader: Param0, bstrvalue: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), bstrheader.into_param().abi(), bstrvalue.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn getResponseHeader<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstrheader: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), bstrheader.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn getAllResponseHeaders(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn send<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, varbody: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), varbody.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn abort(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn status(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn statusText(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn responseXML(&self) -> ::windows::runtime::Result<super::super::super::System::Ole::Automation::IDispatch> {
         let mut result__: <super::super::super::System::Ole::Automation::IDispatch as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::System::Ole::Automation::IDispatch>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn responseText(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn responseBody(&self) -> ::windows::runtime::Result<super::super::super::System::Com::VARIANT> {
         let mut result__: <super::super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn responseStream(&self) -> ::windows::runtime::Result<super::super::super::System::Com::VARIANT> {
         let mut result__: <super::super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn readyState(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Setonreadystatechange<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Ole::Automation::IDispatch>>(&self, preadystatesink: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), preadystatesink.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn setTimeouts(&self, resolvetimeout: i32, connecttimeout: i32, sendtimeout: i32, receivetimeout: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(resolvetimeout), ::std::mem::transmute(connecttimeout), ::std::mem::transmute(sendtimeout), ::std::mem::transmute(receivetimeout)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn waitForResponse<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, timeoutinseconds: Param0) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), timeoutinseconds.into_param().abi(), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn getOption(&self, option: SERVERXMLHTTP_OPTION) -> ::windows::runtime::Result<super::super::super::System::Com::VARIANT> {
         let mut result__: <super::super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), ::std::mem::transmute(option), &mut result__).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn setOption<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, option: SERVERXMLHTTP_OPTION, value: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), ::std::mem::transmute(option), value.into_param().abi()).ok()
     }
@@ -4910,28 +5875,34 @@ pub struct IServerXMLHTTPRequest_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, option: SERVERXMLHTTP_OPTION, value: ::std::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IServerXMLHTTPRequest2(::windows::runtime::IUnknown);
 impl IServerXMLHTTPRequest2 {
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::super::System::Ole::Automation::ITypeInfo> {
         let mut result__: <super::super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::super::super::System::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn open<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>, Param3: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>, Param4: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(
         &self,
         bstrmethod: Param0,
@@ -4943,85 +5914,104 @@ impl IServerXMLHTTPRequest2 {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), bstrmethod.into_param().abi(), bstrurl.into_param().abi(), varasync.into_param().abi(), bstruser.into_param().abi(), bstrpassword.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn setRequestHeader<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstrheader: Param0, bstrvalue: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), bstrheader.into_param().abi(), bstrvalue.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn getResponseHeader<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstrheader: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), bstrheader.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn getAllResponseHeaders(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn send<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, varbody: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), varbody.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn abort(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn status(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn statusText(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn responseXML(&self) -> ::windows::runtime::Result<super::super::super::System::Ole::Automation::IDispatch> {
         let mut result__: <super::super::super::System::Ole::Automation::IDispatch as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::System::Ole::Automation::IDispatch>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn responseText(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn responseBody(&self) -> ::windows::runtime::Result<super::super::super::System::Com::VARIANT> {
         let mut result__: <super::super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn responseStream(&self) -> ::windows::runtime::Result<super::super::super::System::Com::VARIANT> {
         let mut result__: <super::super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn readyState(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Setonreadystatechange<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Ole::Automation::IDispatch>>(&self, preadystatesink: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), preadystatesink.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn setTimeouts(&self, resolvetimeout: i32, connecttimeout: i32, sendtimeout: i32, receivetimeout: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(resolvetimeout), ::std::mem::transmute(connecttimeout), ::std::mem::transmute(sendtimeout), ::std::mem::transmute(receivetimeout)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn waitForResponse<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, timeoutinseconds: Param0) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), timeoutinseconds.into_param().abi(), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn getOption(&self, option: SERVERXMLHTTP_OPTION) -> ::windows::runtime::Result<super::super::super::System::Com::VARIANT> {
         let mut result__: <super::super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), ::std::mem::transmute(option), &mut result__).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn setOption<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, option: SERVERXMLHTTP_OPTION, value: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), ::std::mem::transmute(option), value.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn setProxy<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, proxysetting: SXH_PROXY_SETTING, varproxyserver: Param1, varbypasslist: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), ::std::mem::transmute(proxysetting), varproxyserver.into_param().abi(), varbypasslist.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn setProxyCredentials<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstrusername: Param0, bstrpassword: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), bstrusername.into_param().abi(), bstrpassword.into_param().abi()).ok()
     }
@@ -5166,48 +6156,60 @@ pub struct IServerXMLHTTPRequest2_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bstrusername: ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrpassword: ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IVBMXNamespaceManager(::windows::runtime::IUnknown);
 impl IVBMXNamespaceManager {
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn SetallowOverride(&self, foverride: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(foverride)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn allowOverride(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn reset(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn pushContext(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn pushNodeContext<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, contextnode: Param0, fdeep: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), contextnode.into_param().abi(), ::std::mem::transmute(fdeep)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn popContext(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn declarePrefix<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, prefix: Param0, namespaceuri: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), prefix.into_param().abi(), namespaceuri.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn getDeclaredPrefixes(&self) -> ::windows::runtime::Result<IMXNamespacePrefixes> {
         let mut result__: <IMXNamespacePrefixes as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IMXNamespacePrefixes>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn getPrefixes<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, namespaceuri: Param0) -> ::windows::runtime::Result<IMXNamespacePrefixes> {
         let mut result__: <IMXNamespacePrefixes as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), namespaceuri.into_param().abi(), &mut result__).from_abi::<IMXNamespacePrefixes>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn getURI<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, prefix: Param0) -> ::windows::runtime::Result<super::super::super::System::Com::VARIANT> {
         let mut result__: <super::super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), prefix.into_param().abi(), &mut result__).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn getURIFromNode<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, strprefix: Param0, contextnode: Param1) -> ::windows::runtime::Result<super::super::super::System::Com::VARIANT> {
         let mut result__: <super::super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), strprefix.into_param().abi(), contextnode.into_param().abi(), &mut result__).from_abi::<super::super::super::System::Com::VARIANT>(result__)
@@ -5291,65 +6293,78 @@ pub struct IVBMXNamespaceManager_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, strprefix: ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, contextnode: ::windows::runtime::RawPtr, uri: *mut ::std::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IVBSAXAttributes(::windows::runtime::IUnknown);
 impl IVBSAXAttributes {
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn length(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn getURI(&self, nindex: i32) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(nindex), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn getLocalName(&self, nindex: i32) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(nindex), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn getQName(&self, nindex: i32) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(nindex), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn getIndexFromName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, struri: Param0, strlocalname: Param1) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), struri.into_param().abi(), strlocalname.into_param().abi(), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn getIndexFromQName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, strqname: Param0) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), strqname.into_param().abi(), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn getType(&self, nindex: i32) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(nindex), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn getTypeFromName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, struri: Param0, strlocalname: Param1) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), struri.into_param().abi(), strlocalname.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn getTypeFromQName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, strqname: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), strqname.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn getValue(&self, nindex: i32) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(nindex), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn getValueFromName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, struri: Param0, strlocalname: Param1) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), struri.into_param().abi(), strlocalname.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn getValueFromQName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, strqname: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), strqname.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
@@ -5441,48 +6456,60 @@ pub struct IVBSAXAttributes_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, strqname: ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, strvalue: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IVBSAXContentHandler(::windows::runtime::IUnknown);
 impl IVBSAXContentHandler {
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn putref_documentLocator<'a, Param0: ::windows::runtime::IntoParam<'a, IVBSAXLocator>>(&self, olocator: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), olocator.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn startDocument(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn endDocument(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn startPrefixMapping(&self, strprefix: *mut super::super::super::Foundation::BSTR, struri: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(strprefix), ::std::mem::transmute(struri)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn endPrefixMapping(&self, strprefix: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(strprefix)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn startElement<'a, Param3: ::windows::runtime::IntoParam<'a, IVBSAXAttributes>>(&self, strnamespaceuri: *mut super::super::super::Foundation::BSTR, strlocalname: *mut super::super::super::Foundation::BSTR, strqname: *mut super::super::super::Foundation::BSTR, oattributes: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(strnamespaceuri), ::std::mem::transmute(strlocalname), ::std::mem::transmute(strqname), oattributes.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn endElement(&self, strnamespaceuri: *mut super::super::super::Foundation::BSTR, strlocalname: *mut super::super::super::Foundation::BSTR, strqname: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(strnamespaceuri), ::std::mem::transmute(strlocalname), ::std::mem::transmute(strqname)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn characters(&self, strchars: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(strchars)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn ignorableWhitespace(&self, strchars: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(strchars)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn processingInstruction(&self, strtarget: *mut super::super::super::Foundation::BSTR, strdata: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(strtarget), ::std::mem::transmute(strdata)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn skippedEntity(&self, strname: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(strname)).ok()
     }
@@ -5569,15 +6596,18 @@ pub struct IVBSAXContentHandler_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, strname: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IVBSAXDTDHandler(::windows::runtime::IUnknown);
 impl IVBSAXDTDHandler {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn notationDecl(&self, strname: *mut super::super::super::Foundation::BSTR, strpublicid: *mut super::super::super::Foundation::BSTR, strsystemid: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(strname), ::std::mem::transmute(strpublicid), ::std::mem::transmute(strsystemid)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn unparsedEntityDecl(&self, strname: *mut super::super::super::Foundation::BSTR, strpublicid: *mut super::super::super::Foundation::BSTR, strsystemid: *mut super::super::super::Foundation::BSTR, strnotationname: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(strname), ::std::mem::transmute(strpublicid), ::std::mem::transmute(strsystemid), ::std::mem::transmute(strnotationname)).ok()
     }
@@ -5649,23 +6679,28 @@ pub struct IVBSAXDTDHandler_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, strname: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, strpublicid: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, strsystemid: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, strnotationname: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IVBSAXDeclHandler(::windows::runtime::IUnknown);
 impl IVBSAXDeclHandler {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn elementDecl(&self, strname: *mut super::super::super::Foundation::BSTR, strmodel: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(strname), ::std::mem::transmute(strmodel)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn attributeDecl(&self, strelementname: *mut super::super::super::Foundation::BSTR, strattributename: *mut super::super::super::Foundation::BSTR, strtype: *mut super::super::super::Foundation::BSTR, strvaluedefault: *mut super::super::super::Foundation::BSTR, strvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(strelementname), ::std::mem::transmute(strattributename), ::std::mem::transmute(strtype), ::std::mem::transmute(strvaluedefault), ::std::mem::transmute(strvalue)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn internalEntityDecl(&self, strname: *mut super::super::super::Foundation::BSTR, strvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(strname), ::std::mem::transmute(strvalue)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn externalEntityDecl(&self, strname: *mut super::super::super::Foundation::BSTR, strpublicid: *mut super::super::super::Foundation::BSTR, strsystemid: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(strname), ::std::mem::transmute(strpublicid), ::std::mem::transmute(strsystemid)).ok()
     }
@@ -5749,11 +6784,13 @@ pub struct IVBSAXDeclHandler_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, strname: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, strpublicid: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, strsystemid: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IVBSAXEntityResolver(::windows::runtime::IUnknown);
 impl IVBSAXEntityResolver {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn resolveEntity(&self, strpublicid: *mut super::super::super::Foundation::BSTR, strsystemid: *mut super::super::super::Foundation::BSTR, varinput: *mut super::super::super::System::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(strpublicid), ::std::mem::transmute(strsystemid), ::std::mem::transmute(varinput)).ok()
     }
@@ -5823,19 +6860,23 @@ pub struct IVBSAXEntityResolver_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, strpublicid: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, strsystemid: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, varinput: *mut ::std::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IVBSAXErrorHandler(::windows::runtime::IUnknown);
 impl IVBSAXErrorHandler {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn error<'a, Param0: ::windows::runtime::IntoParam<'a, IVBSAXLocator>>(&self, olocator: Param0, strerrormessage: *mut super::super::super::Foundation::BSTR, nerrorcode: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), olocator.into_param().abi(), ::std::mem::transmute(strerrormessage), ::std::mem::transmute(nerrorcode)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn fatalError<'a, Param0: ::windows::runtime::IntoParam<'a, IVBSAXLocator>>(&self, olocator: Param0, strerrormessage: *mut super::super::super::Foundation::BSTR, nerrorcode: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), olocator.into_param().abi(), ::std::mem::transmute(strerrormessage), ::std::mem::transmute(nerrorcode)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn ignorableWarning<'a, Param0: ::windows::runtime::IntoParam<'a, IVBSAXLocator>>(&self, olocator: Param0, strerrormessage: *mut super::super::super::Foundation::BSTR, nerrorcode: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), olocator.into_param().abi(), ::std::mem::transmute(strerrormessage), ::std::mem::transmute(nerrorcode)).ok()
     }
@@ -5909,32 +6950,40 @@ pub struct IVBSAXErrorHandler_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, olocator: ::windows::runtime::RawPtr, strerrormessage: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, nerrorcode: i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IVBSAXLexicalHandler(::windows::runtime::IUnknown);
 impl IVBSAXLexicalHandler {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn startDTD(&self, strname: *mut super::super::super::Foundation::BSTR, strpublicid: *mut super::super::super::Foundation::BSTR, strsystemid: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(strname), ::std::mem::transmute(strpublicid), ::std::mem::transmute(strsystemid)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn endDTD(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn startEntity(&self, strname: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(strname)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn endEntity(&self, strname: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(strname)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn startCDATA(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn endCDATA(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn comment(&self, strchars: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(strchars)).ok()
     }
@@ -6013,24 +7062,29 @@ pub struct IVBSAXLexicalHandler_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, strchars: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IVBSAXLocator(::windows::runtime::IUnknown);
 impl IVBSAXLocator {
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn columnNumber(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn lineNumber(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn publicId(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn systemId(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
@@ -6105,14 +7159,17 @@ pub struct IVBSAXLocator_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, strsystemid: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IVBSAXXMLFilter(::windows::runtime::IUnknown);
 impl IVBSAXXMLFilter {
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn parent(&self) -> ::windows::runtime::Result<IVBSAXXMLReader> {
         let mut result__: <IVBSAXXMLReader as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IVBSAXXMLReader>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn putref_parent<'a, Param0: ::windows::runtime::IntoParam<'a, IVBSAXXMLReader>>(&self, oreader: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), oreader.into_param().abi()).ok()
     }
@@ -6182,79 +7239,98 @@ pub struct IVBSAXXMLFilter_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, oreader: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, oreader: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IVBSAXXMLReader(::windows::runtime::IUnknown);
 impl IVBSAXXMLReader {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn getFeature<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, strname: Param0) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), strname.into_param().abi(), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn putFeature<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, strname: Param0, fvalue: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), strname.into_param().abi(), ::std::mem::transmute(fvalue)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn getProperty<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, strname: Param0) -> ::windows::runtime::Result<super::super::super::System::Com::VARIANT> {
         let mut result__: <super::super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), strname.into_param().abi(), &mut result__).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn putProperty<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, strname: Param0, varvalue: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), strname.into_param().abi(), varvalue.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn entityResolver(&self) -> ::windows::runtime::Result<IVBSAXEntityResolver> {
         let mut result__: <IVBSAXEntityResolver as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IVBSAXEntityResolver>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn putref_entityResolver<'a, Param0: ::windows::runtime::IntoParam<'a, IVBSAXEntityResolver>>(&self, oresolver: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), oresolver.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn contentHandler(&self) -> ::windows::runtime::Result<IVBSAXContentHandler> {
         let mut result__: <IVBSAXContentHandler as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IVBSAXContentHandler>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn putref_contentHandler<'a, Param0: ::windows::runtime::IntoParam<'a, IVBSAXContentHandler>>(&self, ohandler: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ohandler.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn dtdHandler(&self) -> ::windows::runtime::Result<IVBSAXDTDHandler> {
         let mut result__: <IVBSAXDTDHandler as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IVBSAXDTDHandler>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn putref_dtdHandler<'a, Param0: ::windows::runtime::IntoParam<'a, IVBSAXDTDHandler>>(&self, ohandler: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ohandler.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn errorHandler(&self) -> ::windows::runtime::Result<IVBSAXErrorHandler> {
         let mut result__: <IVBSAXErrorHandler as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IVBSAXErrorHandler>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn putref_errorHandler<'a, Param0: ::windows::runtime::IntoParam<'a, IVBSAXErrorHandler>>(&self, ohandler: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ohandler.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn baseURL(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn SetbaseURL<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, strbaseurl: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), strbaseurl.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn secureBaseURL(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn SetsecureBaseURL<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, strsecurebaseurl: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), strsecurebaseurl.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn parse<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, varinput: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), varinput.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn parseURL<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, strurl: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), strurl.into_param().abi()).ok()
     }
@@ -6350,16 +7426,19 @@ pub struct IVBSAXXMLReader_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, strurl: ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLAttribute(::windows::runtime::IUnknown);
 impl IXMLAttribute {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn name(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn value(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
@@ -6432,179 +7511,223 @@ pub struct IXMLAttribute_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, v: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLDOMAttribute(::windows::runtime::IUnknown);
 impl IXMLDOMAttribute {
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::super::System::Ole::Automation::ITypeInfo> {
         let mut result__: <super::super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::super::super::System::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn nodeName(&self, name: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(name)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn nodeValue(&self, value: *mut super::super::super::System::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(value)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetnodeValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), value.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn nodeType(&self, r#type: *mut DOMNodeType) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(r#type)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn parentNode(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn childNodes(&self) -> ::windows::runtime::Result<IXMLDOMNodeList> {
         let mut result__: <IXMLDOMNodeList as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNodeList>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn firstChild(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn lastChild(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn previousSibling(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn nextSibling(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn attributes(&self) -> ::windows::runtime::Result<IXMLDOMNamedNodeMap> {
         let mut result__: <IXMLDOMNamedNodeMap as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNamedNodeMap>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn insertBefore<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, newchild: Param0, refchild: Param1) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), newchild.into_param().abi(), refchild.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn replaceChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, newchild: Param0, oldchild: Param1) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), newchild.into_param().abi(), oldchild.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn removeChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, childnode: Param0) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), childnode.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn appendChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, newchild: Param0) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), newchild.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn hasChildNodes(&self, haschild: *mut i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(haschild)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn ownerDocument(&self) -> ::windows::runtime::Result<IXMLDOMDocument> {
         let mut result__: <IXMLDOMDocument as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMDocument>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn cloneNode(&self, deep: i16) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), ::std::mem::transmute(deep), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn nodeTypeString(&self, nodetype: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), ::std::mem::transmute(nodetype)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn text(&self, text: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), ::std::mem::transmute(text)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn Settext<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, text: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), text.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn specified(&self, isspecified: *mut i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), ::std::mem::transmute(isspecified)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn definition(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn nodeTypedValue(&self, typedvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), ::std::mem::transmute(typedvalue)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetnodeTypedValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, typedvalue: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self), typedvalue.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn dataType(&self, datatypename: *mut super::super::super::System::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).32)(::std::mem::transmute_copy(self), ::std::mem::transmute(datatypename)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn SetdataType<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, datatypename: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).33)(::std::mem::transmute_copy(self), datatypename.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn xml(&self, xmlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).34)(::std::mem::transmute_copy(self), ::std::mem::transmute(xmlstring)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn transformNode<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, stylesheet: Param0, xmlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).35)(::std::mem::transmute_copy(self), stylesheet.into_param().abi(), ::std::mem::transmute(xmlstring)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn selectNodes<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, querystring: Param0) -> ::windows::runtime::Result<IXMLDOMNodeList> {
         let mut result__: <IXMLDOMNodeList as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).36)(::std::mem::transmute_copy(self), querystring.into_param().abi(), &mut result__).from_abi::<IXMLDOMNodeList>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn selectSingleNode<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, querystring: Param0) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).37)(::std::mem::transmute_copy(self), querystring.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn parsed(&self, isparsed: *mut i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).38)(::std::mem::transmute_copy(self), ::std::mem::transmute(isparsed)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn namespaceURI(&self, namespaceuri: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).39)(::std::mem::transmute_copy(self), ::std::mem::transmute(namespaceuri)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn prefix(&self, prefixstring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).40)(::std::mem::transmute_copy(self), ::std::mem::transmute(prefixstring)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn baseName(&self, namestring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).41)(::std::mem::transmute_copy(self), ::std::mem::transmute(namestring)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn transformNodeToObject<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, stylesheet: Param0, outputobject: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).42)(::std::mem::transmute_copy(self), stylesheet.into_param().abi(), outputobject.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn name(&self, attributename: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).43)(::std::mem::transmute_copy(self), ::std::mem::transmute(attributename)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn value(&self, attributevalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).44)(::std::mem::transmute_copy(self), ::std::mem::transmute(attributevalue)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Setvalue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, attributevalue: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).45)(::std::mem::transmute_copy(self), attributevalue.into_param().abi()).ok()
     }
@@ -6753,200 +7876,250 @@ pub struct IXMLDOMAttribute_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, attributevalue: ::std::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLDOMCDATASection(::windows::runtime::IUnknown);
 impl IXMLDOMCDATASection {
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::super::System::Ole::Automation::ITypeInfo> {
         let mut result__: <super::super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::super::super::System::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn nodeName(&self, name: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(name)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn nodeValue(&self, value: *mut super::super::super::System::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(value)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetnodeValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), value.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn nodeType(&self, r#type: *mut DOMNodeType) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(r#type)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn parentNode(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn childNodes(&self) -> ::windows::runtime::Result<IXMLDOMNodeList> {
         let mut result__: <IXMLDOMNodeList as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNodeList>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn firstChild(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn lastChild(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn previousSibling(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn nextSibling(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn attributes(&self) -> ::windows::runtime::Result<IXMLDOMNamedNodeMap> {
         let mut result__: <IXMLDOMNamedNodeMap as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNamedNodeMap>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn insertBefore<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, newchild: Param0, refchild: Param1) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), newchild.into_param().abi(), refchild.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn replaceChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, newchild: Param0, oldchild: Param1) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), newchild.into_param().abi(), oldchild.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn removeChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, childnode: Param0) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), childnode.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn appendChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, newchild: Param0) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), newchild.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn hasChildNodes(&self, haschild: *mut i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(haschild)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn ownerDocument(&self) -> ::windows::runtime::Result<IXMLDOMDocument> {
         let mut result__: <IXMLDOMDocument as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMDocument>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn cloneNode(&self, deep: i16) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), ::std::mem::transmute(deep), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn nodeTypeString(&self, nodetype: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), ::std::mem::transmute(nodetype)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn text(&self, text: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), ::std::mem::transmute(text)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn Settext<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, text: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), text.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn specified(&self, isspecified: *mut i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), ::std::mem::transmute(isspecified)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn definition(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn nodeTypedValue(&self, typedvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), ::std::mem::transmute(typedvalue)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetnodeTypedValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, typedvalue: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self), typedvalue.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn dataType(&self, datatypename: *mut super::super::super::System::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).32)(::std::mem::transmute_copy(self), ::std::mem::transmute(datatypename)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn SetdataType<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, datatypename: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).33)(::std::mem::transmute_copy(self), datatypename.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn xml(&self, xmlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).34)(::std::mem::transmute_copy(self), ::std::mem::transmute(xmlstring)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn transformNode<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, stylesheet: Param0, xmlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).35)(::std::mem::transmute_copy(self), stylesheet.into_param().abi(), ::std::mem::transmute(xmlstring)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn selectNodes<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, querystring: Param0) -> ::windows::runtime::Result<IXMLDOMNodeList> {
         let mut result__: <IXMLDOMNodeList as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).36)(::std::mem::transmute_copy(self), querystring.into_param().abi(), &mut result__).from_abi::<IXMLDOMNodeList>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn selectSingleNode<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, querystring: Param0) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).37)(::std::mem::transmute_copy(self), querystring.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn parsed(&self, isparsed: *mut i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).38)(::std::mem::transmute_copy(self), ::std::mem::transmute(isparsed)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn namespaceURI(&self, namespaceuri: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).39)(::std::mem::transmute_copy(self), ::std::mem::transmute(namespaceuri)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn prefix(&self, prefixstring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).40)(::std::mem::transmute_copy(self), ::std::mem::transmute(prefixstring)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn baseName(&self, namestring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).41)(::std::mem::transmute_copy(self), ::std::mem::transmute(namestring)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn transformNodeToObject<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, stylesheet: Param0, outputobject: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).42)(::std::mem::transmute_copy(self), stylesheet.into_param().abi(), outputobject.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn data(&self, data: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).43)(::std::mem::transmute_copy(self), ::std::mem::transmute(data)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn Setdata<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, data: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).44)(::std::mem::transmute_copy(self), data.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn length(&self, datalength: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).45)(::std::mem::transmute_copy(self), ::std::mem::transmute(datalength)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn substringData(&self, offset: i32, count: i32, data: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).46)(::std::mem::transmute_copy(self), ::std::mem::transmute(offset), ::std::mem::transmute(count), ::std::mem::transmute(data)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn appendData<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, data: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).47)(::std::mem::transmute_copy(self), data.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn insertData<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, offset: i32, data: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).48)(::std::mem::transmute_copy(self), ::std::mem::transmute(offset), data.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn deleteData(&self, offset: i32, count: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).49)(::std::mem::transmute_copy(self), ::std::mem::transmute(offset), ::std::mem::transmute(count)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn replaceData<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, offset: i32, count: i32, data: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).50)(::std::mem::transmute_copy(self), ::std::mem::transmute(offset), ::std::mem::transmute(count), data.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn splitText(&self, offset: i32) -> ::windows::runtime::Result<IXMLDOMText> {
         let mut result__: <IXMLDOMText as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).51)(::std::mem::transmute_copy(self), ::std::mem::transmute(offset), &mut result__).from_abi::<IXMLDOMText>(result__)
@@ -7145,197 +8318,246 @@ pub struct IXMLDOMCDATASection_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, offset: i32, righthandtextnode: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLDOMCharacterData(::windows::runtime::IUnknown);
 impl IXMLDOMCharacterData {
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::super::System::Ole::Automation::ITypeInfo> {
         let mut result__: <super::super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::super::super::System::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn nodeName(&self, name: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(name)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn nodeValue(&self, value: *mut super::super::super::System::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(value)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetnodeValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), value.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn nodeType(&self, r#type: *mut DOMNodeType) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(r#type)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn parentNode(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn childNodes(&self) -> ::windows::runtime::Result<IXMLDOMNodeList> {
         let mut result__: <IXMLDOMNodeList as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNodeList>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn firstChild(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn lastChild(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn previousSibling(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn nextSibling(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn attributes(&self) -> ::windows::runtime::Result<IXMLDOMNamedNodeMap> {
         let mut result__: <IXMLDOMNamedNodeMap as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNamedNodeMap>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn insertBefore<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, newchild: Param0, refchild: Param1) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), newchild.into_param().abi(), refchild.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn replaceChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, newchild: Param0, oldchild: Param1) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), newchild.into_param().abi(), oldchild.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn removeChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, childnode: Param0) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), childnode.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn appendChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, newchild: Param0) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), newchild.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn hasChildNodes(&self, haschild: *mut i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(haschild)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn ownerDocument(&self) -> ::windows::runtime::Result<IXMLDOMDocument> {
         let mut result__: <IXMLDOMDocument as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMDocument>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn cloneNode(&self, deep: i16) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), ::std::mem::transmute(deep), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn nodeTypeString(&self, nodetype: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), ::std::mem::transmute(nodetype)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn text(&self, text: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), ::std::mem::transmute(text)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn Settext<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, text: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), text.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn specified(&self, isspecified: *mut i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), ::std::mem::transmute(isspecified)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn definition(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn nodeTypedValue(&self, typedvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), ::std::mem::transmute(typedvalue)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetnodeTypedValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, typedvalue: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self), typedvalue.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn dataType(&self, datatypename: *mut super::super::super::System::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).32)(::std::mem::transmute_copy(self), ::std::mem::transmute(datatypename)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn SetdataType<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, datatypename: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).33)(::std::mem::transmute_copy(self), datatypename.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn xml(&self, xmlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).34)(::std::mem::transmute_copy(self), ::std::mem::transmute(xmlstring)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn transformNode<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, stylesheet: Param0, xmlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).35)(::std::mem::transmute_copy(self), stylesheet.into_param().abi(), ::std::mem::transmute(xmlstring)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn selectNodes<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, querystring: Param0) -> ::windows::runtime::Result<IXMLDOMNodeList> {
         let mut result__: <IXMLDOMNodeList as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).36)(::std::mem::transmute_copy(self), querystring.into_param().abi(), &mut result__).from_abi::<IXMLDOMNodeList>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn selectSingleNode<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, querystring: Param0) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).37)(::std::mem::transmute_copy(self), querystring.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn parsed(&self, isparsed: *mut i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).38)(::std::mem::transmute_copy(self), ::std::mem::transmute(isparsed)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn namespaceURI(&self, namespaceuri: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).39)(::std::mem::transmute_copy(self), ::std::mem::transmute(namespaceuri)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn prefix(&self, prefixstring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).40)(::std::mem::transmute_copy(self), ::std::mem::transmute(prefixstring)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn baseName(&self, namestring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).41)(::std::mem::transmute_copy(self), ::std::mem::transmute(namestring)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn transformNodeToObject<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, stylesheet: Param0, outputobject: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).42)(::std::mem::transmute_copy(self), stylesheet.into_param().abi(), outputobject.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn data(&self, data: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).43)(::std::mem::transmute_copy(self), ::std::mem::transmute(data)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn Setdata<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, data: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).44)(::std::mem::transmute_copy(self), data.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn length(&self, datalength: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).45)(::std::mem::transmute_copy(self), ::std::mem::transmute(datalength)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn substringData(&self, offset: i32, count: i32, data: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).46)(::std::mem::transmute_copy(self), ::std::mem::transmute(offset), ::std::mem::transmute(count), ::std::mem::transmute(data)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn appendData<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, data: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).47)(::std::mem::transmute_copy(self), data.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn insertData<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, offset: i32, data: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).48)(::std::mem::transmute_copy(self), ::std::mem::transmute(offset), data.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn deleteData(&self, offset: i32, count: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).49)(::std::mem::transmute_copy(self), ::std::mem::transmute(offset), ::std::mem::transmute(count)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn replaceData<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, offset: i32, count: i32, data: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).50)(::std::mem::transmute_copy(self), ::std::mem::transmute(offset), ::std::mem::transmute(count), data.into_param().abi()).ok()
     }
@@ -7492,197 +8714,246 @@ pub struct IXMLDOMCharacterData_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, offset: i32, count: i32, data: ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLDOMComment(::windows::runtime::IUnknown);
 impl IXMLDOMComment {
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::super::System::Ole::Automation::ITypeInfo> {
         let mut result__: <super::super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::super::super::System::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn nodeName(&self, name: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(name)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn nodeValue(&self, value: *mut super::super::super::System::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(value)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetnodeValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), value.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn nodeType(&self, r#type: *mut DOMNodeType) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(r#type)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn parentNode(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn childNodes(&self) -> ::windows::runtime::Result<IXMLDOMNodeList> {
         let mut result__: <IXMLDOMNodeList as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNodeList>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn firstChild(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn lastChild(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn previousSibling(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn nextSibling(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn attributes(&self) -> ::windows::runtime::Result<IXMLDOMNamedNodeMap> {
         let mut result__: <IXMLDOMNamedNodeMap as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNamedNodeMap>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn insertBefore<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, newchild: Param0, refchild: Param1) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), newchild.into_param().abi(), refchild.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn replaceChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, newchild: Param0, oldchild: Param1) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), newchild.into_param().abi(), oldchild.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn removeChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, childnode: Param0) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), childnode.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn appendChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, newchild: Param0) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), newchild.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn hasChildNodes(&self, haschild: *mut i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(haschild)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn ownerDocument(&self) -> ::windows::runtime::Result<IXMLDOMDocument> {
         let mut result__: <IXMLDOMDocument as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMDocument>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn cloneNode(&self, deep: i16) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), ::std::mem::transmute(deep), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn nodeTypeString(&self, nodetype: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), ::std::mem::transmute(nodetype)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn text(&self, text: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), ::std::mem::transmute(text)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn Settext<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, text: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), text.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn specified(&self, isspecified: *mut i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), ::std::mem::transmute(isspecified)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn definition(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn nodeTypedValue(&self, typedvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), ::std::mem::transmute(typedvalue)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetnodeTypedValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, typedvalue: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self), typedvalue.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn dataType(&self, datatypename: *mut super::super::super::System::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).32)(::std::mem::transmute_copy(self), ::std::mem::transmute(datatypename)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn SetdataType<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, datatypename: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).33)(::std::mem::transmute_copy(self), datatypename.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn xml(&self, xmlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).34)(::std::mem::transmute_copy(self), ::std::mem::transmute(xmlstring)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn transformNode<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, stylesheet: Param0, xmlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).35)(::std::mem::transmute_copy(self), stylesheet.into_param().abi(), ::std::mem::transmute(xmlstring)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn selectNodes<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, querystring: Param0) -> ::windows::runtime::Result<IXMLDOMNodeList> {
         let mut result__: <IXMLDOMNodeList as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).36)(::std::mem::transmute_copy(self), querystring.into_param().abi(), &mut result__).from_abi::<IXMLDOMNodeList>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn selectSingleNode<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, querystring: Param0) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).37)(::std::mem::transmute_copy(self), querystring.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn parsed(&self, isparsed: *mut i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).38)(::std::mem::transmute_copy(self), ::std::mem::transmute(isparsed)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn namespaceURI(&self, namespaceuri: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).39)(::std::mem::transmute_copy(self), ::std::mem::transmute(namespaceuri)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn prefix(&self, prefixstring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).40)(::std::mem::transmute_copy(self), ::std::mem::transmute(prefixstring)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn baseName(&self, namestring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).41)(::std::mem::transmute_copy(self), ::std::mem::transmute(namestring)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn transformNodeToObject<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, stylesheet: Param0, outputobject: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).42)(::std::mem::transmute_copy(self), stylesheet.into_param().abi(), outputobject.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn data(&self, data: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).43)(::std::mem::transmute_copy(self), ::std::mem::transmute(data)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn Setdata<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, data: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).44)(::std::mem::transmute_copy(self), data.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn length(&self, datalength: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).45)(::std::mem::transmute_copy(self), ::std::mem::transmute(datalength)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn substringData(&self, offset: i32, count: i32, data: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).46)(::std::mem::transmute_copy(self), ::std::mem::transmute(offset), ::std::mem::transmute(count), ::std::mem::transmute(data)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn appendData<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, data: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).47)(::std::mem::transmute_copy(self), data.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn insertData<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, offset: i32, data: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).48)(::std::mem::transmute_copy(self), ::std::mem::transmute(offset), data.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn deleteData(&self, offset: i32, count: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).49)(::std::mem::transmute_copy(self), ::std::mem::transmute(offset), ::std::mem::transmute(count)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn replaceData<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, offset: i32, count: i32, data: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).50)(::std::mem::transmute_copy(self), ::std::mem::transmute(offset), ::std::mem::transmute(count), data.into_param().abi()).ok()
     }
@@ -7859,298 +9130,372 @@ pub struct IXMLDOMComment_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, offset: i32, count: i32, data: ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLDOMDocument(::windows::runtime::IUnknown);
 impl IXMLDOMDocument {
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::super::System::Ole::Automation::ITypeInfo> {
         let mut result__: <super::super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::super::super::System::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn nodeName(&self, name: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(name)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn nodeValue(&self, value: *mut super::super::super::System::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(value)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetnodeValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), value.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn nodeType(&self, r#type: *mut DOMNodeType) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(r#type)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn parentNode(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn childNodes(&self) -> ::windows::runtime::Result<IXMLDOMNodeList> {
         let mut result__: <IXMLDOMNodeList as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNodeList>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn firstChild(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn lastChild(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn previousSibling(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn nextSibling(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn attributes(&self) -> ::windows::runtime::Result<IXMLDOMNamedNodeMap> {
         let mut result__: <IXMLDOMNamedNodeMap as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNamedNodeMap>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn insertBefore<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, newchild: Param0, refchild: Param1) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), newchild.into_param().abi(), refchild.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn replaceChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, newchild: Param0, oldchild: Param1) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), newchild.into_param().abi(), oldchild.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn removeChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, childnode: Param0) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), childnode.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn appendChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, newchild: Param0) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), newchild.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn hasChildNodes(&self, haschild: *mut i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(haschild)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn ownerDocument(&self) -> ::windows::runtime::Result<IXMLDOMDocument> {
         let mut result__: <IXMLDOMDocument as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMDocument>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn cloneNode(&self, deep: i16) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), ::std::mem::transmute(deep), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn nodeTypeString(&self, nodetype: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), ::std::mem::transmute(nodetype)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn text(&self, text: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), ::std::mem::transmute(text)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn Settext<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, text: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), text.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn specified(&self, isspecified: *mut i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), ::std::mem::transmute(isspecified)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn definition(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn nodeTypedValue(&self, typedvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), ::std::mem::transmute(typedvalue)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetnodeTypedValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, typedvalue: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self), typedvalue.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn dataType(&self, datatypename: *mut super::super::super::System::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).32)(::std::mem::transmute_copy(self), ::std::mem::transmute(datatypename)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn SetdataType<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, datatypename: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).33)(::std::mem::transmute_copy(self), datatypename.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn xml(&self, xmlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).34)(::std::mem::transmute_copy(self), ::std::mem::transmute(xmlstring)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn transformNode<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, stylesheet: Param0, xmlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).35)(::std::mem::transmute_copy(self), stylesheet.into_param().abi(), ::std::mem::transmute(xmlstring)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn selectNodes<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, querystring: Param0) -> ::windows::runtime::Result<IXMLDOMNodeList> {
         let mut result__: <IXMLDOMNodeList as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).36)(::std::mem::transmute_copy(self), querystring.into_param().abi(), &mut result__).from_abi::<IXMLDOMNodeList>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn selectSingleNode<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, querystring: Param0) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).37)(::std::mem::transmute_copy(self), querystring.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn parsed(&self, isparsed: *mut i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).38)(::std::mem::transmute_copy(self), ::std::mem::transmute(isparsed)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn namespaceURI(&self, namespaceuri: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).39)(::std::mem::transmute_copy(self), ::std::mem::transmute(namespaceuri)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn prefix(&self, prefixstring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).40)(::std::mem::transmute_copy(self), ::std::mem::transmute(prefixstring)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn baseName(&self, namestring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).41)(::std::mem::transmute_copy(self), ::std::mem::transmute(namestring)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn transformNodeToObject<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, stylesheet: Param0, outputobject: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).42)(::std::mem::transmute_copy(self), stylesheet.into_param().abi(), outputobject.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn doctype(&self) -> ::windows::runtime::Result<IXMLDOMDocumentType> {
         let mut result__: <IXMLDOMDocumentType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).43)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMDocumentType>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn implementation(&self) -> ::windows::runtime::Result<IXMLDOMImplementation> {
         let mut result__: <IXMLDOMImplementation as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).44)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMImplementation>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn documentElement(&self) -> ::windows::runtime::Result<IXMLDOMElement> {
         let mut result__: <IXMLDOMElement as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).45)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMElement>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn putref_documentElement<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMElement>>(&self, domelement: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).46)(::std::mem::transmute_copy(self), domelement.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn createElement<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, tagname: Param0) -> ::windows::runtime::Result<IXMLDOMElement> {
         let mut result__: <IXMLDOMElement as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).47)(::std::mem::transmute_copy(self), tagname.into_param().abi(), &mut result__).from_abi::<IXMLDOMElement>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn createDocumentFragment(&self) -> ::windows::runtime::Result<IXMLDOMDocumentFragment> {
         let mut result__: <IXMLDOMDocumentFragment as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).48)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMDocumentFragment>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn createTextNode<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, data: Param0) -> ::windows::runtime::Result<IXMLDOMText> {
         let mut result__: <IXMLDOMText as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).49)(::std::mem::transmute_copy(self), data.into_param().abi(), &mut result__).from_abi::<IXMLDOMText>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn createComment<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, data: Param0) -> ::windows::runtime::Result<IXMLDOMComment> {
         let mut result__: <IXMLDOMComment as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).50)(::std::mem::transmute_copy(self), data.into_param().abi(), &mut result__).from_abi::<IXMLDOMComment>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn createCDATASection<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, data: Param0) -> ::windows::runtime::Result<IXMLDOMCDATASection> {
         let mut result__: <IXMLDOMCDATASection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).51)(::std::mem::transmute_copy(self), data.into_param().abi(), &mut result__).from_abi::<IXMLDOMCDATASection>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn createProcessingInstruction<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, target: Param0, data: Param1) -> ::windows::runtime::Result<IXMLDOMProcessingInstruction> {
         let mut result__: <IXMLDOMProcessingInstruction as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).52)(::std::mem::transmute_copy(self), target.into_param().abi(), data.into_param().abi(), &mut result__).from_abi::<IXMLDOMProcessingInstruction>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn createAttribute<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::runtime::Result<IXMLDOMAttribute> {
         let mut result__: <IXMLDOMAttribute as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).53)(::std::mem::transmute_copy(self), name.into_param().abi(), &mut result__).from_abi::<IXMLDOMAttribute>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn createEntityReference<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::runtime::Result<IXMLDOMEntityReference> {
         let mut result__: <IXMLDOMEntityReference as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).54)(::std::mem::transmute_copy(self), name.into_param().abi(), &mut result__).from_abi::<IXMLDOMEntityReference>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn getElementsByTagName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, tagname: Param0) -> ::windows::runtime::Result<IXMLDOMNodeList> {
         let mut result__: <IXMLDOMNodeList as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).55)(::std::mem::transmute_copy(self), tagname.into_param().abi(), &mut result__).from_abi::<IXMLDOMNodeList>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn createNode<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, r#type: Param0, name: Param1, namespaceuri: Param2) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).56)(::std::mem::transmute_copy(self), r#type.into_param().abi(), name.into_param().abi(), namespaceuri.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn nodeFromID<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, idstring: Param0) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).57)(::std::mem::transmute_copy(self), idstring.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn load<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, xmlsource: Param0, issuccessful: *mut i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).58)(::std::mem::transmute_copy(self), xmlsource.into_param().abi(), ::std::mem::transmute(issuccessful)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn readyState(&self, value: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).59)(::std::mem::transmute_copy(self), ::std::mem::transmute(value)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn parseError(&self) -> ::windows::runtime::Result<IXMLDOMParseError> {
         let mut result__: <IXMLDOMParseError as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).60)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMParseError>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn url(&self, urlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).61)(::std::mem::transmute_copy(self), ::std::mem::transmute(urlstring)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn r#async(&self, isasync: *mut i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).62)(::std::mem::transmute_copy(self), ::std::mem::transmute(isasync)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn Setasync(&self, isasync: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).63)(::std::mem::transmute_copy(self), ::std::mem::transmute(isasync)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn abort(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).64)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn loadXML<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstrxml: Param0, issuccessful: *mut i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).65)(::std::mem::transmute_copy(self), bstrxml.into_param().abi(), ::std::mem::transmute(issuccessful)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn save<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, destination: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).66)(::std::mem::transmute_copy(self), destination.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn validateOnParse(&self, isvalidating: *mut i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).67)(::std::mem::transmute_copy(self), ::std::mem::transmute(isvalidating)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn SetvalidateOnParse(&self, isvalidating: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).68)(::std::mem::transmute_copy(self), ::std::mem::transmute(isvalidating)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn resolveExternals(&self, isresolving: *mut i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).69)(::std::mem::transmute_copy(self), ::std::mem::transmute(isresolving)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn SetresolveExternals(&self, isresolving: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).70)(::std::mem::transmute_copy(self), ::std::mem::transmute(isresolving)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn preserveWhiteSpace(&self, ispreserving: *mut i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).71)(::std::mem::transmute_copy(self), ::std::mem::transmute(ispreserving)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn SetpreserveWhiteSpace(&self, ispreserving: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).72)(::std::mem::transmute_copy(self), ::std::mem::transmute(ispreserving)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Setonreadystatechange<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, readystatechangesink: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).73)(::std::mem::transmute_copy(self), readystatechangesink.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Setondataavailable<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, ondataavailablesink: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).74)(::std::mem::transmute_copy(self), ondataavailablesink.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Setontransformnode<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, ontransformnodesink: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).75)(::std::mem::transmute_copy(self), ontransformnodesink.into_param().abi()).ok()
     }
@@ -8343,323 +9688,403 @@ pub struct IXMLDOMDocument_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ontransformnodesink: ::std::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLDOMDocument2(::windows::runtime::IUnknown);
 impl IXMLDOMDocument2 {
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::super::System::Ole::Automation::ITypeInfo> {
         let mut result__: <super::super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::super::super::System::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn nodeName(&self, name: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(name)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn nodeValue(&self, value: *mut super::super::super::System::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(value)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetnodeValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), value.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn nodeType(&self, r#type: *mut DOMNodeType) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(r#type)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn parentNode(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn childNodes(&self) -> ::windows::runtime::Result<IXMLDOMNodeList> {
         let mut result__: <IXMLDOMNodeList as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNodeList>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn firstChild(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn lastChild(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn previousSibling(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn nextSibling(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn attributes(&self) -> ::windows::runtime::Result<IXMLDOMNamedNodeMap> {
         let mut result__: <IXMLDOMNamedNodeMap as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNamedNodeMap>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn insertBefore<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, newchild: Param0, refchild: Param1) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), newchild.into_param().abi(), refchild.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn replaceChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, newchild: Param0, oldchild: Param1) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), newchild.into_param().abi(), oldchild.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn removeChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, childnode: Param0) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), childnode.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn appendChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, newchild: Param0) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), newchild.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn hasChildNodes(&self, haschild: *mut i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(haschild)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn ownerDocument(&self) -> ::windows::runtime::Result<IXMLDOMDocument> {
         let mut result__: <IXMLDOMDocument as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMDocument>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn cloneNode(&self, deep: i16) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), ::std::mem::transmute(deep), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn nodeTypeString(&self, nodetype: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), ::std::mem::transmute(nodetype)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn text(&self, text: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), ::std::mem::transmute(text)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn Settext<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, text: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), text.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn specified(&self, isspecified: *mut i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), ::std::mem::transmute(isspecified)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn definition(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn nodeTypedValue(&self, typedvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), ::std::mem::transmute(typedvalue)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetnodeTypedValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, typedvalue: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self), typedvalue.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn dataType(&self, datatypename: *mut super::super::super::System::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).32)(::std::mem::transmute_copy(self), ::std::mem::transmute(datatypename)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn SetdataType<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, datatypename: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).33)(::std::mem::transmute_copy(self), datatypename.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn xml(&self, xmlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).34)(::std::mem::transmute_copy(self), ::std::mem::transmute(xmlstring)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn transformNode<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, stylesheet: Param0, xmlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).35)(::std::mem::transmute_copy(self), stylesheet.into_param().abi(), ::std::mem::transmute(xmlstring)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn selectNodes<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, querystring: Param0) -> ::windows::runtime::Result<IXMLDOMNodeList> {
         let mut result__: <IXMLDOMNodeList as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).36)(::std::mem::transmute_copy(self), querystring.into_param().abi(), &mut result__).from_abi::<IXMLDOMNodeList>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn selectSingleNode<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, querystring: Param0) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).37)(::std::mem::transmute_copy(self), querystring.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn parsed(&self, isparsed: *mut i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).38)(::std::mem::transmute_copy(self), ::std::mem::transmute(isparsed)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn namespaceURI(&self, namespaceuri: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).39)(::std::mem::transmute_copy(self), ::std::mem::transmute(namespaceuri)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn prefix(&self, prefixstring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).40)(::std::mem::transmute_copy(self), ::std::mem::transmute(prefixstring)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn baseName(&self, namestring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).41)(::std::mem::transmute_copy(self), ::std::mem::transmute(namestring)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn transformNodeToObject<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, stylesheet: Param0, outputobject: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).42)(::std::mem::transmute_copy(self), stylesheet.into_param().abi(), outputobject.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn doctype(&self) -> ::windows::runtime::Result<IXMLDOMDocumentType> {
         let mut result__: <IXMLDOMDocumentType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).43)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMDocumentType>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn implementation(&self) -> ::windows::runtime::Result<IXMLDOMImplementation> {
         let mut result__: <IXMLDOMImplementation as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).44)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMImplementation>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn documentElement(&self) -> ::windows::runtime::Result<IXMLDOMElement> {
         let mut result__: <IXMLDOMElement as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).45)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMElement>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn putref_documentElement<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMElement>>(&self, domelement: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).46)(::std::mem::transmute_copy(self), domelement.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn createElement<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, tagname: Param0) -> ::windows::runtime::Result<IXMLDOMElement> {
         let mut result__: <IXMLDOMElement as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).47)(::std::mem::transmute_copy(self), tagname.into_param().abi(), &mut result__).from_abi::<IXMLDOMElement>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn createDocumentFragment(&self) -> ::windows::runtime::Result<IXMLDOMDocumentFragment> {
         let mut result__: <IXMLDOMDocumentFragment as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).48)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMDocumentFragment>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn createTextNode<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, data: Param0) -> ::windows::runtime::Result<IXMLDOMText> {
         let mut result__: <IXMLDOMText as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).49)(::std::mem::transmute_copy(self), data.into_param().abi(), &mut result__).from_abi::<IXMLDOMText>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn createComment<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, data: Param0) -> ::windows::runtime::Result<IXMLDOMComment> {
         let mut result__: <IXMLDOMComment as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).50)(::std::mem::transmute_copy(self), data.into_param().abi(), &mut result__).from_abi::<IXMLDOMComment>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn createCDATASection<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, data: Param0) -> ::windows::runtime::Result<IXMLDOMCDATASection> {
         let mut result__: <IXMLDOMCDATASection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).51)(::std::mem::transmute_copy(self), data.into_param().abi(), &mut result__).from_abi::<IXMLDOMCDATASection>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn createProcessingInstruction<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, target: Param0, data: Param1) -> ::windows::runtime::Result<IXMLDOMProcessingInstruction> {
         let mut result__: <IXMLDOMProcessingInstruction as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).52)(::std::mem::transmute_copy(self), target.into_param().abi(), data.into_param().abi(), &mut result__).from_abi::<IXMLDOMProcessingInstruction>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn createAttribute<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::runtime::Result<IXMLDOMAttribute> {
         let mut result__: <IXMLDOMAttribute as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).53)(::std::mem::transmute_copy(self), name.into_param().abi(), &mut result__).from_abi::<IXMLDOMAttribute>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn createEntityReference<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::runtime::Result<IXMLDOMEntityReference> {
         let mut result__: <IXMLDOMEntityReference as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).54)(::std::mem::transmute_copy(self), name.into_param().abi(), &mut result__).from_abi::<IXMLDOMEntityReference>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn getElementsByTagName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, tagname: Param0) -> ::windows::runtime::Result<IXMLDOMNodeList> {
         let mut result__: <IXMLDOMNodeList as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).55)(::std::mem::transmute_copy(self), tagname.into_param().abi(), &mut result__).from_abi::<IXMLDOMNodeList>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn createNode<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, r#type: Param0, name: Param1, namespaceuri: Param2) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).56)(::std::mem::transmute_copy(self), r#type.into_param().abi(), name.into_param().abi(), namespaceuri.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn nodeFromID<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, idstring: Param0) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).57)(::std::mem::transmute_copy(self), idstring.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn load<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, xmlsource: Param0, issuccessful: *mut i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).58)(::std::mem::transmute_copy(self), xmlsource.into_param().abi(), ::std::mem::transmute(issuccessful)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn readyState(&self, value: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).59)(::std::mem::transmute_copy(self), ::std::mem::transmute(value)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn parseError(&self) -> ::windows::runtime::Result<IXMLDOMParseError> {
         let mut result__: <IXMLDOMParseError as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).60)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMParseError>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn url(&self, urlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).61)(::std::mem::transmute_copy(self), ::std::mem::transmute(urlstring)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn r#async(&self, isasync: *mut i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).62)(::std::mem::transmute_copy(self), ::std::mem::transmute(isasync)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn Setasync(&self, isasync: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).63)(::std::mem::transmute_copy(self), ::std::mem::transmute(isasync)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn abort(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).64)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn loadXML<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstrxml: Param0, issuccessful: *mut i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).65)(::std::mem::transmute_copy(self), bstrxml.into_param().abi(), ::std::mem::transmute(issuccessful)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn save<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, destination: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).66)(::std::mem::transmute_copy(self), destination.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn validateOnParse(&self, isvalidating: *mut i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).67)(::std::mem::transmute_copy(self), ::std::mem::transmute(isvalidating)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn SetvalidateOnParse(&self, isvalidating: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).68)(::std::mem::transmute_copy(self), ::std::mem::transmute(isvalidating)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn resolveExternals(&self, isresolving: *mut i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).69)(::std::mem::transmute_copy(self), ::std::mem::transmute(isresolving)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn SetresolveExternals(&self, isresolving: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).70)(::std::mem::transmute_copy(self), ::std::mem::transmute(isresolving)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn preserveWhiteSpace(&self, ispreserving: *mut i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).71)(::std::mem::transmute_copy(self), ::std::mem::transmute(ispreserving)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn SetpreserveWhiteSpace(&self, ispreserving: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).72)(::std::mem::transmute_copy(self), ::std::mem::transmute(ispreserving)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Setonreadystatechange<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, readystatechangesink: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).73)(::std::mem::transmute_copy(self), readystatechangesink.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Setondataavailable<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, ondataavailablesink: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).74)(::std::mem::transmute_copy(self), ondataavailablesink.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Setontransformnode<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, ontransformnodesink: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).75)(::std::mem::transmute_copy(self), ontransformnodesink.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn namespaces(&self) -> ::windows::runtime::Result<IXMLDOMSchemaCollection> {
         let mut result__: <IXMLDOMSchemaCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).76)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMSchemaCollection>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn schemas(&self) -> ::windows::runtime::Result<super::super::super::System::Com::VARIANT> {
         let mut result__: <super::super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).77)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn putref_schemas<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, othercollection: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).78)(::std::mem::transmute_copy(self), othercollection.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn validate(&self) -> ::windows::runtime::Result<IXMLDOMParseError> {
         let mut result__: <IXMLDOMParseError as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).79)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMParseError>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn setProperty<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, name: Param0, value: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).80)(::std::mem::transmute_copy(self), name.into_param().abi(), value.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn getProperty<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::runtime::Result<super::super::super::System::Com::VARIANT> {
         let mut result__: <super::super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).81)(::std::mem::transmute_copy(self), name.into_param().abi(), &mut result__).from_abi::<super::super::super::System::Com::VARIANT>(result__)
@@ -8883,331 +10308,413 @@ pub struct IXMLDOMDocument2_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, value: *mut ::std::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLDOMDocument3(::windows::runtime::IUnknown);
 impl IXMLDOMDocument3 {
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::super::System::Ole::Automation::ITypeInfo> {
         let mut result__: <super::super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::super::super::System::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn nodeName(&self, name: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(name)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn nodeValue(&self, value: *mut super::super::super::System::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(value)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetnodeValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), value.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn nodeType(&self, r#type: *mut DOMNodeType) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(r#type)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn parentNode(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn childNodes(&self) -> ::windows::runtime::Result<IXMLDOMNodeList> {
         let mut result__: <IXMLDOMNodeList as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNodeList>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn firstChild(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn lastChild(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn previousSibling(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn nextSibling(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn attributes(&self) -> ::windows::runtime::Result<IXMLDOMNamedNodeMap> {
         let mut result__: <IXMLDOMNamedNodeMap as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNamedNodeMap>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn insertBefore<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, newchild: Param0, refchild: Param1) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), newchild.into_param().abi(), refchild.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn replaceChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, newchild: Param0, oldchild: Param1) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), newchild.into_param().abi(), oldchild.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn removeChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, childnode: Param0) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), childnode.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn appendChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, newchild: Param0) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), newchild.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn hasChildNodes(&self, haschild: *mut i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(haschild)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn ownerDocument(&self) -> ::windows::runtime::Result<IXMLDOMDocument> {
         let mut result__: <IXMLDOMDocument as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMDocument>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn cloneNode(&self, deep: i16) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), ::std::mem::transmute(deep), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn nodeTypeString(&self, nodetype: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), ::std::mem::transmute(nodetype)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn text(&self, text: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), ::std::mem::transmute(text)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn Settext<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, text: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), text.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn specified(&self, isspecified: *mut i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), ::std::mem::transmute(isspecified)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn definition(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn nodeTypedValue(&self, typedvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), ::std::mem::transmute(typedvalue)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetnodeTypedValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, typedvalue: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self), typedvalue.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn dataType(&self, datatypename: *mut super::super::super::System::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).32)(::std::mem::transmute_copy(self), ::std::mem::transmute(datatypename)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn SetdataType<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, datatypename: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).33)(::std::mem::transmute_copy(self), datatypename.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn xml(&self, xmlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).34)(::std::mem::transmute_copy(self), ::std::mem::transmute(xmlstring)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn transformNode<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, stylesheet: Param0, xmlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).35)(::std::mem::transmute_copy(self), stylesheet.into_param().abi(), ::std::mem::transmute(xmlstring)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn selectNodes<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, querystring: Param0) -> ::windows::runtime::Result<IXMLDOMNodeList> {
         let mut result__: <IXMLDOMNodeList as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).36)(::std::mem::transmute_copy(self), querystring.into_param().abi(), &mut result__).from_abi::<IXMLDOMNodeList>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn selectSingleNode<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, querystring: Param0) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).37)(::std::mem::transmute_copy(self), querystring.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn parsed(&self, isparsed: *mut i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).38)(::std::mem::transmute_copy(self), ::std::mem::transmute(isparsed)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn namespaceURI(&self, namespaceuri: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).39)(::std::mem::transmute_copy(self), ::std::mem::transmute(namespaceuri)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn prefix(&self, prefixstring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).40)(::std::mem::transmute_copy(self), ::std::mem::transmute(prefixstring)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn baseName(&self, namestring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).41)(::std::mem::transmute_copy(self), ::std::mem::transmute(namestring)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn transformNodeToObject<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, stylesheet: Param0, outputobject: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).42)(::std::mem::transmute_copy(self), stylesheet.into_param().abi(), outputobject.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn doctype(&self) -> ::windows::runtime::Result<IXMLDOMDocumentType> {
         let mut result__: <IXMLDOMDocumentType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).43)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMDocumentType>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn implementation(&self) -> ::windows::runtime::Result<IXMLDOMImplementation> {
         let mut result__: <IXMLDOMImplementation as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).44)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMImplementation>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn documentElement(&self) -> ::windows::runtime::Result<IXMLDOMElement> {
         let mut result__: <IXMLDOMElement as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).45)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMElement>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn putref_documentElement<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMElement>>(&self, domelement: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).46)(::std::mem::transmute_copy(self), domelement.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn createElement<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, tagname: Param0) -> ::windows::runtime::Result<IXMLDOMElement> {
         let mut result__: <IXMLDOMElement as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).47)(::std::mem::transmute_copy(self), tagname.into_param().abi(), &mut result__).from_abi::<IXMLDOMElement>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn createDocumentFragment(&self) -> ::windows::runtime::Result<IXMLDOMDocumentFragment> {
         let mut result__: <IXMLDOMDocumentFragment as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).48)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMDocumentFragment>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn createTextNode<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, data: Param0) -> ::windows::runtime::Result<IXMLDOMText> {
         let mut result__: <IXMLDOMText as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).49)(::std::mem::transmute_copy(self), data.into_param().abi(), &mut result__).from_abi::<IXMLDOMText>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn createComment<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, data: Param0) -> ::windows::runtime::Result<IXMLDOMComment> {
         let mut result__: <IXMLDOMComment as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).50)(::std::mem::transmute_copy(self), data.into_param().abi(), &mut result__).from_abi::<IXMLDOMComment>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn createCDATASection<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, data: Param0) -> ::windows::runtime::Result<IXMLDOMCDATASection> {
         let mut result__: <IXMLDOMCDATASection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).51)(::std::mem::transmute_copy(self), data.into_param().abi(), &mut result__).from_abi::<IXMLDOMCDATASection>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn createProcessingInstruction<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, target: Param0, data: Param1) -> ::windows::runtime::Result<IXMLDOMProcessingInstruction> {
         let mut result__: <IXMLDOMProcessingInstruction as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).52)(::std::mem::transmute_copy(self), target.into_param().abi(), data.into_param().abi(), &mut result__).from_abi::<IXMLDOMProcessingInstruction>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn createAttribute<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::runtime::Result<IXMLDOMAttribute> {
         let mut result__: <IXMLDOMAttribute as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).53)(::std::mem::transmute_copy(self), name.into_param().abi(), &mut result__).from_abi::<IXMLDOMAttribute>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn createEntityReference<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::runtime::Result<IXMLDOMEntityReference> {
         let mut result__: <IXMLDOMEntityReference as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).54)(::std::mem::transmute_copy(self), name.into_param().abi(), &mut result__).from_abi::<IXMLDOMEntityReference>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn getElementsByTagName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, tagname: Param0) -> ::windows::runtime::Result<IXMLDOMNodeList> {
         let mut result__: <IXMLDOMNodeList as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).55)(::std::mem::transmute_copy(self), tagname.into_param().abi(), &mut result__).from_abi::<IXMLDOMNodeList>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn createNode<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, r#type: Param0, name: Param1, namespaceuri: Param2) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).56)(::std::mem::transmute_copy(self), r#type.into_param().abi(), name.into_param().abi(), namespaceuri.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn nodeFromID<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, idstring: Param0) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).57)(::std::mem::transmute_copy(self), idstring.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn load<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, xmlsource: Param0, issuccessful: *mut i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).58)(::std::mem::transmute_copy(self), xmlsource.into_param().abi(), ::std::mem::transmute(issuccessful)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn readyState(&self, value: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).59)(::std::mem::transmute_copy(self), ::std::mem::transmute(value)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn parseError(&self) -> ::windows::runtime::Result<IXMLDOMParseError> {
         let mut result__: <IXMLDOMParseError as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).60)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMParseError>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn url(&self, urlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).61)(::std::mem::transmute_copy(self), ::std::mem::transmute(urlstring)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn r#async(&self, isasync: *mut i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).62)(::std::mem::transmute_copy(self), ::std::mem::transmute(isasync)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn Setasync(&self, isasync: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).63)(::std::mem::transmute_copy(self), ::std::mem::transmute(isasync)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn abort(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).64)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn loadXML<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstrxml: Param0, issuccessful: *mut i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).65)(::std::mem::transmute_copy(self), bstrxml.into_param().abi(), ::std::mem::transmute(issuccessful)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn save<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, destination: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).66)(::std::mem::transmute_copy(self), destination.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn validateOnParse(&self, isvalidating: *mut i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).67)(::std::mem::transmute_copy(self), ::std::mem::transmute(isvalidating)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn SetvalidateOnParse(&self, isvalidating: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).68)(::std::mem::transmute_copy(self), ::std::mem::transmute(isvalidating)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn resolveExternals(&self, isresolving: *mut i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).69)(::std::mem::transmute_copy(self), ::std::mem::transmute(isresolving)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn SetresolveExternals(&self, isresolving: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).70)(::std::mem::transmute_copy(self), ::std::mem::transmute(isresolving)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn preserveWhiteSpace(&self, ispreserving: *mut i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).71)(::std::mem::transmute_copy(self), ::std::mem::transmute(ispreserving)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn SetpreserveWhiteSpace(&self, ispreserving: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).72)(::std::mem::transmute_copy(self), ::std::mem::transmute(ispreserving)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Setonreadystatechange<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, readystatechangesink: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).73)(::std::mem::transmute_copy(self), readystatechangesink.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Setondataavailable<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, ondataavailablesink: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).74)(::std::mem::transmute_copy(self), ondataavailablesink.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Setontransformnode<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, ontransformnodesink: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).75)(::std::mem::transmute_copy(self), ontransformnodesink.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn namespaces(&self) -> ::windows::runtime::Result<IXMLDOMSchemaCollection> {
         let mut result__: <IXMLDOMSchemaCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).76)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMSchemaCollection>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn schemas(&self) -> ::windows::runtime::Result<super::super::super::System::Com::VARIANT> {
         let mut result__: <super::super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).77)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn putref_schemas<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, othercollection: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).78)(::std::mem::transmute_copy(self), othercollection.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn validate(&self) -> ::windows::runtime::Result<IXMLDOMParseError> {
         let mut result__: <IXMLDOMParseError as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).79)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMParseError>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn setProperty<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, name: Param0, value: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).80)(::std::mem::transmute_copy(self), name.into_param().abi(), value.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn getProperty<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::runtime::Result<super::super::super::System::Com::VARIANT> {
         let mut result__: <super::super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).81)(::std::mem::transmute_copy(self), name.into_param().abi(), &mut result__).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn validateNode<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, node: Param0) -> ::windows::runtime::Result<IXMLDOMParseError> {
         let mut result__: <IXMLDOMParseError as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).82)(::std::mem::transmute_copy(self), node.into_param().abi(), &mut result__).from_abi::<IXMLDOMParseError>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn importNode<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, node: Param0, deep: i16) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).83)(::std::mem::transmute_copy(self), node.into_param().abi(), ::std::mem::transmute(deep), &mut result__).from_abi::<IXMLDOMNode>(result__)
@@ -9453,167 +10960,208 @@ pub struct IXMLDOMDocument3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, node: ::windows::runtime::RawPtr, errorobj: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, node: ::windows::runtime::RawPtr, deep: i16, clone: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLDOMDocumentFragment(::windows::runtime::IUnknown);
 impl IXMLDOMDocumentFragment {
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::super::System::Ole::Automation::ITypeInfo> {
         let mut result__: <super::super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::super::super::System::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn nodeName(&self, name: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(name)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn nodeValue(&self, value: *mut super::super::super::System::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(value)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetnodeValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), value.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn nodeType(&self, r#type: *mut DOMNodeType) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(r#type)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn parentNode(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn childNodes(&self) -> ::windows::runtime::Result<IXMLDOMNodeList> {
         let mut result__: <IXMLDOMNodeList as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNodeList>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn firstChild(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn lastChild(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn previousSibling(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn nextSibling(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn attributes(&self) -> ::windows::runtime::Result<IXMLDOMNamedNodeMap> {
         let mut result__: <IXMLDOMNamedNodeMap as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNamedNodeMap>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn insertBefore<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, newchild: Param0, refchild: Param1) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), newchild.into_param().abi(), refchild.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn replaceChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, newchild: Param0, oldchild: Param1) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), newchild.into_param().abi(), oldchild.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn removeChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, childnode: Param0) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), childnode.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn appendChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, newchild: Param0) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), newchild.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn hasChildNodes(&self, haschild: *mut i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(haschild)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn ownerDocument(&self) -> ::windows::runtime::Result<IXMLDOMDocument> {
         let mut result__: <IXMLDOMDocument as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMDocument>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn cloneNode(&self, deep: i16) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), ::std::mem::transmute(deep), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn nodeTypeString(&self, nodetype: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), ::std::mem::transmute(nodetype)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn text(&self, text: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), ::std::mem::transmute(text)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn Settext<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, text: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), text.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn specified(&self, isspecified: *mut i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), ::std::mem::transmute(isspecified)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn definition(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn nodeTypedValue(&self, typedvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), ::std::mem::transmute(typedvalue)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetnodeTypedValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, typedvalue: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self), typedvalue.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn dataType(&self, datatypename: *mut super::super::super::System::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).32)(::std::mem::transmute_copy(self), ::std::mem::transmute(datatypename)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn SetdataType<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, datatypename: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).33)(::std::mem::transmute_copy(self), datatypename.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn xml(&self, xmlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).34)(::std::mem::transmute_copy(self), ::std::mem::transmute(xmlstring)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn transformNode<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, stylesheet: Param0, xmlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).35)(::std::mem::transmute_copy(self), stylesheet.into_param().abi(), ::std::mem::transmute(xmlstring)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn selectNodes<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, querystring: Param0) -> ::windows::runtime::Result<IXMLDOMNodeList> {
         let mut result__: <IXMLDOMNodeList as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).36)(::std::mem::transmute_copy(self), querystring.into_param().abi(), &mut result__).from_abi::<IXMLDOMNodeList>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn selectSingleNode<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, querystring: Param0) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).37)(::std::mem::transmute_copy(self), querystring.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn parsed(&self, isparsed: *mut i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).38)(::std::mem::transmute_copy(self), ::std::mem::transmute(isparsed)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn namespaceURI(&self, namespaceuri: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).39)(::std::mem::transmute_copy(self), ::std::mem::transmute(namespaceuri)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn prefix(&self, prefixstring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).40)(::std::mem::transmute_copy(self), ::std::mem::transmute(prefixstring)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn baseName(&self, namestring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).41)(::std::mem::transmute_copy(self), ::std::mem::transmute(namestring)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn transformNodeToObject<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, stylesheet: Param0, outputobject: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).42)(::std::mem::transmute_copy(self), stylesheet.into_param().abi(), outputobject.into_param().abi()).ok()
     }
@@ -9756,178 +11304,222 @@ pub struct IXMLDOMDocumentFragment_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, stylesheet: ::windows::runtime::RawPtr, outputobject: ::std::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLDOMDocumentType(::windows::runtime::IUnknown);
 impl IXMLDOMDocumentType {
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::super::System::Ole::Automation::ITypeInfo> {
         let mut result__: <super::super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::super::super::System::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn nodeName(&self, name: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(name)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn nodeValue(&self, value: *mut super::super::super::System::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(value)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetnodeValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), value.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn nodeType(&self, r#type: *mut DOMNodeType) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(r#type)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn parentNode(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn childNodes(&self) -> ::windows::runtime::Result<IXMLDOMNodeList> {
         let mut result__: <IXMLDOMNodeList as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNodeList>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn firstChild(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn lastChild(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn previousSibling(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn nextSibling(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn attributes(&self) -> ::windows::runtime::Result<IXMLDOMNamedNodeMap> {
         let mut result__: <IXMLDOMNamedNodeMap as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNamedNodeMap>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn insertBefore<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, newchild: Param0, refchild: Param1) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), newchild.into_param().abi(), refchild.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn replaceChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, newchild: Param0, oldchild: Param1) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), newchild.into_param().abi(), oldchild.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn removeChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, childnode: Param0) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), childnode.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn appendChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, newchild: Param0) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), newchild.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn hasChildNodes(&self, haschild: *mut i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(haschild)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn ownerDocument(&self) -> ::windows::runtime::Result<IXMLDOMDocument> {
         let mut result__: <IXMLDOMDocument as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMDocument>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn cloneNode(&self, deep: i16) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), ::std::mem::transmute(deep), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn nodeTypeString(&self, nodetype: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), ::std::mem::transmute(nodetype)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn text(&self, text: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), ::std::mem::transmute(text)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn Settext<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, text: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), text.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn specified(&self, isspecified: *mut i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), ::std::mem::transmute(isspecified)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn definition(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn nodeTypedValue(&self, typedvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), ::std::mem::transmute(typedvalue)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetnodeTypedValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, typedvalue: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self), typedvalue.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn dataType(&self, datatypename: *mut super::super::super::System::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).32)(::std::mem::transmute_copy(self), ::std::mem::transmute(datatypename)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn SetdataType<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, datatypename: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).33)(::std::mem::transmute_copy(self), datatypename.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn xml(&self, xmlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).34)(::std::mem::transmute_copy(self), ::std::mem::transmute(xmlstring)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn transformNode<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, stylesheet: Param0, xmlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).35)(::std::mem::transmute_copy(self), stylesheet.into_param().abi(), ::std::mem::transmute(xmlstring)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn selectNodes<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, querystring: Param0) -> ::windows::runtime::Result<IXMLDOMNodeList> {
         let mut result__: <IXMLDOMNodeList as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).36)(::std::mem::transmute_copy(self), querystring.into_param().abi(), &mut result__).from_abi::<IXMLDOMNodeList>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn selectSingleNode<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, querystring: Param0) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).37)(::std::mem::transmute_copy(self), querystring.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn parsed(&self, isparsed: *mut i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).38)(::std::mem::transmute_copy(self), ::std::mem::transmute(isparsed)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn namespaceURI(&self, namespaceuri: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).39)(::std::mem::transmute_copy(self), ::std::mem::transmute(namespaceuri)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn prefix(&self, prefixstring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).40)(::std::mem::transmute_copy(self), ::std::mem::transmute(prefixstring)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn baseName(&self, namestring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).41)(::std::mem::transmute_copy(self), ::std::mem::transmute(namestring)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn transformNodeToObject<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, stylesheet: Param0, outputobject: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).42)(::std::mem::transmute_copy(self), stylesheet.into_param().abi(), outputobject.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn name(&self, rootname: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).43)(::std::mem::transmute_copy(self), ::std::mem::transmute(rootname)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn entities(&self) -> ::windows::runtime::Result<IXMLDOMNamedNodeMap> {
         let mut result__: <IXMLDOMNamedNodeMap as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).44)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNamedNodeMap>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn notations(&self) -> ::windows::runtime::Result<IXMLDOMNamedNodeMap> {
         let mut result__: <IXMLDOMNamedNodeMap as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).45)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNamedNodeMap>(result__)
@@ -10075,204 +11667,254 @@ pub struct IXMLDOMDocumentType_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, entitymap: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, notationmap: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLDOMElement(::windows::runtime::IUnknown);
 impl IXMLDOMElement {
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::super::System::Ole::Automation::ITypeInfo> {
         let mut result__: <super::super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::super::super::System::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn nodeName(&self, name: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(name)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn nodeValue(&self, value: *mut super::super::super::System::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(value)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetnodeValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), value.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn nodeType(&self, r#type: *mut DOMNodeType) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(r#type)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn parentNode(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn childNodes(&self) -> ::windows::runtime::Result<IXMLDOMNodeList> {
         let mut result__: <IXMLDOMNodeList as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNodeList>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn firstChild(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn lastChild(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn previousSibling(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn nextSibling(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn attributes(&self) -> ::windows::runtime::Result<IXMLDOMNamedNodeMap> {
         let mut result__: <IXMLDOMNamedNodeMap as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNamedNodeMap>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn insertBefore<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, newchild: Param0, refchild: Param1) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), newchild.into_param().abi(), refchild.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn replaceChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, newchild: Param0, oldchild: Param1) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), newchild.into_param().abi(), oldchild.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn removeChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, childnode: Param0) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), childnode.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn appendChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, newchild: Param0) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), newchild.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn hasChildNodes(&self, haschild: *mut i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(haschild)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn ownerDocument(&self) -> ::windows::runtime::Result<IXMLDOMDocument> {
         let mut result__: <IXMLDOMDocument as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMDocument>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn cloneNode(&self, deep: i16) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), ::std::mem::transmute(deep), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn nodeTypeString(&self, nodetype: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), ::std::mem::transmute(nodetype)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn text(&self, text: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), ::std::mem::transmute(text)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn Settext<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, text: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), text.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn specified(&self, isspecified: *mut i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), ::std::mem::transmute(isspecified)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn definition(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn nodeTypedValue(&self, typedvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), ::std::mem::transmute(typedvalue)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetnodeTypedValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, typedvalue: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self), typedvalue.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn dataType(&self, datatypename: *mut super::super::super::System::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).32)(::std::mem::transmute_copy(self), ::std::mem::transmute(datatypename)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn SetdataType<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, datatypename: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).33)(::std::mem::transmute_copy(self), datatypename.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn xml(&self, xmlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).34)(::std::mem::transmute_copy(self), ::std::mem::transmute(xmlstring)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn transformNode<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, stylesheet: Param0, xmlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).35)(::std::mem::transmute_copy(self), stylesheet.into_param().abi(), ::std::mem::transmute(xmlstring)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn selectNodes<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, querystring: Param0) -> ::windows::runtime::Result<IXMLDOMNodeList> {
         let mut result__: <IXMLDOMNodeList as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).36)(::std::mem::transmute_copy(self), querystring.into_param().abi(), &mut result__).from_abi::<IXMLDOMNodeList>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn selectSingleNode<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, querystring: Param0) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).37)(::std::mem::transmute_copy(self), querystring.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn parsed(&self, isparsed: *mut i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).38)(::std::mem::transmute_copy(self), ::std::mem::transmute(isparsed)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn namespaceURI(&self, namespaceuri: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).39)(::std::mem::transmute_copy(self), ::std::mem::transmute(namespaceuri)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn prefix(&self, prefixstring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).40)(::std::mem::transmute_copy(self), ::std::mem::transmute(prefixstring)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn baseName(&self, namestring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).41)(::std::mem::transmute_copy(self), ::std::mem::transmute(namestring)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn transformNodeToObject<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, stylesheet: Param0, outputobject: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).42)(::std::mem::transmute_copy(self), stylesheet.into_param().abi(), outputobject.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn tagName(&self, tagname: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).43)(::std::mem::transmute_copy(self), ::std::mem::transmute(tagname)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn getAttribute<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, name: Param0, value: *mut super::super::super::System::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).44)(::std::mem::transmute_copy(self), name.into_param().abi(), ::std::mem::transmute(value)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn setAttribute<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, name: Param0, value: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).45)(::std::mem::transmute_copy(self), name.into_param().abi(), value.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn removeAttribute<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).46)(::std::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn getAttributeNode<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::runtime::Result<IXMLDOMAttribute> {
         let mut result__: <IXMLDOMAttribute as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).47)(::std::mem::transmute_copy(self), name.into_param().abi(), &mut result__).from_abi::<IXMLDOMAttribute>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn setAttributeNode<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMAttribute>>(&self, domattribute: Param0) -> ::windows::runtime::Result<IXMLDOMAttribute> {
         let mut result__: <IXMLDOMAttribute as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).48)(::std::mem::transmute_copy(self), domattribute.into_param().abi(), &mut result__).from_abi::<IXMLDOMAttribute>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn removeAttributeNode<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMAttribute>>(&self, domattribute: Param0) -> ::windows::runtime::Result<IXMLDOMAttribute> {
         let mut result__: <IXMLDOMAttribute as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).49)(::std::mem::transmute_copy(self), domattribute.into_param().abi(), &mut result__).from_abi::<IXMLDOMAttribute>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn getElementsByTagName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, tagname: Param0) -> ::windows::runtime::Result<IXMLDOMNodeList> {
         let mut result__: <IXMLDOMNodeList as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).50)(::std::mem::transmute_copy(self), tagname.into_param().abi(), &mut result__).from_abi::<IXMLDOMNodeList>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn normalize(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).51)(::std::mem::transmute_copy(self)).ok()
     }
@@ -10430,179 +12072,223 @@ pub struct IXMLDOMElement_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLDOMEntity(::windows::runtime::IUnknown);
 impl IXMLDOMEntity {
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::super::System::Ole::Automation::ITypeInfo> {
         let mut result__: <super::super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::super::super::System::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn nodeName(&self, name: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(name)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn nodeValue(&self, value: *mut super::super::super::System::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(value)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetnodeValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), value.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn nodeType(&self, r#type: *mut DOMNodeType) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(r#type)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn parentNode(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn childNodes(&self) -> ::windows::runtime::Result<IXMLDOMNodeList> {
         let mut result__: <IXMLDOMNodeList as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNodeList>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn firstChild(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn lastChild(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn previousSibling(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn nextSibling(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn attributes(&self) -> ::windows::runtime::Result<IXMLDOMNamedNodeMap> {
         let mut result__: <IXMLDOMNamedNodeMap as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNamedNodeMap>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn insertBefore<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, newchild: Param0, refchild: Param1) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), newchild.into_param().abi(), refchild.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn replaceChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, newchild: Param0, oldchild: Param1) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), newchild.into_param().abi(), oldchild.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn removeChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, childnode: Param0) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), childnode.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn appendChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, newchild: Param0) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), newchild.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn hasChildNodes(&self, haschild: *mut i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(haschild)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn ownerDocument(&self) -> ::windows::runtime::Result<IXMLDOMDocument> {
         let mut result__: <IXMLDOMDocument as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMDocument>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn cloneNode(&self, deep: i16) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), ::std::mem::transmute(deep), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn nodeTypeString(&self, nodetype: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), ::std::mem::transmute(nodetype)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn text(&self, text: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), ::std::mem::transmute(text)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn Settext<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, text: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), text.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn specified(&self, isspecified: *mut i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), ::std::mem::transmute(isspecified)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn definition(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn nodeTypedValue(&self, typedvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), ::std::mem::transmute(typedvalue)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetnodeTypedValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, typedvalue: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self), typedvalue.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn dataType(&self, datatypename: *mut super::super::super::System::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).32)(::std::mem::transmute_copy(self), ::std::mem::transmute(datatypename)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn SetdataType<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, datatypename: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).33)(::std::mem::transmute_copy(self), datatypename.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn xml(&self, xmlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).34)(::std::mem::transmute_copy(self), ::std::mem::transmute(xmlstring)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn transformNode<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, stylesheet: Param0, xmlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).35)(::std::mem::transmute_copy(self), stylesheet.into_param().abi(), ::std::mem::transmute(xmlstring)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn selectNodes<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, querystring: Param0) -> ::windows::runtime::Result<IXMLDOMNodeList> {
         let mut result__: <IXMLDOMNodeList as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).36)(::std::mem::transmute_copy(self), querystring.into_param().abi(), &mut result__).from_abi::<IXMLDOMNodeList>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn selectSingleNode<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, querystring: Param0) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).37)(::std::mem::transmute_copy(self), querystring.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn parsed(&self, isparsed: *mut i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).38)(::std::mem::transmute_copy(self), ::std::mem::transmute(isparsed)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn namespaceURI(&self, namespaceuri: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).39)(::std::mem::transmute_copy(self), ::std::mem::transmute(namespaceuri)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn prefix(&self, prefixstring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).40)(::std::mem::transmute_copy(self), ::std::mem::transmute(prefixstring)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn baseName(&self, namestring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).41)(::std::mem::transmute_copy(self), ::std::mem::transmute(namestring)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn transformNodeToObject<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, stylesheet: Param0, outputobject: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).42)(::std::mem::transmute_copy(self), stylesheet.into_param().abi(), outputobject.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn publicId(&self, publicid: *mut super::super::super::System::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).43)(::std::mem::transmute_copy(self), ::std::mem::transmute(publicid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn systemId(&self, systemid: *mut super::super::super::System::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).44)(::std::mem::transmute_copy(self), ::std::mem::transmute(systemid)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn notationName(&self, name: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).45)(::std::mem::transmute_copy(self), ::std::mem::transmute(name)).ok()
     }
@@ -10751,167 +12437,208 @@ pub struct IXMLDOMEntity_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: *mut ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLDOMEntityReference(::windows::runtime::IUnknown);
 impl IXMLDOMEntityReference {
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::super::System::Ole::Automation::ITypeInfo> {
         let mut result__: <super::super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::super::super::System::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn nodeName(&self, name: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(name)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn nodeValue(&self, value: *mut super::super::super::System::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(value)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetnodeValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), value.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn nodeType(&self, r#type: *mut DOMNodeType) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(r#type)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn parentNode(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn childNodes(&self) -> ::windows::runtime::Result<IXMLDOMNodeList> {
         let mut result__: <IXMLDOMNodeList as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNodeList>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn firstChild(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn lastChild(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn previousSibling(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn nextSibling(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn attributes(&self) -> ::windows::runtime::Result<IXMLDOMNamedNodeMap> {
         let mut result__: <IXMLDOMNamedNodeMap as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNamedNodeMap>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn insertBefore<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, newchild: Param0, refchild: Param1) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), newchild.into_param().abi(), refchild.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn replaceChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, newchild: Param0, oldchild: Param1) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), newchild.into_param().abi(), oldchild.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn removeChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, childnode: Param0) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), childnode.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn appendChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, newchild: Param0) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), newchild.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn hasChildNodes(&self, haschild: *mut i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(haschild)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn ownerDocument(&self) -> ::windows::runtime::Result<IXMLDOMDocument> {
         let mut result__: <IXMLDOMDocument as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMDocument>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn cloneNode(&self, deep: i16) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), ::std::mem::transmute(deep), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn nodeTypeString(&self, nodetype: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), ::std::mem::transmute(nodetype)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn text(&self, text: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), ::std::mem::transmute(text)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn Settext<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, text: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), text.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn specified(&self, isspecified: *mut i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), ::std::mem::transmute(isspecified)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn definition(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn nodeTypedValue(&self, typedvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), ::std::mem::transmute(typedvalue)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetnodeTypedValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, typedvalue: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self), typedvalue.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn dataType(&self, datatypename: *mut super::super::super::System::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).32)(::std::mem::transmute_copy(self), ::std::mem::transmute(datatypename)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn SetdataType<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, datatypename: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).33)(::std::mem::transmute_copy(self), datatypename.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn xml(&self, xmlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).34)(::std::mem::transmute_copy(self), ::std::mem::transmute(xmlstring)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn transformNode<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, stylesheet: Param0, xmlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).35)(::std::mem::transmute_copy(self), stylesheet.into_param().abi(), ::std::mem::transmute(xmlstring)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn selectNodes<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, querystring: Param0) -> ::windows::runtime::Result<IXMLDOMNodeList> {
         let mut result__: <IXMLDOMNodeList as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).36)(::std::mem::transmute_copy(self), querystring.into_param().abi(), &mut result__).from_abi::<IXMLDOMNodeList>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn selectSingleNode<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, querystring: Param0) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).37)(::std::mem::transmute_copy(self), querystring.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn parsed(&self, isparsed: *mut i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).38)(::std::mem::transmute_copy(self), ::std::mem::transmute(isparsed)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn namespaceURI(&self, namespaceuri: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).39)(::std::mem::transmute_copy(self), ::std::mem::transmute(namespaceuri)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn prefix(&self, prefixstring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).40)(::std::mem::transmute_copy(self), ::std::mem::transmute(prefixstring)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn baseName(&self, namestring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).41)(::std::mem::transmute_copy(self), ::std::mem::transmute(namestring)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn transformNodeToObject<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, stylesheet: Param0, outputobject: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).42)(::std::mem::transmute_copy(self), stylesheet.into_param().abi(), outputobject.into_param().abi()).ok()
     }
@@ -11054,11 +12781,13 @@ pub struct IXMLDOMEntityReference_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, stylesheet: ::windows::runtime::RawPtr, outputobject: ::std::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLDOMImplementation(::windows::runtime::IUnknown);
 impl IXMLDOMImplementation {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn hasFeature<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, feature: Param0, version: Param1, hasfeature: *mut i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), feature.into_param().abi(), version.into_param().abi(), ::std::mem::transmute(hasfeature)).ok()
     }
@@ -11128,48 +12857,59 @@ pub struct IXMLDOMImplementation_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, feature: ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, version: ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, hasfeature: *mut i16) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLDOMNamedNodeMap(::windows::runtime::IUnknown);
 impl IXMLDOMNamedNodeMap {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn getNamedItem<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), name.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn setNamedItem<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, newitem: Param0) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), newitem.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn removeNamedItem<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), name.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn item(&self, index: i32) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn length(&self, listlength: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(listlength)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn getQualifiedItem<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, basename: Param0, namespaceuri: Param1) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), basename.into_param().abi(), namespaceuri.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn removeQualifiedItem<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, basename: Param0, namespaceuri: Param1) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), basename.into_param().abi(), namespaceuri.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn nextNode(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn reset(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn _newEnum(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
         let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
@@ -11252,150 +12992,187 @@ pub struct IXMLDOMNamedNodeMap_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppunk: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLDOMNode(::windows::runtime::IUnknown);
 impl IXMLDOMNode {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn nodeName(&self, name: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(name)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn nodeValue(&self, value: *mut super::super::super::System::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(value)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetnodeValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), value.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn nodeType(&self, r#type: *mut DOMNodeType) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(r#type)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn parentNode(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn childNodes(&self) -> ::windows::runtime::Result<IXMLDOMNodeList> {
         let mut result__: <IXMLDOMNodeList as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNodeList>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn firstChild(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn lastChild(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn previousSibling(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn nextSibling(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn attributes(&self) -> ::windows::runtime::Result<IXMLDOMNamedNodeMap> {
         let mut result__: <IXMLDOMNamedNodeMap as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNamedNodeMap>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn insertBefore<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, newchild: Param0, refchild: Param1) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), newchild.into_param().abi(), refchild.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn replaceChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, newchild: Param0, oldchild: Param1) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), newchild.into_param().abi(), oldchild.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn removeChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, childnode: Param0) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), childnode.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn appendChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, newchild: Param0) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), newchild.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn hasChildNodes(&self, haschild: *mut i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(haschild)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn ownerDocument(&self) -> ::windows::runtime::Result<IXMLDOMDocument> {
         let mut result__: <IXMLDOMDocument as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMDocument>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn cloneNode(&self, deep: i16) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), ::std::mem::transmute(deep), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn nodeTypeString(&self, nodetype: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), ::std::mem::transmute(nodetype)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn text(&self, text: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), ::std::mem::transmute(text)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn Settext<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, text: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), text.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn specified(&self, isspecified: *mut i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), ::std::mem::transmute(isspecified)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn definition(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn nodeTypedValue(&self, typedvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), ::std::mem::transmute(typedvalue)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetnodeTypedValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, typedvalue: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self), typedvalue.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn dataType(&self, datatypename: *mut super::super::super::System::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).32)(::std::mem::transmute_copy(self), ::std::mem::transmute(datatypename)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn SetdataType<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, datatypename: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).33)(::std::mem::transmute_copy(self), datatypename.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn xml(&self, xmlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).34)(::std::mem::transmute_copy(self), ::std::mem::transmute(xmlstring)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn transformNode<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, stylesheet: Param0, xmlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).35)(::std::mem::transmute_copy(self), stylesheet.into_param().abi(), ::std::mem::transmute(xmlstring)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn selectNodes<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, querystring: Param0) -> ::windows::runtime::Result<IXMLDOMNodeList> {
         let mut result__: <IXMLDOMNodeList as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).36)(::std::mem::transmute_copy(self), querystring.into_param().abi(), &mut result__).from_abi::<IXMLDOMNodeList>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn selectSingleNode<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, querystring: Param0) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).37)(::std::mem::transmute_copy(self), querystring.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn parsed(&self, isparsed: *mut i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).38)(::std::mem::transmute_copy(self), ::std::mem::transmute(isparsed)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn namespaceURI(&self, namespaceuri: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).39)(::std::mem::transmute_copy(self), ::std::mem::transmute(namespaceuri)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn prefix(&self, prefixstring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).40)(::std::mem::transmute_copy(self), ::std::mem::transmute(prefixstring)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn baseName(&self, namestring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).41)(::std::mem::transmute_copy(self), ::std::mem::transmute(namestring)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn transformNodeToObject<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, stylesheet: Param0, outputobject: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).42)(::std::mem::transmute_copy(self), stylesheet.into_param().abi(), outputobject.into_param().abi()).ok()
     }
@@ -11518,24 +13295,30 @@ pub struct IXMLDOMNode_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, stylesheet: ::windows::runtime::RawPtr, outputobject: ::std::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLDOMNodeList(::windows::runtime::IUnknown);
 impl IXMLDOMNodeList {
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn item(&self, index: i32) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn length(&self, listlength: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(listlength)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn nextNode(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn reset(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn _newEnum(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
         let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
@@ -11609,175 +13392,218 @@ pub struct IXMLDOMNodeList_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppunk: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLDOMNotation(::windows::runtime::IUnknown);
 impl IXMLDOMNotation {
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::super::System::Ole::Automation::ITypeInfo> {
         let mut result__: <super::super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::super::super::System::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn nodeName(&self, name: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(name)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn nodeValue(&self, value: *mut super::super::super::System::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(value)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetnodeValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), value.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn nodeType(&self, r#type: *mut DOMNodeType) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(r#type)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn parentNode(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn childNodes(&self) -> ::windows::runtime::Result<IXMLDOMNodeList> {
         let mut result__: <IXMLDOMNodeList as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNodeList>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn firstChild(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn lastChild(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn previousSibling(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn nextSibling(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn attributes(&self) -> ::windows::runtime::Result<IXMLDOMNamedNodeMap> {
         let mut result__: <IXMLDOMNamedNodeMap as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNamedNodeMap>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn insertBefore<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, newchild: Param0, refchild: Param1) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), newchild.into_param().abi(), refchild.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn replaceChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, newchild: Param0, oldchild: Param1) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), newchild.into_param().abi(), oldchild.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn removeChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, childnode: Param0) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), childnode.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn appendChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, newchild: Param0) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), newchild.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn hasChildNodes(&self, haschild: *mut i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(haschild)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn ownerDocument(&self) -> ::windows::runtime::Result<IXMLDOMDocument> {
         let mut result__: <IXMLDOMDocument as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMDocument>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn cloneNode(&self, deep: i16) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), ::std::mem::transmute(deep), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn nodeTypeString(&self, nodetype: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), ::std::mem::transmute(nodetype)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn text(&self, text: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), ::std::mem::transmute(text)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn Settext<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, text: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), text.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn specified(&self, isspecified: *mut i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), ::std::mem::transmute(isspecified)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn definition(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn nodeTypedValue(&self, typedvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), ::std::mem::transmute(typedvalue)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetnodeTypedValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, typedvalue: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self), typedvalue.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn dataType(&self, datatypename: *mut super::super::super::System::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).32)(::std::mem::transmute_copy(self), ::std::mem::transmute(datatypename)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn SetdataType<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, datatypename: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).33)(::std::mem::transmute_copy(self), datatypename.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn xml(&self, xmlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).34)(::std::mem::transmute_copy(self), ::std::mem::transmute(xmlstring)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn transformNode<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, stylesheet: Param0, xmlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).35)(::std::mem::transmute_copy(self), stylesheet.into_param().abi(), ::std::mem::transmute(xmlstring)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn selectNodes<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, querystring: Param0) -> ::windows::runtime::Result<IXMLDOMNodeList> {
         let mut result__: <IXMLDOMNodeList as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).36)(::std::mem::transmute_copy(self), querystring.into_param().abi(), &mut result__).from_abi::<IXMLDOMNodeList>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn selectSingleNode<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, querystring: Param0) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).37)(::std::mem::transmute_copy(self), querystring.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn parsed(&self, isparsed: *mut i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).38)(::std::mem::transmute_copy(self), ::std::mem::transmute(isparsed)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn namespaceURI(&self, namespaceuri: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).39)(::std::mem::transmute_copy(self), ::std::mem::transmute(namespaceuri)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn prefix(&self, prefixstring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).40)(::std::mem::transmute_copy(self), ::std::mem::transmute(prefixstring)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn baseName(&self, namestring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).41)(::std::mem::transmute_copy(self), ::std::mem::transmute(namestring)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn transformNodeToObject<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, stylesheet: Param0, outputobject: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).42)(::std::mem::transmute_copy(self), stylesheet.into_param().abi(), outputobject.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn publicId(&self, publicid: *mut super::super::super::System::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).43)(::std::mem::transmute_copy(self), ::std::mem::transmute(publicid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn systemId(&self, systemid: *mut super::super::super::System::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).44)(::std::mem::transmute_copy(self), ::std::mem::transmute(systemid)).ok()
     }
@@ -11924,31 +13750,39 @@ pub struct IXMLDOMNotation_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, systemid: *mut ::std::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLDOMParseError(::windows::runtime::IUnknown);
 impl IXMLDOMParseError {
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn errorCode(&self, errorcode: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(errorcode)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn url(&self, urlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(urlstring)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn reason(&self, reasonstring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(reasonstring)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn srcText(&self, sourcestring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(sourcestring)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn line(&self, linenumber: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(linenumber)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn linepos(&self, lineposition: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(lineposition)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn filepos(&self, fileposition: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(fileposition)).ok()
     }
@@ -12026,65 +13860,81 @@ pub struct IXMLDOMParseError_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lineposition: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fileposition: *mut i32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLDOMParseError2(::windows::runtime::IUnknown);
 impl IXMLDOMParseError2 {
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::super::System::Ole::Automation::ITypeInfo> {
         let mut result__: <super::super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::super::super::System::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn errorCode(&self, errorcode: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(errorcode)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn url(&self, urlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(urlstring)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn reason(&self, reasonstring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(reasonstring)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn srcText(&self, sourcestring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(sourcestring)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn line(&self, linenumber: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(linenumber)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn linepos(&self, lineposition: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(lineposition)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn filepos(&self, fileposition: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(fileposition)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn errorXPath(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn allErrors(&self) -> ::windows::runtime::Result<IXMLDOMParseErrorCollection> {
         let mut result__: <IXMLDOMParseErrorCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMParseErrorCollection>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn errorParameters(&self, index: i32) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn errorParametersCount(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
@@ -12189,25 +14039,31 @@ pub struct IXMLDOMParseError2_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut i32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLDOMParseErrorCollection(::windows::runtime::IUnknown);
 impl IXMLDOMParseErrorCollection {
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn item(&self, index: i32) -> ::windows::runtime::Result<IXMLDOMParseError2> {
         let mut result__: <IXMLDOMParseError2 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), &mut result__).from_abi::<IXMLDOMParseError2>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn length(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn next(&self) -> ::windows::runtime::Result<IXMLDOMParseError2> {
         let mut result__: <IXMLDOMParseError2 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMParseError2>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn reset(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn _newEnum(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
         let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
@@ -12281,179 +14137,223 @@ pub struct IXMLDOMParseErrorCollection_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppunk: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLDOMProcessingInstruction(::windows::runtime::IUnknown);
 impl IXMLDOMProcessingInstruction {
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::super::System::Ole::Automation::ITypeInfo> {
         let mut result__: <super::super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::super::super::System::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn nodeName(&self, name: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(name)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn nodeValue(&self, value: *mut super::super::super::System::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(value)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetnodeValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), value.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn nodeType(&self, r#type: *mut DOMNodeType) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(r#type)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn parentNode(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn childNodes(&self) -> ::windows::runtime::Result<IXMLDOMNodeList> {
         let mut result__: <IXMLDOMNodeList as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNodeList>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn firstChild(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn lastChild(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn previousSibling(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn nextSibling(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn attributes(&self) -> ::windows::runtime::Result<IXMLDOMNamedNodeMap> {
         let mut result__: <IXMLDOMNamedNodeMap as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNamedNodeMap>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn insertBefore<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, newchild: Param0, refchild: Param1) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), newchild.into_param().abi(), refchild.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn replaceChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, newchild: Param0, oldchild: Param1) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), newchild.into_param().abi(), oldchild.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn removeChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, childnode: Param0) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), childnode.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn appendChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, newchild: Param0) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), newchild.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn hasChildNodes(&self, haschild: *mut i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(haschild)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn ownerDocument(&self) -> ::windows::runtime::Result<IXMLDOMDocument> {
         let mut result__: <IXMLDOMDocument as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMDocument>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn cloneNode(&self, deep: i16) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), ::std::mem::transmute(deep), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn nodeTypeString(&self, nodetype: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), ::std::mem::transmute(nodetype)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn text(&self, text: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), ::std::mem::transmute(text)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn Settext<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, text: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), text.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn specified(&self, isspecified: *mut i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), ::std::mem::transmute(isspecified)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn definition(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn nodeTypedValue(&self, typedvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), ::std::mem::transmute(typedvalue)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetnodeTypedValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, typedvalue: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self), typedvalue.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn dataType(&self, datatypename: *mut super::super::super::System::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).32)(::std::mem::transmute_copy(self), ::std::mem::transmute(datatypename)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn SetdataType<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, datatypename: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).33)(::std::mem::transmute_copy(self), datatypename.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn xml(&self, xmlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).34)(::std::mem::transmute_copy(self), ::std::mem::transmute(xmlstring)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn transformNode<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, stylesheet: Param0, xmlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).35)(::std::mem::transmute_copy(self), stylesheet.into_param().abi(), ::std::mem::transmute(xmlstring)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn selectNodes<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, querystring: Param0) -> ::windows::runtime::Result<IXMLDOMNodeList> {
         let mut result__: <IXMLDOMNodeList as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).36)(::std::mem::transmute_copy(self), querystring.into_param().abi(), &mut result__).from_abi::<IXMLDOMNodeList>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn selectSingleNode<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, querystring: Param0) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).37)(::std::mem::transmute_copy(self), querystring.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn parsed(&self, isparsed: *mut i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).38)(::std::mem::transmute_copy(self), ::std::mem::transmute(isparsed)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn namespaceURI(&self, namespaceuri: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).39)(::std::mem::transmute_copy(self), ::std::mem::transmute(namespaceuri)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn prefix(&self, prefixstring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).40)(::std::mem::transmute_copy(self), ::std::mem::transmute(prefixstring)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn baseName(&self, namestring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).41)(::std::mem::transmute_copy(self), ::std::mem::transmute(namestring)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn transformNodeToObject<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, stylesheet: Param0, outputobject: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).42)(::std::mem::transmute_copy(self), stylesheet.into_param().abi(), outputobject.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn target(&self, name: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).43)(::std::mem::transmute_copy(self), ::std::mem::transmute(name)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn data(&self, value: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).44)(::std::mem::transmute_copy(self), ::std::mem::transmute(value)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn Setdata<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).45)(::std::mem::transmute_copy(self), value.into_param().abi()).ok()
     }
@@ -12602,35 +14502,43 @@ pub struct IXMLDOMProcessingInstruction_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLDOMSchemaCollection(::windows::runtime::IUnknown);
 impl IXMLDOMSchemaCollection {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn add<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, namespaceuri: Param0, var: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), namespaceuri.into_param().abi(), var.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn get<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, namespaceuri: Param0) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), namespaceuri.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn remove<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, namespaceuri: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), namespaceuri.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn length(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn namespaceURI(&self, index: i32) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn addCollection<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMSchemaCollection>>(&self, othercollection: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), othercollection.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn _newEnum(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
         let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
@@ -12710,71 +14618,88 @@ pub struct IXMLDOMSchemaCollection_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, othercollection: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppunk: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLDOMSchemaCollection2(::windows::runtime::IUnknown);
 impl IXMLDOMSchemaCollection2 {
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::super::System::Ole::Automation::ITypeInfo> {
         let mut result__: <super::super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::super::super::System::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn add<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, namespaceuri: Param0, var: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), namespaceuri.into_param().abi(), var.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn get<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, namespaceuri: Param0) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), namespaceuri.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn remove<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, namespaceuri: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), namespaceuri.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn length(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn namespaceURI(&self, index: i32) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn addCollection<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMSchemaCollection>>(&self, othercollection: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), othercollection.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn _newEnum(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
         let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn validate(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn SetvalidateOnLoad(&self, validateonload: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(validateonload)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn validateOnLoad(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn getSchema<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, namespaceuri: Param0) -> ::windows::runtime::Result<ISchema> {
         let mut result__: <ISchema as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), namespaceuri.into_param().abi(), &mut result__).from_abi::<ISchema>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn getDeclaration<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, node: Param0) -> ::windows::runtime::Result<ISchemaItem> {
         let mut result__: <ISchemaItem as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), node.into_param().abi(), &mut result__).from_abi::<ISchemaItem>(result__)
@@ -12880,86 +14805,107 @@ pub struct IXMLDOMSchemaCollection2_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, node: ::windows::runtime::RawPtr, item: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLDOMSelection(::windows::runtime::IUnknown);
 impl IXMLDOMSelection {
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::super::System::Ole::Automation::ITypeInfo> {
         let mut result__: <super::super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::super::super::System::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn item(&self, index: i32) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn length(&self, listlength: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(listlength)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn nextNode(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn reset(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn _newEnum(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
         let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn expr(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn Setexpr<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, expression: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), expression.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn context(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn putref_context<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, pnode: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), pnode.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn peekNode(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn matches<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, pnode: Param0) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), pnode.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn removeNext(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn removeAll(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn clone(&self) -> ::windows::runtime::Result<IXMLDOMSelection> {
         let mut result__: <IXMLDOMSelection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMSelection>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn getProperty<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::runtime::Result<super::super::super::System::Com::VARIANT> {
         let mut result__: <super::super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), name.into_param().abi(), &mut result__).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn setProperty<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, name: Param0, value: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), name.into_param().abi(), value.into_param().abi()).ok()
     }
@@ -13067,200 +15013,250 @@ pub struct IXMLDOMSelection_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, value: ::std::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLDOMText(::windows::runtime::IUnknown);
 impl IXMLDOMText {
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::super::System::Ole::Automation::ITypeInfo> {
         let mut result__: <super::super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::super::super::System::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn nodeName(&self, name: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(name)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn nodeValue(&self, value: *mut super::super::super::System::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(value)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetnodeValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), value.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn nodeType(&self, r#type: *mut DOMNodeType) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(r#type)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn parentNode(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn childNodes(&self) -> ::windows::runtime::Result<IXMLDOMNodeList> {
         let mut result__: <IXMLDOMNodeList as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNodeList>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn firstChild(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn lastChild(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn previousSibling(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn nextSibling(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn attributes(&self) -> ::windows::runtime::Result<IXMLDOMNamedNodeMap> {
         let mut result__: <IXMLDOMNamedNodeMap as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNamedNodeMap>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn insertBefore<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, newchild: Param0, refchild: Param1) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), newchild.into_param().abi(), refchild.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn replaceChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, newchild: Param0, oldchild: Param1) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), newchild.into_param().abi(), oldchild.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn removeChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, childnode: Param0) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), childnode.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn appendChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, newchild: Param0) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), newchild.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn hasChildNodes(&self, haschild: *mut i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(haschild)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn ownerDocument(&self) -> ::windows::runtime::Result<IXMLDOMDocument> {
         let mut result__: <IXMLDOMDocument as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMDocument>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn cloneNode(&self, deep: i16) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), ::std::mem::transmute(deep), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn nodeTypeString(&self, nodetype: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), ::std::mem::transmute(nodetype)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn text(&self, text: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), ::std::mem::transmute(text)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn Settext<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, text: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), text.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn specified(&self, isspecified: *mut i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), ::std::mem::transmute(isspecified)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn definition(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn nodeTypedValue(&self, typedvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), ::std::mem::transmute(typedvalue)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetnodeTypedValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, typedvalue: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self), typedvalue.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn dataType(&self, datatypename: *mut super::super::super::System::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).32)(::std::mem::transmute_copy(self), ::std::mem::transmute(datatypename)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn SetdataType<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, datatypename: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).33)(::std::mem::transmute_copy(self), datatypename.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn xml(&self, xmlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).34)(::std::mem::transmute_copy(self), ::std::mem::transmute(xmlstring)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn transformNode<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, stylesheet: Param0, xmlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).35)(::std::mem::transmute_copy(self), stylesheet.into_param().abi(), ::std::mem::transmute(xmlstring)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn selectNodes<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, querystring: Param0) -> ::windows::runtime::Result<IXMLDOMNodeList> {
         let mut result__: <IXMLDOMNodeList as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).36)(::std::mem::transmute_copy(self), querystring.into_param().abi(), &mut result__).from_abi::<IXMLDOMNodeList>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn selectSingleNode<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, querystring: Param0) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).37)(::std::mem::transmute_copy(self), querystring.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn parsed(&self, isparsed: *mut i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).38)(::std::mem::transmute_copy(self), ::std::mem::transmute(isparsed)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn namespaceURI(&self, namespaceuri: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).39)(::std::mem::transmute_copy(self), ::std::mem::transmute(namespaceuri)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn prefix(&self, prefixstring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).40)(::std::mem::transmute_copy(self), ::std::mem::transmute(prefixstring)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn baseName(&self, namestring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).41)(::std::mem::transmute_copy(self), ::std::mem::transmute(namestring)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn transformNodeToObject<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, stylesheet: Param0, outputobject: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).42)(::std::mem::transmute_copy(self), stylesheet.into_param().abi(), outputobject.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn data(&self, data: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).43)(::std::mem::transmute_copy(self), ::std::mem::transmute(data)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn Setdata<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, data: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).44)(::std::mem::transmute_copy(self), data.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn length(&self, datalength: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).45)(::std::mem::transmute_copy(self), ::std::mem::transmute(datalength)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn substringData(&self, offset: i32, count: i32, data: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).46)(::std::mem::transmute_copy(self), ::std::mem::transmute(offset), ::std::mem::transmute(count), ::std::mem::transmute(data)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn appendData<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, data: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).47)(::std::mem::transmute_copy(self), data.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn insertData<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, offset: i32, data: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).48)(::std::mem::transmute_copy(self), ::std::mem::transmute(offset), data.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn deleteData(&self, offset: i32, count: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).49)(::std::mem::transmute_copy(self), ::std::mem::transmute(offset), ::std::mem::transmute(count)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn replaceData<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, offset: i32, count: i32, data: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).50)(::std::mem::transmute_copy(self), ::std::mem::transmute(offset), ::std::mem::transmute(count), data.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn splitText(&self, offset: i32) -> ::windows::runtime::Result<IXMLDOMText> {
         let mut result__: <IXMLDOMText as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).51)(::std::mem::transmute_copy(self), ::std::mem::transmute(offset), &mut result__).from_abi::<IXMLDOMText>(result__)
@@ -13439,25 +15435,31 @@ pub struct IXMLDOMText_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, offset: i32, righthandtextnode: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLDSOControl(::windows::runtime::IUnknown);
 impl IXMLDSOControl {
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn XMLDocument(&self) -> ::windows::runtime::Result<IXMLDOMDocument> {
         let mut result__: <IXMLDOMDocument as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMDocument>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn SetXMLDocument<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMDocument>>(&self, ppdoc: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ppdoc.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn JavaDSOCompatible(&self, fjavadsocompatible: *mut super::super::super::Foundation::BOOL) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(fjavadsocompatible)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn SetJavaDSOCompatible<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, fjavadsocompatible: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), fjavadsocompatible.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn readyState(&self, state: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(state)).ok()
     }
@@ -13532,72 +15534,87 @@ pub struct IXMLDSOControl_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, state: *mut i32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLDocument(::windows::runtime::IUnknown);
 impl IXMLDocument {
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn root(&self) -> ::windows::runtime::Result<IXMLElement> {
         let mut result__: <IXMLElement as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLElement>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn fileSize(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn fileModifiedDate(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn fileUpdatedDate(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn URL(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn SetURL<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, p: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), p.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn mimeType(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn readyState(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn charset(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn Setcharset<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, p: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), p.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn version(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn doctype(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn dtdURL(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn createElement<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, vtype: Param0, var1: Param1) -> ::windows::runtime::Result<IXMLElement> {
         let mut result__: <IXMLElement as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), vtype.into_param().abi(), var1.into_param().abi(), &mut result__).from_abi::<IXMLElement>(result__)
@@ -13692,80 +15709,97 @@ pub struct IXMLDocument_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, vtype: ::std::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, var1: ::std::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, ppelem: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLDocument2(::windows::runtime::IUnknown);
 impl IXMLDocument2 {
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn root(&self) -> ::windows::runtime::Result<IXMLElement2> {
         let mut result__: <IXMLElement2 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLElement2>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn fileSize(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn fileModifiedDate(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn fileUpdatedDate(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn URL(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn SetURL<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, p: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), p.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn mimeType(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn readyState(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn charset(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn Setcharset<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, p: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), p.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn version(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn doctype(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn dtdURL(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn createElement<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, vtype: Param0, var1: Param1) -> ::windows::runtime::Result<IXMLElement2> {
         let mut result__: <IXMLElement2 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), vtype.into_param().abi(), var1.into_param().abi(), &mut result__).from_abi::<IXMLElement2>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn r#async(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn Setasync(&self, f: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(f)).ok()
     }
@@ -13861,56 +15895,69 @@ pub struct IXMLDocument2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pf: *mut i16) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, f: i16) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLElement(::windows::runtime::IUnknown);
 impl IXMLElement {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn tagName(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn SettagName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, p: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), p.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn parent(&self) -> ::windows::runtime::Result<IXMLElement> {
         let mut result__: <IXMLElement as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLElement>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn setAttribute<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, strpropertyname: Param0, propertyvalue: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), strpropertyname.into_param().abi(), propertyvalue.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn getAttribute<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, strpropertyname: Param0) -> ::windows::runtime::Result<super::super::super::System::Com::VARIANT> {
         let mut result__: <super::super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), strpropertyname.into_param().abi(), &mut result__).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn removeAttribute<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, strpropertyname: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), strpropertyname.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn children(&self) -> ::windows::runtime::Result<IXMLElementCollection> {
         let mut result__: <IXMLElementCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLElementCollection>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn r#type(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn text(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn Settext<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, p: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), p.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn addChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLElement>>(&self, pchildelem: Param0, lindex: i32, lreserved: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), pchildelem.into_param().abi(), ::std::mem::transmute(lindex), ::std::mem::transmute(lreserved)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn removeChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLElement>>(&self, pchildelem: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), pchildelem.into_param().abi()).ok()
     }
@@ -13997,59 +16044,73 @@ pub struct IXMLElement_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pchildelem: ::windows::runtime::RawPtr, lindex: i32, lreserved: i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pchildelem: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLElement2(::windows::runtime::IUnknown);
 impl IXMLElement2 {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn tagName(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn SettagName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, p: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), p.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn parent(&self) -> ::windows::runtime::Result<IXMLElement2> {
         let mut result__: <IXMLElement2 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLElement2>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn setAttribute<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, strpropertyname: Param0, propertyvalue: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), strpropertyname.into_param().abi(), propertyvalue.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn getAttribute<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, strpropertyname: Param0) -> ::windows::runtime::Result<super::super::super::System::Com::VARIANT> {
         let mut result__: <super::super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), strpropertyname.into_param().abi(), &mut result__).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn removeAttribute<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, strpropertyname: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), strpropertyname.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn children(&self) -> ::windows::runtime::Result<IXMLElementCollection> {
         let mut result__: <IXMLElementCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLElementCollection>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn r#type(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn text(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn Settext<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, p: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), p.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn addChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLElement2>>(&self, pchildelem: Param0, lindex: i32, lreserved: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), pchildelem.into_param().abi(), ::std::mem::transmute(lindex), ::std::mem::transmute(lreserved)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn removeChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLElement2>>(&self, pchildelem: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), pchildelem.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn attributes(&self) -> ::windows::runtime::Result<IXMLElementCollection> {
         let mut result__: <IXMLElementCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLElementCollection>(result__)
@@ -14138,22 +16199,27 @@ pub struct IXMLElement2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pchildelem: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pp: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLElementCollection(::windows::runtime::IUnknown);
 impl IXMLElementCollection {
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn Setlength(&self, v: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(v)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn length(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn _newEnum(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
         let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn item<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, var1: Param0, var2: Param1) -> ::windows::runtime::Result<super::super::super::System::Ole::Automation::IDispatch> {
         let mut result__: <super::super::super::System::Ole::Automation::IDispatch as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), var1.into_param().abi(), var2.into_param().abi(), &mut result__).from_abi::<super::super::super::System::Ole::Automation::IDispatch>(result__)
@@ -14227,11 +16293,13 @@ pub struct IXMLElementCollection_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, var1: ::std::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, var2: ::std::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, ppdisp: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLError(::windows::runtime::IUnknown);
 impl IXMLError {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn GetErrorInfo(&self, perrorreturn: *mut XML_ERROR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(perrorreturn)).ok()
     }
@@ -14269,11 +16337,13 @@ pub struct IXMLError_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, perrorreturn: *mut ::std::mem::ManuallyDrop<XML_ERROR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLHTTPRequest(::windows::runtime::IUnknown);
 impl IXMLHTTPRequest {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn open<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>, Param3: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>, Param4: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(
         &self,
         bstrmethod: Param0,
@@ -14285,60 +16355,73 @@ impl IXMLHTTPRequest {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), bstrmethod.into_param().abi(), bstrurl.into_param().abi(), varasync.into_param().abi(), bstruser.into_param().abi(), bstrpassword.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn setRequestHeader<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstrheader: Param0, bstrvalue: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), bstrheader.into_param().abi(), bstrvalue.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn getResponseHeader<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstrheader: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), bstrheader.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn getAllResponseHeaders(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn send<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, varbody: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), varbody.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn abort(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn status(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn statusText(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn responseXML(&self) -> ::windows::runtime::Result<super::super::super::System::Ole::Automation::IDispatch> {
         let mut result__: <super::super::super::System::Ole::Automation::IDispatch as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::System::Ole::Automation::IDispatch>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn responseText(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn responseBody(&self) -> ::windows::runtime::Result<super::super::super::System::Com::VARIANT> {
         let mut result__: <super::super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn responseStream(&self) -> ::windows::runtime::Result<super::super::super::System::Com::VARIANT> {
         let mut result__: <super::super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn readyState(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Setonreadystatechange<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Ole::Automation::IDispatch>>(&self, preadystatesink: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), preadystatesink.into_param().abi()).ok()
     }
@@ -14432,11 +16515,13 @@ pub struct IXMLHTTPRequest_abi(
     #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, preadystatesink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLHTTPRequest2(::windows::runtime::IUnknown);
 impl IXMLHTTPRequest2 {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn Open<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -14459,37 +16544,46 @@ impl IXMLHTTPRequest2 {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pwszmethod.into_param().abi(), pwszurl.into_param().abi(), pstatuscallback.into_param().abi(), pwszusername.into_param().abi(), pwszpassword.into_param().abi(), pwszproxyusername.into_param().abi(), pwszproxypassword.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_System_Com`*"]
     pub unsafe fn Send<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::ISequentialStream>>(&self, pbody: Param0, cbbody: u64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pbody.into_param().abi(), ::std::mem::transmute(cbbody)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn Abort(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn SetCookie(&self, pcookie: *const XHR_COOKIE) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcookie), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_System_Com`*"]
     pub unsafe fn SetCustomResponseStream<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::ISequentialStream>>(&self, psequentialstream: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), psequentialstream.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn SetProperty(&self, eproperty: XHR_PROPERTY, ullvalue: u64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(eproperty), ::std::mem::transmute(ullvalue)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn SetRequestHeader<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwszheader: Param0, pwszvalue: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), pwszheader.into_param().abi(), pwszvalue.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn GetAllResponseHeaders(&self) -> ::windows::runtime::Result<*mut u16> {
         let mut result__: <*mut u16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut u16>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn GetCookie<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwszurl: Param0, pwszname: Param1, dwflags: u32, pccookies: *mut u32, ppcookies: *mut *mut XHR_COOKIE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), pwszurl.into_param().abi(), pwszname.into_param().abi(), ::std::mem::transmute(dwflags), ::std::mem::transmute(pccookies), ::std::mem::transmute(ppcookies)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn GetResponseHeader<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwszheader: Param0) -> ::windows::runtime::Result<*mut u16> {
         let mut result__: <*mut u16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), pwszheader.into_param().abi(), &mut result__).from_abi::<*mut u16>(result__)
@@ -14544,26 +16638,32 @@ pub struct IXMLHTTPRequest2_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwszheader: super::super::super::Foundation::PWSTR, ppwszvalue: *mut *mut u16) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLHTTPRequest2Callback(::windows::runtime::IUnknown);
 impl IXMLHTTPRequest2Callback {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn OnRedirect<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLHTTPRequest2>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pxhr: Param0, pwszredirecturl: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pxhr.into_param().abi(), pwszredirecturl.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn OnHeadersAvailable<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLHTTPRequest2>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pxhr: Param0, dwstatus: u32, pwszstatus: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pxhr.into_param().abi(), ::std::mem::transmute(dwstatus), pwszstatus.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_System_Com`*"]
     pub unsafe fn OnDataAvailable<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLHTTPRequest2>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::ISequentialStream>>(&self, pxhr: Param0, presponsestream: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), pxhr.into_param().abi(), presponsestream.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_System_Com`*"]
     pub unsafe fn OnResponseReceived<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLHTTPRequest2>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::ISequentialStream>>(&self, pxhr: Param0, presponsestream: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), pxhr.into_param().abi(), presponsestream.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn OnError<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLHTTPRequest2>>(&self, pxhr: Param0, hrerror: ::windows::runtime::HRESULT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), pxhr.into_param().abi(), ::std::mem::transmute(hrerror)).ok()
     }
@@ -14608,11 +16708,13 @@ pub struct IXMLHTTPRequest2Callback_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pxhr: ::windows::runtime::RawPtr, hrerror: ::windows::runtime::HRESULT) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLHTTPRequest3(::windows::runtime::IUnknown);
 impl IXMLHTTPRequest3 {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn Open<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -14635,42 +16737,52 @@ impl IXMLHTTPRequest3 {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pwszmethod.into_param().abi(), pwszurl.into_param().abi(), pstatuscallback.into_param().abi(), pwszusername.into_param().abi(), pwszpassword.into_param().abi(), pwszproxyusername.into_param().abi(), pwszproxypassword.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_System_Com`*"]
     pub unsafe fn Send<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::ISequentialStream>>(&self, pbody: Param0, cbbody: u64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pbody.into_param().abi(), ::std::mem::transmute(cbbody)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn Abort(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn SetCookie(&self, pcookie: *const XHR_COOKIE) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcookie), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_System_Com`*"]
     pub unsafe fn SetCustomResponseStream<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::ISequentialStream>>(&self, psequentialstream: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), psequentialstream.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn SetProperty(&self, eproperty: XHR_PROPERTY, ullvalue: u64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(eproperty), ::std::mem::transmute(ullvalue)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn SetRequestHeader<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwszheader: Param0, pwszvalue: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), pwszheader.into_param().abi(), pwszvalue.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn GetAllResponseHeaders(&self) -> ::windows::runtime::Result<*mut u16> {
         let mut result__: <*mut u16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut u16>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn GetCookie<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwszurl: Param0, pwszname: Param1, dwflags: u32, pccookies: *mut u32, ppcookies: *mut *mut XHR_COOKIE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), pwszurl.into_param().abi(), pwszname.into_param().abi(), ::std::mem::transmute(dwflags), ::std::mem::transmute(pccookies), ::std::mem::transmute(ppcookies)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn GetResponseHeader<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwszheader: Param0) -> ::windows::runtime::Result<*mut u16> {
         let mut result__: <*mut u16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), pwszheader.into_param().abi(), &mut result__).from_abi::<*mut u16>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn SetClientCertificate<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, cbclientcertificatehash: u32, pbclientcertificatehash: *const u8, pwszpin: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(cbclientcertificatehash), ::std::mem::transmute(pbclientcertificatehash), pwszpin.into_param().abi()).ok()
     }
@@ -14746,32 +16858,40 @@ pub struct IXMLHTTPRequest3_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, cbclientcertificatehash: u32, pbclientcertificatehash: *const u8, pwszpin: super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLHTTPRequest3Callback(::windows::runtime::IUnknown);
 impl IXMLHTTPRequest3Callback {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn OnRedirect<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLHTTPRequest2>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pxhr: Param0, pwszredirecturl: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pxhr.into_param().abi(), pwszredirecturl.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn OnHeadersAvailable<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLHTTPRequest2>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pxhr: Param0, dwstatus: u32, pwszstatus: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pxhr.into_param().abi(), ::std::mem::transmute(dwstatus), pwszstatus.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_System_Com`*"]
     pub unsafe fn OnDataAvailable<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLHTTPRequest2>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::ISequentialStream>>(&self, pxhr: Param0, presponsestream: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), pxhr.into_param().abi(), presponsestream.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_System_Com`*"]
     pub unsafe fn OnResponseReceived<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLHTTPRequest2>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::ISequentialStream>>(&self, pxhr: Param0, presponsestream: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), pxhr.into_param().abi(), presponsestream.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn OnError<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLHTTPRequest2>>(&self, pxhr: Param0, hrerror: ::windows::runtime::HRESULT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), pxhr.into_param().abi(), ::std::mem::transmute(hrerror)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn OnServerCertificateReceived<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLHTTPRequest3>>(&self, pxhr: Param0, dwcertificateerrors: u32, cservercertificatechain: u32, rgservercertificatechain: *const XHR_CERT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), pxhr.into_param().abi(), ::std::mem::transmute(dwcertificateerrors), ::std::mem::transmute(cservercertificatechain), ::std::mem::transmute(rgservercertificatechain)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn OnClientCertificateRequested<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLHTTPRequest3>>(&self, pxhr: Param0, cissuerlist: u32, rgpwszissuerlist: *const *const u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), pxhr.into_param().abi(), ::std::mem::transmute(cissuerlist), ::std::mem::transmute(rgpwszissuerlist)).ok()
     }
@@ -14838,11 +16958,13 @@ pub struct IXMLHTTPRequest3Callback_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pxhr: ::windows::runtime::RawPtr, dwcertificateerrors: u32, cservercertificatechain: u32, rgservercertificatechain: *const XHR_CERT) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pxhr: ::windows::runtime::RawPtr, cissuerlist: u32, rgpwszissuerlist: *const *const u16) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXMLHttpRequest(::windows::runtime::IUnknown);
 impl IXMLHttpRequest {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn open<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>, Param3: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>, Param4: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(
         &self,
         bstrmethod: Param0,
@@ -14854,60 +16976,73 @@ impl IXMLHttpRequest {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), bstrmethod.into_param().abi(), bstrurl.into_param().abi(), varasync.into_param().abi(), bstruser.into_param().abi(), bstrpassword.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn setRequestHeader<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstrheader: Param0, bstrvalue: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), bstrheader.into_param().abi(), bstrvalue.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn getResponseHeader<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstrheader: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), bstrheader.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn getAllResponseHeaders(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn send<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, varbody: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), varbody.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn abort(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn status(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn statusText(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn responseXML(&self) -> ::windows::runtime::Result<super::super::super::System::Ole::Automation::IDispatch> {
         let mut result__: <super::super::super::System::Ole::Automation::IDispatch as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::System::Ole::Automation::IDispatch>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn responseText(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn responseBody(&self) -> ::windows::runtime::Result<super::super::super::System::Com::VARIANT> {
         let mut result__: <super::super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn responseStream(&self) -> ::windows::runtime::Result<super::super::super::System::Com::VARIANT> {
         let mut result__: <super::super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn readyState(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Setonreadystatechange<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Ole::Automation::IDispatch>>(&self, preadystatesink: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), preadystatesink.into_param().abi()).ok()
     }
@@ -15001,65 +17136,80 @@ pub struct IXMLHttpRequest_abi(
     #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, preadystatesink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXSLProcessor(::windows::runtime::IUnknown);
 impl IXSLProcessor {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Setinput<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, var: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), var.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn input(&self) -> ::windows::runtime::Result<super::super::super::System::Com::VARIANT> {
         let mut result__: <super::super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn ownerTemplate(&self) -> ::windows::runtime::Result<IXSLTemplate> {
         let mut result__: <IXSLTemplate as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXSLTemplate>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn setStartMode<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, mode: Param0, namespaceuri: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), mode.into_param().abi(), namespaceuri.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn startMode(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn startModeURI(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR> {
         let mut result__: <super::super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Setoutput<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, output: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), output.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn output(&self) -> ::windows::runtime::Result<super::super::super::System::Com::VARIANT> {
         let mut result__: <super::super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn transform(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn reset(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn readyState(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn addParameter<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, basename: Param0, parameter: Param1, namespaceuri: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), basename.into_param().abi(), parameter.into_param().abi(), namespaceuri.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn addObject<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Ole::Automation::IDispatch>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, obj: Param0, namespaceuri: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), obj.into_param().abi(), namespaceuri.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn stylesheet(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
@@ -15151,17 +17301,21 @@ pub struct IXSLProcessor_abi(
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, stylesheet: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXSLTemplate(::windows::runtime::IUnknown);
 impl IXSLTemplate {
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn putref_stylesheet<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, stylesheet: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), stylesheet.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn stylesheet(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn createProcessor(&self) -> ::windows::runtime::Result<IXSLProcessor> {
         let mut result__: <IXSLProcessor as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXSLProcessor>(result__)
@@ -15233,199 +17387,249 @@ pub struct IXSLTemplate_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, stylesheet: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppprocessor: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXTLRuntime(::windows::runtime::IUnknown);
 impl IXTLRuntime {
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::super::System::Ole::Automation::ITypeInfo> {
         let mut result__: <super::super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::super::super::System::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn nodeName(&self, name: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(name)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn nodeValue(&self, value: *mut super::super::super::System::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(value)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetnodeValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), value.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn nodeType(&self, r#type: *mut DOMNodeType) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(r#type)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn parentNode(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn childNodes(&self) -> ::windows::runtime::Result<IXMLDOMNodeList> {
         let mut result__: <IXMLDOMNodeList as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNodeList>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn firstChild(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn lastChild(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn previousSibling(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn nextSibling(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn attributes(&self) -> ::windows::runtime::Result<IXMLDOMNamedNodeMap> {
         let mut result__: <IXMLDOMNamedNodeMap as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNamedNodeMap>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn insertBefore<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, newchild: Param0, refchild: Param1) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), newchild.into_param().abi(), refchild.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn replaceChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, newchild: Param0, oldchild: Param1) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), newchild.into_param().abi(), oldchild.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn removeChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, childnode: Param0) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), childnode.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn appendChild<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, newchild: Param0) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), newchild.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn hasChildNodes(&self, haschild: *mut i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(haschild)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn ownerDocument(&self) -> ::windows::runtime::Result<IXMLDOMDocument> {
         let mut result__: <IXMLDOMDocument as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMDocument>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn cloneNode(&self, deep: i16) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), ::std::mem::transmute(deep), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn nodeTypeString(&self, nodetype: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), ::std::mem::transmute(nodetype)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn text(&self, text: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), ::std::mem::transmute(text)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn Settext<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, text: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), text.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn specified(&self, isspecified: *mut i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), ::std::mem::transmute(isspecified)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn definition(&self) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn nodeTypedValue(&self, typedvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), ::std::mem::transmute(typedvalue)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetnodeTypedValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, typedvalue: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self), typedvalue.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn dataType(&self, datatypename: *mut super::super::super::System::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).32)(::std::mem::transmute_copy(self), ::std::mem::transmute(datatypename)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn SetdataType<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, datatypename: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).33)(::std::mem::transmute_copy(self), datatypename.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn xml(&self, xmlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).34)(::std::mem::transmute_copy(self), ::std::mem::transmute(xmlstring)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn transformNode<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, stylesheet: Param0, xmlstring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).35)(::std::mem::transmute_copy(self), stylesheet.into_param().abi(), ::std::mem::transmute(xmlstring)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn selectNodes<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, querystring: Param0) -> ::windows::runtime::Result<IXMLDOMNodeList> {
         let mut result__: <IXMLDOMNodeList as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).36)(::std::mem::transmute_copy(self), querystring.into_param().abi(), &mut result__).from_abi::<IXMLDOMNodeList>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn selectSingleNode<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, querystring: Param0) -> ::windows::runtime::Result<IXMLDOMNode> {
         let mut result__: <IXMLDOMNode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).37)(::std::mem::transmute_copy(self), querystring.into_param().abi(), &mut result__).from_abi::<IXMLDOMNode>(result__)
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn parsed(&self, isparsed: *mut i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).38)(::std::mem::transmute_copy(self), ::std::mem::transmute(isparsed)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn namespaceURI(&self, namespaceuri: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).39)(::std::mem::transmute_copy(self), ::std::mem::transmute(namespaceuri)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn prefix(&self, prefixstring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).40)(::std::mem::transmute_copy(self), ::std::mem::transmute(prefixstring)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn baseName(&self, namestring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).41)(::std::mem::transmute_copy(self), ::std::mem::transmute(namestring)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn transformNodeToObject<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, stylesheet: Param0, outputobject: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).42)(::std::mem::transmute_copy(self), stylesheet.into_param().abi(), outputobject.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn uniqueID<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, pnode: Param0, pid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).43)(::std::mem::transmute_copy(self), pnode.into_param().abi(), ::std::mem::transmute(pid)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn depth<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, pnode: Param0, pdepth: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).44)(::std::mem::transmute_copy(self), pnode.into_param().abi(), ::std::mem::transmute(pdepth)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn childNumber<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, pnode: Param0, pnumber: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).45)(::std::mem::transmute_copy(self), pnode.into_param().abi(), ::std::mem::transmute(pnumber)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn ancestorChildNumber<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, bstrnodename: Param0, pnode: Param1, pnumber: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).46)(::std::mem::transmute_copy(self), bstrnodename.into_param().abi(), pnode.into_param().abi(), ::std::mem::transmute(pnumber)).ok()
     }
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
     pub unsafe fn absoluteChildNumber<'a, Param0: ::windows::runtime::IntoParam<'a, IXMLDOMNode>>(&self, pnode: Param0, pnumber: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).47)(::std::mem::transmute_copy(self), pnode.into_param().abi(), ::std::mem::transmute(pnumber)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn formatIndex<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, lindex: i32, bstrformat: Param1, pbstrformattedstring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).48)(::std::mem::transmute_copy(self), ::std::mem::transmute(lindex), bstrformat.into_param().abi(), ::std::mem::transmute(pbstrformattedstring)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
     pub unsafe fn formatNumber<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, dblnumber: f64, bstrformat: Param1, pbstrformattedstring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).49)(::std::mem::transmute_copy(self), ::std::mem::transmute(dblnumber), bstrformat.into_param().abi(), ::std::mem::transmute(pbstrformattedstring)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn formatDate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, vardate: Param0, bstrformat: Param1, vardestlocale: Param2, pbstrformattedstring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).50)(::std::mem::transmute_copy(self), vardate.into_param().abi(), bstrformat.into_param().abi(), vardestlocale.into_param().abi(), ::std::mem::transmute(pbstrformattedstring)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn formatTime<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::VARIANT>>(&self, vartime: Param0, bstrformat: Param1, vardestlocale: Param2, pbstrformattedstring: *mut super::super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).51)(::std::mem::transmute_copy(self), vartime.into_param().abi(), bstrformat.into_param().abi(), vardestlocale.into_param().abi(), ::std::mem::transmute(pbstrformattedstring)).ok()
     }
@@ -15589,6 +17793,7 @@ pub const MXNamespaceManager60: ::windows::runtime::GUID = ::windows::runtime::G
 pub const MXXMLWriter60: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2295949839, 61842, 4564, [166, 95, 0, 64, 150, 50, 81, 229]);
 pub const SAXAttributes60: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2295949838, 61842, 4564, [166, 95, 0, 64, 150, 50, 81, 229]);
 pub const SAXXMLReader60: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2295949836, 61842, 4564, [166, 95, 0, 64, 150, 50, 81, 229]);
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SCHEMACONTENTTYPE(pub i32);
@@ -15605,6 +17810,7 @@ unsafe impl ::windows::runtime::Abi for SCHEMACONTENTTYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SCHEMADERIVATIONMETHOD(pub i32);
@@ -15625,6 +17831,7 @@ unsafe impl ::windows::runtime::Abi for SCHEMADERIVATIONMETHOD {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SCHEMAPROCESSCONTENTS(pub i32);
@@ -15641,6 +17848,7 @@ unsafe impl ::windows::runtime::Abi for SCHEMAPROCESSCONTENTS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SCHEMATYPEVARIETY(pub i32);
@@ -15657,6 +17865,7 @@ unsafe impl ::windows::runtime::Abi for SCHEMATYPEVARIETY {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SCHEMAUSE(pub i32);
@@ -15672,6 +17881,7 @@ unsafe impl ::windows::runtime::Abi for SCHEMAUSE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SCHEMAWHITESPACE(pub i32);
@@ -15688,6 +17898,7 @@ unsafe impl ::windows::runtime::Abi for SCHEMAWHITESPACE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SERVERXMLHTTP_OPTION(pub i32);
@@ -15705,6 +17916,7 @@ unsafe impl ::windows::runtime::Abi for SERVERXMLHTTP_OPTION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SOMITEMTYPE(pub i32);
@@ -15790,6 +18002,7 @@ unsafe impl ::windows::runtime::Abi for SOMITEMTYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SXH_PROXY_SETTING(pub i32);
@@ -15806,6 +18019,7 @@ unsafe impl ::windows::runtime::Abi for SXH_PROXY_SETTING {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SXH_SERVER_CERT_OPTION(pub i32);
@@ -15824,6 +18038,7 @@ unsafe impl ::windows::runtime::Abi for SXH_SERVER_CERT_OPTION {
     type DefaultType = Self;
 }
 pub const ServerXMLHTTP60: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2295949835, 61842, 4564, [166, 95, 0, 64, 150, 50, 81, 229]);
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct XHR_AUTH(pub i32);
@@ -15841,6 +18056,7 @@ unsafe impl ::windows::runtime::Abi for XHR_AUTH {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub struct XHR_CERT {
     pub cbCert: u32,
     pub pbCert: *mut u8,
@@ -15866,6 +18082,7 @@ unsafe impl ::windows::runtime::Abi for XHR_CERT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct XHR_CERT_ERROR_FLAG(pub u32);
@@ -15911,6 +18128,7 @@ impl ::std::ops::Not for XHR_CERT_ERROR_FLAG {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct XHR_CERT_IGNORE_FLAG(pub u32);
@@ -15959,6 +18177,7 @@ impl ::std::ops::Not for XHR_CERT_IGNORE_FLAG {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
 pub struct XHR_COOKIE {
     pub pwszUrl: super::super::super::Foundation::PWSTR,
     pub pwszName: super::super::super::Foundation::PWSTR,
@@ -15994,6 +18213,7 @@ unsafe impl ::windows::runtime::Abi for XHR_COOKIE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct XHR_COOKIE_FLAG(pub i32);
@@ -16018,6 +18238,7 @@ unsafe impl ::windows::runtime::Abi for XHR_COOKIE_FLAG {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct XHR_COOKIE_STATE(pub i32);
@@ -16036,6 +18257,7 @@ unsafe impl ::windows::runtime::Abi for XHR_COOKIE_STATE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct XHR_CRED_PROMPT(pub i32);
@@ -16051,6 +18273,7 @@ unsafe impl ::windows::runtime::Abi for XHR_CRED_PROMPT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct XHR_PROPERTY(pub i32);
@@ -16075,8 +18298,11 @@ unsafe impl ::windows::runtime::Abi for XHR_PROPERTY {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const XHR_PROP_ONDATA_ALWAYS: u32 = 0u32;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const XHR_PROP_ONDATA_NEVER: u64 = 18446744073709551615u64;
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct XMLDOMDocumentEvents(::windows::runtime::IUnknown);
@@ -16146,6 +18372,7 @@ pub struct XMLDOMDocumentEvents_abi(
 );
 pub const XMLDSOControl: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1426971184, 1345, 4562, [156, 169, 0, 96, 176, 236, 61, 57]);
 pub const XMLDocument: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3485702575, 55414, 4560, [156, 16, 0, 192, 79, 201, 156, 142]);
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct XMLEMEM_TYPE(pub i32);
@@ -16171,6 +18398,7 @@ pub const XMLSchemaCache60: ::windows::runtime::GUID = ::windows::runtime::GUID:
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`*"]
 pub struct XML_ERROR {
     pub _nLine: u32,
     pub _pchBuf: super::super::super::Foundation::BSTR,
@@ -16220,6 +18448,7 @@ unsafe impl ::windows::runtime::Abi for XML_ERROR {
 pub const XSLTemplate60: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2295949832, 61842, 4564, [166, 95, 0, 64, 150, 50, 81, 229]);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub struct __msxml6_ReferenceRemainingTypes__ {
     pub __tagDomNodeType__: DOMNodeType,
     pub __domNodeType__: DOMNodeType,

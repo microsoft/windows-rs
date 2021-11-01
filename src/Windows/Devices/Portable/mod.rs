@@ -43,14 +43,17 @@ pub struct IStorageDeviceStatics_abi(
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
 pub struct PortableDeviceContract(pub u8);
+#[doc = "*Required features: `Devices_Portable`*"]
 pub struct ServiceDevice {}
 impl ServiceDevice {
+    #[doc = "*Required features: `Devices_Portable`*"]
     pub fn GetDeviceSelector(servicetype: ServiceDeviceType) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IServiceDeviceStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), servicetype, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Portable`*"]
     pub fn GetDeviceSelectorFromServiceId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(serviceid: Param0) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IServiceDeviceStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
@@ -65,6 +68,7 @@ impl ServiceDevice {
 impl ::windows::runtime::RuntimeName for ServiceDevice {
     const NAME: &'static str = "Windows.Devices.Portable.ServiceDevice";
 }
+#[doc = "*Required features: `Devices_Portable`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ServiceDeviceType(pub i32);
@@ -89,15 +93,18 @@ unsafe impl ::windows::runtime::Abi for ServiceDeviceType {
 unsafe impl ::windows::runtime::RuntimeType for ServiceDeviceType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Portable.ServiceDeviceType;i4)");
 }
+#[doc = "*Required features: `Devices_Portable`*"]
 pub struct StorageDevice {}
 impl StorageDevice {
     #[cfg(feature = "Storage")]
+    #[doc = "*Required features: `Devices_Portable`, `Storage`*"]
     pub fn FromId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(deviceid: Param0) -> ::windows::runtime::Result<super::super::Storage::StorageFolder> {
         Self::IStorageDeviceStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), deviceid.into_param().abi(), &mut result__).from_abi::<super::super::Storage::StorageFolder>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Portable`*"]
     pub fn GetDeviceSelector() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IStorageDeviceStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();

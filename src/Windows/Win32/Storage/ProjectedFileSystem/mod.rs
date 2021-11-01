@@ -2,6 +2,7 @@
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`, `Win32_Foundation`*"]
 pub struct PRJ_CALLBACKS {
     pub StartDirectoryEnumerationCallback: ::std::option::Option<PRJ_START_DIRECTORY_ENUMERATION_CB>,
     pub EndDirectoryEnumerationCallback: ::std::option::Option<PRJ_END_DIRECTORY_ENUMERATION_CB>,
@@ -49,6 +50,7 @@ unsafe impl ::windows::runtime::Abi for PRJ_CALLBACKS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`, `Win32_Foundation`*"]
 pub struct PRJ_CALLBACK_DATA {
     pub Size: u32,
     pub Flags: PRJ_CALLBACK_DATA_FLAGS,
@@ -111,6 +113,7 @@ unsafe impl ::windows::runtime::Abi for PRJ_CALLBACK_DATA {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PRJ_CALLBACK_DATA_FLAGS(pub i32);
@@ -129,6 +132,7 @@ unsafe impl ::windows::runtime::Abi for PRJ_CALLBACK_DATA_FLAGS {
 pub type PRJ_CANCEL_COMMAND_CB = unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`*"]
 pub struct PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS {
     pub CommandType: PRJ_COMPLETE_COMMAND_TYPE,
     pub Anonymous: PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0,
@@ -151,6 +155,7 @@ unsafe impl ::windows::runtime::Abi for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`*"]
 pub union PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0 {
     pub Notification: PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1,
     pub Enumeration: PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0,
@@ -173,6 +178,7 @@ unsafe impl ::windows::runtime::Abi for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`*"]
 pub struct PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0 {
     pub DirEntryBufferHandle: PRJ_DIR_ENTRY_BUFFER_HANDLE,
 }
@@ -199,6 +205,7 @@ unsafe impl ::windows::runtime::Abi for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`*"]
 pub struct PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1 {
     pub NotificationMask: PRJ_NOTIFY_TYPES,
 }
@@ -223,6 +230,7 @@ unsafe impl ::windows::runtime::Abi for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PRJ_COMPLETE_COMMAND_TYPE(pub i32);
@@ -255,6 +263,7 @@ pub type PRJ_END_DIRECTORY_ENUMERATION_CB = unsafe extern "system" fn(callbackda
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`, `Win32_Foundation`*"]
 pub struct PRJ_EXTENDED_INFO {
     pub InfoType: PRJ_EXT_INFO_TYPE,
     pub NextInfoOffset: u32,
@@ -284,6 +293,7 @@ unsafe impl ::windows::runtime::Abi for PRJ_EXTENDED_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`, `Win32_Foundation`*"]
 pub union PRJ_EXTENDED_INFO_0 {
     pub Symlink: PRJ_EXTENDED_INFO_0_0,
 }
@@ -311,6 +321,7 @@ unsafe impl ::windows::runtime::Abi for PRJ_EXTENDED_INFO_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`, `Win32_Foundation`*"]
 pub struct PRJ_EXTENDED_INFO_0_0 {
     pub TargetName: super::super::Foundation::PWSTR,
 }
@@ -341,6 +352,7 @@ unsafe impl ::windows::runtime::Abi for PRJ_EXTENDED_INFO_0_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PRJ_EXT_INFO_TYPE(pub i32);
@@ -357,6 +369,7 @@ unsafe impl ::windows::runtime::Abi for PRJ_EXT_INFO_TYPE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`, `Win32_Foundation`*"]
 pub struct PRJ_FILE_BASIC_INFO {
     pub IsDirectory: super::super::Foundation::BOOLEAN,
     pub FileSize: i64,
@@ -401,6 +414,7 @@ unsafe impl ::windows::runtime::Abi for PRJ_FILE_BASIC_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PRJ_FILE_STATE(pub u32);
@@ -465,6 +479,7 @@ unsafe impl ::windows::runtime::Abi for PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PRJ_NOTIFICATION(pub i32);
@@ -494,6 +509,7 @@ pub type PRJ_NOTIFICATION_CB = unsafe extern "system" fn(callbackdata: *const PR
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`, `Win32_Foundation`*"]
 pub struct PRJ_NOTIFICATION_MAPPING {
     pub NotificationBitMask: PRJ_NOTIFY_TYPES,
     pub NotificationRoot: super::super::Foundation::PWSTR,
@@ -528,6 +544,7 @@ unsafe impl ::windows::runtime::Abi for PRJ_NOTIFICATION_MAPPING {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`, `Win32_Foundation`*"]
 pub union PRJ_NOTIFICATION_PARAMETERS {
     pub PostCreate: PRJ_NOTIFICATION_PARAMETERS_2,
     pub FileRenamed: PRJ_NOTIFICATION_PARAMETERS_1,
@@ -557,6 +574,7 @@ unsafe impl ::windows::runtime::Abi for PRJ_NOTIFICATION_PARAMETERS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`, `Win32_Foundation`*"]
 pub struct PRJ_NOTIFICATION_PARAMETERS_0 {
     pub IsFileModified: super::super::Foundation::BOOLEAN,
 }
@@ -589,6 +607,7 @@ unsafe impl ::windows::runtime::Abi for PRJ_NOTIFICATION_PARAMETERS_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`*"]
 pub struct PRJ_NOTIFICATION_PARAMETERS_1 {
     pub NotificationMask: PRJ_NOTIFY_TYPES,
 }
@@ -615,6 +634,7 @@ unsafe impl ::windows::runtime::Abi for PRJ_NOTIFICATION_PARAMETERS_1 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`*"]
 pub struct PRJ_NOTIFICATION_PARAMETERS_2 {
     pub NotificationMask: PRJ_NOTIFY_TYPES,
 }
@@ -639,6 +659,7 @@ unsafe impl ::windows::runtime::Abi for PRJ_NOTIFICATION_PARAMETERS_2 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PRJ_NOTIFY_TYPES(pub u32);
@@ -694,6 +715,7 @@ impl ::std::ops::Not for PRJ_NOTIFY_TYPES {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PRJ_PLACEHOLDER_ID(pub i32);
@@ -710,6 +732,7 @@ unsafe impl ::windows::runtime::Abi for PRJ_PLACEHOLDER_ID {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`, `Win32_Foundation`*"]
 pub struct PRJ_PLACEHOLDER_INFO {
     pub FileBasicInfo: PRJ_FILE_BASIC_INFO,
     pub EaInformation: PRJ_PLACEHOLDER_INFO_0,
@@ -754,6 +777,7 @@ unsafe impl ::windows::runtime::Abi for PRJ_PLACEHOLDER_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`*"]
 pub struct PRJ_PLACEHOLDER_INFO_0 {
     pub EaBufferSize: u32,
     pub OffsetToFirstEa: u32,
@@ -781,6 +805,7 @@ unsafe impl ::windows::runtime::Abi for PRJ_PLACEHOLDER_INFO_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`*"]
 pub struct PRJ_PLACEHOLDER_INFO_1 {
     pub SecurityBufferSize: u32,
     pub OffsetToSecurityDescriptor: u32,
@@ -808,6 +833,7 @@ unsafe impl ::windows::runtime::Abi for PRJ_PLACEHOLDER_INFO_1 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`*"]
 pub struct PRJ_PLACEHOLDER_INFO_2 {
     pub StreamsInfoBufferSize: u32,
     pub OffsetToFirstStreamInfo: u32,
@@ -835,6 +861,7 @@ unsafe impl ::windows::runtime::Abi for PRJ_PLACEHOLDER_INFO_2 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`*"]
 pub struct PRJ_PLACEHOLDER_VERSION_INFO {
     pub ProviderID: [u8; 128],
     pub ContentID: [u8; 128],
@@ -862,6 +889,7 @@ unsafe impl ::windows::runtime::Abi for PRJ_PLACEHOLDER_VERSION_INFO {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type PRJ_QUERY_FILE_NAME_CB = unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PRJ_STARTVIRTUALIZING_FLAGS(pub u32);
@@ -907,6 +935,7 @@ impl ::std::ops::Not for PRJ_STARTVIRTUALIZING_FLAGS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`, `Win32_Foundation`*"]
 pub struct PRJ_STARTVIRTUALIZING_OPTIONS {
     pub Flags: PRJ_STARTVIRTUALIZING_FLAGS,
     pub PoolThreadCount: u32,
@@ -949,6 +978,7 @@ unsafe impl ::windows::runtime::Abi for PRJ_STARTVIRTUALIZING_OPTIONS {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type PRJ_START_DIRECTORY_ENUMERATION_CB = unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA, enumerationid: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PRJ_UPDATE_FAILURE_CAUSES(pub u32);
@@ -994,6 +1024,7 @@ impl ::std::ops::Not for PRJ_UPDATE_FAILURE_CAUSES {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PRJ_UPDATE_TYPES(pub u32);
@@ -1044,6 +1075,7 @@ impl ::std::ops::Not for PRJ_UPDATE_TYPES {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`*"]
 pub struct PRJ_VIRTUALIZATION_INSTANCE_INFO {
     pub InstanceID: ::windows::runtime::GUID,
     pub WriteAlignment: u32,
@@ -1069,6 +1101,7 @@ unsafe impl ::windows::runtime::Abi for PRJ_VIRTUALIZATION_INSTANCE_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`*"]
 #[inline]
 pub unsafe fn PrjAllocateAlignedBuffer<'a, Param0: ::windows::runtime::IntoParam<'a, PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>>(namespacevirtualizationcontext: Param0, size: usize) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
@@ -1082,6 +1115,7 @@ pub unsafe fn PrjAllocateAlignedBuffer<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`*"]
 #[inline]
 pub unsafe fn PrjClearNegativePathCache<'a, Param0: ::windows::runtime::IntoParam<'a, PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>>(namespacevirtualizationcontext: Param0) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
@@ -1096,6 +1130,7 @@ pub unsafe fn PrjClearNegativePathCache<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`*"]
 #[inline]
 pub unsafe fn PrjCompleteCommand<'a, Param0: ::windows::runtime::IntoParam<'a, PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>>(namespacevirtualizationcontext: Param0, commandid: i32, completionresult: ::windows::runtime::HRESULT, extendedparameters: *const PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1110,6 +1145,7 @@ pub unsafe fn PrjCompleteCommand<'a, Param0: ::windows::runtime::IntoParam<'a, P
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PrjDeleteFile<'a, Param0: ::windows::runtime::IntoParam<'a, PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(namespacevirtualizationcontext: Param0, destinationfilename: Param1, updateflags: PRJ_UPDATE_TYPES) -> ::windows::runtime::Result<PRJ_UPDATE_FAILURE_CAUSES> {
     #[cfg(windows)]
@@ -1125,6 +1161,7 @@ pub unsafe fn PrjDeleteFile<'a, Param0: ::windows::runtime::IntoParam<'a, PRJ_NA
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PrjDoesNameContainWildCards<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(filename: Param0) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
@@ -1139,6 +1176,7 @@ pub unsafe fn PrjDoesNameContainWildCards<'a, Param0: ::windows::runtime::IntoPa
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PrjFileNameCompare<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(filename1: Param0, filename2: Param1) -> i32 {
     #[cfg(windows)]
@@ -1153,6 +1191,7 @@ pub unsafe fn PrjFileNameCompare<'a, Param0: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PrjFileNameMatch<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(filenametocheck: Param0, pattern: Param1) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
@@ -1167,6 +1206,7 @@ pub unsafe fn PrjFileNameMatch<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PrjFillDirEntryBuffer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, PRJ_DIR_ENTRY_BUFFER_HANDLE>>(filename: Param0, filebasicinfo: *const PRJ_FILE_BASIC_INFO, direntrybufferhandle: Param2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1181,6 +1221,7 @@ pub unsafe fn PrjFillDirEntryBuffer<'a, Param0: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PrjFillDirEntryBuffer2<'a, Param0: ::windows::runtime::IntoParam<'a, PRJ_DIR_ENTRY_BUFFER_HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(direntrybufferhandle: Param0, filename: Param1, filebasicinfo: *const PRJ_FILE_BASIC_INFO, extendedinfo: *const PRJ_EXTENDED_INFO) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1194,6 +1235,7 @@ pub unsafe fn PrjFillDirEntryBuffer2<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`*"]
 #[inline]
 pub unsafe fn PrjFreeAlignedBuffer(buffer: *const ::std::ffi::c_void) {
     #[cfg(windows)]
@@ -1208,6 +1250,7 @@ pub unsafe fn PrjFreeAlignedBuffer(buffer: *const ::std::ffi::c_void) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PrjGetOnDiskFileState<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(destinationfilename: Param0) -> ::windows::runtime::Result<PRJ_FILE_STATE> {
     #[cfg(windows)]
@@ -1222,6 +1265,7 @@ pub unsafe fn PrjGetOnDiskFileState<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`*"]
 #[inline]
 pub unsafe fn PrjGetVirtualizationInstanceInfo<'a, Param0: ::windows::runtime::IntoParam<'a, PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>>(namespacevirtualizationcontext: Param0) -> ::windows::runtime::Result<PRJ_VIRTUALIZATION_INSTANCE_INFO> {
     #[cfg(windows)]
@@ -1237,6 +1281,7 @@ pub unsafe fn PrjGetVirtualizationInstanceInfo<'a, Param0: ::windows::runtime::I
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PrjMarkDirectoryAsPlaceholder<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(rootpathname: Param0, targetpathname: Param1, versioninfo: *const PRJ_PLACEHOLDER_VERSION_INFO, virtualizationinstanceid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1251,6 +1296,7 @@ pub unsafe fn PrjMarkDirectoryAsPlaceholder<'a, Param0: ::windows::runtime::Into
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PrjStartVirtualizing<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(virtualizationrootpath: Param0, callbacks: *const PRJ_CALLBACKS, instancecontext: *const ::std::ffi::c_void, options: *const PRJ_STARTVIRTUALIZING_OPTIONS) -> ::windows::runtime::Result<PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT> {
     #[cfg(windows)]
@@ -1265,6 +1311,7 @@ pub unsafe fn PrjStartVirtualizing<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`*"]
 #[inline]
 pub unsafe fn PrjStopVirtualizing<'a, Param0: ::windows::runtime::IntoParam<'a, PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>>(namespacevirtualizationcontext: Param0) {
     #[cfg(windows)]
@@ -1279,6 +1326,7 @@ pub unsafe fn PrjStopVirtualizing<'a, Param0: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PrjUpdateFileIfNeeded<'a, Param0: ::windows::runtime::IntoParam<'a, PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(namespacevirtualizationcontext: Param0, destinationfilename: Param1, placeholderinfo: *const PRJ_PLACEHOLDER_INFO, placeholderinfosize: u32, updateflags: PRJ_UPDATE_TYPES) -> ::windows::runtime::Result<PRJ_UPDATE_FAILURE_CAUSES> {
     #[cfg(windows)]
@@ -1293,6 +1341,7 @@ pub unsafe fn PrjUpdateFileIfNeeded<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`*"]
 #[inline]
 pub unsafe fn PrjWriteFileData<'a, Param0: ::windows::runtime::IntoParam<'a, PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>>(namespacevirtualizationcontext: Param0, datastreamid: *const ::windows::runtime::GUID, buffer: *const ::std::ffi::c_void, byteoffset: u64, length: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1307,6 +1356,7 @@ pub unsafe fn PrjWriteFileData<'a, Param0: ::windows::runtime::IntoParam<'a, PRJ
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PrjWritePlaceholderInfo<'a, Param0: ::windows::runtime::IntoParam<'a, PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(namespacevirtualizationcontext: Param0, destinationfilename: Param1, placeholderinfo: *const PRJ_PLACEHOLDER_INFO, placeholderinfosize: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1321,6 +1371,7 @@ pub unsafe fn PrjWritePlaceholderInfo<'a, Param0: ::windows::runtime::IntoParam<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PrjWritePlaceholderInfo2<'a, Param0: ::windows::runtime::IntoParam<'a, PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(namespacevirtualizationcontext: Param0, destinationfilename: Param1, placeholderinfo: *const PRJ_PLACEHOLDER_INFO, placeholderinfosize: u32, extendedinfo: *const PRJ_EXTENDED_INFO) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]

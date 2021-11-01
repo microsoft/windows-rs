@@ -1,20 +1,35 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const APOERR_ALREADY_INITIALIZED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2005073919i32 as _);
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const APOERR_ALREADY_UNLOCKED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2005073914i32 as _);
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const APOERR_APO_LOCKED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2005073910i32 as _);
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const APOERR_BUFFERS_OVERLAP: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2005073915i32 as _);
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const APOERR_FORMAT_NOT_SUPPORTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2005073917i32 as _);
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const APOERR_INVALID_APO_CLSID: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2005073916i32 as _);
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const APOERR_INVALID_COEFFCOUNT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2005073909i32 as _);
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const APOERR_INVALID_COEFFICIENT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2005073908i32 as _);
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const APOERR_INVALID_CONNECTION_FORMAT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2005073911i32 as _);
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const APOERR_INVALID_CURVE_PARAM: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2005073907i32 as _);
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const APOERR_INVALID_INPUTID: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2005073906i32 as _);
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const APOERR_INVALID_OUTPUT_MAXFRAMECOUNT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2005073912i32 as _);
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const APOERR_NOT_INITIALIZED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2005073918i32 as _);
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const APOERR_NUM_CONNECTIONS_INVALID: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2005073913i32 as _);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub struct APOInitBaseStruct {
     pub cbSize: u32,
     pub clsid: ::windows::runtime::GUID,
@@ -43,6 +58,7 @@ unsafe impl ::windows::runtime::Abi for APOInitBaseStruct {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Media_Audio_CoreAudio", feature = "Win32_System_PropertiesSystem"))]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Media_Audio_CoreAudio`, `Win32_System_PropertiesSystem`*"]
 pub struct APOInitSystemEffects {
     pub APOInit: APOInitBaseStruct,
     pub pAPOEndpointProperties: ::std::option::Option<super::super::super::System::PropertiesSystem::IPropertyStore>,
@@ -86,6 +102,7 @@ unsafe impl ::windows::runtime::Abi for APOInitSystemEffects {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_CoreAudio", feature = "Win32_System_PropertiesSystem"))]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`, `Win32_Media_Audio_CoreAudio`, `Win32_System_PropertiesSystem`*"]
 pub struct APOInitSystemEffects2 {
     pub APOInit: APOInitBaseStruct,
     pub pAPOEndpointProperties: ::std::option::Option<super::super::super::System::PropertiesSystem::IPropertyStore>,
@@ -142,6 +159,7 @@ unsafe impl ::windows::runtime::Abi for APOInitSystemEffects2 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct APO_CONNECTION_BUFFER_TYPE(pub i32);
@@ -159,6 +177,7 @@ unsafe impl ::windows::runtime::Abi for APO_CONNECTION_BUFFER_TYPE {
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub struct APO_CONNECTION_DESCRIPTOR {
     pub Type: APO_CONNECTION_BUFFER_TYPE,
     pub pBuffer: usize,
@@ -187,6 +206,7 @@ unsafe impl ::windows::runtime::Abi for APO_CONNECTION_DESCRIPTOR {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct APO_FLAG(pub i32);
@@ -208,6 +228,7 @@ unsafe impl ::windows::runtime::Abi for APO_FLAG {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub struct APO_REG_PROPERTIES {
     pub clsid: ::windows::runtime::GUID,
     pub Flags: APO_FLAG,
@@ -270,9 +291,13 @@ unsafe impl ::windows::runtime::Abi for APO_REG_PROPERTIES {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const AUDIOMEDIATYPE_EQUAL_FORMAT_DATA: u32 = 4u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const AUDIOMEDIATYPE_EQUAL_FORMAT_TYPES: u32 = 2u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const AUDIOMEDIATYPE_EQUAL_FORMAT_USER_DATA: u32 = 8u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AUDIO_FLOW_TYPE(pub i32);
@@ -287,13 +312,18 @@ unsafe impl ::windows::runtime::Abi for AUDIO_FLOW_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const AUDIO_MAX_CHANNELS: u32 = 4096u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const AUDIO_MAX_FRAMERATE: f64 = 384000f64;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const AUDIO_MIN_CHANNELS: u32 = 1u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const AUDIO_MIN_FRAMERATE: f64 = 10f64;
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_PropertiesSystem"))]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`, `Win32_System_PropertiesSystem`*"]
 pub struct AudioFXExtensionParams {
     pub AddPageParam: super::super::super::Foundation::LPARAM,
     pub pwstrEndpointID: super::super::super::Foundation::PWSTR,
@@ -338,6 +368,7 @@ pub const CLSID_DirectSoundFullDuplex: ::windows::runtime::GUID = ::windows::run
 pub const CLSID_DirectSoundPrivate: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(296435392, 9708, 4561, [164, 216, 0, 192, 79, 194, 138, 202]);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub struct CONNECTION {
     pub usSource: u16,
     pub usControl: u16,
@@ -368,6 +399,7 @@ unsafe impl ::windows::runtime::Abi for CONNECTION {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub struct CONNECTIONLIST {
     pub cbSize: u32,
     pub cConnections: u32,
@@ -393,81 +425,157 @@ unsafe impl ::windows::runtime::Abi for CONNECTIONLIST {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const CONN_DST_ATTENUATION: u32 = 1u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const CONN_DST_CENTER: u32 = 18u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const CONN_DST_CHORUS: u32 = 128u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const CONN_DST_EG1_ATTACKTIME: u32 = 518u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const CONN_DST_EG1_DECAYTIME: u32 = 519u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const CONN_DST_EG1_DELAYTIME: u32 = 523u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const CONN_DST_EG1_HOLDTIME: u32 = 524u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const CONN_DST_EG1_RELEASETIME: u32 = 521u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const CONN_DST_EG1_SHUTDOWNTIME: u32 = 525u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const CONN_DST_EG1_SUSTAINLEVEL: u32 = 522u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const CONN_DST_EG2_ATTACKTIME: u32 = 778u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const CONN_DST_EG2_DECAYTIME: u32 = 779u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const CONN_DST_EG2_DELAYTIME: u32 = 783u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const CONN_DST_EG2_HOLDTIME: u32 = 784u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const CONN_DST_EG2_RELEASETIME: u32 = 781u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const CONN_DST_EG2_SUSTAINLEVEL: u32 = 782u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const CONN_DST_FILTER_CUTOFF: u32 = 1280u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const CONN_DST_FILTER_Q: u32 = 1281u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const CONN_DST_GAIN: u32 = 1u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const CONN_DST_KEYNUMBER: u32 = 5u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const CONN_DST_LEFT: u32 = 16u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const CONN_DST_LEFTREAR: u32 = 19u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const CONN_DST_LFE_CHANNEL: u32 = 21u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const CONN_DST_LFO_FREQUENCY: u32 = 260u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const CONN_DST_LFO_STARTDELAY: u32 = 261u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const CONN_DST_NONE: u32 = 0u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const CONN_DST_PAN: u32 = 4u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const CONN_DST_PITCH: u32 = 3u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const CONN_DST_REVERB: u32 = 129u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const CONN_DST_RIGHT: u32 = 17u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const CONN_DST_RIGHTREAR: u32 = 20u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const CONN_DST_VIB_FREQUENCY: u32 = 276u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const CONN_DST_VIB_STARTDELAY: u32 = 277u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const CONN_SRC_CC1: u32 = 129u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const CONN_SRC_CC10: u32 = 138u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const CONN_SRC_CC11: u32 = 139u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const CONN_SRC_CC7: u32 = 135u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const CONN_SRC_CC91: u32 = 219u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const CONN_SRC_CC93: u32 = 221u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const CONN_SRC_CHANNELPRESSURE: u32 = 8u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const CONN_SRC_EG1: u32 = 4u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const CONN_SRC_EG2: u32 = 5u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const CONN_SRC_KEYNUMBER: u32 = 3u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const CONN_SRC_KEYONVELOCITY: u32 = 2u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const CONN_SRC_LFO: u32 = 1u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const CONN_SRC_MONOPRESSURE: u32 = 10u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const CONN_SRC_NONE: u32 = 0u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const CONN_SRC_PITCHWHEEL: u32 = 6u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const CONN_SRC_POLYPRESSURE: u32 = 7u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const CONN_SRC_VIBRATO: u32 = 9u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const CONN_TRN_CONCAVE: u32 = 1u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const CONN_TRN_CONVEX: u32 = 2u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const CONN_TRN_NONE: u32 = 0u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const CONN_TRN_SWITCH: u32 = 3u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DAUD_CHAN10_VOICE_PRIORITY_OFFSET: u32 = 15u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DAUD_CHAN11_VOICE_PRIORITY_OFFSET: u32 = 5u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DAUD_CHAN12_VOICE_PRIORITY_OFFSET: u32 = 4u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DAUD_CHAN13_VOICE_PRIORITY_OFFSET: u32 = 3u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DAUD_CHAN14_VOICE_PRIORITY_OFFSET: u32 = 2u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DAUD_CHAN15_VOICE_PRIORITY_OFFSET: u32 = 1u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DAUD_CHAN16_VOICE_PRIORITY_OFFSET: u32 = 0u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DAUD_CHAN1_VOICE_PRIORITY_OFFSET: u32 = 14u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DAUD_CHAN2_VOICE_PRIORITY_OFFSET: u32 = 13u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DAUD_CHAN3_VOICE_PRIORITY_OFFSET: u32 = 12u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DAUD_CHAN4_VOICE_PRIORITY_OFFSET: u32 = 11u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DAUD_CHAN5_VOICE_PRIORITY_OFFSET: u32 = 10u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DAUD_CHAN6_VOICE_PRIORITY_OFFSET: u32 = 9u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DAUD_CHAN7_VOICE_PRIORITY_OFFSET: u32 = 8u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DAUD_CHAN8_VOICE_PRIORITY_OFFSET: u32 = 7u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DAUD_CHAN9_VOICE_PRIORITY_OFFSET: u32 = 6u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DAUD_CRITICAL_VOICE_PRIORITY: u32 = 4026531840u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DAUD_HIGH_VOICE_PRIORITY: u32 = 3221225472u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DAUD_LOW_VOICE_PRIORITY: u32 = 1073741824u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DAUD_PERSIST_VOICE_PRIORITY: u32 = 268435456u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DAUD_STANDARD_VOICE_PRIORITY: u32 = 2147483648u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DIRECTSOUNDDEVICE_DATAFLOW(pub i32);
@@ -482,6 +590,7 @@ unsafe impl ::windows::runtime::Abi for DIRECTSOUNDDEVICE_DATAFLOW {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DIRECTSOUNDDEVICE_TYPE(pub i32);
@@ -497,9 +606,11 @@ unsafe impl ::windows::runtime::Abi for DIRECTSOUNDDEVICE_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DIRECTSOUND_VERSION: u32 = 1792u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub struct DLSHEADER {
     pub cInstruments: u32,
 }
@@ -526,6 +637,7 @@ unsafe impl ::windows::runtime::Abi for DLSHEADER {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub struct DLSID {
     pub ulData1: u32,
     pub usData2: u16,
@@ -564,6 +676,7 @@ pub const DLSID_SupportsDLS2: ::windows::runtime::GUID = ::windows::runtime::GUI
 pub const DLSID_XGInHardware: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(395259686, 50020, 4561, [167, 96, 0, 0, 248, 117, 172, 18]);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub struct DLSVERSION {
     pub dwVersionMS: u32,
     pub dwVersionLS: u32,
@@ -589,26 +702,45 @@ unsafe impl ::windows::runtime::Abi for DLSVERSION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DLS_CDL_ADD: u32 = 4u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DLS_CDL_AND: u32 = 1u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DLS_CDL_CONST: u32 = 16u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DLS_CDL_DIVIDE: u32 = 7u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DLS_CDL_EQ: u32 = 14u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DLS_CDL_GE: u32 = 13u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DLS_CDL_GT: u32 = 12u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DLS_CDL_LE: u32 = 11u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DLS_CDL_LOGICAL_AND: u32 = 8u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DLS_CDL_LOGICAL_OR: u32 = 9u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DLS_CDL_LT: u32 = 10u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DLS_CDL_MULTIPLY: u32 = 6u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DLS_CDL_NOT: u32 = 15u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DLS_CDL_OR: u32 = 2u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DLS_CDL_QUERY: u32 = 17u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DLS_CDL_QUERYSUPPORTED: u32 = 18u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DLS_CDL_SUBTRACT: u32 = 5u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DLS_CDL_XOR: u32 = 3u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub struct DMUS_ARTICPARAMS {
     pub LFO: DMUS_LFOPARAMS,
     pub VolEG: DMUS_VEGPARAMS,
@@ -638,6 +770,7 @@ unsafe impl ::windows::runtime::Abi for DMUS_ARTICPARAMS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub struct DMUS_ARTICULATION {
     pub ulArt1Idx: u32,
     pub ulFirstExtCkIdx: u32,
@@ -665,6 +798,7 @@ unsafe impl ::windows::runtime::Abi for DMUS_ARTICULATION {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub struct DMUS_ARTICULATION2 {
     pub ulArtIdx: u32,
     pub ulFirstExtCkIdx: u32,
@@ -693,6 +827,7 @@ unsafe impl ::windows::runtime::Abi for DMUS_ARTICULATION2 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub struct DMUS_BUFFERDESC {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -720,9 +855,11 @@ unsafe impl ::windows::runtime::Abi for DMUS_BUFFERDESC {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_CLOCKF_GLOBAL: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub struct DMUS_CLOCKINFO7 {
     pub dwSize: u32,
     pub ctType: DMUS_CLOCKTYPE,
@@ -752,6 +889,7 @@ unsafe impl ::windows::runtime::Abi for DMUS_CLOCKINFO7 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub struct DMUS_CLOCKINFO8 {
     pub dwSize: u32,
     pub ctType: DMUS_CLOCKTYPE,
@@ -780,6 +918,7 @@ unsafe impl ::windows::runtime::Abi for DMUS_CLOCKINFO8 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DMUS_CLOCKTYPE(pub i32);
@@ -796,6 +935,7 @@ unsafe impl ::windows::runtime::Abi for DMUS_CLOCKTYPE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub struct DMUS_COPYRIGHT {
     pub cbSize: u32,
     pub byCopyright: [u8; 4],
@@ -821,9 +961,11 @@ unsafe impl ::windows::runtime::Abi for DMUS_COPYRIGHT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_DEFAULT_SIZE_OFFSETTABLE: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub struct DMUS_DOWNLOADINFO {
     pub dwDLType: u32,
     pub dwDLId: u32,
@@ -851,18 +993,29 @@ unsafe impl ::windows::runtime::Abi for DMUS_DOWNLOADINFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_DOWNLOADINFO_INSTRUMENT: u32 = 1u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_DOWNLOADINFO_INSTRUMENT2: u32 = 3u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_DOWNLOADINFO_ONESHOTWAVE: u32 = 6u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_DOWNLOADINFO_STREAMINGWAVE: u32 = 5u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_DOWNLOADINFO_WAVE: u32 = 2u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_DOWNLOADINFO_WAVEARTICULATION: u32 = 4u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_EFFECT_CHORUS: u32 = 2u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_EFFECT_DELAY: u32 = 4u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_EFFECT_NONE: u32 = 0u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_EFFECT_REVERB: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(4))]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub struct DMUS_EVENTHEADER {
     pub cbEvent: u32,
     pub dwChannelGroup: u32,
@@ -885,9 +1038,11 @@ unsafe impl ::windows::runtime::Abi for DMUS_EVENTHEADER {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_EVENT_STRUCTURED: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub struct DMUS_EXTENSIONCHUNK {
     pub cbSize: u32,
     pub ulNextExtCkIdx: u32,
@@ -917,6 +1072,7 @@ unsafe impl ::windows::runtime::Abi for DMUS_EXTENSIONCHUNK {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub struct DMUS_INSTRUMENT {
     pub ulPatch: u32,
     pub ulFirstRegionIdx: u32,
@@ -946,9 +1102,11 @@ unsafe impl ::windows::runtime::Abi for DMUS_INSTRUMENT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_INSTRUMENT_GM_INSTRUMENT: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub struct DMUS_LFOPARAMS {
     pub pcFrequency: i32,
     pub tcDelay: i32,
@@ -978,11 +1136,15 @@ unsafe impl ::windows::runtime::Abi for DMUS_LFOPARAMS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_MAX_DESCRIPTION: u32 = 128u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_MAX_DRIVER: u32 = 128u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_MIN_DATA_SIZE: u32 = 4u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub struct DMUS_MSCPARAMS {
     pub ptDefaultPan: i32,
 }
@@ -1009,6 +1171,7 @@ unsafe impl ::windows::runtime::Abi for DMUS_MSCPARAMS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub struct DMUS_NOTERANGE {
     pub dwLowNote: u32,
     pub dwHighNote: u32,
@@ -1036,6 +1199,7 @@ unsafe impl ::windows::runtime::Abi for DMUS_NOTERANGE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub struct DMUS_OFFSETTABLE {
     pub ulOffsetTable: [u32; 1],
 }
@@ -1060,23 +1224,39 @@ unsafe impl ::windows::runtime::Abi for DMUS_OFFSETTABLE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_PC_AUDIOPATH: u32 = 1024u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_PC_DIRECTSOUND: u32 = 128u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_PC_DLS: u32 = 1u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_PC_DLS2: u32 = 512u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_PC_EXTERNAL: u32 = 2u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_PC_GMINHARDWARE: u32 = 16u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_PC_GSINHARDWARE: u32 = 32u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_PC_INPUTCLASS: u32 = 0u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_PC_MEMORYSIZEFIXED: u32 = 8u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_PC_OUTPUTCLASS: u32 = 1u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_PC_SHAREABLE: u32 = 256u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_PC_SOFTWARESYNTH: u32 = 4u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_PC_SYSTEMMEMORY: u32 = 2147483647u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_PC_WAVE: u32 = 2048u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_PC_XGINHARDWARE: u32 = 64u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub struct DMUS_PEGPARAMS {
     pub tcAttack: i32,
     pub tcDecay: i32,
@@ -1109,6 +1289,7 @@ unsafe impl ::windows::runtime::Abi for DMUS_PEGPARAMS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub struct DMUS_PORTCAPS {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -1158,6 +1339,7 @@ unsafe impl ::windows::runtime::Abi for DMUS_PORTCAPS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`*"]
 pub struct DMUS_PORTPARAMS8 {
     pub dwSize: u32,
     pub dwValidParams: u32,
@@ -1206,20 +1388,33 @@ unsafe impl ::windows::runtime::Abi for DMUS_PORTPARAMS8 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_PORTPARAMS_AUDIOCHANNELS: u32 = 4u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_PORTPARAMS_CHANNELGROUPS: u32 = 2u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_PORTPARAMS_EFFECTS: u32 = 32u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_PORTPARAMS_FEATURES: u32 = 128u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_PORTPARAMS_SAMPLERATE: u32 = 8u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_PORTPARAMS_SHARE: u32 = 64u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_PORTPARAMS_VOICES: u32 = 1u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_PORT_FEATURE_AUDIOPATH: u32 = 1u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_PORT_FEATURE_STREAMING: u32 = 2u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_PORT_KERNEL_MODE: u32 = 2u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_PORT_USER_MODE_SYNTH: u32 = 1u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_PORT_WINMM_DRIVER: u32 = 0u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub struct DMUS_REGION {
     pub RangeKey: RGNRANGE,
     pub RangeVelocity: RGNRANGE,
@@ -1266,6 +1461,7 @@ unsafe impl ::windows::runtime::Abi for DMUS_REGION {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub struct DMUS_SYNTHSTATS {
     pub dwSize: u32,
     pub dwValidStats: u32,
@@ -1308,6 +1504,7 @@ unsafe impl ::windows::runtime::Abi for DMUS_SYNTHSTATS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub struct DMUS_SYNTHSTATS8 {
     pub dwSize: u32,
     pub dwValidStats: u32,
@@ -1350,15 +1547,23 @@ unsafe impl ::windows::runtime::Abi for DMUS_SYNTHSTATS8 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_SYNTHSTATS_CPU_PER_VOICE: u32 = 4u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_SYNTHSTATS_FREE_MEMORY: u32 = 32u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_SYNTHSTATS_LOST_NOTES: u32 = 8u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_SYNTHSTATS_PEAK_VOLUME: u32 = 16u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_SYNTHSTATS_SYSTEMMEMORY: u32 = 2147483647u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_SYNTHSTATS_TOTAL_CPU: u32 = 2u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_SYNTHSTATS_VOICES: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub struct DMUS_VEGPARAMS {
     pub tcAttack: i32,
     pub tcDecay: i32,
@@ -1391,6 +1596,7 @@ unsafe impl ::windows::runtime::Abi for DMUS_VEGPARAMS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`*"]
 pub struct DMUS_VOICE_STATE {
     pub bExists: super::super::super::Foundation::BOOL,
     pub spPosition: u64,
@@ -1422,11 +1628,14 @@ unsafe impl ::windows::runtime::Abi for DMUS_VOICE_STATE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_VOLUME_MAX: u32 = 2000u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_VOLUME_MIN: i32 = -20000i32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Media_Multimedia")]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Media_Multimedia`*"]
 pub struct DMUS_WAVE {
     pub ulFirstExtCkIdx: u32,
     pub ulCopyrightIdx: u32,
@@ -1456,6 +1665,7 @@ unsafe impl ::windows::runtime::Abi for DMUS_WAVE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub struct DMUS_WAVEARTDL {
     pub ulDownloadIdIdx: u32,
     pub ulBus: u32,
@@ -1486,6 +1696,7 @@ unsafe impl ::windows::runtime::Abi for DMUS_WAVEARTDL {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub struct DMUS_WAVEDATA {
     pub cbSize: u32,
     pub byData: [u8; 4],
@@ -1513,6 +1724,7 @@ unsafe impl ::windows::runtime::Abi for DMUS_WAVEDATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub struct DMUS_WAVEDL {
     pub cbWaveData: u32,
 }
@@ -1539,6 +1751,7 @@ unsafe impl ::windows::runtime::Abi for DMUS_WAVEDL {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub struct DMUS_WAVES_REVERB_PARAMS {
     pub fInGain: f32,
     pub fReverbMix: f32,
@@ -1572,6 +1785,7 @@ pub const DS3DALG_NO_VIRTUALIZATION: ::windows::runtime::GUID = ::windows::runti
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Graphics_Direct3D9`*"]
 pub struct DS3DBUFFER {
     pub dwSize: u32,
     pub vPosition: super::super::super::Graphics::Direct3D9::D3DVECTOR,
@@ -1625,6 +1839,7 @@ unsafe impl ::windows::runtime::Abi for DS3DBUFFER {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Graphics_Direct3D9`*"]
 pub struct DS3DLISTENER {
     pub dwSize: u32,
     pub vPosition: super::super::super::Graphics::Direct3D9::D3DVECTOR,
@@ -1671,26 +1886,45 @@ unsafe impl ::windows::runtime::Abi for DS3DLISTENER {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DS3DMODE_DISABLE: u32 = 2u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DS3DMODE_HEADRELATIVE: u32 = 1u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DS3DMODE_NORMAL: u32 = 0u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DS3D_DEFAULTCONEANGLE: u32 = 360u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DS3D_DEFAULTCONEOUTSIDEVOLUME: u32 = 0u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DS3D_DEFAULTDISTANCEFACTOR: f32 = 1f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DS3D_DEFAULTDOPPLERFACTOR: f32 = 1f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DS3D_DEFAULTMAXDISTANCE: f32 = 1000000000f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DS3D_DEFAULTMINDISTANCE: f32 = 1f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DS3D_DEFAULTROLLOFFFACTOR: f32 = 1f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DS3D_DEFERRED: u32 = 1u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DS3D_IMMEDIATE: u32 = 0u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DS3D_MAXCONEANGLE: u32 = 360u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DS3D_MAXDOPPLERFACTOR: f32 = 10f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DS3D_MAXROLLOFFFACTOR: f32 = 10f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DS3D_MINCONEANGLE: u32 = 0u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DS3D_MINDOPPLERFACTOR: f32 = 0f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DS3D_MINROLLOFFFACTOR: f32 = 0f32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub struct DSBCAPS {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -1719,41 +1953,74 @@ unsafe impl ::windows::runtime::Abi for DSBCAPS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSBCAPS_CTRL3D: u32 = 16u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSBCAPS_CTRLFREQUENCY: u32 = 32u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSBCAPS_CTRLFX: u32 = 512u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSBCAPS_CTRLPAN: u32 = 64u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSBCAPS_CTRLPOSITIONNOTIFY: u32 = 256u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSBCAPS_CTRLVOLUME: u32 = 128u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSBCAPS_GETCURRENTPOSITION2: u32 = 65536u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSBCAPS_GLOBALFOCUS: u32 = 32768u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSBCAPS_LOCDEFER: u32 = 262144u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSBCAPS_LOCHARDWARE: u32 = 4u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSBCAPS_LOCSOFTWARE: u32 = 8u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSBCAPS_MUTE3DATMAXDISTANCE: u32 = 131072u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSBCAPS_PRIMARYBUFFER: u32 = 1u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSBCAPS_STATIC: u32 = 2u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSBCAPS_STICKYFOCUS: u32 = 16384u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSBCAPS_TRUEPLAYPOSITION: u32 = 524288u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSBFREQUENCY_MAX: u32 = 200000u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSBFREQUENCY_MIN: u32 = 100u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSBFREQUENCY_ORIGINAL: u32 = 0u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSBLOCK_ENTIREBUFFER: u32 = 2u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSBLOCK_FROMWRITECURSOR: u32 = 1u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSBNOTIFICATIONS_MAX: u32 = 100000u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSBPAN_CENTER: u32 = 0u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSBPAN_LEFT: i32 = -10000i32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSBPAN_RIGHT: u32 = 10000u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSBPLAY_LOCHARDWARE: u32 = 2u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSBPLAY_LOCSOFTWARE: u32 = 4u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSBPLAY_LOOPING: u32 = 1u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSBPLAY_TERMINATEBY_DISTANCE: u64 = 16u64;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSBPLAY_TERMINATEBY_PRIORITY: u64 = 32u64;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSBPLAY_TERMINATEBY_TIME: u32 = 8u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSBPN_OFFSETSTOP: u32 = 4294967295u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`*"]
 pub struct DSBPOSITIONNOTIFY {
     pub dwOffset: u32,
     pub hEventNotify: super::super::super::Foundation::HANDLE,
@@ -1785,18 +2052,28 @@ unsafe impl ::windows::runtime::Abi for DSBPOSITIONNOTIFY {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSBSIZE_FX_MIN: u32 = 150u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSBSIZE_MAX: u32 = 268435455u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSBSIZE_MIN: u32 = 4u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSBSTATUS_BUFFERLOST: u32 = 2u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSBSTATUS_LOCHARDWARE: u32 = 8u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSBSTATUS_LOCSOFTWARE: u32 = 16u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSBSTATUS_LOOPING: u32 = 4u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSBSTATUS_PLAYING: u32 = 1u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSBSTATUS_TERMINATED: u32 = 32u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Media_Multimedia")]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Media_Multimedia`*"]
 pub struct DSBUFFERDESC {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -1835,6 +2112,7 @@ unsafe impl ::windows::runtime::Abi for DSBUFFERDESC {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Media_Multimedia")]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Media_Multimedia`*"]
 pub struct DSBUFFERDESC1 {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -1869,36 +2147,65 @@ unsafe impl ::windows::runtime::Abi for DSBUFFERDESC1 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSBUSID_BACK_CENTER: u32 = 8u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSBUSID_BACK_LEFT: u32 = 4u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSBUSID_BACK_RIGHT: u32 = 5u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSBUSID_CHORUS_SEND: u32 = 65u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSBUSID_DYNAMIC_0: u32 = 512u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSBUSID_FIRST_SPKR_LOC: u32 = 0u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSBUSID_FRONT_CENTER: u32 = 2u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSBUSID_FRONT_LEFT: u32 = 0u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSBUSID_FRONT_LEFT_OF_CENTER: u32 = 6u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSBUSID_FRONT_RIGHT: u32 = 1u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSBUSID_FRONT_RIGHT_OF_CENTER: u32 = 7u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSBUSID_LAST_SPKR_LOC: u32 = 17u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSBUSID_LEFT: u32 = 0u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSBUSID_LOW_FREQUENCY: u32 = 3u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSBUSID_NULL: u32 = 4294967295u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSBUSID_REVERB_SEND: u32 = 64u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSBUSID_RIGHT: u32 = 1u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSBUSID_SIDE_LEFT: u32 = 9u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSBUSID_SIDE_RIGHT: u32 = 10u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSBUSID_TOP_BACK_CENTER: u32 = 16u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSBUSID_TOP_BACK_LEFT: u32 = 15u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSBUSID_TOP_BACK_RIGHT: u32 = 17u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSBUSID_TOP_CENTER: u32 = 11u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSBUSID_TOP_FRONT_CENTER: u32 = 13u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSBUSID_TOP_FRONT_LEFT: u32 = 12u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSBUSID_TOP_FRONT_RIGHT: u32 = 14u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSBVOLUME_MAX: u32 = 0u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSBVOLUME_MIN: i32 = -10000i32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub struct DSCAPS {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -1994,19 +2301,31 @@ unsafe impl ::windows::runtime::Abi for DSCAPS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSCAPS_CERTIFIED: u32 = 64u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSCAPS_CONTINUOUSRATE: u32 = 16u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSCAPS_EMULDRIVER: u32 = 32u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSCAPS_PRIMARY16BIT: u32 = 8u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSCAPS_PRIMARY8BIT: u32 = 4u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSCAPS_PRIMARYMONO: u32 = 1u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSCAPS_PRIMARYSTEREO: u32 = 2u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSCAPS_SECONDARY16BIT: u32 = 2048u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSCAPS_SECONDARY8BIT: u32 = 1024u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSCAPS_SECONDARYMONO: u32 = 256u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSCAPS_SECONDARYSTEREO: u32 = 512u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub struct DSCBCAPS {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -2034,15 +2353,22 @@ unsafe impl ::windows::runtime::Abi for DSCBCAPS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSCBCAPS_CTRLFX: u32 = 512u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSCBCAPS_WAVEMAPPED: u32 = 2147483648u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSCBLOCK_ENTIREBUFFER: u32 = 1u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSCBSTART_LOOPING: u32 = 1u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSCBSTATUS_CAPTURING: u32 = 1u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSCBSTATUS_LOOPING: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Media_Multimedia")]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Media_Multimedia`*"]
 pub struct DSCBUFFERDESC {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -2090,6 +2416,7 @@ unsafe impl ::windows::runtime::Abi for DSCBUFFERDESC {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Media_Multimedia")]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Media_Multimedia`*"]
 pub struct DSCBUFFERDESC1 {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -2126,6 +2453,7 @@ unsafe impl ::windows::runtime::Abi for DSCBUFFERDESC1 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub struct DSCCAPS {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -2153,11 +2481,15 @@ unsafe impl ::windows::runtime::Abi for DSCCAPS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSCCAPS_CERTIFIED: u32 = 64u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSCCAPS_EMULDRIVER: u32 = 32u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSCCAPS_MULTIPLECAPTURE: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub struct DSCEFFECTDESC {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -2190,6 +2522,7 @@ unsafe impl ::windows::runtime::Abi for DSCEFFECTDESC {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`*"]
 pub struct DSCFXAec {
     pub fEnable: super::super::super::Foundation::BOOL,
     pub fNoiseFill: super::super::super::Foundation::BOOL,
@@ -2225,6 +2558,7 @@ unsafe impl ::windows::runtime::Abi for DSCFXAec {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`*"]
 pub struct DSCFXNoiseSuppress {
     pub fEnable: super::super::super::Foundation::BOOL,
 }
@@ -2255,16 +2589,27 @@ unsafe impl ::windows::runtime::Abi for DSCFXNoiseSuppress {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSCFXR_LOCHARDWARE: u32 = 16u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSCFXR_LOCSOFTWARE: u32 = 32u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSCFX_AEC_MODE_FULL_DUPLEX: u32 = 2u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSCFX_AEC_MODE_HALF_DUPLEX: u32 = 1u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSCFX_AEC_MODE_PASS_THROUGH: u32 = 0u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSCFX_AEC_STATUS_CURRENTLY_CONVERGED: u32 = 8u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSCFX_AEC_STATUS_HISTORY_CONTINUOUSLY_CONVERGED: u32 = 1u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSCFX_AEC_STATUS_HISTORY_PREVIOUSLY_DIVERGED: u32 = 2u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSCFX_AEC_STATUS_HISTORY_UNINITIALIZED: u32 = 0u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSCFX_LOCHARDWARE: u32 = 1u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSCFX_LOCSOFTWARE: u32 = 2u32;
 pub const DSDEVID_DefaultCapture: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3740270593, 40045, 18413, [170, 241, 77, 218, 143, 43, 92, 3]);
 pub const DSDEVID_DefaultPlayback: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3740270592, 40045, 18413, [170, 241, 77, 218, 143, 43, 92, 3]);
@@ -2272,6 +2617,7 @@ pub const DSDEVID_DefaultVoiceCapture: ::windows::runtime::GUID = ::windows::run
 pub const DSDEVID_DefaultVoicePlayback: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3740270594, 40045, 18413, [170, 241, 77, 218, 143, 43, 92, 3]);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub struct DSEFFECTDESC {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -2300,39 +2646,71 @@ unsafe impl ::windows::runtime::Abi for DSEFFECTDESC {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXCHORUS_DELAY_MAX: f32 = 20f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXCHORUS_DELAY_MIN: f32 = 0f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXCHORUS_DEPTH_MAX: f32 = 100f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXCHORUS_DEPTH_MIN: f32 = 0f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXCHORUS_FEEDBACK_MAX: f32 = 99f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXCHORUS_FEEDBACK_MIN: f32 = -99f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXCHORUS_FREQUENCY_MAX: f32 = 10f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXCHORUS_FREQUENCY_MIN: f32 = 0f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXCHORUS_PHASE_180: u32 = 4u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXCHORUS_PHASE_90: u32 = 3u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXCHORUS_PHASE_MAX: u32 = 4u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXCHORUS_PHASE_MIN: u32 = 0u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXCHORUS_PHASE_NEG_180: u32 = 0u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXCHORUS_PHASE_NEG_90: u32 = 1u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXCHORUS_PHASE_ZERO: u32 = 2u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXCHORUS_WAVE_SIN: u32 = 1u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXCHORUS_WAVE_TRIANGLE: u32 = 0u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXCHORUS_WETDRYMIX_MAX: f32 = 100f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXCHORUS_WETDRYMIX_MIN: f32 = 0f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXCOMPRESSOR_ATTACK_MAX: f32 = 500f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXCOMPRESSOR_ATTACK_MIN: f32 = 0.01f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXCOMPRESSOR_GAIN_MAX: f32 = 60f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXCOMPRESSOR_GAIN_MIN: f32 = -60f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXCOMPRESSOR_PREDELAY_MAX: f32 = 4f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXCOMPRESSOR_PREDELAY_MIN: f32 = 0f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXCOMPRESSOR_RATIO_MAX: f32 = 100f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXCOMPRESSOR_RATIO_MIN: f32 = 1f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXCOMPRESSOR_RELEASE_MAX: f32 = 3000f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXCOMPRESSOR_RELEASE_MIN: f32 = 50f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXCOMPRESSOR_THRESHOLD_MAX: f32 = 0f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXCOMPRESSOR_THRESHOLD_MIN: f32 = -60f32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub struct DSFXChorus {
     pub fWetDryMix: f32,
     pub fDepth: f32,
@@ -2365,6 +2743,7 @@ unsafe impl ::windows::runtime::Abi for DSFXChorus {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub struct DSFXCompressor {
     pub fGain: f32,
     pub fAttack: f32,
@@ -2394,18 +2773,29 @@ unsafe impl ::windows::runtime::Abi for DSFXCompressor {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXDISTORTION_EDGE_MAX: f32 = 100f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXDISTORTION_EDGE_MIN: f32 = 0f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXDISTORTION_GAIN_MAX: f32 = 0f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXDISTORTION_GAIN_MIN: f32 = -60f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXDISTORTION_POSTEQBANDWIDTH_MAX: f32 = 8000f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXDISTORTION_POSTEQBANDWIDTH_MIN: f32 = 100f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXDISTORTION_POSTEQCENTERFREQUENCY_MAX: f32 = 8000f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXDISTORTION_POSTEQCENTERFREQUENCY_MIN: f32 = 100f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXDISTORTION_PRELOWPASSCUTOFF_MAX: f32 = 8000f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXDISTORTION_PRELOWPASSCUTOFF_MIN: f32 = 100f32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub struct DSFXDistortion {
     pub fGain: f32,
     pub fEdge: f32,
@@ -2434,18 +2824,29 @@ unsafe impl ::windows::runtime::Abi for DSFXDistortion {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXECHO_FEEDBACK_MAX: f32 = 100f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXECHO_FEEDBACK_MIN: f32 = 0f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXECHO_LEFTDELAY_MAX: f32 = 2000f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXECHO_LEFTDELAY_MIN: f32 = 1f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXECHO_PANDELAY_MAX: u32 = 1u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXECHO_PANDELAY_MIN: u32 = 0u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXECHO_RIGHTDELAY_MAX: f32 = 2000f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXECHO_RIGHTDELAY_MIN: f32 = 1f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXECHO_WETDRYMIX_MAX: f32 = 100f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXECHO_WETDRYMIX_MIN: f32 = 0f32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub struct DSFXEcho {
     pub fWetDryMix: f32,
     pub fFeedback: f32,
@@ -2474,27 +2875,47 @@ unsafe impl ::windows::runtime::Abi for DSFXEcho {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXFLANGER_DELAY_MAX: f32 = 4f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXFLANGER_DELAY_MIN: f32 = 0f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXFLANGER_DEPTH_MAX: f32 = 100f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXFLANGER_DEPTH_MIN: f32 = 0f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXFLANGER_FEEDBACK_MAX: f32 = 99f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXFLANGER_FEEDBACK_MIN: f32 = -99f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXFLANGER_FREQUENCY_MAX: f32 = 10f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXFLANGER_FREQUENCY_MIN: f32 = 0f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXFLANGER_PHASE_180: u32 = 4u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXFLANGER_PHASE_90: u32 = 3u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXFLANGER_PHASE_MAX: u32 = 4u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXFLANGER_PHASE_MIN: u32 = 0u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXFLANGER_PHASE_NEG_180: u32 = 0u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXFLANGER_PHASE_NEG_90: u32 = 1u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXFLANGER_PHASE_ZERO: u32 = 2u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXFLANGER_WAVE_SIN: u32 = 1u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXFLANGER_WAVE_TRIANGLE: u32 = 0u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXFLANGER_WETDRYMIX_MAX: f32 = 100f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXFLANGER_WETDRYMIX_MIN: f32 = 0f32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub struct DSFXFlanger {
     pub fWetDryMix: f32,
     pub fDepth: f32,
@@ -2525,12 +2946,17 @@ unsafe impl ::windows::runtime::Abi for DSFXFlanger {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXGARGLE_RATEHZ_MAX: u32 = 1000u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXGARGLE_RATEHZ_MIN: u32 = 1u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXGARGLE_WAVE_SQUARE: u32 = 1u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXGARGLE_WAVE_TRIANGLE: u32 = 0u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub struct DSFXGargle {
     pub dwRateHz: u32,
     pub dwWaveShape: u32,
@@ -2558,6 +2984,7 @@ unsafe impl ::windows::runtime::Abi for DSFXGargle {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub struct DSFXI3DL2Reverb {
     pub lRoom: i32,
     pub lRoomHF: i32,
@@ -2617,14 +3044,21 @@ unsafe impl ::windows::runtime::Abi for DSFXI3DL2Reverb {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXPARAMEQ_BANDWIDTH_MAX: f32 = 36f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXPARAMEQ_BANDWIDTH_MIN: f32 = 1f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXPARAMEQ_CENTER_MAX: f32 = 16000f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXPARAMEQ_CENTER_MIN: f32 = 80f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXPARAMEQ_GAIN_MAX: f32 = 15f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXPARAMEQ_GAIN_MIN: f32 = -15f32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub struct DSFXParamEq {
     pub fCenter: f32,
     pub fBandwidth: f32,
@@ -2651,15 +3085,23 @@ unsafe impl ::windows::runtime::Abi for DSFXParamEq {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXR_FAILED: i32 = 4i32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXR_LOCHARDWARE: i32 = 1i32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXR_LOCSOFTWARE: i32 = 2i32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXR_PRESENT: i32 = 0i32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXR_SENDLOOP: i32 = 6i32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXR_UNALLOCATED: i32 = 3i32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXR_UNKNOWN: i32 = 5i32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub struct DSFXWavesReverb {
     pub fInGain: f32,
     pub fReverbMix: f32,
@@ -2687,97 +3129,189 @@ unsafe impl ::windows::runtime::Abi for DSFXWavesReverb {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2REVERB_DECAYHFRATIO_DEFAULT: f32 = 0.83f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2REVERB_DECAYHFRATIO_MAX: f32 = 2f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2REVERB_DECAYHFRATIO_MIN: f32 = 0.1f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2REVERB_DECAYTIME_DEFAULT: f32 = 1.49f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2REVERB_DECAYTIME_MAX: f32 = 20f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2REVERB_DECAYTIME_MIN: f32 = 0.1f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2REVERB_DENSITY_DEFAULT: f32 = 100f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2REVERB_DENSITY_MAX: f32 = 100f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2REVERB_DENSITY_MIN: f32 = 0f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2REVERB_DIFFUSION_DEFAULT: f32 = 100f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2REVERB_DIFFUSION_MAX: f32 = 100f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2REVERB_DIFFUSION_MIN: f32 = 0f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2REVERB_HFREFERENCE_DEFAULT: f32 = 5000f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2REVERB_HFREFERENCE_MAX: f32 = 20000f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2REVERB_HFREFERENCE_MIN: f32 = 20f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2REVERB_QUALITY_DEFAULT: u32 = 2u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2REVERB_QUALITY_MAX: u32 = 3u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2REVERB_QUALITY_MIN: u32 = 0u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2REVERB_REFLECTIONSDELAY_DEFAULT: f32 = 0.007f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2REVERB_REFLECTIONSDELAY_MAX: f32 = 0.3f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2REVERB_REFLECTIONSDELAY_MIN: f32 = 0f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2REVERB_REFLECTIONS_DEFAULT: i32 = -2602i32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2REVERB_REFLECTIONS_MAX: u32 = 1000u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2REVERB_REFLECTIONS_MIN: i32 = -10000i32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2REVERB_REVERBDELAY_DEFAULT: f32 = 0.011f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2REVERB_REVERBDELAY_MAX: f32 = 0.1f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2REVERB_REVERBDELAY_MIN: f32 = 0f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2REVERB_REVERB_DEFAULT: u32 = 200u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2REVERB_REVERB_MAX: u32 = 2000u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2REVERB_REVERB_MIN: i32 = -10000i32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2REVERB_ROOMHF_DEFAULT: i32 = -100i32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2REVERB_ROOMHF_MAX: u32 = 0u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2REVERB_ROOMHF_MIN: i32 = -10000i32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2REVERB_ROOMROLLOFFFACTOR_DEFAULT: f32 = 0f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2REVERB_ROOMROLLOFFFACTOR_MAX: f32 = 10f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2REVERB_ROOMROLLOFFFACTOR_MIN: f32 = 0f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2REVERB_ROOM_DEFAULT: i32 = -1000i32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2REVERB_ROOM_MAX: u32 = 0u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2REVERB_ROOM_MIN: i32 = -10000i32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2_ENVIRONMENT_PRESET_ALLEY: i32 = 15i32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2_ENVIRONMENT_PRESET_ARENA: i32 = 10i32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2_ENVIRONMENT_PRESET_AUDITORIUM: i32 = 7i32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2_ENVIRONMENT_PRESET_BATHROOM: i32 = 4i32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2_ENVIRONMENT_PRESET_CARPETEDHALLWAY: i32 = 12i32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2_ENVIRONMENT_PRESET_CAVE: i32 = 9i32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2_ENVIRONMENT_PRESET_CITY: i32 = 17i32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2_ENVIRONMENT_PRESET_CONCERTHALL: i32 = 8i32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2_ENVIRONMENT_PRESET_DEFAULT: i32 = 0i32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2_ENVIRONMENT_PRESET_FOREST: i32 = 16i32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2_ENVIRONMENT_PRESET_GENERIC: i32 = 1i32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2_ENVIRONMENT_PRESET_HALLWAY: i32 = 13i32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2_ENVIRONMENT_PRESET_HANGAR: i32 = 11i32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2_ENVIRONMENT_PRESET_LARGEHALL: i32 = 28i32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2_ENVIRONMENT_PRESET_LARGEROOM: i32 = 26i32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2_ENVIRONMENT_PRESET_LIVINGROOM: i32 = 5i32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2_ENVIRONMENT_PRESET_MEDIUMHALL: i32 = 27i32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2_ENVIRONMENT_PRESET_MEDIUMROOM: i32 = 25i32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2_ENVIRONMENT_PRESET_MOUNTAINS: i32 = 18i32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2_ENVIRONMENT_PRESET_PADDEDCELL: i32 = 2i32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2_ENVIRONMENT_PRESET_PARKINGLOT: i32 = 21i32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2_ENVIRONMENT_PRESET_PLAIN: i32 = 20i32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2_ENVIRONMENT_PRESET_PLATE: i32 = 29i32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2_ENVIRONMENT_PRESET_QUARRY: i32 = 19i32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2_ENVIRONMENT_PRESET_ROOM: i32 = 3i32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2_ENVIRONMENT_PRESET_SEWERPIPE: i32 = 22i32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2_ENVIRONMENT_PRESET_SMALLROOM: i32 = 24i32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2_ENVIRONMENT_PRESET_STONECORRIDOR: i32 = 14i32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2_ENVIRONMENT_PRESET_STONEROOM: i32 = 6i32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2_ENVIRONMENT_PRESET_UNDERWATER: i32 = 23i32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2_MATERIAL_PRESET_BRICKWALL: i32 = 5i32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2_MATERIAL_PRESET_CURTAIN: i32 = 7i32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2_MATERIAL_PRESET_DOUBLEWINDOW: i32 = 1i32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2_MATERIAL_PRESET_SINGLEWINDOW: i32 = 0i32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2_MATERIAL_PRESET_STONEWALL: i32 = 6i32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2_MATERIAL_PRESET_THICKDOOR: i32 = 3i32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2_MATERIAL_PRESET_THINDOOR: i32 = 2i32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2_MATERIAL_PRESET_WOODWALL: i32 = 4i32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_LOCHARDWARE: u32 = 1u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_LOCSOFTWARE: u32 = 2u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_WAVESREVERB_HIGHFREQRTRATIO_DEFAULT: f32 = 0.001f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_WAVESREVERB_HIGHFREQRTRATIO_MAX: f32 = 0.999f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_WAVESREVERB_HIGHFREQRTRATIO_MIN: f32 = 0.001f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_WAVESREVERB_INGAIN_DEFAULT: f32 = 0f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_WAVESREVERB_INGAIN_MAX: f32 = 0f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_WAVESREVERB_INGAIN_MIN: f32 = -96f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_WAVESREVERB_REVERBMIX_DEFAULT: f32 = 0f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_WAVESREVERB_REVERBMIX_MAX: f32 = 0f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_WAVESREVERB_REVERBMIX_MIN: f32 = -96f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_WAVESREVERB_REVERBTIME_DEFAULT: f32 = 1000f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_WAVESREVERB_REVERBTIME_MAX: f32 = 3000f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_WAVESREVERB_REVERBTIME_MIN: f32 = 0.001f32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DSPROPERTY_DIRECTSOUNDDEVICE(pub i32);
@@ -2801,6 +3335,7 @@ unsafe impl ::windows::runtime::Abi for DSPROPERTY_DIRECTSOUNDDEVICE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`*"]
 pub struct DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {
     pub DeviceId: ::windows::runtime::GUID,
     pub DescriptionA: [super::super::super::Foundation::CHAR; 256],
@@ -2852,6 +3387,7 @@ unsafe impl ::windows::runtime::Abi for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`*"]
 pub struct DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA {
     pub Type: DIRECTSOUNDDEVICE_TYPE,
     pub DataFlow: DIRECTSOUNDDEVICE_DATAFLOW,
@@ -2899,6 +3435,7 @@ unsafe impl ::windows::runtime::Abi for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`*"]
 pub struct DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA {
     pub Type: DIRECTSOUNDDEVICE_TYPE,
     pub DataFlow: DIRECTSOUNDDEVICE_DATAFLOW,
@@ -2946,6 +3483,7 @@ unsafe impl ::windows::runtime::Abi for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`*"]
 pub struct DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA {
     pub Callback: ::std::option::Option<LPFNDIRECTSOUNDDEVICEENUMERATECALLBACK1>,
     pub Context: *mut ::std::ffi::c_void,
@@ -2980,6 +3518,7 @@ unsafe impl ::windows::runtime::Abi for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`*"]
 pub struct DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA {
     pub Callback: ::std::option::Option<LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKA>,
     pub Context: *mut ::std::ffi::c_void,
@@ -3014,6 +3553,7 @@ unsafe impl ::windows::runtime::Abi for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`*"]
 pub struct DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA {
     pub Callback: ::std::option::Option<LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKW>,
     pub Context: *mut ::std::ffi::c_void,
@@ -3048,6 +3588,7 @@ unsafe impl ::windows::runtime::Abi for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`*"]
 pub struct DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A_DATA {
     pub DeviceName: super::super::super::Foundation::PSTR,
     pub DataFlow: DIRECTSOUNDDEVICE_DATAFLOW,
@@ -3083,6 +3624,7 @@ unsafe impl ::windows::runtime::Abi for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEM
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`*"]
 pub struct DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W_DATA {
     pub DeviceName: super::super::super::Foundation::PWSTR,
     pub DataFlow: DIRECTSOUNDDEVICE_DATAFLOW,
@@ -3116,44 +3658,83 @@ unsafe impl ::windows::runtime::Abi for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEM
     type DefaultType = Self;
 }
 pub const DSPROPSETID_DirectSoundDevice: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2221035394, 9708, 4561, [164, 216, 0, 192, 79, 194, 138, 202]);
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSSCL_EXCLUSIVE: u32 = 3u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSSCL_NORMAL: u32 = 1u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSSCL_PRIORITY: u32 = 2u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSSCL_WRITEPRIMARY: u32 = 4u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSSPEAKER_5POINT1: u32 = 6u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSSPEAKER_5POINT1_BACK: u32 = 6u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSSPEAKER_5POINT1_SURROUND: u32 = 9u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSSPEAKER_7POINT1: u32 = 7u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSSPEAKER_7POINT1_SURROUND: u32 = 8u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSSPEAKER_7POINT1_WIDE: u32 = 7u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSSPEAKER_DIRECTOUT: u32 = 0u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSSPEAKER_GEOMETRY_MAX: u32 = 180u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSSPEAKER_GEOMETRY_MIN: u32 = 5u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSSPEAKER_GEOMETRY_NARROW: u32 = 10u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSSPEAKER_GEOMETRY_WIDE: u32 = 20u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSSPEAKER_HEADPHONE: u32 = 1u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSSPEAKER_MONO: u32 = 2u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSSPEAKER_QUAD: u32 = 3u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSSPEAKER_STEREO: u32 = 4u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSSPEAKER_SURROUND: u32 = 5u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DS_CERTIFIED: u32 = 0u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DS_NO_VIRTUALIZATION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(142082058i32 as _);
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DS_UNCERTIFIED: u32 = 1u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DV_AUDIOMODE: u32 = 3840u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DV_AUDIOQU: u32 = 117440512u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DV_AUDIOSMP: u32 = 939524096u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DV_CAP_AUD12Bits: u32 = 1u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DV_CAP_AUD16Bits: u32 = 0u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DV_DVSD_NTSC_FRAMESIZE: i32 = 120000i32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DV_DVSD_PAL_FRAMESIZE: i32 = 144000i32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DV_HD: u32 = 1u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DV_NTSC: u32 = 0u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DV_NTSCPAL: u32 = 2097152u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DV_PAL: u32 = 1u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DV_SD: u32 = 0u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DV_SL: u32 = 2u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DV_SMCHN: u32 = 57344u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DV_STYPE: u32 = 2031616u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[inline]
 pub unsafe fn DirectSoundCaptureCreate<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(pcguiddevice: *const ::windows::runtime::GUID, ppdsc: *mut ::std::option::Option<IDirectSoundCapture>, punkouter: Param2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -3167,6 +3748,7 @@ pub unsafe fn DirectSoundCaptureCreate<'a, Param2: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[inline]
 pub unsafe fn DirectSoundCaptureCreate8<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(pcguiddevice: *const ::windows::runtime::GUID, ppdsc8: *mut ::std::option::Option<IDirectSoundCapture>, punkouter: Param2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -3181,6 +3763,7 @@ pub unsafe fn DirectSoundCaptureCreate8<'a, Param2: ::windows::runtime::IntoPara
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn DirectSoundCaptureEnumerateA(pdsenumcallback: ::std::option::Option<LPDSENUMCALLBACKA>, pcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -3195,6 +3778,7 @@ pub unsafe fn DirectSoundCaptureEnumerateA(pdsenumcallback: ::std::option::Optio
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn DirectSoundCaptureEnumerateW(pdsenumcallback: ::std::option::Option<LPDSENUMCALLBACKW>, pcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -3208,6 +3792,7 @@ pub unsafe fn DirectSoundCaptureEnumerateW(pdsenumcallback: ::std::option::Optio
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[inline]
 pub unsafe fn DirectSoundCreate<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(pcguiddevice: *const ::windows::runtime::GUID, ppds: *mut ::std::option::Option<IDirectSound>, punkouter: Param2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -3221,6 +3806,7 @@ pub unsafe fn DirectSoundCreate<'a, Param2: ::windows::runtime::IntoParam<'a, ::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[inline]
 pub unsafe fn DirectSoundCreate8<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(pcguiddevice: *const ::windows::runtime::GUID, ppds8: *mut ::std::option::Option<IDirectSound8>, punkouter: Param2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -3235,6 +3821,7 @@ pub unsafe fn DirectSoundCreate8<'a, Param2: ::windows::runtime::IntoParam<'a, :
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn DirectSoundEnumerateA(pdsenumcallback: ::std::option::Option<LPDSENUMCALLBACKA>, pcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -3249,6 +3836,7 @@ pub unsafe fn DirectSoundEnumerateA(pdsenumcallback: ::std::option::Option<LPDSE
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn DirectSoundEnumerateW(pdsenumcallback: ::std::option::Option<LPDSENUMCALLBACKW>, pcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -3263,6 +3851,7 @@ pub unsafe fn DirectSoundEnumerateW(pdsenumcallback: ::std::option::Option<LPDSE
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Multimedia"))]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`, `Win32_Media_Multimedia`*"]
 #[inline]
 pub unsafe fn DirectSoundFullDuplexCreate<'a, Param4: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>, Param9: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(
     pcguidcapturedevice: *const ::windows::runtime::GUID,
@@ -3299,6 +3888,7 @@ pub unsafe fn DirectSoundFullDuplexCreate<'a, Param4: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EAudioConstriction(pub i32);
@@ -3317,11 +3907,17 @@ unsafe impl ::windows::runtime::Abi for EAudioConstriction {
     type DefaultType = Self;
 }
 pub type FNAPONOTIFICATIONCALLBACK = unsafe extern "system" fn(pproperties: *mut APO_REG_PROPERTIES, pvrefdata: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const F_INSTRUMENT_DRUMS: u32 = 2147483648u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const F_RGN_OPTION_SELFNONEXCLUSIVE: u32 = 1u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const F_WAVELINK_MULTICHANNEL: u32 = 2u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const F_WAVELINK_PHASE_MASTER: u32 = 1u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const F_WSMP_NO_COMPRESSION: i32 = 2i32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const F_WSMP_NO_TRUNCATION: i32 = 1i32;
 pub const GUID_All_Objects: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2853260773, 49762, 16745, [161, 200, 35, 214, 152, 204, 115, 181]);
 pub const GUID_DMUS_PROP_DLS1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(395259687, 50020, 4561, [167, 96, 0, 0, 248, 117, 172, 18]);
@@ -3360,6 +3956,7 @@ pub const GUID_DSFX_STANDARD_GARGLE: ::windows::runtime::GUID = ::windows::runti
 pub const GUID_DSFX_STANDARD_I3DL2REVERB: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4019740273, 54727, 17108, [186, 77, 45, 7, 62, 46, 150, 244]);
 pub const GUID_DSFX_STANDARD_PARAMEQ: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(302837129, 15348, 16755, [161, 50, 60, 180, 6, 207, 50, 49]);
 pub const GUID_DSFX_WAVES_REVERB: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2281439848, 39509, 17248, [149, 170, 0, 74, 29, 157, 226, 108]);
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[inline]
 pub unsafe fn GetDeviceID(pguidsrc: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<::windows::runtime::GUID> {
     #[cfg(windows)]
@@ -3374,6 +3971,7 @@ pub unsafe fn GetDeviceID(pguidsrc: *const ::windows::runtime::GUID) -> ::window
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IApoAcousticEchoCancellation(::windows::runtime::IUnknown);
@@ -3409,16 +4007,20 @@ pub struct IApoAcousticEchoCancellation_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
 );
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IApoAuxiliaryInputConfiguration(::windows::runtime::IUnknown);
 impl IApoAuxiliaryInputConfiguration {
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn AddAuxiliaryInput(&self, dwinputid: u32, cbdatasize: u32, pbydata: *const u8, pinputconnection: *const APO_CONNECTION_DESCRIPTOR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwinputid), ::std::mem::transmute(cbdatasize), ::std::mem::transmute(pbydata), ::std::mem::transmute(pinputconnection)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn RemoveAuxiliaryInput(&self, dwinputid: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwinputid)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn IsInputFormatSupported<'a, Param0: ::windows::runtime::IntoParam<'a, IAudioMediaType>>(&self, prequestedinputformat: Param0) -> ::windows::runtime::Result<IAudioMediaType> {
         let mut result__: <IAudioMediaType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), prequestedinputformat.into_param().abi(), &mut result__).from_abi::<IAudioMediaType>(result__)
@@ -3458,11 +4060,13 @@ pub struct IApoAuxiliaryInputConfiguration_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwinputid: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, prequestedinputformat: ::windows::runtime::RawPtr, ppsupportedinputformat: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IApoAuxiliaryInputRT(::windows::runtime::IUnknown);
 impl IApoAuxiliaryInputRT {
     #[cfg(feature = "Win32_System_RemoteDesktop")]
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_System_RemoteDesktop`*"]
     pub unsafe fn AcceptInput(&self, dwinputid: u32, pinputconnection: *const super::super::super::System::RemoteDesktop::APO_CONNECTION_PROPERTY) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwinputid), ::std::mem::transmute(pinputconnection)))
     }
@@ -3500,10 +4104,12 @@ pub struct IApoAuxiliaryInputRT_abi(
     #[cfg(feature = "Win32_System_RemoteDesktop")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwinputid: u32, pinputconnection: *const super::super::super::System::RemoteDesktop::APO_CONNECTION_PROPERTY),
     #[cfg(not(feature = "Win32_System_RemoteDesktop"))] usize,
 );
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IAudioDeviceModulesClient(::windows::runtime::IUnknown);
 impl IAudioDeviceModulesClient {
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn SetAudioDeviceModulesManager<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, paudiodevicemodulesmanager: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), paudiodevicemodulesmanager.into_param().abi()).ok()
     }
@@ -3540,23 +4146,28 @@ pub struct IAudioDeviceModulesClient_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, paudiodevicemodulesmanager: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IAudioMediaType(::windows::runtime::IUnknown);
 impl IAudioMediaType {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`*"]
     pub unsafe fn IsCompressedFormat(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BOOL> {
         let mut result__: <super::super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn IsEqual<'a, Param0: ::windows::runtime::IntoParam<'a, IAudioMediaType>>(&self, piaudiotype: Param0) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), piaudiotype.into_param().abi(), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Media_Multimedia")]
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Media_Multimedia`*"]
     pub unsafe fn GetAudioFormat(&self) -> *mut super::super::Multimedia::WAVEFORMATEX {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetUncompressedAudioFormat(&self) -> ::windows::runtime::Result<UNCOMPRESSEDAUDIOFORMAT> {
         let mut result__: <UNCOMPRESSEDAUDIOFORMAT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<UNCOMPRESSEDAUDIOFORMAT>(result__)
@@ -3599,32 +4210,40 @@ pub struct IAudioMediaType_abi(
     #[cfg(not(feature = "Win32_Media_Multimedia"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, puncompressedaudioformat: *mut UNCOMPRESSEDAUDIOFORMAT) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IAudioProcessingObject(::windows::runtime::IUnknown);
 impl IAudioProcessingObject {
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetLatency(&self) -> ::windows::runtime::Result<i64> {
         let mut result__: <i64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i64>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetRegistrationProperties(&self) -> ::windows::runtime::Result<*mut APO_REG_PROPERTIES> {
         let mut result__: <*mut APO_REG_PROPERTIES as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut APO_REG_PROPERTIES>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn Initialize(&self, cbdatasize: u32, pbydata: *const u8) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(cbdatasize), ::std::mem::transmute(pbydata)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn IsInputFormatSupported<'a, Param0: ::windows::runtime::IntoParam<'a, IAudioMediaType>, Param1: ::windows::runtime::IntoParam<'a, IAudioMediaType>>(&self, poppositeformat: Param0, prequestedinputformat: Param1) -> ::windows::runtime::Result<IAudioMediaType> {
         let mut result__: <IAudioMediaType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), poppositeformat.into_param().abi(), prequestedinputformat.into_param().abi(), &mut result__).from_abi::<IAudioMediaType>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn IsOutputFormatSupported<'a, Param0: ::windows::runtime::IntoParam<'a, IAudioMediaType>, Param1: ::windows::runtime::IntoParam<'a, IAudioMediaType>>(&self, poppositeformat: Param0, prequestedoutputformat: Param1) -> ::windows::runtime::Result<IAudioMediaType> {
         let mut result__: <IAudioMediaType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), poppositeformat.into_param().abi(), prequestedoutputformat.into_param().abi(), &mut result__).from_abi::<IAudioMediaType>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetInputChannelCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
@@ -3668,13 +4287,16 @@ pub struct IAudioProcessingObject_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, poppositeformat: ::windows::runtime::RawPtr, prequestedoutputformat: ::windows::runtime::RawPtr, ppsupportedoutputformat: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pu32channelcount: *mut u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IAudioProcessingObjectConfiguration(::windows::runtime::IUnknown);
 impl IAudioProcessingObjectConfiguration {
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn LockForProcess(&self, u32numinputconnections: u32, ppinputconnections: *const *const APO_CONNECTION_DESCRIPTOR, u32numoutputconnections: u32, ppoutputconnections: *const *const APO_CONNECTION_DESCRIPTOR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(u32numinputconnections), ::std::mem::transmute(ppinputconnections), ::std::mem::transmute(u32numoutputconnections), ::std::mem::transmute(ppoutputconnections)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn UnlockForProcess(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
@@ -3712,17 +4334,21 @@ pub struct IAudioProcessingObjectConfiguration_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, u32numinputconnections: u32, ppinputconnections: *const *const APO_CONNECTION_DESCRIPTOR, u32numoutputconnections: u32, ppoutputconnections: *const *const APO_CONNECTION_DESCRIPTOR) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IAudioProcessingObjectRT(::windows::runtime::IUnknown);
 impl IAudioProcessingObjectRT {
     #[cfg(feature = "Win32_System_RemoteDesktop")]
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_System_RemoteDesktop`*"]
     pub unsafe fn APOProcess(&self, u32numinputconnections: u32, ppinputconnections: *const *const super::super::super::System::RemoteDesktop::APO_CONNECTION_PROPERTY, u32numoutputconnections: u32, ppoutputconnections: *mut *mut super::super::super::System::RemoteDesktop::APO_CONNECTION_PROPERTY) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(u32numinputconnections), ::std::mem::transmute(ppinputconnections), ::std::mem::transmute(u32numoutputconnections), ::std::mem::transmute(ppoutputconnections)))
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn CalcInputFrames(&self, u32outputframecount: u32) -> u32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(u32outputframecount)))
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn CalcOutputFrames(&self, u32inputframecount: u32) -> u32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(u32inputframecount)))
     }
@@ -3762,14 +4388,17 @@ pub struct IAudioProcessingObjectRT_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, u32outputframecount: u32) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, u32inputframecount: u32) -> u32,
 );
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IAudioProcessingObjectVBR(::windows::runtime::IUnknown);
 impl IAudioProcessingObjectVBR {
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn CalcMaxInputFrames(&self, u32maxoutputframecount: u32) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(u32maxoutputframecount), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn CalcMaxOutputFrames(&self, u32maxinputframecount: u32) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(u32maxinputframecount), &mut result__).from_abi::<u32>(result__)
@@ -3808,6 +4437,7 @@ pub struct IAudioProcessingObjectVBR_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, u32maxoutputframecount: u32, pu32inputframecount: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, u32maxinputframecount: u32, pu32outputframecount: *mut u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IAudioSystemEffects(::windows::runtime::IUnknown);
@@ -3843,11 +4473,13 @@ pub struct IAudioSystemEffects_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
 );
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IAudioSystemEffects2(::windows::runtime::IUnknown);
 impl IAudioSystemEffects2 {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`*"]
     pub unsafe fn GetEffectsList<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(&self, ppeffectsids: *mut *mut ::windows::runtime::GUID, pceffects: *mut u32, event: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppeffectsids), ::std::mem::transmute(pceffects), event.into_param().abi()).ok()
     }
@@ -3905,19 +4537,23 @@ pub struct IAudioSystemEffects2_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppeffectsids: *mut *mut ::windows::runtime::GUID, pceffects: *mut u32, event: super::super::super::Foundation::HANDLE) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IAudioSystemEffectsCustomFormats(::windows::runtime::IUnknown);
 impl IAudioSystemEffectsCustomFormats {
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetFormatCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetFormat(&self, nformat: u32) -> ::windows::runtime::Result<IAudioMediaType> {
         let mut result__: <IAudioMediaType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(nformat), &mut result__).from_abi::<IAudioMediaType>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`*"]
     pub unsafe fn GetFormatRepresentation(&self, nformat: u32) -> ::windows::runtime::Result<super::super::super::Foundation::PWSTR> {
         let mut result__: <super::super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(nformat), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
@@ -3958,38 +4594,48 @@ pub struct IAudioSystemEffectsCustomFormats_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, nformat: u32, ppwstrformatrep: *mut super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectMusic(::windows::runtime::IUnknown);
 impl IDirectMusic {
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn EnumPort(&self, dwindex: u32, pportcaps: *mut DMUS_PORTCAPS) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwindex), ::std::mem::transmute(pportcaps)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn CreateMusicBuffer<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, pbufferdesc: *mut DMUS_BUFFERDESC, ppbuffer: *mut ::std::option::Option<IDirectMusicBuffer>, punkouter: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pbufferdesc), ::std::mem::transmute(ppbuffer), punkouter.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`*"]
     pub unsafe fn CreatePort<'a, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, rclsidport: *const ::windows::runtime::GUID, pportparams: *mut DMUS_PORTPARAMS8, ppport: *mut ::std::option::Option<IDirectMusicPort>, punkouter: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(rclsidport), ::std::mem::transmute(pportparams), ::std::mem::transmute(ppport), punkouter.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn EnumMasterClock(&self, dwindex: u32, lpclockinfo: *mut DMUS_CLOCKINFO8) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwindex), ::std::mem::transmute(lpclockinfo)).ok()
     }
     #[cfg(feature = "Win32_Graphics_DirectShow")]
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Graphics_DirectShow`*"]
     pub unsafe fn GetMasterClock(&self, pguidclock: *mut ::windows::runtime::GUID, ppreferenceclock: *mut ::std::option::Option<super::super::super::Graphics::DirectShow::IReferenceClock>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(pguidclock), ::std::mem::transmute(ppreferenceclock)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn SetMasterClock(&self, rguidclock: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(rguidclock)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`*"]
     pub unsafe fn Activate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, fenable: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), fenable.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetDefaultPort(&self, pguidport: *mut ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(pguidport)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`*"]
     pub unsafe fn SetDirectSound<'a, Param0: ::windows::runtime::IntoParam<'a, IDirectSound>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>>(&self, pdirectsound: Param0, hwnd: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), pdirectsound.into_param().abi(), hwnd.into_param().abi()).ok()
     }
@@ -4038,42 +4684,53 @@ pub struct IDirectMusic_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdirectsound: ::windows::runtime::RawPtr, hwnd: super::super::super::Foundation::HWND) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectMusic8(::windows::runtime::IUnknown);
 impl IDirectMusic8 {
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn EnumPort(&self, dwindex: u32, pportcaps: *mut DMUS_PORTCAPS) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwindex), ::std::mem::transmute(pportcaps)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn CreateMusicBuffer<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, pbufferdesc: *mut DMUS_BUFFERDESC, ppbuffer: *mut ::std::option::Option<IDirectMusicBuffer>, punkouter: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pbufferdesc), ::std::mem::transmute(ppbuffer), punkouter.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`*"]
     pub unsafe fn CreatePort<'a, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, rclsidport: *const ::windows::runtime::GUID, pportparams: *mut DMUS_PORTPARAMS8, ppport: *mut ::std::option::Option<IDirectMusicPort>, punkouter: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(rclsidport), ::std::mem::transmute(pportparams), ::std::mem::transmute(ppport), punkouter.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn EnumMasterClock(&self, dwindex: u32, lpclockinfo: *mut DMUS_CLOCKINFO8) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwindex), ::std::mem::transmute(lpclockinfo)).ok()
     }
     #[cfg(feature = "Win32_Graphics_DirectShow")]
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Graphics_DirectShow`*"]
     pub unsafe fn GetMasterClock(&self, pguidclock: *mut ::windows::runtime::GUID, ppreferenceclock: *mut ::std::option::Option<super::super::super::Graphics::DirectShow::IReferenceClock>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(pguidclock), ::std::mem::transmute(ppreferenceclock)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn SetMasterClock(&self, rguidclock: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(rguidclock)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`*"]
     pub unsafe fn Activate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, fenable: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), fenable.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetDefaultPort(&self, pguidport: *mut ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(pguidport)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`*"]
     pub unsafe fn SetDirectSound<'a, Param0: ::windows::runtime::IntoParam<'a, IDirectSound>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>>(&self, pdirectsound: Param0, hwnd: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), pdirectsound.into_param().abi(), hwnd.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Graphics_DirectShow")]
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Graphics_DirectShow`*"]
     pub unsafe fn SetExternalMasterClock<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Graphics::DirectShow::IReferenceClock>>(&self, pclock: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), pclock.into_param().abi()).ok()
     }
@@ -4144,46 +4801,60 @@ pub struct IDirectMusic8_abi(
     #[cfg(feature = "Win32_Graphics_DirectShow")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pclock: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_DirectShow"))] usize,
 );
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectMusicBuffer(::windows::runtime::IUnknown);
 impl IDirectMusicBuffer {
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn Flush(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn TotalTime(&self, prttime: *mut i64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(prttime)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn PackStructured(&self, rt: i64, dwchannelgroup: u32, dwchannelmessage: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(rt), ::std::mem::transmute(dwchannelgroup), ::std::mem::transmute(dwchannelmessage)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn PackUnstructured(&self, rt: i64, dwchannelgroup: u32, cb: u32, lpb: *mut u8) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(rt), ::std::mem::transmute(dwchannelgroup), ::std::mem::transmute(cb), ::std::mem::transmute(lpb)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn ResetReadPtr(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetNextEvent(&self, prt: *mut i64, pdwchannelgroup: *mut u32, pdwlength: *mut u32, ppdata: *mut *mut u8) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(prt), ::std::mem::transmute(pdwchannelgroup), ::std::mem::transmute(pdwlength), ::std::mem::transmute(ppdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetRawBufferPtr(&self, ppdata: *mut *mut u8) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetStartTime(&self, prt: *mut i64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(prt)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetUsedBytes(&self, pcb: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcb)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetMaxBytes(&self, pcb: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcb)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetBufferFormat(&self, pguidformat: *mut ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(pguidformat)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn SetStartTime(&self, rt: i64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(rt)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn SetUsedBytes(&self, cb: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(cb)).ok()
     }
@@ -4232,15 +4903,18 @@ pub struct IDirectMusicBuffer_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rt: i64) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, cb: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectMusicCollection(::windows::runtime::IUnknown);
 impl IDirectMusicCollection {
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetInstrument(&self, dwpatch: u32) -> ::windows::runtime::Result<IDirectMusicInstrument> {
         let mut result__: <IDirectMusicInstrument as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwpatch), &mut result__).from_abi::<IDirectMusicInstrument>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`*"]
     pub unsafe fn EnumInstrument<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, dwindex: u32, pdwpatch: *mut u32, pwszname: Param2, dwnamelen: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwindex), ::std::mem::transmute(pdwpatch), pwszname.into_param().abi(), ::std::mem::transmute(dwnamelen)).ok()
     }
@@ -4279,10 +4953,12 @@ pub struct IDirectMusicCollection_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwindex: u32, pdwpatch: *mut u32, pwszname: super::super::super::Foundation::PWSTR, dwnamelen: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectMusicDownload(::windows::runtime::IUnknown);
 impl IDirectMusicDownload {
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetBuffer(&self, ppvbuffer: *mut *mut ::std::ffi::c_void, pdwsize: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppvbuffer), ::std::mem::transmute(pdwsize)).ok()
     }
@@ -4319,6 +4995,7 @@ pub struct IDirectMusicDownload_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppvbuffer: *mut *mut ::std::ffi::c_void, pdwsize: *mut u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectMusicDownloadedInstrument(::windows::runtime::IUnknown);
@@ -4354,13 +5031,16 @@ pub struct IDirectMusicDownloadedInstrument_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
 );
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectMusicInstrument(::windows::runtime::IUnknown);
 impl IDirectMusicInstrument {
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetPatch(&self, pdwpatch: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwpatch)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn SetPatch(&self, dwpatch: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwpatch)).ok()
     }
@@ -4398,64 +5078,82 @@ pub struct IDirectMusicInstrument_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwpatch: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwpatch: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectMusicPort(::windows::runtime::IUnknown);
 impl IDirectMusicPort {
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn PlayBuffer<'a, Param0: ::windows::runtime::IntoParam<'a, IDirectMusicBuffer>>(&self, pbuffer: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pbuffer.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`*"]
     pub unsafe fn SetReadNotificationHandle<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(&self, hevent: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), hevent.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn Read<'a, Param0: ::windows::runtime::IntoParam<'a, IDirectMusicBuffer>>(&self, pbuffer: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), pbuffer.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn DownloadInstrument<'a, Param0: ::windows::runtime::IntoParam<'a, IDirectMusicInstrument>>(&self, pinstrument: Param0, ppdownloadedinstrument: *mut ::std::option::Option<IDirectMusicDownloadedInstrument>, pnoteranges: *mut DMUS_NOTERANGE, dwnumnoteranges: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), pinstrument.into_param().abi(), ::std::mem::transmute(ppdownloadedinstrument), ::std::mem::transmute(pnoteranges), ::std::mem::transmute(dwnumnoteranges)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn UnloadInstrument<'a, Param0: ::windows::runtime::IntoParam<'a, IDirectMusicDownloadedInstrument>>(&self, pdownloadedinstrument: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), pdownloadedinstrument.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Graphics_DirectShow")]
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Graphics_DirectShow`*"]
     pub unsafe fn GetLatencyClock(&self) -> ::windows::runtime::Result<super::super::super::Graphics::DirectShow::IReferenceClock> {
         let mut result__: <super::super::super::Graphics::DirectShow::IReferenceClock as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Graphics::DirectShow::IReferenceClock>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetRunningStats(&self, pstats: *mut DMUS_SYNTHSTATS) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(pstats)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn Compact(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetCaps(&self, pportcaps: *mut DMUS_PORTCAPS) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(pportcaps)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`, `Win32_System_IO`*"]
     pub unsafe fn DeviceIoControl(&self, dwiocontrolcode: u32, lpinbuffer: *mut ::std::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::std::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32, lpoverlapped: *mut super::super::super::System::IO::OVERLAPPED) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwiocontrolcode), ::std::mem::transmute(lpinbuffer), ::std::mem::transmute(ninbuffersize), ::std::mem::transmute(lpoutbuffer), ::std::mem::transmute(noutbuffersize), ::std::mem::transmute(lpbytesreturned), ::std::mem::transmute(lpoverlapped)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn SetNumChannelGroups(&self, dwchannelgroups: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwchannelgroups)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetNumChannelGroups(&self, pdwchannelgroups: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwchannelgroups)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`*"]
     pub unsafe fn Activate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, factive: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), factive.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn SetChannelPriority(&self, dwchannelgroup: u32, dwchannel: u32, dwpriority: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwchannelgroup), ::std::mem::transmute(dwchannel), ::std::mem::transmute(dwpriority)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetChannelPriority(&self, dwchannelgroup: u32, dwchannel: u32, pdwpriority: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwchannelgroup), ::std::mem::transmute(dwchannel), ::std::mem::transmute(pdwpriority)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn SetDirectSound<'a, Param0: ::windows::runtime::IntoParam<'a, IDirectSound>, Param1: ::windows::runtime::IntoParam<'a, IDirectSoundBuffer>>(&self, pdirectsound: Param0, pdirectsoundbuffer: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), pdirectsound.into_param().abi(), pdirectsoundbuffer.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Media_Multimedia")]
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Media_Multimedia`*"]
     pub unsafe fn GetFormat(&self, pwaveformatex: *mut super::super::Multimedia::WAVEFORMATEX, pdwwaveformatexsize: *mut u32, pdwbuffersize: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwaveformatex), ::std::mem::transmute(pdwwaveformatexsize), ::std::mem::transmute(pdwbuffersize)).ok()
     }
@@ -4513,27 +5211,34 @@ pub struct IDirectMusicPort_abi(
     #[cfg(feature = "Win32_Media_Multimedia")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwaveformatex: *mut super::super::Multimedia::WAVEFORMATEX, pdwwaveformatexsize: *mut u32, pdwbuffersize: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Media_Multimedia"))] usize,
 );
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectMusicPortDownload(::windows::runtime::IUnknown);
 impl IDirectMusicPortDownload {
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetBuffer(&self, dwdlid: u32) -> ::windows::runtime::Result<IDirectMusicDownload> {
         let mut result__: <IDirectMusicDownload as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwdlid), &mut result__).from_abi::<IDirectMusicDownload>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn AllocateBuffer(&self, dwsize: u32) -> ::windows::runtime::Result<IDirectMusicDownload> {
         let mut result__: <IDirectMusicDownload as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwsize), &mut result__).from_abi::<IDirectMusicDownload>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetDLId(&self, pdwstartdlid: *mut u32, dwcount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwstartdlid), ::std::mem::transmute(dwcount)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetAppend(&self, pdwappend: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwappend)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn Download<'a, Param0: ::windows::runtime::IntoParam<'a, IDirectMusicDownload>>(&self, pidmdownload: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), pidmdownload.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn Unload<'a, Param0: ::windows::runtime::IntoParam<'a, IDirectMusicDownload>>(&self, pidmdownload: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), pidmdownload.into_param().abi()).ok()
     }
@@ -4575,66 +5280,84 @@ pub struct IDirectMusicPortDownload_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pidmdownload: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pidmdownload: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectMusicSynth(::windows::runtime::IUnknown);
 impl IDirectMusicSynth {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`*"]
     pub unsafe fn Open(&self, pportparams: *mut DMUS_PORTPARAMS8) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pportparams)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn Close(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn SetNumChannelGroups(&self, dwgroups: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwgroups)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`*"]
     pub unsafe fn Download(&self, phdownload: *mut super::super::super::Foundation::HANDLE, pvdata: *mut ::std::ffi::c_void, pbfree: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(phdownload), ::std::mem::transmute(pvdata), ::std::mem::transmute(pbfree)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`*"]
     pub unsafe fn Unload<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(&self, hdownload: Param0, lpfreehandle: isize, huserdata: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), hdownload.into_param().abi(), ::std::mem::transmute(lpfreehandle), huserdata.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn PlayBuffer(&self, rt: i64, pbbuffer: *mut u8, cbbuffer: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(rt), ::std::mem::transmute(pbbuffer), ::std::mem::transmute(cbbuffer)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetRunningStats(&self, pstats: *mut DMUS_SYNTHSTATS) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(pstats)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetPortCaps(&self, pcaps: *mut DMUS_PORTCAPS) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcaps)).ok()
     }
     #[cfg(feature = "Win32_Graphics_DirectShow")]
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Graphics_DirectShow`*"]
     pub unsafe fn SetMasterClock<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Graphics::DirectShow::IReferenceClock>>(&self, pclock: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), pclock.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Graphics_DirectShow")]
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Graphics_DirectShow`*"]
     pub unsafe fn GetLatencyClock(&self) -> ::windows::runtime::Result<super::super::super::Graphics::DirectShow::IReferenceClock> {
         let mut result__: <super::super::super::Graphics::DirectShow::IReferenceClock as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Graphics::DirectShow::IReferenceClock>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`*"]
     pub unsafe fn Activate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, fenable: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), fenable.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn SetSynthSink<'a, Param0: ::windows::runtime::IntoParam<'a, IDirectMusicSynthSink>>(&self, psynthsink: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), psynthsink.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn Render(&self, pbuffer: *mut i16, dwlength: u32, llposition: i64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(pbuffer), ::std::mem::transmute(dwlength), ::std::mem::transmute(llposition)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn SetChannelPriority(&self, dwchannelgroup: u32, dwchannel: u32, dwpriority: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwchannelgroup), ::std::mem::transmute(dwchannel), ::std::mem::transmute(dwpriority)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetChannelPriority(&self, dwchannelgroup: u32, dwchannel: u32, pdwpriority: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwchannelgroup), ::std::mem::transmute(dwchannel), ::std::mem::transmute(pdwpriority)).ok()
     }
     #[cfg(feature = "Win32_Media_Multimedia")]
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Media_Multimedia`*"]
     pub unsafe fn GetFormat(&self, pwaveformatex: *mut super::super::Multimedia::WAVEFORMATEX, pdwwaveformatexsize: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwaveformatex), ::std::mem::transmute(pdwwaveformatexsize)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetAppend(&self, pdwappend: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwappend)).ok()
     }
@@ -4694,69 +5417,88 @@ pub struct IDirectMusicSynth_abi(
     #[cfg(not(feature = "Win32_Media_Multimedia"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwappend: *mut u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectMusicSynth8(::windows::runtime::IUnknown);
 impl IDirectMusicSynth8 {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`*"]
     pub unsafe fn Open(&self, pportparams: *mut DMUS_PORTPARAMS8) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pportparams)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn Close(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn SetNumChannelGroups(&self, dwgroups: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwgroups)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`*"]
     pub unsafe fn Download(&self, phdownload: *mut super::super::super::Foundation::HANDLE, pvdata: *mut ::std::ffi::c_void, pbfree: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(phdownload), ::std::mem::transmute(pvdata), ::std::mem::transmute(pbfree)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`*"]
     pub unsafe fn Unload<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(&self, hdownload: Param0, lpfreehandle: isize, huserdata: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), hdownload.into_param().abi(), ::std::mem::transmute(lpfreehandle), huserdata.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn PlayBuffer(&self, rt: i64, pbbuffer: *mut u8, cbbuffer: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(rt), ::std::mem::transmute(pbbuffer), ::std::mem::transmute(cbbuffer)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetRunningStats(&self, pstats: *mut DMUS_SYNTHSTATS) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(pstats)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetPortCaps(&self, pcaps: *mut DMUS_PORTCAPS) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcaps)).ok()
     }
     #[cfg(feature = "Win32_Graphics_DirectShow")]
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Graphics_DirectShow`*"]
     pub unsafe fn SetMasterClock<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Graphics::DirectShow::IReferenceClock>>(&self, pclock: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), pclock.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Graphics_DirectShow")]
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Graphics_DirectShow`*"]
     pub unsafe fn GetLatencyClock(&self) -> ::windows::runtime::Result<super::super::super::Graphics::DirectShow::IReferenceClock> {
         let mut result__: <super::super::super::Graphics::DirectShow::IReferenceClock as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Graphics::DirectShow::IReferenceClock>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`*"]
     pub unsafe fn Activate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, fenable: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), fenable.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn SetSynthSink<'a, Param0: ::windows::runtime::IntoParam<'a, IDirectMusicSynthSink>>(&self, psynthsink: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), psynthsink.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn Render(&self, pbuffer: *mut i16, dwlength: u32, llposition: i64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(pbuffer), ::std::mem::transmute(dwlength), ::std::mem::transmute(llposition)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn SetChannelPriority(&self, dwchannelgroup: u32, dwchannel: u32, dwpriority: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwchannelgroup), ::std::mem::transmute(dwchannel), ::std::mem::transmute(dwpriority)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetChannelPriority(&self, dwchannelgroup: u32, dwchannel: u32, pdwpriority: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwchannelgroup), ::std::mem::transmute(dwchannel), ::std::mem::transmute(pdwpriority)).ok()
     }
     #[cfg(feature = "Win32_Media_Multimedia")]
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Media_Multimedia`*"]
     pub unsafe fn GetFormat(&self, pwaveformatex: *mut super::super::Multimedia::WAVEFORMATEX, pdwwaveformatexsize: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwaveformatex), ::std::mem::transmute(pdwwaveformatexsize)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetAppend(&self, pdwappend: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwappend)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn PlayVoice(&self, rt: i64, dwvoiceid: u32, dwchannelgroup: u32, dwchannel: u32, dwdlid: u32, prpitch: i32, vrvolume: i32, stvoicestart: u64, stloopstart: u64, stloopend: u64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).20)(
             ::std::mem::transmute_copy(self),
@@ -4773,16 +5515,20 @@ impl IDirectMusicSynth8 {
         )
         .ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn StopVoice(&self, rt: i64, dwvoiceid: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(rt), ::std::mem::transmute(dwvoiceid)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`*"]
     pub unsafe fn GetVoiceState(&self, dwvoice: *mut u32, cbvoice: u32, dwvoicestate: *mut DMUS_VOICE_STATE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwvoice), ::std::mem::transmute(cbvoice), ::std::mem::transmute(dwvoicestate)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn Refresh(&self, dwdownloadid: u32, dwflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwdownloadid), ::std::mem::transmute(dwflags)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn AssignChannelToBuses(&self, dwchannelgroup: u32, dwchannel: u32, pdwbuses: *mut u32, cbuses: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwchannelgroup), ::std::mem::transmute(dwchannel), ::std::mem::transmute(pdwbuses), ::std::mem::transmute(cbuses)).ok()
     }
@@ -4868,35 +5614,44 @@ pub struct IDirectMusicSynth8_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwdownloadid: u32, dwflags: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwchannelgroup: u32, dwchannel: u32, pdwbuses: *mut u32, cbuses: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectMusicSynthSink(::windows::runtime::IUnknown);
 impl IDirectMusicSynthSink {
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn Init<'a, Param0: ::windows::runtime::IntoParam<'a, IDirectMusicSynth>>(&self, psynth: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), psynth.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Graphics_DirectShow")]
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Graphics_DirectShow`*"]
     pub unsafe fn SetMasterClock<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Graphics::DirectShow::IReferenceClock>>(&self, pclock: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pclock.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Graphics_DirectShow")]
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Graphics_DirectShow`*"]
     pub unsafe fn GetLatencyClock(&self) -> ::windows::runtime::Result<super::super::super::Graphics::DirectShow::IReferenceClock> {
         let mut result__: <super::super::super::Graphics::DirectShow::IReferenceClock as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Graphics::DirectShow::IReferenceClock>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`*"]
     pub unsafe fn Activate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, fenable: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), fenable.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn SampleToRefTime(&self, llsampletime: i64, prftime: *mut i64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(llsampletime), ::std::mem::transmute(prftime)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn RefTimeToSample(&self, rftime: i64, pllsampletime: *mut i64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(rftime), ::std::mem::transmute(pllsampletime)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn SetDirectSound<'a, Param0: ::windows::runtime::IntoParam<'a, IDirectSound>, Param1: ::windows::runtime::IntoParam<'a, IDirectSoundBuffer>>(&self, pdirectsound: Param0, pdirectsoundbuffer: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), pdirectsound.into_param().abi(), pdirectsoundbuffer.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetDesiredBufferSize(&self, pdwbuffersizeinsamples: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwbuffersizeinsamples)).ok()
     }
@@ -4943,10 +5698,12 @@ pub struct IDirectMusicSynthSink_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdirectsound: ::windows::runtime::RawPtr, pdirectsoundbuffer: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwbuffersizeinsamples: *mut u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectMusicThru(::windows::runtime::IUnknown);
 impl IDirectMusicThru {
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn ThruChannel<'a, Param4: ::windows::runtime::IntoParam<'a, IDirectMusicPort>>(&self, dwsourcechannelgroup: u32, dwsourcechannel: u32, dwdestinationchannelgroup: u32, dwdestinationchannel: u32, pdestinationport: Param4) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwsourcechannelgroup), ::std::mem::transmute(dwsourcechannel), ::std::mem::transmute(dwdestinationchannelgroup), ::std::mem::transmute(dwdestinationchannel), pdestinationport.into_param().abi()).ok()
     }
@@ -4983,36 +5740,45 @@ pub struct IDirectMusicThru_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwsourcechannelgroup: u32, dwsourcechannel: u32, dwdestinationchannelgroup: u32, dwdestinationchannel: u32, pdestinationport: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectSound(::windows::runtime::IUnknown);
 impl IDirectSound {
     #[cfg(feature = "Win32_Media_Multimedia")]
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Media_Multimedia`*"]
     pub unsafe fn CreateSoundBuffer<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, pcdsbufferdesc: *const DSBUFFERDESC, ppdsbuffer: *mut ::std::option::Option<IDirectSoundBuffer>, punkouter: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcdsbufferdesc), ::std::mem::transmute(ppdsbuffer), punkouter.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetCaps(&self) -> ::windows::runtime::Result<DSCAPS> {
         let mut result__: <DSCAPS as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<DSCAPS>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn DuplicateSoundBuffer<'a, Param0: ::windows::runtime::IntoParam<'a, IDirectSoundBuffer>>(&self, pdsbufferoriginal: Param0) -> ::windows::runtime::Result<IDirectSoundBuffer> {
         let mut result__: <IDirectSoundBuffer as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), pdsbufferoriginal.into_param().abi(), &mut result__).from_abi::<IDirectSoundBuffer>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`*"]
     pub unsafe fn SetCooperativeLevel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>>(&self, hwnd: Param0, dwlevel: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), hwnd.into_param().abi(), ::std::mem::transmute(dwlevel)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn Compact(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetSpeakerConfig(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn SetSpeakerConfig(&self, dwspeakerconfig: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwspeakerconfig)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn Initialize(&self, pcguiddevice: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcguiddevice)).ok()
     }
@@ -5058,74 +5824,93 @@ pub struct IDirectSound_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwspeakerconfig: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcguiddevice: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectSound3DBuffer(::windows::runtime::IUnknown);
 impl IDirectSound3DBuffer {
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetAllParameters(&self) -> ::windows::runtime::Result<DS3DBUFFER> {
         let mut result__: <DS3DBUFFER as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<DS3DBUFFER>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetConeAngles(&self, pdwinsideconeangle: *mut u32, pdwoutsideconeangle: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwinsideconeangle), ::std::mem::transmute(pdwoutsideconeangle)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetConeOrientation(&self) -> ::windows::runtime::Result<super::super::super::Graphics::Direct3D9::D3DVECTOR> {
         let mut result__: <super::super::super::Graphics::Direct3D9::D3DVECTOR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Graphics::Direct3D9::D3DVECTOR>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetConeOutsideVolume(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetMaxDistance(&self) -> ::windows::runtime::Result<f32> {
         let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetMinDistance(&self) -> ::windows::runtime::Result<f32> {
         let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetMode(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetPosition(&self) -> ::windows::runtime::Result<super::super::super::Graphics::Direct3D9::D3DVECTOR> {
         let mut result__: <super::super::super::Graphics::Direct3D9::D3DVECTOR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Graphics::Direct3D9::D3DVECTOR>(result__)
     }
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetVelocity(&self) -> ::windows::runtime::Result<super::super::super::Graphics::Direct3D9::D3DVECTOR> {
         let mut result__: <super::super::super::Graphics::Direct3D9::D3DVECTOR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Graphics::Direct3D9::D3DVECTOR>(result__)
     }
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetAllParameters(&self, pcds3dbuffer: *const DS3DBUFFER, dwapply: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcds3dbuffer), ::std::mem::transmute(dwapply)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn SetConeAngles(&self, dwinsideconeangle: u32, dwoutsideconeangle: u32, dwapply: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwinsideconeangle), ::std::mem::transmute(dwoutsideconeangle), ::std::mem::transmute(dwapply)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn SetConeOrientation(&self, x: f32, y: f32, z: f32, dwapply: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(x), ::std::mem::transmute(y), ::std::mem::transmute(z), ::std::mem::transmute(dwapply)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn SetConeOutsideVolume(&self, lconeoutsidevolume: i32, dwapply: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(lconeoutsidevolume), ::std::mem::transmute(dwapply)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn SetMaxDistance(&self, flmaxdistance: f32, dwapply: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(flmaxdistance), ::std::mem::transmute(dwapply)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn SetMinDistance(&self, flmindistance: f32, dwapply: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(flmindistance), ::std::mem::transmute(dwapply)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn SetMode(&self, dwmode: u32, dwapply: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwmode), ::std::mem::transmute(dwapply)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn SetPosition(&self, x: f32, y: f32, z: f32, dwapply: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(x), ::std::mem::transmute(y), ::std::mem::transmute(z), ::std::mem::transmute(dwapply)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn SetVelocity(&self, x: f32, y: f32, z: f32, dwapply: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(x), ::std::mem::transmute(y), ::std::mem::transmute(z), ::std::mem::transmute(dwapply)).ok()
     }
@@ -5184,63 +5969,79 @@ pub struct IDirectSound3DBuffer_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, x: f32, y: f32, z: f32, dwapply: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, x: f32, y: f32, z: f32, dwapply: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectSound3DListener(::windows::runtime::IUnknown);
 impl IDirectSound3DListener {
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetAllParameters(&self) -> ::windows::runtime::Result<DS3DLISTENER> {
         let mut result__: <DS3DLISTENER as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<DS3DLISTENER>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetDistanceFactor(&self) -> ::windows::runtime::Result<f32> {
         let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetDopplerFactor(&self) -> ::windows::runtime::Result<f32> {
         let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
     }
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetOrientation(&self, pvorientfront: *mut super::super::super::Graphics::Direct3D9::D3DVECTOR, pvorienttop: *mut super::super::super::Graphics::Direct3D9::D3DVECTOR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(pvorientfront), ::std::mem::transmute(pvorienttop)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetPosition(&self) -> ::windows::runtime::Result<super::super::super::Graphics::Direct3D9::D3DVECTOR> {
         let mut result__: <super::super::super::Graphics::Direct3D9::D3DVECTOR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Graphics::Direct3D9::D3DVECTOR>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetRolloffFactor(&self) -> ::windows::runtime::Result<f32> {
         let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
     }
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetVelocity(&self) -> ::windows::runtime::Result<super::super::super::Graphics::Direct3D9::D3DVECTOR> {
         let mut result__: <super::super::super::Graphics::Direct3D9::D3DVECTOR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Graphics::Direct3D9::D3DVECTOR>(result__)
     }
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn SetAllParameters(&self, pclistener: *const DS3DLISTENER, dwapply: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(pclistener), ::std::mem::transmute(dwapply)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn SetDistanceFactor(&self, fldistancefactor: f32, dwapply: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(fldistancefactor), ::std::mem::transmute(dwapply)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn SetDopplerFactor(&self, fldopplerfactor: f32, dwapply: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(fldopplerfactor), ::std::mem::transmute(dwapply)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn SetOrientation(&self, xfront: f32, yfront: f32, zfront: f32, xtop: f32, ytop: f32, ztop: f32, dwapply: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(xfront), ::std::mem::transmute(yfront), ::std::mem::transmute(zfront), ::std::mem::transmute(xtop), ::std::mem::transmute(ytop), ::std::mem::transmute(ztop), ::std::mem::transmute(dwapply)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn SetPosition(&self, x: f32, y: f32, z: f32, dwapply: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(x), ::std::mem::transmute(y), ::std::mem::transmute(z), ::std::mem::transmute(dwapply)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn SetRolloffFactor(&self, flrollofffactor: f32, dwapply: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(flrollofffactor), ::std::mem::transmute(dwapply)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn SetVelocity(&self, x: f32, y: f32, z: f32, dwapply: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(x), ::std::mem::transmute(y), ::std::mem::transmute(z), ::std::mem::transmute(dwapply)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn CommitDeferredSettings(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self)).ok()
     }
@@ -5296,39 +6097,49 @@ pub struct IDirectSound3DListener_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, x: f32, y: f32, z: f32, dwapply: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectSound8(::windows::runtime::IUnknown);
 impl IDirectSound8 {
     #[cfg(feature = "Win32_Media_Multimedia")]
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Media_Multimedia`*"]
     pub unsafe fn CreateSoundBuffer<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, pcdsbufferdesc: *const DSBUFFERDESC, ppdsbuffer: *mut ::std::option::Option<IDirectSoundBuffer>, punkouter: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcdsbufferdesc), ::std::mem::transmute(ppdsbuffer), punkouter.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetCaps(&self) -> ::windows::runtime::Result<DSCAPS> {
         let mut result__: <DSCAPS as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<DSCAPS>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn DuplicateSoundBuffer<'a, Param0: ::windows::runtime::IntoParam<'a, IDirectSoundBuffer>>(&self, pdsbufferoriginal: Param0) -> ::windows::runtime::Result<IDirectSoundBuffer> {
         let mut result__: <IDirectSoundBuffer as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), pdsbufferoriginal.into_param().abi(), &mut result__).from_abi::<IDirectSoundBuffer>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`*"]
     pub unsafe fn SetCooperativeLevel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>>(&self, hwnd: Param0, dwlevel: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), hwnd.into_param().abi(), ::std::mem::transmute(dwlevel)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn Compact(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetSpeakerConfig(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn SetSpeakerConfig(&self, dwspeakerconfig: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwspeakerconfig)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn Initialize(&self, pcguiddevice: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcguiddevice)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn VerifyCertification(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
@@ -5396,69 +6207,88 @@ pub struct IDirectSound8_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcguiddevice: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwcertified: *mut u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectSoundBuffer(::windows::runtime::IUnknown);
 impl IDirectSoundBuffer {
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetCaps(&self) -> ::windows::runtime::Result<DSBCAPS> {
         let mut result__: <DSBCAPS as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<DSBCAPS>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetCurrentPosition(&self, pdwcurrentplaycursor: *mut u32, pdwcurrentwritecursor: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwcurrentplaycursor), ::std::mem::transmute(pdwcurrentwritecursor)).ok()
     }
     #[cfg(feature = "Win32_Media_Multimedia")]
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Media_Multimedia`*"]
     pub unsafe fn GetFormat(&self, pwfxformat: *mut super::super::Multimedia::WAVEFORMATEX, dwsizeallocated: u32, pdwsizewritten: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwfxformat), ::std::mem::transmute(dwsizeallocated), ::std::mem::transmute(pdwsizewritten)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetVolume(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetPan(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetFrequency(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetStatus(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Media_Multimedia")]
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Media_Multimedia`*"]
     pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, IDirectSound>>(&self, pdirectsound: Param0, pcdsbufferdesc: *const DSBUFFERDESC) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), pdirectsound.into_param().abi(), ::std::mem::transmute(pcdsbufferdesc)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn Lock(&self, dwoffset: u32, dwbytes: u32, ppvaudioptr1: *mut *mut ::std::ffi::c_void, pdwaudiobytes1: *mut u32, ppvaudioptr2: *mut *mut ::std::ffi::c_void, pdwaudiobytes2: *mut u32, dwflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoffset), ::std::mem::transmute(dwbytes), ::std::mem::transmute(ppvaudioptr1), ::std::mem::transmute(pdwaudiobytes1), ::std::mem::transmute(ppvaudioptr2), ::std::mem::transmute(pdwaudiobytes2), ::std::mem::transmute(dwflags)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn Play(&self, dwreserved1: u32, dwpriority: u32, dwflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwreserved1), ::std::mem::transmute(dwpriority), ::std::mem::transmute(dwflags)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn SetCurrentPosition(&self, dwnewposition: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwnewposition)).ok()
     }
     #[cfg(feature = "Win32_Media_Multimedia")]
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Media_Multimedia`*"]
     pub unsafe fn SetFormat(&self, pcfxformat: *const super::super::Multimedia::WAVEFORMATEX) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcfxformat)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn SetVolume(&self, lvolume: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(lvolume)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn SetPan(&self, lpan: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(lpan)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn SetFrequency(&self, dwfrequency: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwfrequency)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn Stop(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn Unlock(&self, pvaudioptr1: *const ::std::ffi::c_void, dwaudiobytes1: u32, pvaudioptr2: *const ::std::ffi::c_void, dwaudiobytes2: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(pvaudioptr1), ::std::mem::transmute(dwaudiobytes1), ::std::mem::transmute(pvaudioptr2), ::std::mem::transmute(dwaudiobytes2)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn Restore(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self)).ok()
     }
@@ -5515,78 +6345,100 @@ pub struct IDirectSoundBuffer_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvaudioptr1: *const ::std::ffi::c_void, dwaudiobytes1: u32, pvaudioptr2: *const ::std::ffi::c_void, dwaudiobytes2: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectSoundBuffer8(::windows::runtime::IUnknown);
 impl IDirectSoundBuffer8 {
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetCaps(&self) -> ::windows::runtime::Result<DSBCAPS> {
         let mut result__: <DSBCAPS as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<DSBCAPS>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetCurrentPosition(&self, pdwcurrentplaycursor: *mut u32, pdwcurrentwritecursor: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwcurrentplaycursor), ::std::mem::transmute(pdwcurrentwritecursor)).ok()
     }
     #[cfg(feature = "Win32_Media_Multimedia")]
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Media_Multimedia`*"]
     pub unsafe fn GetFormat(&self, pwfxformat: *mut super::super::Multimedia::WAVEFORMATEX, dwsizeallocated: u32, pdwsizewritten: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwfxformat), ::std::mem::transmute(dwsizeallocated), ::std::mem::transmute(pdwsizewritten)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetVolume(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetPan(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetFrequency(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetStatus(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Media_Multimedia")]
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Media_Multimedia`*"]
     pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, IDirectSound>>(&self, pdirectsound: Param0, pcdsbufferdesc: *const DSBUFFERDESC) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), pdirectsound.into_param().abi(), ::std::mem::transmute(pcdsbufferdesc)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn Lock(&self, dwoffset: u32, dwbytes: u32, ppvaudioptr1: *mut *mut ::std::ffi::c_void, pdwaudiobytes1: *mut u32, ppvaudioptr2: *mut *mut ::std::ffi::c_void, pdwaudiobytes2: *mut u32, dwflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoffset), ::std::mem::transmute(dwbytes), ::std::mem::transmute(ppvaudioptr1), ::std::mem::transmute(pdwaudiobytes1), ::std::mem::transmute(ppvaudioptr2), ::std::mem::transmute(pdwaudiobytes2), ::std::mem::transmute(dwflags)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn Play(&self, dwreserved1: u32, dwpriority: u32, dwflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwreserved1), ::std::mem::transmute(dwpriority), ::std::mem::transmute(dwflags)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn SetCurrentPosition(&self, dwnewposition: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwnewposition)).ok()
     }
     #[cfg(feature = "Win32_Media_Multimedia")]
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Media_Multimedia`*"]
     pub unsafe fn SetFormat(&self, pcfxformat: *const super::super::Multimedia::WAVEFORMATEX) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcfxformat)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn SetVolume(&self, lvolume: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(lvolume)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn SetPan(&self, lpan: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(lpan)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn SetFrequency(&self, dwfrequency: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwfrequency)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn Stop(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn Unlock(&self, pvaudioptr1: *const ::std::ffi::c_void, dwaudiobytes1: u32, pvaudioptr2: *const ::std::ffi::c_void, dwaudiobytes2: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(pvaudioptr1), ::std::mem::transmute(dwaudiobytes1), ::std::mem::transmute(pvaudioptr2), ::std::mem::transmute(dwaudiobytes2)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn Restore(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn SetFX(&self, dweffectscount: u32, pdsfxdesc: *const DSEFFECTDESC, pdwresultcodes: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(dweffectscount), ::std::mem::transmute(pdsfxdesc), ::std::mem::transmute(pdwresultcodes)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn AcquireResources(&self, dwflags: u32, dweffectscount: u32, pdwresultcodes: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwflags), ::std::mem::transmute(dweffectscount), ::std::mem::transmute(pdwresultcodes)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetObjectInPath(&self, rguidobject: *const ::windows::runtime::GUID, dwindex: u32, rguidinterface: *const ::windows::runtime::GUID, ppobject: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), ::std::mem::transmute(rguidobject), ::std::mem::transmute(dwindex), ::std::mem::transmute(rguidinterface), ::std::mem::transmute(ppobject)).ok()
     }
@@ -5666,18 +6518,22 @@ pub struct IDirectSoundBuffer8_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwflags: u32, dweffectscount: u32, pdwresultcodes: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rguidobject: *const ::windows::runtime::GUID, dwindex: u32, rguidinterface: *const ::windows::runtime::GUID, ppobject: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectSoundCapture(::windows::runtime::IUnknown);
 impl IDirectSoundCapture {
     #[cfg(feature = "Win32_Media_Multimedia")]
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Media_Multimedia`*"]
     pub unsafe fn CreateCaptureBuffer<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, pcdscbufferdesc: *const DSCBUFFERDESC, ppdscbuffer: *mut ::std::option::Option<IDirectSoundCaptureBuffer>, punkouter: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcdscbufferdesc), ::std::mem::transmute(ppdscbuffer), punkouter.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetCaps(&self) -> ::windows::runtime::Result<DSCCAPS> {
         let mut result__: <DSCCAPS as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<DSCCAPS>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn Initialize(&self, pcguiddevice: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcguiddevice)).ok()
     }
@@ -5717,38 +6573,48 @@ pub struct IDirectSoundCapture_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdsccaps: *mut DSCCAPS) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcguiddevice: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectSoundCaptureBuffer(::windows::runtime::IUnknown);
 impl IDirectSoundCaptureBuffer {
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetCaps(&self) -> ::windows::runtime::Result<DSCBCAPS> {
         let mut result__: <DSCBCAPS as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<DSCBCAPS>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetCurrentPosition(&self, pdwcaptureposition: *mut u32, pdwreadposition: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwcaptureposition), ::std::mem::transmute(pdwreadposition)).ok()
     }
     #[cfg(feature = "Win32_Media_Multimedia")]
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Media_Multimedia`*"]
     pub unsafe fn GetFormat(&self, pwfxformat: *mut super::super::Multimedia::WAVEFORMATEX, dwsizeallocated: u32, pdwsizewritten: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwfxformat), ::std::mem::transmute(dwsizeallocated), ::std::mem::transmute(pdwsizewritten)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetStatus(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Media_Multimedia")]
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Media_Multimedia`*"]
     pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, IDirectSoundCapture>>(&self, pdirectsoundcapture: Param0, pcdscbufferdesc: *const DSCBUFFERDESC) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), pdirectsoundcapture.into_param().abi(), ::std::mem::transmute(pcdscbufferdesc)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn Lock(&self, dwoffset: u32, dwbytes: u32, ppvaudioptr1: *mut *mut ::std::ffi::c_void, pdwaudiobytes1: *mut u32, ppvaudioptr2: *mut *mut ::std::ffi::c_void, pdwaudiobytes2: *mut u32, dwflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoffset), ::std::mem::transmute(dwbytes), ::std::mem::transmute(ppvaudioptr1), ::std::mem::transmute(pdwaudiobytes1), ::std::mem::transmute(ppvaudioptr2), ::std::mem::transmute(pdwaudiobytes2), ::std::mem::transmute(dwflags)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn Start(&self, dwflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwflags)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn Stop(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn Unlock(&self, pvaudioptr1: *const ::std::ffi::c_void, dwaudiobytes1: u32, pvaudioptr2: *const ::std::ffi::c_void, dwaudiobytes2: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(pvaudioptr1), ::std::mem::transmute(dwaudiobytes1), ::std::mem::transmute(pvaudioptr2), ::std::mem::transmute(dwaudiobytes2)).ok()
     }
@@ -5795,44 +6661,56 @@ pub struct IDirectSoundCaptureBuffer_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvaudioptr1: *const ::std::ffi::c_void, dwaudiobytes1: u32, pvaudioptr2: *const ::std::ffi::c_void, dwaudiobytes2: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectSoundCaptureBuffer8(::windows::runtime::IUnknown);
 impl IDirectSoundCaptureBuffer8 {
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetCaps(&self) -> ::windows::runtime::Result<DSCBCAPS> {
         let mut result__: <DSCBCAPS as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<DSCBCAPS>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetCurrentPosition(&self, pdwcaptureposition: *mut u32, pdwreadposition: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwcaptureposition), ::std::mem::transmute(pdwreadposition)).ok()
     }
     #[cfg(feature = "Win32_Media_Multimedia")]
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Media_Multimedia`*"]
     pub unsafe fn GetFormat(&self, pwfxformat: *mut super::super::Multimedia::WAVEFORMATEX, dwsizeallocated: u32, pdwsizewritten: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwfxformat), ::std::mem::transmute(dwsizeallocated), ::std::mem::transmute(pdwsizewritten)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetStatus(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Media_Multimedia")]
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Media_Multimedia`*"]
     pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, IDirectSoundCapture>>(&self, pdirectsoundcapture: Param0, pcdscbufferdesc: *const DSCBUFFERDESC) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), pdirectsoundcapture.into_param().abi(), ::std::mem::transmute(pcdscbufferdesc)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn Lock(&self, dwoffset: u32, dwbytes: u32, ppvaudioptr1: *mut *mut ::std::ffi::c_void, pdwaudiobytes1: *mut u32, ppvaudioptr2: *mut *mut ::std::ffi::c_void, pdwaudiobytes2: *mut u32, dwflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoffset), ::std::mem::transmute(dwbytes), ::std::mem::transmute(ppvaudioptr1), ::std::mem::transmute(pdwaudiobytes1), ::std::mem::transmute(ppvaudioptr2), ::std::mem::transmute(pdwaudiobytes2), ::std::mem::transmute(dwflags)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn Start(&self, dwflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwflags)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn Stop(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn Unlock(&self, pvaudioptr1: *const ::std::ffi::c_void, dwaudiobytes1: u32, pvaudioptr2: *const ::std::ffi::c_void, dwaudiobytes2: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(pvaudioptr1), ::std::mem::transmute(dwaudiobytes1), ::std::mem::transmute(pvaudioptr2), ::std::mem::transmute(dwaudiobytes2)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetObjectInPath(&self, rguidobject: *const ::windows::runtime::GUID, dwindex: u32, rguidinterface: *const ::windows::runtime::GUID, ppobject: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(rguidobject), ::std::mem::transmute(dwindex), ::std::mem::transmute(rguidinterface), ::std::mem::transmute(ppobject)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetFXStatus(&self, dweffectscount: u32, pdwfxstatus: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(dweffectscount), ::std::mem::transmute(pdwfxstatus)).ok()
     }
@@ -5901,23 +6779,28 @@ pub struct IDirectSoundCaptureBuffer8_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rguidobject: *const ::windows::runtime::GUID, dwindex: u32, rguidinterface: *const ::windows::runtime::GUID, ppobject: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dweffectscount: u32, pdwfxstatus: *mut u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectSoundCaptureFXAec(::windows::runtime::IUnknown);
 impl IDirectSoundCaptureFXAec {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`*"]
     pub unsafe fn SetAllParameters(&self, pdscfxaec: *const DSCFXAec) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdscfxaec)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`*"]
     pub unsafe fn GetAllParameters(&self) -> ::windows::runtime::Result<DSCFXAec> {
         let mut result__: <DSCFXAec as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<DSCFXAec>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetStatus(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self)).ok()
     }
@@ -5959,19 +6842,23 @@ pub struct IDirectSoundCaptureFXAec_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwstatus: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectSoundCaptureFXNoiseSuppress(::windows::runtime::IUnknown);
 impl IDirectSoundCaptureFXNoiseSuppress {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`*"]
     pub unsafe fn SetAllParameters(&self, pcdscfxnoisesuppress: *const DSCFXNoiseSuppress) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcdscfxnoisesuppress)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`*"]
     pub unsafe fn GetAllParameters(&self) -> ::windows::runtime::Result<DSCFXNoiseSuppress> {
         let mut result__: <DSCFXNoiseSuppress as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<DSCFXNoiseSuppress>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
@@ -6012,13 +6899,16 @@ pub struct IDirectSoundCaptureFXNoiseSuppress_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectSoundFXChorus(::windows::runtime::IUnknown);
 impl IDirectSoundFXChorus {
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn SetAllParameters(&self, pcdsfxchorus: *const DSFXChorus) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcdsfxchorus)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetAllParameters(&self) -> ::windows::runtime::Result<DSFXChorus> {
         let mut result__: <DSFXChorus as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<DSFXChorus>(result__)
@@ -6057,13 +6947,16 @@ pub struct IDirectSoundFXChorus_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcdsfxchorus: *const DSFXChorus) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdsfxchorus: *mut DSFXChorus) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectSoundFXCompressor(::windows::runtime::IUnknown);
 impl IDirectSoundFXCompressor {
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn SetAllParameters(&self, pcdsfxcompressor: *const DSFXCompressor) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcdsfxcompressor)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetAllParameters(&self) -> ::windows::runtime::Result<DSFXCompressor> {
         let mut result__: <DSFXCompressor as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<DSFXCompressor>(result__)
@@ -6102,13 +6995,16 @@ pub struct IDirectSoundFXCompressor_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcdsfxcompressor: *const DSFXCompressor) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdsfxcompressor: *mut DSFXCompressor) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectSoundFXDistortion(::windows::runtime::IUnknown);
 impl IDirectSoundFXDistortion {
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn SetAllParameters(&self, pcdsfxdistortion: *const DSFXDistortion) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcdsfxdistortion)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetAllParameters(&self) -> ::windows::runtime::Result<DSFXDistortion> {
         let mut result__: <DSFXDistortion as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<DSFXDistortion>(result__)
@@ -6147,13 +7043,16 @@ pub struct IDirectSoundFXDistortion_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcdsfxdistortion: *const DSFXDistortion) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdsfxdistortion: *mut DSFXDistortion) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectSoundFXEcho(::windows::runtime::IUnknown);
 impl IDirectSoundFXEcho {
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn SetAllParameters(&self, pcdsfxecho: *const DSFXEcho) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcdsfxecho)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetAllParameters(&self) -> ::windows::runtime::Result<DSFXEcho> {
         let mut result__: <DSFXEcho as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<DSFXEcho>(result__)
@@ -6192,13 +7091,16 @@ pub struct IDirectSoundFXEcho_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcdsfxecho: *const DSFXEcho) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdsfxecho: *mut DSFXEcho) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectSoundFXFlanger(::windows::runtime::IUnknown);
 impl IDirectSoundFXFlanger {
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn SetAllParameters(&self, pcdsfxflanger: *const DSFXFlanger) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcdsfxflanger)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetAllParameters(&self) -> ::windows::runtime::Result<DSFXFlanger> {
         let mut result__: <DSFXFlanger as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<DSFXFlanger>(result__)
@@ -6237,13 +7139,16 @@ pub struct IDirectSoundFXFlanger_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcdsfxflanger: *const DSFXFlanger) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdsfxflanger: *mut DSFXFlanger) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectSoundFXGargle(::windows::runtime::IUnknown);
 impl IDirectSoundFXGargle {
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn SetAllParameters(&self, pcdsfxgargle: *const DSFXGargle) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcdsfxgargle)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetAllParameters(&self) -> ::windows::runtime::Result<DSFXGargle> {
         let mut result__: <DSFXGargle as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<DSFXGargle>(result__)
@@ -6282,27 +7187,34 @@ pub struct IDirectSoundFXGargle_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcdsfxgargle: *const DSFXGargle) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdsfxgargle: *mut DSFXGargle) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectSoundFXI3DL2Reverb(::windows::runtime::IUnknown);
 impl IDirectSoundFXI3DL2Reverb {
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn SetAllParameters(&self, pcdsfxi3dl2reverb: *const DSFXI3DL2Reverb) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcdsfxi3dl2reverb)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetAllParameters(&self) -> ::windows::runtime::Result<DSFXI3DL2Reverb> {
         let mut result__: <DSFXI3DL2Reverb as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<DSFXI3DL2Reverb>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn SetPreset(&self, dwpreset: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwpreset)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetPreset(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn SetQuality(&self, lquality: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(lquality)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetQuality(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
@@ -6345,13 +7257,16 @@ pub struct IDirectSoundFXI3DL2Reverb_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lquality: i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, plquality: *mut i32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectSoundFXParamEq(::windows::runtime::IUnknown);
 impl IDirectSoundFXParamEq {
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn SetAllParameters(&self, pcdsfxparameq: *const DSFXParamEq) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcdsfxparameq)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetAllParameters(&self) -> ::windows::runtime::Result<DSFXParamEq> {
         let mut result__: <DSFXParamEq as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<DSFXParamEq>(result__)
@@ -6390,13 +7305,16 @@ pub struct IDirectSoundFXParamEq_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcdsfxparameq: *const DSFXParamEq) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdsfxparameq: *mut DSFXParamEq) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectSoundFXWavesReverb(::windows::runtime::IUnknown);
 impl IDirectSoundFXWavesReverb {
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn SetAllParameters(&self, pcdsfxwavesreverb: *const DSFXWavesReverb) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcdsfxwavesreverb)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
     pub unsafe fn GetAllParameters(&self) -> ::windows::runtime::Result<DSFXWavesReverb> {
         let mut result__: <DSFXWavesReverb as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<DSFXWavesReverb>(result__)
@@ -6435,11 +7353,13 @@ pub struct IDirectSoundFXWavesReverb_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcdsfxwavesreverb: *const DSFXWavesReverb) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdsfxwavesreverb: *mut DSFXWavesReverb) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectSoundFullDuplex(::windows::runtime::IUnknown);
 impl IDirectSoundFullDuplex {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Multimedia"))]
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`, `Win32_Media_Multimedia`*"]
     pub unsafe fn Initialize<'a, Param4: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>>(
         &self,
         pcaptureguid: *const ::windows::runtime::GUID,
@@ -6499,11 +7419,13 @@ pub struct IDirectSoundFullDuplex_abi(
     pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcaptureguid: *const ::windows::runtime::GUID, prenderguid: *const ::windows::runtime::GUID, lpdscbufferdesc: *const DSCBUFFERDESC, lpdsbufferdesc: *const DSBUFFERDESC, hwnd: super::super::super::Foundation::HWND, dwlevel: u32, lplpdirectsoundcapturebuffer8: *mut ::windows::runtime::RawPtr, lplpdirectsoundbuffer8: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Media_Multimedia")))] usize,
 );
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectSoundNotify(::windows::runtime::IUnknown);
 impl IDirectSoundNotify {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`*"]
     pub unsafe fn SetNotificationPositions(&self, dwpositionnotifies: u32, pcpositionnotifies: *const DSBPOSITIONNOTIFY) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwpositionnotifies), ::std::mem::transmute(pcpositionnotifies)).ok()
     }
@@ -6543,6 +7465,7 @@ pub struct IDirectSoundNotify_abi(
 );
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub struct INSTHEADER {
     pub cRegions: u32,
     pub Locale: MIDILOCALE,
@@ -6568,6 +7491,7 @@ unsafe impl ::windows::runtime::Abi for INSTHEADER {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct KSPROPERTY_AUDIOEFFECTSDISCOVERY(pub i32);
@@ -6581,12 +7505,15 @@ unsafe impl ::windows::runtime::Abi for KSPROPERTY_AUDIOEFFECTSDISCOVERY {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const KSPROPERTY_SUPPORT_GET: u32 = 1u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const KSPROPERTY_SUPPORT_SET: u32 = 2u32;
 pub const KSPROPSETID_AudioEffectsDiscovery: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(186743410, 5816, 19021, [189, 237, 249, 214, 187, 237, 205, 143]);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Media_Audio_CoreAudio")]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Media_Audio_CoreAudio`*"]
 pub struct KSP_PINMODE {
     pub PinProperty: super::CoreAudio::KSP_PIN,
     pub AudioProcessingMode: ::windows::runtime::GUID,
@@ -6624,6 +7551,7 @@ pub type LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKA = unsafe extern "system" fn(par
 pub type LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKW = unsafe extern "system" fn(param0: *mut DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA, param1: *mut ::std::ffi::c_void) -> super::super::super::Foundation::BOOL;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub struct MDEVICECAPSEX {
     pub cbSize: u32,
     pub pCaps: *mut ::std::ffi::c_void,
@@ -6646,6 +7574,7 @@ unsafe impl ::windows::runtime::Abi for MDEVICECAPSEX {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub struct MIDILOCALE {
     pub ulBank: u32,
     pub ulInstrument: u32,
@@ -6674,6 +7603,7 @@ unsafe impl ::windows::runtime::Abi for MIDILOCALE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Multimedia")]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Media_Multimedia`*"]
 pub struct MIDIOPENDESC {
     pub hMidi: super::super::Multimedia::HMIDI,
     pub dwCallback: usize,
@@ -6705,6 +7635,7 @@ unsafe impl ::windows::runtime::Abi for MIDIOPENDESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub struct POOLCUE {
     pub ulOffset: u32,
 }
@@ -6731,6 +7662,7 @@ unsafe impl ::windows::runtime::Abi for POOLCUE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub struct POOLTABLE {
     pub cbSize: u32,
     pub cCues: u32,
@@ -6756,10 +7688,13 @@ unsafe impl ::windows::runtime::Abi for POOLTABLE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const POOL_CUE_NULL: i32 = -1i32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const REFRESH_F_LASTBUFFER: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub struct RGNHEADER {
     pub RangeKey: RGNRANGE,
     pub RangeVelocity: RGNRANGE,
@@ -6789,6 +7724,7 @@ unsafe impl ::windows::runtime::Abi for RGNHEADER {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub struct RGNRANGE {
     pub usLow: u16,
     pub usHigh: u16,
@@ -6814,9 +7750,11 @@ unsafe impl ::windows::runtime::Abi for RGNRANGE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const SIZE_DVINFO: u32 = 32u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub struct Tag_DVAudInfo {
     pub bAudStyle: [u8; 2],
     pub bAudQu: [u8; 2],
@@ -6857,6 +7795,7 @@ unsafe impl ::windows::runtime::Abi for Tag_DVAudInfo {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub struct UNCOMPRESSEDAUDIOFORMAT {
     pub guidFormatType: ::windows::runtime::GUID,
     pub dwSamplesPerFrame: u32,
@@ -6895,6 +7834,7 @@ unsafe impl ::windows::runtime::Abi for UNCOMPRESSEDAUDIOFORMAT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub struct WAVELINK {
     pub fusOptions: u16,
     pub usPhaseGroup: u16,
@@ -6922,13 +7862,18 @@ unsafe impl ::windows::runtime::Abi for WAVELINK {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const WAVELINK_CHANNEL_LEFT: i32 = 1i32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const WAVELINK_CHANNEL_RIGHT: i32 = 2i32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const WLOOP_TYPE_FORWARD: u32 = 0u32;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const WLOOP_TYPE_RELEASE: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`*"]
 pub struct _DMUS_PORTPARAMS {
     pub dwSize: u32,
     pub dwValidParams: u32,
@@ -6975,9 +7920,11 @@ unsafe impl ::windows::runtime::Abi for _DMUS_PORTPARAMS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const _FACDS: u32 = 2168u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub struct _rloop {
     pub cbSize: u32,
     pub ulType: u32,
@@ -7007,6 +7954,7 @@ unsafe impl ::windows::runtime::Abi for _rloop {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub struct _rwsmp {
     pub cbSize: u32,
     pub usUnityNote: u16,

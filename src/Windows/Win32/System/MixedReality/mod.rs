@@ -2,6 +2,7 @@
 pub const PERCEPTIONFIELD_StateStream_TimeStamps: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2861064473, 62255, 18879, [146, 202, 249, 221, 247, 132, 210, 151]);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_MixedReality`*"]
 pub struct PERCEPTION_PAYLOAD_FIELD {
     pub FieldId: ::windows::runtime::GUID,
     pub OffsetInBytes: u32,
@@ -30,6 +31,7 @@ unsafe impl ::windows::runtime::Abi for PERCEPTION_PAYLOAD_FIELD {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_MixedReality`*"]
 pub struct PERCEPTION_STATE_STREAM_TIMESTAMPS {
     pub InputTimestampInQpcCounts: i64,
     pub AvailableTimestampInQpcCounts: i64,

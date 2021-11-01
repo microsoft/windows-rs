@@ -1,6 +1,8 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Data_Html`*"]
 pub struct HtmlUtilities {}
 impl HtmlUtilities {
+    #[doc = "*Required features: `Data_Html`*"]
     pub fn ConvertToText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(html: Param0) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IHtmlUtilities(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();

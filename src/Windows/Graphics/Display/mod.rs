@@ -1,10 +1,12 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[cfg(feature = "Graphics_Display_Core")]
 pub mod Core;
+#[doc = "*Required features: `Graphics_Display`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AdvancedColorInfo(::windows::runtime::IInspectable);
 impl AdvancedColorInfo {
+    #[doc = "*Required features: `Graphics_Display`*"]
     pub fn CurrentAdvancedColorKind(&self) -> ::windows::runtime::Result<AdvancedColorKind> {
         let this = self;
         unsafe {
@@ -13,6 +15,7 @@ impl AdvancedColorInfo {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Graphics_Display`, `Foundation`*"]
     pub fn RedPrimary(&self) -> ::windows::runtime::Result<super::super::Foundation::Point> {
         let this = self;
         unsafe {
@@ -21,6 +24,7 @@ impl AdvancedColorInfo {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Graphics_Display`, `Foundation`*"]
     pub fn GreenPrimary(&self) -> ::windows::runtime::Result<super::super::Foundation::Point> {
         let this = self;
         unsafe {
@@ -29,6 +33,7 @@ impl AdvancedColorInfo {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Graphics_Display`, `Foundation`*"]
     pub fn BluePrimary(&self) -> ::windows::runtime::Result<super::super::Foundation::Point> {
         let this = self;
         unsafe {
@@ -37,6 +42,7 @@ impl AdvancedColorInfo {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Graphics_Display`, `Foundation`*"]
     pub fn WhitePoint(&self) -> ::windows::runtime::Result<super::super::Foundation::Point> {
         let this = self;
         unsafe {
@@ -44,6 +50,7 @@ impl AdvancedColorInfo {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Point>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Display`*"]
     pub fn MaxLuminanceInNits(&self) -> ::windows::runtime::Result<f32> {
         let this = self;
         unsafe {
@@ -51,6 +58,7 @@ impl AdvancedColorInfo {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Display`*"]
     pub fn MinLuminanceInNits(&self) -> ::windows::runtime::Result<f32> {
         let this = self;
         unsafe {
@@ -58,6 +66,7 @@ impl AdvancedColorInfo {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Display`*"]
     pub fn MaxAverageFullFrameLuminanceInNits(&self) -> ::windows::runtime::Result<f32> {
         let this = self;
         unsafe {
@@ -65,6 +74,7 @@ impl AdvancedColorInfo {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Display`*"]
     pub fn SdrWhiteLevelInNits(&self) -> ::windows::runtime::Result<f32> {
         let this = self;
         unsafe {
@@ -72,6 +82,7 @@ impl AdvancedColorInfo {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Display`*"]
     pub fn IsHdrMetadataFormatCurrentlySupported(&self, format: HdrMetadataFormat) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -79,6 +90,7 @@ impl AdvancedColorInfo {
             (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), format, &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Display`*"]
     pub fn IsAdvancedColorKindAvailable(&self, kind: AdvancedColorKind) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -139,6 +151,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for AdvancedColorInfo {}
 unsafe impl ::std::marker::Sync for AdvancedColorInfo {}
+#[doc = "*Required features: `Graphics_Display`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AdvancedColorKind(pub i32);
@@ -159,10 +172,12 @@ unsafe impl ::windows::runtime::Abi for AdvancedColorKind {
 unsafe impl ::windows::runtime::RuntimeType for AdvancedColorKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.AdvancedColorKind;i4)");
 }
+#[doc = "*Required features: `Graphics_Display`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct BrightnessOverride(::windows::runtime::IInspectable);
 impl BrightnessOverride {
+    #[doc = "*Required features: `Graphics_Display`*"]
     pub fn IsSupported(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -170,6 +185,7 @@ impl BrightnessOverride {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Display`*"]
     pub fn IsOverrideActive(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -177,6 +193,7 @@ impl BrightnessOverride {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Display`*"]
     pub fn BrightnessLevel(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -184,14 +201,17 @@ impl BrightnessOverride {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Display`*"]
     pub fn SetBrightnessLevel(&self, brightnesslevel: f64, options: DisplayBrightnessOverrideOptions) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), brightnesslevel, options).ok() }
     }
+    #[doc = "*Required features: `Graphics_Display`*"]
     pub fn SetBrightnessScenario(&self, scenario: DisplayBrightnessScenario, options: DisplayBrightnessOverrideOptions) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), scenario, options).ok() }
     }
+    #[doc = "*Required features: `Graphics_Display`*"]
     pub fn GetLevelForScenario(&self, scenario: DisplayBrightnessScenario) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -199,15 +219,18 @@ impl BrightnessOverride {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), scenario, &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Display`*"]
     pub fn StartOverride(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Graphics_Display`*"]
     pub fn StopOverride(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Graphics_Display`, `Foundation`*"]
     pub fn IsSupportedChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<BrightnessOverride, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -216,11 +239,13 @@ impl BrightnessOverride {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Graphics_Display`, `Foundation`*"]
     pub fn RemoveIsSupportedChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Graphics_Display`, `Foundation`*"]
     pub fn IsOverrideActiveChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<BrightnessOverride, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -229,11 +254,13 @@ impl BrightnessOverride {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Graphics_Display`, `Foundation`*"]
     pub fn RemoveIsOverrideActiveChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Graphics_Display`, `Foundation`*"]
     pub fn BrightnessLevelChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<BrightnessOverride, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -242,16 +269,19 @@ impl BrightnessOverride {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Graphics_Display`, `Foundation`*"]
     pub fn RemoveBrightnessLevelChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Graphics_Display`*"]
     pub fn GetDefaultForSystem() -> ::windows::runtime::Result<BrightnessOverride> {
         Self::IBrightnessOverrideStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<BrightnessOverride>(result__)
         })
     }
+    #[doc = "*Required features: `Graphics_Display`*"]
     pub fn GetForCurrentView() -> ::windows::runtime::Result<BrightnessOverride> {
         Self::IBrightnessOverrideStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -259,6 +289,7 @@ impl BrightnessOverride {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Graphics_Display`, `Foundation`*"]
     pub fn SaveForSystemAsync<'a, Param0: ::windows::runtime::IntoParam<'a, BrightnessOverride>>(value: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::IBrightnessOverrideStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -322,10 +353,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for BrightnessOverride {}
 unsafe impl ::std::marker::Sync for BrightnessOverride {}
+#[doc = "*Required features: `Graphics_Display`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct BrightnessOverrideSettings(::windows::runtime::IInspectable);
 impl BrightnessOverrideSettings {
+    #[doc = "*Required features: `Graphics_Display`*"]
     pub fn DesiredLevel(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -333,6 +366,7 @@ impl BrightnessOverrideSettings {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Display`*"]
     pub fn DesiredNits(&self) -> ::windows::runtime::Result<f32> {
         let this = self;
         unsafe {
@@ -340,18 +374,21 @@ impl BrightnessOverrideSettings {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Display`*"]
     pub fn CreateFromLevel(level: f64) -> ::windows::runtime::Result<BrightnessOverrideSettings> {
         Self::IBrightnessOverrideSettingsStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), level, &mut result__).from_abi::<BrightnessOverrideSettings>(result__)
         })
     }
+    #[doc = "*Required features: `Graphics_Display`*"]
     pub fn CreateFromNits(nits: f32) -> ::windows::runtime::Result<BrightnessOverrideSettings> {
         Self::IBrightnessOverrideSettingsStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), nits, &mut result__).from_abi::<BrightnessOverrideSettings>(result__)
         })
     }
+    #[doc = "*Required features: `Graphics_Display`*"]
     pub fn CreateFromDisplayBrightnessOverrideScenario(overridescenario: DisplayBrightnessOverrideScenario) -> ::windows::runtime::Result<BrightnessOverrideSettings> {
         Self::IBrightnessOverrideSettingsStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -415,10 +452,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for BrightnessOverrideSettings {}
 unsafe impl ::std::marker::Sync for BrightnessOverrideSettings {}
+#[doc = "*Required features: `Graphics_Display`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ColorOverrideSettings(::windows::runtime::IInspectable);
 impl ColorOverrideSettings {
+    #[doc = "*Required features: `Graphics_Display`*"]
     pub fn DesiredDisplayColorOverrideScenario(&self) -> ::windows::runtime::Result<DisplayColorOverrideScenario> {
         let this = self;
         unsafe {
@@ -426,6 +465,7 @@ impl ColorOverrideSettings {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<DisplayColorOverrideScenario>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Display`*"]
     pub fn CreateFromDisplayColorOverrideScenario(overridescenario: DisplayColorOverrideScenario) -> ::windows::runtime::Result<ColorOverrideSettings> {
         Self::IColorOverrideSettingsStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -489,6 +529,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for ColorOverrideSettings {}
 unsafe impl ::std::marker::Sync for ColorOverrideSettings {}
+#[doc = "*Required features: `Graphics_Display`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DisplayBrightnessOverrideOptions(pub u32);
@@ -536,6 +577,7 @@ impl ::std::ops::Not for DisplayBrightnessOverrideOptions {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Graphics_Display`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DisplayBrightnessOverrideScenario(pub i32);
@@ -556,6 +598,7 @@ unsafe impl ::windows::runtime::Abi for DisplayBrightnessOverrideScenario {
 unsafe impl ::windows::runtime::RuntimeType for DisplayBrightnessOverrideScenario {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.DisplayBrightnessOverrideScenario;i4)");
 }
+#[doc = "*Required features: `Graphics_Display`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DisplayBrightnessScenario(pub i32);
@@ -577,6 +620,7 @@ unsafe impl ::windows::runtime::Abi for DisplayBrightnessScenario {
 unsafe impl ::windows::runtime::RuntimeType for DisplayBrightnessScenario {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.DisplayBrightnessScenario;i4)");
 }
+#[doc = "*Required features: `Graphics_Display`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DisplayColorOverrideScenario(pub i32);
@@ -595,10 +639,12 @@ unsafe impl ::windows::runtime::Abi for DisplayColorOverrideScenario {
 unsafe impl ::windows::runtime::RuntimeType for DisplayColorOverrideScenario {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.DisplayColorOverrideScenario;i4)");
 }
+#[doc = "*Required features: `Graphics_Display`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct DisplayEnhancementOverride(::windows::runtime::IInspectable);
 impl DisplayEnhancementOverride {
+    #[doc = "*Required features: `Graphics_Display`*"]
     pub fn ColorOverrideSettings(&self) -> ::windows::runtime::Result<ColorOverrideSettings> {
         let this = self;
         unsafe {
@@ -606,10 +652,12 @@ impl DisplayEnhancementOverride {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ColorOverrideSettings>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Display`*"]
     pub fn SetColorOverrideSettings<'a, Param0: ::windows::runtime::IntoParam<'a, ColorOverrideSettings>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Graphics_Display`*"]
     pub fn BrightnessOverrideSettings(&self) -> ::windows::runtime::Result<BrightnessOverrideSettings> {
         let this = self;
         unsafe {
@@ -617,10 +665,12 @@ impl DisplayEnhancementOverride {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<BrightnessOverrideSettings>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Display`*"]
     pub fn SetBrightnessOverrideSettings<'a, Param0: ::windows::runtime::IntoParam<'a, BrightnessOverrideSettings>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Graphics_Display`*"]
     pub fn CanOverride(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -628,6 +678,7 @@ impl DisplayEnhancementOverride {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Display`*"]
     pub fn IsOverrideActive(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -635,6 +686,7 @@ impl DisplayEnhancementOverride {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Display`*"]
     pub fn GetCurrentDisplayEnhancementOverrideCapabilities(&self) -> ::windows::runtime::Result<DisplayEnhancementOverrideCapabilities> {
         let this = self;
         unsafe {
@@ -642,15 +694,18 @@ impl DisplayEnhancementOverride {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<DisplayEnhancementOverrideCapabilities>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Display`*"]
     pub fn RequestOverride(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Graphics_Display`*"]
     pub fn StopOverride(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Graphics_Display`, `Foundation`*"]
     pub fn CanOverrideChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<DisplayEnhancementOverride, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -659,11 +714,13 @@ impl DisplayEnhancementOverride {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Graphics_Display`, `Foundation`*"]
     pub fn RemoveCanOverrideChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Graphics_Display`, `Foundation`*"]
     pub fn IsOverrideActiveChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<DisplayEnhancementOverride, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -672,11 +729,13 @@ impl DisplayEnhancementOverride {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Graphics_Display`, `Foundation`*"]
     pub fn RemoveIsOverrideActiveChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Graphics_Display`, `Foundation`*"]
     pub fn DisplayEnhancementOverrideCapabilitiesChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<DisplayEnhancementOverride, DisplayEnhancementOverrideCapabilitiesChangedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -685,10 +744,12 @@ impl DisplayEnhancementOverride {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Graphics_Display`, `Foundation`*"]
     pub fn RemoveDisplayEnhancementOverrideCapabilitiesChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Graphics_Display`*"]
     pub fn GetForCurrentView() -> ::windows::runtime::Result<DisplayEnhancementOverride> {
         Self::IDisplayEnhancementOverrideStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -752,10 +813,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for DisplayEnhancementOverride {}
 unsafe impl ::std::marker::Sync for DisplayEnhancementOverride {}
+#[doc = "*Required features: `Graphics_Display`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct DisplayEnhancementOverrideCapabilities(::windows::runtime::IInspectable);
 impl DisplayEnhancementOverrideCapabilities {
+    #[doc = "*Required features: `Graphics_Display`*"]
     pub fn IsBrightnessControlSupported(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -763,6 +826,7 @@ impl DisplayEnhancementOverrideCapabilities {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Display`*"]
     pub fn IsBrightnessNitsControlSupported(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -771,6 +835,7 @@ impl DisplayEnhancementOverrideCapabilities {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Graphics_Display`, `Foundation_Collections`*"]
     pub fn GetSupportedNitRanges(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<NitRange>> {
         let this = self;
         unsafe {
@@ -831,10 +896,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for DisplayEnhancementOverrideCapabilities {}
 unsafe impl ::std::marker::Sync for DisplayEnhancementOverrideCapabilities {}
+#[doc = "*Required features: `Graphics_Display`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct DisplayEnhancementOverrideCapabilitiesChangedEventArgs(::windows::runtime::IInspectable);
 impl DisplayEnhancementOverrideCapabilitiesChangedEventArgs {
+    #[doc = "*Required features: `Graphics_Display`*"]
     pub fn Capabilities(&self) -> ::windows::runtime::Result<DisplayEnhancementOverrideCapabilities> {
         let this = self;
         unsafe {
@@ -895,10 +962,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for DisplayEnhancementOverrideCapabilitiesChangedEventArgs {}
 unsafe impl ::std::marker::Sync for DisplayEnhancementOverrideCapabilitiesChangedEventArgs {}
+#[doc = "*Required features: `Graphics_Display`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct DisplayInformation(::windows::runtime::IInspectable);
 impl DisplayInformation {
+    #[doc = "*Required features: `Graphics_Display`*"]
     pub fn CurrentOrientation(&self) -> ::windows::runtime::Result<DisplayOrientations> {
         let this = self;
         unsafe {
@@ -906,6 +975,7 @@ impl DisplayInformation {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<DisplayOrientations>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Display`*"]
     pub fn NativeOrientation(&self) -> ::windows::runtime::Result<DisplayOrientations> {
         let this = self;
         unsafe {
@@ -914,6 +984,7 @@ impl DisplayInformation {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Graphics_Display`, `Foundation`*"]
     pub fn OrientationChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<DisplayInformation, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -922,10 +993,12 @@ impl DisplayInformation {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Graphics_Display`, `Foundation`*"]
     pub fn RemoveOrientationChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Graphics_Display`*"]
     pub fn ResolutionScale(&self) -> ::windows::runtime::Result<ResolutionScale> {
         let this = self;
         unsafe {
@@ -933,6 +1006,7 @@ impl DisplayInformation {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ResolutionScale>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Display`*"]
     pub fn LogicalDpi(&self) -> ::windows::runtime::Result<f32> {
         let this = self;
         unsafe {
@@ -940,6 +1014,7 @@ impl DisplayInformation {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Display`*"]
     pub fn RawDpiX(&self) -> ::windows::runtime::Result<f32> {
         let this = self;
         unsafe {
@@ -947,6 +1022,7 @@ impl DisplayInformation {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Display`*"]
     pub fn RawDpiY(&self) -> ::windows::runtime::Result<f32> {
         let this = self;
         unsafe {
@@ -955,6 +1031,7 @@ impl DisplayInformation {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Graphics_Display`, `Foundation`*"]
     pub fn DpiChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<DisplayInformation, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -963,10 +1040,12 @@ impl DisplayInformation {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Graphics_Display`, `Foundation`*"]
     pub fn RemoveDpiChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Graphics_Display`*"]
     pub fn StereoEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -975,6 +1054,7 @@ impl DisplayInformation {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Graphics_Display`, `Foundation`*"]
     pub fn StereoEnabledChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<DisplayInformation, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -983,11 +1063,13 @@ impl DisplayInformation {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Graphics_Display`, `Foundation`*"]
     pub fn RemoveStereoEnabledChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Graphics_Display`, `Foundation`, `Storage_Streams`*"]
     pub fn GetColorProfileAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStream>> {
         let this = self;
         unsafe {
@@ -996,6 +1078,7 @@ impl DisplayInformation {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Graphics_Display`, `Foundation`*"]
     pub fn ColorProfileChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<DisplayInformation, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1004,10 +1087,12 @@ impl DisplayInformation {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Graphics_Display`, `Foundation`*"]
     pub fn RemoveColorProfileChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Graphics_Display`*"]
     pub fn RawPixelsPerViewPixel(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<IDisplayInformation2>(self)?;
         unsafe {
@@ -1015,22 +1100,26 @@ impl DisplayInformation {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Display`*"]
     pub fn GetForCurrentView() -> ::windows::runtime::Result<DisplayInformation> {
         Self::IDisplayInformationStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<DisplayInformation>(result__)
         })
     }
+    #[doc = "*Required features: `Graphics_Display`*"]
     pub fn AutoRotationPreferences() -> ::windows::runtime::Result<DisplayOrientations> {
         Self::IDisplayInformationStatics(|this| unsafe {
             let mut result__: DisplayOrientations = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<DisplayOrientations>(result__)
         })
     }
+    #[doc = "*Required features: `Graphics_Display`*"]
     pub fn SetAutoRotationPreferences(value: DisplayOrientations) -> ::windows::runtime::Result<()> {
         Self::IDisplayInformationStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value).ok() })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Graphics_Display`, `Foundation`*"]
     pub fn DisplayContentsInvalidated<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<DisplayInformation, ::windows::runtime::IInspectable>>>(handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IDisplayInformationStatics(|this| unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
@@ -1038,10 +1127,12 @@ impl DisplayInformation {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Graphics_Display`, `Foundation`*"]
     pub fn RemoveDisplayContentsInvalidated<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::runtime::Result<()> {
         Self::IDisplayInformationStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Graphics_Display`, `Foundation`*"]
     pub fn DiagonalSizeInInches(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<f64>> {
         let this = &::windows::runtime::Interface::cast::<IDisplayInformation3>(self)?;
         unsafe {
@@ -1049,6 +1140,7 @@ impl DisplayInformation {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<f64>>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Display`*"]
     pub fn ScreenWidthInRawPixels(&self) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<IDisplayInformation4>(self)?;
         unsafe {
@@ -1056,6 +1148,7 @@ impl DisplayInformation {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Display`*"]
     pub fn ScreenHeightInRawPixels(&self) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<IDisplayInformation4>(self)?;
         unsafe {
@@ -1063,6 +1156,7 @@ impl DisplayInformation {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Display`*"]
     pub fn GetAdvancedColorInfo(&self) -> ::windows::runtime::Result<AdvancedColorInfo> {
         let this = &::windows::runtime::Interface::cast::<IDisplayInformation5>(self)?;
         unsafe {
@@ -1071,6 +1165,7 @@ impl DisplayInformation {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Graphics_Display`, `Foundation`*"]
     pub fn AdvancedColorInfoChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<DisplayInformation, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<IDisplayInformation5>(self)?;
         unsafe {
@@ -1079,6 +1174,7 @@ impl DisplayInformation {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Graphics_Display`, `Foundation`*"]
     pub fn RemoveAdvancedColorInfoChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IDisplayInformation5>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
@@ -1140,6 +1236,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for DisplayInformation {}
 unsafe impl ::std::marker::Sync for DisplayInformation {}
+#[doc = "*Required features: `Graphics_Display`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DisplayOrientations(pub u32);
@@ -1190,9 +1287,11 @@ impl ::std::ops::Not for DisplayOrientations {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Graphics_Display`*"]
 pub struct DisplayProperties {}
 impl DisplayProperties {
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Graphics_Display`*"]
     pub fn CurrentOrientation() -> ::windows::runtime::Result<DisplayOrientations> {
         Self::IDisplayPropertiesStatics(|this| unsafe {
             let mut result__: DisplayOrientations = ::std::mem::zeroed();
@@ -1200,6 +1299,7 @@ impl DisplayProperties {
         })
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Graphics_Display`*"]
     pub fn NativeOrientation() -> ::windows::runtime::Result<DisplayOrientations> {
         Self::IDisplayPropertiesStatics(|this| unsafe {
             let mut result__: DisplayOrientations = ::std::mem::zeroed();
@@ -1207,6 +1307,7 @@ impl DisplayProperties {
         })
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Graphics_Display`*"]
     pub fn AutoRotationPreferences() -> ::windows::runtime::Result<DisplayOrientations> {
         Self::IDisplayPropertiesStatics(|this| unsafe {
             let mut result__: DisplayOrientations = ::std::mem::zeroed();
@@ -1214,11 +1315,13 @@ impl DisplayProperties {
         })
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Graphics_Display`*"]
     pub fn SetAutoRotationPreferences(value: DisplayOrientations) -> ::windows::runtime::Result<()> {
         Self::IDisplayPropertiesStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() })
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Graphics_Display`, `Foundation`*"]
     pub fn OrientationChanged<'a, Param0: ::windows::runtime::IntoParam<'a, DisplayPropertiesEventHandler>>(handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IDisplayPropertiesStatics(|this| unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
@@ -1227,10 +1330,12 @@ impl DisplayProperties {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Graphics_Display`, `Foundation`*"]
     pub fn RemoveOrientationChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::runtime::Result<()> {
         Self::IDisplayPropertiesStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() })
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Graphics_Display`*"]
     pub fn ResolutionScale() -> ::windows::runtime::Result<ResolutionScale> {
         Self::IDisplayPropertiesStatics(|this| unsafe {
             let mut result__: ResolutionScale = ::std::mem::zeroed();
@@ -1238,6 +1343,7 @@ impl DisplayProperties {
         })
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Graphics_Display`*"]
     pub fn LogicalDpi() -> ::windows::runtime::Result<f32> {
         Self::IDisplayPropertiesStatics(|this| unsafe {
             let mut result__: f32 = ::std::mem::zeroed();
@@ -1246,6 +1352,7 @@ impl DisplayProperties {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Graphics_Display`, `Foundation`*"]
     pub fn LogicalDpiChanged<'a, Param0: ::windows::runtime::IntoParam<'a, DisplayPropertiesEventHandler>>(handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IDisplayPropertiesStatics(|this| unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
@@ -1254,10 +1361,12 @@ impl DisplayProperties {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Graphics_Display`, `Foundation`*"]
     pub fn RemoveLogicalDpiChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::runtime::Result<()> {
         Self::IDisplayPropertiesStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() })
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Graphics_Display`*"]
     pub fn StereoEnabled() -> ::windows::runtime::Result<bool> {
         Self::IDisplayPropertiesStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
@@ -1266,6 +1375,7 @@ impl DisplayProperties {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Graphics_Display`, `Foundation`*"]
     pub fn StereoEnabledChanged<'a, Param0: ::windows::runtime::IntoParam<'a, DisplayPropertiesEventHandler>>(handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IDisplayPropertiesStatics(|this| unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
@@ -1274,11 +1384,13 @@ impl DisplayProperties {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Graphics_Display`, `Foundation`*"]
     pub fn RemoveStereoEnabledChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::runtime::Result<()> {
         Self::IDisplayPropertiesStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() })
     }
     #[cfg(feature = "deprecated")]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Graphics_Display`, `Foundation`, `Storage_Streams`*"]
     pub fn GetColorProfileAsync() -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStream>> {
         Self::IDisplayPropertiesStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1287,6 +1399,7 @@ impl DisplayProperties {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Graphics_Display`, `Foundation`*"]
     pub fn ColorProfileChanged<'a, Param0: ::windows::runtime::IntoParam<'a, DisplayPropertiesEventHandler>>(handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IDisplayPropertiesStatics(|this| unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
@@ -1295,11 +1408,13 @@ impl DisplayProperties {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Graphics_Display`, `Foundation`*"]
     pub fn RemoveColorProfileChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::runtime::Result<()> {
         Self::IDisplayPropertiesStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() })
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Graphics_Display`, `Foundation`*"]
     pub fn DisplayContentsInvalidated<'a, Param0: ::windows::runtime::IntoParam<'a, DisplayPropertiesEventHandler>>(handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IDisplayPropertiesStatics(|this| unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
@@ -1308,6 +1423,7 @@ impl DisplayProperties {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Graphics_Display`, `Foundation`*"]
     pub fn RemoveDisplayContentsInvalidated<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::runtime::Result<()> {
         Self::IDisplayPropertiesStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() })
     }
@@ -1319,6 +1435,7 @@ impl DisplayProperties {
 impl ::windows::runtime::RuntimeName for DisplayProperties {
     const NAME: &'static str = "Windows.Graphics.Display.DisplayProperties";
 }
+#[doc = "*Required features: `Graphics_Display`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct DisplayPropertiesEventHandler(::windows::runtime::IUnknown);
@@ -1331,6 +1448,7 @@ impl DisplayPropertiesEventHandler {
         };
         unsafe { std::mem::transmute(::std::boxed::Box::new(com)) }
     }
+    #[doc = "*Required features: `Graphics_Display`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, sender: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).3)(::std::mem::transmute_copy(this), sender.into_param().abi()).ok() }
@@ -1390,10 +1508,12 @@ impl<F: FnMut(&::std::option::Option<::windows::runtime::IInspectable>) -> ::win
         ((*this).invoke)(&*(&sender as *const <::windows::runtime::IInspectable as ::windows::runtime::Abi>::Abi as *const <::windows::runtime::IInspectable as ::windows::runtime::Abi>::DefaultType)).into()
     }
 }
+#[doc = "*Required features: `Graphics_Display`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct DisplayServices(::windows::runtime::IInspectable);
 impl DisplayServices {
+    #[doc = "*Required features: `Graphics_Display`*"]
     pub fn FindAll() -> ::windows::runtime::Result<::windows::runtime::Array<super::DisplayId>> {
         Self::IDisplayServicesStatics(|this| unsafe {
             let mut result__: ::windows::runtime::Array<super::DisplayId> = ::std::mem::zeroed();
@@ -1457,6 +1577,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for DisplayServices {}
 unsafe impl ::std::marker::Sync for DisplayServices {}
+#[doc = "*Required features: `Graphics_Display`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HdrMetadataFormat(pub i32);
@@ -1983,6 +2104,7 @@ pub struct IDisplayServicesStatics_abi(
 );
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Graphics_Display`*"]
 pub struct NitRange {
     pub MinNits: f32,
     pub MaxNits: f32,
@@ -2012,6 +2134,7 @@ unsafe impl ::windows::runtime::Abi for NitRange {
 unsafe impl ::windows::runtime::RuntimeType for NitRange {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Graphics.Display.NitRange;f4;f4;f4)");
 }
+#[doc = "*Required features: `Graphics_Display`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ResolutionScale(pub i32);

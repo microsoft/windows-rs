@@ -138,12 +138,14 @@ pub struct ISpiDevice_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Devices_Spi`*"]
 pub struct ISpiDeviceStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpiDeviceStatics {
     type Vtable = ISpiDeviceStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2725832025, 22304, 19775, [189, 147, 86, 245, 255, 90, 88, 121]);
 }
 impl ISpiDeviceStatics {
+    #[doc = "*Required features: `Devices_Spi`*"]
     pub fn GetDeviceSelector(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -151,6 +153,7 @@ impl ISpiDeviceStatics {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Spi`*"]
     pub fn GetDeviceSelectorFromFriendlyName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, friendlyname: Param0) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -158,6 +161,7 @@ impl ISpiDeviceStatics {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), friendlyname.into_param().abi(), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Spi`*"]
     pub fn GetBusInfo<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, busid: Param0) -> ::windows::runtime::Result<SpiBusInfo> {
         let this = self;
         unsafe {
@@ -166,6 +170,7 @@ impl ISpiDeviceStatics {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Spi`, `Foundation`*"]
     pub fn FromIdAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, SpiConnectionSettings>>(&self, busid: Param0, settings: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<SpiDevice>> {
         let this = self;
         unsafe {
@@ -232,10 +237,12 @@ pub struct ISpiDeviceStatics_abi(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, busid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, settings: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: `Devices_Spi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SpiBusInfo(::windows::runtime::IInspectable);
 impl SpiBusInfo {
+    #[doc = "*Required features: `Devices_Spi`*"]
     pub fn ChipSelectLineCount(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -243,6 +250,7 @@ impl SpiBusInfo {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Spi`*"]
     pub fn MinClockFrequency(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -250,6 +258,7 @@ impl SpiBusInfo {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Spi`*"]
     pub fn MaxClockFrequency(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -258,6 +267,7 @@ impl SpiBusInfo {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Devices_Spi`, `Foundation_Collections`*"]
     pub fn SupportedDataBitLengths(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<i32>> {
         let this = self;
         unsafe {
@@ -318,10 +328,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for SpiBusInfo {}
 unsafe impl ::std::marker::Sync for SpiBusInfo {}
+#[doc = "*Required features: `Devices_Spi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SpiConnectionSettings(::windows::runtime::IInspectable);
 impl SpiConnectionSettings {
+    #[doc = "*Required features: `Devices_Spi`*"]
     pub fn ChipSelectLine(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -329,10 +341,12 @@ impl SpiConnectionSettings {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Spi`*"]
     pub fn SetChipSelectLine(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Devices_Spi`*"]
     pub fn Mode(&self) -> ::windows::runtime::Result<SpiMode> {
         let this = self;
         unsafe {
@@ -340,10 +354,12 @@ impl SpiConnectionSettings {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SpiMode>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Spi`*"]
     pub fn SetMode(&self, value: SpiMode) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Devices_Spi`*"]
     pub fn DataBitLength(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -351,10 +367,12 @@ impl SpiConnectionSettings {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Spi`*"]
     pub fn SetDataBitLength(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Devices_Spi`*"]
     pub fn ClockFrequency(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -362,10 +380,12 @@ impl SpiConnectionSettings {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Spi`*"]
     pub fn SetClockFrequency(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Devices_Spi`*"]
     pub fn SharingMode(&self) -> ::windows::runtime::Result<SpiSharingMode> {
         let this = self;
         unsafe {
@@ -373,10 +393,12 @@ impl SpiConnectionSettings {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SpiSharingMode>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Spi`*"]
     pub fn SetSharingMode(&self, value: SpiSharingMode) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Devices_Spi`*"]
     pub fn Create(chipselectline: i32) -> ::windows::runtime::Result<SpiConnectionSettings> {
         Self::ISpiConnectionSettingsFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -440,10 +462,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for SpiConnectionSettings {}
 unsafe impl ::std::marker::Sync for SpiConnectionSettings {}
+#[doc = "*Required features: `Devices_Spi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SpiController(::windows::runtime::IInspectable);
 impl SpiController {
+    #[doc = "*Required features: `Devices_Spi`*"]
     pub fn GetDevice<'a, Param0: ::windows::runtime::IntoParam<'a, SpiConnectionSettings>>(&self, settings: Param0) -> ::windows::runtime::Result<SpiDevice> {
         let this = self;
         unsafe {
@@ -452,6 +476,7 @@ impl SpiController {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Spi`, `Foundation`*"]
     pub fn GetDefaultAsync() -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<SpiController>> {
         Self::ISpiControllerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -459,6 +484,7 @@ impl SpiController {
         })
     }
     #[cfg(all(feature = "Devices_Spi_Provider", feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Devices_Spi`, `Devices_Spi_Provider`, `Foundation`, `Foundation_Collections`*"]
     pub fn GetControllersAsync<'a, Param0: ::windows::runtime::IntoParam<'a, Provider::ISpiProvider>>(provider: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<SpiController>>> {
         Self::ISpiControllerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -522,10 +548,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for SpiController {}
 unsafe impl ::std::marker::Sync for SpiController {}
+#[doc = "*Required features: `Devices_Spi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SpiDevice(::windows::runtime::IInspectable);
 impl SpiDevice {
+    #[doc = "*Required features: `Devices_Spi`*"]
     pub fn DeviceId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -533,6 +561,7 @@ impl SpiDevice {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Spi`*"]
     pub fn ConnectionSettings(&self) -> ::windows::runtime::Result<SpiConnectionSettings> {
         let this = self;
         unsafe {
@@ -540,39 +569,47 @@ impl SpiDevice {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SpiConnectionSettings>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Spi`*"]
     pub fn Write(&self, buffer: &[<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), buffer.len() as u32, ::std::mem::transmute(buffer.as_ptr())).ok() }
     }
+    #[doc = "*Required features: `Devices_Spi`*"]
     pub fn Read(&self, buffer: &mut [<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), buffer.len() as u32, ::std::mem::transmute_copy(&buffer)).ok() }
     }
+    #[doc = "*Required features: `Devices_Spi`*"]
     pub fn TransferSequential(&self, writebuffer: &[<u8 as ::windows::runtime::Abi>::DefaultType], readbuffer: &mut [<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), writebuffer.len() as u32, ::std::mem::transmute(writebuffer.as_ptr()), readbuffer.len() as u32, ::std::mem::transmute_copy(&readbuffer)).ok() }
     }
+    #[doc = "*Required features: `Devices_Spi`*"]
     pub fn TransferFullDuplex(&self, writebuffer: &[<u8 as ::windows::runtime::Abi>::DefaultType], readbuffer: &mut [<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), writebuffer.len() as u32, ::std::mem::transmute(writebuffer.as_ptr()), readbuffer.len() as u32, ::std::mem::transmute_copy(&readbuffer)).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Spi`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Devices_Spi`*"]
     pub fn GetDeviceSelector() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ISpiDeviceStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Spi`*"]
     pub fn GetDeviceSelectorFromFriendlyName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(friendlyname: Param0) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ISpiDeviceStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), friendlyname.into_param().abi(), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Spi`*"]
     pub fn GetBusInfo<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(busid: Param0) -> ::windows::runtime::Result<SpiBusInfo> {
         Self::ISpiDeviceStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -580,6 +617,7 @@ impl SpiDevice {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Spi`, `Foundation`*"]
     pub fn FromIdAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, SpiConnectionSettings>>(busid: Param0, settings: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<SpiDevice>> {
         Self::ISpiDeviceStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -669,6 +707,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> 
 }
 unsafe impl ::std::marker::Send for SpiDevice {}
 unsafe impl ::std::marker::Sync for SpiDevice {}
+#[doc = "*Required features: `Devices_Spi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SpiMode(pub i32);
@@ -690,6 +729,7 @@ unsafe impl ::windows::runtime::Abi for SpiMode {
 unsafe impl ::windows::runtime::RuntimeType for SpiMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Spi.SpiMode;i4)");
 }
+#[doc = "*Required features: `Devices_Spi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SpiSharingMode(pub i32);

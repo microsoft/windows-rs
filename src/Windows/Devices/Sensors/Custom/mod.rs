@@ -1,8 +1,10 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Devices_Sensors_Custom`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CustomSensor(::windows::runtime::IInspectable);
 impl CustomSensor {
+    #[doc = "*Required features: `Devices_Sensors_Custom`*"]
     pub fn GetCurrentReading(&self) -> ::windows::runtime::Result<CustomSensorReading> {
         let this = self;
         unsafe {
@@ -10,6 +12,7 @@ impl CustomSensor {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<CustomSensorReading>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sensors_Custom`*"]
     pub fn MinimumReportInterval(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -17,10 +20,12 @@ impl CustomSensor {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sensors_Custom`*"]
     pub fn SetReportInterval(&self, value: u32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Devices_Sensors_Custom`*"]
     pub fn ReportInterval(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -28,6 +33,7 @@ impl CustomSensor {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sensors_Custom`*"]
     pub fn DeviceId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -36,6 +42,7 @@ impl CustomSensor {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sensors_Custom`, `Foundation`*"]
     pub fn ReadingChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<CustomSensor, CustomSensorReadingChangedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -44,10 +51,12 @@ impl CustomSensor {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sensors_Custom`, `Foundation`*"]
     pub fn RemoveReadingChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Devices_Sensors_Custom`*"]
     pub fn GetDeviceSelector<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(interfaceid: Param0) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ICustomSensorStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
@@ -55,16 +64,19 @@ impl CustomSensor {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sensors_Custom`, `Foundation`*"]
     pub fn FromIdAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(sensorid: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<CustomSensor>> {
         Self::ICustomSensorStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), sensorid.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<CustomSensor>>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Sensors_Custom`*"]
     pub fn SetReportLatency(&self, value: u32) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ICustomSensor2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Devices_Sensors_Custom`*"]
     pub fn ReportLatency(&self) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<ICustomSensor2>(self)?;
         unsafe {
@@ -72,6 +84,7 @@ impl CustomSensor {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sensors_Custom`*"]
     pub fn MaxBatchSize(&self) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<ICustomSensor2>(self)?;
         unsafe {
@@ -136,11 +149,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for CustomSensor {}
 unsafe impl ::std::marker::Sync for CustomSensor {}
+#[doc = "*Required features: `Devices_Sensors_Custom`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CustomSensorReading(::windows::runtime::IInspectable);
 impl CustomSensorReading {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sensors_Custom`, `Foundation`*"]
     pub fn Timestamp(&self) -> ::windows::runtime::Result<super::super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -149,6 +164,7 @@ impl CustomSensorReading {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Devices_Sensors_Custom`, `Foundation_Collections`*"]
     pub fn Properties(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>> {
         let this = self;
         unsafe {
@@ -157,6 +173,7 @@ impl CustomSensorReading {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sensors_Custom`, `Foundation`*"]
     pub fn PerformanceCount(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>> {
         let this = &::windows::runtime::Interface::cast::<ICustomSensorReading2>(self)?;
         unsafe {
@@ -217,10 +234,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for CustomSensorReading {}
 unsafe impl ::std::marker::Sync for CustomSensorReading {}
+#[doc = "*Required features: `Devices_Sensors_Custom`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CustomSensorReadingChangedEventArgs(::windows::runtime::IInspectable);
 impl CustomSensorReadingChangedEventArgs {
+    #[doc = "*Required features: `Devices_Sensors_Custom`*"]
     pub fn Reading(&self) -> ::windows::runtime::Result<CustomSensorReading> {
         let this = self;
         unsafe {

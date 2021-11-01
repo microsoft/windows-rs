@@ -2,6 +2,7 @@
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 pub struct DRT_ADDRESS {
     pub socketAddress: super::super::Networking::WinSock::SOCKADDR_STORAGE,
     pub flags: u32,
@@ -35,6 +36,7 @@ unsafe impl ::windows::runtime::Abi for DRT_ADDRESS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DRT_ADDRESS_FLAGS(pub i32);
@@ -58,6 +60,7 @@ unsafe impl ::windows::runtime::Abi for DRT_ADDRESS_FLAGS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 pub struct DRT_ADDRESS_LIST {
     pub AddressCount: u32,
     pub AddressList: [DRT_ADDRESS; 1],
@@ -91,6 +94,7 @@ unsafe impl ::windows::runtime::Abi for DRT_ADDRESS_LIST {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub struct DRT_BOOTSTRAP_PROVIDER {
     pub pvContext: *mut ::std::ffi::c_void,
     pub Attach: isize,
@@ -135,6 +139,7 @@ unsafe impl ::windows::runtime::Abi for DRT_BOOTSTRAP_PROVIDER {
 pub type DRT_BOOTSTRAP_RESOLVE_CALLBACK = unsafe extern "system" fn(hr: ::windows::runtime::HRESULT, pvcontext: *mut ::std::ffi::c_void, paddresses: *mut super::super::Networking::WinSock::SOCKET_ADDRESS_LIST, ffatalerror: super::super::Foundation::BOOL);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub struct DRT_DATA {
     pub cb: u32,
     pub pb: *mut u8,
@@ -163,6 +168,7 @@ unsafe impl ::windows::runtime::Abi for DRT_DATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 pub struct DRT_EVENT_DATA {
     pub r#type: DRT_EVENT_TYPE,
     pub hr: ::windows::runtime::HRESULT,
@@ -193,6 +199,7 @@ unsafe impl ::windows::runtime::Abi for DRT_EVENT_DATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 pub union DRT_EVENT_DATA_0 {
     pub leafsetKeyChange: DRT_EVENT_DATA_0_0,
     pub registrationStateChange: DRT_EVENT_DATA_0_1,
@@ -221,6 +228,7 @@ unsafe impl ::windows::runtime::Abi for DRT_EVENT_DATA_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub struct DRT_EVENT_DATA_0_0 {
     pub change: DRT_LEAFSET_KEY_CHANGE_TYPE,
     pub localKey: DRT_DATA,
@@ -249,6 +257,7 @@ unsafe impl ::windows::runtime::Abi for DRT_EVENT_DATA_0_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub struct DRT_EVENT_DATA_0_1 {
     pub state: DRT_REGISTRATION_STATE,
     pub localKey: DRT_DATA,
@@ -277,6 +286,7 @@ unsafe impl ::windows::runtime::Abi for DRT_EVENT_DATA_0_1 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 pub struct DRT_EVENT_DATA_0_2 {
     pub status: DRT_STATUS,
     pub bootstrapAddresses: DRT_EVENT_DATA_0_2_0,
@@ -311,6 +321,7 @@ unsafe impl ::windows::runtime::Abi for DRT_EVENT_DATA_0_2 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 pub struct DRT_EVENT_DATA_0_2_0 {
     pub cntAddress: u32,
     pub pAddresses: *mut super::super::Networking::WinSock::SOCKADDR_STORAGE,
@@ -342,6 +353,7 @@ unsafe impl ::windows::runtime::Abi for DRT_EVENT_DATA_0_2_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DRT_EVENT_TYPE(pub i32);
@@ -357,47 +369,89 @@ unsafe impl ::windows::runtime::Abi for DRT_EVENT_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const DRT_E_BOOTSTRAPPROVIDER_IN_USE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2141052914i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const DRT_E_BOOTSTRAPPROVIDER_NOT_ATTACHED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2141052913i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const DRT_E_CAPABILITY_MISMATCH: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2141052657i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const DRT_E_DUPLICATE_KEY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2141052919i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const DRT_E_FAULTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2141052662i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const DRT_E_INSUFFICIENT_BUFFER: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2141052660i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const DRT_E_INVALID_ADDRESS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2141052923i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const DRT_E_INVALID_BOOTSTRAP_PROVIDER: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2141052924i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const DRT_E_INVALID_CERT_CHAIN: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2141057020i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const DRT_E_INVALID_INSTANCE_PREFIX: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2141052659i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const DRT_E_INVALID_KEY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2141057015i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const DRT_E_INVALID_KEY_SIZE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2141057022i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const DRT_E_INVALID_MAX_ADDRESSES: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2141057017i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const DRT_E_INVALID_MAX_ENDPOINTS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2141057007i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const DRT_E_INVALID_MESSAGE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2141057019i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const DRT_E_INVALID_PORT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2141052928i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const DRT_E_INVALID_SCOPE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2141052922i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const DRT_E_INVALID_SEARCH_INFO: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2141052663i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const DRT_E_INVALID_SEARCH_RANGE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2141057006i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const DRT_E_INVALID_SECURITY_MODE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2141052658i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const DRT_E_INVALID_SECURITY_PROVIDER: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2141052926i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const DRT_E_INVALID_SETTINGS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2141052664i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const DRT_E_INVALID_TRANSPORT_PROVIDER: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2141052927i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const DRT_E_NO_ADDRESSES_AVAILABLE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2141052920i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const DRT_E_NO_MORE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2141057018i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const DRT_E_SEARCH_IN_PROGRESS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2141057016i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const DRT_E_SECURITYPROVIDER_IN_USE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2141052916i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const DRT_E_SECURITYPROVIDER_NOT_ATTACHED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2141052915i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const DRT_E_STILL_IN_USE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2141052925i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const DRT_E_TIMEOUT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2141057023i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const DRT_E_TRANSPORTPROVIDER_IN_USE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2141052918i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const DRT_E_TRANSPORTPROVIDER_NOT_ATTACHED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2141052917i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const DRT_E_TRANSPORT_ALREADY_BOUND: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2141052671i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const DRT_E_TRANSPORT_ALREADY_EXISTS_FOR_SCOPE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2141052665i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const DRT_E_TRANSPORT_EXECUTING_CALLBACK: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2141052666i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const DRT_E_TRANSPORT_INVALID_ARGUMENT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2141052668i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const DRT_E_TRANSPORT_NOT_BOUND: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2141052670i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const DRT_E_TRANSPORT_NO_DEST_ADDRESSES: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2141052667i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const DRT_E_TRANSPORT_SHUTTING_DOWN: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2141052921i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const DRT_E_TRANSPORT_STILL_BOUND: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2141052661i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const DRT_E_TRANSPORT_UNEXPECTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2141052669i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DRT_LEAFSET_KEY_CHANGE_TYPE(pub i32);
@@ -412,7 +466,9 @@ unsafe impl ::windows::runtime::Abi for DRT_LEAFSET_KEY_CHANGE_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const DRT_LINK_LOCAL_ISATAP_SCOPEID: u32 = 4294967295u32;
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DRT_MATCH_TYPE(pub i32);
@@ -428,13 +484,19 @@ unsafe impl ::windows::runtime::Abi for DRT_MATCH_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const DRT_MAX_INSTANCE_PREFIX_LEN: u32 = 128u32;
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const DRT_MAX_PAYLOAD_SIZE: u32 = 5120u32;
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const DRT_MAX_ROUTING_ADDRESSES: u32 = 20u32;
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const DRT_MIN_ROUTING_ADDRESSES: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const DRT_PAYLOAD_REVOKED: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub struct DRT_REGISTRATION {
     pub key: DRT_DATA,
     pub appData: DRT_DATA,
@@ -460,6 +522,7 @@ unsafe impl ::windows::runtime::Abi for DRT_REGISTRATION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DRT_REGISTRATION_STATE(pub i32);
@@ -473,6 +536,7 @@ unsafe impl ::windows::runtime::Abi for DRT_REGISTRATION_STATE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DRT_SCOPE(pub i32);
@@ -491,6 +555,7 @@ unsafe impl ::windows::runtime::Abi for DRT_SCOPE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 pub struct DRT_SEARCH_INFO {
     pub dwSize: u32,
     pub fIterative: super::super::Foundation::BOOL,
@@ -537,6 +602,7 @@ unsafe impl ::windows::runtime::Abi for DRT_SEARCH_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub struct DRT_SEARCH_RESULT {
     pub dwSize: u32,
     pub r#type: DRT_MATCH_TYPE,
@@ -564,6 +630,7 @@ unsafe impl ::windows::runtime::Abi for DRT_SEARCH_RESULT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DRT_SECURITY_MODE(pub i32);
@@ -581,6 +648,7 @@ unsafe impl ::windows::runtime::Abi for DRT_SECURITY_MODE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub struct DRT_SECURITY_PROVIDER {
     pub pvContext: *mut ::std::ffi::c_void,
     pub Attach: isize,
@@ -649,6 +717,7 @@ unsafe impl ::windows::runtime::Abi for DRT_SECURITY_PROVIDER {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 pub struct DRT_SETTINGS {
     pub dwSize: u32,
     pub cbKey: u32,
@@ -699,6 +768,7 @@ unsafe impl ::windows::runtime::Abi for DRT_SETTINGS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DRT_STATUS(pub i32);
@@ -715,7 +785,9 @@ unsafe impl ::windows::runtime::Abi for DRT_STATUS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const DRT_S_RETRY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(6426640i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[inline]
 pub unsafe fn DrtClose(hdrt: *const ::std::ffi::c_void) {
     #[cfg(windows)]
@@ -729,6 +801,7 @@ pub unsafe fn DrtClose(hdrt: *const ::std::ffi::c_void) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[inline]
 pub unsafe fn DrtContinueSearch(hsearchcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -743,6 +816,7 @@ pub unsafe fn DrtContinueSearch(hsearchcontext: *const ::std::ffi::c_void) -> ::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`, `Win32_Security_Cryptography`*"]
 #[inline]
 pub unsafe fn DrtCreateDerivedKey(plocalcert: *const super::super::Security::Cryptography::CERT_CONTEXT) -> ::windows::runtime::Result<DRT_DATA> {
     #[cfg(windows)]
@@ -758,6 +832,7 @@ pub unsafe fn DrtCreateDerivedKey(plocalcert: *const super::super::Security::Cry
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`, `Win32_Security_Cryptography`*"]
 #[inline]
 pub unsafe fn DrtCreateDerivedKeySecurityProvider(prootcert: *const super::super::Security::Cryptography::CERT_CONTEXT, plocalcert: *const super::super::Security::Cryptography::CERT_CONTEXT) -> ::windows::runtime::Result<*mut DRT_SECURITY_PROVIDER> {
     #[cfg(windows)]
@@ -773,6 +848,7 @@ pub unsafe fn DrtCreateDerivedKeySecurityProvider(prootcert: *const super::super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn DrtCreateDnsBootstrapResolver<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(port: u16, pwszaddress: Param1) -> ::windows::runtime::Result<*mut DRT_BOOTSTRAP_PROVIDER> {
     #[cfg(windows)]
@@ -787,6 +863,7 @@ pub unsafe fn DrtCreateDnsBootstrapResolver<'a, Param1: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[inline]
 pub unsafe fn DrtCreateIpv6UdpTransport(scope: DRT_SCOPE, dwscopeid: u32, dwlocalitythreshold: u32, pwport: *mut u16, phtransport: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -800,6 +877,7 @@ pub unsafe fn DrtCreateIpv6UdpTransport(scope: DRT_SCOPE, dwscopeid: u32, dwloca
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[inline]
 pub unsafe fn DrtCreateNullSecurityProvider() -> ::windows::runtime::Result<*mut DRT_SECURITY_PROVIDER> {
     #[cfg(windows)]
@@ -815,6 +893,7 @@ pub unsafe fn DrtCreateNullSecurityProvider() -> ::windows::runtime::Result<*mut
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn DrtCreatePnrpBootstrapResolver<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
     fpublish: Param0,
@@ -834,6 +913,7 @@ pub unsafe fn DrtCreatePnrpBootstrapResolver<'a, Param0: ::windows::runtime::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[inline]
 pub unsafe fn DrtDeleteDerivedKeySecurityProvider(psecurityprovider: *const DRT_SECURITY_PROVIDER) {
     #[cfg(windows)]
@@ -847,6 +927,7 @@ pub unsafe fn DrtDeleteDerivedKeySecurityProvider(psecurityprovider: *const DRT_
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[inline]
 pub unsafe fn DrtDeleteDnsBootstrapResolver(presolver: *const DRT_BOOTSTRAP_PROVIDER) {
     #[cfg(windows)]
@@ -860,6 +941,7 @@ pub unsafe fn DrtDeleteDnsBootstrapResolver(presolver: *const DRT_BOOTSTRAP_PROV
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[inline]
 pub unsafe fn DrtDeleteIpv6UdpTransport(htransport: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -873,6 +955,7 @@ pub unsafe fn DrtDeleteIpv6UdpTransport(htransport: *const ::std::ffi::c_void) -
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[inline]
 pub unsafe fn DrtDeleteNullSecurityProvider(psecurityprovider: *const DRT_SECURITY_PROVIDER) {
     #[cfg(windows)]
@@ -886,6 +969,7 @@ pub unsafe fn DrtDeleteNullSecurityProvider(psecurityprovider: *const DRT_SECURI
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[inline]
 pub unsafe fn DrtDeletePnrpBootstrapResolver(presolver: *const DRT_BOOTSTRAP_PROVIDER) {
     #[cfg(windows)]
@@ -899,6 +983,7 @@ pub unsafe fn DrtDeletePnrpBootstrapResolver(presolver: *const DRT_BOOTSTRAP_PRO
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[inline]
 pub unsafe fn DrtEndSearch(hsearchcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -913,6 +998,7 @@ pub unsafe fn DrtEndSearch(hsearchcontext: *const ::std::ffi::c_void) -> ::windo
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn DrtGetEventData(hdrt: *const ::std::ffi::c_void, uleventdatalen: u32) -> ::windows::runtime::Result<DRT_EVENT_DATA> {
     #[cfg(windows)]
@@ -927,6 +1013,7 @@ pub unsafe fn DrtGetEventData(hdrt: *const ::std::ffi::c_void, uleventdatalen: u
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[inline]
 pub unsafe fn DrtGetEventDataSize(hdrt: *const ::std::ffi::c_void) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
@@ -942,6 +1029,7 @@ pub unsafe fn DrtGetEventDataSize(hdrt: *const ::std::ffi::c_void) -> ::windows:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn DrtGetInstanceName(hdrt: *const ::std::ffi::c_void, ulcbinstancenamesize: u32, pwzdrtinstancename: super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -955,6 +1043,7 @@ pub unsafe fn DrtGetInstanceName(hdrt: *const ::std::ffi::c_void, ulcbinstancena
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[inline]
 pub unsafe fn DrtGetInstanceNameSize(hdrt: *const ::std::ffi::c_void) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
@@ -970,6 +1059,7 @@ pub unsafe fn DrtGetInstanceNameSize(hdrt: *const ::std::ffi::c_void) -> ::windo
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn DrtGetSearchPath(hsearchcontext: *const ::std::ffi::c_void, ulsearchpathsize: u32, psearchpath: *mut DRT_ADDRESS_LIST) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -983,6 +1073,7 @@ pub unsafe fn DrtGetSearchPath(hsearchcontext: *const ::std::ffi::c_void, ulsear
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[inline]
 pub unsafe fn DrtGetSearchPathSize(hsearchcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
@@ -997,6 +1088,7 @@ pub unsafe fn DrtGetSearchPathSize(hsearchcontext: *const ::std::ffi::c_void) ->
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[inline]
 pub unsafe fn DrtGetSearchResult(hsearchcontext: *const ::std::ffi::c_void, ulsearchresultsize: u32, psearchresult: *mut DRT_SEARCH_RESULT) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1010,6 +1102,7 @@ pub unsafe fn DrtGetSearchResult(hsearchcontext: *const ::std::ffi::c_void, ulse
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[inline]
 pub unsafe fn DrtGetSearchResultSize(hsearchcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
@@ -1025,6 +1118,7 @@ pub unsafe fn DrtGetSearchResultSize(hsearchcontext: *const ::std::ffi::c_void) 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn DrtOpen<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(psettings: *const DRT_SETTINGS, hevent: Param1, pvcontext: *const ::std::ffi::c_void, phdrt: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1038,6 +1132,7 @@ pub unsafe fn DrtOpen<'a, Param1: ::windows::runtime::IntoParam<'a, super::super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[inline]
 pub unsafe fn DrtRegisterKey(hdrt: *const ::std::ffi::c_void, pregistration: *const DRT_REGISTRATION, pvkeycontext: *const ::std::ffi::c_void, phkeyregistration: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1052,6 +1147,7 @@ pub unsafe fn DrtRegisterKey(hdrt: *const ::std::ffi::c_void, pregistration: *co
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn DrtStartSearch<'a, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hdrt: *const ::std::ffi::c_void, pkey: *const DRT_DATA, pinfo: *const DRT_SEARCH_INFO, timeout: u32, hevent: Param4, pvcontext: *const ::std::ffi::c_void, hsearchcontext: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1065,6 +1161,7 @@ pub unsafe fn DrtStartSearch<'a, Param4: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[inline]
 pub unsafe fn DrtUnregisterKey(hkeyregistration: *const ::std::ffi::c_void) {
     #[cfg(windows)]
@@ -1078,6 +1175,7 @@ pub unsafe fn DrtUnregisterKey(hkeyregistration: *const ::std::ffi::c_void) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[inline]
 pub unsafe fn DrtUpdateKey(hkeyregistration: *const ::std::ffi::c_void, pappdata: *const DRT_DATA) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1091,14 +1189,18 @@ pub unsafe fn DrtUpdateKey(hkeyregistration: *const ::std::ffi::c_void, pappdata
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const FACILITY_DRT: u32 = 98u32;
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const NS_PNRPCLOUD: u32 = 39u32;
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const NS_PNRPNAME: u32 = 38u32;
 pub const NS_PROVIDER_PNRPCLOUD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(67013070, 30317, 18806, [185, 193, 187, 155, 196, 44, 123, 77]);
 pub const NS_PROVIDER_PNRPNAME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(67013069, 30317, 18806, [185, 193, 187, 155, 196, 44, 123, 77]);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 pub struct PEERDIST_CLIENT_BASIC_INFO {
     pub fFlashCrowd: super::super::Foundation::BOOL,
 }
@@ -1129,6 +1231,7 @@ unsafe impl ::windows::runtime::Abi for PEERDIST_CLIENT_BASIC_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PEERDIST_CLIENT_INFO_BY_HANDLE_CLASS(pub i32);
@@ -1145,6 +1248,7 @@ unsafe impl ::windows::runtime::Abi for PEERDIST_CLIENT_INFO_BY_HANDLE_CLASS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub struct PEERDIST_CONTENT_TAG {
     pub Data: [u8; 16],
 }
@@ -1171,6 +1275,7 @@ unsafe impl ::windows::runtime::Abi for PEERDIST_CONTENT_TAG {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub struct PEERDIST_PUBLICATION_OPTIONS {
     pub dwVersion: u32,
     pub dwFlags: u32,
@@ -1196,13 +1301,19 @@ unsafe impl ::windows::runtime::Abi for PEERDIST_PUBLICATION_OPTIONS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const PEERDIST_PUBLICATION_OPTIONS_VERSION: i32 = 2i32;
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const PEERDIST_PUBLICATION_OPTIONS_VERSION_1: i32 = 1i32;
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const PEERDIST_PUBLICATION_OPTIONS_VERSION_2: i32 = 2i32;
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const PEERDIST_READ_TIMEOUT_DEFAULT: u32 = 4294967294u32;
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const PEERDIST_READ_TIMEOUT_LOCAL_CACHE_ONLY: u32 = 0u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub struct PEERDIST_RETRIEVAL_OPTIONS {
     pub cbSize: u32,
     pub dwContentInfoMinVersion: u32,
@@ -1230,6 +1341,7 @@ unsafe impl ::windows::runtime::Abi for PEERDIST_RETRIEVAL_OPTIONS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_VALUE(pub u32);
@@ -1273,6 +1385,7 @@ impl ::std::ops::Not for PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_VALUE {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PEERDIST_STATUS(pub i32);
@@ -1290,6 +1403,7 @@ unsafe impl ::windows::runtime::Abi for PEERDIST_STATUS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub struct PEERDIST_STATUS_INFO {
     pub cbSize: u32,
     pub status: PEERDIST_STATUS,
@@ -1320,6 +1434,7 @@ unsafe impl ::windows::runtime::Abi for PEERDIST_STATUS_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Networking_WinSock`*"]
 pub struct PEER_ADDRESS {
     pub dwSize: u32,
     pub sin6: super::super::Networking::WinSock::SOCKADDR_IN6,
@@ -1348,6 +1463,7 @@ unsafe impl ::windows::runtime::Abi for PEER_ADDRESS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 pub struct PEER_APPLICATION {
     pub id: ::windows::runtime::GUID,
     pub data: PEER_DATA,
@@ -1383,6 +1499,7 @@ unsafe impl ::windows::runtime::Abi for PEER_APPLICATION {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 pub struct PEER_APPLICATION_REGISTRATION_INFO {
     pub application: PEER_APPLICATION,
     pub pwzApplicationToLaunch: super::super::Foundation::PWSTR,
@@ -1416,6 +1533,7 @@ unsafe impl ::windows::runtime::Abi for PEER_APPLICATION_REGISTRATION_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PEER_APPLICATION_REGISTRATION_TYPE(pub i32);
@@ -1433,6 +1551,7 @@ unsafe impl ::windows::runtime::Abi for PEER_APPLICATION_REGISTRATION_TYPE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 pub struct PEER_APP_LAUNCH_INFO {
     pub pContact: *mut PEER_CONTACT,
     pub pEndpoint: *mut PEER_ENDPOINT,
@@ -1465,6 +1584,7 @@ unsafe impl ::windows::runtime::Abi for PEER_APP_LAUNCH_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PEER_CHANGE_TYPE(pub i32);
@@ -1483,6 +1603,7 @@ unsafe impl ::windows::runtime::Abi for PEER_CHANGE_TYPE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 pub struct PEER_COLLAB_EVENT_DATA {
     pub eventType: PEER_COLLAB_EVENT_TYPE,
     pub Anonymous: PEER_COLLAB_EVENT_DATA_0,
@@ -1511,6 +1632,7 @@ unsafe impl ::windows::runtime::Abi for PEER_COLLAB_EVENT_DATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 pub union PEER_COLLAB_EVENT_DATA_0 {
     pub watchListChangedData: PEER_EVENT_WATCHLIST_CHANGED_DATA,
     pub presenceChangedData: PEER_EVENT_PRESENCE_CHANGED_DATA,
@@ -1543,6 +1665,7 @@ unsafe impl ::windows::runtime::Abi for PEER_COLLAB_EVENT_DATA_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub struct PEER_COLLAB_EVENT_REGISTRATION {
     pub eventType: PEER_COLLAB_EVENT_TYPE,
     pub pInstance: *mut ::windows::runtime::GUID,
@@ -1568,6 +1691,7 @@ unsafe impl ::windows::runtime::Abi for PEER_COLLAB_EVENT_REGISTRATION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PEER_COLLAB_EVENT_TYPE(pub i32);
@@ -1592,6 +1716,7 @@ unsafe impl ::windows::runtime::Abi for PEER_COLLAB_EVENT_TYPE {
     type DefaultType = Self;
 }
 pub const PEER_COLLAB_OBJECTID_USER_PICTURE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3709203487, 64590, 18722, [176, 53, 76, 6, 167, 84, 208, 29]);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PEER_CONNECTION_FLAGS(pub i32);
@@ -1609,6 +1734,7 @@ unsafe impl ::windows::runtime::Abi for PEER_CONNECTION_FLAGS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 pub struct PEER_CONNECTION_INFO {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -1638,6 +1764,7 @@ unsafe impl ::windows::runtime::Abi for PEER_CONNECTION_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PEER_CONNECTION_STATUS(pub i32);
@@ -1656,6 +1783,7 @@ unsafe impl ::windows::runtime::Abi for PEER_CONNECTION_STATUS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 pub struct PEER_CONTACT {
     pub pwzPeerName: super::super::Foundation::PWSTR,
     pub pwzNickName: super::super::Foundation::PWSTR,
@@ -1703,6 +1831,7 @@ unsafe impl ::windows::runtime::Abi for PEER_CONTACT {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`, `Win32_Security_Cryptography`*"]
 pub struct PEER_CREDENTIAL_INFO {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -1755,6 +1884,7 @@ unsafe impl ::windows::runtime::Abi for PEER_CREDENTIAL_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub struct PEER_DATA {
     pub cbData: u32,
     pub pbData: *mut u8,
@@ -1783,6 +1913,7 @@ unsafe impl ::windows::runtime::Abi for PEER_DATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 pub struct PEER_ENDPOINT {
     pub address: PEER_ADDRESS,
     pub pwzEndpointName: super::super::Foundation::PWSTR,
@@ -1811,6 +1942,7 @@ unsafe impl ::windows::runtime::Abi for PEER_ENDPOINT {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 pub struct PEER_EVENT_APPLICATION_CHANGED_DATA {
     pub pContact: *mut PEER_CONTACT,
     pub pEndpoint: *mut PEER_ENDPOINT,
@@ -1846,6 +1978,7 @@ unsafe impl ::windows::runtime::Abi for PEER_EVENT_APPLICATION_CHANGED_DATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub struct PEER_EVENT_CONNECTION_CHANGE_DATA {
     pub dwSize: u32,
     pub status: PEER_CONNECTION_STATUS,
@@ -1885,6 +2018,7 @@ unsafe impl ::windows::runtime::Abi for PEER_EVENT_CONNECTION_CHANGE_DATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 pub struct PEER_EVENT_ENDPOINT_CHANGED_DATA {
     pub pContact: *mut PEER_CONTACT,
     pub pEndpoint: *mut PEER_ENDPOINT,
@@ -1918,6 +2052,7 @@ unsafe impl ::windows::runtime::Abi for PEER_EVENT_ENDPOINT_CHANGED_DATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub struct PEER_EVENT_INCOMING_DATA {
     pub dwSize: u32,
     pub ullConnectionId: u64,
@@ -1948,6 +2083,7 @@ unsafe impl ::windows::runtime::Abi for PEER_EVENT_INCOMING_DATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 pub struct PEER_EVENT_MEMBER_CHANGE_DATA {
     pub dwSize: u32,
     pub changeType: PEER_MEMBER_CHANGE_TYPE,
@@ -1983,6 +2119,7 @@ unsafe impl ::windows::runtime::Abi for PEER_EVENT_MEMBER_CHANGE_DATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 pub struct PEER_EVENT_NODE_CHANGE_DATA {
     pub dwSize: u32,
     pub changeType: PEER_NODE_CHANGE_TYPE,
@@ -2019,6 +2156,7 @@ unsafe impl ::windows::runtime::Abi for PEER_EVENT_NODE_CHANGE_DATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 pub struct PEER_EVENT_OBJECT_CHANGED_DATA {
     pub pContact: *mut PEER_CONTACT,
     pub pEndpoint: *mut PEER_ENDPOINT,
@@ -2055,6 +2193,7 @@ unsafe impl ::windows::runtime::Abi for PEER_EVENT_OBJECT_CHANGED_DATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 pub struct PEER_EVENT_PEOPLE_NEAR_ME_CHANGED_DATA {
     pub changeType: PEER_CHANGE_TYPE,
     pub pPeopleNearMe: *mut PEER_PEOPLE_NEAR_ME,
@@ -2089,6 +2228,7 @@ unsafe impl ::windows::runtime::Abi for PEER_EVENT_PEOPLE_NEAR_ME_CHANGED_DATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 pub struct PEER_EVENT_PRESENCE_CHANGED_DATA {
     pub pContact: *mut PEER_CONTACT,
     pub pEndpoint: *mut PEER_ENDPOINT,
@@ -2124,6 +2264,7 @@ unsafe impl ::windows::runtime::Abi for PEER_EVENT_PRESENCE_CHANGED_DATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub struct PEER_EVENT_RECORD_CHANGE_DATA {
     pub dwSize: u32,
     pub changeType: PEER_RECORD_CHANGE_TYPE,
@@ -2154,6 +2295,7 @@ unsafe impl ::windows::runtime::Abi for PEER_EVENT_RECORD_CHANGE_DATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 pub struct PEER_EVENT_REQUEST_STATUS_CHANGED_DATA {
     pub pEndpoint: *mut PEER_ENDPOINT,
     pub hrChange: ::windows::runtime::HRESULT,
@@ -2187,6 +2329,7 @@ unsafe impl ::windows::runtime::Abi for PEER_EVENT_REQUEST_STATUS_CHANGED_DATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub struct PEER_EVENT_SYNCHRONIZED_DATA {
     pub dwSize: u32,
     pub recordType: ::windows::runtime::GUID,
@@ -2215,6 +2358,7 @@ unsafe impl ::windows::runtime::Abi for PEER_EVENT_SYNCHRONIZED_DATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 pub struct PEER_EVENT_WATCHLIST_CHANGED_DATA {
     pub pContact: *mut PEER_CONTACT,
     pub changeType: PEER_CHANGE_TYPE,
@@ -2246,20 +2390,32 @@ unsafe impl ::windows::runtime::Abi for PEER_EVENT_WATCHLIST_CHANGED_DATA {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const PEER_E_ALREADY_EXISTS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147024713i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const PEER_E_CLIENT_INVALID_COMPARTMENT_ID: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147013390i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const PEER_E_CLOUD_DISABLED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147013394i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const PEER_E_CLOUD_IS_DEAD: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147013387i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const PEER_E_CLOUD_IS_SEARCH_ONLY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147013391i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const PEER_E_CLOUD_NOT_FOUND: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147013395i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const PEER_E_DISK_FULL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147024784i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const PEER_E_DUPLICATE_PEER_NAME: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147013388i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const PEER_E_INVALID_IDENTITY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147013393i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const PEER_E_NOT_FOUND: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147023728i32 as _);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const PEER_E_TOO_MUCH_LOAD: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147013392i32 as _);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 pub struct PEER_GRAPH_EVENT_DATA {
     pub eventType: PEER_GRAPH_EVENT_TYPE,
     pub Anonymous: PEER_GRAPH_EVENT_DATA_0,
@@ -2288,6 +2444,7 @@ unsafe impl ::windows::runtime::Abi for PEER_GRAPH_EVENT_DATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 pub union PEER_GRAPH_EVENT_DATA_0 {
     pub dwStatus: PEER_GRAPH_STATUS_FLAGS,
     pub incomingData: PEER_EVENT_INCOMING_DATA,
@@ -2319,6 +2476,7 @@ unsafe impl ::windows::runtime::Abi for PEER_GRAPH_EVENT_DATA_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub struct PEER_GRAPH_EVENT_REGISTRATION {
     pub eventType: PEER_GRAPH_EVENT_TYPE,
     pub pType: *mut ::windows::runtime::GUID,
@@ -2344,6 +2502,7 @@ unsafe impl ::windows::runtime::Abi for PEER_GRAPH_EVENT_REGISTRATION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PEER_GRAPH_EVENT_TYPE(pub i32);
@@ -2368,6 +2527,7 @@ unsafe impl ::windows::runtime::Abi for PEER_GRAPH_EVENT_TYPE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 pub struct PEER_GRAPH_PROPERTIES {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -2418,6 +2578,7 @@ unsafe impl ::windows::runtime::Abi for PEER_GRAPH_PROPERTIES {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PEER_GRAPH_PROPERTY_FLAGS(pub i32);
@@ -2432,6 +2593,7 @@ unsafe impl ::windows::runtime::Abi for PEER_GRAPH_PROPERTY_FLAGS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PEER_GRAPH_SCOPE(pub i32);
@@ -2449,6 +2611,7 @@ unsafe impl ::windows::runtime::Abi for PEER_GRAPH_SCOPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PEER_GRAPH_STATUS_FLAGS(pub i32);
@@ -2464,6 +2627,7 @@ unsafe impl ::windows::runtime::Abi for PEER_GRAPH_STATUS_FLAGS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PEER_GROUP_AUTHENTICATION_SCHEME(pub i32);
@@ -2481,6 +2645,7 @@ unsafe impl ::windows::runtime::Abi for PEER_GROUP_AUTHENTICATION_SCHEME {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 pub struct PEER_GROUP_EVENT_DATA {
     pub eventType: PEER_GROUP_EVENT_TYPE,
     pub Anonymous: PEER_GROUP_EVENT_DATA_0,
@@ -2509,6 +2674,7 @@ unsafe impl ::windows::runtime::Abi for PEER_GROUP_EVENT_DATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 pub union PEER_GROUP_EVENT_DATA_0 {
     pub dwStatus: PEER_GROUP_STATUS,
     pub incomingData: PEER_EVENT_INCOMING_DATA,
@@ -2540,6 +2706,7 @@ unsafe impl ::windows::runtime::Abi for PEER_GROUP_EVENT_DATA_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub struct PEER_GROUP_EVENT_REGISTRATION {
     pub eventType: PEER_GROUP_EVENT_TYPE,
     pub pType: *mut ::windows::runtime::GUID,
@@ -2565,6 +2732,7 @@ unsafe impl ::windows::runtime::Abi for PEER_GROUP_EVENT_REGISTRATION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PEER_GROUP_EVENT_TYPE(pub i32);
@@ -2586,6 +2754,7 @@ unsafe impl ::windows::runtime::Abi for PEER_GROUP_EVENT_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PEER_GROUP_ISSUE_CREDENTIAL_FLAGS(pub i32);
@@ -2602,6 +2771,7 @@ unsafe impl ::windows::runtime::Abi for PEER_GROUP_ISSUE_CREDENTIAL_FLAGS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 pub struct PEER_GROUP_PROPERTIES {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -2670,6 +2840,7 @@ unsafe impl ::windows::runtime::Abi for PEER_GROUP_PROPERTIES {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PEER_GROUP_PROPERTY_FLAGS(pub i32);
@@ -2688,6 +2859,7 @@ unsafe impl ::windows::runtime::Abi for PEER_GROUP_PROPERTY_FLAGS {
 pub const PEER_GROUP_ROLE_ADMIN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(70807847, 43606, 17674, [140, 229, 79, 86, 92, 103, 144, 244]);
 pub const PEER_GROUP_ROLE_INVITING_MEMBER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1131478409, 56344, 19707, [141, 191, 152, 83, 168, 169, 249, 5]);
 pub const PEER_GROUP_ROLE_MEMBER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4046308551, 2135, 19616, [147, 252, 177, 187, 25, 163, 216, 194]);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PEER_GROUP_STATUS(pub i32);
@@ -2705,6 +2877,7 @@ unsafe impl ::windows::runtime::Abi for PEER_GROUP_STATUS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 pub struct PEER_INVITATION {
     pub applicationId: ::windows::runtime::GUID,
     pub applicationData: PEER_DATA,
@@ -2740,6 +2913,7 @@ unsafe impl ::windows::runtime::Abi for PEER_INVITATION {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`, `Win32_Security_Cryptography`*"]
 pub struct PEER_INVITATION_INFO {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -2829,6 +3003,7 @@ unsafe impl ::windows::runtime::Abi for PEER_INVITATION_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 pub struct PEER_INVITATION_RESPONSE {
     pub action: PEER_INVITATION_RESPONSE_TYPE,
     pub pwzMessage: super::super::Foundation::PWSTR,
@@ -2861,6 +3036,7 @@ unsafe impl ::windows::runtime::Abi for PEER_INVITATION_RESPONSE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PEER_INVITATION_RESPONSE_TYPE(pub i32);
@@ -2880,6 +3056,7 @@ unsafe impl ::windows::runtime::Abi for PEER_INVITATION_RESPONSE_TYPE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`, `Win32_Networking_WinSock`, `Win32_Security_Cryptography`*"]
 pub struct PEER_MEMBER {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -2926,6 +3103,7 @@ unsafe impl ::windows::runtime::Abi for PEER_MEMBER {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PEER_MEMBER_CHANGE_TYPE(pub i32);
@@ -2943,6 +3121,7 @@ unsafe impl ::windows::runtime::Abi for PEER_MEMBER_CHANGE_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PEER_MEMBER_FLAGS(pub i32);
@@ -2959,6 +3138,7 @@ unsafe impl ::windows::runtime::Abi for PEER_MEMBER_FLAGS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 pub struct PEER_NAME_PAIR {
     pub dwSize: u32,
     pub pwzPeerName: super::super::Foundation::PWSTR,
@@ -2991,6 +3171,7 @@ unsafe impl ::windows::runtime::Abi for PEER_NAME_PAIR {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PEER_NODE_CHANGE_TYPE(pub i32);
@@ -3009,6 +3190,7 @@ unsafe impl ::windows::runtime::Abi for PEER_NODE_CHANGE_TYPE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 pub struct PEER_NODE_INFO {
     pub dwSize: u32,
     pub ullNodeId: u64,
@@ -3046,6 +3228,7 @@ unsafe impl ::windows::runtime::Abi for PEER_NODE_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub struct PEER_OBJECT {
     pub id: ::windows::runtime::GUID,
     pub data: PEER_DATA,
@@ -3075,6 +3258,7 @@ unsafe impl ::windows::runtime::Abi for PEER_OBJECT {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 pub struct PEER_PEOPLE_NEAR_ME {
     pub pwzNickName: super::super::Foundation::PWSTR,
     pub endpoint: PEER_ENDPOINT,
@@ -3104,6 +3288,7 @@ unsafe impl ::windows::runtime::Abi for PEER_PEOPLE_NEAR_ME {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 pub struct PEER_PNRP_CLOUD_INFO {
     pub pwzCloudName: super::super::Foundation::PWSTR,
     pub dwScope: PNRP_SCOPE,
@@ -3139,6 +3324,7 @@ unsafe impl ::windows::runtime::Abi for PEER_PNRP_CLOUD_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 pub struct PEER_PNRP_ENDPOINT_INFO {
     pub pwzPeerName: super::super::Foundation::PWSTR,
     pub cAddresses: u32,
@@ -3176,6 +3362,7 @@ unsafe impl ::windows::runtime::Abi for PEER_PNRP_ENDPOINT_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 pub struct PEER_PNRP_REGISTRATION_INFO {
     pub pwzCloudName: super::super::Foundation::PWSTR,
     pub pwzPublishingIdentity: super::super::Foundation::PWSTR,
@@ -3223,6 +3410,7 @@ unsafe impl ::windows::runtime::Abi for PEER_PNRP_REGISTRATION_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 pub struct PEER_PRESENCE_INFO {
     pub status: PEER_PRESENCE_STATUS,
     pub pwzDescriptiveText: super::super::Foundation::PWSTR,
@@ -3254,6 +3442,7 @@ unsafe impl ::windows::runtime::Abi for PEER_PRESENCE_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PEER_PRESENCE_STATUS(pub i32);
@@ -3274,6 +3463,7 @@ unsafe impl ::windows::runtime::Abi for PEER_PRESENCE_STATUS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PEER_PUBLICATION_SCOPE(pub i32);
@@ -3293,6 +3483,7 @@ unsafe impl ::windows::runtime::Abi for PEER_PUBLICATION_SCOPE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 pub struct PEER_RECORD {
     pub dwSize: u32,
     pub r#type: ::windows::runtime::GUID,
@@ -3349,6 +3540,7 @@ unsafe impl ::windows::runtime::Abi for PEER_RECORD {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PEER_RECORD_CHANGE_TYPE(pub i32);
@@ -3365,6 +3557,7 @@ unsafe impl ::windows::runtime::Abi for PEER_RECORD_CHANGE_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PEER_RECORD_FLAGS(pub i32);
@@ -3382,6 +3575,7 @@ unsafe impl ::windows::runtime::Abi for PEER_RECORD_FLAGS {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 pub struct PEER_SECURITY_INTERFACE {
     pub dwSize: u32,
     pub pwzSspFilename: super::super::Foundation::PWSTR,
@@ -3437,6 +3631,7 @@ unsafe impl ::windows::runtime::Abi for PEER_SECURITY_INTERFACE {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PEER_SIGNIN_FLAGS(pub i32);
@@ -3455,6 +3650,7 @@ unsafe impl ::windows::runtime::Abi for PEER_SIGNIN_FLAGS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub struct PEER_VERSION_DATA {
     pub wVersion: u16,
     pub wHighestVersion: u16,
@@ -3480,6 +3676,7 @@ unsafe impl ::windows::runtime::Abi for PEER_VERSION_DATA {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PEER_WATCH_PERMISSION(pub i32);
@@ -3502,6 +3699,7 @@ pub type PFNPEER_SECURE_RECORD = unsafe extern "system" fn(hgraph: *const ::std:
 pub type PFNPEER_VALIDATE_RECORD = unsafe extern "system" fn(hgraph: *const ::std::ffi::c_void, pvcontext: *const ::std::ffi::c_void, precord: *const PEER_RECORD, changetype: PEER_RECORD_CHANGE_TYPE) -> ::windows::runtime::HRESULT;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub struct PNRPCLOUDINFO {
     pub dwSize: u32,
     pub Cloud: PNRP_CLOUD_ID,
@@ -3529,10 +3727,12 @@ unsafe impl ::windows::runtime::Abi for PNRPCLOUDINFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const PNRPINFO_HINT: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 pub struct PNRPINFO_V1 {
     pub dwSize: u32,
     pub lpwszIdentity: super::super::Foundation::PWSTR,
@@ -3584,6 +3784,7 @@ unsafe impl ::windows::runtime::Abi for PNRPINFO_V1 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`, `Win32_Networking_WinSock`, `Win32_System_Com`*"]
 pub struct PNRPINFO_V2 {
     pub dwSize: u32,
     pub lpwszIdentity: super::super::Foundation::PWSTR,
@@ -3621,6 +3822,7 @@ unsafe impl ::windows::runtime::Abi for PNRPINFO_V2 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`, `Win32_System_Com`*"]
 pub union PNRPINFO_V2_0 {
     pub blobPayload: super::super::System::Com::BLOB,
     pub pwszPayload: super::super::Foundation::PWSTR,
@@ -3646,6 +3848,7 @@ unsafe impl ::windows::runtime::Abi for PNRPINFO_V2_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PNRP_CLOUD_FLAGS(pub i32);
@@ -3664,6 +3867,7 @@ unsafe impl ::windows::runtime::Abi for PNRP_CLOUD_FLAGS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub struct PNRP_CLOUD_ID {
     pub AddressFamily: i32,
     pub Scope: PNRP_SCOPE,
@@ -3690,6 +3894,7 @@ unsafe impl ::windows::runtime::Abi for PNRP_CLOUD_ID {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PNRP_CLOUD_STATE(pub i32);
@@ -3709,6 +3914,7 @@ unsafe impl ::windows::runtime::Abi for PNRP_CLOUD_STATE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PNRP_EXTENDED_PAYLOAD_TYPE(pub i32);
@@ -3724,8 +3930,11 @@ unsafe impl ::windows::runtime::Abi for PNRP_EXTENDED_PAYLOAD_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const PNRP_MAX_ENDPOINT_ADDRESSES: u32 = 10u32;
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const PNRP_MAX_EXTENDED_PAYLOAD_BYTES: u32 = 4096u32;
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PNRP_REGISTERED_ID_STATE(pub i32);
@@ -3740,6 +3949,7 @@ unsafe impl ::windows::runtime::Abi for PNRP_REGISTERED_ID_STATE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PNRP_RESOLVE_CRITERIA(pub i32);
@@ -3759,6 +3969,7 @@ unsafe impl ::windows::runtime::Abi for PNRP_RESOLVE_CRITERIA {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PNRP_SCOPE(pub i32);
@@ -3776,6 +3987,7 @@ unsafe impl ::windows::runtime::Abi for PNRP_SCOPE {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerCollabAddContact<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwzcontactdata: Param0) -> ::windows::runtime::Result<*mut PEER_CONTACT> {
     #[cfg(windows)]
@@ -3791,6 +4003,7 @@ pub unsafe fn PeerCollabAddContact<'a, Param0: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn PeerCollabAsyncInviteContact<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(pccontact: *const PEER_CONTACT, pcendpoint: *const PEER_ENDPOINT, pcinvitation: *const PEER_INVITATION, hevent: Param3) -> ::windows::runtime::Result<super::super::Foundation::HANDLE> {
     #[cfg(windows)]
@@ -3806,6 +4019,7 @@ pub unsafe fn PeerCollabAsyncInviteContact<'a, Param3: ::windows::runtime::IntoP
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn PeerCollabAsyncInviteEndpoint<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(pcendpoint: *const PEER_ENDPOINT, pcinvitation: *const PEER_INVITATION, hevent: Param2) -> ::windows::runtime::Result<super::super::Foundation::HANDLE> {
     #[cfg(windows)]
@@ -3821,6 +4035,7 @@ pub unsafe fn PeerCollabAsyncInviteEndpoint<'a, Param2: ::windows::runtime::Into
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerCollabCancelInvitation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hinvitation: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -3835,6 +4050,7 @@ pub unsafe fn PeerCollabCancelInvitation<'a, Param0: ::windows::runtime::IntoPar
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerCollabCloseHandle<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hinvitation: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -3849,6 +4065,7 @@ pub unsafe fn PeerCollabCloseHandle<'a, Param0: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerCollabDeleteContact<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwzpeername: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -3863,6 +4080,7 @@ pub unsafe fn PeerCollabDeleteContact<'a, Param0: ::windows::runtime::IntoParam<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn PeerCollabDeleteEndpointData(pcendpoint: *const PEER_ENDPOINT) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -3876,6 +4094,7 @@ pub unsafe fn PeerCollabDeleteEndpointData(pcendpoint: *const PEER_ENDPOINT) -> 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[inline]
 pub unsafe fn PeerCollabDeleteObject(pobjectid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -3889,6 +4108,7 @@ pub unsafe fn PeerCollabDeleteObject(pobjectid: *const ::windows::runtime::GUID)
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[inline]
 pub unsafe fn PeerCollabEnumApplicationRegistrationInfo(registrationtype: PEER_APPLICATION_REGISTRATION_TYPE, phpeerenum: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -3903,6 +4123,7 @@ pub unsafe fn PeerCollabEnumApplicationRegistrationInfo(registrationtype: PEER_A
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn PeerCollabEnumApplications(pcendpoint: *const PEER_ENDPOINT, papplicationid: *const ::windows::runtime::GUID, phpeerenum: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -3916,6 +4137,7 @@ pub unsafe fn PeerCollabEnumApplications(pcendpoint: *const PEER_ENDPOINT, pappl
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[inline]
 pub unsafe fn PeerCollabEnumContacts(phpeerenum: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -3930,6 +4152,7 @@ pub unsafe fn PeerCollabEnumContacts(phpeerenum: *mut *mut ::std::ffi::c_void) -
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerCollabEnumEndpoints(pccontact: *const PEER_CONTACT, phpeerenum: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -3944,6 +4167,7 @@ pub unsafe fn PeerCollabEnumEndpoints(pccontact: *const PEER_CONTACT, phpeerenum
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn PeerCollabEnumObjects(pcendpoint: *const PEER_ENDPOINT, pobjectid: *const ::windows::runtime::GUID, phpeerenum: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -3957,6 +4181,7 @@ pub unsafe fn PeerCollabEnumObjects(pcendpoint: *const PEER_ENDPOINT, pobjectid:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[inline]
 pub unsafe fn PeerCollabEnumPeopleNearMe(phpeerenum: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -3971,6 +4196,7 @@ pub unsafe fn PeerCollabEnumPeopleNearMe(phpeerenum: *mut *mut ::std::ffi::c_voi
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerCollabExportContact<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwzpeername: Param0) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
@@ -3986,6 +4212,7 @@ pub unsafe fn PeerCollabExportContact<'a, Param0: ::windows::runtime::IntoParam<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn PeerCollabGetAppLaunchInfo() -> ::windows::runtime::Result<*mut PEER_APP_LAUNCH_INFO> {
     #[cfg(windows)]
@@ -4001,6 +4228,7 @@ pub unsafe fn PeerCollabGetAppLaunchInfo() -> ::windows::runtime::Result<*mut PE
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerCollabGetApplicationRegistrationInfo(papplicationid: *const ::windows::runtime::GUID, registrationtype: PEER_APPLICATION_REGISTRATION_TYPE) -> ::windows::runtime::Result<*mut PEER_APPLICATION_REGISTRATION_INFO> {
     #[cfg(windows)]
@@ -4016,6 +4244,7 @@ pub unsafe fn PeerCollabGetApplicationRegistrationInfo(papplicationid: *const ::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerCollabGetContact<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwzpeername: Param0) -> ::windows::runtime::Result<*mut PEER_CONTACT> {
     #[cfg(windows)]
@@ -4031,6 +4260,7 @@ pub unsafe fn PeerCollabGetContact<'a, Param0: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerCollabGetEndpointName() -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
@@ -4046,6 +4276,7 @@ pub unsafe fn PeerCollabGetEndpointName() -> ::windows::runtime::Result<super::s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn PeerCollabGetEventData(hpeerevent: *const ::std::ffi::c_void) -> ::windows::runtime::Result<*mut PEER_COLLAB_EVENT_DATA> {
     #[cfg(windows)]
@@ -4061,6 +4292,7 @@ pub unsafe fn PeerCollabGetEventData(hpeerevent: *const ::std::ffi::c_void) -> :
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerCollabGetInvitationResponse<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hinvitation: Param0) -> ::windows::runtime::Result<*mut PEER_INVITATION_RESPONSE> {
     #[cfg(windows)]
@@ -4076,6 +4308,7 @@ pub unsafe fn PeerCollabGetInvitationResponse<'a, Param0: ::windows::runtime::In
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn PeerCollabGetPresenceInfo(pcendpoint: *const PEER_ENDPOINT) -> ::windows::runtime::Result<*mut PEER_PRESENCE_INFO> {
     #[cfg(windows)]
@@ -4090,6 +4323,7 @@ pub unsafe fn PeerCollabGetPresenceInfo(pcendpoint: *const PEER_ENDPOINT) -> ::w
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[inline]
 pub unsafe fn PeerCollabGetSigninOptions() -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
@@ -4105,6 +4339,7 @@ pub unsafe fn PeerCollabGetSigninOptions() -> ::windows::runtime::Result<u32> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn PeerCollabInviteContact(pccontact: *const PEER_CONTACT, pcendpoint: *const PEER_ENDPOINT, pcinvitation: *const PEER_INVITATION) -> ::windows::runtime::Result<*mut PEER_INVITATION_RESPONSE> {
     #[cfg(windows)]
@@ -4120,6 +4355,7 @@ pub unsafe fn PeerCollabInviteContact(pccontact: *const PEER_CONTACT, pcendpoint
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn PeerCollabInviteEndpoint(pcendpoint: *const PEER_ENDPOINT, pcinvitation: *const PEER_INVITATION) -> ::windows::runtime::Result<*mut PEER_INVITATION_RESPONSE> {
     #[cfg(windows)]
@@ -4135,6 +4371,7 @@ pub unsafe fn PeerCollabInviteEndpoint(pcendpoint: *const PEER_ENDPOINT, pcinvit
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerCollabParseContact<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwzcontactdata: Param0) -> ::windows::runtime::Result<*mut PEER_CONTACT> {
     #[cfg(windows)]
@@ -4150,6 +4387,7 @@ pub unsafe fn PeerCollabParseContact<'a, Param0: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn PeerCollabQueryContactData(pcendpoint: *const PEER_ENDPOINT) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
@@ -4165,6 +4403,7 @@ pub unsafe fn PeerCollabQueryContactData(pcendpoint: *const PEER_ENDPOINT) -> ::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn PeerCollabRefreshEndpointData(pcendpoint: *const PEER_ENDPOINT) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4179,6 +4418,7 @@ pub unsafe fn PeerCollabRefreshEndpointData(pcendpoint: *const PEER_ENDPOINT) ->
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerCollabRegisterApplication(pcapplication: *const PEER_APPLICATION_REGISTRATION_INFO, registrationtype: PEER_APPLICATION_REGISTRATION_TYPE) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4193,6 +4433,7 @@ pub unsafe fn PeerCollabRegisterApplication(pcapplication: *const PEER_APPLICATI
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerCollabRegisterEvent<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hevent: Param0, ceventregistration: u32, peventregistrations: *const PEER_COLLAB_EVENT_REGISTRATION, phpeerevent: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4207,6 +4448,7 @@ pub unsafe fn PeerCollabRegisterEvent<'a, Param0: ::windows::runtime::IntoParam<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerCollabSetEndpointName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwzendpointname: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4220,6 +4462,7 @@ pub unsafe fn PeerCollabSetEndpointName<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[inline]
 pub unsafe fn PeerCollabSetObject(pcobject: *const PEER_OBJECT) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4234,6 +4477,7 @@ pub unsafe fn PeerCollabSetObject(pcobject: *const PEER_OBJECT) -> ::windows::ru
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerCollabSetPresenceInfo(pcpresenceinfo: *const PEER_PRESENCE_INFO) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4247,6 +4491,7 @@ pub unsafe fn PeerCollabSetPresenceInfo(pcpresenceinfo: *const PEER_PRESENCE_INF
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[inline]
 pub unsafe fn PeerCollabShutdown() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4261,6 +4506,7 @@ pub unsafe fn PeerCollabShutdown() -> ::windows::runtime::Result<()> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerCollabSignin<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwndparent: Param0, dwsigninoptions: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4274,6 +4520,7 @@ pub unsafe fn PeerCollabSignin<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[inline]
 pub unsafe fn PeerCollabSignout(dwsigninoptions: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4287,6 +4534,7 @@ pub unsafe fn PeerCollabSignout(dwsigninoptions: u32) -> ::windows::runtime::Res
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[inline]
 pub unsafe fn PeerCollabStartup(wversionrequested: u16) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4301,6 +4549,7 @@ pub unsafe fn PeerCollabStartup(wversionrequested: u16) -> ::windows::runtime::R
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn PeerCollabSubscribeEndpointData(pcendpoint: *const PEER_ENDPOINT) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4314,6 +4563,7 @@ pub unsafe fn PeerCollabSubscribeEndpointData(pcendpoint: *const PEER_ENDPOINT) 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[inline]
 pub unsafe fn PeerCollabUnregisterApplication(papplicationid: *const ::windows::runtime::GUID, registrationtype: PEER_APPLICATION_REGISTRATION_TYPE) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4327,6 +4577,7 @@ pub unsafe fn PeerCollabUnregisterApplication(papplicationid: *const ::windows::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[inline]
 pub unsafe fn PeerCollabUnregisterEvent(hpeerevent: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4341,6 +4592,7 @@ pub unsafe fn PeerCollabUnregisterEvent(hpeerevent: *const ::std::ffi::c_void) -
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn PeerCollabUnsubscribeEndpointData(pcendpoint: *const PEER_ENDPOINT) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4355,6 +4607,7 @@ pub unsafe fn PeerCollabUnsubscribeEndpointData(pcendpoint: *const PEER_ENDPOINT
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerCollabUpdateContact(pcontact: *const PEER_CONTACT) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4369,6 +4622,7 @@ pub unsafe fn PeerCollabUpdateContact(pcontact: *const PEER_CONTACT) -> ::window
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerCreatePeerName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwzidentity: Param0, pwzclassifier: Param1) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
@@ -4384,6 +4638,7 @@ pub unsafe fn PeerCreatePeerName<'a, Param0: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[inline]
 pub unsafe fn PeerDistClientAddContentInformation(hpeerdist: isize, hcontenthandle: isize, cbnumberofbytes: u32, pbuffer: *const u8, lpoverlapped: *const super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
@@ -4398,6 +4653,7 @@ pub unsafe fn PeerDistClientAddContentInformation(hpeerdist: isize, hcontenthand
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[inline]
 pub unsafe fn PeerDistClientAddData(hpeerdist: isize, hcontenthandle: isize, cbnumberofbytes: u32, pbuffer: *const u8, lpoverlapped: *const super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
@@ -4412,6 +4668,7 @@ pub unsafe fn PeerDistClientAddData(hpeerdist: isize, hcontenthandle: isize, cbn
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[inline]
 pub unsafe fn PeerDistClientBlockRead(hpeerdist: isize, hcontenthandle: isize, cbmaxnumberofbytes: u32, pbuffer: *mut u8, dwtimeoutinmilliseconds: u32, lpoverlapped: *const super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
@@ -4426,6 +4683,7 @@ pub unsafe fn PeerDistClientBlockRead(hpeerdist: isize, hcontenthandle: isize, c
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[inline]
 pub unsafe fn PeerDistClientCancelAsyncOperation(hpeerdist: isize, hcontenthandle: isize, poverlapped: *const super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
@@ -4439,6 +4697,7 @@ pub unsafe fn PeerDistClientCancelAsyncOperation(hpeerdist: isize, hcontenthandl
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[inline]
 pub unsafe fn PeerDistClientCloseContent(hpeerdist: isize, hcontenthandle: isize) -> u32 {
     #[cfg(windows)]
@@ -4453,6 +4712,7 @@ pub unsafe fn PeerDistClientCloseContent(hpeerdist: isize, hcontenthandle: isize
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[inline]
 pub unsafe fn PeerDistClientCompleteContentInformation(hpeerdist: isize, hcontenthandle: isize, lpoverlapped: *const super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
@@ -4467,6 +4727,7 @@ pub unsafe fn PeerDistClientCompleteContentInformation(hpeerdist: isize, hconten
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[inline]
 pub unsafe fn PeerDistClientFlushContent<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hpeerdist: isize, pcontenttag: *const PEERDIST_CONTENT_TAG, hcompletionport: Param2, ulcompletionkey: usize, lpoverlapped: *const super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
@@ -4480,6 +4741,7 @@ pub unsafe fn PeerDistClientFlushContent<'a, Param2: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[inline]
 pub unsafe fn PeerDistClientGetInformationByHandle(hpeerdist: isize, hcontenthandle: isize, peerdistclientinfoclass: PEERDIST_CLIENT_INFO_BY_HANDLE_CLASS, dwbuffersize: u32, lpinformation: *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -4494,6 +4756,7 @@ pub unsafe fn PeerDistClientGetInformationByHandle(hpeerdist: isize, hcontenthan
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerDistClientOpenContent<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hpeerdist: isize, pcontenttag: *const PEERDIST_CONTENT_TAG, hcompletionport: Param2, ulcompletionkey: usize, phcontenthandle: *mut isize) -> u32 {
     #[cfg(windows)]
@@ -4508,6 +4771,7 @@ pub unsafe fn PeerDistClientOpenContent<'a, Param2: ::windows::runtime::IntoPara
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[inline]
 pub unsafe fn PeerDistClientStreamRead(hpeerdist: isize, hcontenthandle: isize, cbmaxnumberofbytes: u32, pbuffer: *mut u8, dwtimeoutinmilliseconds: u32, lpoverlapped: *const super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
@@ -4522,6 +4786,7 @@ pub unsafe fn PeerDistClientStreamRead(hpeerdist: isize, hcontenthandle: isize, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[inline]
 pub unsafe fn PeerDistGetOverlappedResult<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(lpoverlapped: *const super::super::System::IO::OVERLAPPED, lpnumberofbytestransferred: *mut u32, bwait: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -4535,6 +4800,7 @@ pub unsafe fn PeerDistGetOverlappedResult<'a, Param2: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[inline]
 pub unsafe fn PeerDistGetStatus(hpeerdist: isize, ppeerdiststatus: *mut PEERDIST_STATUS) -> u32 {
     #[cfg(windows)]
@@ -4548,6 +4814,7 @@ pub unsafe fn PeerDistGetStatus(hpeerdist: isize, ppeerdiststatus: *mut PEERDIST
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[inline]
 pub unsafe fn PeerDistGetStatusEx(hpeerdist: isize, ppeerdiststatus: *mut PEERDIST_STATUS_INFO) -> u32 {
     #[cfg(windows)]
@@ -4562,6 +4829,7 @@ pub unsafe fn PeerDistGetStatusEx(hpeerdist: isize, ppeerdiststatus: *mut PEERDI
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[inline]
 pub unsafe fn PeerDistRegisterForStatusChangeNotification<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hpeerdist: isize, hcompletionport: Param1, ulcompletionkey: usize, lpoverlapped: *const super::super::System::IO::OVERLAPPED, ppeerdiststatus: *mut PEERDIST_STATUS) -> u32 {
     #[cfg(windows)]
@@ -4576,6 +4844,7 @@ pub unsafe fn PeerDistRegisterForStatusChangeNotification<'a, Param1: ::windows:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[inline]
 pub unsafe fn PeerDistRegisterForStatusChangeNotificationEx<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hpeerdist: isize, hcompletionport: Param1, ulcompletionkey: usize, lpoverlapped: *const super::super::System::IO::OVERLAPPED, ppeerdiststatus: *mut PEERDIST_STATUS_INFO) -> u32 {
     #[cfg(windows)]
@@ -4590,6 +4859,7 @@ pub unsafe fn PeerDistRegisterForStatusChangeNotificationEx<'a, Param1: ::window
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[inline]
 pub unsafe fn PeerDistServerCancelAsyncOperation(hpeerdist: isize, cbcontentidentifier: u32, pcontentidentifier: *const u8, poverlapped: *const super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
@@ -4603,6 +4873,7 @@ pub unsafe fn PeerDistServerCancelAsyncOperation(hpeerdist: isize, cbcontentiden
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[inline]
 pub unsafe fn PeerDistServerCloseContentInformation(hpeerdist: isize, hcontentinfo: isize) -> u32 {
     #[cfg(windows)]
@@ -4616,6 +4887,7 @@ pub unsafe fn PeerDistServerCloseContentInformation(hpeerdist: isize, hcontentin
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[inline]
 pub unsafe fn PeerDistServerCloseStreamHandle(hpeerdist: isize, hstream: isize) -> u32 {
     #[cfg(windows)]
@@ -4630,6 +4902,7 @@ pub unsafe fn PeerDistServerCloseStreamHandle(hpeerdist: isize, hstream: isize) 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerDistServerOpenContentInformation<'a, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hpeerdist: isize, cbcontentidentifier: u32, pcontentidentifier: *const u8, ullcontentoffset: u64, cbcontentlength: u64, hcompletionport: Param5, ulcompletionkey: usize, phcontentinfo: *mut isize) -> u32 {
     #[cfg(windows)]
@@ -4653,6 +4926,7 @@ pub unsafe fn PeerDistServerOpenContentInformation<'a, Param5: ::windows::runtim
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerDistServerOpenContentInformationEx<'a, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hpeerdist: isize, cbcontentidentifier: u32, pcontentidentifier: *const u8, ullcontentoffset: u64, cbcontentlength: u64, pretrievaloptions: *const PEERDIST_RETRIEVAL_OPTIONS, hcompletionport: Param6, ulcompletionkey: usize, phcontentinfo: *mut isize) -> u32 {
     #[cfg(windows)]
@@ -4677,6 +4951,7 @@ pub unsafe fn PeerDistServerOpenContentInformationEx<'a, Param6: ::windows::runt
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[inline]
 pub unsafe fn PeerDistServerPublishAddToStream(hpeerdist: isize, hstream: isize, cbnumberofbytes: u32, pbuffer: *const u8, lpoverlapped: *const super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
@@ -4691,6 +4966,7 @@ pub unsafe fn PeerDistServerPublishAddToStream(hpeerdist: isize, hstream: isize,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[inline]
 pub unsafe fn PeerDistServerPublishCompleteStream(hpeerdist: isize, hstream: isize, lpoverlapped: *const super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
@@ -4705,6 +4981,7 @@ pub unsafe fn PeerDistServerPublishCompleteStream(hpeerdist: isize, hstream: isi
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerDistServerPublishStream<'a, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hpeerdist: isize, cbcontentidentifier: u32, pcontentidentifier: *const u8, cbcontentlength: u64, ppublishoptions: *const PEERDIST_PUBLICATION_OPTIONS, hcompletionport: Param5, ulcompletionkey: usize, phstream: *mut isize) -> u32 {
     #[cfg(windows)]
@@ -4728,6 +5005,7 @@ pub unsafe fn PeerDistServerPublishStream<'a, Param5: ::windows::runtime::IntoPa
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[inline]
 pub unsafe fn PeerDistServerRetrieveContentInformation(hpeerdist: isize, hcontentinfo: isize, cbmaxnumberofbytes: u32, pbuffer: *mut u8, lpoverlapped: *const super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
@@ -4741,6 +5019,7 @@ pub unsafe fn PeerDistServerRetrieveContentInformation(hpeerdist: isize, hconten
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[inline]
 pub unsafe fn PeerDistServerUnpublish(hpeerdist: isize, cbcontentidentifier: u32, pcontentidentifier: *const u8) -> u32 {
     #[cfg(windows)]
@@ -4754,6 +5033,7 @@ pub unsafe fn PeerDistServerUnpublish(hpeerdist: isize, cbcontentidentifier: u32
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[inline]
 pub unsafe fn PeerDistShutdown(hpeerdist: isize) -> u32 {
     #[cfg(windows)]
@@ -4767,6 +5047,7 @@ pub unsafe fn PeerDistShutdown(hpeerdist: isize) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[inline]
 pub unsafe fn PeerDistStartup(dwversionrequested: u32, phpeerdist: *mut isize, pdwsupportedversion: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -4780,6 +5061,7 @@ pub unsafe fn PeerDistStartup(dwversionrequested: u32, phpeerdist: *mut isize, p
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[inline]
 pub unsafe fn PeerDistUnregisterForStatusChangeNotification(hpeerdist: isize) -> u32 {
     #[cfg(windows)]
@@ -4793,6 +5075,7 @@ pub unsafe fn PeerDistUnregisterForStatusChangeNotification(hpeerdist: isize) ->
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[inline]
 pub unsafe fn PeerEndEnumeration(hpeerenum: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4807,6 +5090,7 @@ pub unsafe fn PeerEndEnumeration(hpeerenum: *const ::std::ffi::c_void) -> ::wind
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerEnumGroups<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwzidentity: Param0, phpeerenum: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4820,6 +5104,7 @@ pub unsafe fn PeerEnumGroups<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[inline]
 pub unsafe fn PeerEnumIdentities(phpeerenum: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4833,6 +5118,7 @@ pub unsafe fn PeerEnumIdentities(phpeerenum: *mut *mut ::std::ffi::c_void) -> ::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[inline]
 pub unsafe fn PeerFreeData(pvdata: *const ::std::ffi::c_void) {
     #[cfg(windows)]
@@ -4846,6 +5132,7 @@ pub unsafe fn PeerFreeData(pvdata: *const ::std::ffi::c_void) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[inline]
 pub unsafe fn PeerGetItemCount(hpeerenum: *const ::std::ffi::c_void) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
@@ -4860,6 +5147,7 @@ pub unsafe fn PeerGetItemCount(hpeerenum: *const ::std::ffi::c_void) -> ::window
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[inline]
 pub unsafe fn PeerGetNextItem(hpeerenum: *const ::std::ffi::c_void, pcount: *mut u32, pppvitems: *mut *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4874,6 +5162,7 @@ pub unsafe fn PeerGetNextItem(hpeerenum: *const ::std::ffi::c_void, pcount: *mut
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerGraphAddRecord(hgraph: *const ::std::ffi::c_void, precord: *const PEER_RECORD) -> ::windows::runtime::Result<::windows::runtime::GUID> {
     #[cfg(windows)]
@@ -4888,6 +5177,7 @@ pub unsafe fn PeerGraphAddRecord(hgraph: *const ::std::ffi::c_void, precord: *co
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[inline]
 pub unsafe fn PeerGraphClose(hgraph: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4901,6 +5191,7 @@ pub unsafe fn PeerGraphClose(hgraph: *const ::std::ffi::c_void) -> ::windows::ru
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[inline]
 pub unsafe fn PeerGraphCloseDirectConnection(hgraph: *const ::std::ffi::c_void, ullconnectionid: u64) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4915,6 +5206,7 @@ pub unsafe fn PeerGraphCloseDirectConnection(hgraph: *const ::std::ffi::c_void, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn PeerGraphConnect<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hgraph: *const ::std::ffi::c_void, pwzpeerid: Param1, paddress: *const PEER_ADDRESS) -> ::windows::runtime::Result<u64> {
     #[cfg(windows)]
@@ -4930,6 +5222,7 @@ pub unsafe fn PeerGraphConnect<'a, Param1: ::windows::runtime::IntoParam<'a, sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerGraphCreate<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pgraphproperties: *const PEER_GRAPH_PROPERTIES, pwzdatabasename: Param1, psecurityinterface: *const PEER_SECURITY_INTERFACE, phgraph: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4944,6 +5237,7 @@ pub unsafe fn PeerGraphCreate<'a, Param1: ::windows::runtime::IntoParam<'a, supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerGraphDelete<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwzgraphid: Param0, pwzpeerid: Param1, pwzdatabasename: Param2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4958,6 +5252,7 @@ pub unsafe fn PeerGraphDelete<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerGraphDeleteRecord<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hgraph: *const ::std::ffi::c_void, precordid: *const ::windows::runtime::GUID, flocal: Param2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4971,6 +5266,7 @@ pub unsafe fn PeerGraphDeleteRecord<'a, Param2: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[inline]
 pub unsafe fn PeerGraphEndEnumeration(hpeerenum: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4984,6 +5280,7 @@ pub unsafe fn PeerGraphEndEnumeration(hpeerenum: *const ::std::ffi::c_void) -> :
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[inline]
 pub unsafe fn PeerGraphEnumConnections(hgraph: *const ::std::ffi::c_void, dwflags: u32, phpeerenum: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4998,6 +5295,7 @@ pub unsafe fn PeerGraphEnumConnections(hgraph: *const ::std::ffi::c_void, dwflag
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerGraphEnumNodes<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hgraph: *const ::std::ffi::c_void, pwzpeerid: Param1, phpeerenum: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5012,6 +5310,7 @@ pub unsafe fn PeerGraphEnumNodes<'a, Param1: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerGraphEnumRecords<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hgraph: *const ::std::ffi::c_void, precordtype: *const ::windows::runtime::GUID, pwzpeerid: Param2, phpeerenum: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5026,6 +5325,7 @@ pub unsafe fn PeerGraphEnumRecords<'a, Param2: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerGraphExportDatabase<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hgraph: *const ::std::ffi::c_void, pwzfilepath: Param1) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5039,6 +5339,7 @@ pub unsafe fn PeerGraphExportDatabase<'a, Param1: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[inline]
 pub unsafe fn PeerGraphFreeData(pvdata: *const ::std::ffi::c_void) {
     #[cfg(windows)]
@@ -5053,6 +5354,7 @@ pub unsafe fn PeerGraphFreeData(pvdata: *const ::std::ffi::c_void) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerGraphGetEventData(hpeerevent: *const ::std::ffi::c_void) -> ::windows::runtime::Result<*mut PEER_GRAPH_EVENT_DATA> {
     #[cfg(windows)]
@@ -5067,6 +5369,7 @@ pub unsafe fn PeerGraphGetEventData(hpeerevent: *const ::std::ffi::c_void) -> ::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[inline]
 pub unsafe fn PeerGraphGetItemCount(hpeerenum: *const ::std::ffi::c_void) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
@@ -5081,6 +5384,7 @@ pub unsafe fn PeerGraphGetItemCount(hpeerenum: *const ::std::ffi::c_void) -> ::w
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[inline]
 pub unsafe fn PeerGraphGetNextItem(hpeerenum: *const ::std::ffi::c_void, pcount: *mut u32, pppvitems: *mut *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5095,6 +5399,7 @@ pub unsafe fn PeerGraphGetNextItem(hpeerenum: *const ::std::ffi::c_void, pcount:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn PeerGraphGetNodeInfo(hgraph: *const ::std::ffi::c_void, ullnodeid: u64) -> ::windows::runtime::Result<*mut PEER_NODE_INFO> {
     #[cfg(windows)]
@@ -5110,6 +5415,7 @@ pub unsafe fn PeerGraphGetNodeInfo(hgraph: *const ::std::ffi::c_void, ullnodeid:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerGraphGetProperties(hgraph: *const ::std::ffi::c_void) -> ::windows::runtime::Result<*mut PEER_GRAPH_PROPERTIES> {
     #[cfg(windows)]
@@ -5125,6 +5431,7 @@ pub unsafe fn PeerGraphGetProperties(hgraph: *const ::std::ffi::c_void) -> ::win
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerGraphGetRecord(hgraph: *const ::std::ffi::c_void, precordid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<*mut PEER_RECORD> {
     #[cfg(windows)]
@@ -5139,6 +5446,7 @@ pub unsafe fn PeerGraphGetRecord(hgraph: *const ::std::ffi::c_void, precordid: *
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[inline]
 pub unsafe fn PeerGraphGetStatus(hgraph: *const ::std::ffi::c_void) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
@@ -5154,6 +5462,7 @@ pub unsafe fn PeerGraphGetStatus(hgraph: *const ::std::ffi::c_void) -> ::windows
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerGraphImportDatabase<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hgraph: *const ::std::ffi::c_void, pwzfilepath: Param1) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5167,6 +5476,7 @@ pub unsafe fn PeerGraphImportDatabase<'a, Param1: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[inline]
 pub unsafe fn PeerGraphListen(hgraph: *const ::std::ffi::c_void, dwscope: u32, dwscopeid: u32, wport: u16) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5181,6 +5491,7 @@ pub unsafe fn PeerGraphListen(hgraph: *const ::std::ffi::c_void, dwscope: u32, d
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerGraphOpen<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
     pwzgraphid: Param0,
@@ -5203,6 +5514,7 @@ pub unsafe fn PeerGraphOpen<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn PeerGraphOpenDirectConnection<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hgraph: *const ::std::ffi::c_void, pwzpeerid: Param1, paddress: *const PEER_ADDRESS) -> ::windows::runtime::Result<u64> {
     #[cfg(windows)]
@@ -5218,6 +5530,7 @@ pub unsafe fn PeerGraphOpenDirectConnection<'a, Param1: ::windows::runtime::Into
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerGraphPeerTimeToUniversalTime(hgraph: *const ::std::ffi::c_void, pftpeertime: *const super::super::Foundation::FILETIME) -> ::windows::runtime::Result<super::super::Foundation::FILETIME> {
     #[cfg(windows)]
@@ -5233,6 +5546,7 @@ pub unsafe fn PeerGraphPeerTimeToUniversalTime(hgraph: *const ::std::ffi::c_void
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerGraphRegisterEvent<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hgraph: *const ::std::ffi::c_void, hevent: Param1, ceventregistrations: u32, peventregistrations: *const PEER_GRAPH_EVENT_REGISTRATION, phpeerevent: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5247,6 +5561,7 @@ pub unsafe fn PeerGraphRegisterEvent<'a, Param1: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerGraphSearchRecords<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hgraph: *const ::std::ffi::c_void, pwzcriteria: Param1, phpeerenum: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5260,6 +5575,7 @@ pub unsafe fn PeerGraphSearchRecords<'a, Param1: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[inline]
 pub unsafe fn PeerGraphSendData(hgraph: *const ::std::ffi::c_void, ullconnectionid: u64, ptype: *const ::windows::runtime::GUID, cbdata: u32, pvdata: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5274,6 +5590,7 @@ pub unsafe fn PeerGraphSendData(hgraph: *const ::std::ffi::c_void, ullconnection
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerGraphSetNodeAttributes<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hgraph: *const ::std::ffi::c_void, pwzattributes: Param1) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5288,6 +5605,7 @@ pub unsafe fn PeerGraphSetNodeAttributes<'a, Param1: ::windows::runtime::IntoPar
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerGraphSetPresence<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hgraph: *const ::std::ffi::c_void, fpresent: Param1) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5302,6 +5620,7 @@ pub unsafe fn PeerGraphSetPresence<'a, Param1: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerGraphSetProperties(hgraph: *const ::std::ffi::c_void, pgraphproperties: *const PEER_GRAPH_PROPERTIES) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5315,6 +5634,7 @@ pub unsafe fn PeerGraphSetProperties(hgraph: *const ::std::ffi::c_void, pgraphpr
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[inline]
 pub unsafe fn PeerGraphShutdown() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5328,6 +5648,7 @@ pub unsafe fn PeerGraphShutdown() -> ::windows::runtime::Result<()> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[inline]
 pub unsafe fn PeerGraphStartup(wversionrequested: u16) -> ::windows::runtime::Result<PEER_VERSION_DATA> {
     #[cfg(windows)]
@@ -5343,6 +5664,7 @@ pub unsafe fn PeerGraphStartup(wversionrequested: u16) -> ::windows::runtime::Re
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerGraphUniversalTimeToPeerTime(hgraph: *const ::std::ffi::c_void, pftuniversaltime: *const super::super::Foundation::FILETIME) -> ::windows::runtime::Result<super::super::Foundation::FILETIME> {
     #[cfg(windows)]
@@ -5357,6 +5679,7 @@ pub unsafe fn PeerGraphUniversalTimeToPeerTime(hgraph: *const ::std::ffi::c_void
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[inline]
 pub unsafe fn PeerGraphUnregisterEvent(hpeerevent: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5371,6 +5694,7 @@ pub unsafe fn PeerGraphUnregisterEvent(hpeerevent: *const ::std::ffi::c_void) ->
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerGraphUpdateRecord(hgraph: *const ::std::ffi::c_void, precord: *const PEER_RECORD) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5384,6 +5708,7 @@ pub unsafe fn PeerGraphUpdateRecord(hgraph: *const ::std::ffi::c_void, precord: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[inline]
 pub unsafe fn PeerGraphValidateDeferredRecords(hgraph: *const ::std::ffi::c_void, crecordids: u32, precordids: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5398,6 +5723,7 @@ pub unsafe fn PeerGraphValidateDeferredRecords(hgraph: *const ::std::ffi::c_void
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerGroupAddRecord(hgroup: *const ::std::ffi::c_void, precord: *const PEER_RECORD) -> ::windows::runtime::Result<::windows::runtime::GUID> {
     #[cfg(windows)]
@@ -5412,6 +5738,7 @@ pub unsafe fn PeerGroupAddRecord(hgroup: *const ::std::ffi::c_void, precord: *co
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[inline]
 pub unsafe fn PeerGroupClose(hgroup: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5425,6 +5752,7 @@ pub unsafe fn PeerGroupClose(hgroup: *const ::std::ffi::c_void) -> ::windows::ru
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[inline]
 pub unsafe fn PeerGroupCloseDirectConnection(hgroup: *const ::std::ffi::c_void, ullconnectionid: u64) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5438,6 +5766,7 @@ pub unsafe fn PeerGroupCloseDirectConnection(hgroup: *const ::std::ffi::c_void, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[inline]
 pub unsafe fn PeerGroupConnect(hgroup: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5452,6 +5781,7 @@ pub unsafe fn PeerGroupConnect(hgroup: *const ::std::ffi::c_void) -> ::windows::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn PeerGroupConnectByAddress(hgroup: *const ::std::ffi::c_void, caddresses: u32, paddresses: *const PEER_ADDRESS) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5466,6 +5796,7 @@ pub unsafe fn PeerGroupConnectByAddress(hgroup: *const ::std::ffi::c_void, caddr
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerGroupCreate(pproperties: *const PEER_GROUP_PROPERTIES, phgroup: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5480,6 +5811,7 @@ pub unsafe fn PeerGroupCreate(pproperties: *const PEER_GROUP_PROPERTIES, phgroup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerGroupCreateInvitation<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hgroup: *const ::std::ffi::c_void, pwzidentityinfo: Param1, pftexpiration: *const super::super::Foundation::FILETIME, croles: u32, proles: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
@@ -5495,6 +5827,7 @@ pub unsafe fn PeerGroupCreateInvitation<'a, Param1: ::windows::runtime::IntoPara
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerGroupCreatePasswordInvitation(hgroup: *const ::std::ffi::c_void) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
@@ -5510,6 +5843,7 @@ pub unsafe fn PeerGroupCreatePasswordInvitation(hgroup: *const ::std::ffi::c_voi
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerGroupDelete<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwzidentity: Param0, pwzgrouppeername: Param1) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5523,6 +5857,7 @@ pub unsafe fn PeerGroupDelete<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[inline]
 pub unsafe fn PeerGroupDeleteRecord(hgroup: *const ::std::ffi::c_void, precordid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5536,6 +5871,7 @@ pub unsafe fn PeerGroupDeleteRecord(hgroup: *const ::std::ffi::c_void, precordid
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[inline]
 pub unsafe fn PeerGroupEnumConnections(hgroup: *const ::std::ffi::c_void, dwflags: u32, phpeerenum: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5550,6 +5886,7 @@ pub unsafe fn PeerGroupEnumConnections(hgroup: *const ::std::ffi::c_void, dwflag
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerGroupEnumMembers<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hgroup: *const ::std::ffi::c_void, dwflags: u32, pwzidentity: Param2, phpeerenum: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5563,6 +5900,7 @@ pub unsafe fn PeerGroupEnumMembers<'a, Param2: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[inline]
 pub unsafe fn PeerGroupEnumRecords(hgroup: *const ::std::ffi::c_void, precordtype: *const ::windows::runtime::GUID, phpeerenum: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5577,6 +5915,7 @@ pub unsafe fn PeerGroupEnumRecords(hgroup: *const ::std::ffi::c_void, precordtyp
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerGroupExportConfig<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hgroup: *const ::std::ffi::c_void, pwzpassword: Param1) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
@@ -5592,6 +5931,7 @@ pub unsafe fn PeerGroupExportConfig<'a, Param1: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerGroupExportDatabase<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hgroup: *const ::std::ffi::c_void, pwzfilepath: Param1) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5606,6 +5946,7 @@ pub unsafe fn PeerGroupExportDatabase<'a, Param1: ::windows::runtime::IntoParam<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerGroupGetEventData(hpeerevent: *const ::std::ffi::c_void) -> ::windows::runtime::Result<*mut PEER_GROUP_EVENT_DATA> {
     #[cfg(windows)]
@@ -5621,6 +5962,7 @@ pub unsafe fn PeerGroupGetEventData(hpeerevent: *const ::std::ffi::c_void) -> ::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerGroupGetProperties(hgroup: *const ::std::ffi::c_void) -> ::windows::runtime::Result<*mut PEER_GROUP_PROPERTIES> {
     #[cfg(windows)]
@@ -5636,6 +5978,7 @@ pub unsafe fn PeerGroupGetProperties(hgroup: *const ::std::ffi::c_void) -> ::win
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerGroupGetRecord(hgroup: *const ::std::ffi::c_void, precordid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<*mut PEER_RECORD> {
     #[cfg(windows)]
@@ -5650,6 +5993,7 @@ pub unsafe fn PeerGroupGetRecord(hgroup: *const ::std::ffi::c_void, precordid: *
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[inline]
 pub unsafe fn PeerGroupGetStatus(hgroup: *const ::std::ffi::c_void) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
@@ -5665,6 +6009,7 @@ pub unsafe fn PeerGroupGetStatus(hgroup: *const ::std::ffi::c_void) -> ::windows
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerGroupImportConfig<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(pwzxml: Param0, pwzpassword: Param1, foverwrite: Param2, ppwzidentity: *mut super::super::Foundation::PWSTR, ppwzgroup: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5679,6 +6024,7 @@ pub unsafe fn PeerGroupImportConfig<'a, Param0: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerGroupImportDatabase<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hgroup: *const ::std::ffi::c_void, pwzfilepath: Param1) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5693,6 +6039,7 @@ pub unsafe fn PeerGroupImportDatabase<'a, Param1: ::windows::runtime::IntoParam<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`, `Win32_Security_Cryptography`*"]
 #[inline]
 pub unsafe fn PeerGroupIssueCredentials<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hgroup: *const ::std::ffi::c_void, pwzsubjectidentity: Param1, pcredentialinfo: *const PEER_CREDENTIAL_INFO, dwflags: u32) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
@@ -5708,6 +6055,7 @@ pub unsafe fn PeerGroupIssueCredentials<'a, Param1: ::windows::runtime::IntoPara
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerGroupJoin<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwzidentity: Param0, pwzinvitation: Param1, pwzcloud: Param2, phgroup: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5722,6 +6070,7 @@ pub unsafe fn PeerGroupJoin<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerGroupOpen<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwzidentity: Param0, pwzgrouppeername: Param1, pwzcloud: Param2, phgroup: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5736,6 +6085,7 @@ pub unsafe fn PeerGroupOpen<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn PeerGroupOpenDirectConnection<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hgroup: *const ::std::ffi::c_void, pwzidentity: Param1, paddress: *const PEER_ADDRESS) -> ::windows::runtime::Result<u64> {
     #[cfg(windows)]
@@ -5751,6 +6101,7 @@ pub unsafe fn PeerGroupOpenDirectConnection<'a, Param1: ::windows::runtime::Into
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`, `Win32_Security_Cryptography`*"]
 #[inline]
 pub unsafe fn PeerGroupParseInvitation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwzinvitation: Param0) -> ::windows::runtime::Result<*mut PEER_INVITATION_INFO> {
     #[cfg(windows)]
@@ -5766,6 +6117,7 @@ pub unsafe fn PeerGroupParseInvitation<'a, Param0: ::windows::runtime::IntoParam
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerGroupPasswordJoin<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
     pwzidentity: Param0,
@@ -5786,6 +6138,7 @@ pub unsafe fn PeerGroupPasswordJoin<'a, Param0: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerGroupPeerTimeToUniversalTime(hgroup: *const ::std::ffi::c_void, pftpeertime: *const super::super::Foundation::FILETIME) -> ::windows::runtime::Result<super::super::Foundation::FILETIME> {
     #[cfg(windows)]
@@ -5801,6 +6154,7 @@ pub unsafe fn PeerGroupPeerTimeToUniversalTime(hgroup: *const ::std::ffi::c_void
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerGroupRegisterEvent<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hgroup: *const ::std::ffi::c_void, hevent: Param1, ceventregistration: u32, peventregistrations: *const PEER_GROUP_EVENT_REGISTRATION, phpeerevent: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5814,6 +6168,7 @@ pub unsafe fn PeerGroupRegisterEvent<'a, Param1: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[inline]
 pub unsafe fn PeerGroupResumePasswordAuthentication(hgroup: *const ::std::ffi::c_void, hpeereventhandle: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5828,6 +6183,7 @@ pub unsafe fn PeerGroupResumePasswordAuthentication(hgroup: *const ::std::ffi::c
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerGroupSearchRecords<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hgroup: *const ::std::ffi::c_void, pwzcriteria: Param1, phpeerenum: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5841,6 +6197,7 @@ pub unsafe fn PeerGroupSearchRecords<'a, Param1: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[inline]
 pub unsafe fn PeerGroupSendData(hgroup: *const ::std::ffi::c_void, ullconnectionid: u64, ptype: *const ::windows::runtime::GUID, cbdata: u32, pvdata: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5855,6 +6212,7 @@ pub unsafe fn PeerGroupSendData(hgroup: *const ::std::ffi::c_void, ullconnection
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerGroupSetProperties(hgroup: *const ::std::ffi::c_void, pproperties: *const PEER_GROUP_PROPERTIES) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5868,6 +6226,7 @@ pub unsafe fn PeerGroupSetProperties(hgroup: *const ::std::ffi::c_void, ppropert
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[inline]
 pub unsafe fn PeerGroupShutdown() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5881,6 +6240,7 @@ pub unsafe fn PeerGroupShutdown() -> ::windows::runtime::Result<()> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[inline]
 pub unsafe fn PeerGroupStartup(wversionrequested: u16) -> ::windows::runtime::Result<PEER_VERSION_DATA> {
     #[cfg(windows)]
@@ -5896,6 +6256,7 @@ pub unsafe fn PeerGroupStartup(wversionrequested: u16) -> ::windows::runtime::Re
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerGroupUniversalTimeToPeerTime(hgroup: *const ::std::ffi::c_void, pftuniversaltime: *const super::super::Foundation::FILETIME) -> ::windows::runtime::Result<super::super::Foundation::FILETIME> {
     #[cfg(windows)]
@@ -5910,6 +6271,7 @@ pub unsafe fn PeerGroupUniversalTimeToPeerTime(hgroup: *const ::std::ffi::c_void
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[inline]
 pub unsafe fn PeerGroupUnregisterEvent(hpeerevent: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5924,6 +6286,7 @@ pub unsafe fn PeerGroupUnregisterEvent(hpeerevent: *const ::std::ffi::c_void) ->
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerGroupUpdateRecord(hgroup: *const ::std::ffi::c_void, precord: *const PEER_RECORD) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5938,6 +6301,7 @@ pub unsafe fn PeerGroupUpdateRecord(hgroup: *const ::std::ffi::c_void, precord: 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerHostNameToPeerName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwzhostname: Param0) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
@@ -5953,6 +6317,7 @@ pub unsafe fn PeerHostNameToPeerName<'a, Param0: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerIdentityCreate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwzclassifier: Param0, pwzfriendlyname: Param1, hcryptprov: usize) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
@@ -5968,6 +6333,7 @@ pub unsafe fn PeerIdentityCreate<'a, Param0: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerIdentityDelete<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwzidentity: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5982,6 +6348,7 @@ pub unsafe fn PeerIdentityDelete<'a, Param0: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerIdentityExport<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwzidentity: Param0, pwzpassword: Param1) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
@@ -5997,6 +6364,7 @@ pub unsafe fn PeerIdentityExport<'a, Param0: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerIdentityGetCryptKey<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwzidentity: Param0) -> ::windows::runtime::Result<usize> {
     #[cfg(windows)]
@@ -6012,6 +6380,7 @@ pub unsafe fn PeerIdentityGetCryptKey<'a, Param0: ::windows::runtime::IntoParam<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerIdentityGetDefault() -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
@@ -6027,6 +6396,7 @@ pub unsafe fn PeerIdentityGetDefault() -> ::windows::runtime::Result<super::supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerIdentityGetFriendlyName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwzidentity: Param0) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
@@ -6042,6 +6412,7 @@ pub unsafe fn PeerIdentityGetFriendlyName<'a, Param0: ::windows::runtime::IntoPa
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerIdentityGetXML<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwzidentity: Param0) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
@@ -6057,6 +6428,7 @@ pub unsafe fn PeerIdentityGetXML<'a, Param0: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerIdentityImport<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwzimportxml: Param0, pwzpassword: Param1) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
@@ -6072,6 +6444,7 @@ pub unsafe fn PeerIdentityImport<'a, Param0: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerIdentitySetFriendlyName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwzidentity: Param0, pwzfriendlyname: Param1) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -6086,6 +6459,7 @@ pub unsafe fn PeerIdentitySetFriendlyName<'a, Param0: ::windows::runtime::IntoPa
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerNameToPeerHostName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwzpeername: Param0) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
@@ -6100,6 +6474,7 @@ pub unsafe fn PeerNameToPeerHostName<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[inline]
 pub unsafe fn PeerPnrpEndResolve(hresolve: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -6114,6 +6489,7 @@ pub unsafe fn PeerPnrpEndResolve(hresolve: *const ::std::ffi::c_void) -> ::windo
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerPnrpGetCloudInfo(pcnumclouds: *mut u32, ppcloudinfo: *mut *mut PEER_PNRP_CLOUD_INFO) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -6128,6 +6504,7 @@ pub unsafe fn PeerPnrpGetCloudInfo(pcnumclouds: *mut u32, ppcloudinfo: *mut *mut
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn PeerPnrpGetEndpoint(hresolve: *const ::std::ffi::c_void) -> ::windows::runtime::Result<*mut PEER_PNRP_ENDPOINT_INFO> {
     #[cfg(windows)]
@@ -6143,6 +6520,7 @@ pub unsafe fn PeerPnrpGetEndpoint(hresolve: *const ::std::ffi::c_void) -> ::wind
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn PeerPnrpRegister<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pcwzpeername: Param0, pregistrationinfo: *const PEER_PNRP_REGISTRATION_INFO, phregistration: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -6157,6 +6535,7 @@ pub unsafe fn PeerPnrpRegister<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn PeerPnrpResolve<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pcwzpeername: Param0, pcwzcloudname: Param1, pcendpoints: *mut u32, ppendpoints: *mut *mut PEER_PNRP_ENDPOINT_INFO) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -6170,6 +6549,7 @@ pub unsafe fn PeerPnrpResolve<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[inline]
 pub unsafe fn PeerPnrpShutdown() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -6184,6 +6564,7 @@ pub unsafe fn PeerPnrpShutdown() -> ::windows::runtime::Result<()> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeerPnrpStartResolve<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(pcwzpeername: Param0, pcwzcloudname: Param1, cmaxendpoints: u32, hevent: Param3, phresolve: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -6197,6 +6578,7 @@ pub unsafe fn PeerPnrpStartResolve<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[inline]
 pub unsafe fn PeerPnrpStartup(wversionrequested: u16) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -6210,6 +6592,7 @@ pub unsafe fn PeerPnrpStartup(wversionrequested: u16) -> ::windows::runtime::Res
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[inline]
 pub unsafe fn PeerPnrpUnregister(hregistration: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -6224,6 +6607,7 @@ pub unsafe fn PeerPnrpUnregister(hregistration: *const ::std::ffi::c_void) -> ::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn PeerPnrpUpdateRegistration(hregistration: *const ::std::ffi::c_void, pregistrationinfo: *const PEER_PNRP_REGISTRATION_INFO) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -6240,12 +6624,21 @@ pub unsafe fn PeerPnrpUpdateRegistration(hregistration: *const ::std::ffi::c_voi
 pub const SVCID_PNRPCLOUD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3257113830, 192, 20415, [186, 214, 24, 19, 147, 133, 164, 154]);
 pub const SVCID_PNRPNAME_V1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3257113829, 192, 20415, [186, 214, 24, 19, 147, 133, 164, 154]);
 pub const SVCID_PNRPNAME_V2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3257113831, 192, 20415, [186, 214, 24, 19, 147, 133, 164, 154]);
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const WSA_PNRP_CLIENT_INVALID_COMPARTMENT_ID: u32 = 11506u32;
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const WSA_PNRP_CLOUD_DISABLED: u32 = 11502u32;
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const WSA_PNRP_CLOUD_IS_DEAD: u32 = 11509u32;
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const WSA_PNRP_CLOUD_IS_SEARCH_ONLY: u32 = 11505u32;
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const WSA_PNRP_CLOUD_NOT_FOUND: u32 = 11501u32;
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const WSA_PNRP_DUPLICATE_PEER_NAME: u32 = 11508u32;
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const WSA_PNRP_ERROR_BASE: u32 = 11500u32;
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const WSA_PNRP_INVALID_IDENTITY: u32 = 11503u32;
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const WSA_PNRP_TOO_MUCH_LOAD: u32 = 11504u32;

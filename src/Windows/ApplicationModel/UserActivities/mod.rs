@@ -234,12 +234,14 @@ pub struct IUserActivityChannelStatics3_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `ApplicationModel_UserActivities`*"]
 pub struct IUserActivityContentInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserActivityContentInfo {
     type Vtable = IUserActivityContentInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3013207469, 4991, 16541, [130, 45, 225, 175, 39, 206, 8, 220]);
 }
 impl IUserActivityContentInfo {
+    #[doc = "*Required features: `ApplicationModel_UserActivities`*"]
     pub fn ToJson(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -538,10 +540,12 @@ pub struct IUserActivityVisualElements2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `ApplicationModel_UserActivities`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct UserActivity(::windows::runtime::IInspectable);
 impl UserActivity {
+    #[doc = "*Required features: `ApplicationModel_UserActivities`*"]
     pub fn State(&self) -> ::windows::runtime::Result<UserActivityState> {
         let this = self;
         unsafe {
@@ -549,6 +553,7 @@ impl UserActivity {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<UserActivityState>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_UserActivities`*"]
     pub fn ActivityId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -556,6 +561,7 @@ impl UserActivity {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_UserActivities`*"]
     pub fn VisualElements(&self) -> ::windows::runtime::Result<UserActivityVisualElements> {
         let this = self;
         unsafe {
@@ -564,6 +570,7 @@ impl UserActivity {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_UserActivities`, `Foundation`*"]
     pub fn ContentUri(&self) -> ::windows::runtime::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
@@ -572,10 +579,12 @@ impl UserActivity {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_UserActivities`, `Foundation`*"]
     pub fn SetContentUri<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_UserActivities`*"]
     pub fn ContentType(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -583,11 +592,13 @@ impl UserActivity {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_UserActivities`*"]
     pub fn SetContentType<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_UserActivities`, `Foundation`*"]
     pub fn FallbackUri(&self) -> ::windows::runtime::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
@@ -596,11 +607,13 @@ impl UserActivity {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_UserActivities`, `Foundation`*"]
     pub fn SetFallbackUri<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_UserActivities`, `Foundation`*"]
     pub fn ActivationUri(&self) -> ::windows::runtime::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
@@ -609,10 +622,12 @@ impl UserActivity {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_UserActivities`, `Foundation`*"]
     pub fn SetActivationUri<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_UserActivities`*"]
     pub fn ContentInfo(&self) -> ::windows::runtime::Result<IUserActivityContentInfo> {
         let this = self;
         unsafe {
@@ -620,11 +635,13 @@ impl UserActivity {
             (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IUserActivityContentInfo>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_UserActivities`*"]
     pub fn SetContentInfo<'a, Param0: ::windows::runtime::IntoParam<'a, IUserActivityContentInfo>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_UserActivities`, `Foundation`*"]
     pub fn SaveAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -632,6 +649,7 @@ impl UserActivity {
             (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_UserActivities`*"]
     pub fn CreateSession(&self) -> ::windows::runtime::Result<UserActivitySession> {
         let this = self;
         unsafe {
@@ -639,6 +657,7 @@ impl UserActivity {
             (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), &mut result__).from_abi::<UserActivitySession>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_UserActivities`*"]
     pub fn ToJson(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IUserActivity2>(self)?;
         unsafe {
@@ -646,12 +665,14 @@ impl UserActivity {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_UserActivities`*"]
     pub fn CreateWithActivityId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(activityid: Param0) -> ::windows::runtime::Result<UserActivity> {
         Self::IUserActivityFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), activityid.into_param().abi(), &mut result__).from_abi::<UserActivity>(result__)
         })
     }
+    #[doc = "*Required features: `ApplicationModel_UserActivities`*"]
     pub fn TryParseFromJson<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(json: Param0) -> ::windows::runtime::Result<UserActivity> {
         Self::IUserActivityStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -659,6 +680,7 @@ impl UserActivity {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_UserActivities`, `Foundation_Collections`*"]
     pub fn TryParseFromJsonArray<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(json: Param0) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<UserActivity>> {
         Self::IUserActivityStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -666,12 +688,14 @@ impl UserActivity {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_UserActivities`, `Foundation_Collections`*"]
     pub fn ToJsonArray<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<UserActivity>>>(activities: Param0) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IUserActivityStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), activities.into_param().abi(), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `ApplicationModel_UserActivities`*"]
     pub fn IsRoamable(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IUserActivity3>(self)?;
         unsafe {
@@ -679,6 +703,7 @@ impl UserActivity {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_UserActivities`*"]
     pub fn SetIsRoamable(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IUserActivity3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
@@ -744,6 +769,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for UserActivity {}
 unsafe impl ::std::marker::Sync for UserActivity {}
+#[doc = "*Required features: `ApplicationModel_UserActivities`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct UserActivityAttribution(::windows::runtime::IInspectable);
@@ -756,6 +782,7 @@ impl UserActivityAttribution {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_UserActivities`, `Foundation`*"]
     pub fn IconUri(&self) -> ::windows::runtime::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
@@ -764,10 +791,12 @@ impl UserActivityAttribution {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_UserActivities`, `Foundation`*"]
     pub fn SetIconUri<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_UserActivities`*"]
     pub fn AlternateText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -775,10 +804,12 @@ impl UserActivityAttribution {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_UserActivities`*"]
     pub fn SetAlternateText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_UserActivities`*"]
     pub fn AddImageQuery(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -786,11 +817,13 @@ impl UserActivityAttribution {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_UserActivities`*"]
     pub fn SetAddImageQuery(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_UserActivities`, `Foundation`*"]
     pub fn CreateWithUri<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>>(iconuri: Param0) -> ::windows::runtime::Result<UserActivityAttribution> {
         Self::IUserActivityAttributionFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -854,11 +887,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for UserActivityAttribution {}
 unsafe impl ::std::marker::Sync for UserActivityAttribution {}
+#[doc = "*Required features: `ApplicationModel_UserActivities`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct UserActivityChannel(::windows::runtime::IInspectable);
 impl UserActivityChannel {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_UserActivities`, `Foundation`*"]
     pub fn GetOrCreateUserActivityAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, activityid: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<UserActivity>> {
         let this = self;
         unsafe {
@@ -867,6 +902,7 @@ impl UserActivityChannel {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_UserActivities`, `Foundation`*"]
     pub fn DeleteActivityAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, activityid: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -875,6 +911,7 @@ impl UserActivityChannel {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_UserActivities`, `Foundation`*"]
     pub fn DeleteAllActivitiesAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -882,6 +919,7 @@ impl UserActivityChannel {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_UserActivities`*"]
     pub fn GetDefault() -> ::windows::runtime::Result<UserActivityChannel> {
         Self::IUserActivityChannelStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -889,6 +927,7 @@ impl UserActivityChannel {
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `ApplicationModel_UserActivities`, `Foundation`, `Foundation_Collections`*"]
     pub fn GetRecentUserActivitiesAsync(&self, maxuniqueactivities: i32) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<UserActivitySessionHistoryItem>>> {
         let this = &::windows::runtime::Interface::cast::<IUserActivityChannel2>(self)?;
         unsafe {
@@ -897,6 +936,7 @@ impl UserActivityChannel {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `ApplicationModel_UserActivities`, `Foundation`, `Foundation_Collections`*"]
     pub fn GetSessionHistoryItemsForUserActivityAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::DateTime>>(&self, activityid: Param0, starttime: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<UserActivitySessionHistoryItem>>> {
         let this = &::windows::runtime::Interface::cast::<IUserActivityChannel2>(self)?;
         unsafe {
@@ -904,10 +944,12 @@ impl UserActivityChannel {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), activityid.into_param().abi(), starttime.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<UserActivitySessionHistoryItem>>>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_UserActivities`*"]
     pub fn DisableAutoSessionCreation() -> ::windows::runtime::Result<()> {
         Self::IUserActivityChannelStatics2(|this| unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() })
     }
     #[cfg(feature = "Security_Credentials")]
+    #[doc = "*Required features: `ApplicationModel_UserActivities`, `Security_Credentials`*"]
     pub fn TryGetForWebAccount<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Security::Credentials::WebAccount>>(account: Param0) -> ::windows::runtime::Result<UserActivityChannel> {
         Self::IUserActivityChannelStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -915,6 +957,7 @@ impl UserActivityChannel {
         })
     }
     #[cfg(feature = "System")]
+    #[doc = "*Required features: `ApplicationModel_UserActivities`, `System`*"]
     pub fn GetForUser<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::User>>(user: Param0) -> ::windows::runtime::Result<UserActivityChannel> {
         Self::IUserActivityChannelStatics3(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -986,10 +1029,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for UserActivityChannel {}
 unsafe impl ::std::marker::Sync for UserActivityChannel {}
+#[doc = "*Required features: `ApplicationModel_UserActivities`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct UserActivityContentInfo(::windows::runtime::IInspectable);
 impl UserActivityContentInfo {
+    #[doc = "*Required features: `ApplicationModel_UserActivities`*"]
     pub fn ToJson(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -997,6 +1042,7 @@ impl UserActivityContentInfo {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_UserActivities`*"]
     pub fn FromJson<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(value: Param0) -> ::windows::runtime::Result<UserActivityContentInfo> {
         Self::IUserActivityContentInfoStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1080,10 +1126,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, IUserActivityContentInfo> for &UserAc
 }
 unsafe impl ::std::marker::Send for UserActivityContentInfo {}
 unsafe impl ::std::marker::Sync for UserActivityContentInfo {}
+#[doc = "*Required features: `ApplicationModel_UserActivities`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct UserActivityRequest(::windows::runtime::IInspectable);
 impl UserActivityRequest {
+    #[doc = "*Required features: `ApplicationModel_UserActivities`*"]
     pub fn SetUserActivity<'a, Param0: ::windows::runtime::IntoParam<'a, UserActivity>>(&self, activity: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), activity.into_param().abi()).ok() }
@@ -1141,11 +1189,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for UserActivityRequest {}
 unsafe impl ::std::marker::Sync for UserActivityRequest {}
+#[doc = "*Required features: `ApplicationModel_UserActivities`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct UserActivityRequestManager(::windows::runtime::IInspectable);
 impl UserActivityRequestManager {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_UserActivities`, `Foundation`*"]
     pub fn UserActivityRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<UserActivityRequestManager, UserActivityRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1154,10 +1204,12 @@ impl UserActivityRequestManager {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_UserActivities`, `Foundation`*"]
     pub fn RemoveUserActivityRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_UserActivities`*"]
     pub fn GetForCurrentView() -> ::windows::runtime::Result<UserActivityRequestManager> {
         Self::IUserActivityRequestManagerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1219,10 +1271,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
+#[doc = "*Required features: `ApplicationModel_UserActivities`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct UserActivityRequestedEventArgs(::windows::runtime::IInspectable);
 impl UserActivityRequestedEventArgs {
+    #[doc = "*Required features: `ApplicationModel_UserActivities`*"]
     pub fn Request(&self) -> ::windows::runtime::Result<UserActivityRequest> {
         let this = self;
         unsafe {
@@ -1231,6 +1285,7 @@ impl UserActivityRequestedEventArgs {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_UserActivities`, `Foundation`*"]
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
@@ -1291,15 +1346,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for UserActivityRequestedEventArgs {}
 unsafe impl ::std::marker::Sync for UserActivityRequestedEventArgs {}
+#[doc = "*Required features: `ApplicationModel_UserActivities`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct UserActivitySession(::windows::runtime::IInspectable);
 impl UserActivitySession {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_UserActivities`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_UserActivities`*"]
     pub fn ActivityId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1386,10 +1444,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> 
 }
 unsafe impl ::std::marker::Send for UserActivitySession {}
 unsafe impl ::std::marker::Sync for UserActivitySession {}
+#[doc = "*Required features: `ApplicationModel_UserActivities`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct UserActivitySessionHistoryItem(::windows::runtime::IInspectable);
 impl UserActivitySessionHistoryItem {
+    #[doc = "*Required features: `ApplicationModel_UserActivities`*"]
     pub fn UserActivity(&self) -> ::windows::runtime::Result<UserActivity> {
         let this = self;
         unsafe {
@@ -1398,6 +1458,7 @@ impl UserActivitySessionHistoryItem {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_UserActivities`, `Foundation`*"]
     pub fn StartTime(&self) -> ::windows::runtime::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -1406,6 +1467,7 @@ impl UserActivitySessionHistoryItem {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_UserActivities`, `Foundation`*"]
     pub fn EndTime(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = self;
         unsafe {
@@ -1466,6 +1528,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for UserActivitySessionHistoryItem {}
 unsafe impl ::std::marker::Sync for UserActivitySessionHistoryItem {}
+#[doc = "*Required features: `ApplicationModel_UserActivities`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct UserActivityState(pub i32);
@@ -1485,10 +1548,12 @@ unsafe impl ::windows::runtime::Abi for UserActivityState {
 unsafe impl ::windows::runtime::RuntimeType for UserActivityState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserActivities.UserActivityState;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_UserActivities`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct UserActivityVisualElements(::windows::runtime::IInspectable);
 impl UserActivityVisualElements {
+    #[doc = "*Required features: `ApplicationModel_UserActivities`*"]
     pub fn DisplayText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1496,10 +1561,12 @@ impl UserActivityVisualElements {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_UserActivities`*"]
     pub fn SetDisplayText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_UserActivities`*"]
     pub fn Description(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1507,11 +1574,13 @@ impl UserActivityVisualElements {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_UserActivities`*"]
     pub fn SetDescription<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI")]
+    #[doc = "*Required features: `ApplicationModel_UserActivities`, `UI`*"]
     pub fn BackgroundColor(&self) -> ::windows::runtime::Result<super::super::UI::Color> {
         let this = self;
         unsafe {
@@ -1520,10 +1589,12 @@ impl UserActivityVisualElements {
         }
     }
     #[cfg(feature = "UI")]
+    #[doc = "*Required features: `ApplicationModel_UserActivities`, `UI`*"]
     pub fn SetBackgroundColor<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::UI::Color>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_UserActivities`*"]
     pub fn Attribution(&self) -> ::windows::runtime::Result<UserActivityAttribution> {
         let this = self;
         unsafe {
@@ -1531,16 +1602,19 @@ impl UserActivityVisualElements {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<UserActivityAttribution>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_UserActivities`*"]
     pub fn SetAttribution<'a, Param0: ::windows::runtime::IntoParam<'a, UserActivityAttribution>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI_Shell")]
+    #[doc = "*Required features: `ApplicationModel_UserActivities`, `UI_Shell`*"]
     pub fn SetContent<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::UI::Shell::IAdaptiveCard>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI_Shell")]
+    #[doc = "*Required features: `ApplicationModel_UserActivities`, `UI_Shell`*"]
     pub fn Content(&self) -> ::windows::runtime::Result<super::super::UI::Shell::IAdaptiveCard> {
         let this = self;
         unsafe {
@@ -1548,6 +1622,7 @@ impl UserActivityVisualElements {
             (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::UI::Shell::IAdaptiveCard>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_UserActivities`*"]
     pub fn AttributionDisplayText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IUserActivityVisualElements2>(self)?;
         unsafe {
@@ -1555,6 +1630,7 @@ impl UserActivityVisualElements {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_UserActivities`*"]
     pub fn SetAttributionDisplayText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IUserActivityVisualElements2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }

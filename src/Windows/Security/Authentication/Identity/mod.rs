@@ -3,10 +3,12 @@
 pub mod Core;
 #[cfg(feature = "Security_Authentication_Identity_Provider")]
 pub mod Provider;
+#[doc = "*Required features: `Security_Authentication_Identity`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EnterpriseKeyCredentialRegistrationInfo(::windows::runtime::IInspectable);
 impl EnterpriseKeyCredentialRegistrationInfo {
+    #[doc = "*Required features: `Security_Authentication_Identity`*"]
     pub fn TenantId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -14,6 +16,7 @@ impl EnterpriseKeyCredentialRegistrationInfo {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Authentication_Identity`*"]
     pub fn TenantName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -21,6 +24,7 @@ impl EnterpriseKeyCredentialRegistrationInfo {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Authentication_Identity`*"]
     pub fn Subject(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -28,6 +32,7 @@ impl EnterpriseKeyCredentialRegistrationInfo {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Authentication_Identity`*"]
     pub fn KeyId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -35,6 +40,7 @@ impl EnterpriseKeyCredentialRegistrationInfo {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Authentication_Identity`*"]
     pub fn KeyName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -95,11 +101,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for EnterpriseKeyCredentialRegistrationInfo {}
 unsafe impl ::std::marker::Sync for EnterpriseKeyCredentialRegistrationInfo {}
+#[doc = "*Required features: `Security_Authentication_Identity`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EnterpriseKeyCredentialRegistrationManager(::windows::runtime::IInspectable);
 impl EnterpriseKeyCredentialRegistrationManager {
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Security_Authentication_Identity`, `Foundation`, `Foundation_Collections`*"]
     pub fn GetRegistrationsAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<EnterpriseKeyCredentialRegistrationInfo>>> {
         let this = self;
         unsafe {
@@ -107,6 +115,7 @@ impl EnterpriseKeyCredentialRegistrationManager {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<EnterpriseKeyCredentialRegistrationInfo>>>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Authentication_Identity`*"]
     pub fn Current() -> ::windows::runtime::Result<EnterpriseKeyCredentialRegistrationManager> {
         Self::IEnterpriseKeyCredentialRegistrationManagerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();

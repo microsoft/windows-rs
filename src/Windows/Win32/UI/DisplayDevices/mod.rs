@@ -2,6 +2,7 @@
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Graphics_Gdi`*"]
 pub struct BLENDOBJ {
     pub BlendFunction: super::super::Graphics::Gdi::BLENDFUNCTION,
 }
@@ -34,6 +35,7 @@ unsafe impl ::windows::runtime::Abi for BLENDOBJ {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 pub struct BRUSHOBJ {
     pub iSolidColor: u32,
     pub pvRbrush: *mut ::std::ffi::c_void,
@@ -61,6 +63,7 @@ unsafe impl ::windows::runtime::Abi for BRUSHOBJ {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn BRUSHOBJ_hGetColorTransform(pbo: *mut BRUSHOBJ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
@@ -74,6 +77,7 @@ pub unsafe fn BRUSHOBJ_hGetColorTransform(pbo: *mut BRUSHOBJ) -> super::super::F
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 #[inline]
 pub unsafe fn BRUSHOBJ_pvAllocRbrush(pbo: *mut BRUSHOBJ, cj: u32) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
@@ -87,6 +91,7 @@ pub unsafe fn BRUSHOBJ_pvAllocRbrush(pbo: *mut BRUSHOBJ, cj: u32) -> *mut ::std:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 #[inline]
 pub unsafe fn BRUSHOBJ_pvGetRbrush(pbo: *mut BRUSHOBJ) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
@@ -100,6 +105,7 @@ pub unsafe fn BRUSHOBJ_pvGetRbrush(pbo: *mut BRUSHOBJ) -> *mut ::std::ffi::c_voi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 #[inline]
 pub unsafe fn BRUSHOBJ_ulGetBrushColor(pbo: *mut BRUSHOBJ) -> u32 {
     #[cfg(windows)]
@@ -115,6 +121,7 @@ pub unsafe fn BRUSHOBJ_ulGetBrushColor(pbo: *mut BRUSHOBJ) -> u32 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 pub struct CIECHROMA {
     pub x: i32,
     pub y: i32,
@@ -144,6 +151,7 @@ unsafe impl ::windows::runtime::Abi for CIECHROMA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_SystemServices")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_System_SystemServices`*"]
 pub struct CLIPLINE {
     pub ptfxA: super::super::System::SystemServices::POINTFIX,
     pub ptfxB: super::super::System::SystemServices::POINTFIX,
@@ -181,6 +189,7 @@ unsafe impl ::windows::runtime::Abi for CLIPLINE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`*"]
 pub struct CLIPOBJ {
     pub iUniq: u32,
     pub rclBounds: super::super::Foundation::RECTL,
@@ -217,6 +226,7 @@ unsafe impl ::windows::runtime::Abi for CLIPOBJ {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CLIPOBJ_bEnum(pco: *mut CLIPOBJ, cj: u32, pul: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -231,6 +241,7 @@ pub unsafe fn CLIPOBJ_bEnum(pco: *mut CLIPOBJ, cj: u32, pul: *mut u32) -> super:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CLIPOBJ_cEnumStart<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(pco: *mut CLIPOBJ, ball: Param1, itype: u32, idirection: u32, climit: u32) -> u32 {
     #[cfg(windows)]
@@ -245,6 +256,7 @@ pub unsafe fn CLIPOBJ_cEnumStart<'a, Param1: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CLIPOBJ_ppoGetPath(pco: *mut CLIPOBJ) -> *mut PATHOBJ {
     #[cfg(windows)]
@@ -260,6 +272,7 @@ pub unsafe fn CLIPOBJ_ppoGetPath(pco: *mut CLIPOBJ) -> *mut PATHOBJ {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 pub struct COLORINFO {
     pub Red: CIECHROMA,
     pub Green: CIECHROMA,
@@ -334,6 +347,7 @@ unsafe impl ::windows::runtime::Abi for COLORINFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Graphics_DirectDraw`*"]
 pub struct DDCOMPBUFFERINFO {
     pub dwSize: u32,
     pub dwNumCompBuffers: u32,
@@ -367,6 +381,7 @@ unsafe impl ::windows::runtime::Abi for DDCOMPBUFFERINFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Graphics_DirectDraw`*"]
 pub struct DDCORECAPS {
     pub dwSize: u32,
     pub dwCaps: u32,
@@ -552,6 +567,7 @@ unsafe impl ::windows::runtime::Abi for DDCORECAPS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`, `Win32_Graphics_Gdi`*"]
 pub struct DDHAL_DESTROYDDLOCALDATA {
     pub dwFlags: u32,
     pub pDDLcl: *mut super::super::Graphics::DirectDraw::DDRAWI_DIRECTDRAW_LCL,
@@ -587,6 +603,7 @@ unsafe impl ::windows::runtime::Abi for DDHAL_DESTROYDDLOCALDATA {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`, `Win32_Graphics_Gdi`*"]
 pub struct DDHAL_WAITFORVERTICALBLANKDATA {
     pub lpDD: *mut super::super::Graphics::DirectDraw::DDRAWI_DIRECTDRAW_GBL,
     pub dwFlags: u32,
@@ -624,6 +641,7 @@ unsafe impl ::windows::runtime::Abi for DDHAL_WAITFORVERTICALBLANKDATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 pub struct DDKERNELCAPS {
     pub dwSize: u32,
     pub dwCaps: u32,
@@ -653,6 +671,7 @@ unsafe impl ::windows::runtime::Abi for DDKERNELCAPS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`*"]
 pub struct DDMOCOMPBUFFERINFO {
     pub dwSize: u32,
     pub lpCompSurface: *mut DD_SURFACE_LOCAL,
@@ -689,6 +708,7 @@ unsafe impl ::windows::runtime::Abi for DDMOCOMPBUFFERINFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 pub struct DDVIDEOPORTBANDWIDTH {
     pub dwSize: u32,
     pub dwCaps: u32,
@@ -731,6 +751,7 @@ unsafe impl ::windows::runtime::Abi for DDVIDEOPORTBANDWIDTH {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 pub struct DDVIDEOPORTCAPS {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -814,6 +835,7 @@ unsafe impl ::windows::runtime::Abi for DDVIDEOPORTCAPS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Graphics_DirectDraw`*"]
 pub struct DDVIDEOPORTDESC {
     pub dwSize: u32,
     pub dwFieldWidth: u32,
@@ -869,6 +891,7 @@ unsafe impl ::windows::runtime::Abi for DDVIDEOPORTDESC {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`*"]
 pub struct DDVIDEOPORTINFO {
     pub dwSize: u32,
     pub dwOriginX: u32,
@@ -940,6 +963,7 @@ unsafe impl ::windows::runtime::Abi for DDVIDEOPORTINFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`*"]
 pub struct DD_ADDATTACHEDSURFACEDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub lpDDSurface: *mut DD_SURFACE_LOCAL,
@@ -977,6 +1001,7 @@ unsafe impl ::windows::runtime::Abi for DD_ADDATTACHEDSURFACEDATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`*"]
 pub struct DD_ATTACHLIST {
     pub lpLink: *mut DD_ATTACHLIST,
     pub lpAttached: *mut DD_SURFACE_LOCAL,
@@ -1011,6 +1036,7 @@ unsafe impl ::windows::runtime::Abi for DD_ATTACHLIST {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`*"]
 pub struct DD_BEGINMOCOMPFRAMEDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpMoComp: *mut DD_MOTIONCOMP_LOCAL,
@@ -1065,6 +1091,7 @@ impl ::std::clone::Clone for DD_BLTDATA {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`*"]
 pub struct DD_BLTDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub lpDDDestSurface: *mut DD_SURFACE_LOCAL,
@@ -1108,6 +1135,7 @@ unsafe impl ::windows::runtime::Abi for DD_BLTDATA {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`, `Win32_Graphics_Gdi`*"]
 pub struct DD_CALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -1161,6 +1189,7 @@ unsafe impl ::windows::runtime::Abi for DD_CALLBACKS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Graphics_DirectDraw`*"]
 pub struct DD_CANCREATESURFACEDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub lpDDSurfaceDesc: *mut super::super::Graphics::DirectDraw::DDSURFACEDESC,
@@ -1198,6 +1227,7 @@ unsafe impl ::windows::runtime::Abi for DD_CANCREATESURFACEDATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Graphics_DirectDraw`*"]
 pub struct DD_CANCREATEVPORTDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpDDVideoPortDesc: *mut DDVIDEOPORTDESC,
@@ -1233,6 +1263,7 @@ unsafe impl ::windows::runtime::Abi for DD_CANCREATEVPORTDATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 pub struct DD_CLIPPER_GLOBAL {
     pub dwReserved1: usize,
 }
@@ -1259,6 +1290,7 @@ unsafe impl ::windows::runtime::Abi for DD_CLIPPER_GLOBAL {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 pub struct DD_CLIPPER_LOCAL {
     pub dwReserved1: usize,
 }
@@ -1286,6 +1318,7 @@ unsafe impl ::windows::runtime::Abi for DD_CLIPPER_LOCAL {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`*"]
 pub struct DD_COLORCONTROLCALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -1321,6 +1354,7 @@ unsafe impl ::windows::runtime::Abi for DD_COLORCONTROLCALLBACKS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`*"]
 pub struct DD_COLORCONTROLDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub lpDDSurface: *mut DD_SURFACE_LOCAL,
@@ -1359,6 +1393,7 @@ unsafe impl ::windows::runtime::Abi for DD_COLORCONTROLDATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Graphics_DirectDraw`*"]
 pub struct DD_CREATEMOCOMPDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpMoComp: *mut DD_MOTIONCOMP_LOCAL,
@@ -1394,6 +1429,7 @@ unsafe impl ::windows::runtime::Abi for DD_CREATEMOCOMPDATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 pub struct DD_CREATEPALETTEDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub lpDDPalette: *mut DD_PALETTE_GLOBAL,
@@ -1432,6 +1468,7 @@ unsafe impl ::windows::runtime::Abi for DD_CREATEPALETTEDATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`*"]
 pub struct DD_CREATESURFACEDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub lpDDSurfaceDesc: *mut super::super::Graphics::DirectDraw::DDSURFACEDESC,
@@ -1470,6 +1507,7 @@ unsafe impl ::windows::runtime::Abi for DD_CREATESURFACEDATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`*"]
 pub struct DD_CREATESURFACEEXDATA {
     pub dwFlags: u32,
     pub lpDDLcl: *mut DD_DIRECTDRAW_LOCAL,
@@ -1506,6 +1544,7 @@ unsafe impl ::windows::runtime::Abi for DD_CREATESURFACEEXDATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`*"]
 pub struct DD_CREATEVPORTDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpDDVideoPortDesc: *mut DDVIDEOPORTDESC,
@@ -1543,6 +1582,7 @@ unsafe impl ::windows::runtime::Abi for DD_CREATEVPORTDATA {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`*"]
 pub struct DD_D3DBUFCALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -1588,6 +1628,7 @@ unsafe impl ::windows::runtime::Abi for DD_D3DBUFCALLBACKS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Graphics_DirectDraw`*"]
 pub struct DD_DESTROYMOCOMPDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpMoComp: *mut DD_MOTIONCOMP_LOCAL,
@@ -1622,6 +1663,7 @@ unsafe impl ::windows::runtime::Abi for DD_DESTROYMOCOMPDATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 pub struct DD_DESTROYPALETTEDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub lpDDPalette: *mut DD_PALETTE_GLOBAL,
@@ -1652,6 +1694,7 @@ unsafe impl ::windows::runtime::Abi for DD_DESTROYPALETTEDATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`*"]
 pub struct DD_DESTROYSURFACEDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub lpDDSurface: *mut DD_SURFACE_LOCAL,
@@ -1688,6 +1731,7 @@ unsafe impl ::windows::runtime::Abi for DD_DESTROYSURFACEDATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`*"]
 pub struct DD_DESTROYVPORTDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpVideoPort: *mut DD_VIDEOPORT_LOCAL,
@@ -1723,6 +1767,7 @@ unsafe impl ::windows::runtime::Abi for DD_DESTROYVPORTDATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 pub struct DD_DIRECTDRAW_GLOBAL {
     pub dhpdev: *mut ::std::ffi::c_void,
     pub dwReserved1: usize,
@@ -1752,6 +1797,7 @@ unsafe impl ::windows::runtime::Abi for DD_DIRECTDRAW_GLOBAL {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 pub struct DD_DIRECTDRAW_LOCAL {
     pub lpGbl: *mut DD_DIRECTDRAW_GLOBAL,
 }
@@ -1779,6 +1825,7 @@ unsafe impl ::windows::runtime::Abi for DD_DIRECTDRAW_LOCAL {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Graphics_DirectDraw`*"]
 pub struct DD_ENDMOCOMPFRAMEDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpMoComp: *mut DD_MOTIONCOMP_LOCAL,
@@ -1816,6 +1863,7 @@ unsafe impl ::windows::runtime::Abi for DD_ENDMOCOMPFRAMEDATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`*"]
 pub struct DD_FLIPDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub lpSurfCurr: *mut DD_SURFACE_LOCAL,
@@ -1864,6 +1912,7 @@ unsafe impl ::windows::runtime::Abi for DD_FLIPDATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 pub struct DD_FLIPTOGDISURFACEDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub dwToGDI: u32,
@@ -1895,6 +1944,7 @@ unsafe impl ::windows::runtime::Abi for DD_FLIPTOGDISURFACEDATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`*"]
 pub struct DD_FLIPVPORTDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpVideoPort: *mut DD_VIDEOPORT_LOCAL,
@@ -1933,6 +1983,7 @@ unsafe impl ::windows::runtime::Abi for DD_FLIPVPORTDATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`*"]
 pub struct DD_FREEDRIVERMEMORYDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub lpDDSurface: *mut DD_SURFACE_LOCAL,
@@ -1969,6 +2020,7 @@ unsafe impl ::windows::runtime::Abi for DD_FREEDRIVERMEMORYDATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Graphics_DirectDraw`*"]
 pub struct DD_GETAVAILDRIVERMEMORYDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub DDSCaps: super::super::Graphics::DirectDraw::DDSCAPS,
@@ -2007,6 +2059,7 @@ unsafe impl ::windows::runtime::Abi for DD_GETAVAILDRIVERMEMORYDATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`*"]
 pub struct DD_GETBLTSTATUSDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub lpDDSurface: *mut DD_SURFACE_LOCAL,
@@ -2043,6 +2096,7 @@ unsafe impl ::windows::runtime::Abi for DD_GETBLTSTATUSDATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 pub struct DD_GETDRIVERINFODATA {
     pub dhpdev: *mut ::std::ffi::c_void,
     pub dwSize: u32,
@@ -2085,6 +2139,7 @@ unsafe impl ::windows::runtime::Abi for DD_GETDRIVERINFODATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 pub struct DD_GETDRIVERSTATEDATA {
     pub dwFlags: u32,
     pub Anonymous: DD_GETDRIVERSTATEDATA_0,
@@ -2110,6 +2165,7 @@ unsafe impl ::windows::runtime::Abi for DD_GETDRIVERSTATEDATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 pub union DD_GETDRIVERSTATEDATA_0 {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub dwhContext: usize,
@@ -2133,6 +2189,7 @@ unsafe impl ::windows::runtime::Abi for DD_GETDRIVERSTATEDATA_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`*"]
 pub struct DD_GETFLIPSTATUSDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub lpDDSurface: *mut DD_SURFACE_LOCAL,
@@ -2170,6 +2227,7 @@ unsafe impl ::windows::runtime::Abi for DD_GETFLIPSTATUSDATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Graphics_DirectDraw`*"]
 pub struct DD_GETINTERNALMOCOMPDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpGuid: *mut ::windows::runtime::GUID,
@@ -2203,6 +2261,7 @@ unsafe impl ::windows::runtime::Abi for DD_GETINTERNALMOCOMPDATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Graphics_DirectDraw`*"]
 pub struct DD_GETMOCOMPCOMPBUFFDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpGuid: *mut ::windows::runtime::GUID,
@@ -2237,6 +2296,7 @@ unsafe impl ::windows::runtime::Abi for DD_GETMOCOMPCOMPBUFFDATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Graphics_DirectDraw`*"]
 pub struct DD_GETMOCOMPFORMATSDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpGuid: *mut ::windows::runtime::GUID,
@@ -2273,6 +2333,7 @@ unsafe impl ::windows::runtime::Abi for DD_GETMOCOMPFORMATSDATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 pub struct DD_GETMOCOMPGUIDSDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub dwNumGuids: u32,
@@ -2302,6 +2363,7 @@ unsafe impl ::windows::runtime::Abi for DD_GETMOCOMPGUIDSDATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 pub struct DD_GETSCANLINEDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub dwScanLine: u32,
@@ -2332,6 +2394,7 @@ unsafe impl ::windows::runtime::Abi for DD_GETSCANLINEDATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`*"]
 pub struct DD_GETVPORTBANDWIDTHDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpVideoPort: *mut DD_VIDEOPORT_LOCAL,
@@ -2383,6 +2446,7 @@ unsafe impl ::windows::runtime::Abi for DD_GETVPORTBANDWIDTHDATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Graphics_DirectDraw`*"]
 pub struct DD_GETVPORTCONNECTDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub dwPortId: u32,
@@ -2421,6 +2485,7 @@ unsafe impl ::windows::runtime::Abi for DD_GETVPORTCONNECTDATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`*"]
 pub struct DD_GETVPORTFIELDDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpVideoPort: *mut DD_VIDEOPORT_LOCAL,
@@ -2457,6 +2522,7 @@ unsafe impl ::windows::runtime::Abi for DD_GETVPORTFIELDDATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 pub struct DD_GETVPORTFLIPSTATUSDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub fpSurface: usize,
@@ -2487,6 +2553,7 @@ unsafe impl ::windows::runtime::Abi for DD_GETVPORTFLIPSTATUSDATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`*"]
 pub struct DD_GETVPORTINPUTFORMATDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpVideoPort: *mut DD_VIDEOPORT_LOCAL,
@@ -2534,6 +2601,7 @@ unsafe impl ::windows::runtime::Abi for DD_GETVPORTINPUTFORMATDATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`*"]
 pub struct DD_GETVPORTLINEDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpVideoPort: *mut DD_VIDEOPORT_LOCAL,
@@ -2571,6 +2639,7 @@ unsafe impl ::windows::runtime::Abi for DD_GETVPORTLINEDATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`*"]
 pub struct DD_GETVPORTOUTPUTFORMATDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpVideoPort: *mut DD_VIDEOPORT_LOCAL,
@@ -2620,6 +2689,7 @@ unsafe impl ::windows::runtime::Abi for DD_GETVPORTOUTPUTFORMATDATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`*"]
 pub struct DD_GETVPORTSIGNALDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpVideoPort: *mut DD_VIDEOPORT_LOCAL,
@@ -2662,6 +2732,7 @@ impl ::std::clone::Clone for DD_HALINFO {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`*"]
 pub struct DD_HALINFO {
     pub dwSize: u32,
     pub vmiData: VIDEOMEMORYINFO,
@@ -2696,6 +2767,7 @@ unsafe impl ::windows::runtime::Abi for DD_HALINFO {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`*"]
 pub struct DD_KERNELCALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -2732,6 +2804,7 @@ unsafe impl ::windows::runtime::Abi for DD_KERNELCALLBACKS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`*"]
 pub struct DD_LOCKDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub lpDDSurface: *mut DD_SURFACE_LOCAL,
@@ -2783,6 +2856,7 @@ unsafe impl ::windows::runtime::Abi for DD_LOCKDATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`*"]
 pub struct DD_MAPMEMORYDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub bMap: super::super::Foundation::BOOL,
@@ -2820,6 +2894,7 @@ unsafe impl ::windows::runtime::Abi for DD_MAPMEMORYDATA {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`*"]
 pub struct DD_MISCELLANEOUS2CALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -2858,6 +2933,7 @@ unsafe impl ::windows::runtime::Abi for DD_MISCELLANEOUS2CALLBACKS {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Graphics_DirectDraw`*"]
 pub struct DD_MISCELLANEOUSCALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -2893,6 +2969,7 @@ unsafe impl ::windows::runtime::Abi for DD_MISCELLANEOUSCALLBACKS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Graphics_DirectDraw`*"]
 pub struct DD_MORESURFACECAPS {
     pub dwSize: u32,
     pub ddsCapsMore: super::super::Graphics::DirectDraw::DDSCAPSEX,
@@ -2922,6 +2999,7 @@ unsafe impl ::windows::runtime::Abi for DD_MORESURFACECAPS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Graphics_DirectDraw`*"]
 pub struct DD_MORESURFACECAPS_0 {
     pub ddsCapsEx: super::super::Graphics::DirectDraw::DDSCAPSEX,
     pub ddsCapsExAlt: super::super::Graphics::DirectDraw::DDSCAPSEX,
@@ -2950,6 +3028,7 @@ unsafe impl ::windows::runtime::Abi for DD_MORESURFACECAPS_0 {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`*"]
 pub struct DD_MOTIONCOMPCALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -3005,6 +3084,7 @@ unsafe impl ::windows::runtime::Abi for DD_MOTIONCOMPCALLBACKS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Graphics_DirectDraw`*"]
 pub struct DD_MOTIONCOMP_LOCAL {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub guid: ::windows::runtime::GUID,
@@ -3041,6 +3121,7 @@ unsafe impl ::windows::runtime::Abi for DD_MOTIONCOMP_LOCAL {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 pub struct DD_NONLOCALVIDMEMCAPS {
     pub dwSize: u32,
     pub dwNLVBCaps: u32,
@@ -3073,6 +3154,7 @@ unsafe impl ::windows::runtime::Abi for DD_NONLOCALVIDMEMCAPS {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`*"]
 pub struct DD_NTCALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -3109,6 +3191,7 @@ unsafe impl ::windows::runtime::Abi for DD_NTCALLBACKS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 pub struct DD_NTPRIVATEDRIVERCAPS {
     pub dwSize: u32,
     pub dwPrivateCaps: u32,
@@ -3137,6 +3220,7 @@ unsafe impl ::windows::runtime::Abi for DD_NTPRIVATEDRIVERCAPS {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Graphics_Gdi`*"]
 pub struct DD_PALETTECALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -3172,6 +3256,7 @@ unsafe impl ::windows::runtime::Abi for DD_PALETTECALLBACKS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 pub struct DD_PALETTE_GLOBAL {
     pub dwReserved1: usize,
 }
@@ -3198,6 +3283,7 @@ unsafe impl ::windows::runtime::Abi for DD_PALETTE_GLOBAL {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 pub struct DD_PALETTE_LOCAL {
     pub dwReserved0: u32,
     pub dwReserved1: usize,
@@ -3226,6 +3312,7 @@ unsafe impl ::windows::runtime::Abi for DD_PALETTE_LOCAL {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`*"]
 pub struct DD_QUERYMOCOMPSTATUSDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpMoComp: *mut DD_MOTIONCOMP_LOCAL,
@@ -3263,6 +3350,7 @@ unsafe impl ::windows::runtime::Abi for DD_QUERYMOCOMPSTATUSDATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`*"]
 pub struct DD_RENDERMOCOMPDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpMoComp: *mut DD_MOTIONCOMP_LOCAL,
@@ -3316,6 +3404,7 @@ unsafe impl ::windows::runtime::Abi for DD_RENDERMOCOMPDATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`*"]
 pub struct DD_SETCOLORKEYDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub lpDDSurface: *mut DD_SURFACE_LOCAL,
@@ -3354,6 +3443,7 @@ unsafe impl ::windows::runtime::Abi for DD_SETCOLORKEYDATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Graphics_Gdi`*"]
 pub struct DD_SETENTRIESDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub lpDDPalette: *mut DD_PALETTE_GLOBAL,
@@ -3392,6 +3482,7 @@ unsafe impl ::windows::runtime::Abi for DD_SETENTRIESDATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 pub struct DD_SETEXCLUSIVEMODEDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub dwEnterExcl: u32,
@@ -3423,6 +3514,7 @@ unsafe impl ::windows::runtime::Abi for DD_SETEXCLUSIVEMODEDATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`*"]
 pub struct DD_SETOVERLAYPOSITIONDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub lpDDSrcSurface: *mut DD_SURFACE_LOCAL,
@@ -3470,6 +3562,7 @@ unsafe impl ::windows::runtime::Abi for DD_SETOVERLAYPOSITIONDATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`*"]
 pub struct DD_SETPALETTEDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub lpDDSurface: *mut DD_SURFACE_LOCAL,
@@ -3508,6 +3601,7 @@ unsafe impl ::windows::runtime::Abi for DD_SETPALETTEDATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`*"]
 pub struct DD_STEREOMODE {
     pub dwSize: u32,
     pub dwHeight: u32,
@@ -3546,6 +3640,7 @@ unsafe impl ::windows::runtime::Abi for DD_STEREOMODE {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`*"]
 pub struct DD_SURFACECALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -3609,6 +3704,7 @@ unsafe impl ::windows::runtime::Abi for DD_SURFACECALLBACKS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`*"]
 pub struct DD_SURFACE_GLOBAL {
     pub Anonymous1: DD_SURFACE_GLOBAL_0,
     pub Anonymous2: DD_SURFACE_GLOBAL_1,
@@ -3646,6 +3742,7 @@ unsafe impl ::windows::runtime::Abi for DD_SURFACE_GLOBAL {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 pub union DD_SURFACE_GLOBAL_0 {
     pub dwBlockSizeY: u32,
     pub lSlicePitch: i32,
@@ -3669,6 +3766,7 @@ unsafe impl ::windows::runtime::Abi for DD_SURFACE_GLOBAL_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`*"]
 pub union DD_SURFACE_GLOBAL_1 {
     pub lpVidMemHeap: *mut VIDEOMEMORY,
     pub dwBlockSizeX: u32,
@@ -3697,6 +3795,7 @@ unsafe impl ::windows::runtime::Abi for DD_SURFACE_GLOBAL_1 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 pub union DD_SURFACE_GLOBAL_2 {
     pub lPitch: i32,
     pub dwLinearSize: u32,
@@ -3720,6 +3819,7 @@ unsafe impl ::windows::runtime::Abi for DD_SURFACE_GLOBAL_2 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`*"]
 pub struct DD_SURFACE_INT {
     pub lpLcl: *mut DD_SURFACE_LOCAL,
 }
@@ -3753,6 +3853,7 @@ unsafe impl ::windows::runtime::Abi for DD_SURFACE_INT {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`*"]
 pub struct DD_SURFACE_LOCAL {
     pub lpGbl: *mut DD_SURFACE_GLOBAL,
     pub dwFlags: u32,
@@ -3789,6 +3890,7 @@ unsafe impl ::windows::runtime::Abi for DD_SURFACE_LOCAL {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Graphics_DirectDraw`*"]
 pub union DD_SURFACE_LOCAL_0 {
     pub ddckCKSrcOverlay: super::super::Graphics::DirectDraw::DDCOLORKEY,
     pub ddckCKSrcBlt: super::super::Graphics::DirectDraw::DDCOLORKEY,
@@ -3817,6 +3919,7 @@ unsafe impl ::windows::runtime::Abi for DD_SURFACE_LOCAL_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Graphics_DirectDraw`*"]
 pub union DD_SURFACE_LOCAL_1 {
     pub ddckCKDestOverlay: super::super::Graphics::DirectDraw::DDCOLORKEY,
     pub ddckCKDestBlt: super::super::Graphics::DirectDraw::DDCOLORKEY,
@@ -3845,6 +3948,7 @@ unsafe impl ::windows::runtime::Abi for DD_SURFACE_LOCAL_1 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`*"]
 pub struct DD_SURFACE_MORE {
     pub dwMipMapCount: u32,
     pub lpVideoPort: *mut DD_VIDEOPORT_LOCAL,
@@ -3876,6 +3980,7 @@ unsafe impl ::windows::runtime::Abi for DD_SURFACE_MORE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`*"]
 pub struct DD_SYNCSURFACEDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpDDSurface: *mut DD_SURFACE_LOCAL,
@@ -3931,6 +4036,7 @@ unsafe impl ::windows::runtime::Abi for DD_SYNCSURFACEDATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`*"]
 pub struct DD_SYNCVIDEOPORTDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpVideoPort: *mut DD_VIDEOPORT_LOCAL,
@@ -3982,6 +4088,7 @@ unsafe impl ::windows::runtime::Abi for DD_SYNCVIDEOPORTDATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`*"]
 pub struct DD_UNLOCKDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub lpDDSurface: *mut DD_SURFACE_LOCAL,
@@ -4017,6 +4124,7 @@ unsafe impl ::windows::runtime::Abi for DD_UNLOCKDATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 pub struct DD_UPDATENONLOCALHEAPDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub dwHeap: u32,
@@ -4063,6 +4171,7 @@ impl ::std::clone::Clone for DD_UPDATEOVERLAYDATA {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`*"]
 pub struct DD_UPDATEOVERLAYDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub lpDDDestSurface: *mut DD_SURFACE_LOCAL,
@@ -4098,6 +4207,7 @@ unsafe impl ::windows::runtime::Abi for DD_UPDATEOVERLAYDATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`*"]
 pub struct DD_UPDATEVPORTDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpVideoPort: *mut DD_VIDEOPORT_LOCAL,
@@ -4151,6 +4261,7 @@ unsafe impl ::windows::runtime::Abi for DD_UPDATEVPORTDATA {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`*"]
 pub struct DD_VIDEOPORTCALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -4218,6 +4329,7 @@ unsafe impl ::windows::runtime::Abi for DD_VIDEOPORTCALLBACKS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`*"]
 pub struct DD_VIDEOPORT_LOCAL {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub ddvpDesc: DDVIDEOPORTDESC,
@@ -4271,6 +4383,7 @@ unsafe impl ::windows::runtime::Abi for DD_VIDEOPORT_LOCAL {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`*"]
 pub struct DD_VPORTCOLORDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpVideoPort: *mut DD_VIDEOPORT_LOCAL,
@@ -4308,6 +4421,7 @@ unsafe impl ::windows::runtime::Abi for DD_VPORTCOLORDATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 pub struct DD_WAITFORVERTICALBLANKDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub dwFlags: u32,
@@ -4340,6 +4454,7 @@ unsafe impl ::windows::runtime::Abi for DD_WAITFORVERTICALBLANKDATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`*"]
 pub struct DD_WAITFORVPORTSYNCDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpVideoPort: *mut DD_VIDEOPORT_LOCAL,
@@ -4378,6 +4493,7 @@ unsafe impl ::windows::runtime::Abi for DD_WAITFORVPORTSYNCDATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 pub struct DEVHTADJDATA {
     pub DeviceFlags: u32,
     pub DeviceXDPI: u32,
@@ -4408,6 +4524,7 @@ unsafe impl ::windows::runtime::Abi for DEVHTADJDATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 pub struct DEVHTINFO {
     pub HTFlags: u32,
     pub HTPatternSize: u32,
@@ -4438,6 +4555,7 @@ unsafe impl ::windows::runtime::Abi for DEVHTINFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Graphics_Gdi`*"]
 pub struct DEVINFO {
     pub flGraphicsCaps: u32,
     pub lfDefaultFont: super::super::Graphics::Gdi::LOGFONTW,
@@ -4490,6 +4608,7 @@ unsafe impl ::windows::runtime::Abi for DEVINFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 pub struct DISPLAYCONFIG_2DREGION {
     pub cx: u32,
     pub cy: u32,
@@ -4518,6 +4637,7 @@ unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_2DREGION {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`*"]
 pub struct DISPLAYCONFIG_ADAPTER_NAME {
     pub header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
     pub adapterDevicePath: [u16; 128],
@@ -4552,6 +4672,7 @@ unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_ADAPTER_NAME {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`*"]
 pub struct DISPLAYCONFIG_DESKTOP_IMAGE_INFO {
     pub PathSourceSize: super::super::Foundation::POINTL,
     pub DesktopImageRegion: super::super::Foundation::RECTL,
@@ -4587,6 +4708,7 @@ unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_DESKTOP_IMAGE_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`*"]
 pub struct DISPLAYCONFIG_DEVICE_INFO_HEADER {
     pub r#type: DISPLAYCONFIG_DEVICE_INFO_TYPE,
     pub size: u32,
@@ -4620,6 +4742,7 @@ unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_DEVICE_INFO_HEADER {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DISPLAYCONFIG_DEVICE_INFO_TYPE(pub i32);
@@ -4649,6 +4772,7 @@ unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_DEVICE_INFO_TYPE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 pub struct DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO {
     pub header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
     pub Anonymous: DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0,
@@ -4678,6 +4802,7 @@ unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 pub union DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0 {
     pub Anonymous: DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0_0,
     pub value: u32,
@@ -4700,6 +4825,7 @@ unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0 
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 pub struct DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0_0 {
     pub _bitfield: u32,
 }
@@ -4727,6 +4853,7 @@ unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0_
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`*"]
 pub struct DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION {
     pub header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
     pub Anonymous: DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0,
@@ -4754,6 +4881,7 @@ unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 pub union DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0 {
     pub Anonymous: DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0_0,
     pub value: u32,
@@ -4776,6 +4904,7 @@ unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 pub struct DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0_0 {
     pub _bitfield: u32,
 }
@@ -4803,6 +4932,7 @@ unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`*"]
 pub struct DISPLAYCONFIG_MODE_INFO {
     pub infoType: DISPLAYCONFIG_MODE_INFO_TYPE,
     pub id: u32,
@@ -4833,6 +4963,7 @@ unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_MODE_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`*"]
 pub union DISPLAYCONFIG_MODE_INFO_0 {
     pub targetMode: DISPLAYCONFIG_TARGET_MODE,
     pub sourceMode: DISPLAYCONFIG_SOURCE_MODE,
@@ -4859,6 +4990,7 @@ unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_MODE_INFO_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DISPLAYCONFIG_MODE_INFO_TYPE(pub i32);
@@ -4878,6 +5010,7 @@ unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_MODE_INFO_TYPE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`*"]
 pub struct DISPLAYCONFIG_PATH_INFO {
     pub sourceInfo: DISPLAYCONFIG_PATH_SOURCE_INFO,
     pub targetInfo: DISPLAYCONFIG_PATH_TARGET_INFO,
@@ -4907,6 +5040,7 @@ unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_PATH_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`*"]
 pub struct DISPLAYCONFIG_PATH_SOURCE_INFO {
     pub adapterId: super::super::Foundation::LUID,
     pub id: u32,
@@ -4936,6 +5070,7 @@ unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_PATH_SOURCE_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 pub union DISPLAYCONFIG_PATH_SOURCE_INFO_0 {
     pub modeInfoIdx: u32,
     pub Anonymous: DISPLAYCONFIG_PATH_SOURCE_INFO_0_0,
@@ -4958,6 +5093,7 @@ unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_PATH_SOURCE_INFO_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 pub struct DISPLAYCONFIG_PATH_SOURCE_INFO_0_0 {
     pub _bitfield: u32,
 }
@@ -4985,6 +5121,7 @@ unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_PATH_SOURCE_INFO_0_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`*"]
 pub struct DISPLAYCONFIG_PATH_TARGET_INFO {
     pub adapterId: super::super::Foundation::LUID,
     pub id: u32,
@@ -5020,6 +5157,7 @@ unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_PATH_TARGET_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 pub union DISPLAYCONFIG_PATH_TARGET_INFO_0 {
     pub modeInfoIdx: u32,
     pub Anonymous: DISPLAYCONFIG_PATH_TARGET_INFO_0_0,
@@ -5042,6 +5180,7 @@ unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_PATH_TARGET_INFO_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 pub struct DISPLAYCONFIG_PATH_TARGET_INFO_0_0 {
     pub _bitfield: u32,
 }
@@ -5066,6 +5205,7 @@ unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_PATH_TARGET_INFO_0_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DISPLAYCONFIG_PIXELFORMAT(pub i32);
@@ -5086,6 +5226,7 @@ unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_PIXELFORMAT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 pub struct DISPLAYCONFIG_RATIONAL {
     pub Numerator: u32,
     pub Denominator: u32,
@@ -5111,6 +5252,7 @@ unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_RATIONAL {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DISPLAYCONFIG_ROTATION(pub i32);
@@ -5128,6 +5270,7 @@ unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_ROTATION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DISPLAYCONFIG_SCALING(pub i32);
@@ -5147,6 +5290,7 @@ unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_SCALING {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DISPLAYCONFIG_SCANLINE_ORDERING(pub i32);
@@ -5168,6 +5312,7 @@ unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_SCANLINE_ORDERING {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`*"]
 pub struct DISPLAYCONFIG_SDR_WHITE_LEVEL {
     pub header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
     pub SDRWhiteLevel: u32,
@@ -5202,6 +5347,7 @@ unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_SDR_WHITE_LEVEL {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`*"]
 pub struct DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE {
     pub header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
     pub Anonymous: DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0,
@@ -5229,6 +5375,7 @@ unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 pub union DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0 {
     pub Anonymous: DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0_0,
     pub value: u32,
@@ -5251,6 +5398,7 @@ unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 pub struct DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0_0 {
     pub _bitfield: u32,
 }
@@ -5278,6 +5426,7 @@ unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`*"]
 pub struct DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION {
     pub header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
     pub Anonymous: DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0,
@@ -5308,6 +5457,7 @@ unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 pub union DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0 {
     pub Anonymous: DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0_0,
     pub value: u32,
@@ -5330,6 +5480,7 @@ unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 pub struct DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0_0 {
     pub _bitfield: u32,
 }
@@ -5357,6 +5508,7 @@ unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`*"]
 pub struct DISPLAYCONFIG_SET_TARGET_PERSISTENCE {
     pub header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
     pub Anonymous: DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0,
@@ -5384,6 +5536,7 @@ unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_SET_TARGET_PERSISTENCE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 pub union DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0 {
     pub Anonymous: DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0_0,
     pub value: u32,
@@ -5406,6 +5559,7 @@ unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 pub struct DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0_0 {
     pub _bitfield: u32,
 }
@@ -5433,6 +5587,7 @@ unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0_0
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`*"]
 pub struct DISPLAYCONFIG_SOURCE_DEVICE_NAME {
     pub header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
     pub viewGdiDeviceName: [u16; 32],
@@ -5467,6 +5622,7 @@ unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_SOURCE_DEVICE_NAME {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`*"]
 pub struct DISPLAYCONFIG_SOURCE_MODE {
     pub width: u32,
     pub height: u32,
@@ -5503,6 +5659,7 @@ unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_SOURCE_MODE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`*"]
 pub struct DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION {
     pub header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
     pub Anonymous: DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION_0,
@@ -5530,6 +5687,7 @@ unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 pub union DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION_0 {
     pub Anonymous: DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION_0_0,
     pub value: u32,
@@ -5552,6 +5710,7 @@ unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 pub struct DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION_0_0 {
     pub _bitfield: u32,
 }
@@ -5579,6 +5738,7 @@ unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`*"]
 pub struct DISPLAYCONFIG_TARGET_BASE_TYPE {
     pub header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
     pub baseOutputTechnology: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY,
@@ -5613,6 +5773,7 @@ unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_TARGET_BASE_TYPE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`*"]
 pub struct DISPLAYCONFIG_TARGET_DEVICE_NAME {
     pub header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
     pub flags: DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS,
@@ -5646,6 +5807,7 @@ unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_TARGET_DEVICE_NAME {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 pub struct DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS {
     pub Anonymous: DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS_0,
 }
@@ -5667,6 +5829,7 @@ unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 pub union DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS_0 {
     pub Anonymous: DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS_0_0,
     pub value: u32,
@@ -5689,6 +5852,7 @@ unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS_0
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 pub struct DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS_0_0 {
     pub _bitfield: u32,
 }
@@ -5715,6 +5879,7 @@ unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS_0
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 pub struct DISPLAYCONFIG_TARGET_MODE {
     pub targetVideoSignalInfo: DISPLAYCONFIG_VIDEO_SIGNAL_INFO,
 }
@@ -5737,6 +5902,7 @@ unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_TARGET_MODE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`*"]
 pub struct DISPLAYCONFIG_TARGET_PREFERRED_MODE {
     pub header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
     pub width: u32,
@@ -5764,6 +5930,7 @@ unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_TARGET_PREFERRED_MODE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DISPLAYCONFIG_TOPOLOGY_ID(pub i32);
@@ -5781,6 +5948,7 @@ unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_TOPOLOGY_ID {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(pub i32);
@@ -5816,6 +5984,7 @@ unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 pub struct DISPLAYCONFIG_VIDEO_SIGNAL_INFO {
     pub pixelRate: u64,
     pub hSyncFreq: DISPLAYCONFIG_RATIONAL,
@@ -5843,6 +6012,7 @@ unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_VIDEO_SIGNAL_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 pub union DISPLAYCONFIG_VIDEO_SIGNAL_INFO_0 {
     pub AdditionalSignalInfo: DISPLAYCONFIG_VIDEO_SIGNAL_INFO_0_0,
     pub videoStandard: u32,
@@ -5865,6 +6035,7 @@ unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_VIDEO_SIGNAL_INFO_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 pub struct DISPLAYCONFIG_VIDEO_SIGNAL_INFO_0_0 {
     pub _bitfield: u32,
 }
@@ -5892,6 +6063,7 @@ unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_VIDEO_SIGNAL_INFO_0_0 {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
 pub struct DRIVEROBJ {
     pub pvObj: *mut ::std::ffi::c_void,
     pub pFreeProc: ::std::option::Option<super::super::System::SystemServices::FREEOBJPROC>,
@@ -5928,6 +6100,7 @@ unsafe impl ::windows::runtime::Abi for DRIVEROBJ {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_SystemServices")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_System_SystemServices`*"]
 pub struct DRVENABLEDATA {
     pub iDriverVersion: u32,
     pub c: u32,
@@ -5963,6 +6136,7 @@ unsafe impl ::windows::runtime::Abi for DRVENABLEDATA {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_SystemServices")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_System_SystemServices`*"]
 pub struct DRVFN {
     pub iFunc: u32,
     pub pfn: ::std::option::Option<super::super::System::SystemServices::PFN>,
@@ -5995,6 +6169,7 @@ unsafe impl ::windows::runtime::Abi for DRVFN {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn DisplayConfigGetDeviceInfo(requestpacket: *mut DISPLAYCONFIG_DEVICE_INFO_HEADER) -> i32 {
     #[cfg(windows)]
@@ -6009,6 +6184,7 @@ pub unsafe fn DisplayConfigGetDeviceInfo(requestpacket: *mut DISPLAYCONFIG_DEVIC
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn DisplayConfigSetDeviceInfo(setpacket: *const DISPLAYCONFIG_DEVICE_INFO_HEADER) -> i32 {
     #[cfg(windows)]
@@ -6025,6 +6201,7 @@ pub unsafe fn DisplayConfigSetDeviceInfo(setpacket: *const DISPLAYCONFIG_DEVICE_
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_SystemServices")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_System_SystemServices`*"]
 pub struct ENGSAFESEMAPHORE {
     pub hsem: *mut super::super::System::SystemServices::HSEMAPHORE__,
     pub lCount: i32,
@@ -6058,6 +6235,7 @@ unsafe impl ::windows::runtime::Abi for ENGSAFESEMAPHORE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 pub struct ENG_TIME_FIELDS {
     pub usYear: u16,
     pub usMonth: u16,
@@ -6101,6 +6279,7 @@ unsafe impl ::windows::runtime::Abi for ENG_TIME_FIELDS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`*"]
 pub struct ENUMRECTS {
     pub c: u32,
     pub arcl: [super::super::Foundation::RECTL; 1],
@@ -6133,6 +6312,7 @@ unsafe impl ::windows::runtime::Abi for ENUMRECTS {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_System_SystemServices`*"]
 #[inline]
 pub unsafe fn EngAcquireSemaphore(hsem: *const super::super::System::SystemServices::HSEMAPHORE__) {
     #[cfg(windows)]
@@ -6147,6 +6327,7 @@ pub unsafe fn EngAcquireSemaphore(hsem: *const super::super::System::SystemServi
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_System_SystemServices`*"]
 #[inline]
 pub unsafe fn EngAlphaBlend(psodest: *mut SURFOBJ, psosrc: *mut SURFOBJ, pco: *mut CLIPOBJ, pxlo: *mut XLATEOBJ, prcldest: *mut super::super::Foundation::RECTL, prclsrc: *mut super::super::Foundation::RECTL, pblendobj: *mut BLENDOBJ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -6161,6 +6342,7 @@ pub unsafe fn EngAlphaBlend(psodest: *mut SURFOBJ, psosrc: *mut SURFOBJ, pco: *m
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
 #[inline]
 pub unsafe fn EngAssociateSurface<'a, Param0: ::windows::runtime::IntoParam<'a, HSURF>, Param1: ::windows::runtime::IntoParam<'a, super::super::System::SystemServices::HDEV>>(hsurf: Param0, hdev: Param1, flhooks: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -6175,6 +6357,7 @@ pub unsafe fn EngAssociateSurface<'a, Param0: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
 #[inline]
 pub unsafe fn EngBitBlt(psotrg: *const SURFOBJ, psosrc: *const SURFOBJ, psomask: *const SURFOBJ, pco: *const CLIPOBJ, pxlo: *const XLATEOBJ, prcltrg: *const super::super::Foundation::RECTL, pptlsrc: *const super::super::Foundation::POINTL, pptlmask: *const super::super::Foundation::POINTL, pbo: *const BRUSHOBJ, pptlbrush: *const super::super::Foundation::POINTL, rop4: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -6201,6 +6384,7 @@ pub unsafe fn EngBitBlt(psotrg: *const SURFOBJ, psosrc: *const SURFOBJ, psomask:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
 #[inline]
 pub unsafe fn EngCheckAbort(pso: *mut SURFOBJ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -6214,6 +6398,7 @@ pub unsafe fn EngCheckAbort(pso: *mut SURFOBJ) -> super::super::Foundation::BOOL
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 #[inline]
 pub unsafe fn EngComputeGlyphSet(ncodepage: i32, nfirstchar: i32, cchars: i32) -> *mut FD_GLYPHSET {
     #[cfg(windows)]
@@ -6228,6 +6413,7 @@ pub unsafe fn EngComputeGlyphSet(ncodepage: i32, nfirstchar: i32, cchars: i32) -
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
 #[inline]
 pub unsafe fn EngCopyBits(psodest: *mut SURFOBJ, psosrc: *mut SURFOBJ, pco: *mut CLIPOBJ, pxlo: *mut XLATEOBJ, prcldest: *mut super::super::Foundation::RECTL, pptlsrc: *mut super::super::Foundation::POINTL) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -6242,6 +6428,7 @@ pub unsafe fn EngCopyBits(psodest: *mut SURFOBJ, psosrc: *mut SURFOBJ, pco: *mut
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[inline]
 pub unsafe fn EngCreateBitmap<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::SIZE>>(sizl: Param0, lwidth: i32, iformat: u32, fl: u32, pvbits: *mut ::std::ffi::c_void) -> super::super::Graphics::Gdi::HBITMAP {
     #[cfg(windows)]
@@ -6256,6 +6443,7 @@ pub unsafe fn EngCreateBitmap<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn EngCreateClip() -> *mut CLIPOBJ {
     #[cfg(windows)]
@@ -6270,6 +6458,7 @@ pub unsafe fn EngCreateClip() -> *mut CLIPOBJ {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_System_SystemServices`*"]
 #[inline]
 pub unsafe fn EngCreateDeviceBitmap<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::SystemServices::DHSURF>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::SIZE>>(dhsurf: Param0, sizl: Param1, iformatcompat: u32) -> super::super::Graphics::Gdi::HBITMAP {
     #[cfg(windows)]
@@ -6284,6 +6473,7 @@ pub unsafe fn EngCreateDeviceBitmap<'a, Param0: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
 #[inline]
 pub unsafe fn EngCreateDeviceSurface<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::SystemServices::DHSURF>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::SIZE>>(dhsurf: Param0, sizl: Param1, iformatcompat: u32) -> HSURF {
     #[cfg(windows)]
@@ -6298,6 +6488,7 @@ pub unsafe fn EngCreateDeviceSurface<'a, Param0: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Graphics_Gdi`*"]
 #[inline]
 pub unsafe fn EngCreatePalette(imode: u32, ccolors: u32, pulcolors: *mut u32, flred: u32, flgreen: u32, flblue: u32) -> super::super::Graphics::Gdi::HPALETTE {
     #[cfg(windows)]
@@ -6312,6 +6503,7 @@ pub unsafe fn EngCreatePalette(imode: u32, ccolors: u32, pulcolors: *mut u32, fl
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_System_SystemServices`*"]
 #[inline]
 pub unsafe fn EngCreateSemaphore() -> *mut super::super::System::SystemServices::HSEMAPHORE__ {
     #[cfg(windows)]
@@ -6326,6 +6518,7 @@ pub unsafe fn EngCreateSemaphore() -> *mut super::super::System::SystemServices:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn EngDeleteClip(pco: *const CLIPOBJ) {
     #[cfg(windows)]
@@ -6340,6 +6533,7 @@ pub unsafe fn EngDeleteClip(pco: *const CLIPOBJ) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[inline]
 pub unsafe fn EngDeletePalette<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HPALETTE>>(hpal: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -6353,6 +6547,7 @@ pub unsafe fn EngDeletePalette<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 #[inline]
 pub unsafe fn EngDeletePath(ppo: *mut PATHOBJ) {
     #[cfg(windows)]
@@ -6367,6 +6562,7 @@ pub unsafe fn EngDeletePath(ppo: *mut PATHOBJ) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_System_SystemServices`*"]
 #[inline]
 pub unsafe fn EngDeleteSemaphore(hsem: *const super::super::System::SystemServices::HSEMAPHORE__) {
     #[cfg(windows)]
@@ -6381,6 +6577,7 @@ pub unsafe fn EngDeleteSemaphore(hsem: *const super::super::System::SystemServic
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn EngDeleteSurface<'a, Param0: ::windows::runtime::IntoParam<'a, HSURF>>(hsurf: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -6395,6 +6592,7 @@ pub unsafe fn EngDeleteSurface<'a, Param0: ::windows::runtime::IntoParam<'a, HSU
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
 #[inline]
 pub unsafe fn EngEraseSurface(pso: *mut SURFOBJ, prcl: *mut super::super::Foundation::RECTL, icolor: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -6409,6 +6607,7 @@ pub unsafe fn EngEraseSurface(pso: *mut SURFOBJ, prcl: *mut super::super::Founda
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
 #[inline]
 pub unsafe fn EngFillPath(pso: *mut SURFOBJ, ppo: *mut PATHOBJ, pco: *mut CLIPOBJ, pbo: *mut BRUSHOBJ, pptlbrushorg: *mut super::super::Foundation::POINTL, mix: u32, floptions: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -6423,6 +6622,7 @@ pub unsafe fn EngFillPath(pso: *mut SURFOBJ, ppo: *mut PATHOBJ, pco: *mut CLIPOB
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn EngFindResource<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(h: Param0, iname: i32, itype: i32, pulsize: *mut u32) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
@@ -6437,6 +6637,7 @@ pub unsafe fn EngFindResource<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn EngFreeModule<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(h: Param0) {
     #[cfg(windows)]
@@ -6450,6 +6651,7 @@ pub unsafe fn EngFreeModule<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 #[inline]
 pub unsafe fn EngGetCurrentCodePage(oemcodepage: *mut u16, ansicodepage: *mut u16) {
     #[cfg(windows)]
@@ -6464,6 +6666,7 @@ pub unsafe fn EngGetCurrentCodePage(oemcodepage: *mut u16, ansicodepage: *mut u1
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
 #[inline]
 pub unsafe fn EngGetDriverName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::SystemServices::HDEV>>(hdev: Param0) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
@@ -6478,6 +6681,7 @@ pub unsafe fn EngGetDriverName<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
 #[inline]
 pub unsafe fn EngGetPrinterDataFileName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::SystemServices::HDEV>>(hdev: Param0) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
@@ -6492,6 +6696,7 @@ pub unsafe fn EngGetPrinterDataFileName<'a, Param0: ::windows::runtime::IntoPara
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_System_SystemServices`*"]
 #[inline]
 pub unsafe fn EngGradientFill(psodest: *mut SURFOBJ, pco: *mut CLIPOBJ, pxlo: *mut XLATEOBJ, pvertex: *mut super::super::Graphics::Gdi::TRIVERTEX, nvertex: u32, pmesh: *mut ::std::ffi::c_void, nmesh: u32, prclextents: *mut super::super::Foundation::RECTL, pptlditherorg: *mut super::super::Foundation::POINTL, ulmode: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -6517,6 +6722,7 @@ pub unsafe fn EngGradientFill(psodest: *mut SURFOBJ, pco: *mut CLIPOBJ, pxlo: *m
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
 #[inline]
 pub unsafe fn EngLineTo(pso: *mut SURFOBJ, pco: *mut CLIPOBJ, pbo: *mut BRUSHOBJ, x1: i32, y1: i32, x2: i32, y2: i32, prclbounds: *mut super::super::Foundation::RECTL, mix: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -6531,6 +6737,7 @@ pub unsafe fn EngLineTo(pso: *mut SURFOBJ, pco: *mut CLIPOBJ, pbo: *mut BRUSHOBJ
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn EngLoadModule<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwsz: Param0) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
@@ -6545,6 +6752,7 @@ pub unsafe fn EngLoadModule<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
 #[inline]
 pub unsafe fn EngLockSurface<'a, Param0: ::windows::runtime::IntoParam<'a, HSURF>>(hsurf: Param0) -> *mut SURFOBJ {
     #[cfg(windows)]
@@ -6559,6 +6767,7 @@ pub unsafe fn EngLockSurface<'a, Param0: ::windows::runtime::IntoParam<'a, HSURF
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn EngMarkBandingSurface<'a, Param0: ::windows::runtime::IntoParam<'a, HSURF>>(hsurf: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -6573,6 +6782,7 @@ pub unsafe fn EngMarkBandingSurface<'a, Param0: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn EngMultiByteToUnicodeN<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(unicodestring: super::super::Foundation::PWSTR, maxbytesinunicodestring: u32, bytesinunicodestring: *mut u32, multibytestring: Param3, bytesinmultibytestring: u32) {
     #[cfg(windows)]
@@ -6587,6 +6797,7 @@ pub unsafe fn EngMultiByteToUnicodeN<'a, Param3: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn EngMultiByteToWideChar<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(codepage: u32, widecharstring: super::super::Foundation::PWSTR, bytesinwidecharstring: i32, multibytestring: Param3, bytesinmultibytestring: i32) -> i32 {
     #[cfg(windows)]
@@ -6601,6 +6812,7 @@ pub unsafe fn EngMultiByteToWideChar<'a, Param3: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
 #[inline]
 pub unsafe fn EngPaint(pso: *mut SURFOBJ, pco: *mut CLIPOBJ, pbo: *mut BRUSHOBJ, pptlbrushorg: *mut super::super::Foundation::POINTL, mix: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -6615,6 +6827,7 @@ pub unsafe fn EngPaint(pso: *mut SURFOBJ, pco: *mut CLIPOBJ, pbo: *mut BRUSHOBJ,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_System_SystemServices`*"]
 #[inline]
 pub unsafe fn EngPlgBlt(psotrg: *mut SURFOBJ, psosrc: *mut SURFOBJ, psomsk: *mut SURFOBJ, pco: *mut CLIPOBJ, pxlo: *mut XLATEOBJ, pca: *mut super::super::Graphics::Gdi::COLORADJUSTMENT, pptlbrushorg: *mut super::super::Foundation::POINTL, pptfx: *mut super::super::System::SystemServices::POINTFIX, prcl: *mut super::super::Foundation::RECTL, pptl: *mut super::super::Foundation::POINTL, imode: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -6640,6 +6853,7 @@ pub unsafe fn EngPlgBlt(psotrg: *mut SURFOBJ, psosrc: *mut SURFOBJ, psomsk: *mut
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 #[inline]
 pub unsafe fn EngQueryLocalTime(param0: *mut ENG_TIME_FIELDS) {
     #[cfg(windows)]
@@ -6654,6 +6868,7 @@ pub unsafe fn EngQueryLocalTime(param0: *mut ENG_TIME_FIELDS) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_System_SystemServices`*"]
 #[inline]
 pub unsafe fn EngReleaseSemaphore(hsem: *const super::super::System::SystemServices::HSEMAPHORE__) {
     #[cfg(windows)]
@@ -6668,6 +6883,7 @@ pub unsafe fn EngReleaseSemaphore(hsem: *const super::super::System::SystemServi
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_System_SystemServices`*"]
 #[inline]
 pub unsafe fn EngStretchBlt(psodest: *mut SURFOBJ, psosrc: *mut SURFOBJ, psomask: *mut SURFOBJ, pco: *mut CLIPOBJ, pxlo: *mut XLATEOBJ, pca: *mut super::super::Graphics::Gdi::COLORADJUSTMENT, pptlhtorg: *mut super::super::Foundation::POINTL, prcldest: *mut super::super::Foundation::RECTL, prclsrc: *mut super::super::Foundation::RECTL, pptlmask: *mut super::super::Foundation::POINTL, imode: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -6694,6 +6910,7 @@ pub unsafe fn EngStretchBlt(psodest: *mut SURFOBJ, psosrc: *mut SURFOBJ, psomask
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_System_SystemServices`*"]
 #[inline]
 pub unsafe fn EngStretchBltROP(psodest: *mut SURFOBJ, psosrc: *mut SURFOBJ, psomask: *mut SURFOBJ, pco: *mut CLIPOBJ, pxlo: *mut XLATEOBJ, pca: *mut super::super::Graphics::Gdi::COLORADJUSTMENT, pptlhtorg: *mut super::super::Foundation::POINTL, prcldest: *mut super::super::Foundation::RECTL, prclsrc: *mut super::super::Foundation::RECTL, pptlmask: *mut super::super::Foundation::POINTL, imode: u32, pbo: *mut BRUSHOBJ, rop4: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -6722,6 +6939,7 @@ pub unsafe fn EngStretchBltROP(psodest: *mut SURFOBJ, psosrc: *mut SURFOBJ, psom
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
 #[inline]
 pub unsafe fn EngStrokeAndFillPath(pso: *mut SURFOBJ, ppo: *mut PATHOBJ, pco: *mut CLIPOBJ, pxo: *mut super::super::System::SystemServices::XFORMOBJ, pbostroke: *mut BRUSHOBJ, plineattrs: *mut LINEATTRS, pbofill: *mut BRUSHOBJ, pptlbrushorg: *mut super::super::Foundation::POINTL, mixfill: u32, floptions: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -6747,6 +6965,7 @@ pub unsafe fn EngStrokeAndFillPath(pso: *mut SURFOBJ, ppo: *mut PATHOBJ, pco: *m
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
 #[inline]
 pub unsafe fn EngStrokePath(pso: *mut SURFOBJ, ppo: *mut PATHOBJ, pco: *mut CLIPOBJ, pxo: *mut super::super::System::SystemServices::XFORMOBJ, pbo: *mut BRUSHOBJ, pptlbrushorg: *mut super::super::Foundation::POINTL, plineattrs: *mut LINEATTRS, mix: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -6761,6 +6980,7 @@ pub unsafe fn EngStrokePath(pso: *mut SURFOBJ, ppo: *mut PATHOBJ, pco: *mut CLIP
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
 #[inline]
 pub unsafe fn EngTextOut(pso: *mut SURFOBJ, pstro: *mut STROBJ, pfo: *mut FONTOBJ, pco: *mut CLIPOBJ, prclextra: *mut super::super::Foundation::RECTL, prclopaque: *mut super::super::Foundation::RECTL, pbofore: *mut BRUSHOBJ, pboopaque: *mut BRUSHOBJ, pptlorg: *mut super::super::Foundation::POINTL, mix: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -6786,6 +7006,7 @@ pub unsafe fn EngTextOut(pso: *mut SURFOBJ, pstro: *mut STROBJ, pfo: *mut FONTOB
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
 #[inline]
 pub unsafe fn EngTransparentBlt(psodst: *const SURFOBJ, psosrc: *const SURFOBJ, pco: *const CLIPOBJ, pxlo: *const XLATEOBJ, prcldst: *const super::super::Foundation::RECTL, prclsrc: *const super::super::Foundation::RECTL, transcolor: u32, bcalledfrombitblt: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -6800,6 +7021,7 @@ pub unsafe fn EngTransparentBlt(psodst: *const SURFOBJ, psosrc: *const SURFOBJ, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn EngUnicodeToMultiByteN<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(multibytestring: super::super::Foundation::PSTR, maxbytesinmultibytestring: u32, bytesinmultibytestring: *mut u32, unicodestring: Param3, bytesinunicodestring: u32) {
     #[cfg(windows)]
@@ -6814,6 +7036,7 @@ pub unsafe fn EngUnicodeToMultiByteN<'a, Param3: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
 #[inline]
 pub unsafe fn EngUnlockSurface(pso: *mut SURFOBJ) {
     #[cfg(windows)]
@@ -6828,6 +7051,7 @@ pub unsafe fn EngUnlockSurface(pso: *mut SURFOBJ) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn EngWideCharToMultiByte<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(codepage: u32, widecharstring: Param1, bytesinwidecharstring: i32, multibytestring: super::super::Foundation::PSTR, bytesinmultibytestring: i32) -> i32 {
     #[cfg(windows)]
@@ -6844,6 +7068,7 @@ pub unsafe fn EngWideCharToMultiByte<'a, Param1: ::windows::runtime::IntoParam<'
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
 pub struct FD_DEVICEMETRICS {
     pub flRealizedType: u32,
     pub pteBase: super::super::System::SystemServices::POINTE,
@@ -6941,6 +7166,7 @@ unsafe impl ::windows::runtime::Abi for FD_DEVICEMETRICS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 pub struct FD_GLYPHATTR {
     pub cjThis: u32,
     pub cGlyphs: u32,
@@ -6970,6 +7196,7 @@ unsafe impl ::windows::runtime::Abi for FD_GLYPHATTR {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 pub struct FD_GLYPHSET {
     pub cjThis: u32,
     pub flAccel: u32,
@@ -7000,6 +7227,7 @@ unsafe impl ::windows::runtime::Abi for FD_GLYPHSET {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 pub struct FD_KERNINGPAIR {
     pub wcFirst: u16,
     pub wcSecond: u16,
@@ -7028,6 +7256,7 @@ unsafe impl ::windows::runtime::Abi for FD_KERNINGPAIR {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 pub struct FD_XFORM {
     pub eXX: f32,
     pub eXY: f32,
@@ -7058,6 +7287,7 @@ unsafe impl ::windows::runtime::Abi for FD_XFORM {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`*"]
 pub struct FONTDIFF {
     pub jReserved1: u8,
     pub jReserved2: u8,
@@ -7108,6 +7338,7 @@ unsafe impl ::windows::runtime::Abi for FONTDIFF {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 pub struct FONTINFO {
     pub cjThis: u32,
     pub flCaps: u32,
@@ -7149,6 +7380,7 @@ unsafe impl ::windows::runtime::Abi for FONTINFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`*"]
 pub struct FONTOBJ {
     pub iUniq: u32,
     pub iFace: u32,
@@ -7200,6 +7432,7 @@ unsafe impl ::windows::runtime::Abi for FONTOBJ {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn FONTOBJ_cGetAllGlyphHandles(pfo: *mut FONTOBJ, phg: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -7214,6 +7447,7 @@ pub unsafe fn FONTOBJ_cGetAllGlyphHandles(pfo: *mut FONTOBJ, phg: *mut u32) -> u
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn FONTOBJ_cGetGlyphs(pfo: *mut FONTOBJ, imode: u32, cglyph: u32, phg: *mut u32, ppvglyph: *mut *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -7228,6 +7462,7 @@ pub unsafe fn FONTOBJ_cGetGlyphs(pfo: *mut FONTOBJ, imode: u32, cglyph: u32, phg
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn FONTOBJ_pQueryGlyphAttrs(pfo: *mut FONTOBJ, imode: u32) -> *mut FD_GLYPHATTR {
     #[cfg(windows)]
@@ -7242,6 +7477,7 @@ pub unsafe fn FONTOBJ_pQueryGlyphAttrs(pfo: *mut FONTOBJ, imode: u32) -> *mut FD
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn FONTOBJ_pfdg(pfo: *mut FONTOBJ) -> *mut FD_GLYPHSET {
     #[cfg(windows)]
@@ -7256,6 +7492,7 @@ pub unsafe fn FONTOBJ_pfdg(pfo: *mut FONTOBJ) -> *mut FD_GLYPHSET {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[inline]
 pub unsafe fn FONTOBJ_pifi(pfo: *const FONTOBJ) -> *mut IFIMETRICS {
     #[cfg(windows)]
@@ -7270,6 +7507,7 @@ pub unsafe fn FONTOBJ_pifi(pfo: *const FONTOBJ) -> *mut IFIMETRICS {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn FONTOBJ_pvTrueTypeFontFile(pfo: *mut FONTOBJ, pcjfile: *mut u32) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
@@ -7284,6 +7522,7 @@ pub unsafe fn FONTOBJ_pvTrueTypeFontFile(pfo: *mut FONTOBJ, pcjfile: *mut u32) -
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
 #[inline]
 pub unsafe fn FONTOBJ_pxoGetXform(pfo: *const FONTOBJ) -> *mut super::super::System::SystemServices::XFORMOBJ {
     #[cfg(windows)]
@@ -7298,6 +7537,7 @@ pub unsafe fn FONTOBJ_pxoGetXform(pfo: *const FONTOBJ) -> *mut super::super::Sys
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn FONTOBJ_vGetInfo(pfo: *mut FONTOBJ, cjsize: u32, pfi: *mut FONTINFO) {
     #[cfg(windows)]
@@ -7313,6 +7553,7 @@ pub unsafe fn FONTOBJ_vGetInfo(pfo: *mut FONTOBJ, cjsize: u32, pfi: *mut FONTINF
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 pub struct FONTSIM {
     pub dpBold: i32,
     pub dpItalic: i32,
@@ -7341,6 +7582,7 @@ unsafe impl ::windows::runtime::Abi for FONTSIM {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 pub struct GAMMARAMP {
     pub Red: [u16; 256],
     pub Green: [u16; 256],
@@ -7370,6 +7612,7 @@ unsafe impl ::windows::runtime::Abi for GAMMARAMP {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`*"]
 pub struct GDIINFO {
     pub ulVersion: u32,
     pub ulTechnology: u32,
@@ -7537,6 +7780,7 @@ unsafe impl ::windows::runtime::Abi for GDIINFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`*"]
 pub struct GLYPHBITS {
     pub ptlOrigin: super::super::Foundation::POINTL,
     pub sizlBitmap: super::super::Foundation::SIZE,
@@ -7572,6 +7816,7 @@ unsafe impl ::windows::runtime::Abi for GLYPHBITS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
 pub struct GLYPHDATA {
     pub gdf: GLYPHDEF,
     pub hg: u32,
@@ -7607,6 +7852,7 @@ unsafe impl ::windows::runtime::Abi for GLYPHDATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`*"]
 pub union GLYPHDEF {
     pub pgb: *mut GLYPHBITS,
     pub ppo: *mut PATHOBJ,
@@ -7635,6 +7881,7 @@ unsafe impl ::windows::runtime::Abi for GLYPHDEF {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`*"]
 pub struct GLYPHPOS {
     pub hg: u32,
     pub pgdf: *mut GLYPHDEF,
@@ -7667,6 +7914,7 @@ unsafe impl ::windows::runtime::Abi for GLYPHPOS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 #[inline]
 pub unsafe fn GetDisplayConfigBufferSizes(flags: u32, numpatharrayelements: *mut u32, nummodeinfoarrayelements: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -7707,6 +7955,7 @@ unsafe impl ::windows::runtime::Abi for HSURF {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Graphics_Gdi`*"]
 #[inline]
 pub unsafe fn HT_Get8BPPFormatPalette(ppaletteentry: *mut super::super::Graphics::Gdi::PALETTEENTRY, redgamma: u16, greengamma: u16, bluegamma: u16) -> i32 {
     #[cfg(windows)]
@@ -7721,6 +7970,7 @@ pub unsafe fn HT_Get8BPPFormatPalette(ppaletteentry: *mut super::super::Graphics
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[inline]
 pub unsafe fn HT_Get8BPPMaskPalette<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(ppaletteentry: *mut super::super::Graphics::Gdi::PALETTEENTRY, use8bppmaskpal: Param1, cmymask: u8, redgamma: u16, greengamma: u16, bluegamma: u16) -> i32 {
     #[cfg(windows)]
@@ -7734,16 +7984,20 @@ pub unsafe fn HT_Get8BPPMaskPalette<'a, Param1: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectDrawKernel(::windows::runtime::IUnknown);
 impl IDirectDrawKernel {
+    #[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
     pub unsafe fn GetCaps(&self, param0: *mut DDKERNELCAPS) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
     pub unsafe fn GetKernelHandle(&self, param0: *mut usize) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
     pub unsafe fn ReleaseKernelHandle(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
@@ -7782,13 +8036,16 @@ pub struct IDirectDrawKernel_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut usize) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectDrawSurfaceKernel(::windows::runtime::IUnknown);
 impl IDirectDrawSurfaceKernel {
+    #[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
     pub unsafe fn GetKernelHandle(&self, param0: *mut usize) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
     pub unsafe fn ReleaseKernelHandle(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
@@ -7828,6 +8085,7 @@ pub struct IDirectDrawSurfaceKernel_abi(
 );
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 pub struct IFIEXTRA {
     pub ulIdentifier: u32,
     pub dpFontSig: i32,
@@ -7860,6 +8118,7 @@ unsafe impl ::windows::runtime::Abi for IFIEXTRA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 pub struct IFIMETRICS {
     pub cjThis: u32,
     pub cjIfiExtra: u32,
@@ -8072,6 +8331,7 @@ unsafe impl ::windows::runtime::Abi for IFIMETRICS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_SystemServices")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_System_SystemServices`*"]
 pub struct LINEATTRS {
     pub fl: u32,
     pub iJoin: u32,
@@ -8105,6 +8365,7 @@ unsafe impl ::windows::runtime::Abi for LINEATTRS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 pub struct PALOBJ {
     pub ulReserved: u32,
 }
@@ -8132,6 +8393,7 @@ unsafe impl ::windows::runtime::Abi for PALOBJ {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_SystemServices")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_System_SystemServices`*"]
 pub struct PATHDATA {
     pub flags: u32,
     pub count: u32,
@@ -8166,6 +8428,7 @@ unsafe impl ::windows::runtime::Abi for PATHDATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 pub struct PATHOBJ {
     pub fl: u32,
     pub cCurves: u32,
@@ -8192,6 +8455,7 @@ unsafe impl ::windows::runtime::Abi for PATHOBJ {
     type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
 #[inline]
 pub unsafe fn PATHOBJ_bEnum(ppo: *mut PATHOBJ, ppd: *mut PATHDATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -8206,6 +8470,7 @@ pub unsafe fn PATHOBJ_bEnum(ppo: *mut PATHOBJ, ppd: *mut PATHDATA) -> super::sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
 #[inline]
 pub unsafe fn PATHOBJ_bEnumClipLines(ppo: *mut PATHOBJ, cb: u32, pcl: *mut CLIPLINE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -8219,6 +8484,7 @@ pub unsafe fn PATHOBJ_bEnumClipLines(ppo: *mut PATHOBJ, cb: u32, pcl: *mut CLIPL
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 #[inline]
 pub unsafe fn PATHOBJ_vEnumStart(ppo: *mut PATHOBJ) {
     #[cfg(windows)]
@@ -8233,6 +8499,7 @@ pub unsafe fn PATHOBJ_vEnumStart(ppo: *mut PATHOBJ) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
 #[inline]
 pub unsafe fn PATHOBJ_vEnumStartClipLines(ppo: *mut PATHOBJ, pco: *mut CLIPOBJ, pso: *mut SURFOBJ, pla: *mut LINEATTRS) {
     #[cfg(windows)]
@@ -8247,6 +8514,7 @@ pub unsafe fn PATHOBJ_vEnumStartClipLines(ppo: *mut PATHOBJ, pco: *mut CLIPOBJ, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_System_SystemServices`*"]
 #[inline]
 pub unsafe fn PATHOBJ_vGetBounds(ppo: *mut PATHOBJ, prectfx: *mut super::super::System::SystemServices::RECTFX) {
     #[cfg(windows)]
@@ -8366,6 +8634,7 @@ pub type PDD_WAITFORVERTICALBLANK = unsafe extern "system" fn(param0: *mut DD_WA
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`*"]
 pub struct PERBANDINFO {
     pub bRepeatThisBand: super::super::Foundation::BOOL,
     pub szlBand: super::super::Foundation::SIZE,
@@ -8402,6 +8671,7 @@ unsafe impl ::windows::runtime::Abi for PERBANDINFO {
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_DrvQueryGlyphAttrs = unsafe extern "system" fn(param0: *mut FONTOBJ, param1: u32) -> *mut FD_GLYPHATTR;
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn QueryDisplayConfig(flags: u32, numpatharrayelements: *mut u32, patharray: *mut DISPLAYCONFIG_PATH_INFO, nummodeinfoarrayelements: *mut u32, modeinfoarray: *mut DISPLAYCONFIG_MODE_INFO, currenttopologyid: *mut DISPLAYCONFIG_TOPOLOGY_ID) -> i32 {
     #[cfg(windows)]
@@ -8417,6 +8687,7 @@ pub unsafe fn QueryDisplayConfig(flags: u32, numpatharrayelements: *mut u32, pat
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 pub struct RUN {
     pub iStart: i32,
     pub iStop: i32,
@@ -8445,6 +8716,7 @@ unsafe impl ::windows::runtime::Abi for RUN {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`*"]
 pub struct STROBJ {
     pub cGlyphs: u32,
     pub flAccel: u32,
@@ -8481,6 +8753,7 @@ unsafe impl ::windows::runtime::Abi for STROBJ {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn STROBJ_bEnum(pstro: *mut STROBJ, pc: *mut u32, ppgpos: *mut *mut GLYPHPOS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -8495,6 +8768,7 @@ pub unsafe fn STROBJ_bEnum(pstro: *mut STROBJ, pc: *mut u32, ppgpos: *mut *mut G
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn STROBJ_bEnumPositionsOnly(pstro: *mut STROBJ, pc: *mut u32, ppgpos: *mut *mut GLYPHPOS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -8509,6 +8783,7 @@ pub unsafe fn STROBJ_bEnumPositionsOnly(pstro: *mut STROBJ, pc: *mut u32, ppgpos
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
 #[inline]
 pub unsafe fn STROBJ_bGetAdvanceWidths(pso: *mut STROBJ, ifirst: u32, c: u32, pptqd: *mut super::super::System::SystemServices::POINTQF) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -8523,6 +8798,7 @@ pub unsafe fn STROBJ_bGetAdvanceWidths(pso: *mut STROBJ, ifirst: u32, c: u32, pp
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn STROBJ_dwGetCodePage(pstro: *mut STROBJ) -> u32 {
     #[cfg(windows)]
@@ -8537,6 +8813,7 @@ pub unsafe fn STROBJ_dwGetCodePage(pstro: *mut STROBJ) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn STROBJ_vEnumStart(pstro: *mut STROBJ) {
     #[cfg(windows)]
@@ -8553,6 +8830,7 @@ pub unsafe fn STROBJ_vEnumStart(pstro: *mut STROBJ) {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
 pub struct SURFOBJ {
     pub dhsurf: super::super::System::SystemServices::DHSURF,
     pub hsurf: HSURF,
@@ -8610,6 +8888,7 @@ unsafe impl ::windows::runtime::Abi for SURFOBJ {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SetDisplayConfig(numpatharrayelements: u32, patharray: *const DISPLAYCONFIG_PATH_INFO, nummodeinfoarrayelements: u32, modeinfoarray: *const DISPLAYCONFIG_MODE_INFO, flags: u32) -> i32 {
     #[cfg(windows)]
@@ -8626,6 +8905,7 @@ pub unsafe fn SetDisplayConfig(numpatharrayelements: u32, patharray: *const DISP
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`*"]
 pub struct TYPE1_FONT {
     pub hPFM: super::super::Foundation::HANDLE,
     pub hPFB: super::super::Foundation::HANDLE,
@@ -8661,6 +8941,7 @@ unsafe impl ::windows::runtime::Abi for TYPE1_FONT {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`*"]
 pub struct VIDEOMEMORY {
     pub dwFlags: u32,
     pub fpStart: usize,
@@ -8692,6 +8973,7 @@ unsafe impl ::windows::runtime::Abi for VIDEOMEMORY {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 pub union VIDEOMEMORY_0 {
     pub fpEnd: usize,
     pub dwWidth: u32,
@@ -8715,6 +8997,7 @@ unsafe impl ::windows::runtime::Abi for VIDEOMEMORY_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`*"]
 pub union VIDEOMEMORY_1 {
     pub lpHeap: *mut super::super::Devices::Display::VMEMHEAP,
     pub dwHeight: u32,
@@ -8743,6 +9026,7 @@ unsafe impl ::windows::runtime::Abi for VIDEOMEMORY_1 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Graphics_DirectDraw`*"]
 pub struct VIDEOMEMORYINFO {
     pub fpPrimary: usize,
     pub dwFlags: u32,
@@ -8780,6 +9064,7 @@ unsafe impl ::windows::runtime::Abi for VIDEOMEMORYINFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 pub struct VIDEOPARAMETERS {
     pub Guid: ::windows::runtime::GUID,
     pub dwOffset: u32,
@@ -8874,6 +9159,7 @@ unsafe impl ::windows::runtime::Abi for VIDEOPARAMETERS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 pub struct WCRUN {
     pub wcLow: u16,
     pub cGlyphs: u16,
@@ -8903,6 +9189,7 @@ unsafe impl ::windows::runtime::Abi for WCRUN {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
 pub struct WNDOBJ {
     pub coClient: CLIPOBJ,
     pub pvConsumer: *mut ::std::ffi::c_void,
@@ -8938,6 +9225,7 @@ unsafe impl ::windows::runtime::Abi for WNDOBJ {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 pub struct XFORML {
     pub eM11: f32,
     pub eM12: f32,
@@ -8968,6 +9256,7 @@ unsafe impl ::windows::runtime::Abi for XFORML {
     type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
 #[inline]
 pub unsafe fn XFORMOBJ_bApplyXform(pxo: *mut super::super::System::SystemServices::XFORMOBJ, imode: u32, cpoints: u32, pvin: *mut ::std::ffi::c_void, pvout: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -8982,6 +9271,7 @@ pub unsafe fn XFORMOBJ_bApplyXform(pxo: *mut super::super::System::SystemService
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_System_SystemServices`*"]
 #[inline]
 pub unsafe fn XFORMOBJ_iGetXform(pxo: *const super::super::System::SystemServices::XFORMOBJ, pxform: *mut XFORML) -> u32 {
     #[cfg(windows)]
@@ -8997,6 +9287,7 @@ pub unsafe fn XFORMOBJ_iGetXform(pxo: *const super::super::System::SystemService
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 pub struct XLATEOBJ {
     pub iUniq: u32,
     pub flXlate: u32,
@@ -9026,6 +9317,7 @@ unsafe impl ::windows::runtime::Abi for XLATEOBJ {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 #[inline]
 pub unsafe fn XLATEOBJ_cGetPalette(pxlo: *mut XLATEOBJ, ipal: u32, cpal: u32, ppal: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -9040,6 +9332,7 @@ pub unsafe fn XLATEOBJ_cGetPalette(pxlo: *mut XLATEOBJ, ipal: u32, cpal: u32, pp
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn XLATEOBJ_hGetColorTransform(pxlo: *mut XLATEOBJ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
@@ -9053,6 +9346,7 @@ pub unsafe fn XLATEOBJ_hGetColorTransform(pxlo: *mut XLATEOBJ) -> super::super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 #[inline]
 pub unsafe fn XLATEOBJ_iXlate(pxlo: *mut XLATEOBJ, icolor: u32) -> u32 {
     #[cfg(windows)]
@@ -9066,6 +9360,7 @@ pub unsafe fn XLATEOBJ_iXlate(pxlo: *mut XLATEOBJ, icolor: u32) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 #[inline]
 pub unsafe fn XLATEOBJ_piVector(pxlo: *mut XLATEOBJ) -> *mut u32 {
     #[cfg(windows)]

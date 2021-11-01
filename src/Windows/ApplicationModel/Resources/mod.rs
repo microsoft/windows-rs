@@ -142,6 +142,7 @@ pub struct IResourceLoaderStatics4_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, packagefullname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `ApplicationModel_Resources`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ResourceLoader(::windows::runtime::IInspectable);
@@ -153,6 +154,7 @@ impl ResourceLoader {
         static mut SHARED: ::windows::runtime::FactoryCache<ResourceLoader, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `ApplicationModel_Resources`*"]
     pub fn GetString<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, resource: Param0) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -161,6 +163,7 @@ impl ResourceLoader {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Resources`, `Foundation`*"]
     pub fn GetStringForUri<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>>(&self, uri: Param0) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IResourceLoader2>(self)?;
         unsafe {
@@ -168,6 +171,7 @@ impl ResourceLoader {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), uri.into_param().abi(), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Resources`*"]
     pub fn CreateResourceLoaderByName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(name: Param0) -> ::windows::runtime::Result<ResourceLoader> {
         Self::IResourceLoaderFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -175,30 +179,35 @@ impl ResourceLoader {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Resources`, `Foundation`*"]
     pub fn GetStringForReference<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>>(uri: Param0) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IResourceLoaderStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), uri.into_param().abi(), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `ApplicationModel_Resources`*"]
     pub fn GetForCurrentView() -> ::windows::runtime::Result<ResourceLoader> {
         Self::IResourceLoaderStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ResourceLoader>(result__)
         })
     }
+    #[doc = "*Required features: `ApplicationModel_Resources`*"]
     pub fn GetForCurrentViewWithName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(name: Param0) -> ::windows::runtime::Result<ResourceLoader> {
         Self::IResourceLoaderStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), name.into_param().abi(), &mut result__).from_abi::<ResourceLoader>(result__)
         })
     }
+    #[doc = "*Required features: `ApplicationModel_Resources`*"]
     pub fn GetForViewIndependentUse() -> ::windows::runtime::Result<ResourceLoader> {
         Self::IResourceLoaderStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ResourceLoader>(result__)
         })
     }
+    #[doc = "*Required features: `ApplicationModel_Resources`*"]
     pub fn GetForViewIndependentUseWithName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(name: Param0) -> ::windows::runtime::Result<ResourceLoader> {
         Self::IResourceLoaderStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -206,12 +215,14 @@ impl ResourceLoader {
         })
     }
     #[cfg(feature = "UI")]
+    #[doc = "*Required features: `ApplicationModel_Resources`, `UI`*"]
     pub fn GetForUIContext<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::UI::UIContext>>(context: Param0) -> ::windows::runtime::Result<ResourceLoader> {
         Self::IResourceLoaderStatics3(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), context.into_param().abi(), &mut result__).from_abi::<ResourceLoader>(result__)
         })
     }
+    #[doc = "*Required features: `ApplicationModel_Resources`*"]
     pub fn GetDefaultPriPath<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(packagefullname: Param0) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IResourceLoaderStatics4(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();

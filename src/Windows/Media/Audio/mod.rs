@@ -1,9 +1,11 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Media_Audio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AudioDeviceInputNode(::windows::runtime::IInspectable);
 impl AudioDeviceInputNode {
     #[cfg(feature = "Devices_Enumeration")]
+    #[doc = "*Required features: `Media_Audio`, `Devices_Enumeration`*"]
     pub fn Device(&self) -> ::windows::runtime::Result<super::super::Devices::Enumeration::DeviceInformation> {
         let this = self;
         unsafe {
@@ -12,11 +14,13 @@ impl AudioDeviceInputNode {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation_Collections`*"]
     pub fn OutgoingConnections(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<AudioGraphConnection>> {
         let this = &::windows::runtime::Interface::cast::<IAudioInputNode>(self)?;
         unsafe {
@@ -24,19 +28,23 @@ impl AudioDeviceInputNode {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<AudioGraphConnection>>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn AddOutgoingConnection<'a, Param0: ::windows::runtime::IntoParam<'a, IAudioNode>>(&self, destination: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioInputNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), destination.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn AddOutgoingConnectionWithGain<'a, Param0: ::windows::runtime::IntoParam<'a, IAudioNode>>(&self, destination: Param0, gain: f64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioInputNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), destination.into_param().abi(), gain).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn RemoveOutgoingConnection<'a, Param0: ::windows::runtime::IntoParam<'a, IAudioNode>>(&self, destination: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioInputNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), destination.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects"))]
+    #[doc = "*Required features: `Media_Audio`, `Foundation_Collections`, `Media_Effects`*"]
     pub fn EffectDefinitions(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<super::Effects::IAudioEffectDefinition>> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe {
@@ -44,10 +52,12 @@ impl AudioDeviceInputNode {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::Effects::IAudioEffectDefinition>>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn SetOutgoingGain(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn OutgoingGain(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe {
@@ -56,6 +66,7 @@ impl AudioDeviceInputNode {
         }
     }
     #[cfg(feature = "Media_MediaProperties")]
+    #[doc = "*Required features: `Media_Audio`, `Media_MediaProperties`*"]
     pub fn EncodingProperties(&self) -> ::windows::runtime::Result<super::MediaProperties::AudioEncodingProperties> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe {
@@ -63,6 +74,7 @@ impl AudioDeviceInputNode {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::MediaProperties::AudioEncodingProperties>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn ConsumeInput(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe {
@@ -70,32 +82,39 @@ impl AudioDeviceInputNode {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn SetConsumeInput(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Start(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Stop(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Reset(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Media_Effects")]
+    #[doc = "*Required features: `Media_Audio`, `Media_Effects`*"]
     pub fn DisableEffectsByDefinition<'a, Param0: ::windows::runtime::IntoParam<'a, super::Effects::IAudioEffectDefinition>>(&self, definition: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), definition.into_param().abi()).ok() }
     }
     #[cfg(feature = "Media_Effects")]
+    #[doc = "*Required features: `Media_Audio`, `Media_Effects`*"]
     pub fn EnableEffectsByDefinition<'a, Param0: ::windows::runtime::IntoParam<'a, super::Effects::IAudioEffectDefinition>>(&self, definition: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), definition.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Emitter(&self) -> ::windows::runtime::Result<AudioNodeEmitter> {
         let this = &::windows::runtime::Interface::cast::<IAudioInputNode2>(self)?;
         unsafe {
@@ -248,6 +267,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IAudioInputNode2> for &AudioDeviceInp
 }
 unsafe impl ::std::marker::Send for AudioDeviceInputNode {}
 unsafe impl ::std::marker::Sync for AudioDeviceInputNode {}
+#[doc = "*Required features: `Media_Audio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AudioDeviceNodeCreationStatus(pub i32);
@@ -270,11 +290,13 @@ unsafe impl ::windows::runtime::Abi for AudioDeviceNodeCreationStatus {
 unsafe impl ::windows::runtime::RuntimeType for AudioDeviceNodeCreationStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioDeviceNodeCreationStatus;i4)");
 }
+#[doc = "*Required features: `Media_Audio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AudioDeviceOutputNode(::windows::runtime::IInspectable);
 impl AudioDeviceOutputNode {
     #[cfg(feature = "Devices_Enumeration")]
+    #[doc = "*Required features: `Media_Audio`, `Devices_Enumeration`*"]
     pub fn Device(&self) -> ::windows::runtime::Result<super::super::Devices::Enumeration::DeviceInformation> {
         let this = self;
         unsafe {
@@ -283,11 +305,13 @@ impl AudioDeviceOutputNode {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects"))]
+    #[doc = "*Required features: `Media_Audio`, `Foundation_Collections`, `Media_Effects`*"]
     pub fn EffectDefinitions(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<super::Effects::IAudioEffectDefinition>> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe {
@@ -295,10 +319,12 @@ impl AudioDeviceOutputNode {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::Effects::IAudioEffectDefinition>>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn SetOutgoingGain(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn OutgoingGain(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe {
@@ -307,6 +333,7 @@ impl AudioDeviceOutputNode {
         }
     }
     #[cfg(feature = "Media_MediaProperties")]
+    #[doc = "*Required features: `Media_Audio`, `Media_MediaProperties`*"]
     pub fn EncodingProperties(&self) -> ::windows::runtime::Result<super::MediaProperties::AudioEncodingProperties> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe {
@@ -314,6 +341,7 @@ impl AudioDeviceOutputNode {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::MediaProperties::AudioEncodingProperties>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn ConsumeInput(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe {
@@ -321,36 +349,44 @@ impl AudioDeviceOutputNode {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn SetConsumeInput(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Start(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Stop(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Reset(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Media_Effects")]
+    #[doc = "*Required features: `Media_Audio`, `Media_Effects`*"]
     pub fn DisableEffectsByDefinition<'a, Param0: ::windows::runtime::IntoParam<'a, super::Effects::IAudioEffectDefinition>>(&self, definition: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), definition.into_param().abi()).ok() }
     }
     #[cfg(feature = "Media_Effects")]
+    #[doc = "*Required features: `Media_Audio`, `Media_Effects`*"]
     pub fn EnableEffectsByDefinition<'a, Param0: ::windows::runtime::IntoParam<'a, super::Effects::IAudioEffectDefinition>>(&self, definition: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), definition.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn SetListener<'a, Param0: ::windows::runtime::IntoParam<'a, AudioNodeListener>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNodeWithListener>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Listener(&self) -> ::windows::runtime::Result<AudioNodeListener> {
         let this = &::windows::runtime::Interface::cast::<IAudioNodeWithListener>(self)?;
         unsafe {
@@ -481,14 +517,17 @@ impl<'a> ::windows::runtime::IntoParam<'a, IAudioNodeWithListener> for &AudioDev
 }
 unsafe impl ::std::marker::Send for AudioDeviceOutputNode {}
 unsafe impl ::std::marker::Sync for AudioDeviceOutputNode {}
+#[doc = "*Required features: `Media_Audio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AudioFileInputNode(::windows::runtime::IInspectable);
 impl AudioFileInputNode {
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn SetPlaybackSpeedFactor(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn PlaybackSpeedFactor(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -497,6 +536,7 @@ impl AudioFileInputNode {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation`*"]
     pub fn Position(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -505,11 +545,13 @@ impl AudioFileInputNode {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation`*"]
     pub fn Seek<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, position: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), position.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation`*"]
     pub fn StartTime(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
         let this = self;
         unsafe {
@@ -518,11 +560,13 @@ impl AudioFileInputNode {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation`*"]
     pub fn SetStartTime<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation`*"]
     pub fn EndTime(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
         let this = self;
         unsafe {
@@ -531,11 +575,13 @@ impl AudioFileInputNode {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation`*"]
     pub fn SetEndTime<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation`*"]
     pub fn LoopCount(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
@@ -544,11 +590,13 @@ impl AudioFileInputNode {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation`*"]
     pub fn SetLoopCount<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<i32>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation`*"]
     pub fn Duration(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -557,6 +605,7 @@ impl AudioFileInputNode {
         }
     }
     #[cfg(feature = "Storage")]
+    #[doc = "*Required features: `Media_Audio`, `Storage`*"]
     pub fn SourceFile(&self) -> ::windows::runtime::Result<super::super::Storage::StorageFile> {
         let this = self;
         unsafe {
@@ -565,6 +614,7 @@ impl AudioFileInputNode {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation`*"]
     pub fn FileCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<AudioFileInputNode, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -573,16 +623,19 @@ impl AudioFileInputNode {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation`*"]
     pub fn RemoveFileCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation_Collections`*"]
     pub fn OutgoingConnections(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<AudioGraphConnection>> {
         let this = &::windows::runtime::Interface::cast::<IAudioInputNode>(self)?;
         unsafe {
@@ -590,19 +643,23 @@ impl AudioFileInputNode {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<AudioGraphConnection>>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn AddOutgoingConnection<'a, Param0: ::windows::runtime::IntoParam<'a, IAudioNode>>(&self, destination: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioInputNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), destination.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn AddOutgoingConnectionWithGain<'a, Param0: ::windows::runtime::IntoParam<'a, IAudioNode>>(&self, destination: Param0, gain: f64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioInputNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), destination.into_param().abi(), gain).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn RemoveOutgoingConnection<'a, Param0: ::windows::runtime::IntoParam<'a, IAudioNode>>(&self, destination: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioInputNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), destination.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects"))]
+    #[doc = "*Required features: `Media_Audio`, `Foundation_Collections`, `Media_Effects`*"]
     pub fn EffectDefinitions(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<super::Effects::IAudioEffectDefinition>> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe {
@@ -610,10 +667,12 @@ impl AudioFileInputNode {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::Effects::IAudioEffectDefinition>>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn SetOutgoingGain(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn OutgoingGain(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe {
@@ -622,6 +681,7 @@ impl AudioFileInputNode {
         }
     }
     #[cfg(feature = "Media_MediaProperties")]
+    #[doc = "*Required features: `Media_Audio`, `Media_MediaProperties`*"]
     pub fn EncodingProperties(&self) -> ::windows::runtime::Result<super::MediaProperties::AudioEncodingProperties> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe {
@@ -629,6 +689,7 @@ impl AudioFileInputNode {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::MediaProperties::AudioEncodingProperties>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn ConsumeInput(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe {
@@ -636,32 +697,39 @@ impl AudioFileInputNode {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn SetConsumeInput(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Start(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Stop(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Reset(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Media_Effects")]
+    #[doc = "*Required features: `Media_Audio`, `Media_Effects`*"]
     pub fn DisableEffectsByDefinition<'a, Param0: ::windows::runtime::IntoParam<'a, super::Effects::IAudioEffectDefinition>>(&self, definition: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), definition.into_param().abi()).ok() }
     }
     #[cfg(feature = "Media_Effects")]
+    #[doc = "*Required features: `Media_Audio`, `Media_Effects`*"]
     pub fn EnableEffectsByDefinition<'a, Param0: ::windows::runtime::IntoParam<'a, super::Effects::IAudioEffectDefinition>>(&self, definition: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), definition.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Emitter(&self) -> ::windows::runtime::Result<AudioNodeEmitter> {
         let this = &::windows::runtime::Interface::cast::<IAudioInputNode2>(self)?;
         unsafe {
@@ -814,6 +882,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IAudioInputNode2> for &AudioFileInput
 }
 unsafe impl ::std::marker::Send for AudioFileInputNode {}
 unsafe impl ::std::marker::Sync for AudioFileInputNode {}
+#[doc = "*Required features: `Media_Audio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AudioFileNodeCreationStatus(pub i32);
@@ -836,11 +905,13 @@ unsafe impl ::windows::runtime::Abi for AudioFileNodeCreationStatus {
 unsafe impl ::windows::runtime::RuntimeType for AudioFileNodeCreationStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioFileNodeCreationStatus;i4)");
 }
+#[doc = "*Required features: `Media_Audio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AudioFileOutputNode(::windows::runtime::IInspectable);
 impl AudioFileOutputNode {
     #[cfg(feature = "Storage")]
+    #[doc = "*Required features: `Media_Audio`, `Storage`*"]
     pub fn File(&self) -> ::windows::runtime::Result<super::super::Storage::IStorageFile> {
         let this = self;
         unsafe {
@@ -849,6 +920,7 @@ impl AudioFileOutputNode {
         }
     }
     #[cfg(feature = "Media_MediaProperties")]
+    #[doc = "*Required features: `Media_Audio`, `Media_MediaProperties`*"]
     pub fn FileEncodingProfile(&self) -> ::windows::runtime::Result<super::MediaProperties::MediaEncodingProfile> {
         let this = self;
         unsafe {
@@ -857,6 +929,7 @@ impl AudioFileOutputNode {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Media_Transcoding"))]
+    #[doc = "*Required features: `Media_Audio`, `Foundation`, `Media_Transcoding`*"]
     pub fn FinalizeAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::Transcoding::TranscodeFailureReason>> {
         let this = self;
         unsafe {
@@ -865,11 +938,13 @@ impl AudioFileOutputNode {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects"))]
+    #[doc = "*Required features: `Media_Audio`, `Foundation_Collections`, `Media_Effects`*"]
     pub fn EffectDefinitions(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<super::Effects::IAudioEffectDefinition>> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe {
@@ -877,10 +952,12 @@ impl AudioFileOutputNode {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::Effects::IAudioEffectDefinition>>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn SetOutgoingGain(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn OutgoingGain(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe {
@@ -889,6 +966,7 @@ impl AudioFileOutputNode {
         }
     }
     #[cfg(feature = "Media_MediaProperties")]
+    #[doc = "*Required features: `Media_Audio`, `Media_MediaProperties`*"]
     pub fn EncodingProperties(&self) -> ::windows::runtime::Result<super::MediaProperties::AudioEncodingProperties> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe {
@@ -896,6 +974,7 @@ impl AudioFileOutputNode {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::MediaProperties::AudioEncodingProperties>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn ConsumeInput(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe {
@@ -903,28 +982,34 @@ impl AudioFileOutputNode {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn SetConsumeInput(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Start(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Stop(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Reset(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Media_Effects")]
+    #[doc = "*Required features: `Media_Audio`, `Media_Effects`*"]
     pub fn DisableEffectsByDefinition<'a, Param0: ::windows::runtime::IntoParam<'a, super::Effects::IAudioEffectDefinition>>(&self, definition: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), definition.into_param().abi()).ok() }
     }
     #[cfg(feature = "Media_Effects")]
+    #[doc = "*Required features: `Media_Audio`, `Media_Effects`*"]
     pub fn EnableEffectsByDefinition<'a, Param0: ::windows::runtime::IntoParam<'a, super::Effects::IAudioEffectDefinition>>(&self, definition: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), definition.into_param().abi()).ok() }
@@ -1030,10 +1115,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, IAudioNode> for &AudioFileOutputNode 
 }
 unsafe impl ::std::marker::Send for AudioFileOutputNode {}
 unsafe impl ::std::marker::Sync for AudioFileOutputNode {}
+#[doc = "*Required features: `Media_Audio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AudioFrameCompletedEventArgs(::windows::runtime::IInspectable);
 impl AudioFrameCompletedEventArgs {
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Frame(&self) -> ::windows::runtime::Result<super::AudioFrame> {
         let this = self;
         unsafe {
@@ -1094,14 +1181,17 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for AudioFrameCompletedEventArgs {}
 unsafe impl ::std::marker::Sync for AudioFrameCompletedEventArgs {}
+#[doc = "*Required features: `Media_Audio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AudioFrameInputNode(::windows::runtime::IInspectable);
 impl AudioFrameInputNode {
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn SetPlaybackSpeedFactor(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn PlaybackSpeedFactor(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -1109,14 +1199,17 @@ impl AudioFrameInputNode {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn AddFrame<'a, Param0: ::windows::runtime::IntoParam<'a, super::AudioFrame>>(&self, frame: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), frame.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn DiscardQueuedFrames(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn QueuedSampleCount(&self) -> ::windows::runtime::Result<u64> {
         let this = self;
         unsafe {
@@ -1125,6 +1218,7 @@ impl AudioFrameInputNode {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation`*"]
     pub fn AudioFrameCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<AudioFrameInputNode, AudioFrameCompletedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1133,11 +1227,13 @@ impl AudioFrameInputNode {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation`*"]
     pub fn RemoveAudioFrameCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation`*"]
     pub fn QuantumStarted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<AudioFrameInputNode, FrameInputNodeQuantumStartedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1146,16 +1242,19 @@ impl AudioFrameInputNode {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation`*"]
     pub fn RemoveQuantumStarted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation_Collections`*"]
     pub fn OutgoingConnections(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<AudioGraphConnection>> {
         let this = &::windows::runtime::Interface::cast::<IAudioInputNode>(self)?;
         unsafe {
@@ -1163,19 +1262,23 @@ impl AudioFrameInputNode {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<AudioGraphConnection>>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn AddOutgoingConnection<'a, Param0: ::windows::runtime::IntoParam<'a, IAudioNode>>(&self, destination: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioInputNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), destination.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn AddOutgoingConnectionWithGain<'a, Param0: ::windows::runtime::IntoParam<'a, IAudioNode>>(&self, destination: Param0, gain: f64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioInputNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), destination.into_param().abi(), gain).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn RemoveOutgoingConnection<'a, Param0: ::windows::runtime::IntoParam<'a, IAudioNode>>(&self, destination: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioInputNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), destination.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects"))]
+    #[doc = "*Required features: `Media_Audio`, `Foundation_Collections`, `Media_Effects`*"]
     pub fn EffectDefinitions(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<super::Effects::IAudioEffectDefinition>> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe {
@@ -1183,10 +1286,12 @@ impl AudioFrameInputNode {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::Effects::IAudioEffectDefinition>>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn SetOutgoingGain(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn OutgoingGain(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe {
@@ -1195,6 +1300,7 @@ impl AudioFrameInputNode {
         }
     }
     #[cfg(feature = "Media_MediaProperties")]
+    #[doc = "*Required features: `Media_Audio`, `Media_MediaProperties`*"]
     pub fn EncodingProperties(&self) -> ::windows::runtime::Result<super::MediaProperties::AudioEncodingProperties> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe {
@@ -1202,6 +1308,7 @@ impl AudioFrameInputNode {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::MediaProperties::AudioEncodingProperties>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn ConsumeInput(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe {
@@ -1209,32 +1316,39 @@ impl AudioFrameInputNode {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn SetConsumeInput(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Start(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Stop(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Reset(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Media_Effects")]
+    #[doc = "*Required features: `Media_Audio`, `Media_Effects`*"]
     pub fn DisableEffectsByDefinition<'a, Param0: ::windows::runtime::IntoParam<'a, super::Effects::IAudioEffectDefinition>>(&self, definition: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), definition.into_param().abi()).ok() }
     }
     #[cfg(feature = "Media_Effects")]
+    #[doc = "*Required features: `Media_Audio`, `Media_Effects`*"]
     pub fn EnableEffectsByDefinition<'a, Param0: ::windows::runtime::IntoParam<'a, super::Effects::IAudioEffectDefinition>>(&self, definition: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), definition.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Emitter(&self) -> ::windows::runtime::Result<AudioNodeEmitter> {
         let this = &::windows::runtime::Interface::cast::<IAudioInputNode2>(self)?;
         unsafe {
@@ -1387,10 +1501,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, IAudioInputNode2> for &AudioFrameInpu
 }
 unsafe impl ::std::marker::Send for AudioFrameInputNode {}
 unsafe impl ::std::marker::Sync for AudioFrameInputNode {}
+#[doc = "*Required features: `Media_Audio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AudioFrameOutputNode(::windows::runtime::IInspectable);
 impl AudioFrameOutputNode {
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn GetFrame(&self) -> ::windows::runtime::Result<super::AudioFrame> {
         let this = self;
         unsafe {
@@ -1399,11 +1515,13 @@ impl AudioFrameOutputNode {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects"))]
+    #[doc = "*Required features: `Media_Audio`, `Foundation_Collections`, `Media_Effects`*"]
     pub fn EffectDefinitions(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<super::Effects::IAudioEffectDefinition>> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe {
@@ -1411,10 +1529,12 @@ impl AudioFrameOutputNode {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::Effects::IAudioEffectDefinition>>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn SetOutgoingGain(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn OutgoingGain(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe {
@@ -1423,6 +1543,7 @@ impl AudioFrameOutputNode {
         }
     }
     #[cfg(feature = "Media_MediaProperties")]
+    #[doc = "*Required features: `Media_Audio`, `Media_MediaProperties`*"]
     pub fn EncodingProperties(&self) -> ::windows::runtime::Result<super::MediaProperties::AudioEncodingProperties> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe {
@@ -1430,6 +1551,7 @@ impl AudioFrameOutputNode {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::MediaProperties::AudioEncodingProperties>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn ConsumeInput(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe {
@@ -1437,28 +1559,34 @@ impl AudioFrameOutputNode {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn SetConsumeInput(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Start(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Stop(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Reset(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Media_Effects")]
+    #[doc = "*Required features: `Media_Audio`, `Media_Effects`*"]
     pub fn DisableEffectsByDefinition<'a, Param0: ::windows::runtime::IntoParam<'a, super::Effects::IAudioEffectDefinition>>(&self, definition: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), definition.into_param().abi()).ok() }
     }
     #[cfg(feature = "Media_Effects")]
+    #[doc = "*Required features: `Media_Audio`, `Media_Effects`*"]
     pub fn EnableEffectsByDefinition<'a, Param0: ::windows::runtime::IntoParam<'a, super::Effects::IAudioEffectDefinition>>(&self, definition: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), definition.into_param().abi()).ok() }
@@ -1564,10 +1692,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, IAudioNode> for &AudioFrameOutputNode
 }
 unsafe impl ::std::marker::Send for AudioFrameOutputNode {}
 unsafe impl ::std::marker::Sync for AudioFrameOutputNode {}
+#[doc = "*Required features: `Media_Audio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AudioGraph(::windows::runtime::IInspectable);
 impl AudioGraph {
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn CreateFrameInputNode(&self) -> ::windows::runtime::Result<AudioFrameInputNode> {
         let this = self;
         unsafe {
@@ -1576,6 +1706,7 @@ impl AudioGraph {
         }
     }
     #[cfg(feature = "Media_MediaProperties")]
+    #[doc = "*Required features: `Media_Audio`, `Media_MediaProperties`*"]
     pub fn CreateFrameInputNodeWithFormat<'a, Param0: ::windows::runtime::IntoParam<'a, super::MediaProperties::AudioEncodingProperties>>(&self, encodingproperties: Param0) -> ::windows::runtime::Result<AudioFrameInputNode> {
         let this = self;
         unsafe {
@@ -1584,6 +1715,7 @@ impl AudioGraph {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Media_Capture"))]
+    #[doc = "*Required features: `Media_Audio`, `Foundation`, `Media_Capture`*"]
     pub fn CreateDeviceInputNodeAsync(&self, category: super::Capture::MediaCategory) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<CreateAudioDeviceInputNodeResult>> {
         let this = self;
         unsafe {
@@ -1592,6 +1724,7 @@ impl AudioGraph {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Media_Capture", feature = "Media_MediaProperties"))]
+    #[doc = "*Required features: `Media_Audio`, `Foundation`, `Media_Capture`, `Media_MediaProperties`*"]
     pub fn CreateDeviceInputNodeWithFormatAsync<'a, Param1: ::windows::runtime::IntoParam<'a, super::MediaProperties::AudioEncodingProperties>>(&self, category: super::Capture::MediaCategory, encodingproperties: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<CreateAudioDeviceInputNodeResult>> {
         let this = self;
         unsafe {
@@ -1600,6 +1733,7 @@ impl AudioGraph {
         }
     }
     #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "Media_Capture", feature = "Media_MediaProperties"))]
+    #[doc = "*Required features: `Media_Audio`, `Devices_Enumeration`, `Foundation`, `Media_Capture`, `Media_MediaProperties`*"]
     pub fn CreateDeviceInputNodeWithFormatOnDeviceAsync<'a, Param1: ::windows::runtime::IntoParam<'a, super::MediaProperties::AudioEncodingProperties>, Param2: ::windows::runtime::IntoParam<'a, super::super::Devices::Enumeration::DeviceInformation>>(&self, category: super::Capture::MediaCategory, encodingproperties: Param1, device: Param2) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<CreateAudioDeviceInputNodeResult>> {
         let this = self;
         unsafe {
@@ -1607,6 +1741,7 @@ impl AudioGraph {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), category, encodingproperties.into_param().abi(), device.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<CreateAudioDeviceInputNodeResult>>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn CreateFrameOutputNode(&self) -> ::windows::runtime::Result<AudioFrameOutputNode> {
         let this = self;
         unsafe {
@@ -1615,6 +1750,7 @@ impl AudioGraph {
         }
     }
     #[cfg(feature = "Media_MediaProperties")]
+    #[doc = "*Required features: `Media_Audio`, `Media_MediaProperties`*"]
     pub fn CreateFrameOutputNodeWithFormat<'a, Param0: ::windows::runtime::IntoParam<'a, super::MediaProperties::AudioEncodingProperties>>(&self, encodingproperties: Param0) -> ::windows::runtime::Result<AudioFrameOutputNode> {
         let this = self;
         unsafe {
@@ -1623,6 +1759,7 @@ impl AudioGraph {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation`*"]
     pub fn CreateDeviceOutputNodeAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<CreateAudioDeviceOutputNodeResult>> {
         let this = self;
         unsafe {
@@ -1631,6 +1768,7 @@ impl AudioGraph {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
+    #[doc = "*Required features: `Media_Audio`, `Foundation`, `Storage`*"]
     pub fn CreateFileInputNodeAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::IStorageFile>>(&self, file: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<CreateAudioFileInputNodeResult>> {
         let this = self;
         unsafe {
@@ -1639,6 +1777,7 @@ impl AudioGraph {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
+    #[doc = "*Required features: `Media_Audio`, `Foundation`, `Storage`*"]
     pub fn CreateFileOutputNodeAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::IStorageFile>>(&self, file: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<CreateAudioFileOutputNodeResult>> {
         let this = self;
         unsafe {
@@ -1647,6 +1786,7 @@ impl AudioGraph {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Media_MediaProperties", feature = "Storage"))]
+    #[doc = "*Required features: `Media_Audio`, `Foundation`, `Media_MediaProperties`, `Storage`*"]
     pub fn CreateFileOutputNodeWithFileProfileAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::IStorageFile>, Param1: ::windows::runtime::IntoParam<'a, super::MediaProperties::MediaEncodingProfile>>(&self, file: Param0, fileencodingprofile: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<CreateAudioFileOutputNodeResult>> {
         let this = self;
         unsafe {
@@ -1654,6 +1794,7 @@ impl AudioGraph {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), file.into_param().abi(), fileencodingprofile.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<CreateAudioFileOutputNodeResult>>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn CreateSubmixNode(&self) -> ::windows::runtime::Result<AudioSubmixNode> {
         let this = self;
         unsafe {
@@ -1662,6 +1803,7 @@ impl AudioGraph {
         }
     }
     #[cfg(feature = "Media_MediaProperties")]
+    #[doc = "*Required features: `Media_Audio`, `Media_MediaProperties`*"]
     pub fn CreateSubmixNodeWithFormat<'a, Param0: ::windows::runtime::IntoParam<'a, super::MediaProperties::AudioEncodingProperties>>(&self, encodingproperties: Param0) -> ::windows::runtime::Result<AudioSubmixNode> {
         let this = self;
         unsafe {
@@ -1669,19 +1811,23 @@ impl AudioGraph {
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), encodingproperties.into_param().abi(), &mut result__).from_abi::<AudioSubmixNode>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Start(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Stop(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn ResetAllNodes(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation`*"]
     pub fn QuantumStarted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<AudioGraph, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1690,11 +1836,13 @@ impl AudioGraph {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation`*"]
     pub fn RemoveQuantumStarted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation`*"]
     pub fn QuantumProcessed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<AudioGraph, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1703,11 +1851,13 @@ impl AudioGraph {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation`*"]
     pub fn RemoveQuantumProcessed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation`*"]
     pub fn UnrecoverableErrorOccurred<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<AudioGraph, AudioGraphUnrecoverableErrorOccurredEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1716,10 +1866,12 @@ impl AudioGraph {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation`*"]
     pub fn RemoveUnrecoverableErrorOccurred<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn CompletedQuantumCount(&self) -> ::windows::runtime::Result<u64> {
         let this = self;
         unsafe {
@@ -1728,6 +1880,7 @@ impl AudioGraph {
         }
     }
     #[cfg(feature = "Media_MediaProperties")]
+    #[doc = "*Required features: `Media_Audio`, `Media_MediaProperties`*"]
     pub fn EncodingProperties(&self) -> ::windows::runtime::Result<super::MediaProperties::AudioEncodingProperties> {
         let this = self;
         unsafe {
@@ -1735,6 +1888,7 @@ impl AudioGraph {
             (::windows::runtime::Interface::vtable(this).29)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::MediaProperties::AudioEncodingProperties>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn LatencyInSamples(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -1743,6 +1897,7 @@ impl AudioGraph {
         }
     }
     #[cfg(feature = "Devices_Enumeration")]
+    #[doc = "*Required features: `Media_Audio`, `Devices_Enumeration`*"]
     pub fn PrimaryRenderDevice(&self) -> ::windows::runtime::Result<super::super::Devices::Enumeration::DeviceInformation> {
         let this = self;
         unsafe {
@@ -1750,6 +1905,7 @@ impl AudioGraph {
             (::windows::runtime::Interface::vtable(this).31)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Enumeration::DeviceInformation>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn RenderDeviceAudioProcessing(&self) -> ::windows::runtime::Result<super::AudioProcessing> {
         let this = self;
         unsafe {
@@ -1757,6 +1913,7 @@ impl AudioGraph {
             (::windows::runtime::Interface::vtable(this).32)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::AudioProcessing>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn SamplesPerQuantum(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -1765,11 +1922,13 @@ impl AudioGraph {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation`*"]
     pub fn CreateAsync<'a, Param0: ::windows::runtime::IntoParam<'a, AudioGraphSettings>>(settings: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<CreateAudioGraphResult>> {
         Self::IAudioGraphStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1777,6 +1936,7 @@ impl AudioGraph {
         })
     }
     #[cfg(feature = "Media_MediaProperties")]
+    #[doc = "*Required features: `Media_Audio`, `Media_MediaProperties`*"]
     pub fn CreateFrameInputNodeWithFormatAndEmitter<'a, Param0: ::windows::runtime::IntoParam<'a, super::MediaProperties::AudioEncodingProperties>, Param1: ::windows::runtime::IntoParam<'a, AudioNodeEmitter>>(&self, encodingproperties: Param0, emitter: Param1) -> ::windows::runtime::Result<AudioFrameInputNode> {
         let this = &::windows::runtime::Interface::cast::<IAudioGraph2>(self)?;
         unsafe {
@@ -1785,6 +1945,7 @@ impl AudioGraph {
         }
     }
     #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "Media_Capture", feature = "Media_MediaProperties"))]
+    #[doc = "*Required features: `Media_Audio`, `Devices_Enumeration`, `Foundation`, `Media_Capture`, `Media_MediaProperties`*"]
     pub fn CreateDeviceInputNodeWithFormatAndEmitterOnDeviceAsync<'a, Param1: ::windows::runtime::IntoParam<'a, super::MediaProperties::AudioEncodingProperties>, Param2: ::windows::runtime::IntoParam<'a, super::super::Devices::Enumeration::DeviceInformation>, Param3: ::windows::runtime::IntoParam<'a, AudioNodeEmitter>>(
         &self,
         category: super::Capture::MediaCategory,
@@ -1799,6 +1960,7 @@ impl AudioGraph {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
+    #[doc = "*Required features: `Media_Audio`, `Foundation`, `Storage`*"]
     pub fn CreateFileInputNodeWithEmitterAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::IStorageFile>, Param1: ::windows::runtime::IntoParam<'a, AudioNodeEmitter>>(&self, file: Param0, emitter: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<CreateAudioFileInputNodeResult>> {
         let this = &::windows::runtime::Interface::cast::<IAudioGraph2>(self)?;
         unsafe {
@@ -1807,6 +1969,7 @@ impl AudioGraph {
         }
     }
     #[cfg(feature = "Media_MediaProperties")]
+    #[doc = "*Required features: `Media_Audio`, `Media_MediaProperties`*"]
     pub fn CreateSubmixNodeWithFormatAndEmitter<'a, Param0: ::windows::runtime::IntoParam<'a, super::MediaProperties::AudioEncodingProperties>, Param1: ::windows::runtime::IntoParam<'a, AudioNodeEmitter>>(&self, encodingproperties: Param0, emitter: Param1) -> ::windows::runtime::Result<AudioSubmixNode> {
         let this = &::windows::runtime::Interface::cast::<IAudioGraph2>(self)?;
         unsafe {
@@ -1815,6 +1978,7 @@ impl AudioGraph {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation`*"]
     pub fn CreateBatchUpdater(&self) -> ::windows::runtime::Result<AudioGraphBatchUpdater> {
         let this = &::windows::runtime::Interface::cast::<IAudioGraph2>(self)?;
         unsafe {
@@ -1823,6 +1987,7 @@ impl AudioGraph {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Media_Core"))]
+    #[doc = "*Required features: `Media_Audio`, `Foundation`, `Media_Core`*"]
     pub fn CreateMediaSourceAudioInputNodeAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::Core::MediaSource>>(&self, mediasource: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<CreateMediaSourceAudioInputNodeResult>> {
         let this = &::windows::runtime::Interface::cast::<IAudioGraph3>(self)?;
         unsafe {
@@ -1831,6 +1996,7 @@ impl AudioGraph {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Media_Core"))]
+    #[doc = "*Required features: `Media_Audio`, `Foundation`, `Media_Core`*"]
     pub fn CreateMediaSourceAudioInputNodeWithEmitterAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::Core::MediaSource>, Param1: ::windows::runtime::IntoParam<'a, AudioNodeEmitter>>(&self, mediasource: Param0, emitter: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<CreateMediaSourceAudioInputNodeResult>> {
         let this = &::windows::runtime::Interface::cast::<IAudioGraph3>(self)?;
         unsafe {
@@ -1922,12 +2088,14 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> 
 unsafe impl ::std::marker::Send for AudioGraph {}
 unsafe impl ::std::marker::Sync for AudioGraph {}
 #[cfg(feature = "Foundation")]
+#[doc = "*Required features: `Media_Audio`, `Foundation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AudioGraphBatchUpdater(::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation")]
 impl AudioGraphBatchUpdater {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
@@ -2022,10 +2190,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> 
 unsafe impl ::std::marker::Send for AudioGraphBatchUpdater {}
 #[cfg(feature = "Foundation")]
 unsafe impl ::std::marker::Sync for AudioGraphBatchUpdater {}
+#[doc = "*Required features: `Media_Audio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AudioGraphConnection(::windows::runtime::IInspectable);
 impl AudioGraphConnection {
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Destination(&self) -> ::windows::runtime::Result<IAudioNode> {
         let this = self;
         unsafe {
@@ -2033,10 +2203,12 @@ impl AudioGraphConnection {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IAudioNode>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn SetGain(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Gain(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -2097,6 +2269,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for AudioGraphConnection {}
 unsafe impl ::std::marker::Sync for AudioGraphConnection {}
+#[doc = "*Required features: `Media_Audio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AudioGraphCreationStatus(pub i32);
@@ -2118,11 +2291,13 @@ unsafe impl ::windows::runtime::Abi for AudioGraphCreationStatus {
 unsafe impl ::windows::runtime::RuntimeType for AudioGraphCreationStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioGraphCreationStatus;i4)");
 }
+#[doc = "*Required features: `Media_Audio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AudioGraphSettings(::windows::runtime::IInspectable);
 impl AudioGraphSettings {
     #[cfg(feature = "Media_MediaProperties")]
+    #[doc = "*Required features: `Media_Audio`, `Media_MediaProperties`*"]
     pub fn EncodingProperties(&self) -> ::windows::runtime::Result<super::MediaProperties::AudioEncodingProperties> {
         let this = self;
         unsafe {
@@ -2131,11 +2306,13 @@ impl AudioGraphSettings {
         }
     }
     #[cfg(feature = "Media_MediaProperties")]
+    #[doc = "*Required features: `Media_Audio`, `Media_MediaProperties`*"]
     pub fn SetEncodingProperties<'a, Param0: ::windows::runtime::IntoParam<'a, super::MediaProperties::AudioEncodingProperties>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Devices_Enumeration")]
+    #[doc = "*Required features: `Media_Audio`, `Devices_Enumeration`*"]
     pub fn PrimaryRenderDevice(&self) -> ::windows::runtime::Result<super::super::Devices::Enumeration::DeviceInformation> {
         let this = self;
         unsafe {
@@ -2144,10 +2321,12 @@ impl AudioGraphSettings {
         }
     }
     #[cfg(feature = "Devices_Enumeration")]
+    #[doc = "*Required features: `Media_Audio`, `Devices_Enumeration`*"]
     pub fn SetPrimaryRenderDevice<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Devices::Enumeration::DeviceInformation>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn QuantumSizeSelectionMode(&self) -> ::windows::runtime::Result<QuantumSizeSelectionMode> {
         let this = self;
         unsafe {
@@ -2155,10 +2334,12 @@ impl AudioGraphSettings {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<QuantumSizeSelectionMode>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn SetQuantumSizeSelectionMode(&self, value: QuantumSizeSelectionMode) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn DesiredSamplesPerQuantum(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -2166,11 +2347,13 @@ impl AudioGraphSettings {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn SetDesiredSamplesPerQuantum(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Media_Render")]
+    #[doc = "*Required features: `Media_Audio`, `Media_Render`*"]
     pub fn AudioRenderCategory(&self) -> ::windows::runtime::Result<super::Render::AudioRenderCategory> {
         let this = self;
         unsafe {
@@ -2179,10 +2362,12 @@ impl AudioGraphSettings {
         }
     }
     #[cfg(feature = "Media_Render")]
+    #[doc = "*Required features: `Media_Audio`, `Media_Render`*"]
     pub fn SetAudioRenderCategory(&self, value: super::Render::AudioRenderCategory) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn DesiredRenderDeviceAudioProcessing(&self) -> ::windows::runtime::Result<super::AudioProcessing> {
         let this = self;
         unsafe {
@@ -2190,21 +2375,25 @@ impl AudioGraphSettings {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::AudioProcessing>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn SetDesiredRenderDeviceAudioProcessing(&self, value: super::AudioProcessing) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Media_Render")]
+    #[doc = "*Required features: `Media_Audio`, `Media_Render`*"]
     pub fn Create(audiorendercategory: super::Render::AudioRenderCategory) -> ::windows::runtime::Result<AudioGraphSettings> {
         Self::IAudioGraphSettingsFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), audiorendercategory, &mut result__).from_abi::<AudioGraphSettings>(result__)
         })
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn SetMaxPlaybackSpeedFactor(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioGraphSettings2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn MaxPlaybackSpeedFactor(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<IAudioGraphSettings2>(self)?;
         unsafe {
@@ -2269,6 +2458,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for AudioGraphSettings {}
 unsafe impl ::std::marker::Sync for AudioGraphSettings {}
+#[doc = "*Required features: `Media_Audio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AudioGraphUnrecoverableError(pub i32);
@@ -2290,10 +2480,12 @@ unsafe impl ::windows::runtime::Abi for AudioGraphUnrecoverableError {
 unsafe impl ::windows::runtime::RuntimeType for AudioGraphUnrecoverableError {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioGraphUnrecoverableError;i4)");
 }
+#[doc = "*Required features: `Media_Audio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AudioGraphUnrecoverableErrorOccurredEventArgs(::windows::runtime::IInspectable);
 impl AudioGraphUnrecoverableErrorOccurredEventArgs {
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Error(&self) -> ::windows::runtime::Result<AudioGraphUnrecoverableError> {
         let this = self;
         unsafe {
@@ -2354,6 +2546,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for AudioGraphUnrecoverableErrorOccurredEventArgs {}
 unsafe impl ::std::marker::Sync for AudioGraphUnrecoverableErrorOccurredEventArgs {}
+#[doc = "*Required features: `Media_Audio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AudioNodeEmitter(::windows::runtime::IInspectable);
@@ -2366,6 +2559,7 @@ impl AudioNodeEmitter {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation_Numerics`*"]
     pub fn Position(&self) -> ::windows::runtime::Result<super::super::Foundation::Numerics::Vector3> {
         let this = self;
         unsafe {
@@ -2374,11 +2568,13 @@ impl AudioNodeEmitter {
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation_Numerics`*"]
     pub fn SetPosition<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Numerics::Vector3>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation_Numerics`*"]
     pub fn Direction(&self) -> ::windows::runtime::Result<super::super::Foundation::Numerics::Vector3> {
         let this = self;
         unsafe {
@@ -2387,10 +2583,12 @@ impl AudioNodeEmitter {
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation_Numerics`*"]
     pub fn SetDirection<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Numerics::Vector3>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Shape(&self) -> ::windows::runtime::Result<AudioNodeEmitterShape> {
         let this = self;
         unsafe {
@@ -2398,6 +2596,7 @@ impl AudioNodeEmitter {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AudioNodeEmitterShape>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn DecayModel(&self) -> ::windows::runtime::Result<AudioNodeEmitterDecayModel> {
         let this = self;
         unsafe {
@@ -2405,6 +2604,7 @@ impl AudioNodeEmitter {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AudioNodeEmitterDecayModel>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Gain(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -2412,10 +2612,12 @@ impl AudioNodeEmitter {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn SetGain(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn DistanceScale(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -2423,10 +2625,12 @@ impl AudioNodeEmitter {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn SetDistanceScale(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn DopplerScale(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -2434,11 +2638,13 @@ impl AudioNodeEmitter {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn SetDopplerScale(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation_Numerics`*"]
     pub fn DopplerVelocity(&self) -> ::windows::runtime::Result<super::super::Foundation::Numerics::Vector3> {
         let this = self;
         unsafe {
@@ -2447,10 +2653,12 @@ impl AudioNodeEmitter {
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation_Numerics`*"]
     pub fn SetDopplerVelocity<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Numerics::Vector3>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn IsDopplerDisabled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -2458,6 +2666,7 @@ impl AudioNodeEmitter {
             (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn SpatialAudioModel(&self) -> ::windows::runtime::Result<SpatialAudioModel> {
         let this = &::windows::runtime::Interface::cast::<IAudioNodeEmitter2>(self)?;
         unsafe {
@@ -2465,10 +2674,12 @@ impl AudioNodeEmitter {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SpatialAudioModel>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn SetSpatialAudioModel(&self, value: SpatialAudioModel) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNodeEmitter2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn CreateAudioNodeEmitter<'a, Param0: ::windows::runtime::IntoParam<'a, AudioNodeEmitterShape>, Param1: ::windows::runtime::IntoParam<'a, AudioNodeEmitterDecayModel>>(shape: Param0, decaymodel: Param1, settings: AudioNodeEmitterSettings) -> ::windows::runtime::Result<AudioNodeEmitter> {
         Self::IAudioNodeEmitterFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -2532,10 +2743,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for AudioNodeEmitter {}
 unsafe impl ::std::marker::Sync for AudioNodeEmitter {}
+#[doc = "*Required features: `Media_Audio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AudioNodeEmitterConeProperties(::windows::runtime::IInspectable);
 impl AudioNodeEmitterConeProperties {
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn InnerAngle(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -2543,6 +2756,7 @@ impl AudioNodeEmitterConeProperties {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn OuterAngle(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -2550,6 +2764,7 @@ impl AudioNodeEmitterConeProperties {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn OuterAngleGain(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -2610,6 +2825,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for AudioNodeEmitterConeProperties {}
 unsafe impl ::std::marker::Sync for AudioNodeEmitterConeProperties {}
+#[doc = "*Required features: `Media_Audio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AudioNodeEmitterDecayKind(pub i32);
@@ -2629,10 +2845,12 @@ unsafe impl ::windows::runtime::Abi for AudioNodeEmitterDecayKind {
 unsafe impl ::windows::runtime::RuntimeType for AudioNodeEmitterDecayKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioNodeEmitterDecayKind;i4)");
 }
+#[doc = "*Required features: `Media_Audio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AudioNodeEmitterDecayModel(::windows::runtime::IInspectable);
 impl AudioNodeEmitterDecayModel {
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Kind(&self) -> ::windows::runtime::Result<AudioNodeEmitterDecayKind> {
         let this = self;
         unsafe {
@@ -2640,6 +2858,7 @@ impl AudioNodeEmitterDecayModel {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AudioNodeEmitterDecayKind>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn MinGain(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -2647,6 +2866,7 @@ impl AudioNodeEmitterDecayModel {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn MaxGain(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -2654,6 +2874,7 @@ impl AudioNodeEmitterDecayModel {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn NaturalProperties(&self) -> ::windows::runtime::Result<AudioNodeEmitterNaturalDecayModelProperties> {
         let this = self;
         unsafe {
@@ -2661,12 +2882,14 @@ impl AudioNodeEmitterDecayModel {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AudioNodeEmitterNaturalDecayModelProperties>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn CreateNatural(mingain: f64, maxgain: f64, unitygaindistance: f64, cutoffdistance: f64) -> ::windows::runtime::Result<AudioNodeEmitterDecayModel> {
         Self::IAudioNodeEmitterDecayModelStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), mingain, maxgain, unitygaindistance, cutoffdistance, &mut result__).from_abi::<AudioNodeEmitterDecayModel>(result__)
         })
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn CreateCustom(mingain: f64, maxgain: f64) -> ::windows::runtime::Result<AudioNodeEmitterDecayModel> {
         Self::IAudioNodeEmitterDecayModelStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -2730,10 +2953,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for AudioNodeEmitterDecayModel {}
 unsafe impl ::std::marker::Sync for AudioNodeEmitterDecayModel {}
+#[doc = "*Required features: `Media_Audio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AudioNodeEmitterNaturalDecayModelProperties(::windows::runtime::IInspectable);
 impl AudioNodeEmitterNaturalDecayModelProperties {
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn UnityGainDistance(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -2741,6 +2966,7 @@ impl AudioNodeEmitterNaturalDecayModelProperties {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn CutoffDistance(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -2801,6 +3027,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for AudioNodeEmitterNaturalDecayModelProperties {}
 unsafe impl ::std::marker::Sync for AudioNodeEmitterNaturalDecayModelProperties {}
+#[doc = "*Required features: `Media_Audio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AudioNodeEmitterSettings(pub u32);
@@ -2848,10 +3075,12 @@ impl ::std::ops::Not for AudioNodeEmitterSettings {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Media_Audio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AudioNodeEmitterShape(::windows::runtime::IInspectable);
 impl AudioNodeEmitterShape {
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Kind(&self) -> ::windows::runtime::Result<AudioNodeEmitterShapeKind> {
         let this = self;
         unsafe {
@@ -2859,6 +3088,7 @@ impl AudioNodeEmitterShape {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AudioNodeEmitterShapeKind>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn ConeProperties(&self) -> ::windows::runtime::Result<AudioNodeEmitterConeProperties> {
         let this = self;
         unsafe {
@@ -2866,12 +3096,14 @@ impl AudioNodeEmitterShape {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AudioNodeEmitterConeProperties>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn CreateCone(innerangle: f64, outerangle: f64, outeranglegain: f64) -> ::windows::runtime::Result<AudioNodeEmitterShape> {
         Self::IAudioNodeEmitterShapeStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), innerangle, outerangle, outeranglegain, &mut result__).from_abi::<AudioNodeEmitterShape>(result__)
         })
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn CreateOmnidirectional() -> ::windows::runtime::Result<AudioNodeEmitterShape> {
         Self::IAudioNodeEmitterShapeStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -2935,6 +3167,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for AudioNodeEmitterShape {}
 unsafe impl ::std::marker::Sync for AudioNodeEmitterShape {}
+#[doc = "*Required features: `Media_Audio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AudioNodeEmitterShapeKind(pub i32);
@@ -2954,6 +3187,7 @@ unsafe impl ::windows::runtime::Abi for AudioNodeEmitterShapeKind {
 unsafe impl ::windows::runtime::RuntimeType for AudioNodeEmitterShapeKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioNodeEmitterShapeKind;i4)");
 }
+#[doc = "*Required features: `Media_Audio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AudioNodeListener(::windows::runtime::IInspectable);
@@ -2966,6 +3200,7 @@ impl AudioNodeListener {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation_Numerics`*"]
     pub fn Position(&self) -> ::windows::runtime::Result<super::super::Foundation::Numerics::Vector3> {
         let this = self;
         unsafe {
@@ -2974,11 +3209,13 @@ impl AudioNodeListener {
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation_Numerics`*"]
     pub fn SetPosition<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Numerics::Vector3>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation_Numerics`*"]
     pub fn Orientation(&self) -> ::windows::runtime::Result<super::super::Foundation::Numerics::Quaternion> {
         let this = self;
         unsafe {
@@ -2987,10 +3224,12 @@ impl AudioNodeListener {
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation_Numerics`*"]
     pub fn SetOrientation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Numerics::Quaternion>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn SpeedOfSound(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -2998,11 +3237,13 @@ impl AudioNodeListener {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn SetSpeedOfSound(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation_Numerics`*"]
     pub fn DopplerVelocity(&self) -> ::windows::runtime::Result<super::super::Foundation::Numerics::Vector3> {
         let this = self;
         unsafe {
@@ -3011,6 +3252,7 @@ impl AudioNodeListener {
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation_Numerics`*"]
     pub fn SetDopplerVelocity<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Numerics::Vector3>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -3068,20 +3310,24 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for AudioNodeListener {}
 unsafe impl ::std::marker::Sync for AudioNodeListener {}
+#[doc = "*Required features: `Media_Audio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AudioPlaybackConnection(::windows::runtime::IInspectable);
 impl AudioPlaybackConnection {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Start(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation`*"]
     pub fn StartAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -3089,6 +3335,7 @@ impl AudioPlaybackConnection {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn DeviceId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -3096,6 +3343,7 @@ impl AudioPlaybackConnection {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn State(&self) -> ::windows::runtime::Result<AudioPlaybackConnectionState> {
         let this = self;
         unsafe {
@@ -3103,6 +3351,7 @@ impl AudioPlaybackConnection {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AudioPlaybackConnectionState>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Open(&self) -> ::windows::runtime::Result<AudioPlaybackConnectionOpenResult> {
         let this = self;
         unsafe {
@@ -3111,6 +3360,7 @@ impl AudioPlaybackConnection {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation`*"]
     pub fn OpenAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<AudioPlaybackConnectionOpenResult>> {
         let this = self;
         unsafe {
@@ -3119,6 +3369,7 @@ impl AudioPlaybackConnection {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation`*"]
     pub fn StateChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<AudioPlaybackConnection, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -3127,16 +3378,19 @@ impl AudioPlaybackConnection {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation`*"]
     pub fn RemoveStateChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn GetDeviceSelector() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IAudioPlaybackConnectionStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn TryCreateFromId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(id: Param0) -> ::windows::runtime::Result<AudioPlaybackConnection> {
         Self::IAudioPlaybackConnectionStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -3226,10 +3480,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> 
 }
 unsafe impl ::std::marker::Send for AudioPlaybackConnection {}
 unsafe impl ::std::marker::Sync for AudioPlaybackConnection {}
+#[doc = "*Required features: `Media_Audio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AudioPlaybackConnectionOpenResult(::windows::runtime::IInspectable);
 impl AudioPlaybackConnectionOpenResult {
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<AudioPlaybackConnectionOpenResultStatus> {
         let this = self;
         unsafe {
@@ -3237,6 +3493,7 @@ impl AudioPlaybackConnectionOpenResult {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AudioPlaybackConnectionOpenResultStatus>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn ExtendedError(&self) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
         let this = self;
         unsafe {
@@ -3297,6 +3554,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for AudioPlaybackConnectionOpenResult {}
 unsafe impl ::std::marker::Sync for AudioPlaybackConnectionOpenResult {}
+#[doc = "*Required features: `Media_Audio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AudioPlaybackConnectionOpenResultStatus(pub i32);
@@ -3318,6 +3576,7 @@ unsafe impl ::windows::runtime::Abi for AudioPlaybackConnectionOpenResultStatus 
 unsafe impl ::windows::runtime::RuntimeType for AudioPlaybackConnectionOpenResultStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioPlaybackConnectionOpenResultStatus;i4)");
 }
+#[doc = "*Required features: `Media_Audio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AudioPlaybackConnectionState(pub i32);
@@ -3337,11 +3596,13 @@ unsafe impl ::windows::runtime::Abi for AudioPlaybackConnectionState {
 unsafe impl ::windows::runtime::RuntimeType for AudioPlaybackConnectionState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioPlaybackConnectionState;i4)");
 }
+#[doc = "*Required features: `Media_Audio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AudioStateMonitor(::windows::runtime::IInspectable);
 impl AudioStateMonitor {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation`*"]
     pub fn SoundLevelChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<AudioStateMonitor, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -3350,10 +3611,12 @@ impl AudioStateMonitor {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation`*"]
     pub fn RemoveSoundLevelChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn SoundLevel(&self) -> ::windows::runtime::Result<super::SoundLevel> {
         let this = self;
         unsafe {
@@ -3361,6 +3624,7 @@ impl AudioStateMonitor {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::SoundLevel>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn CreateForRenderMonitoring() -> ::windows::runtime::Result<AudioStateMonitor> {
         Self::IAudioStateMonitorStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -3368,6 +3632,7 @@ impl AudioStateMonitor {
         })
     }
     #[cfg(feature = "Media_Render")]
+    #[doc = "*Required features: `Media_Audio`, `Media_Render`*"]
     pub fn CreateForRenderMonitoringWithCategory(category: super::Render::AudioRenderCategory) -> ::windows::runtime::Result<AudioStateMonitor> {
         Self::IAudioStateMonitorStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -3375,6 +3640,7 @@ impl AudioStateMonitor {
         })
     }
     #[cfg(all(feature = "Media_Devices", feature = "Media_Render"))]
+    #[doc = "*Required features: `Media_Audio`, `Media_Devices`, `Media_Render`*"]
     pub fn CreateForRenderMonitoringWithCategoryAndDeviceRole(category: super::Render::AudioRenderCategory, role: super::Devices::AudioDeviceRole) -> ::windows::runtime::Result<AudioStateMonitor> {
         Self::IAudioStateMonitorStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -3382,12 +3648,14 @@ impl AudioStateMonitor {
         })
     }
     #[cfg(feature = "Media_Render")]
+    #[doc = "*Required features: `Media_Audio`, `Media_Render`*"]
     pub fn CreateForRenderMonitoringWithCategoryAndDeviceId<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(category: super::Render::AudioRenderCategory, deviceid: Param1) -> ::windows::runtime::Result<AudioStateMonitor> {
         Self::IAudioStateMonitorStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), category, deviceid.into_param().abi(), &mut result__).from_abi::<AudioStateMonitor>(result__)
         })
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn CreateForCaptureMonitoring() -> ::windows::runtime::Result<AudioStateMonitor> {
         Self::IAudioStateMonitorStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -3395,6 +3663,7 @@ impl AudioStateMonitor {
         })
     }
     #[cfg(feature = "Media_Capture")]
+    #[doc = "*Required features: `Media_Audio`, `Media_Capture`*"]
     pub fn CreateForCaptureMonitoringWithCategory(category: super::Capture::MediaCategory) -> ::windows::runtime::Result<AudioStateMonitor> {
         Self::IAudioStateMonitorStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -3402,6 +3671,7 @@ impl AudioStateMonitor {
         })
     }
     #[cfg(all(feature = "Media_Capture", feature = "Media_Devices"))]
+    #[doc = "*Required features: `Media_Audio`, `Media_Capture`, `Media_Devices`*"]
     pub fn CreateForCaptureMonitoringWithCategoryAndDeviceRole(category: super::Capture::MediaCategory, role: super::Devices::AudioDeviceRole) -> ::windows::runtime::Result<AudioStateMonitor> {
         Self::IAudioStateMonitorStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -3409,6 +3679,7 @@ impl AudioStateMonitor {
         })
     }
     #[cfg(feature = "Media_Capture")]
+    #[doc = "*Required features: `Media_Audio`, `Media_Capture`*"]
     pub fn CreateForCaptureMonitoringWithCategoryAndDeviceId<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(category: super::Capture::MediaCategory, deviceid: Param1) -> ::windows::runtime::Result<AudioStateMonitor> {
         Self::IAudioStateMonitorStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -3472,11 +3743,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for AudioStateMonitor {}
 unsafe impl ::std::marker::Sync for AudioStateMonitor {}
+#[doc = "*Required features: `Media_Audio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AudioSubmixNode(::windows::runtime::IInspectable);
 impl AudioSubmixNode {
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation_Collections`*"]
     pub fn OutgoingConnections(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<AudioGraphConnection>> {
         let this = self;
         unsafe {
@@ -3484,24 +3757,29 @@ impl AudioSubmixNode {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<AudioGraphConnection>>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn AddOutgoingConnection<'a, Param0: ::windows::runtime::IntoParam<'a, IAudioNode>>(&self, destination: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), destination.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn AddOutgoingConnectionWithGain<'a, Param0: ::windows::runtime::IntoParam<'a, IAudioNode>>(&self, destination: Param0, gain: f64) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), destination.into_param().abi(), gain).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn RemoveOutgoingConnection<'a, Param0: ::windows::runtime::IntoParam<'a, IAudioNode>>(&self, destination: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), destination.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects"))]
+    #[doc = "*Required features: `Media_Audio`, `Foundation_Collections`, `Media_Effects`*"]
     pub fn EffectDefinitions(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<super::Effects::IAudioEffectDefinition>> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe {
@@ -3509,10 +3787,12 @@ impl AudioSubmixNode {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::Effects::IAudioEffectDefinition>>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn SetOutgoingGain(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn OutgoingGain(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe {
@@ -3521,6 +3801,7 @@ impl AudioSubmixNode {
         }
     }
     #[cfg(feature = "Media_MediaProperties")]
+    #[doc = "*Required features: `Media_Audio`, `Media_MediaProperties`*"]
     pub fn EncodingProperties(&self) -> ::windows::runtime::Result<super::MediaProperties::AudioEncodingProperties> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe {
@@ -3528,6 +3809,7 @@ impl AudioSubmixNode {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::MediaProperties::AudioEncodingProperties>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn ConsumeInput(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe {
@@ -3535,32 +3817,39 @@ impl AudioSubmixNode {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn SetConsumeInput(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Start(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Stop(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Reset(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Media_Effects")]
+    #[doc = "*Required features: `Media_Audio`, `Media_Effects`*"]
     pub fn DisableEffectsByDefinition<'a, Param0: ::windows::runtime::IntoParam<'a, super::Effects::IAudioEffectDefinition>>(&self, definition: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), definition.into_param().abi()).ok() }
     }
     #[cfg(feature = "Media_Effects")]
+    #[doc = "*Required features: `Media_Audio`, `Media_Effects`*"]
     pub fn EnableEffectsByDefinition<'a, Param0: ::windows::runtime::IntoParam<'a, super::Effects::IAudioEffectDefinition>>(&self, definition: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), definition.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Emitter(&self) -> ::windows::runtime::Result<AudioNodeEmitter> {
         let this = &::windows::runtime::Interface::cast::<IAudioInputNode2>(self)?;
         unsafe {
@@ -3711,10 +4000,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, IAudioInputNode2> for &AudioSubmixNod
 }
 unsafe impl ::std::marker::Send for AudioSubmixNode {}
 unsafe impl ::std::marker::Sync for AudioSubmixNode {}
+#[doc = "*Required features: `Media_Audio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CreateAudioDeviceInputNodeResult(::windows::runtime::IInspectable);
 impl CreateAudioDeviceInputNodeResult {
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<AudioDeviceNodeCreationStatus> {
         let this = self;
         unsafe {
@@ -3722,6 +4013,7 @@ impl CreateAudioDeviceInputNodeResult {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AudioDeviceNodeCreationStatus>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn DeviceInputNode(&self) -> ::windows::runtime::Result<AudioDeviceInputNode> {
         let this = self;
         unsafe {
@@ -3729,6 +4021,7 @@ impl CreateAudioDeviceInputNodeResult {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AudioDeviceInputNode>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn ExtendedError(&self) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
         let this = &::windows::runtime::Interface::cast::<ICreateAudioDeviceInputNodeResult2>(self)?;
         unsafe {
@@ -3789,10 +4082,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for CreateAudioDeviceInputNodeResult {}
 unsafe impl ::std::marker::Sync for CreateAudioDeviceInputNodeResult {}
+#[doc = "*Required features: `Media_Audio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CreateAudioDeviceOutputNodeResult(::windows::runtime::IInspectable);
 impl CreateAudioDeviceOutputNodeResult {
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<AudioDeviceNodeCreationStatus> {
         let this = self;
         unsafe {
@@ -3800,6 +4095,7 @@ impl CreateAudioDeviceOutputNodeResult {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AudioDeviceNodeCreationStatus>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn DeviceOutputNode(&self) -> ::windows::runtime::Result<AudioDeviceOutputNode> {
         let this = self;
         unsafe {
@@ -3807,6 +4103,7 @@ impl CreateAudioDeviceOutputNodeResult {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AudioDeviceOutputNode>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn ExtendedError(&self) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
         let this = &::windows::runtime::Interface::cast::<ICreateAudioDeviceOutputNodeResult2>(self)?;
         unsafe {
@@ -3867,10 +4164,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for CreateAudioDeviceOutputNodeResult {}
 unsafe impl ::std::marker::Sync for CreateAudioDeviceOutputNodeResult {}
+#[doc = "*Required features: `Media_Audio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CreateAudioFileInputNodeResult(::windows::runtime::IInspectable);
 impl CreateAudioFileInputNodeResult {
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<AudioFileNodeCreationStatus> {
         let this = self;
         unsafe {
@@ -3878,6 +4177,7 @@ impl CreateAudioFileInputNodeResult {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AudioFileNodeCreationStatus>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn FileInputNode(&self) -> ::windows::runtime::Result<AudioFileInputNode> {
         let this = self;
         unsafe {
@@ -3885,6 +4185,7 @@ impl CreateAudioFileInputNodeResult {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AudioFileInputNode>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn ExtendedError(&self) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
         let this = &::windows::runtime::Interface::cast::<ICreateAudioFileInputNodeResult2>(self)?;
         unsafe {
@@ -3945,10 +4246,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for CreateAudioFileInputNodeResult {}
 unsafe impl ::std::marker::Sync for CreateAudioFileInputNodeResult {}
+#[doc = "*Required features: `Media_Audio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CreateAudioFileOutputNodeResult(::windows::runtime::IInspectable);
 impl CreateAudioFileOutputNodeResult {
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<AudioFileNodeCreationStatus> {
         let this = self;
         unsafe {
@@ -3956,6 +4259,7 @@ impl CreateAudioFileOutputNodeResult {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AudioFileNodeCreationStatus>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn FileOutputNode(&self) -> ::windows::runtime::Result<AudioFileOutputNode> {
         let this = self;
         unsafe {
@@ -3963,6 +4267,7 @@ impl CreateAudioFileOutputNodeResult {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AudioFileOutputNode>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn ExtendedError(&self) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
         let this = &::windows::runtime::Interface::cast::<ICreateAudioFileOutputNodeResult2>(self)?;
         unsafe {
@@ -4023,10 +4328,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for CreateAudioFileOutputNodeResult {}
 unsafe impl ::std::marker::Sync for CreateAudioFileOutputNodeResult {}
+#[doc = "*Required features: `Media_Audio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CreateAudioGraphResult(::windows::runtime::IInspectable);
 impl CreateAudioGraphResult {
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<AudioGraphCreationStatus> {
         let this = self;
         unsafe {
@@ -4034,6 +4341,7 @@ impl CreateAudioGraphResult {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AudioGraphCreationStatus>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Graph(&self) -> ::windows::runtime::Result<AudioGraph> {
         let this = self;
         unsafe {
@@ -4041,6 +4349,7 @@ impl CreateAudioGraphResult {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AudioGraph>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn ExtendedError(&self) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
         let this = &::windows::runtime::Interface::cast::<ICreateAudioGraphResult2>(self)?;
         unsafe {
@@ -4101,10 +4410,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for CreateAudioGraphResult {}
 unsafe impl ::std::marker::Sync for CreateAudioGraphResult {}
+#[doc = "*Required features: `Media_Audio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CreateMediaSourceAudioInputNodeResult(::windows::runtime::IInspectable);
 impl CreateMediaSourceAudioInputNodeResult {
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<MediaSourceAudioInputNodeCreationStatus> {
         let this = self;
         unsafe {
@@ -4112,6 +4423,7 @@ impl CreateMediaSourceAudioInputNodeResult {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MediaSourceAudioInputNodeCreationStatus>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Node(&self) -> ::windows::runtime::Result<MediaSourceAudioInputNode> {
         let this = self;
         unsafe {
@@ -4119,6 +4431,7 @@ impl CreateMediaSourceAudioInputNodeResult {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MediaSourceAudioInputNode>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn ExtendedError(&self) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
         let this = &::windows::runtime::Interface::cast::<ICreateMediaSourceAudioInputNodeResult2>(self)?;
         unsafe {
@@ -4179,14 +4492,17 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for CreateMediaSourceAudioInputNodeResult {}
 unsafe impl ::std::marker::Sync for CreateMediaSourceAudioInputNodeResult {}
+#[doc = "*Required features: `Media_Audio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EchoEffectDefinition(::windows::runtime::IInspectable);
 impl EchoEffectDefinition {
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn SetWetDryMix(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn WetDryMix(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -4194,10 +4510,12 @@ impl EchoEffectDefinition {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn SetFeedback(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Feedback(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -4205,10 +4523,12 @@ impl EchoEffectDefinition {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn SetDelay(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Delay(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -4217,6 +4537,7 @@ impl EchoEffectDefinition {
         }
     }
     #[cfg(feature = "Media_Effects")]
+    #[doc = "*Required features: `Media_Audio`, `Media_Effects`*"]
     pub fn ActivatableClassId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<super::Effects::IAudioEffectDefinition>(self)?;
         unsafe {
@@ -4225,6 +4546,7 @@ impl EchoEffectDefinition {
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects"))]
+    #[doc = "*Required features: `Media_Audio`, `Foundation_Collections`, `Media_Effects`*"]
     pub fn Properties(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IPropertySet> {
         let this = &::windows::runtime::Interface::cast::<super::Effects::IAudioEffectDefinition>(self)?;
         unsafe {
@@ -4232,6 +4554,7 @@ impl EchoEffectDefinition {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IPropertySet>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Create<'a, Param0: ::windows::runtime::IntoParam<'a, AudioGraph>>(audiograph: Param0) -> ::windows::runtime::Result<EchoEffectDefinition> {
         Self::IEchoEffectDefinitionFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -4321,10 +4644,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::Effects::IAudioEffectDefinitio
 }
 unsafe impl ::std::marker::Send for EchoEffectDefinition {}
 unsafe impl ::std::marker::Sync for EchoEffectDefinition {}
+#[doc = "*Required features: `Media_Audio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EqualizerBand(::windows::runtime::IInspectable);
 impl EqualizerBand {
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Bandwidth(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -4332,10 +4657,12 @@ impl EqualizerBand {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn SetBandwidth(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn FrequencyCenter(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -4343,10 +4670,12 @@ impl EqualizerBand {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn SetFrequencyCenter(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Gain(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -4354,6 +4683,7 @@ impl EqualizerBand {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn SetGain(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
@@ -4411,11 +4741,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for EqualizerBand {}
 unsafe impl ::std::marker::Sync for EqualizerBand {}
+#[doc = "*Required features: `Media_Audio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EqualizerEffectDefinition(::windows::runtime::IInspectable);
 impl EqualizerEffectDefinition {
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation_Collections`*"]
     pub fn Bands(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<EqualizerBand>> {
         let this = self;
         unsafe {
@@ -4424,6 +4756,7 @@ impl EqualizerEffectDefinition {
         }
     }
     #[cfg(feature = "Media_Effects")]
+    #[doc = "*Required features: `Media_Audio`, `Media_Effects`*"]
     pub fn ActivatableClassId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<super::Effects::IAudioEffectDefinition>(self)?;
         unsafe {
@@ -4432,6 +4765,7 @@ impl EqualizerEffectDefinition {
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects"))]
+    #[doc = "*Required features: `Media_Audio`, `Foundation_Collections`, `Media_Effects`*"]
     pub fn Properties(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IPropertySet> {
         let this = &::windows::runtime::Interface::cast::<super::Effects::IAudioEffectDefinition>(self)?;
         unsafe {
@@ -4439,6 +4773,7 @@ impl EqualizerEffectDefinition {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IPropertySet>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Create<'a, Param0: ::windows::runtime::IntoParam<'a, AudioGraph>>(audiograph: Param0) -> ::windows::runtime::Result<EqualizerEffectDefinition> {
         Self::IEqualizerEffectDefinitionFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -4528,10 +4863,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::Effects::IAudioEffectDefinitio
 }
 unsafe impl ::std::marker::Send for EqualizerEffectDefinition {}
 unsafe impl ::std::marker::Sync for EqualizerEffectDefinition {}
+#[doc = "*Required features: `Media_Audio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct FrameInputNodeQuantumStartedEventArgs(::windows::runtime::IInspectable);
 impl FrameInputNodeQuantumStartedEventArgs {
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn RequiredSamples(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -5021,6 +5358,7 @@ pub struct IAudioGraphUnrecoverableErrorOccurredEventArgs_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Media_Audio`*"]
 pub struct IAudioInputNode(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioInputNode {
     type Vtable = IAudioInputNode_abi;
@@ -5028,6 +5366,7 @@ unsafe impl ::windows::runtime::Interface for IAudioInputNode {
 }
 impl IAudioInputNode {
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation_Collections`*"]
     pub fn OutgoingConnections(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<AudioGraphConnection>> {
         let this = self;
         unsafe {
@@ -5035,24 +5374,29 @@ impl IAudioInputNode {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<AudioGraphConnection>>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn AddOutgoingConnection<'a, Param0: ::windows::runtime::IntoParam<'a, IAudioNode>>(&self, destination: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), destination.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn AddOutgoingConnectionWithGain<'a, Param0: ::windows::runtime::IntoParam<'a, IAudioNode>>(&self, destination: Param0, gain: f64) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), destination.into_param().abi(), gain).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn RemoveOutgoingConnection<'a, Param0: ::windows::runtime::IntoParam<'a, IAudioNode>>(&self, destination: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), destination.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects"))]
+    #[doc = "*Required features: `Media_Audio`, `Foundation_Collections`, `Media_Effects`*"]
     pub fn EffectDefinitions(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<super::Effects::IAudioEffectDefinition>> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe {
@@ -5060,10 +5404,12 @@ impl IAudioInputNode {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::Effects::IAudioEffectDefinition>>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn SetOutgoingGain(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn OutgoingGain(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe {
@@ -5072,6 +5418,7 @@ impl IAudioInputNode {
         }
     }
     #[cfg(feature = "Media_MediaProperties")]
+    #[doc = "*Required features: `Media_Audio`, `Media_MediaProperties`*"]
     pub fn EncodingProperties(&self) -> ::windows::runtime::Result<super::MediaProperties::AudioEncodingProperties> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe {
@@ -5079,6 +5426,7 @@ impl IAudioInputNode {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::MediaProperties::AudioEncodingProperties>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn ConsumeInput(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe {
@@ -5086,28 +5434,34 @@ impl IAudioInputNode {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn SetConsumeInput(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Start(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Stop(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Reset(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Media_Effects")]
+    #[doc = "*Required features: `Media_Audio`, `Media_Effects`*"]
     pub fn DisableEffectsByDefinition<'a, Param0: ::windows::runtime::IntoParam<'a, super::Effects::IAudioEffectDefinition>>(&self, definition: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), definition.into_param().abi()).ok() }
     }
     #[cfg(feature = "Media_Effects")]
+    #[doc = "*Required features: `Media_Audio`, `Media_Effects`*"]
     pub fn EnableEffectsByDefinition<'a, Param0: ::windows::runtime::IntoParam<'a, super::Effects::IAudioEffectDefinition>>(&self, definition: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), definition.into_param().abi()).ok() }
@@ -5221,6 +5575,7 @@ pub struct IAudioInputNode_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Media_Audio`*"]
 pub struct IAudioInputNode2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioInputNode2 {
     type Vtable = IAudioInputNode2_abi;
@@ -5228,11 +5583,13 @@ unsafe impl ::windows::runtime::Interface for IAudioInputNode2 {
 }
 impl IAudioInputNode2 {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation_Collections`*"]
     pub fn OutgoingConnections(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<AudioGraphConnection>> {
         let this = &::windows::runtime::Interface::cast::<IAudioInputNode>(self)?;
         unsafe {
@@ -5240,19 +5597,23 @@ impl IAudioInputNode2 {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<AudioGraphConnection>>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn AddOutgoingConnection<'a, Param0: ::windows::runtime::IntoParam<'a, IAudioNode>>(&self, destination: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioInputNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), destination.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn AddOutgoingConnectionWithGain<'a, Param0: ::windows::runtime::IntoParam<'a, IAudioNode>>(&self, destination: Param0, gain: f64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioInputNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), destination.into_param().abi(), gain).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn RemoveOutgoingConnection<'a, Param0: ::windows::runtime::IntoParam<'a, IAudioNode>>(&self, destination: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioInputNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), destination.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects"))]
+    #[doc = "*Required features: `Media_Audio`, `Foundation_Collections`, `Media_Effects`*"]
     pub fn EffectDefinitions(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<super::Effects::IAudioEffectDefinition>> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe {
@@ -5260,10 +5621,12 @@ impl IAudioInputNode2 {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::Effects::IAudioEffectDefinition>>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn SetOutgoingGain(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn OutgoingGain(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe {
@@ -5272,6 +5635,7 @@ impl IAudioInputNode2 {
         }
     }
     #[cfg(feature = "Media_MediaProperties")]
+    #[doc = "*Required features: `Media_Audio`, `Media_MediaProperties`*"]
     pub fn EncodingProperties(&self) -> ::windows::runtime::Result<super::MediaProperties::AudioEncodingProperties> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe {
@@ -5279,6 +5643,7 @@ impl IAudioInputNode2 {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::MediaProperties::AudioEncodingProperties>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn ConsumeInput(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe {
@@ -5286,32 +5651,39 @@ impl IAudioInputNode2 {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn SetConsumeInput(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Start(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Stop(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Reset(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Media_Effects")]
+    #[doc = "*Required features: `Media_Audio`, `Media_Effects`*"]
     pub fn DisableEffectsByDefinition<'a, Param0: ::windows::runtime::IntoParam<'a, super::Effects::IAudioEffectDefinition>>(&self, definition: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), definition.into_param().abi()).ok() }
     }
     #[cfg(feature = "Media_Effects")]
+    #[doc = "*Required features: `Media_Audio`, `Media_Effects`*"]
     pub fn EnableEffectsByDefinition<'a, Param0: ::windows::runtime::IntoParam<'a, super::Effects::IAudioEffectDefinition>>(&self, definition: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), definition.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Emitter(&self) -> ::windows::runtime::Result<AudioNodeEmitter> {
         let this = self;
         unsafe {
@@ -5446,6 +5818,7 @@ pub struct IAudioInputNode2_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Media_Audio`*"]
 pub struct IAudioNode(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioNode {
     type Vtable = IAudioNode_abi;
@@ -5453,6 +5826,7 @@ unsafe impl ::windows::runtime::Interface for IAudioNode {
 }
 impl IAudioNode {
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects"))]
+    #[doc = "*Required features: `Media_Audio`, `Foundation_Collections`, `Media_Effects`*"]
     pub fn EffectDefinitions(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<super::Effects::IAudioEffectDefinition>> {
         let this = self;
         unsafe {
@@ -5460,10 +5834,12 @@ impl IAudioNode {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::Effects::IAudioEffectDefinition>>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn SetOutgoingGain(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn OutgoingGain(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -5472,6 +5848,7 @@ impl IAudioNode {
         }
     }
     #[cfg(feature = "Media_MediaProperties")]
+    #[doc = "*Required features: `Media_Audio`, `Media_MediaProperties`*"]
     pub fn EncodingProperties(&self) -> ::windows::runtime::Result<super::MediaProperties::AudioEncodingProperties> {
         let this = self;
         unsafe {
@@ -5479,6 +5856,7 @@ impl IAudioNode {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::MediaProperties::AudioEncodingProperties>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn ConsumeInput(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -5486,33 +5864,40 @@ impl IAudioNode {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn SetConsumeInput(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Start(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Stop(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Reset(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Media_Effects")]
+    #[doc = "*Required features: `Media_Audio`, `Media_Effects`*"]
     pub fn DisableEffectsByDefinition<'a, Param0: ::windows::runtime::IntoParam<'a, super::Effects::IAudioEffectDefinition>>(&self, definition: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), definition.into_param().abi()).ok() }
     }
     #[cfg(feature = "Media_Effects")]
+    #[doc = "*Required features: `Media_Audio`, `Media_Effects`*"]
     pub fn EnableEffectsByDefinition<'a, Param0: ::windows::runtime::IntoParam<'a, super::Effects::IAudioEffectDefinition>>(&self, definition: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), definition.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
@@ -5847,6 +6232,7 @@ pub struct IAudioNodeListener_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Media_Audio`*"]
 pub struct IAudioNodeWithListener(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioNodeWithListener {
     type Vtable = IAudioNodeWithListener_abi;
@@ -5854,11 +6240,13 @@ unsafe impl ::windows::runtime::Interface for IAudioNodeWithListener {
 }
 impl IAudioNodeWithListener {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects"))]
+    #[doc = "*Required features: `Media_Audio`, `Foundation_Collections`, `Media_Effects`*"]
     pub fn EffectDefinitions(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<super::Effects::IAudioEffectDefinition>> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe {
@@ -5866,10 +6254,12 @@ impl IAudioNodeWithListener {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::Effects::IAudioEffectDefinition>>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn SetOutgoingGain(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn OutgoingGain(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe {
@@ -5878,6 +6268,7 @@ impl IAudioNodeWithListener {
         }
     }
     #[cfg(feature = "Media_MediaProperties")]
+    #[doc = "*Required features: `Media_Audio`, `Media_MediaProperties`*"]
     pub fn EncodingProperties(&self) -> ::windows::runtime::Result<super::MediaProperties::AudioEncodingProperties> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe {
@@ -5885,6 +6276,7 @@ impl IAudioNodeWithListener {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::MediaProperties::AudioEncodingProperties>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn ConsumeInput(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe {
@@ -5892,36 +6284,44 @@ impl IAudioNodeWithListener {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn SetConsumeInput(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Start(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Stop(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Reset(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Media_Effects")]
+    #[doc = "*Required features: `Media_Audio`, `Media_Effects`*"]
     pub fn DisableEffectsByDefinition<'a, Param0: ::windows::runtime::IntoParam<'a, super::Effects::IAudioEffectDefinition>>(&self, definition: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), definition.into_param().abi()).ok() }
     }
     #[cfg(feature = "Media_Effects")]
+    #[doc = "*Required features: `Media_Audio`, `Media_Effects`*"]
     pub fn EnableEffectsByDefinition<'a, Param0: ::windows::runtime::IntoParam<'a, super::Effects::IAudioEffectDefinition>>(&self, definition: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), definition.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn SetListener<'a, Param0: ::windows::runtime::IntoParam<'a, AudioNodeListener>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Listener(&self) -> ::windows::runtime::Result<AudioNodeListener> {
         let this = self;
         unsafe {
@@ -6838,14 +7238,17 @@ pub struct ISpatialAudioFormatSubtypeStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Media_Audio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct LimiterEffectDefinition(::windows::runtime::IInspectable);
 impl LimiterEffectDefinition {
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn SetRelease(&self, value: u32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Release(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -6853,10 +7256,12 @@ impl LimiterEffectDefinition {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn SetLoudness(&self, value: u32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Loudness(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -6865,6 +7270,7 @@ impl LimiterEffectDefinition {
         }
     }
     #[cfg(feature = "Media_Effects")]
+    #[doc = "*Required features: `Media_Audio`, `Media_Effects`*"]
     pub fn ActivatableClassId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<super::Effects::IAudioEffectDefinition>(self)?;
         unsafe {
@@ -6873,6 +7279,7 @@ impl LimiterEffectDefinition {
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects"))]
+    #[doc = "*Required features: `Media_Audio`, `Foundation_Collections`, `Media_Effects`*"]
     pub fn Properties(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IPropertySet> {
         let this = &::windows::runtime::Interface::cast::<super::Effects::IAudioEffectDefinition>(self)?;
         unsafe {
@@ -6880,6 +7287,7 @@ impl LimiterEffectDefinition {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IPropertySet>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Create<'a, Param0: ::windows::runtime::IntoParam<'a, AudioGraph>>(audiograph: Param0) -> ::windows::runtime::Result<LimiterEffectDefinition> {
         Self::ILimiterEffectDefinitionFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -6969,16 +7377,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::Effects::IAudioEffectDefinitio
 }
 unsafe impl ::std::marker::Send for LimiterEffectDefinition {}
 unsafe impl ::std::marker::Sync for LimiterEffectDefinition {}
+#[doc = "*Required features: `Media_Audio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MediaSourceAudioInputNode(::windows::runtime::IInspectable);
 impl MediaSourceAudioInputNode {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation_Collections`*"]
     pub fn OutgoingConnections(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<AudioGraphConnection>> {
         let this = &::windows::runtime::Interface::cast::<IAudioInputNode>(self)?;
         unsafe {
@@ -6986,19 +7397,23 @@ impl MediaSourceAudioInputNode {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<AudioGraphConnection>>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn AddOutgoingConnection<'a, Param0: ::windows::runtime::IntoParam<'a, IAudioNode>>(&self, destination: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioInputNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), destination.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn AddOutgoingConnectionWithGain<'a, Param0: ::windows::runtime::IntoParam<'a, IAudioNode>>(&self, destination: Param0, gain: f64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioInputNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), destination.into_param().abi(), gain).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn RemoveOutgoingConnection<'a, Param0: ::windows::runtime::IntoParam<'a, IAudioNode>>(&self, destination: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioInputNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), destination.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects"))]
+    #[doc = "*Required features: `Media_Audio`, `Foundation_Collections`, `Media_Effects`*"]
     pub fn EffectDefinitions(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<super::Effects::IAudioEffectDefinition>> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe {
@@ -7006,10 +7421,12 @@ impl MediaSourceAudioInputNode {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::Effects::IAudioEffectDefinition>>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn SetOutgoingGain(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn OutgoingGain(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe {
@@ -7018,6 +7435,7 @@ impl MediaSourceAudioInputNode {
         }
     }
     #[cfg(feature = "Media_MediaProperties")]
+    #[doc = "*Required features: `Media_Audio`, `Media_MediaProperties`*"]
     pub fn EncodingProperties(&self) -> ::windows::runtime::Result<super::MediaProperties::AudioEncodingProperties> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe {
@@ -7025,6 +7443,7 @@ impl MediaSourceAudioInputNode {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::MediaProperties::AudioEncodingProperties>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn ConsumeInput(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe {
@@ -7032,32 +7451,39 @@ impl MediaSourceAudioInputNode {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn SetConsumeInput(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Start(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Stop(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Reset(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Media_Effects")]
+    #[doc = "*Required features: `Media_Audio`, `Media_Effects`*"]
     pub fn DisableEffectsByDefinition<'a, Param0: ::windows::runtime::IntoParam<'a, super::Effects::IAudioEffectDefinition>>(&self, definition: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), definition.into_param().abi()).ok() }
     }
     #[cfg(feature = "Media_Effects")]
+    #[doc = "*Required features: `Media_Audio`, `Media_Effects`*"]
     pub fn EnableEffectsByDefinition<'a, Param0: ::windows::runtime::IntoParam<'a, super::Effects::IAudioEffectDefinition>>(&self, definition: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioNode>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), definition.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Emitter(&self) -> ::windows::runtime::Result<AudioNodeEmitter> {
         let this = &::windows::runtime::Interface::cast::<IAudioInputNode2>(self)?;
         unsafe {
@@ -7065,10 +7491,12 @@ impl MediaSourceAudioInputNode {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AudioNodeEmitter>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn SetPlaybackSpeedFactor(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn PlaybackSpeedFactor(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -7077,6 +7505,7 @@ impl MediaSourceAudioInputNode {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation`*"]
     pub fn Position(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -7085,11 +7514,13 @@ impl MediaSourceAudioInputNode {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation`*"]
     pub fn Seek<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, position: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), position.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation`*"]
     pub fn StartTime(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
         let this = self;
         unsafe {
@@ -7098,11 +7529,13 @@ impl MediaSourceAudioInputNode {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation`*"]
     pub fn SetStartTime<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation`*"]
     pub fn EndTime(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
         let this = self;
         unsafe {
@@ -7111,11 +7544,13 @@ impl MediaSourceAudioInputNode {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation`*"]
     pub fn SetEndTime<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation`*"]
     pub fn LoopCount(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
@@ -7124,11 +7559,13 @@ impl MediaSourceAudioInputNode {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation`*"]
     pub fn SetLoopCount<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<i32>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation`*"]
     pub fn Duration(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -7137,6 +7574,7 @@ impl MediaSourceAudioInputNode {
         }
     }
     #[cfg(feature = "Media_Core")]
+    #[doc = "*Required features: `Media_Audio`, `Media_Core`*"]
     pub fn MediaSource(&self) -> ::windows::runtime::Result<super::Core::MediaSource> {
         let this = self;
         unsafe {
@@ -7145,6 +7583,7 @@ impl MediaSourceAudioInputNode {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation`*"]
     pub fn MediaSourceCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<MediaSourceAudioInputNode, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -7153,6 +7592,7 @@ impl MediaSourceAudioInputNode {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation`*"]
     pub fn RemoveMediaSourceCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
@@ -7302,6 +7742,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IAudioInputNode2> for &MediaSourceAud
 }
 unsafe impl ::std::marker::Send for MediaSourceAudioInputNode {}
 unsafe impl ::std::marker::Sync for MediaSourceAudioInputNode {}
+#[doc = "*Required features: `Media_Audio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MediaSourceAudioInputNodeCreationStatus(pub i32);
@@ -7323,6 +7764,7 @@ unsafe impl ::windows::runtime::Abi for MediaSourceAudioInputNodeCreationStatus 
 unsafe impl ::windows::runtime::RuntimeType for MediaSourceAudioInputNodeCreationStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.MediaSourceAudioInputNodeCreationStatus;i4)");
 }
+#[doc = "*Required features: `Media_Audio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MixedRealitySpatialAudioFormatPolicy(pub i32);
@@ -7342,6 +7784,7 @@ unsafe impl ::windows::runtime::Abi for MixedRealitySpatialAudioFormatPolicy {
 unsafe impl ::windows::runtime::RuntimeType for MixedRealitySpatialAudioFormatPolicy {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.MixedRealitySpatialAudioFormatPolicy;i4)");
 }
+#[doc = "*Required features: `Media_Audio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct QuantumSizeSelectionMode(pub i32);
@@ -7362,14 +7805,17 @@ unsafe impl ::windows::runtime::Abi for QuantumSizeSelectionMode {
 unsafe impl ::windows::runtime::RuntimeType for QuantumSizeSelectionMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.QuantumSizeSelectionMode;i4)");
 }
+#[doc = "*Required features: `Media_Audio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ReverbEffectDefinition(::windows::runtime::IInspectable);
 impl ReverbEffectDefinition {
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn SetWetDryMix(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn WetDryMix(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -7377,10 +7823,12 @@ impl ReverbEffectDefinition {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn SetReflectionsDelay(&self, value: u32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn ReflectionsDelay(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -7388,10 +7836,12 @@ impl ReverbEffectDefinition {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn SetReverbDelay(&self, value: u8) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn ReverbDelay(&self) -> ::windows::runtime::Result<u8> {
         let this = self;
         unsafe {
@@ -7399,10 +7849,12 @@ impl ReverbEffectDefinition {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn SetRearDelay(&self, value: u8) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn RearDelay(&self) -> ::windows::runtime::Result<u8> {
         let this = self;
         unsafe {
@@ -7410,10 +7862,12 @@ impl ReverbEffectDefinition {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn SetPositionLeft(&self, value: u8) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn PositionLeft(&self) -> ::windows::runtime::Result<u8> {
         let this = self;
         unsafe {
@@ -7421,10 +7875,12 @@ impl ReverbEffectDefinition {
             (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn SetPositionRight(&self, value: u8) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn PositionRight(&self) -> ::windows::runtime::Result<u8> {
         let this = self;
         unsafe {
@@ -7432,10 +7888,12 @@ impl ReverbEffectDefinition {
             (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn SetPositionMatrixLeft(&self, value: u8) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn PositionMatrixLeft(&self) -> ::windows::runtime::Result<u8> {
         let this = self;
         unsafe {
@@ -7443,10 +7901,12 @@ impl ReverbEffectDefinition {
             (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn SetPositionMatrixRight(&self, value: u8) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn PositionMatrixRight(&self) -> ::windows::runtime::Result<u8> {
         let this = self;
         unsafe {
@@ -7454,10 +7914,12 @@ impl ReverbEffectDefinition {
             (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn SetEarlyDiffusion(&self, value: u8) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn EarlyDiffusion(&self) -> ::windows::runtime::Result<u8> {
         let this = self;
         unsafe {
@@ -7465,10 +7927,12 @@ impl ReverbEffectDefinition {
             (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn SetLateDiffusion(&self, value: u8) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn LateDiffusion(&self) -> ::windows::runtime::Result<u8> {
         let this = self;
         unsafe {
@@ -7476,10 +7940,12 @@ impl ReverbEffectDefinition {
             (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn SetLowEQGain(&self, value: u8) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn LowEQGain(&self) -> ::windows::runtime::Result<u8> {
         let this = self;
         unsafe {
@@ -7487,10 +7953,12 @@ impl ReverbEffectDefinition {
             (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn SetLowEQCutoff(&self, value: u8) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).28)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn LowEQCutoff(&self) -> ::windows::runtime::Result<u8> {
         let this = self;
         unsafe {
@@ -7498,10 +7966,12 @@ impl ReverbEffectDefinition {
             (::windows::runtime::Interface::vtable(this).29)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn SetHighEQGain(&self, value: u8) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).30)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn HighEQGain(&self) -> ::windows::runtime::Result<u8> {
         let this = self;
         unsafe {
@@ -7509,10 +7979,12 @@ impl ReverbEffectDefinition {
             (::windows::runtime::Interface::vtable(this).31)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn SetHighEQCutoff(&self, value: u8) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).32)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn HighEQCutoff(&self) -> ::windows::runtime::Result<u8> {
         let this = self;
         unsafe {
@@ -7520,10 +7992,12 @@ impl ReverbEffectDefinition {
             (::windows::runtime::Interface::vtable(this).33)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn SetRoomFilterFreq(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).34)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn RoomFilterFreq(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -7531,10 +8005,12 @@ impl ReverbEffectDefinition {
             (::windows::runtime::Interface::vtable(this).35)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn SetRoomFilterMain(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).36)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn RoomFilterMain(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -7542,10 +8018,12 @@ impl ReverbEffectDefinition {
             (::windows::runtime::Interface::vtable(this).37)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn SetRoomFilterHF(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).38)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn RoomFilterHF(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -7553,10 +8031,12 @@ impl ReverbEffectDefinition {
             (::windows::runtime::Interface::vtable(this).39)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn SetReflectionsGain(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).40)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn ReflectionsGain(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -7564,10 +8044,12 @@ impl ReverbEffectDefinition {
             (::windows::runtime::Interface::vtable(this).41)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn SetReverbGain(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).42)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn ReverbGain(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -7575,10 +8057,12 @@ impl ReverbEffectDefinition {
             (::windows::runtime::Interface::vtable(this).43)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn SetDecayTime(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).44)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn DecayTime(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -7586,10 +8070,12 @@ impl ReverbEffectDefinition {
             (::windows::runtime::Interface::vtable(this).45)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn SetDensity(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).46)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Density(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -7597,10 +8083,12 @@ impl ReverbEffectDefinition {
             (::windows::runtime::Interface::vtable(this).47)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn SetRoomSize(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).48)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn RoomSize(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -7608,10 +8096,12 @@ impl ReverbEffectDefinition {
             (::windows::runtime::Interface::vtable(this).49)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn SetDisableLateField(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).50)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn DisableLateField(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -7620,6 +8110,7 @@ impl ReverbEffectDefinition {
         }
     }
     #[cfg(feature = "Media_Effects")]
+    #[doc = "*Required features: `Media_Audio`, `Media_Effects`*"]
     pub fn ActivatableClassId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<super::Effects::IAudioEffectDefinition>(self)?;
         unsafe {
@@ -7628,6 +8119,7 @@ impl ReverbEffectDefinition {
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects"))]
+    #[doc = "*Required features: `Media_Audio`, `Foundation_Collections`, `Media_Effects`*"]
     pub fn Properties(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IPropertySet> {
         let this = &::windows::runtime::Interface::cast::<super::Effects::IAudioEffectDefinition>(self)?;
         unsafe {
@@ -7635,6 +8127,7 @@ impl ReverbEffectDefinition {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IPropertySet>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Create<'a, Param0: ::windows::runtime::IntoParam<'a, AudioGraph>>(audiograph: Param0) -> ::windows::runtime::Result<ReverbEffectDefinition> {
         Self::IReverbEffectDefinitionFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -7724,10 +8217,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::Effects::IAudioEffectDefinitio
 }
 unsafe impl ::std::marker::Send for ReverbEffectDefinition {}
 unsafe impl ::std::marker::Sync for ReverbEffectDefinition {}
+#[doc = "*Required features: `Media_Audio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SetDefaultSpatialAudioFormatResult(::windows::runtime::IInspectable);
 impl SetDefaultSpatialAudioFormatResult {
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<SetDefaultSpatialAudioFormatStatus> {
         let this = self;
         unsafe {
@@ -7788,6 +8283,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for SetDefaultSpatialAudioFormatResult {}
 unsafe impl ::std::marker::Sync for SetDefaultSpatialAudioFormatResult {}
+#[doc = "*Required features: `Media_Audio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SetDefaultSpatialAudioFormatStatus(pub i32);
@@ -7811,10 +8307,12 @@ unsafe impl ::windows::runtime::Abi for SetDefaultSpatialAudioFormatStatus {
 unsafe impl ::windows::runtime::RuntimeType for SetDefaultSpatialAudioFormatStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.SetDefaultSpatialAudioFormatStatus;i4)");
 }
+#[doc = "*Required features: `Media_Audio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SpatialAudioDeviceConfiguration(::windows::runtime::IInspectable);
 impl SpatialAudioDeviceConfiguration {
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn DeviceId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -7822,6 +8320,7 @@ impl SpatialAudioDeviceConfiguration {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn IsSpatialAudioSupported(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -7829,6 +8328,7 @@ impl SpatialAudioDeviceConfiguration {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn IsSpatialAudioFormatSupported<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, subtype: Param0) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -7836,6 +8336,7 @@ impl SpatialAudioDeviceConfiguration {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), subtype.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn ActiveSpatialAudioFormat(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -7843,6 +8344,7 @@ impl SpatialAudioDeviceConfiguration {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn DefaultSpatialAudioFormat(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -7851,6 +8353,7 @@ impl SpatialAudioDeviceConfiguration {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation`*"]
     pub fn SetDefaultSpatialAudioFormatAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, subtype: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<SetDefaultSpatialAudioFormatResult>> {
         let this = self;
         unsafe {
@@ -7859,6 +8362,7 @@ impl SpatialAudioDeviceConfiguration {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation`*"]
     pub fn ConfigurationChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<SpatialAudioDeviceConfiguration, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -7867,10 +8371,12 @@ impl SpatialAudioDeviceConfiguration {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation`*"]
     pub fn RemoveConfigurationChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn GetForDeviceId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(deviceid: Param0) -> ::windows::runtime::Result<SpatialAudioDeviceConfiguration> {
         Self::ISpatialAudioDeviceConfigurationStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -7934,11 +8440,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for SpatialAudioDeviceConfiguration {}
 unsafe impl ::std::marker::Sync for SpatialAudioDeviceConfiguration {}
+#[doc = "*Required features: `Media_Audio`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SpatialAudioFormatConfiguration(::windows::runtime::IInspectable);
 impl SpatialAudioFormatConfiguration {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation`*"]
     pub fn ReportLicenseChangedAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, subtype: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -7947,6 +8455,7 @@ impl SpatialAudioFormatConfiguration {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Audio`, `Foundation`*"]
     pub fn ReportConfigurationChangedAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, subtype: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -7954,6 +8463,7 @@ impl SpatialAudioFormatConfiguration {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), subtype.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn MixedRealityExclusiveModePolicy(&self) -> ::windows::runtime::Result<MixedRealitySpatialAudioFormatPolicy> {
         let this = self;
         unsafe {
@@ -7961,10 +8471,12 @@ impl SpatialAudioFormatConfiguration {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MixedRealitySpatialAudioFormatPolicy>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn SetMixedRealityExclusiveModePolicy(&self, value: MixedRealitySpatialAudioFormatPolicy) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn GetDefault() -> ::windows::runtime::Result<SpatialAudioFormatConfiguration> {
         Self::ISpatialAudioFormatConfigurationStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -8028,44 +8540,52 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for SpatialAudioFormatConfiguration {}
 unsafe impl ::std::marker::Sync for SpatialAudioFormatConfiguration {}
+#[doc = "*Required features: `Media_Audio`*"]
 pub struct SpatialAudioFormatSubtype {}
 impl SpatialAudioFormatSubtype {
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn WindowsSonic() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ISpatialAudioFormatSubtypeStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn DolbyAtmosForHeadphones() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ISpatialAudioFormatSubtypeStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn DolbyAtmosForHomeTheater() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ISpatialAudioFormatSubtypeStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn DolbyAtmosForSpeakers() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ISpatialAudioFormatSubtypeStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn DTSHeadphoneX() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ISpatialAudioFormatSubtypeStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn DTSXUltra() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ISpatialAudioFormatSubtypeStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Media_Audio`*"]
     pub fn DTSXForHomeTheater() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ISpatialAudioFormatSubtypeStatics2(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
@@ -8084,6 +8604,7 @@ impl SpatialAudioFormatSubtype {
 impl ::windows::runtime::RuntimeName for SpatialAudioFormatSubtype {
     const NAME: &'static str = "Windows.Media.Audio.SpatialAudioFormatSubtype";
 }
+#[doc = "*Required features: `Media_Audio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SpatialAudioModel(pub i32);

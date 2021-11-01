@@ -1,22 +1,28 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IEnumNetworkConnections(::windows::runtime::IUnknown);
 impl IEnumNetworkConnections {
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Networking_NetworkListManager`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::runtime::Result<super::super::System::Ole::Automation::IEnumVARIANT> {
         let mut result__: <super::super::System::Ole::Automation::IEnumVARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Ole::Automation::IEnumVARIANT>(result__)
     }
+    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn Next(&self, celt: u32, rgelt: *mut ::std::option::Option<INetworkConnection>, pceltfetched: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(celt), ::std::mem::transmute(rgelt), ::std::mem::transmute(pceltfetched)).ok()
     }
+    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(celt)).ok()
     }
+    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn Clone(&self) -> ::windows::runtime::Result<IEnumNetworkConnections> {
         let mut result__: <IEnumNetworkConnections as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IEnumNetworkConnections>(result__)
@@ -91,24 +97,30 @@ pub struct IEnumNetworkConnections_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenumnetwork: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IEnumNetworks(::windows::runtime::IUnknown);
 impl IEnumNetworks {
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_Networking_NetworkListManager`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::runtime::Result<super::super::System::Ole::Automation::IEnumVARIANT> {
         let mut result__: <super::super::System::Ole::Automation::IEnumVARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Ole::Automation::IEnumVARIANT>(result__)
     }
+    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn Next(&self, celt: u32, rgelt: *mut ::std::option::Option<INetwork>, pceltfetched: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(celt), ::std::mem::transmute(rgelt), ::std::mem::transmute(pceltfetched)).ok()
     }
+    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(celt)).ok()
     }
+    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn Clone(&self) -> ::windows::runtime::Result<IEnumNetworks> {
         let mut result__: <IEnumNetworks as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IEnumNetworks>(result__)
@@ -183,59 +195,73 @@ pub struct IEnumNetworks_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenumnetwork: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct INetwork(::windows::runtime::IUnknown);
 impl INetwork {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Networking_NetworkListManager`, `Win32_Foundation`*"]
     pub unsafe fn GetName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Networking_NetworkListManager`, `Win32_Foundation`*"]
     pub unsafe fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, sznetworknewname: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), sznetworknewname.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Networking_NetworkListManager`, `Win32_Foundation`*"]
     pub unsafe fn GetDescription(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Networking_NetworkListManager`, `Win32_Foundation`*"]
     pub unsafe fn SetDescription<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, szdescription: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), szdescription.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn GetNetworkId(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
+    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn GetDomainType(&self) -> ::windows::runtime::Result<NLM_DOMAIN_TYPE> {
         let mut result__: <NLM_DOMAIN_TYPE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<NLM_DOMAIN_TYPE>(result__)
     }
+    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn GetNetworkConnections(&self) -> ::windows::runtime::Result<IEnumNetworkConnections> {
         let mut result__: <IEnumNetworkConnections as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IEnumNetworkConnections>(result__)
     }
+    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn GetTimeCreatedAndConnected(&self, pdwlowdatetimecreated: *mut u32, pdwhighdatetimecreated: *mut u32, pdwlowdatetimeconnected: *mut u32, pdwhighdatetimeconnected: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwlowdatetimecreated), ::std::mem::transmute(pdwhighdatetimecreated), ::std::mem::transmute(pdwlowdatetimeconnected), ::std::mem::transmute(pdwhighdatetimeconnected)).ok()
     }
+    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn IsConnectedToInternet(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn IsConnected(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn GetConnectivity(&self) -> ::windows::runtime::Result<NLM_CONNECTIVITY> {
         let mut result__: <NLM_CONNECTIVITY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<NLM_CONNECTIVITY>(result__)
     }
+    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn GetCategory(&self) -> ::windows::runtime::Result<NLM_NETWORK_CATEGORY> {
         let mut result__: <NLM_NETWORK_CATEGORY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), &mut result__).from_abi::<NLM_NETWORK_CATEGORY>(result__)
     }
+    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn SetCategory(&self, newcategory: NLM_NETWORK_CATEGORY) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(newcategory)).ok()
     }
@@ -320,34 +346,42 @@ pub struct INetwork_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcategory: *mut NLM_NETWORK_CATEGORY) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, newcategory: NLM_NETWORK_CATEGORY) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct INetworkConnection(::windows::runtime::IUnknown);
 impl INetworkConnection {
+    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn GetNetwork(&self) -> ::windows::runtime::Result<INetwork> {
         let mut result__: <INetwork as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<INetwork>(result__)
     }
+    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn IsConnectedToInternet(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn IsConnected(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn GetConnectivity(&self) -> ::windows::runtime::Result<NLM_CONNECTIVITY> {
         let mut result__: <NLM_CONNECTIVITY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<NLM_CONNECTIVITY>(result__)
     }
+    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn GetConnectionId(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
+    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn GetAdapterId(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
+    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn GetDomainType(&self) -> ::windows::runtime::Result<NLM_DOMAIN_TYPE> {
         let mut result__: <NLM_DOMAIN_TYPE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<NLM_DOMAIN_TYPE>(result__)
@@ -423,15 +457,18 @@ pub struct INetworkConnection_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pgdadapterid: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdomaintype: *mut NLM_DOMAIN_TYPE) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct INetworkConnectionCost(::windows::runtime::IUnknown);
 impl INetworkConnectionCost {
+    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn GetCost(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Networking_NetworkListManager`, `Win32_Foundation`*"]
     pub unsafe fn GetDataPlanStatus(&self) -> ::windows::runtime::Result<NLM_DATAPLAN_STATUS> {
         let mut result__: <NLM_DATAPLAN_STATUS as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<NLM_DATAPLAN_STATUS>(result__)
@@ -471,13 +508,16 @@ pub struct INetworkConnectionCost_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdataplanstatus: *mut NLM_DATAPLAN_STATUS) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct INetworkConnectionCostEvents(::windows::runtime::IUnknown);
 impl INetworkConnectionCostEvents {
+    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn ConnectionCostChanged<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, connectionid: Param0, newcost: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), connectionid.into_param().abi(), ::std::mem::transmute(newcost)).ok()
     }
+    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn ConnectionDataPlanStatusChanged<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, connectionid: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), connectionid.into_param().abi()).ok()
     }
@@ -515,13 +555,16 @@ pub struct INetworkConnectionCostEvents_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, connectionid: ::windows::runtime::GUID, newcost: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, connectionid: ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct INetworkConnectionEvents(::windows::runtime::IUnknown);
 impl INetworkConnectionEvents {
+    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn NetworkConnectionConnectivityChanged<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, connectionid: Param0, newconnectivity: NLM_CONNECTIVITY) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), connectionid.into_param().abi(), ::std::mem::transmute(newconnectivity)).ok()
     }
+    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn NetworkConnectionPropertyChanged<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, connectionid: Param0, flags: NLM_CONNECTION_PROPERTY_CHANGE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), connectionid.into_param().abi(), ::std::mem::transmute(flags)).ok()
     }
@@ -559,17 +602,21 @@ pub struct INetworkConnectionEvents_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, connectionid: ::windows::runtime::GUID, newconnectivity: NLM_CONNECTIVITY) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, connectionid: ::windows::runtime::GUID, flags: NLM_CONNECTION_PROPERTY_CHANGE) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct INetworkCostManager(::windows::runtime::IUnknown);
 impl INetworkCostManager {
+    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn GetCost(&self, pcost: *mut u32, pdestipaddr: *const NLM_SOCKADDR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcost), ::std::mem::transmute(pdestipaddr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Networking_NetworkListManager`, `Win32_Foundation`*"]
     pub unsafe fn GetDataPlanStatus(&self, pdataplanstatus: *mut NLM_DATAPLAN_STATUS, pdestipaddr: *const NLM_SOCKADDR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdataplanstatus), ::std::mem::transmute(pdestipaddr)).ok()
     }
+    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn SetDestinationAddresses(&self, length: u32, pdestipaddrlist: *const NLM_SOCKADDR, bappend: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(length), ::std::mem::transmute(pdestipaddrlist), ::std::mem::transmute(bappend)).ok()
     }
@@ -609,13 +656,16 @@ pub struct INetworkCostManager_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, length: u32, pdestipaddrlist: *const NLM_SOCKADDR, bappend: i16) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct INetworkCostManagerEvents(::windows::runtime::IUnknown);
 impl INetworkCostManagerEvents {
+    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn CostChanged(&self, newcost: u32, pdestaddr: *const NLM_SOCKADDR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(newcost), ::std::mem::transmute(pdestaddr)).ok()
     }
+    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn DataPlanStatusChanged(&self, pdestaddr: *const NLM_SOCKADDR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdestaddr)).ok()
     }
@@ -653,19 +703,24 @@ pub struct INetworkCostManagerEvents_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, newcost: u32, pdestaddr: *const NLM_SOCKADDR) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdestaddr: *const NLM_SOCKADDR) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct INetworkEvents(::windows::runtime::IUnknown);
 impl INetworkEvents {
+    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn NetworkAdded<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, networkid: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), networkid.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn NetworkDeleted<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, networkid: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), networkid.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn NetworkConnectivityChanged<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, networkid: Param0, newconnectivity: NLM_CONNECTIVITY) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), networkid.into_param().abi(), ::std::mem::transmute(newconnectivity)).ok()
     }
+    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn NetworkPropertyChanged<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, networkid: Param0, flags: NLM_NETWORK_PROPERTY_CHANGE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), networkid.into_param().abi(), ::std::mem::transmute(flags)).ok()
     }
@@ -705,41 +760,51 @@ pub struct INetworkEvents_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, networkid: ::windows::runtime::GUID, newconnectivity: NLM_CONNECTIVITY) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, networkid: ::windows::runtime::GUID, flags: NLM_NETWORK_PROPERTY_CHANGE) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct INetworkListManager(::windows::runtime::IUnknown);
 impl INetworkListManager {
+    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn GetNetworks(&self, flags: NLM_ENUM_NETWORK) -> ::windows::runtime::Result<IEnumNetworks> {
         let mut result__: <IEnumNetworks as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(flags), &mut result__).from_abi::<IEnumNetworks>(result__)
     }
+    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn GetNetwork<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, gdnetworkid: Param0) -> ::windows::runtime::Result<INetwork> {
         let mut result__: <INetwork as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), gdnetworkid.into_param().abi(), &mut result__).from_abi::<INetwork>(result__)
     }
+    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn GetNetworkConnections(&self) -> ::windows::runtime::Result<IEnumNetworkConnections> {
         let mut result__: <IEnumNetworkConnections as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IEnumNetworkConnections>(result__)
     }
+    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn GetNetworkConnection<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, gdnetworkconnectionid: Param0) -> ::windows::runtime::Result<INetworkConnection> {
         let mut result__: <INetworkConnection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), gdnetworkconnectionid.into_param().abi(), &mut result__).from_abi::<INetworkConnection>(result__)
     }
+    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn IsConnectedToInternet(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn IsConnected(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn GetConnectivity(&self) -> ::windows::runtime::Result<NLM_CONNECTIVITY> {
         let mut result__: <NLM_CONNECTIVITY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<NLM_CONNECTIVITY>(result__)
     }
+    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn SetSimulatedProfileInfo(&self, psimulatedinfo: *const NLM_SIMULATED_PROFILE_INFO) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(psimulatedinfo)).ok()
     }
+    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn ClearSimulatedProfileInfo(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self)).ok()
     }
@@ -816,10 +881,12 @@ pub struct INetworkListManager_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, psimulatedinfo: *const NLM_SIMULATED_PROFILE_INFO) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct INetworkListManagerEvents(::windows::runtime::IUnknown);
 impl INetworkListManagerEvents {
+    #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
     pub unsafe fn ConnectivityChanged(&self, newconnectivity: NLM_CONNECTIVITY) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(newconnectivity)).ok()
     }
@@ -856,6 +923,7 @@ pub struct INetworkListManagerEvents_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, newconnectivity: NLM_CONNECTIVITY) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NLM_CONNECTION_COST(pub i32);
@@ -876,6 +944,7 @@ unsafe impl ::windows::runtime::Abi for NLM_CONNECTION_COST {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NLM_CONNECTION_PROPERTY_CHANGE(pub i32);
@@ -889,6 +958,7 @@ unsafe impl ::windows::runtime::Abi for NLM_CONNECTION_PROPERTY_CHANGE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NLM_CONNECTIVITY(pub i32);
@@ -913,6 +983,7 @@ unsafe impl ::windows::runtime::Abi for NLM_CONNECTIVITY {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Networking_NetworkListManager`, `Win32_Foundation`*"]
 pub struct NLM_DATAPLAN_STATUS {
     pub InterfaceGuid: ::windows::runtime::GUID,
     pub UsageData: NLM_USAGE_DATA,
@@ -959,6 +1030,7 @@ unsafe impl ::windows::runtime::Abi for NLM_DATAPLAN_STATUS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NLM_DOMAIN_TYPE(pub i32);
@@ -974,6 +1046,7 @@ unsafe impl ::windows::runtime::Abi for NLM_DOMAIN_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NLM_ENUM_NETWORK(pub i32);
@@ -989,6 +1062,7 @@ unsafe impl ::windows::runtime::Abi for NLM_ENUM_NETWORK {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NLM_INTERNET_CONNECTIVITY(pub i32);
@@ -1004,7 +1078,9 @@ unsafe impl ::windows::runtime::Abi for NLM_INTERNET_CONNECTIVITY {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
 pub const NLM_MAX_ADDRESS_LIST_SIZE: u32 = 10u32;
+#[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NLM_NETWORK_CATEGORY(pub i32);
@@ -1020,6 +1096,7 @@ unsafe impl ::windows::runtime::Abi for NLM_NETWORK_CATEGORY {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NLM_NETWORK_CLASS(pub i32);
@@ -1035,6 +1112,7 @@ unsafe impl ::windows::runtime::Abi for NLM_NETWORK_CLASS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NLM_NETWORK_PROPERTY_CHANGE(pub i32);
@@ -1054,6 +1132,7 @@ unsafe impl ::windows::runtime::Abi for NLM_NETWORK_PROPERTY_CHANGE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
 pub struct NLM_SIMULATED_PROFILE_INFO {
     pub ProfileName: [u16; 256],
     pub cost: NLM_CONNECTION_COST,
@@ -1083,6 +1162,7 @@ unsafe impl ::windows::runtime::Abi for NLM_SIMULATED_PROFILE_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
 pub struct NLM_SOCKADDR {
     pub data: [u8; 128],
 }
@@ -1107,10 +1187,12 @@ unsafe impl ::windows::runtime::Abi for NLM_SOCKADDR {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
 pub const NLM_UNKNOWN_DATAPLAN_STATUS: u32 = 4294967295u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Networking_NetworkListManager`, `Win32_Foundation`*"]
 pub struct NLM_USAGE_DATA {
     pub UsageInMegabytes: u32,
     pub LastSyncTime: super::super::Foundation::FILETIME,

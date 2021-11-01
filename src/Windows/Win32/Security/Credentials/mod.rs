@@ -1,6 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub struct BINARY_BLOB_CREDENTIAL_INFO {
     pub cbBlob: u32,
     pub pbBlob: *mut u8,
@@ -28,6 +29,7 @@ unsafe impl ::windows::runtime::Abi for BINARY_BLOB_CREDENTIAL_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub struct CERT_CREDENTIAL_INFO {
     pub cbSize: u32,
     pub rgbHashOfCert: [u8; 20],
@@ -53,10 +55,12 @@ unsafe impl ::windows::runtime::Abi for CERT_CREDENTIAL_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const CERT_HASH_LENGTH: u32 = 20u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 pub struct CREDENTIALA {
     pub Flags: CRED_FLAGS,
     pub Type: CRED_TYPE,
@@ -114,6 +118,7 @@ unsafe impl ::windows::runtime::Abi for CREDENTIALA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 pub struct CREDENTIALW {
     pub Flags: CRED_FLAGS,
     pub Type: CRED_TYPE,
@@ -171,6 +176,7 @@ unsafe impl ::windows::runtime::Abi for CREDENTIALW {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 pub struct CREDENTIAL_ATTRIBUTEA {
     pub Keyword: super::super::Foundation::PSTR,
     pub Flags: u32,
@@ -207,6 +213,7 @@ unsafe impl ::windows::runtime::Abi for CREDENTIAL_ATTRIBUTEA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 pub struct CREDENTIAL_ATTRIBUTEW {
     pub Keyword: super::super::Foundation::PWSTR,
     pub Flags: u32,
@@ -243,6 +250,7 @@ unsafe impl ::windows::runtime::Abi for CREDENTIAL_ATTRIBUTEW {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 pub struct CREDENTIAL_TARGET_INFORMATIONA {
     pub TargetName: super::super::Foundation::PSTR,
     pub NetbiosServerName: super::super::Foundation::PSTR,
@@ -296,6 +304,7 @@ unsafe impl ::windows::runtime::Abi for CREDENTIAL_TARGET_INFORMATIONA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 pub struct CREDENTIAL_TARGET_INFORMATIONW {
     pub TargetName: super::super::Foundation::PWSTR,
     pub NetbiosServerName: super::super::Foundation::PWSTR,
@@ -346,6 +355,7 @@ unsafe impl ::windows::runtime::Abi for CREDENTIAL_TARGET_INFORMATIONW {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CREDSPP_SUBMIT_TYPE(pub i32);
@@ -366,6 +376,7 @@ unsafe impl ::windows::runtime::Abi for CREDSPP_SUBMIT_TYPE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub struct CREDSSP_CRED {
     pub Type: CREDSPP_SUBMIT_TYPE,
     pub pSchannelCred: *mut ::std::ffi::c_void,
@@ -394,6 +405,7 @@ unsafe impl ::windows::runtime::Abi for CREDSSP_CRED {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub struct CREDSSP_CRED_EX {
     pub Type: CREDSPP_SUBMIT_TYPE,
     pub Version: u32,
@@ -422,12 +434,19 @@ unsafe impl ::windows::runtime::Abi for CREDSSP_CRED_EX {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const CREDSSP_CRED_EX_VERSION: u32 = 0u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const CREDSSP_FLAG_REDIRECT: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const CREDSSP_SERVER_AUTH_CERTIFICATE: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const CREDSSP_SERVER_AUTH_LOOPBACK: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const CREDSSP_SERVER_AUTH_NEGOTIATE: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const CREDUIWIN_DOWNLEVEL_HELLO_AS_SMART_CARD: u32 = 2147483648u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CREDUIWIN_FLAGS(pub u32);
@@ -477,7 +496,9 @@ impl ::std::ops::Not for CREDUIWIN_FLAGS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const CREDUIWIN_IGNORE_CLOUDAUTHORITY_NAME: u32 = 262144u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CREDUI_FLAGS(pub u32);
@@ -538,6 +559,7 @@ impl ::std::ops::Not for CREDUI_FLAGS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 pub struct CREDUI_INFOA {
     pub cbSize: u32,
     pub hwndParent: super::super::Foundation::HWND,
@@ -575,6 +597,7 @@ unsafe impl ::windows::runtime::Abi for CREDUI_INFOA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 pub struct CREDUI_INFOW {
     pub cbSize: u32,
     pub hwndParent: super::super::Foundation::HWND,
@@ -609,11 +632,17 @@ unsafe impl ::windows::runtime::Abi for CREDUI_INFOW {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const CREDUI_MAX_CAPTION_LENGTH: u32 = 128u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const CREDUI_MAX_GENERIC_TARGET_LENGTH: u32 = 32767u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const CREDUI_MAX_MESSAGE_LENGTH: u32 = 1024u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const CRED_ALLOW_NAME_RESOLUTION: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const CRED_CACHE_TARGET_INFORMATION: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CRED_ENUMERATE_FLAGS(pub u32);
@@ -655,6 +684,7 @@ impl ::std::ops::Not for CRED_ENUMERATE_FLAGS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CRED_FLAGS(pub u32);
@@ -705,7 +735,9 @@ impl ::std::ops::Not for CRED_FLAGS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const CRED_LOGON_TYPES_MASK: u32 = 61440u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CRED_MARSHAL_TYPE(pub i32);
@@ -723,12 +755,19 @@ unsafe impl ::windows::runtime::Abi for CRED_MARSHAL_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const CRED_MAX_ATTRIBUTES: u32 = 64u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const CRED_MAX_GENERIC_TARGET_NAME_LENGTH: u32 = 32767u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const CRED_MAX_STRING_LENGTH: u32 = 256u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const CRED_MAX_TARGETNAME_ATTRIBUTE_LENGTH: u32 = 256u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const CRED_MAX_TARGETNAME_NAMESPACE_LENGTH: u32 = 256u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const CRED_MAX_VALUE_SIZE: u32 = 256u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CRED_PACK_FLAGS(pub u32);
@@ -773,6 +812,7 @@ impl ::std::ops::Not for CRED_PACK_FLAGS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CRED_PERSIST(pub u32);
@@ -817,7 +857,9 @@ impl ::std::ops::Not for CRED_PERSIST {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const CRED_PRESERVE_CREDENTIAL_BLOB: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CRED_PROTECTION_TYPE(pub i32);
@@ -834,16 +876,27 @@ unsafe impl ::windows::runtime::Abi for CRED_PROTECTION_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const CRED_PROTECT_AS_SELF: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const CRED_PROTECT_TO_SYSTEM: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const CRED_TI_CREATE_EXPLICIT_CRED: u32 = 16u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const CRED_TI_DNSTREE_IS_DFS_SERVER: u32 = 64u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const CRED_TI_DOMAIN_FORMAT_UNKNOWN: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const CRED_TI_ONLY_PASSWORD_REQUIRED: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const CRED_TI_SERVER_FORMAT_UNKNOWN: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const CRED_TI_USERNAME_TARGET: u32 = 8u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const CRED_TI_VALID_FLAGS: u32 = 61567u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const CRED_TI_WORKGROUP_MEMBER: u32 = 32u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CRED_TYPE(pub u32);
@@ -892,9 +945,12 @@ impl ::std::ops::Not for CRED_TYPE {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const CRED_UNPROTECT_ALLOW_TO_SYSTEM: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const CRED_UNPROTECT_AS_SELF: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CredDeleteA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(targetname: Param0, r#type: u32, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -909,6 +965,7 @@ pub unsafe fn CredDeleteA<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CredDeleteW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(targetname: Param0, r#type: u32, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -923,6 +980,7 @@ pub unsafe fn CredDeleteW<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CredEnumerateA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(filter: Param0, flags: CRED_ENUMERATE_FLAGS, count: *mut u32, credential: *mut *mut *mut CREDENTIALA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -937,6 +995,7 @@ pub unsafe fn CredEnumerateA<'a, Param0: ::windows::runtime::IntoParam<'a, super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CredEnumerateW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(filter: Param0, flags: CRED_ENUMERATE_FLAGS, count: *mut u32, credential: *mut *mut *mut CREDENTIALW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -951,6 +1010,7 @@ pub unsafe fn CredEnumerateW<'a, Param0: ::windows::runtime::IntoParam<'a, super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CredFindBestCredentialA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(targetname: Param0, r#type: u32, flags: u32, credential: *mut *mut CREDENTIALA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -965,6 +1025,7 @@ pub unsafe fn CredFindBestCredentialA<'a, Param0: ::windows::runtime::IntoParam<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CredFindBestCredentialW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(targetname: Param0, r#type: u32, flags: u32, credential: *mut *mut CREDENTIALW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -978,6 +1039,7 @@ pub unsafe fn CredFindBestCredentialW<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 #[inline]
 pub unsafe fn CredFree(buffer: *const ::std::ffi::c_void) {
     #[cfg(windows)]
@@ -992,6 +1054,7 @@ pub unsafe fn CredFree(buffer: *const ::std::ffi::c_void) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CredGetSessionTypes(maximumpersistcount: u32, maximumpersist: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1006,6 +1069,7 @@ pub unsafe fn CredGetSessionTypes(maximumpersistcount: u32, maximumpersist: *mut
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CredGetTargetInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(targetname: Param0, flags: u32, targetinfo: *mut *mut CREDENTIAL_TARGET_INFORMATIONA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1020,6 +1084,7 @@ pub unsafe fn CredGetTargetInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CredGetTargetInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(targetname: Param0, flags: u32, targetinfo: *mut *mut CREDENTIAL_TARGET_INFORMATIONW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1034,6 +1099,7 @@ pub unsafe fn CredGetTargetInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CredIsMarshaledCredentialA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(marshaledcredential: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1048,6 +1114,7 @@ pub unsafe fn CredIsMarshaledCredentialA<'a, Param0: ::windows::runtime::IntoPar
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CredIsMarshaledCredentialW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(marshaledcredential: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1062,6 +1129,7 @@ pub unsafe fn CredIsMarshaledCredentialW<'a, Param0: ::windows::runtime::IntoPar
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CredIsProtectedA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszprotectedcredentials: Param0, pprotectiontype: *mut CRED_PROTECTION_TYPE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1076,6 +1144,7 @@ pub unsafe fn CredIsProtectedA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CredIsProtectedW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszprotectedcredentials: Param0, pprotectiontype: *mut CRED_PROTECTION_TYPE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1090,6 +1159,7 @@ pub unsafe fn CredIsProtectedW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CredMarshalCredentialA(credtype: CRED_MARSHAL_TYPE, credential: *const ::std::ffi::c_void, marshaledcredential: *mut super::super::Foundation::PSTR) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1104,6 +1174,7 @@ pub unsafe fn CredMarshalCredentialA(credtype: CRED_MARSHAL_TYPE, credential: *c
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CredMarshalCredentialW(credtype: CRED_MARSHAL_TYPE, credential: *const ::std::ffi::c_void, marshaledcredential: *mut super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1118,6 +1189,7 @@ pub unsafe fn CredMarshalCredentialW(credtype: CRED_MARSHAL_TYPE, credential: *c
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CredPackAuthenticationBufferA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(dwflags: CRED_PACK_FLAGS, pszusername: Param1, pszpassword: Param2, ppackedcredentials: *mut u8, pcbpackedcredentials: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1132,6 +1204,7 @@ pub unsafe fn CredPackAuthenticationBufferA<'a, Param1: ::windows::runtime::Into
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CredPackAuthenticationBufferW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dwflags: CRED_PACK_FLAGS, pszusername: Param1, pszpassword: Param2, ppackedcredentials: *mut u8, pcbpackedcredentials: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1146,6 +1219,7 @@ pub unsafe fn CredPackAuthenticationBufferW<'a, Param1: ::windows::runtime::Into
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CredProtectA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(fasself: Param0, pszcredentials: Param1, cchcredentials: u32, pszprotectedcredentials: super::super::Foundation::PSTR, pcchmaxchars: *mut u32, protectiontype: *mut CRED_PROTECTION_TYPE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1160,6 +1234,7 @@ pub unsafe fn CredProtectA<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CredProtectW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(fasself: Param0, pszcredentials: Param1, cchcredentials: u32, pszprotectedcredentials: super::super::Foundation::PWSTR, pcchmaxchars: *mut u32, protectiontype: *mut CRED_PROTECTION_TYPE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1174,6 +1249,7 @@ pub unsafe fn CredProtectW<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CredReadA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(targetname: Param0, r#type: u32, flags: u32, credential: *mut *mut CREDENTIALA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1188,6 +1264,7 @@ pub unsafe fn CredReadA<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CredReadDomainCredentialsA(targetinfo: *const CREDENTIAL_TARGET_INFORMATIONA, flags: u32, count: *mut u32, credential: *mut *mut *mut CREDENTIALA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1202,6 +1279,7 @@ pub unsafe fn CredReadDomainCredentialsA(targetinfo: *const CREDENTIAL_TARGET_IN
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CredReadDomainCredentialsW(targetinfo: *const CREDENTIAL_TARGET_INFORMATIONW, flags: u32, count: *mut u32, credential: *mut *mut *mut CREDENTIALW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1216,6 +1294,7 @@ pub unsafe fn CredReadDomainCredentialsW(targetinfo: *const CREDENTIAL_TARGET_IN
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CredReadW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(targetname: Param0, r#type: u32, flags: u32, credential: *mut *mut CREDENTIALW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1230,6 +1309,7 @@ pub unsafe fn CredReadW<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CredRenameA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(oldtargetname: Param0, newtargetname: Param1, r#type: u32, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1244,6 +1324,7 @@ pub unsafe fn CredRenameA<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CredRenameW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(oldtargetname: Param0, newtargetname: Param1, r#type: u32, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1258,6 +1339,7 @@ pub unsafe fn CredRenameW<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CredUICmdLinePromptForCredentialsA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(
     psztargetname: Param0,
@@ -1292,6 +1374,7 @@ pub unsafe fn CredUICmdLinePromptForCredentialsA<'a, Param0: ::windows::runtime:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CredUICmdLinePromptForCredentialsW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
     psztargetname: Param0,
@@ -1326,6 +1409,7 @@ pub unsafe fn CredUICmdLinePromptForCredentialsW<'a, Param0: ::windows::runtime:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CredUIConfirmCredentialsA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(psztargetname: Param0, bconfirm: Param1) -> u32 {
     #[cfg(windows)]
@@ -1340,6 +1424,7 @@ pub unsafe fn CredUIConfirmCredentialsA<'a, Param0: ::windows::runtime::IntoPara
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CredUIConfirmCredentialsW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(psztargetname: Param0, bconfirm: Param1) -> u32 {
     #[cfg(windows)]
@@ -1354,6 +1439,7 @@ pub unsafe fn CredUIConfirmCredentialsW<'a, Param0: ::windows::runtime::IntoPara
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CredUIParseUserNameA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(username: Param0, user: super::super::Foundation::PSTR, userbuffersize: u32, domain: super::super::Foundation::PSTR, domainbuffersize: u32) -> u32 {
     #[cfg(windows)]
@@ -1368,6 +1454,7 @@ pub unsafe fn CredUIParseUserNameA<'a, Param0: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CredUIParseUserNameW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(username: Param0, user: super::super::Foundation::PWSTR, userbuffersize: u32, domain: super::super::Foundation::PWSTR, domainbuffersize: u32) -> u32 {
     #[cfg(windows)]
@@ -1382,6 +1469,7 @@ pub unsafe fn CredUIParseUserNameW<'a, Param0: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[inline]
 pub unsafe fn CredUIPromptForCredentialsA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(
     puiinfo: *const CREDUI_INFOA,
@@ -1418,6 +1506,7 @@ pub unsafe fn CredUIPromptForCredentialsA<'a, Param1: ::windows::runtime::IntoPa
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[inline]
 pub unsafe fn CredUIPromptForCredentialsW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
     puiinfo: *const CREDUI_INFOW,
@@ -1454,6 +1543,7 @@ pub unsafe fn CredUIPromptForCredentialsW<'a, Param1: ::windows::runtime::IntoPa
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[inline]
 pub unsafe fn CredUIPromptForWindowsCredentialsA(puiinfo: *const CREDUI_INFOA, dwautherror: u32, pulauthpackage: *mut u32, pvinauthbuffer: *const ::std::ffi::c_void, ulinauthbuffersize: u32, ppvoutauthbuffer: *mut *mut ::std::ffi::c_void, puloutauthbuffersize: *mut u32, pfsave: *mut super::super::Foundation::BOOL, dwflags: CREDUIWIN_FLAGS) -> u32 {
     #[cfg(windows)]
@@ -1478,6 +1568,7 @@ pub unsafe fn CredUIPromptForWindowsCredentialsA(puiinfo: *const CREDUI_INFOA, d
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[inline]
 pub unsafe fn CredUIPromptForWindowsCredentialsW(puiinfo: *const CREDUI_INFOW, dwautherror: u32, pulauthpackage: *mut u32, pvinauthbuffer: *const ::std::ffi::c_void, ulinauthbuffersize: u32, ppvoutauthbuffer: *mut *mut ::std::ffi::c_void, puloutauthbuffersize: *mut u32, pfsave: *mut super::super::Foundation::BOOL, dwflags: CREDUIWIN_FLAGS) -> u32 {
     #[cfg(windows)]
@@ -1502,6 +1593,7 @@ pub unsafe fn CredUIPromptForWindowsCredentialsW(puiinfo: *const CREDUI_INFOW, d
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CredUIReadSSOCredW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszrealm: Param0, ppszusername: *mut super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
@@ -1516,6 +1608,7 @@ pub unsafe fn CredUIReadSSOCredW<'a, Param0: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CredUIStoreSSOCredW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(pszrealm: Param0, pszusername: Param1, pszpassword: Param2, bpersist: Param3) -> u32 {
     #[cfg(windows)]
@@ -1530,6 +1623,7 @@ pub unsafe fn CredUIStoreSSOCredW<'a, Param0: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CredUnPackAuthenticationBufferA(dwflags: CRED_PACK_FLAGS, pauthbuffer: *const ::std::ffi::c_void, cbauthbuffer: u32, pszusername: super::super::Foundation::PSTR, pcchlmaxusername: *mut u32, pszdomainname: super::super::Foundation::PSTR, pcchmaxdomainname: *mut u32, pszpassword: super::super::Foundation::PSTR, pcchmaxpassword: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1554,6 +1648,7 @@ pub unsafe fn CredUnPackAuthenticationBufferA(dwflags: CRED_PACK_FLAGS, pauthbuf
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CredUnPackAuthenticationBufferW(dwflags: CRED_PACK_FLAGS, pauthbuffer: *const ::std::ffi::c_void, cbauthbuffer: u32, pszusername: super::super::Foundation::PWSTR, pcchmaxusername: *mut u32, pszdomainname: super::super::Foundation::PWSTR, pcchmaxdomainname: *mut u32, pszpassword: super::super::Foundation::PWSTR, pcchmaxpassword: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1578,6 +1673,7 @@ pub unsafe fn CredUnPackAuthenticationBufferW(dwflags: CRED_PACK_FLAGS, pauthbuf
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CredUnmarshalCredentialA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(marshaledcredential: Param0, credtype: *mut CRED_MARSHAL_TYPE, credential: *mut *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1592,6 +1688,7 @@ pub unsafe fn CredUnmarshalCredentialA<'a, Param0: ::windows::runtime::IntoParam
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CredUnmarshalCredentialW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(marshaledcredential: Param0, credtype: *mut CRED_MARSHAL_TYPE, credential: *mut *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1606,6 +1703,7 @@ pub unsafe fn CredUnmarshalCredentialW<'a, Param0: ::windows::runtime::IntoParam
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CredUnprotectA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(fasself: Param0, pszprotectedcredentials: Param1, cchprotectedcredentials: u32, pszcredentials: super::super::Foundation::PSTR, pcchmaxchars: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1620,6 +1718,7 @@ pub unsafe fn CredUnprotectA<'a, Param0: ::windows::runtime::IntoParam<'a, super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CredUnprotectW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(fasself: Param0, pszprotectedcredentials: Param1, cchprotectedcredentials: u32, pszcredentials: super::super::Foundation::PWSTR, pcchmaxchars: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1634,6 +1733,7 @@ pub unsafe fn CredUnprotectW<'a, Param0: ::windows::runtime::IntoParam<'a, super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CredWriteA(credential: *const CREDENTIALA, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1648,6 +1748,7 @@ pub unsafe fn CredWriteA(credential: *const CREDENTIALA, flags: u32) -> super::s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CredWriteDomainCredentialsA(targetinfo: *const CREDENTIAL_TARGET_INFORMATIONA, credential: *const CREDENTIALA, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1662,6 +1763,7 @@ pub unsafe fn CredWriteDomainCredentialsA(targetinfo: *const CREDENTIAL_TARGET_I
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CredWriteDomainCredentialsW(targetinfo: *const CREDENTIAL_TARGET_INFORMATIONW, credential: *const CREDENTIALW, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1676,6 +1778,7 @@ pub unsafe fn CredWriteDomainCredentialsW(targetinfo: *const CREDENTIAL_TARGET_I
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CredWriteW(credential: *const CREDENTIALW, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1689,9 +1792,11 @@ pub unsafe fn CredWriteW(credential: *const CREDENTIALW, flags: u32) -> super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const FILE_DEVICE_SMARTCARD: u32 = 49u32;
 pub const GUID_DEVINTERFACE_SMARTCARD_READER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1356681776, 47754, 4561, [191, 93, 0, 0, 248, 5, 245, 48]);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetOpenCardNameA(param0: *mut OPENCARDNAMEA) -> i32 {
     #[cfg(windows)]
@@ -1706,6 +1811,7 @@ pub unsafe fn GetOpenCardNameA(param0: *mut OPENCARDNAMEA) -> i32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetOpenCardNameW(param0: *mut OPENCARDNAMEW) -> i32 {
     #[cfg(windows)]
@@ -1719,6 +1825,7 @@ pub unsafe fn GetOpenCardNameW(param0: *mut OPENCARDNAMEW) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 #[inline]
 pub unsafe fn KeyCredentialManagerFreeInformation(keycredentialmanagerinfo: *const KeyCredentialManagerInfo) {
     #[cfg(windows)]
@@ -1732,6 +1839,7 @@ pub unsafe fn KeyCredentialManagerFreeInformation(keycredentialmanagerinfo: *con
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 #[inline]
 pub unsafe fn KeyCredentialManagerGetInformation() -> ::windows::runtime::Result<*mut KeyCredentialManagerInfo> {
     #[cfg(windows)]
@@ -1747,6 +1855,7 @@ pub unsafe fn KeyCredentialManagerGetInformation() -> ::windows::runtime::Result
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn KeyCredentialManagerGetOperationErrorStates(keycredentialmanageroperationtype: KeyCredentialManagerOperationType, isready: *mut super::super::Foundation::BOOL, keycredentialmanageroperationerrorstates: *mut KeyCredentialManagerOperationErrorStates) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1762,6 +1871,7 @@ pub unsafe fn KeyCredentialManagerGetOperationErrorStates(keycredentialmanagerop
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub struct KeyCredentialManagerInfo {
     pub containerId: ::windows::runtime::GUID,
 }
@@ -1786,6 +1896,7 @@ unsafe impl ::windows::runtime::Abi for KeyCredentialManagerInfo {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct KeyCredentialManagerOperationErrorStates(pub u32);
@@ -1834,6 +1945,7 @@ impl ::std::ops::Not for KeyCredentialManagerOperationErrorStates {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct KeyCredentialManagerOperationType(pub i32);
@@ -1850,6 +1962,7 @@ unsafe impl ::windows::runtime::Abi for KeyCredentialManagerOperationType {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn KeyCredentialManagerShowUIOperation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwndowner: Param0, keycredentialmanageroperationtype: KeyCredentialManagerOperationType) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1870,11 +1983,14 @@ pub type LPOCNCONNPROCA = unsafe extern "system" fn(param0: usize, param1: super
 #[cfg(feature = "Win32_Foundation")]
 pub type LPOCNCONNPROCW = unsafe extern "system" fn(param0: usize, param1: super::super::Foundation::PWSTR, param2: super::super::Foundation::PWSTR, param3: *const ::std::ffi::c_void) -> usize;
 pub type LPOCNDSCPROC = unsafe extern "system" fn(param0: usize, param1: usize, param2: *const ::std::ffi::c_void);
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const MAXIMUM_ATTR_STRING_LENGTH: u32 = 32u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const MAXIMUM_SMARTCARD_READERS: u32 = 10u32;
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 pub struct OPENCARDNAMEA {
     pub dwStructSize: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -1973,6 +2089,7 @@ unsafe impl ::windows::runtime::Abi for OPENCARDNAMEA {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 pub struct OPENCARDNAMEW {
     pub dwStructSize: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -2071,6 +2188,7 @@ unsafe impl ::windows::runtime::Abi for OPENCARDNAMEW {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
 pub struct OPENCARDNAME_EXA {
     pub dwStructSize: u32,
     pub hSCardContext: usize,
@@ -2156,6 +2274,7 @@ unsafe impl ::windows::runtime::Abi for OPENCARDNAME_EXA {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
 pub struct OPENCARDNAME_EXW {
     pub dwStructSize: u32,
     pub hSCardContext: usize,
@@ -2241,6 +2360,7 @@ unsafe impl ::windows::runtime::Abi for OPENCARDNAME_EXW {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 pub struct OPENCARD_SEARCH_CRITERIAA {
     pub dwStructSize: u32,
     pub lpstrGroupNames: super::super::Foundation::PSTR,
@@ -2309,6 +2429,7 @@ unsafe impl ::windows::runtime::Abi for OPENCARD_SEARCH_CRITERIAA {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 pub struct OPENCARD_SEARCH_CRITERIAW {
     pub dwStructSize: u32,
     pub lpstrGroupNames: super::super::Foundation::PWSTR,
@@ -2376,6 +2497,7 @@ unsafe impl ::windows::runtime::Abi for OPENCARD_SEARCH_CRITERIAW {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub struct READER_SEL_REQUEST {
     pub dwShareMode: u32,
     pub dwPreferredProtocols: u32,
@@ -2400,6 +2522,7 @@ unsafe impl ::windows::runtime::Abi for READER_SEL_REQUEST {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub union READER_SEL_REQUEST_0 {
     pub ReaderAndContainerParameter: READER_SEL_REQUEST_0_0,
     pub SerialNumberParameter: READER_SEL_REQUEST_0_1,
@@ -2422,6 +2545,7 @@ unsafe impl ::windows::runtime::Abi for READER_SEL_REQUEST_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub struct READER_SEL_REQUEST_0_0 {
     pub cbReaderNameOffset: u32,
     pub cchReaderNameLength: u32,
@@ -2460,6 +2584,7 @@ unsafe impl ::windows::runtime::Abi for READER_SEL_REQUEST_0_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub struct READER_SEL_REQUEST_0_1 {
     pub cbSerialNumberOffset: u32,
     pub cbSerialNumberLength: u32,
@@ -2486,6 +2611,7 @@ unsafe impl ::windows::runtime::Abi for READER_SEL_REQUEST_0_1 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct READER_SEL_REQUEST_MATCH_TYPE(pub i32);
@@ -2503,6 +2629,7 @@ unsafe impl ::windows::runtime::Abi for READER_SEL_REQUEST_MATCH_TYPE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub struct READER_SEL_RESPONSE {
     pub cbReaderNameOffset: u32,
     pub cchReaderNameLength: u32,
@@ -2530,9 +2657,11 @@ unsafe impl ::windows::runtime::Abi for READER_SEL_RESPONSE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SCARD_ABSENT: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub struct SCARD_ATRMASK {
     pub cbAtr: u32,
     pub rgbAtr: [u8; 36],
@@ -2559,24 +2688,41 @@ unsafe impl ::windows::runtime::Abi for SCARD_ATRMASK {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SCARD_ATR_LENGTH: u32 = 33u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SCARD_AUDIT_CHV_FAILURE: u32 = 0u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SCARD_AUDIT_CHV_SUCCESS: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SCARD_CLASS_COMMUNICATIONS: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SCARD_CLASS_ICC_STATE: u32 = 9u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SCARD_CLASS_IFD_PROTOCOL: u32 = 8u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SCARD_CLASS_MECHANICAL: u32 = 6u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SCARD_CLASS_PERF: u32 = 32766u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SCARD_CLASS_POWER_MGMT: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SCARD_CLASS_PROTOCOL: u32 = 3u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SCARD_CLASS_SECURITY: u32 = 5u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SCARD_CLASS_SYSTEM: u32 = 32767u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SCARD_CLASS_VENDOR_DEFINED: u32 = 7u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SCARD_CLASS_VENDOR_INFO: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SCARD_COLD_RESET: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SCARD_EJECT_CARD: u32 = 3u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub struct SCARD_IO_REQUEST {
     pub dwProtocol: u32,
     pub cbPciLength: u32,
@@ -2602,23 +2748,38 @@ unsafe impl ::windows::runtime::Abi for SCARD_IO_REQUEST {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SCARD_LEAVE_CARD: u32 = 0u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SCARD_NEGOTIABLE: u32 = 5u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SCARD_POWERED: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SCARD_POWER_DOWN: u32 = 0u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SCARD_PRESENT: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SCARD_PROTOCOL_DEFAULT: u32 = 2147483648u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SCARD_PROTOCOL_OPTIMAL: u32 = 0u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SCARD_PROTOCOL_RAW: u32 = 65536u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SCARD_PROTOCOL_T0: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SCARD_PROTOCOL_T1: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SCARD_PROTOCOL_UNDEFINED: u32 = 0u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SCARD_PROVIDER_CSP: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SCARD_PROVIDER_KSP: u32 = 3u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SCARD_PROVIDER_PRIMARY: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 pub struct SCARD_READERSTATEA {
     pub szReader: super::super::Foundation::PSTR,
     pub pvUserData: *mut ::std::ffi::c_void,
@@ -2657,6 +2818,7 @@ unsafe impl ::windows::runtime::Abi for SCARD_READERSTATEA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 pub struct SCARD_READERSTATEW {
     pub szReader: super::super::Foundation::PWSTR,
     pub pvUserData: *mut ::std::ffi::c_void,
@@ -2692,24 +2854,43 @@ unsafe impl ::windows::runtime::Abi for SCARD_READERSTATEW {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SCARD_READER_CONFISCATES: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SCARD_READER_CONTACTLESS: u32 = 8u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SCARD_READER_EJECTS: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SCARD_READER_SWALLOWS: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SCARD_READER_TYPE_EMBEDDEDSE: u32 = 2048u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SCARD_READER_TYPE_IDE: u32 = 16u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SCARD_READER_TYPE_KEYBOARD: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SCARD_READER_TYPE_NFC: u32 = 256u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SCARD_READER_TYPE_NGC: u32 = 1024u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SCARD_READER_TYPE_PARALELL: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SCARD_READER_TYPE_PCMCIA: u32 = 64u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SCARD_READER_TYPE_SCSI: u32 = 8u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SCARD_READER_TYPE_SERIAL: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SCARD_READER_TYPE_TPM: u32 = 128u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SCARD_READER_TYPE_UICC: u32 = 512u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SCARD_READER_TYPE_USB: u32 = 32u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SCARD_READER_TYPE_VENDOR: u32 = 240u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SCARD_RESET_CARD: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SCARD_SCOPE(pub u32);
@@ -2752,11 +2933,17 @@ impl ::std::ops::Not for SCARD_SCOPE {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SCARD_SCOPE_TERMINAL: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SCARD_SHARE_DIRECT: u32 = 3u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SCARD_SHARE_EXCLUSIVE: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SCARD_SHARE_SHARED: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SCARD_SPECIFIC: u32 = 6u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SCARD_STATE(pub u32);
@@ -2808,11 +2995,15 @@ impl ::std::ops::Not for SCARD_STATE {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SCARD_STATE_UNPOWERED: u32 = 1024u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SCARD_SWALLOWED: u32 = 3u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SCARD_T0_CMD_LENGTH: u32 = 5u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub struct SCARD_T0_COMMAND {
     pub bCla: u8,
     pub bIns: u8,
@@ -2841,9 +3032,11 @@ unsafe impl ::windows::runtime::Abi for SCARD_T0_COMMAND {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SCARD_T0_HEADER_LENGTH: u32 = 7u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub struct SCARD_T0_REQUEST {
     pub ioRequest: SCARD_IO_REQUEST,
     pub bSw1: u8,
@@ -2868,6 +3061,7 @@ unsafe impl ::windows::runtime::Abi for SCARD_T0_REQUEST {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub union SCARD_T0_REQUEST_0 {
     pub CmdBytes: SCARD_T0_COMMAND,
     pub rgbHeader: [u8; 5],
@@ -2888,12 +3082,17 @@ unsafe impl ::windows::runtime::Abi for SCARD_T0_REQUEST_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SCARD_T1_EPILOGUE_LENGTH: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SCARD_T1_EPILOGUE_LENGTH_LRC: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SCARD_T1_MAX_IFS: u32 = 254u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SCARD_T1_PROLOGUE_LENGTH: u32 = 3u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub struct SCARD_T1_REQUEST {
     pub ioRequest: SCARD_IO_REQUEST,
 }
@@ -2918,15 +3117,24 @@ unsafe impl ::windows::runtime::Abi for SCARD_T1_REQUEST {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SCARD_UNKNOWN: u32 = 0u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SCARD_UNPOWER_CARD: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SCARD_WARM_RESET: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SCERR_NOCARDNAME: u32 = 16384u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SCERR_NOGUIDS: u32 = 32768u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SC_DLG_FORCE_UI: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SC_DLG_MINIMAL_UI: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SC_DLG_NO_UI: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SCardAccessStartedEvent() -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
@@ -2941,6 +3149,7 @@ pub unsafe fn SCardAccessStartedEvent() -> super::super::Foundation::HANDLE {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SCardAddReaderToGroupA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szreadername: Param1, szgroupname: Param2) -> i32 {
     #[cfg(windows)]
@@ -2955,6 +3164,7 @@ pub unsafe fn SCardAddReaderToGroupA<'a, Param1: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SCardAddReaderToGroupW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szreadername: Param1, szgroupname: Param2) -> i32 {
     #[cfg(windows)]
@@ -2968,6 +3178,7 @@ pub unsafe fn SCardAddReaderToGroupW<'a, Param1: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 #[inline]
 pub unsafe fn SCardAudit(hcontext: usize, dwevent: u32) -> i32 {
     #[cfg(windows)]
@@ -2981,6 +3192,7 @@ pub unsafe fn SCardAudit(hcontext: usize, dwevent: u32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 #[inline]
 pub unsafe fn SCardBeginTransaction(hcard: usize) -> i32 {
     #[cfg(windows)]
@@ -2994,6 +3206,7 @@ pub unsafe fn SCardBeginTransaction(hcard: usize) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 #[inline]
 pub unsafe fn SCardCancel(hcontext: usize) -> i32 {
     #[cfg(windows)]
@@ -3008,6 +3221,7 @@ pub unsafe fn SCardCancel(hcontext: usize) -> i32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SCardConnectA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szreader: Param1, dwsharemode: u32, dwpreferredprotocols: u32, phcard: *mut usize, pdwactiveprotocol: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -3022,6 +3236,7 @@ pub unsafe fn SCardConnectA<'a, Param1: ::windows::runtime::IntoParam<'a, super:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SCardConnectW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szreader: Param1, dwsharemode: u32, dwpreferredprotocols: u32, phcard: *mut usize, pdwactiveprotocol: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -3035,6 +3250,7 @@ pub unsafe fn SCardConnectW<'a, Param1: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 #[inline]
 pub unsafe fn SCardControl(hcard: usize, dwcontrolcode: u32, lpinbuffer: *const ::std::ffi::c_void, cbinbuffersize: u32, lpoutbuffer: *mut ::std::ffi::c_void, cboutbuffersize: u32, lpbytesreturned: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -3048,6 +3264,7 @@ pub unsafe fn SCardControl(hcard: usize, dwcontrolcode: u32, lpinbuffer: *const 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 #[inline]
 pub unsafe fn SCardDisconnect(hcard: usize, dwdisposition: u32) -> i32 {
     #[cfg(windows)]
@@ -3061,6 +3278,7 @@ pub unsafe fn SCardDisconnect(hcard: usize, dwdisposition: u32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 #[inline]
 pub unsafe fn SCardDlgExtendedError() -> i32 {
     #[cfg(windows)]
@@ -3074,6 +3292,7 @@ pub unsafe fn SCardDlgExtendedError() -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 #[inline]
 pub unsafe fn SCardEndTransaction(hcard: usize, dwdisposition: u32) -> i32 {
     #[cfg(windows)]
@@ -3087,6 +3306,7 @@ pub unsafe fn SCardEndTransaction(hcard: usize, dwdisposition: u32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 #[inline]
 pub unsafe fn SCardEstablishContext(dwscope: SCARD_SCOPE, pvreserved1: *const ::std::ffi::c_void, pvreserved2: *const ::std::ffi::c_void, phcontext: *mut usize) -> i32 {
     #[cfg(windows)]
@@ -3101,6 +3321,7 @@ pub unsafe fn SCardEstablishContext(dwscope: SCARD_SCOPE, pvreserved1: *const ::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SCardForgetCardTypeA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szcardname: Param1) -> i32 {
     #[cfg(windows)]
@@ -3115,6 +3336,7 @@ pub unsafe fn SCardForgetCardTypeA<'a, Param1: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SCardForgetCardTypeW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szcardname: Param1) -> i32 {
     #[cfg(windows)]
@@ -3129,6 +3351,7 @@ pub unsafe fn SCardForgetCardTypeW<'a, Param1: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SCardForgetReaderA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szreadername: Param1) -> i32 {
     #[cfg(windows)]
@@ -3143,6 +3366,7 @@ pub unsafe fn SCardForgetReaderA<'a, Param1: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SCardForgetReaderGroupA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szgroupname: Param1) -> i32 {
     #[cfg(windows)]
@@ -3157,6 +3381,7 @@ pub unsafe fn SCardForgetReaderGroupA<'a, Param1: ::windows::runtime::IntoParam<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SCardForgetReaderGroupW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szgroupname: Param1) -> i32 {
     #[cfg(windows)]
@@ -3171,6 +3396,7 @@ pub unsafe fn SCardForgetReaderGroupW<'a, Param1: ::windows::runtime::IntoParam<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SCardForgetReaderW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szreadername: Param1) -> i32 {
     #[cfg(windows)]
@@ -3184,6 +3410,7 @@ pub unsafe fn SCardForgetReaderW<'a, Param1: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 #[inline]
 pub unsafe fn SCardFreeMemory(hcontext: usize, pvmem: *const ::std::ffi::c_void) -> i32 {
     #[cfg(windows)]
@@ -3197,6 +3424,7 @@ pub unsafe fn SCardFreeMemory(hcontext: usize, pvmem: *const ::std::ffi::c_void)
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 #[inline]
 pub unsafe fn SCardGetAttrib(hcard: usize, dwattrid: u32, pbattr: *mut u8, pcbattrlen: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -3211,6 +3439,7 @@ pub unsafe fn SCardGetAttrib(hcard: usize, dwattrid: u32, pbattr: *mut u8, pcbat
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SCardGetCardTypeProviderNameA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szcardname: Param1, dwproviderid: u32, szprovider: super::super::Foundation::PSTR, pcchprovider: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -3225,6 +3454,7 @@ pub unsafe fn SCardGetCardTypeProviderNameA<'a, Param1: ::windows::runtime::Into
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SCardGetCardTypeProviderNameW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szcardname: Param1, dwproviderid: u32, szprovider: super::super::Foundation::PWSTR, pcchprovider: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -3239,6 +3469,7 @@ pub unsafe fn SCardGetCardTypeProviderNameW<'a, Param1: ::windows::runtime::Into
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SCardGetDeviceTypeIdA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szreadername: Param1, pdwdevicetypeid: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -3253,6 +3484,7 @@ pub unsafe fn SCardGetDeviceTypeIdA<'a, Param1: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SCardGetDeviceTypeIdW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szreadername: Param1, pdwdevicetypeid: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -3267,6 +3499,7 @@ pub unsafe fn SCardGetDeviceTypeIdW<'a, Param1: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SCardGetProviderIdA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szcard: Param1, pguidproviderid: *mut ::windows::runtime::GUID) -> i32 {
     #[cfg(windows)]
@@ -3281,6 +3514,7 @@ pub unsafe fn SCardGetProviderIdA<'a, Param1: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SCardGetProviderIdW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szcard: Param1, pguidproviderid: *mut ::windows::runtime::GUID) -> i32 {
     #[cfg(windows)]
@@ -3295,6 +3529,7 @@ pub unsafe fn SCardGetProviderIdW<'a, Param1: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SCardGetReaderDeviceInstanceIdA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szreadername: Param1, szdeviceinstanceid: super::super::Foundation::PSTR, pcchdeviceinstanceid: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -3309,6 +3544,7 @@ pub unsafe fn SCardGetReaderDeviceInstanceIdA<'a, Param1: ::windows::runtime::In
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SCardGetReaderDeviceInstanceIdW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szreadername: Param1, szdeviceinstanceid: super::super::Foundation::PWSTR, pcchdeviceinstanceid: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -3323,6 +3559,7 @@ pub unsafe fn SCardGetReaderDeviceInstanceIdW<'a, Param1: ::windows::runtime::In
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SCardGetReaderIconA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szreadername: Param1, pbicon: *mut u8, pcbicon: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -3337,6 +3574,7 @@ pub unsafe fn SCardGetReaderIconA<'a, Param1: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SCardGetReaderIconW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szreadername: Param1, pbicon: *mut u8, pcbicon: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -3351,6 +3589,7 @@ pub unsafe fn SCardGetReaderIconW<'a, Param1: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SCardGetStatusChangeA(hcontext: usize, dwtimeout: u32, rgreaderstates: *mut SCARD_READERSTATEA, creaders: u32) -> i32 {
     #[cfg(windows)]
@@ -3365,6 +3604,7 @@ pub unsafe fn SCardGetStatusChangeA(hcontext: usize, dwtimeout: u32, rgreadersta
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SCardGetStatusChangeW(hcontext: usize, dwtimeout: u32, rgreaderstates: *mut SCARD_READERSTATEW, creaders: u32) -> i32 {
     #[cfg(windows)]
@@ -3378,6 +3618,7 @@ pub unsafe fn SCardGetStatusChangeW(hcontext: usize, dwtimeout: u32, rgreadersta
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 #[inline]
 pub unsafe fn SCardGetTransmitCount(hcard: usize, pctransmitcount: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -3392,6 +3633,7 @@ pub unsafe fn SCardGetTransmitCount(hcard: usize, pctransmitcount: *mut u32) -> 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SCardIntroduceCardTypeA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szcardname: Param1, pguidprimaryprovider: *const ::windows::runtime::GUID, rgguidinterfaces: *const ::windows::runtime::GUID, dwinterfacecount: u32, pbatr: *const u8, pbatrmask: *const u8, cbatrlen: u32) -> i32 {
     #[cfg(windows)]
@@ -3415,6 +3657,7 @@ pub unsafe fn SCardIntroduceCardTypeA<'a, Param1: ::windows::runtime::IntoParam<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SCardIntroduceCardTypeW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szcardname: Param1, pguidprimaryprovider: *const ::windows::runtime::GUID, rgguidinterfaces: *const ::windows::runtime::GUID, dwinterfacecount: u32, pbatr: *const u8, pbatrmask: *const u8, cbatrlen: u32) -> i32 {
     #[cfg(windows)]
@@ -3438,6 +3681,7 @@ pub unsafe fn SCardIntroduceCardTypeW<'a, Param1: ::windows::runtime::IntoParam<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SCardIntroduceReaderA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szreadername: Param1, szdevicename: Param2) -> i32 {
     #[cfg(windows)]
@@ -3452,6 +3696,7 @@ pub unsafe fn SCardIntroduceReaderA<'a, Param1: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SCardIntroduceReaderGroupA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szgroupname: Param1) -> i32 {
     #[cfg(windows)]
@@ -3466,6 +3711,7 @@ pub unsafe fn SCardIntroduceReaderGroupA<'a, Param1: ::windows::runtime::IntoPar
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SCardIntroduceReaderGroupW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szgroupname: Param1) -> i32 {
     #[cfg(windows)]
@@ -3480,6 +3726,7 @@ pub unsafe fn SCardIntroduceReaderGroupW<'a, Param1: ::windows::runtime::IntoPar
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SCardIntroduceReaderW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szreadername: Param1, szdevicename: Param2) -> i32 {
     #[cfg(windows)]
@@ -3493,6 +3740,7 @@ pub unsafe fn SCardIntroduceReaderW<'a, Param1: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 #[inline]
 pub unsafe fn SCardIsValidContext(hcontext: usize) -> i32 {
     #[cfg(windows)]
@@ -3507,6 +3755,7 @@ pub unsafe fn SCardIsValidContext(hcontext: usize) -> i32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SCardListCardsA(hcontext: usize, pbatr: *const u8, rgquidinterfaces: *const ::windows::runtime::GUID, cguidinterfacecount: u32, mszcards: super::super::Foundation::PSTR, pcchcards: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -3521,6 +3770,7 @@ pub unsafe fn SCardListCardsA(hcontext: usize, pbatr: *const u8, rgquidinterface
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SCardListCardsW(hcontext: usize, pbatr: *const u8, rgquidinterfaces: *const ::windows::runtime::GUID, cguidinterfacecount: u32, mszcards: super::super::Foundation::PWSTR, pcchcards: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -3535,6 +3785,7 @@ pub unsafe fn SCardListCardsW(hcontext: usize, pbatr: *const u8, rgquidinterface
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SCardListInterfacesA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szcard: Param1, pguidinterfaces: *mut ::windows::runtime::GUID, pcguidinterfaces: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -3549,6 +3800,7 @@ pub unsafe fn SCardListInterfacesA<'a, Param1: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SCardListInterfacesW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szcard: Param1, pguidinterfaces: *mut ::windows::runtime::GUID, pcguidinterfaces: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -3563,6 +3815,7 @@ pub unsafe fn SCardListInterfacesW<'a, Param1: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SCardListReaderGroupsA(hcontext: usize, mszgroups: super::super::Foundation::PSTR, pcchgroups: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -3577,6 +3830,7 @@ pub unsafe fn SCardListReaderGroupsA(hcontext: usize, mszgroups: super::super::F
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SCardListReaderGroupsW(hcontext: usize, mszgroups: super::super::Foundation::PWSTR, pcchgroups: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -3591,6 +3845,7 @@ pub unsafe fn SCardListReaderGroupsW(hcontext: usize, mszgroups: super::super::F
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SCardListReadersA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, mszgroups: Param1, mszreaders: super::super::Foundation::PSTR, pcchreaders: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -3605,6 +3860,7 @@ pub unsafe fn SCardListReadersA<'a, Param1: ::windows::runtime::IntoParam<'a, su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SCardListReadersW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, mszgroups: Param1, mszreaders: super::super::Foundation::PWSTR, pcchreaders: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -3619,6 +3875,7 @@ pub unsafe fn SCardListReadersW<'a, Param1: ::windows::runtime::IntoParam<'a, su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SCardListReadersWithDeviceInstanceIdA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szdeviceinstanceid: Param1, mszreaders: super::super::Foundation::PSTR, pcchreaders: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -3633,6 +3890,7 @@ pub unsafe fn SCardListReadersWithDeviceInstanceIdA<'a, Param1: ::windows::runti
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SCardListReadersWithDeviceInstanceIdW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szdeviceinstanceid: Param1, mszreaders: super::super::Foundation::PWSTR, pcchreaders: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -3647,6 +3905,7 @@ pub unsafe fn SCardListReadersWithDeviceInstanceIdW<'a, Param1: ::windows::runti
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SCardLocateCardsA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, mszcards: Param1, rgreaderstates: *mut SCARD_READERSTATEA, creaders: u32) -> i32 {
     #[cfg(windows)]
@@ -3661,6 +3920,7 @@ pub unsafe fn SCardLocateCardsA<'a, Param1: ::windows::runtime::IntoParam<'a, su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SCardLocateCardsByATRA(hcontext: usize, rgatrmasks: *const SCARD_ATRMASK, catrs: u32, rgreaderstates: *mut SCARD_READERSTATEA, creaders: u32) -> i32 {
     #[cfg(windows)]
@@ -3675,6 +3935,7 @@ pub unsafe fn SCardLocateCardsByATRA(hcontext: usize, rgatrmasks: *const SCARD_A
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SCardLocateCardsByATRW(hcontext: usize, rgatrmasks: *const SCARD_ATRMASK, catrs: u32, rgreaderstates: *mut SCARD_READERSTATEW, creaders: u32) -> i32 {
     #[cfg(windows)]
@@ -3689,6 +3950,7 @@ pub unsafe fn SCardLocateCardsByATRW(hcontext: usize, rgatrmasks: *const SCARD_A
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SCardLocateCardsW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, mszcards: Param1, rgreaderstates: *mut SCARD_READERSTATEW, creaders: u32) -> i32 {
     #[cfg(windows)]
@@ -3703,6 +3965,7 @@ pub unsafe fn SCardLocateCardsW<'a, Param1: ::windows::runtime::IntoParam<'a, su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SCardReadCacheA<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, cardidentifier: *const ::windows::runtime::GUID, freshnesscounter: u32, lookupname: Param3, data: *mut u8, datalen: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -3717,6 +3980,7 @@ pub unsafe fn SCardReadCacheA<'a, Param3: ::windows::runtime::IntoParam<'a, supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SCardReadCacheW<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, cardidentifier: *const ::windows::runtime::GUID, freshnesscounter: u32, lookupname: Param3, data: *mut u8, datalen: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -3730,6 +3994,7 @@ pub unsafe fn SCardReadCacheW<'a, Param3: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 #[inline]
 pub unsafe fn SCardReconnect(hcard: usize, dwsharemode: u32, dwpreferredprotocols: u32, dwinitialization: u32, pdwactiveprotocol: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -3743,6 +4008,7 @@ pub unsafe fn SCardReconnect(hcard: usize, dwsharemode: u32, dwpreferredprotocol
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 #[inline]
 pub unsafe fn SCardReleaseContext(hcontext: usize) -> i32 {
     #[cfg(windows)]
@@ -3756,6 +4022,7 @@ pub unsafe fn SCardReleaseContext(hcontext: usize) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 #[inline]
 pub unsafe fn SCardReleaseStartedEvent() {
     #[cfg(windows)]
@@ -3770,6 +4037,7 @@ pub unsafe fn SCardReleaseStartedEvent() {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SCardRemoveReaderFromGroupA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szreadername: Param1, szgroupname: Param2) -> i32 {
     #[cfg(windows)]
@@ -3784,6 +4052,7 @@ pub unsafe fn SCardRemoveReaderFromGroupA<'a, Param1: ::windows::runtime::IntoPa
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SCardRemoveReaderFromGroupW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szreadername: Param1, szgroupname: Param2) -> i32 {
     #[cfg(windows)]
@@ -3797,6 +4066,7 @@ pub unsafe fn SCardRemoveReaderFromGroupW<'a, Param1: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 #[inline]
 pub unsafe fn SCardSetAttrib(hcard: usize, dwattrid: u32, pbattr: *const u8, cbattrlen: u32) -> i32 {
     #[cfg(windows)]
@@ -3811,6 +4081,7 @@ pub unsafe fn SCardSetAttrib(hcard: usize, dwattrid: u32, pbattr: *const u8, cba
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SCardSetCardTypeProviderNameA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szcardname: Param1, dwproviderid: u32, szprovider: Param3) -> i32 {
     #[cfg(windows)]
@@ -3825,6 +4096,7 @@ pub unsafe fn SCardSetCardTypeProviderNameA<'a, Param1: ::windows::runtime::Into
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SCardSetCardTypeProviderNameW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szcardname: Param1, dwproviderid: u32, szprovider: Param3) -> i32 {
     #[cfg(windows)]
@@ -3838,6 +4110,7 @@ pub unsafe fn SCardSetCardTypeProviderNameW<'a, Param1: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 #[inline]
 pub unsafe fn SCardState(hcard: usize, pdwstate: *mut u32, pdwprotocol: *mut u32, pbatr: *mut u8, pcbatrlen: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -3852,6 +4125,7 @@ pub unsafe fn SCardState(hcard: usize, pdwstate: *mut u32, pdwprotocol: *mut u32
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SCardStatusA(hcard: usize, mszreadernames: super::super::Foundation::PSTR, pcchreaderlen: *mut u32, pdwstate: *mut u32, pdwprotocol: *mut u32, pbatr: *mut u8, pcbatrlen: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -3866,6 +4140,7 @@ pub unsafe fn SCardStatusA(hcard: usize, mszreadernames: super::super::Foundatio
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SCardStatusW(hcard: usize, mszreadernames: super::super::Foundation::PWSTR, pcchreaderlen: *mut u32, pdwstate: *mut u32, pdwprotocol: *mut u32, pbatr: *mut u8, pcbatrlen: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -3879,6 +4154,7 @@ pub unsafe fn SCardStatusW(hcard: usize, mszreadernames: super::super::Foundatio
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 #[inline]
 pub unsafe fn SCardTransmit(hcard: usize, piosendpci: *const SCARD_IO_REQUEST, pbsendbuffer: *const u8, cbsendlength: u32, piorecvpci: *mut SCARD_IO_REQUEST, pbrecvbuffer: *mut u8, pcbrecvlength: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -3893,6 +4169,7 @@ pub unsafe fn SCardTransmit(hcard: usize, piosendpci: *const SCARD_IO_REQUEST, p
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
 #[inline]
 pub unsafe fn SCardUIDlgSelectCardA(param0: *mut OPENCARDNAME_EXA) -> i32 {
     #[cfg(windows)]
@@ -3907,6 +4184,7 @@ pub unsafe fn SCardUIDlgSelectCardA(param0: *mut OPENCARDNAME_EXA) -> i32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
 #[inline]
 pub unsafe fn SCardUIDlgSelectCardW(param0: *mut OPENCARDNAME_EXW) -> i32 {
     #[cfg(windows)]
@@ -3921,6 +4199,7 @@ pub unsafe fn SCardUIDlgSelectCardW(param0: *mut OPENCARDNAME_EXW) -> i32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SCardWriteCacheA<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, cardidentifier: *const ::windows::runtime::GUID, freshnesscounter: u32, lookupname: Param3, data: *const u8, datalen: u32) -> i32 {
     #[cfg(windows)]
@@ -3935,6 +4214,7 @@ pub unsafe fn SCardWriteCacheA<'a, Param3: ::windows::runtime::IntoParam<'a, sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SCardWriteCacheW<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, cardidentifier: *const ::windows::runtime::GUID, freshnesscounter: u32, lookupname: Param3, data: *const u8, datalen: u32) -> i32 {
     #[cfg(windows)]
@@ -3948,38 +4228,55 @@ pub unsafe fn SCardWriteCacheW<'a, Param3: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SECPKG_ALT_ATTR: u32 = 2147483648u32;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SECPKG_ATTR_C_FULL_IDENT_TOKEN: u32 = 2147483781u32;
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 pub const STATUS_ACCESS_DENIED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073741790i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 pub const STATUS_ACCOUNT_DISABLED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073741710i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 pub const STATUS_ACCOUNT_EXPIRED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073741421i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 pub const STATUS_ACCOUNT_LOCKED_OUT: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073741260i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 pub const STATUS_ACCOUNT_RESTRICTION: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073741714i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 pub const STATUS_AUTHENTICATION_FIREWALL_FAILED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073740781i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 pub const STATUS_DOWNGRADE_DETECTED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073740920i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 pub const STATUS_LOGON_FAILURE: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073741715i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 pub const STATUS_LOGON_TYPE_NOT_GRANTED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073741477i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 pub const STATUS_NO_SUCH_LOGON_SESSION: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073741729i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 pub const STATUS_NO_SUCH_USER: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073741724i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 pub const STATUS_PASSWORD_EXPIRED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073741711i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 pub const STATUS_PASSWORD_MUST_CHANGE: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073741276i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 pub const STATUS_WRONG_PASSWORD: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073741718i32 as _);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub struct SecHandle {
     pub dwLower: usize,
     pub dwUpper: usize,
@@ -4007,6 +4304,7 @@ unsafe impl ::windows::runtime::Abi for SecHandle {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub struct SecPkgContext_ClientCreds {
     pub AuthBufferLen: u32,
     pub AuthBuffer: *mut u8,
@@ -4035,6 +4333,7 @@ unsafe impl ::windows::runtime::Abi for SecPkgContext_ClientCreds {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 pub struct USERNAME_TARGET_CREDENTIAL_INFO {
     pub UserName: super::super::Foundation::PWSTR,
 }

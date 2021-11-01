@@ -43,14 +43,17 @@ pub struct ISystemProtectionUnlockStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Phone_System`*"]
 pub struct SystemProtection {}
 impl SystemProtection {
+    #[doc = "*Required features: `Phone_System`*"]
     pub fn ScreenLocked() -> ::windows::runtime::Result<bool> {
         Self::ISystemProtectionStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: `Phone_System`*"]
     pub fn RequestScreenUnlock() -> ::windows::runtime::Result<()> {
         Self::ISystemProtectionUnlockStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() })
     }

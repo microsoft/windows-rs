@@ -1,7 +1,9 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Gaming_Input_Preview`*"]
 pub struct GameControllerProviderInfo {}
 impl GameControllerProviderInfo {
     #[cfg(feature = "Gaming_Input_Custom")]
+    #[doc = "*Required features: `Gaming_Input_Preview`, `Gaming_Input_Custom`*"]
     pub fn GetParentProviderId<'a, Param0: ::windows::runtime::IntoParam<'a, super::Custom::IGameControllerProvider>>(provider: Param0) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IGameControllerProviderInfoStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
@@ -9,6 +11,7 @@ impl GameControllerProviderInfo {
         })
     }
     #[cfg(feature = "Gaming_Input_Custom")]
+    #[doc = "*Required features: `Gaming_Input_Preview`, `Gaming_Input_Custom`*"]
     pub fn GetProviderId<'a, Param0: ::windows::runtime::IntoParam<'a, super::Custom::IGameControllerProvider>>(provider: Param0) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IGameControllerProviderInfoStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();

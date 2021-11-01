@@ -1,7 +1,9 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `System_Power_Diagnostics`*"]
 pub struct BackgroundEnergyDiagnostics {}
 impl BackgroundEnergyDiagnostics {
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `System_Power_Diagnostics`*"]
     pub fn DeviceSpecificConversionFactor() -> ::windows::runtime::Result<f64> {
         Self::IBackgroundEnergyDiagnosticsStatics(|this| unsafe {
             let mut result__: f64 = ::std::mem::zeroed();
@@ -9,6 +11,7 @@ impl BackgroundEnergyDiagnostics {
         })
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `System_Power_Diagnostics`*"]
     pub fn ComputeTotalEnergyUsage() -> ::windows::runtime::Result<u64> {
         Self::IBackgroundEnergyDiagnosticsStatics(|this| unsafe {
             let mut result__: u64 = ::std::mem::zeroed();
@@ -16,6 +19,7 @@ impl BackgroundEnergyDiagnostics {
         })
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `System_Power_Diagnostics`*"]
     pub fn ResetTotalEnergyUsage() -> ::windows::runtime::Result<()> {
         Self::IBackgroundEnergyDiagnosticsStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this)).ok() })
     }
@@ -27,9 +31,11 @@ impl BackgroundEnergyDiagnostics {
 impl ::windows::runtime::RuntimeName for BackgroundEnergyDiagnostics {
     const NAME: &'static str = "Windows.System.Power.Diagnostics.BackgroundEnergyDiagnostics";
 }
+#[doc = "*Required features: `System_Power_Diagnostics`*"]
 pub struct ForegroundEnergyDiagnostics {}
 impl ForegroundEnergyDiagnostics {
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `System_Power_Diagnostics`*"]
     pub fn DeviceSpecificConversionFactor() -> ::windows::runtime::Result<f64> {
         Self::IForegroundEnergyDiagnosticsStatics(|this| unsafe {
             let mut result__: f64 = ::std::mem::zeroed();
@@ -37,6 +43,7 @@ impl ForegroundEnergyDiagnostics {
         })
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `System_Power_Diagnostics`*"]
     pub fn ComputeTotalEnergyUsage() -> ::windows::runtime::Result<u64> {
         Self::IForegroundEnergyDiagnosticsStatics(|this| unsafe {
             let mut result__: u64 = ::std::mem::zeroed();
@@ -44,6 +51,7 @@ impl ForegroundEnergyDiagnostics {
         })
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `System_Power_Diagnostics`*"]
     pub fn ResetTotalEnergyUsage() -> ::windows::runtime::Result<()> {
         Self::IForegroundEnergyDiagnosticsStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this)).ok() })
     }

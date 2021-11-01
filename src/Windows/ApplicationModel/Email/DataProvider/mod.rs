@@ -1,9 +1,11 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EmailDataProviderConnection(::windows::runtime::IInspectable);
 impl EmailDataProviderConnection {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`*"]
     pub fn MailboxSyncRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxSyncManagerSyncRequestEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -12,11 +14,13 @@ impl EmailDataProviderConnection {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`*"]
     pub fn RemoveMailboxSyncRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`*"]
     pub fn DownloadMessageRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxDownloadMessageRequestEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -25,11 +29,13 @@ impl EmailDataProviderConnection {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`*"]
     pub fn RemoveDownloadMessageRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`*"]
     pub fn DownloadAttachmentRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxDownloadAttachmentRequestEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -38,11 +44,13 @@ impl EmailDataProviderConnection {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`*"]
     pub fn RemoveDownloadAttachmentRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`*"]
     pub fn CreateFolderRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxCreateFolderRequestEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -51,11 +59,13 @@ impl EmailDataProviderConnection {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`*"]
     pub fn RemoveCreateFolderRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`*"]
     pub fn DeleteFolderRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxDeleteFolderRequestEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -64,11 +74,13 @@ impl EmailDataProviderConnection {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`*"]
     pub fn RemoveDeleteFolderRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`*"]
     pub fn EmptyFolderRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxEmptyFolderRequestEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -77,11 +89,13 @@ impl EmailDataProviderConnection {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`*"]
     pub fn RemoveEmptyFolderRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`*"]
     pub fn MoveFolderRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxMoveFolderRequestEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -90,11 +104,13 @@ impl EmailDataProviderConnection {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`*"]
     pub fn RemoveMoveFolderRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`*"]
     pub fn UpdateMeetingResponseRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxUpdateMeetingResponseRequestEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -103,11 +119,13 @@ impl EmailDataProviderConnection {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`*"]
     pub fn RemoveUpdateMeetingResponseRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`*"]
     pub fn ForwardMeetingRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxForwardMeetingRequestEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -116,11 +134,13 @@ impl EmailDataProviderConnection {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`*"]
     pub fn RemoveForwardMeetingRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`*"]
     pub fn ProposeNewTimeForMeetingRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxProposeNewTimeForMeetingRequestEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -129,11 +149,13 @@ impl EmailDataProviderConnection {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`*"]
     pub fn RemoveProposeNewTimeForMeetingRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`*"]
     pub fn SetAutoReplySettingsRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxSetAutoReplySettingsRequestEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -142,11 +164,13 @@ impl EmailDataProviderConnection {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`*"]
     pub fn RemoveSetAutoReplySettingsRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`*"]
     pub fn GetAutoReplySettingsRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxGetAutoReplySettingsRequestEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -155,11 +179,13 @@ impl EmailDataProviderConnection {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`*"]
     pub fn RemoveGetAutoReplySettingsRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).29)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`*"]
     pub fn ResolveRecipientsRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxResolveRecipientsRequestEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -168,11 +194,13 @@ impl EmailDataProviderConnection {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`*"]
     pub fn RemoveResolveRecipientsRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).31)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`*"]
     pub fn ValidateCertificatesRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxValidateCertificatesRequestEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -181,11 +209,13 @@ impl EmailDataProviderConnection {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`*"]
     pub fn RemoveValidateCertificatesRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).33)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`*"]
     pub fn ServerSearchReadBatchRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxServerSearchReadBatchRequestEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -194,10 +224,12 @@ impl EmailDataProviderConnection {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`*"]
     pub fn RemoveServerSearchReadBatchRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).35)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
     pub fn Start(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).36)(::std::mem::transmute_copy(this)).ok() }
@@ -255,10 +287,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for EmailDataProviderConnection {}
 unsafe impl ::std::marker::Sync for EmailDataProviderConnection {}
+#[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EmailDataProviderTriggerDetails(::windows::runtime::IInspectable);
 impl EmailDataProviderTriggerDetails {
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
     pub fn Connection(&self) -> ::windows::runtime::Result<EmailDataProviderConnection> {
         let this = self;
         unsafe {
@@ -319,10 +353,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for EmailDataProviderTriggerDetails {}
 unsafe impl ::std::marker::Sync for EmailDataProviderTriggerDetails {}
+#[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EmailMailboxCreateFolderRequest(::windows::runtime::IInspectable);
 impl EmailMailboxCreateFolderRequest {
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
     pub fn EmailMailboxId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -330,6 +366,7 @@ impl EmailMailboxCreateFolderRequest {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
     pub fn ParentFolderId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -337,6 +374,7 @@ impl EmailMailboxCreateFolderRequest {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -345,6 +383,7 @@ impl EmailMailboxCreateFolderRequest {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`*"]
     pub fn ReportCompletedAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::EmailFolder>>(&self, folder: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -353,6 +392,7 @@ impl EmailMailboxCreateFolderRequest {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`*"]
     pub fn ReportFailedAsync(&self, status: super::EmailMailboxCreateFolderStatus) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -413,10 +453,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for EmailMailboxCreateFolderRequest {}
 unsafe impl ::std::marker::Sync for EmailMailboxCreateFolderRequest {}
+#[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EmailMailboxCreateFolderRequestEventArgs(::windows::runtime::IInspectable);
 impl EmailMailboxCreateFolderRequestEventArgs {
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
     pub fn Request(&self) -> ::windows::runtime::Result<EmailMailboxCreateFolderRequest> {
         let this = self;
         unsafe {
@@ -425,6 +467,7 @@ impl EmailMailboxCreateFolderRequestEventArgs {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`*"]
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
@@ -485,10 +528,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for EmailMailboxCreateFolderRequestEventArgs {}
 unsafe impl ::std::marker::Sync for EmailMailboxCreateFolderRequestEventArgs {}
+#[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EmailMailboxDeleteFolderRequest(::windows::runtime::IInspectable);
 impl EmailMailboxDeleteFolderRequest {
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
     pub fn EmailMailboxId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -496,6 +541,7 @@ impl EmailMailboxDeleteFolderRequest {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
     pub fn EmailFolderId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -504,6 +550,7 @@ impl EmailMailboxDeleteFolderRequest {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`*"]
     pub fn ReportCompletedAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -512,6 +559,7 @@ impl EmailMailboxDeleteFolderRequest {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`*"]
     pub fn ReportFailedAsync(&self, status: super::EmailMailboxDeleteFolderStatus) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -572,10 +620,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for EmailMailboxDeleteFolderRequest {}
 unsafe impl ::std::marker::Sync for EmailMailboxDeleteFolderRequest {}
+#[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EmailMailboxDeleteFolderRequestEventArgs(::windows::runtime::IInspectable);
 impl EmailMailboxDeleteFolderRequestEventArgs {
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
     pub fn Request(&self) -> ::windows::runtime::Result<EmailMailboxDeleteFolderRequest> {
         let this = self;
         unsafe {
@@ -584,6 +634,7 @@ impl EmailMailboxDeleteFolderRequestEventArgs {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`*"]
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
@@ -644,10 +695,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for EmailMailboxDeleteFolderRequestEventArgs {}
 unsafe impl ::std::marker::Sync for EmailMailboxDeleteFolderRequestEventArgs {}
+#[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EmailMailboxDownloadAttachmentRequest(::windows::runtime::IInspectable);
 impl EmailMailboxDownloadAttachmentRequest {
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
     pub fn EmailMailboxId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -655,6 +708,7 @@ impl EmailMailboxDownloadAttachmentRequest {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
     pub fn EmailMessageId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -662,6 +716,7 @@ impl EmailMailboxDownloadAttachmentRequest {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
     pub fn EmailAttachmentId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -670,6 +725,7 @@ impl EmailMailboxDownloadAttachmentRequest {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`*"]
     pub fn ReportCompletedAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -678,6 +734,7 @@ impl EmailMailboxDownloadAttachmentRequest {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`*"]
     pub fn ReportFailedAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -738,10 +795,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for EmailMailboxDownloadAttachmentRequest {}
 unsafe impl ::std::marker::Sync for EmailMailboxDownloadAttachmentRequest {}
+#[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EmailMailboxDownloadAttachmentRequestEventArgs(::windows::runtime::IInspectable);
 impl EmailMailboxDownloadAttachmentRequestEventArgs {
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
     pub fn Request(&self) -> ::windows::runtime::Result<EmailMailboxDownloadAttachmentRequest> {
         let this = self;
         unsafe {
@@ -750,6 +809,7 @@ impl EmailMailboxDownloadAttachmentRequestEventArgs {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`*"]
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
@@ -810,10 +870,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for EmailMailboxDownloadAttachmentRequestEventArgs {}
 unsafe impl ::std::marker::Sync for EmailMailboxDownloadAttachmentRequestEventArgs {}
+#[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EmailMailboxDownloadMessageRequest(::windows::runtime::IInspectable);
 impl EmailMailboxDownloadMessageRequest {
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
     pub fn EmailMailboxId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -821,6 +883,7 @@ impl EmailMailboxDownloadMessageRequest {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
     pub fn EmailMessageId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -829,6 +892,7 @@ impl EmailMailboxDownloadMessageRequest {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`*"]
     pub fn ReportCompletedAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -837,6 +901,7 @@ impl EmailMailboxDownloadMessageRequest {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`*"]
     pub fn ReportFailedAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -897,10 +962,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for EmailMailboxDownloadMessageRequest {}
 unsafe impl ::std::marker::Sync for EmailMailboxDownloadMessageRequest {}
+#[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EmailMailboxDownloadMessageRequestEventArgs(::windows::runtime::IInspectable);
 impl EmailMailboxDownloadMessageRequestEventArgs {
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
     pub fn Request(&self) -> ::windows::runtime::Result<EmailMailboxDownloadMessageRequest> {
         let this = self;
         unsafe {
@@ -909,6 +976,7 @@ impl EmailMailboxDownloadMessageRequestEventArgs {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`*"]
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
@@ -969,10 +1037,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for EmailMailboxDownloadMessageRequestEventArgs {}
 unsafe impl ::std::marker::Sync for EmailMailboxDownloadMessageRequestEventArgs {}
+#[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EmailMailboxEmptyFolderRequest(::windows::runtime::IInspectable);
 impl EmailMailboxEmptyFolderRequest {
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
     pub fn EmailMailboxId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -980,6 +1050,7 @@ impl EmailMailboxEmptyFolderRequest {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
     pub fn EmailFolderId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -988,6 +1059,7 @@ impl EmailMailboxEmptyFolderRequest {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`*"]
     pub fn ReportCompletedAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -996,6 +1068,7 @@ impl EmailMailboxEmptyFolderRequest {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`*"]
     pub fn ReportFailedAsync(&self, status: super::EmailMailboxEmptyFolderStatus) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -1056,10 +1129,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for EmailMailboxEmptyFolderRequest {}
 unsafe impl ::std::marker::Sync for EmailMailboxEmptyFolderRequest {}
+#[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EmailMailboxEmptyFolderRequestEventArgs(::windows::runtime::IInspectable);
 impl EmailMailboxEmptyFolderRequestEventArgs {
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
     pub fn Request(&self) -> ::windows::runtime::Result<EmailMailboxEmptyFolderRequest> {
         let this = self;
         unsafe {
@@ -1068,6 +1143,7 @@ impl EmailMailboxEmptyFolderRequestEventArgs {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`*"]
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
@@ -1128,10 +1204,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for EmailMailboxEmptyFolderRequestEventArgs {}
 unsafe impl ::std::marker::Sync for EmailMailboxEmptyFolderRequestEventArgs {}
+#[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EmailMailboxForwardMeetingRequest(::windows::runtime::IInspectable);
 impl EmailMailboxForwardMeetingRequest {
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
     pub fn EmailMailboxId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1139,6 +1217,7 @@ impl EmailMailboxForwardMeetingRequest {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
     pub fn EmailMessageId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1147,6 +1226,7 @@ impl EmailMailboxForwardMeetingRequest {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation_Collections`*"]
     pub fn Recipients(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<super::EmailRecipient>> {
         let this = self;
         unsafe {
@@ -1154,6 +1234,7 @@ impl EmailMailboxForwardMeetingRequest {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<super::EmailRecipient>>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
     pub fn Subject(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1161,6 +1242,7 @@ impl EmailMailboxForwardMeetingRequest {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
     pub fn ForwardHeaderType(&self) -> ::windows::runtime::Result<super::EmailMessageBodyKind> {
         let this = self;
         unsafe {
@@ -1168,6 +1250,7 @@ impl EmailMailboxForwardMeetingRequest {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::EmailMessageBodyKind>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
     pub fn ForwardHeader(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1175,6 +1258,7 @@ impl EmailMailboxForwardMeetingRequest {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
     pub fn Comment(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1183,6 +1267,7 @@ impl EmailMailboxForwardMeetingRequest {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`*"]
     pub fn ReportCompletedAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -1191,6 +1276,7 @@ impl EmailMailboxForwardMeetingRequest {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`*"]
     pub fn ReportFailedAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -1251,10 +1337,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for EmailMailboxForwardMeetingRequest {}
 unsafe impl ::std::marker::Sync for EmailMailboxForwardMeetingRequest {}
+#[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EmailMailboxForwardMeetingRequestEventArgs(::windows::runtime::IInspectable);
 impl EmailMailboxForwardMeetingRequestEventArgs {
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
     pub fn Request(&self) -> ::windows::runtime::Result<EmailMailboxForwardMeetingRequest> {
         let this = self;
         unsafe {
@@ -1263,6 +1351,7 @@ impl EmailMailboxForwardMeetingRequestEventArgs {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`*"]
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
@@ -1323,10 +1412,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for EmailMailboxForwardMeetingRequestEventArgs {}
 unsafe impl ::std::marker::Sync for EmailMailboxForwardMeetingRequestEventArgs {}
+#[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EmailMailboxGetAutoReplySettingsRequest(::windows::runtime::IInspectable);
 impl EmailMailboxGetAutoReplySettingsRequest {
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
     pub fn EmailMailboxId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1334,6 +1425,7 @@ impl EmailMailboxGetAutoReplySettingsRequest {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
     pub fn RequestedFormat(&self) -> ::windows::runtime::Result<super::EmailMailboxAutoReplyMessageResponseKind> {
         let this = self;
         unsafe {
@@ -1342,6 +1434,7 @@ impl EmailMailboxGetAutoReplySettingsRequest {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`*"]
     pub fn ReportCompletedAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::EmailMailboxAutoReplySettings>>(&self, autoreplysettings: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -1350,6 +1443,7 @@ impl EmailMailboxGetAutoReplySettingsRequest {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`*"]
     pub fn ReportFailedAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -1410,10 +1504,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for EmailMailboxGetAutoReplySettingsRequest {}
 unsafe impl ::std::marker::Sync for EmailMailboxGetAutoReplySettingsRequest {}
+#[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EmailMailboxGetAutoReplySettingsRequestEventArgs(::windows::runtime::IInspectable);
 impl EmailMailboxGetAutoReplySettingsRequestEventArgs {
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
     pub fn Request(&self) -> ::windows::runtime::Result<EmailMailboxGetAutoReplySettingsRequest> {
         let this = self;
         unsafe {
@@ -1422,6 +1518,7 @@ impl EmailMailboxGetAutoReplySettingsRequestEventArgs {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`*"]
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
@@ -1482,10 +1579,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for EmailMailboxGetAutoReplySettingsRequestEventArgs {}
 unsafe impl ::std::marker::Sync for EmailMailboxGetAutoReplySettingsRequestEventArgs {}
+#[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EmailMailboxMoveFolderRequest(::windows::runtime::IInspectable);
 impl EmailMailboxMoveFolderRequest {
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
     pub fn EmailMailboxId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1493,6 +1592,7 @@ impl EmailMailboxMoveFolderRequest {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
     pub fn EmailFolderId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1500,6 +1600,7 @@ impl EmailMailboxMoveFolderRequest {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
     pub fn NewParentFolderId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1507,6 +1608,7 @@ impl EmailMailboxMoveFolderRequest {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
     pub fn NewFolderName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1515,6 +1617,7 @@ impl EmailMailboxMoveFolderRequest {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`*"]
     pub fn ReportCompletedAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -1523,6 +1626,7 @@ impl EmailMailboxMoveFolderRequest {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`*"]
     pub fn ReportFailedAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -1583,10 +1687,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for EmailMailboxMoveFolderRequest {}
 unsafe impl ::std::marker::Sync for EmailMailboxMoveFolderRequest {}
+#[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EmailMailboxMoveFolderRequestEventArgs(::windows::runtime::IInspectable);
 impl EmailMailboxMoveFolderRequestEventArgs {
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
     pub fn Request(&self) -> ::windows::runtime::Result<EmailMailboxMoveFolderRequest> {
         let this = self;
         unsafe {
@@ -1595,6 +1701,7 @@ impl EmailMailboxMoveFolderRequestEventArgs {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`*"]
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
@@ -1655,10 +1762,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for EmailMailboxMoveFolderRequestEventArgs {}
 unsafe impl ::std::marker::Sync for EmailMailboxMoveFolderRequestEventArgs {}
+#[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EmailMailboxProposeNewTimeForMeetingRequest(::windows::runtime::IInspectable);
 impl EmailMailboxProposeNewTimeForMeetingRequest {
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
     pub fn EmailMailboxId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1666,6 +1775,7 @@ impl EmailMailboxProposeNewTimeForMeetingRequest {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
     pub fn EmailMessageId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1674,6 +1784,7 @@ impl EmailMailboxProposeNewTimeForMeetingRequest {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`*"]
     pub fn NewStartTime(&self) -> ::windows::runtime::Result<super::super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -1682,6 +1793,7 @@ impl EmailMailboxProposeNewTimeForMeetingRequest {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`*"]
     pub fn NewDuration(&self) -> ::windows::runtime::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -1689,6 +1801,7 @@ impl EmailMailboxProposeNewTimeForMeetingRequest {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
     pub fn Subject(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1696,6 +1809,7 @@ impl EmailMailboxProposeNewTimeForMeetingRequest {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
     pub fn Comment(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1704,6 +1818,7 @@ impl EmailMailboxProposeNewTimeForMeetingRequest {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`*"]
     pub fn ReportCompletedAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -1712,6 +1827,7 @@ impl EmailMailboxProposeNewTimeForMeetingRequest {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`*"]
     pub fn ReportFailedAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -1772,10 +1888,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for EmailMailboxProposeNewTimeForMeetingRequest {}
 unsafe impl ::std::marker::Sync for EmailMailboxProposeNewTimeForMeetingRequest {}
+#[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EmailMailboxProposeNewTimeForMeetingRequestEventArgs(::windows::runtime::IInspectable);
 impl EmailMailboxProposeNewTimeForMeetingRequestEventArgs {
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
     pub fn Request(&self) -> ::windows::runtime::Result<EmailMailboxProposeNewTimeForMeetingRequest> {
         let this = self;
         unsafe {
@@ -1784,6 +1902,7 @@ impl EmailMailboxProposeNewTimeForMeetingRequestEventArgs {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`*"]
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
@@ -1844,10 +1963,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for EmailMailboxProposeNewTimeForMeetingRequestEventArgs {}
 unsafe impl ::std::marker::Sync for EmailMailboxProposeNewTimeForMeetingRequestEventArgs {}
+#[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EmailMailboxResolveRecipientsRequest(::windows::runtime::IInspectable);
 impl EmailMailboxResolveRecipientsRequest {
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
     pub fn EmailMailboxId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1856,6 +1977,7 @@ impl EmailMailboxResolveRecipientsRequest {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation_Collections`*"]
     pub fn Recipients(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -1864,6 +1986,7 @@ impl EmailMailboxResolveRecipientsRequest {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`, `Foundation_Collections`*"]
     pub fn ReportCompletedAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<super::EmailRecipientResolutionResult>>>(&self, resolutionresults: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -1872,6 +1995,7 @@ impl EmailMailboxResolveRecipientsRequest {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`*"]
     pub fn ReportFailedAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -1932,10 +2056,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for EmailMailboxResolveRecipientsRequest {}
 unsafe impl ::std::marker::Sync for EmailMailboxResolveRecipientsRequest {}
+#[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EmailMailboxResolveRecipientsRequestEventArgs(::windows::runtime::IInspectable);
 impl EmailMailboxResolveRecipientsRequestEventArgs {
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
     pub fn Request(&self) -> ::windows::runtime::Result<EmailMailboxResolveRecipientsRequest> {
         let this = self;
         unsafe {
@@ -1944,6 +2070,7 @@ impl EmailMailboxResolveRecipientsRequestEventArgs {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`*"]
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
@@ -2004,10 +2131,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for EmailMailboxResolveRecipientsRequestEventArgs {}
 unsafe impl ::std::marker::Sync for EmailMailboxResolveRecipientsRequestEventArgs {}
+#[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EmailMailboxServerSearchReadBatchRequest(::windows::runtime::IInspectable);
 impl EmailMailboxServerSearchReadBatchRequest {
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
     pub fn SessionId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2015,6 +2144,7 @@ impl EmailMailboxServerSearchReadBatchRequest {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
     pub fn EmailMailboxId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2022,6 +2152,7 @@ impl EmailMailboxServerSearchReadBatchRequest {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
     pub fn EmailFolderId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2029,6 +2160,7 @@ impl EmailMailboxServerSearchReadBatchRequest {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
     pub fn Options(&self) -> ::windows::runtime::Result<super::EmailQueryOptions> {
         let this = self;
         unsafe {
@@ -2036,6 +2168,7 @@ impl EmailMailboxServerSearchReadBatchRequest {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::EmailQueryOptions>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
     pub fn SuggestedBatchSize(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -2044,6 +2177,7 @@ impl EmailMailboxServerSearchReadBatchRequest {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`*"]
     pub fn SaveMessageAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::EmailMessage>>(&self, message: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -2052,6 +2186,7 @@ impl EmailMailboxServerSearchReadBatchRequest {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`*"]
     pub fn ReportCompletedAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -2060,6 +2195,7 @@ impl EmailMailboxServerSearchReadBatchRequest {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`*"]
     pub fn ReportFailedAsync(&self, batchstatus: super::EmailBatchStatus) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -2120,10 +2256,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for EmailMailboxServerSearchReadBatchRequest {}
 unsafe impl ::std::marker::Sync for EmailMailboxServerSearchReadBatchRequest {}
+#[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EmailMailboxServerSearchReadBatchRequestEventArgs(::windows::runtime::IInspectable);
 impl EmailMailboxServerSearchReadBatchRequestEventArgs {
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
     pub fn Request(&self) -> ::windows::runtime::Result<EmailMailboxServerSearchReadBatchRequest> {
         let this = self;
         unsafe {
@@ -2132,6 +2270,7 @@ impl EmailMailboxServerSearchReadBatchRequestEventArgs {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`*"]
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
@@ -2192,10 +2331,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for EmailMailboxServerSearchReadBatchRequestEventArgs {}
 unsafe impl ::std::marker::Sync for EmailMailboxServerSearchReadBatchRequestEventArgs {}
+#[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EmailMailboxSetAutoReplySettingsRequest(::windows::runtime::IInspectable);
 impl EmailMailboxSetAutoReplySettingsRequest {
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
     pub fn EmailMailboxId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2203,6 +2344,7 @@ impl EmailMailboxSetAutoReplySettingsRequest {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
     pub fn AutoReplySettings(&self) -> ::windows::runtime::Result<super::EmailMailboxAutoReplySettings> {
         let this = self;
         unsafe {
@@ -2211,6 +2353,7 @@ impl EmailMailboxSetAutoReplySettingsRequest {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`*"]
     pub fn ReportCompletedAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -2219,6 +2362,7 @@ impl EmailMailboxSetAutoReplySettingsRequest {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`*"]
     pub fn ReportFailedAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -2279,10 +2423,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for EmailMailboxSetAutoReplySettingsRequest {}
 unsafe impl ::std::marker::Sync for EmailMailboxSetAutoReplySettingsRequest {}
+#[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EmailMailboxSetAutoReplySettingsRequestEventArgs(::windows::runtime::IInspectable);
 impl EmailMailboxSetAutoReplySettingsRequestEventArgs {
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
     pub fn Request(&self) -> ::windows::runtime::Result<EmailMailboxSetAutoReplySettingsRequest> {
         let this = self;
         unsafe {
@@ -2291,6 +2437,7 @@ impl EmailMailboxSetAutoReplySettingsRequestEventArgs {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`*"]
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
@@ -2351,10 +2498,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for EmailMailboxSetAutoReplySettingsRequestEventArgs {}
 unsafe impl ::std::marker::Sync for EmailMailboxSetAutoReplySettingsRequestEventArgs {}
+#[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EmailMailboxSyncManagerSyncRequest(::windows::runtime::IInspectable);
 impl EmailMailboxSyncManagerSyncRequest {
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
     pub fn EmailMailboxId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2363,6 +2512,7 @@ impl EmailMailboxSyncManagerSyncRequest {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`*"]
     pub fn ReportCompletedAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -2371,6 +2521,7 @@ impl EmailMailboxSyncManagerSyncRequest {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`*"]
     pub fn ReportFailedAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -2431,10 +2582,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for EmailMailboxSyncManagerSyncRequest {}
 unsafe impl ::std::marker::Sync for EmailMailboxSyncManagerSyncRequest {}
+#[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EmailMailboxSyncManagerSyncRequestEventArgs(::windows::runtime::IInspectable);
 impl EmailMailboxSyncManagerSyncRequestEventArgs {
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
     pub fn Request(&self) -> ::windows::runtime::Result<EmailMailboxSyncManagerSyncRequest> {
         let this = self;
         unsafe {
@@ -2443,6 +2596,7 @@ impl EmailMailboxSyncManagerSyncRequestEventArgs {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`*"]
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
@@ -2503,10 +2657,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for EmailMailboxSyncManagerSyncRequestEventArgs {}
 unsafe impl ::std::marker::Sync for EmailMailboxSyncManagerSyncRequestEventArgs {}
+#[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EmailMailboxUpdateMeetingResponseRequest(::windows::runtime::IInspectable);
 impl EmailMailboxUpdateMeetingResponseRequest {
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
     pub fn EmailMailboxId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2514,6 +2670,7 @@ impl EmailMailboxUpdateMeetingResponseRequest {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
     pub fn EmailMessageId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2521,6 +2678,7 @@ impl EmailMailboxUpdateMeetingResponseRequest {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
     pub fn Response(&self) -> ::windows::runtime::Result<super::EmailMeetingResponseType> {
         let this = self;
         unsafe {
@@ -2528,6 +2686,7 @@ impl EmailMailboxUpdateMeetingResponseRequest {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::EmailMeetingResponseType>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
     pub fn Subject(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2535,6 +2694,7 @@ impl EmailMailboxUpdateMeetingResponseRequest {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
     pub fn Comment(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2542,6 +2702,7 @@ impl EmailMailboxUpdateMeetingResponseRequest {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
     pub fn SendUpdate(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -2550,6 +2711,7 @@ impl EmailMailboxUpdateMeetingResponseRequest {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`*"]
     pub fn ReportCompletedAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -2558,6 +2720,7 @@ impl EmailMailboxUpdateMeetingResponseRequest {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`*"]
     pub fn ReportFailedAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -2618,10 +2781,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for EmailMailboxUpdateMeetingResponseRequest {}
 unsafe impl ::std::marker::Sync for EmailMailboxUpdateMeetingResponseRequest {}
+#[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EmailMailboxUpdateMeetingResponseRequestEventArgs(::windows::runtime::IInspectable);
 impl EmailMailboxUpdateMeetingResponseRequestEventArgs {
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
     pub fn Request(&self) -> ::windows::runtime::Result<EmailMailboxUpdateMeetingResponseRequest> {
         let this = self;
         unsafe {
@@ -2630,6 +2795,7 @@ impl EmailMailboxUpdateMeetingResponseRequestEventArgs {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`*"]
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
@@ -2690,10 +2856,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for EmailMailboxUpdateMeetingResponseRequestEventArgs {}
 unsafe impl ::std::marker::Sync for EmailMailboxUpdateMeetingResponseRequestEventArgs {}
+#[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EmailMailboxValidateCertificatesRequest(::windows::runtime::IInspectable);
 impl EmailMailboxValidateCertificatesRequest {
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
     pub fn EmailMailboxId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2702,6 +2870,7 @@ impl EmailMailboxValidateCertificatesRequest {
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation_Collections`, `Security_Cryptography_Certificates`*"]
     pub fn Certificates(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<super::super::super::Security::Cryptography::Certificates::Certificate>> {
         let this = self;
         unsafe {
@@ -2710,6 +2879,7 @@ impl EmailMailboxValidateCertificatesRequest {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`, `Foundation_Collections`*"]
     pub fn ReportCompletedAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<super::EmailCertificateValidationStatus>>>(&self, validationstatuses: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -2718,6 +2888,7 @@ impl EmailMailboxValidateCertificatesRequest {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`*"]
     pub fn ReportFailedAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -2778,10 +2949,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for EmailMailboxValidateCertificatesRequest {}
 unsafe impl ::std::marker::Sync for EmailMailboxValidateCertificatesRequest {}
+#[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EmailMailboxValidateCertificatesRequestEventArgs(::windows::runtime::IInspectable);
 impl EmailMailboxValidateCertificatesRequestEventArgs {
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`*"]
     pub fn Request(&self) -> ::windows::runtime::Result<EmailMailboxValidateCertificatesRequest> {
         let this = self;
         unsafe {
@@ -2790,6 +2963,7 @@ impl EmailMailboxValidateCertificatesRequestEventArgs {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Email_DataProvider`, `Foundation`*"]
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {

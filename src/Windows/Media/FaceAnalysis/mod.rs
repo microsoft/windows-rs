@@ -1,9 +1,11 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Media_FaceAnalysis`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct DetectedFace(::windows::runtime::IInspectable);
 impl DetectedFace {
     #[cfg(feature = "Graphics_Imaging")]
+    #[doc = "*Required features: `Media_FaceAnalysis`, `Graphics_Imaging`*"]
     pub fn FaceBox(&self) -> ::windows::runtime::Result<super::super::Graphics::Imaging::BitmapBounds> {
         let this = self;
         unsafe {
@@ -64,11 +66,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for DetectedFace {}
 unsafe impl ::std::marker::Sync for DetectedFace {}
+#[doc = "*Required features: `Media_FaceAnalysis`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct FaceDetector(::windows::runtime::IInspectable);
 impl FaceDetector {
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Graphics_Imaging"))]
+    #[doc = "*Required features: `Media_FaceAnalysis`, `Foundation`, `Foundation_Collections`, `Graphics_Imaging`*"]
     pub fn DetectFacesAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Imaging::SoftwareBitmap>>(&self, image: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<DetectedFace>>> {
         let this = self;
         unsafe {
@@ -77,6 +81,7 @@ impl FaceDetector {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Graphics_Imaging"))]
+    #[doc = "*Required features: `Media_FaceAnalysis`, `Foundation`, `Foundation_Collections`, `Graphics_Imaging`*"]
     pub fn DetectFacesWithSearchAreaAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Imaging::SoftwareBitmap>, Param1: ::windows::runtime::IntoParam<'a, super::super::Graphics::Imaging::BitmapBounds>>(&self, image: Param0, searcharea: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<DetectedFace>>> {
         let this = self;
         unsafe {
@@ -85,6 +90,7 @@ impl FaceDetector {
         }
     }
     #[cfg(feature = "Graphics_Imaging")]
+    #[doc = "*Required features: `Media_FaceAnalysis`, `Graphics_Imaging`*"]
     pub fn MinDetectableFaceSize(&self) -> ::windows::runtime::Result<super::super::Graphics::Imaging::BitmapSize> {
         let this = self;
         unsafe {
@@ -93,11 +99,13 @@ impl FaceDetector {
         }
     }
     #[cfg(feature = "Graphics_Imaging")]
+    #[doc = "*Required features: `Media_FaceAnalysis`, `Graphics_Imaging`*"]
     pub fn SetMinDetectableFaceSize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Imaging::BitmapSize>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Graphics_Imaging")]
+    #[doc = "*Required features: `Media_FaceAnalysis`, `Graphics_Imaging`*"]
     pub fn MaxDetectableFaceSize(&self) -> ::windows::runtime::Result<super::super::Graphics::Imaging::BitmapSize> {
         let this = self;
         unsafe {
@@ -106,11 +114,13 @@ impl FaceDetector {
         }
     }
     #[cfg(feature = "Graphics_Imaging")]
+    #[doc = "*Required features: `Media_FaceAnalysis`, `Graphics_Imaging`*"]
     pub fn SetMaxDetectableFaceSize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Imaging::BitmapSize>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_FaceAnalysis`, `Foundation`*"]
     pub fn CreateAsync() -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<FaceDetector>> {
         Self::IFaceDetectorStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -118,6 +128,7 @@ impl FaceDetector {
         })
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_Imaging"))]
+    #[doc = "*Required features: `Media_FaceAnalysis`, `Foundation_Collections`, `Graphics_Imaging`*"]
     pub fn GetSupportedBitmapPixelFormats() -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<super::super::Graphics::Imaging::BitmapPixelFormat>> {
         Self::IFaceDetectorStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -125,12 +136,14 @@ impl FaceDetector {
         })
     }
     #[cfg(feature = "Graphics_Imaging")]
+    #[doc = "*Required features: `Media_FaceAnalysis`, `Graphics_Imaging`*"]
     pub fn IsBitmapPixelFormatSupported(bitmappixelformat: super::super::Graphics::Imaging::BitmapPixelFormat) -> ::windows::runtime::Result<bool> {
         Self::IFaceDetectorStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), bitmappixelformat, &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: `Media_FaceAnalysis`*"]
     pub fn IsSupported() -> ::windows::runtime::Result<bool> {
         Self::IFaceDetectorStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
@@ -194,11 +207,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for FaceDetector {}
 unsafe impl ::std::marker::Sync for FaceDetector {}
+#[doc = "*Required features: `Media_FaceAnalysis`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct FaceTracker(::windows::runtime::IInspectable);
 impl FaceTracker {
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Media_FaceAnalysis`, `Foundation`, `Foundation_Collections`*"]
     pub fn ProcessNextFrameAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::VideoFrame>>(&self, videoframe: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<DetectedFace>>> {
         let this = self;
         unsafe {
@@ -207,6 +222,7 @@ impl FaceTracker {
         }
     }
     #[cfg(feature = "Graphics_Imaging")]
+    #[doc = "*Required features: `Media_FaceAnalysis`, `Graphics_Imaging`*"]
     pub fn MinDetectableFaceSize(&self) -> ::windows::runtime::Result<super::super::Graphics::Imaging::BitmapSize> {
         let this = self;
         unsafe {
@@ -215,11 +231,13 @@ impl FaceTracker {
         }
     }
     #[cfg(feature = "Graphics_Imaging")]
+    #[doc = "*Required features: `Media_FaceAnalysis`, `Graphics_Imaging`*"]
     pub fn SetMinDetectableFaceSize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Imaging::BitmapSize>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Graphics_Imaging")]
+    #[doc = "*Required features: `Media_FaceAnalysis`, `Graphics_Imaging`*"]
     pub fn MaxDetectableFaceSize(&self) -> ::windows::runtime::Result<super::super::Graphics::Imaging::BitmapSize> {
         let this = self;
         unsafe {
@@ -228,11 +246,13 @@ impl FaceTracker {
         }
     }
     #[cfg(feature = "Graphics_Imaging")]
+    #[doc = "*Required features: `Media_FaceAnalysis`, `Graphics_Imaging`*"]
     pub fn SetMaxDetectableFaceSize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Imaging::BitmapSize>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_FaceAnalysis`, `Foundation`*"]
     pub fn CreateAsync() -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<FaceTracker>> {
         Self::IFaceTrackerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -240,6 +260,7 @@ impl FaceTracker {
         })
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_Imaging"))]
+    #[doc = "*Required features: `Media_FaceAnalysis`, `Foundation_Collections`, `Graphics_Imaging`*"]
     pub fn GetSupportedBitmapPixelFormats() -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<super::super::Graphics::Imaging::BitmapPixelFormat>> {
         Self::IFaceTrackerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -247,12 +268,14 @@ impl FaceTracker {
         })
     }
     #[cfg(feature = "Graphics_Imaging")]
+    #[doc = "*Required features: `Media_FaceAnalysis`, `Graphics_Imaging`*"]
     pub fn IsBitmapPixelFormatSupported(bitmappixelformat: super::super::Graphics::Imaging::BitmapPixelFormat) -> ::windows::runtime::Result<bool> {
         Self::IFaceTrackerStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), bitmappixelformat, &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: `Media_FaceAnalysis`*"]
     pub fn IsSupported() -> ::windows::runtime::Result<bool> {
         Self::IFaceTrackerStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();

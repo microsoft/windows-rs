@@ -3,23 +3,28 @@ pub const Catalog: ::windows::runtime::GUID = ::windows::runtime::GUID::from_val
 pub const CatalogCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1857169539, 35353, 4560, [129, 182, 0, 160, 201, 35, 28, 41]);
 pub const CatalogObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1857169538, 35353, 4560, [129, 182, 0, 160, 201, 35, 28, 41]);
 pub const ComponentUtil: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1857169540, 35353, 4560, [129, 182, 0, 160, 201, 35, 28, 41]);
+#[doc = "*Required features: `Win32_System_TransactionServer`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ICatalog(::windows::runtime::IUnknown);
 impl ICatalog {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_TransactionServer`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetCollection<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrcollname: Param0) -> ::windows::runtime::Result<super::Ole::Automation::IDispatch> {
         let mut result__: <super::Ole::Automation::IDispatch as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), bstrcollname.into_param().abi(), &mut result__).from_abi::<super::Ole::Automation::IDispatch>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_TransactionServer`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Connect<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrconnectstring: Param0) -> ::windows::runtime::Result<super::Ole::Automation::IDispatch> {
         let mut result__: <super::Ole::Automation::IDispatch as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), bstrconnectstring.into_param().abi(), &mut result__).from_abi::<super::Ole::Automation::IDispatch>(result__)
     }
+    #[doc = "*Required features: `Win32_System_TransactionServer`*"]
     pub unsafe fn MajorVersion(&self, retval: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(retval)).ok()
     }
+    #[doc = "*Required features: `Win32_System_TransactionServer`*"]
     pub unsafe fn MinorVersion(&self, retval: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(retval)).ok()
     }
@@ -93,23 +98,28 @@ pub struct ICatalog_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, retval: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, retval: *mut i32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_TransactionServer`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IComponentUtil(::windows::runtime::IUnknown);
 impl IComponentUtil {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_TransactionServer`, `Win32_Foundation`*"]
     pub unsafe fn InstallComponent<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdllfile: Param0, bstrtypelibfile: Param1, bstrproxystubdllfile: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), bstrdllfile.into_param().abi(), bstrtypelibfile.into_param().abi(), bstrproxystubdllfile.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_TransactionServer`, `Win32_Foundation`*"]
     pub unsafe fn ImportComponent<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrclsid: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), bstrclsid.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_TransactionServer`, `Win32_Foundation`*"]
     pub unsafe fn ImportComponentByName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrprogid: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), bstrprogid.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_TransactionServer`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn GetCLSIDs<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdllfile: Param0, bstrtypelibfile: Param1, aclsids: *mut *mut super::Com::SAFEARRAY) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), bstrdllfile.into_param().abi(), bstrtypelibfile.into_param().abi(), ::std::mem::transmute(aclsids)).ok()
     }
@@ -185,19 +195,23 @@ pub struct IComponentUtil_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bstrdllfile: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrtypelibfile: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, aclsids: *mut *mut super::Com::SAFEARRAY) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
+#[doc = "*Required features: `Win32_System_TransactionServer`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPackageUtil(::windows::runtime::IUnknown);
 impl IPackageUtil {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_TransactionServer`, `Win32_Foundation`*"]
     pub unsafe fn InstallPackage<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrpackagefile: Param0, bstrinstallpath: Param1, loptions: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), bstrpackagefile.into_param().abi(), bstrinstallpath.into_param().abi(), ::std::mem::transmute(loptions)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_TransactionServer`, `Win32_Foundation`*"]
     pub unsafe fn ExportPackage<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrpackageid: Param0, bstrpackagefile: Param1, loptions: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), bstrpackageid.into_param().abi(), bstrpackagefile.into_param().abi(), ::std::mem::transmute(loptions)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_TransactionServer`, `Win32_Foundation`*"]
     pub unsafe fn ShutdownPackage<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrpackageid: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), bstrpackageid.into_param().abi()).ok()
     }
@@ -271,15 +285,18 @@ pub struct IPackageUtil_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bstrpackageid: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_TransactionServer`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRemoteComponentUtil(::windows::runtime::IUnknown);
 impl IRemoteComponentUtil {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_TransactionServer`, `Win32_Foundation`*"]
     pub unsafe fn InstallRemoteComponent<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrserver: Param0, bstrpackageid: Param1, bstrclsid: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), bstrserver.into_param().abi(), bstrpackageid.into_param().abi(), bstrclsid.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_TransactionServer`, `Win32_Foundation`*"]
     pub unsafe fn InstallRemoteComponentByName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrserver: Param0, bstrpackagename: Param1, bstrprogid: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), bstrserver.into_param().abi(), bstrpackagename.into_param().abi(), bstrprogid.into_param().abi()).ok()
     }
@@ -351,15 +368,18 @@ pub struct IRemoteComponentUtil_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bstrserver: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrpackagename: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrprogid: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_TransactionServer`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRoleAssociationUtil(::windows::runtime::IUnknown);
 impl IRoleAssociationUtil {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_TransactionServer`, `Win32_Foundation`*"]
     pub unsafe fn AssociateRole<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrroleid: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), bstrroleid.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_TransactionServer`, `Win32_Foundation`*"]
     pub unsafe fn AssociateRoleByName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrrolename: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), bstrrolename.into_param().abi()).ok()
     }
@@ -434,6 +454,7 @@ pub struct IRoleAssociationUtil_abi(
 pub const PackageUtil: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1857169541, 35353, 4560, [129, 182, 0, 160, 201, 35, 28, 41]);
 pub const RemoteComponentUtil: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1857169542, 35353, 4560, [129, 182, 0, 160, 201, 35, 28, 41]);
 pub const RoleAssociationUtil: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1857169543, 35353, 4560, [129, 182, 0, 160, 201, 35, 28, 41]);
+#[doc = "*Required features: `Win32_System_TransactionServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct __MIDL___MIDL_itf_mtxadmin_0107_0001(pub i32);
@@ -447,6 +468,7 @@ unsafe impl ::windows::runtime::Abi for __MIDL___MIDL_itf_mtxadmin_0107_0001 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_TransactionServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct __MIDL___MIDL_itf_mtxadmin_0107_0002(pub i32);
@@ -460,6 +482,7 @@ unsafe impl ::windows::runtime::Abi for __MIDL___MIDL_itf_mtxadmin_0107_0002 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_TransactionServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct __MIDL___MIDL_itf_mtxadmin_0107_0003(pub i32);

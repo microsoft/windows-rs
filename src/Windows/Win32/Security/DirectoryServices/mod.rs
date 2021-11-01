@@ -1,5 +1,6 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authorization"))]
+#[doc = "*Required features: `Win32_Security_DirectoryServices`, `Win32_Foundation`, `Win32_Security_Authorization`*"]
 #[inline]
 pub unsafe fn DSCreateISecurityInfoObject<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(
     pwszobjectpath: Param0,
@@ -22,6 +23,7 @@ pub unsafe fn DSCreateISecurityInfoObject<'a, Param0: ::windows::runtime::IntoPa
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authorization"))]
+#[doc = "*Required features: `Win32_Security_DirectoryServices`, `Win32_Foundation`, `Win32_Security_Authorization`*"]
 #[inline]
 pub unsafe fn DSCreateISecurityInfoObjectEx<
     'a,
@@ -67,6 +69,7 @@ pub unsafe fn DSCreateISecurityInfoObjectEx<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
+#[doc = "*Required features: `Win32_Security_DirectoryServices`, `Win32_Foundation`, `Win32_UI_Controls`*"]
 #[inline]
 pub unsafe fn DSCreateSecurityPage<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(
     pwszobjectpath: Param0,
@@ -89,6 +92,7 @@ pub unsafe fn DSCreateSecurityPage<'a, Param0: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_DirectoryServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn DSEditSecurity<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param7: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(
     hwndowner: Param0,
@@ -111,12 +115,19 @@ pub unsafe fn DSEditSecurity<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_DirectoryServices`*"]
 pub const DSSI_IS_ROOT: u32 = 16u32;
+#[doc = "*Required features: `Win32_Security_DirectoryServices`*"]
 pub const DSSI_NO_ACCESS_CHECK: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_DirectoryServices`*"]
 pub const DSSI_NO_EDIT_OWNER: u32 = 8u32;
+#[doc = "*Required features: `Win32_Security_DirectoryServices`*"]
 pub const DSSI_NO_EDIT_SACL: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_DirectoryServices`*"]
 pub const DSSI_NO_FILTER: u32 = 32u32;
+#[doc = "*Required features: `Win32_Security_DirectoryServices`*"]
 pub const DSSI_NO_READONLY_MESSAGE: u32 = 64u32;
+#[doc = "*Required features: `Win32_Security_DirectoryServices`*"]
 pub const DSSI_READ_ONLY: u32 = 1u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authorization"))]
 pub type PFNDSCREATEISECINFO = unsafe extern "system" fn(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::PWSTR, param2: u32, param3: *mut ::windows::runtime::RawPtr, param4: ::windows::runtime::RawPtr, param5: ::windows::runtime::RawPtr, param6: super::super::Foundation::LPARAM) -> ::windows::runtime::HRESULT;

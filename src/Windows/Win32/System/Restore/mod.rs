@@ -1,25 +1,44 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Win32_System_Restore`*"]
 pub const ACCESSIBILITY_SETTING: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_Restore`*"]
 pub const APPLICATION_RUN: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_Restore`*"]
 pub const BACKUP: u32 = 15u32;
+#[doc = "*Required features: `Win32_System_Restore`*"]
 pub const BACKUP_RECOVERY: u32 = 14u32;
+#[doc = "*Required features: `Win32_System_Restore`*"]
 pub const BEGIN_NESTED_SYSTEM_CHANGE_NORP: u32 = 104u32;
+#[doc = "*Required features: `Win32_System_Restore`*"]
 pub const CHECKPOINT: u32 = 7u32;
+#[doc = "*Required features: `Win32_System_Restore`*"]
 pub const CRITICAL_UPDATE: u32 = 18u32;
+#[doc = "*Required features: `Win32_System_Restore`*"]
 pub const DESKTOP_SETTING: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Restore`*"]
 pub const FIRSTRUN: u32 = 11u32;
+#[doc = "*Required features: `Win32_System_Restore`*"]
 pub const MANUAL_CHECKPOINT: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_Restore`*"]
 pub const MAX_DESC: u32 = 64u32;
+#[doc = "*Required features: `Win32_System_Restore`*"]
 pub const MAX_DESC_W: u32 = 256u32;
+#[doc = "*Required features: `Win32_System_Restore`*"]
 pub const MAX_EVENT: u32 = 104u32;
+#[doc = "*Required features: `Win32_System_Restore`*"]
 pub const MAX_RPT: u32 = 18u32;
+#[doc = "*Required features: `Win32_System_Restore`*"]
 pub const MIN_EVENT: u32 = 100u32;
+#[doc = "*Required features: `Win32_System_Restore`*"]
 pub const MIN_RPT: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_Restore`*"]
 pub const OE_SETTING: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Restore`*"]
 pub const RESTORE: u32 = 6u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Restore`, `Win32_Foundation`*"]
 pub struct RESTOREPOINTINFOA {
     pub dwEventType: RESTOREPOINTINFO_EVENT_TYPE,
     pub dwRestorePtType: RESTOREPOINTINFO_TYPE,
@@ -49,6 +68,7 @@ unsafe impl ::windows::runtime::Abi for RESTOREPOINTINFOA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_System_Restore`*"]
 pub struct RESTOREPOINTINFOW {
     pub dwEventType: RESTOREPOINTINFO_EVENT_TYPE,
     pub dwRestorePtType: RESTOREPOINTINFO_TYPE,
@@ -71,6 +91,7 @@ unsafe impl ::windows::runtime::Abi for RESTOREPOINTINFOW {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Restore`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RESTOREPOINTINFO_EVENT_TYPE(pub u32);
@@ -115,6 +136,7 @@ impl ::std::ops::Not for RESTOREPOINTINFO_EVENT_TYPE {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_System_Restore`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RESTOREPOINTINFO_TYPE(pub u32);
@@ -161,6 +183,7 @@ impl ::std::ops::Not for RESTOREPOINTINFO_TYPE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Restore`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SRSetRestorePointA(prestoreptspec: *const RESTOREPOINTINFOA, psmgrstatus: *mut STATEMGRSTATUS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -175,6 +198,7 @@ pub unsafe fn SRSetRestorePointA(prestoreptspec: *const RESTOREPOINTINFOA, psmgr
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Restore`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SRSetRestorePointW(prestoreptspec: *const RESTOREPOINTINFOW, psmgrstatus: *mut STATEMGRSTATUS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -190,6 +214,7 @@ pub unsafe fn SRSetRestorePointW(prestoreptspec: *const RESTOREPOINTINFOW, psmgr
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_System_Restore`*"]
 pub struct STATEMGRSTATUS {
     pub nStatus: u32,
     pub llSequenceNumber: i64,
@@ -210,12 +235,16 @@ unsafe impl ::windows::runtime::Abi for STATEMGRSTATUS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Restore`*"]
 pub const WINDOWS_BOOT: u32 = 9u32;
+#[doc = "*Required features: `Win32_System_Restore`*"]
 pub const WINDOWS_SHUTDOWN: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_Restore`*"]
 pub const WINDOWS_UPDATE: u32 = 17u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Restore`, `Win32_Foundation`*"]
 pub struct _RESTOREPTINFOEX {
     pub ftCreation: super::super::Foundation::FILETIME,
     pub dwEventType: u32,

@@ -1,60 +1,71 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Foundation_Metadata`*"]
 pub struct ApiInformation {}
 impl ApiInformation {
+    #[doc = "*Required features: `Foundation_Metadata`*"]
     pub fn IsTypePresent<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(typename: Param0) -> ::windows::runtime::Result<bool> {
         Self::IApiInformationStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), typename.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: `Foundation_Metadata`*"]
     pub fn IsMethodPresent<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(typename: Param0, methodname: Param1) -> ::windows::runtime::Result<bool> {
         Self::IApiInformationStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), typename.into_param().abi(), methodname.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: `Foundation_Metadata`*"]
     pub fn IsMethodPresentWithArity<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(typename: Param0, methodname: Param1, inputparametercount: u32) -> ::windows::runtime::Result<bool> {
         Self::IApiInformationStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), typename.into_param().abi(), methodname.into_param().abi(), inputparametercount, &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: `Foundation_Metadata`*"]
     pub fn IsEventPresent<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(typename: Param0, eventname: Param1) -> ::windows::runtime::Result<bool> {
         Self::IApiInformationStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), typename.into_param().abi(), eventname.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: `Foundation_Metadata`*"]
     pub fn IsPropertyPresent<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(typename: Param0, propertyname: Param1) -> ::windows::runtime::Result<bool> {
         Self::IApiInformationStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), typename.into_param().abi(), propertyname.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: `Foundation_Metadata`*"]
     pub fn IsReadOnlyPropertyPresent<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(typename: Param0, propertyname: Param1) -> ::windows::runtime::Result<bool> {
         Self::IApiInformationStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), typename.into_param().abi(), propertyname.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: `Foundation_Metadata`*"]
     pub fn IsWriteablePropertyPresent<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(typename: Param0, propertyname: Param1) -> ::windows::runtime::Result<bool> {
         Self::IApiInformationStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), typename.into_param().abi(), propertyname.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: `Foundation_Metadata`*"]
     pub fn IsEnumNamedValuePresent<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(enumtypename: Param0, valuename: Param1) -> ::windows::runtime::Result<bool> {
         Self::IApiInformationStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), enumtypename.into_param().abi(), valuename.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: `Foundation_Metadata`*"]
     pub fn IsApiContractPresentByMajor<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(contractname: Param0, majorversion: u16) -> ::windows::runtime::Result<bool> {
         Self::IApiInformationStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), contractname.into_param().abi(), majorversion, &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: `Foundation_Metadata`*"]
     pub fn IsApiContractPresentByMajorAndMinor<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(contractname: Param0, majorversion: u16, minorversion: u16) -> ::windows::runtime::Result<bool> {
         Self::IApiInformationStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
@@ -69,6 +80,7 @@ impl ApiInformation {
 impl ::windows::runtime::RuntimeName for ApiInformation {
     const NAME: &'static str = "Windows.Foundation.Metadata.ApiInformation";
 }
+#[doc = "*Required features: `Foundation_Metadata`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AttributeTargets(pub u32);
@@ -127,6 +139,7 @@ impl ::std::ops::Not for AttributeTargets {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Foundation_Metadata`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CompositionType(pub i32);
@@ -146,6 +159,7 @@ unsafe impl ::windows::runtime::Abi for CompositionType {
 unsafe impl ::windows::runtime::RuntimeType for CompositionType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.CompositionType;i4)");
 }
+#[doc = "*Required features: `Foundation_Metadata`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DeprecationType(pub i32);
@@ -165,6 +179,7 @@ unsafe impl ::windows::runtime::Abi for DeprecationType {
 unsafe impl ::windows::runtime::RuntimeType for DeprecationType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.DeprecationType;i4)");
 }
+#[doc = "*Required features: `Foundation_Metadata`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FeatureStage(pub i32);
@@ -186,6 +201,7 @@ unsafe impl ::windows::runtime::Abi for FeatureStage {
 unsafe impl ::windows::runtime::RuntimeType for FeatureStage {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.FeatureStage;i4)");
 }
+#[doc = "*Required features: `Foundation_Metadata`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GCPressureAmount(pub i32);
@@ -234,6 +250,7 @@ pub struct IApiInformationStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, contractname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, majorversion: u16, result__: *mut bool) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, contractname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, majorversion: u16, minorversion: u16, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Foundation_Metadata`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MarshalingType(pub i32);
@@ -255,6 +272,7 @@ unsafe impl ::windows::runtime::Abi for MarshalingType {
 unsafe impl ::windows::runtime::RuntimeType for MarshalingType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.MarshalingType;i4)");
 }
+#[doc = "*Required features: `Foundation_Metadata`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct Platform(pub i32);
@@ -274,6 +292,7 @@ unsafe impl ::windows::runtime::Abi for Platform {
 unsafe impl ::windows::runtime::RuntimeType for Platform {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.Platform;i4)");
 }
+#[doc = "*Required features: `Foundation_Metadata`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ThreadingModel(pub i32);

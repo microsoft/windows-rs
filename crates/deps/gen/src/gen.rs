@@ -72,6 +72,29 @@ impl Gen {
         features
     }
 
+    pub fn gen_cfg_doc(&self, features: &BTreeSet<&'static str>) -> TokenStream {
+        if self.root.is_empty() {
+            return TokenStream::new();
+        }
+
+        let mut tokens = format!("`{}`", self.relative[self.root.len() + 1..].replace('.', "_"));
+
+        for feature in features {
+            if self.relative == *feature {
+                continue;
+            }
+
+            if self.relative.len() > feature.len() && self.relative.starts_with(feature) && self.relative[feature.len()..].starts_with('.') {
+                continue;
+            }
+
+            let feature = &feature[self.root.len() + 1..];
+            tokens.push_str(&format!(", `{}`", feature.replace('.', "_")));
+        }
+
+        format!(r#"#[doc = "*Required features: {}*"]"#, tokens).into()
+    }
+
     pub fn gen_cfg(&self, features: &BTreeSet<&'static str>) -> TokenStream {
         self.gen_cfg_impl(features, false)
     }

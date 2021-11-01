@@ -144,10 +144,12 @@ pub struct INotesWindowManagerPreviewStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `ApplicationModel_Preview_Notes`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct NotePlacementChangedPreviewEventArgs(::windows::runtime::IInspectable);
 impl NotePlacementChangedPreviewEventArgs {
+    #[doc = "*Required features: `ApplicationModel_Preview_Notes`*"]
     pub fn ViewId(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -208,10 +210,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for NotePlacementChangedPreviewEventArgs {}
 unsafe impl ::std::marker::Sync for NotePlacementChangedPreviewEventArgs {}
+#[doc = "*Required features: `ApplicationModel_Preview_Notes`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct NoteVisibilityChangedPreviewEventArgs(::windows::runtime::IInspectable);
 impl NoteVisibilityChangedPreviewEventArgs {
+    #[doc = "*Required features: `ApplicationModel_Preview_Notes`*"]
     pub fn ViewId(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -219,6 +223,7 @@ impl NoteVisibilityChangedPreviewEventArgs {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Preview_Notes`*"]
     pub fn IsVisible(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -279,10 +284,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for NoteVisibilityChangedPreviewEventArgs {}
 unsafe impl ::std::marker::Sync for NoteVisibilityChangedPreviewEventArgs {}
+#[doc = "*Required features: `ApplicationModel_Preview_Notes`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct NotesWindowManagerPreview(::windows::runtime::IInspectable);
 impl NotesWindowManagerPreview {
+    #[doc = "*Required features: `ApplicationModel_Preview_Notes`*"]
     pub fn IsScreenLocked(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -290,24 +297,29 @@ impl NotesWindowManagerPreview {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Preview_Notes`*"]
     pub fn ShowNote(&self, noteviewid: i32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), noteviewid).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Preview_Notes`*"]
     pub fn ShowNoteRelativeTo(&self, noteviewid: i32, anchornoteviewid: i32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), noteviewid, anchornoteviewid).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `ApplicationModel_Preview_Notes`, `Storage_Streams`*"]
     pub fn ShowNoteWithPlacement<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>>(&self, noteviewid: i32, data: Param1) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), noteviewid, data.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Preview_Notes`*"]
     pub fn HideNote(&self, noteviewid: i32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), noteviewid).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `ApplicationModel_Preview_Notes`, `Storage_Streams`*"]
     pub fn GetNotePlacement(&self, noteviewid: i32) -> ::windows::runtime::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
@@ -316,6 +328,7 @@ impl NotesWindowManagerPreview {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Preview_Notes`, `Foundation`*"]
     pub fn TrySetNoteSize<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Size>>(&self, noteviewid: i32, size: Param1) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -323,11 +336,13 @@ impl NotesWindowManagerPreview {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), noteviewid, size.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Preview_Notes`*"]
     pub fn SetFocusToNextView(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `ApplicationModel_Preview_Notes`, `Foundation`, `Storage_Streams`*"]
     pub fn SetNotesThumbnailAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>>(&self, thumbnail: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -336,6 +351,7 @@ impl NotesWindowManagerPreview {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Preview_Notes`, `Foundation`*"]
     pub fn SystemLockStateChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<NotesWindowManagerPreview, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -344,11 +360,13 @@ impl NotesWindowManagerPreview {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Preview_Notes`, `Foundation`*"]
     pub fn RemoveSystemLockStateChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Preview_Notes`, `Foundation`*"]
     pub fn NotePlacementChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<NotesWindowManagerPreview, NotePlacementChangedPreviewEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -357,11 +375,13 @@ impl NotesWindowManagerPreview {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Preview_Notes`, `Foundation`*"]
     pub fn RemoveNotePlacementChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Preview_Notes`, `Foundation`*"]
     pub fn NoteVisibilityChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<NotesWindowManagerPreview, NoteVisibilityChangedPreviewEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -370,30 +390,36 @@ impl NotesWindowManagerPreview {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Preview_Notes`, `Foundation`*"]
     pub fn RemoveNoteVisibilityChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Preview_Notes`*"]
     pub fn GetForCurrentApp() -> ::windows::runtime::Result<NotesWindowManagerPreview> {
         Self::INotesWindowManagerPreviewStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<NotesWindowManagerPreview>(result__)
         })
     }
+    #[doc = "*Required features: `ApplicationModel_Preview_Notes`*"]
     pub fn ShowNoteRelativeToWithOptions<'a, Param2: ::windows::runtime::IntoParam<'a, NotesWindowManagerPreviewShowNoteOptions>>(&self, noteviewid: i32, anchornoteviewid: i32, options: Param2) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<INotesWindowManagerPreview2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), noteviewid, anchornoteviewid, options.into_param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `ApplicationModel_Preview_Notes`, `Storage_Streams`*"]
     pub fn ShowNoteWithPlacementWithOptions<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>, Param2: ::windows::runtime::IntoParam<'a, NotesWindowManagerPreviewShowNoteOptions>>(&self, noteviewid: i32, data: Param1, options: Param2) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<INotesWindowManagerPreview2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), noteviewid, data.into_param().abi(), options.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Preview_Notes`*"]
     pub fn SetFocusToPreviousView(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<INotesWindowManagerPreview2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging"))]
+    #[doc = "*Required features: `ApplicationModel_Preview_Notes`, `Foundation`, `Graphics_Imaging`*"]
     pub fn SetThumbnailImageForTaskSwitcherAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Graphics::Imaging::SoftwareBitmap>>(&self, bitmap: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = &::windows::runtime::Interface::cast::<INotesWindowManagerPreview2>(self)?;
         unsafe {
@@ -458,6 +484,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for NotesWindowManagerPreview {}
 unsafe impl ::std::marker::Sync for NotesWindowManagerPreview {}
+#[doc = "*Required features: `ApplicationModel_Preview_Notes`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct NotesWindowManagerPreviewShowNoteOptions(::windows::runtime::IInspectable);
@@ -469,6 +496,7 @@ impl NotesWindowManagerPreviewShowNoteOptions {
         static mut SHARED: ::windows::runtime::FactoryCache<NotesWindowManagerPreviewShowNoteOptions, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `ApplicationModel_Preview_Notes`*"]
     pub fn ShowWithFocus(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -476,6 +504,7 @@ impl NotesWindowManagerPreviewShowNoteOptions {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Preview_Notes`*"]
     pub fn SetShowWithFocus(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }

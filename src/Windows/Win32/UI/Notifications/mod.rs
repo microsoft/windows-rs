@@ -1,9 +1,11 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Win32_UI_Notifications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct INotificationActivationCallback(::windows::runtime::IUnknown);
 impl INotificationActivationCallback {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_Notifications`, `Win32_Foundation`*"]
     pub unsafe fn Activate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, appusermodelid: Param0, invokedargs: Param1, data: *const NOTIFICATION_USER_INPUT_DATA, count: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), appusermodelid.into_param().abi(), invokedargs.into_param().abi(), ::std::mem::transmute(data), ::std::mem::transmute(count)).ok()
     }
@@ -44,6 +46,7 @@ pub struct INotificationActivationCallback_abi(
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_Notifications`, `Win32_Foundation`*"]
 pub struct NOTIFICATION_USER_INPUT_DATA {
     pub Key: super::super::Foundation::PWSTR,
     pub Value: super::super::Foundation::PWSTR,

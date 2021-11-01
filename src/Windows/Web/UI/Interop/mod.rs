@@ -179,11 +179,13 @@ pub struct IWebViewControlSite2_abi(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: `Web_UI_Interop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct WebViewControl(::windows::runtime::IInspectable);
 impl WebViewControl {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_UI_Interop`, `Foundation`*"]
     pub fn Source(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Uri> {
         let this = self;
         unsafe {
@@ -192,10 +194,12 @@ impl WebViewControl {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_UI_Interop`, `Foundation`*"]
     pub fn SetSource<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Uri>>(&self, source: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), source.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Web_UI_Interop`*"]
     pub fn DocumentTitle(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -203,6 +207,7 @@ impl WebViewControl {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Web_UI_Interop`*"]
     pub fn CanGoBack(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -210,6 +215,7 @@ impl WebViewControl {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Web_UI_Interop`*"]
     pub fn CanGoForward(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -218,11 +224,13 @@ impl WebViewControl {
         }
     }
     #[cfg(feature = "UI")]
+    #[doc = "*Required features: `Web_UI_Interop`, `UI`*"]
     pub fn SetDefaultBackgroundColor<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::UI::Color>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI")]
+    #[doc = "*Required features: `Web_UI_Interop`, `UI`*"]
     pub fn DefaultBackgroundColor(&self) -> ::windows::runtime::Result<super::super::super::UI::Color> {
         let this = self;
         unsafe {
@@ -230,6 +238,7 @@ impl WebViewControl {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::UI::Color>(result__)
         }
     }
+    #[doc = "*Required features: `Web_UI_Interop`*"]
     pub fn ContainsFullScreenElement(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -237,6 +246,7 @@ impl WebViewControl {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Web_UI_Interop`*"]
     pub fn Settings(&self) -> ::windows::runtime::Result<super::WebViewControlSettings> {
         let this = self;
         unsafe {
@@ -245,6 +255,7 @@ impl WebViewControl {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Web_UI_Interop`, `Foundation_Collections`*"]
     pub fn DeferredPermissionRequests(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<super::WebViewControlDeferredPermissionRequest>> {
         let this = self;
         unsafe {
@@ -252,42 +263,51 @@ impl WebViewControl {
             (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<super::WebViewControlDeferredPermissionRequest>>(result__)
         }
     }
+    #[doc = "*Required features: `Web_UI_Interop`*"]
     pub fn GoForward(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Web_UI_Interop`*"]
     pub fn GoBack(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Web_UI_Interop`*"]
     pub fn Refresh(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Web_UI_Interop`*"]
     pub fn Stop(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_UI_Interop`, `Foundation`*"]
     pub fn Navigate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Uri>>(&self, source: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), source.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Web_UI_Interop`*"]
     pub fn NavigateToString<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, text: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), text.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_UI_Interop`, `Foundation`*"]
     pub fn NavigateToLocalStreamUri<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Uri>, Param1: ::windows::runtime::IntoParam<'a, super::super::IUriToStreamResolver>>(&self, source: Param0, streamresolver: Param1) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), source.into_param().abi(), streamresolver.into_param().abi()).ok() }
     }
     #[cfg(feature = "Web_Http")]
+    #[doc = "*Required features: `Web_UI_Interop`, `Web_Http`*"]
     pub fn NavigateWithHttpRequestMessage<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Http::HttpRequestMessage>>(&self, requestmessage: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), requestmessage.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Web_UI_Interop`, `Foundation`, `Foundation_Collections`*"]
     pub fn InvokeScriptAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>>(&self, scriptname: Param0, arguments: Param1) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -296,6 +316,7 @@ impl WebViewControl {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Web_UI_Interop`, `Foundation`, `Storage_Streams`*"]
     pub fn CapturePreviewToStreamAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Storage::Streams::IRandomAccessStream>>(&self, stream: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -304,6 +325,7 @@ impl WebViewControl {
         }
     }
     #[cfg(all(feature = "ApplicationModel_DataTransfer", feature = "Foundation"))]
+    #[doc = "*Required features: `Web_UI_Interop`, `ApplicationModel_DataTransfer`, `Foundation`*"]
     pub fn CaptureSelectedContentToDataPackageAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::ApplicationModel::DataTransfer::DataPackage>> {
         let this = self;
         unsafe {
@@ -312,6 +334,7 @@ impl WebViewControl {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_UI_Interop`, `Foundation`*"]
     pub fn BuildLocalStreamUri<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, contentidentifier: Param0, relativepath: Param1) -> ::windows::runtime::Result<super::super::super::Foundation::Uri> {
         let this = self;
         unsafe {
@@ -319,11 +342,13 @@ impl WebViewControl {
             (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this), contentidentifier.into_param().abi(), relativepath.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::Uri>(result__)
         }
     }
+    #[doc = "*Required features: `Web_UI_Interop`*"]
     pub fn GetDeferredPermissionRequestById(&self, id: u32, result: &mut ::std::option::Option<super::WebViewControlDeferredPermissionRequest>) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).28)(::std::mem::transmute_copy(this), id, result as *mut _ as _).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_UI_Interop`, `Foundation`*"]
     pub fn NavigationStarting<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<super::IWebViewControl, super::WebViewControlNavigationStartingEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -332,11 +357,13 @@ impl WebViewControl {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_UI_Interop`, `Foundation`*"]
     pub fn RemoveNavigationStarting<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).30)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_UI_Interop`, `Foundation`*"]
     pub fn ContentLoading<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<super::IWebViewControl, super::WebViewControlContentLoadingEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -345,11 +372,13 @@ impl WebViewControl {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_UI_Interop`, `Foundation`*"]
     pub fn RemoveContentLoading<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).32)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_UI_Interop`, `Foundation`*"]
     pub fn DOMContentLoaded<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<super::IWebViewControl, super::WebViewControlDOMContentLoadedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -358,11 +387,13 @@ impl WebViewControl {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_UI_Interop`, `Foundation`*"]
     pub fn RemoveDOMContentLoaded<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).34)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_UI_Interop`, `Foundation`*"]
     pub fn NavigationCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<super::IWebViewControl, super::WebViewControlNavigationCompletedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -371,11 +402,13 @@ impl WebViewControl {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_UI_Interop`, `Foundation`*"]
     pub fn RemoveNavigationCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).36)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_UI_Interop`, `Foundation`*"]
     pub fn FrameNavigationStarting<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<super::IWebViewControl, super::WebViewControlNavigationStartingEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -384,11 +417,13 @@ impl WebViewControl {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_UI_Interop`, `Foundation`*"]
     pub fn RemoveFrameNavigationStarting<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).38)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_UI_Interop`, `Foundation`*"]
     pub fn FrameContentLoading<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<super::IWebViewControl, super::WebViewControlContentLoadingEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -397,11 +432,13 @@ impl WebViewControl {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_UI_Interop`, `Foundation`*"]
     pub fn RemoveFrameContentLoading<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).40)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_UI_Interop`, `Foundation`*"]
     pub fn FrameDOMContentLoaded<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<super::IWebViewControl, super::WebViewControlDOMContentLoadedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -410,11 +447,13 @@ impl WebViewControl {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_UI_Interop`, `Foundation`*"]
     pub fn RemoveFrameDOMContentLoaded<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).42)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_UI_Interop`, `Foundation`*"]
     pub fn FrameNavigationCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<super::IWebViewControl, super::WebViewControlNavigationCompletedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -423,11 +462,13 @@ impl WebViewControl {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_UI_Interop`, `Foundation`*"]
     pub fn RemoveFrameNavigationCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).44)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_UI_Interop`, `Foundation`*"]
     pub fn ScriptNotify<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<super::IWebViewControl, super::WebViewControlScriptNotifyEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -436,11 +477,13 @@ impl WebViewControl {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_UI_Interop`, `Foundation`*"]
     pub fn RemoveScriptNotify<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).46)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_UI_Interop`, `Foundation`*"]
     pub fn LongRunningScriptDetected<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<super::IWebViewControl, super::WebViewControlLongRunningScriptDetectedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -449,11 +492,13 @@ impl WebViewControl {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_UI_Interop`, `Foundation`*"]
     pub fn RemoveLongRunningScriptDetected<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).48)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_UI_Interop`, `Foundation`*"]
     pub fn UnsafeContentWarningDisplaying<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<super::IWebViewControl, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -462,11 +507,13 @@ impl WebViewControl {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_UI_Interop`, `Foundation`*"]
     pub fn RemoveUnsafeContentWarningDisplaying<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).50)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_UI_Interop`, `Foundation`*"]
     pub fn UnviewableContentIdentified<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<super::IWebViewControl, super::WebViewControlUnviewableContentIdentifiedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -475,11 +522,13 @@ impl WebViewControl {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_UI_Interop`, `Foundation`*"]
     pub fn RemoveUnviewableContentIdentified<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).52)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_UI_Interop`, `Foundation`*"]
     pub fn PermissionRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<super::IWebViewControl, super::WebViewControlPermissionRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -488,11 +537,13 @@ impl WebViewControl {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_UI_Interop`, `Foundation`*"]
     pub fn RemovePermissionRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).54)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_UI_Interop`, `Foundation`*"]
     pub fn UnsupportedUriSchemeIdentified<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<super::IWebViewControl, super::WebViewControlUnsupportedUriSchemeIdentifiedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -501,11 +552,13 @@ impl WebViewControl {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_UI_Interop`, `Foundation`*"]
     pub fn RemoveUnsupportedUriSchemeIdentified<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).56)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_UI_Interop`, `Foundation`*"]
     pub fn NewWindowRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<super::IWebViewControl, super::WebViewControlNewWindowRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -514,11 +567,13 @@ impl WebViewControl {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_UI_Interop`, `Foundation`*"]
     pub fn RemoveNewWindowRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).58)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_UI_Interop`, `Foundation`*"]
     pub fn ContainsFullScreenElementChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<super::IWebViewControl, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -527,11 +582,13 @@ impl WebViewControl {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_UI_Interop`, `Foundation`*"]
     pub fn RemoveContainsFullScreenElementChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).60)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_UI_Interop`, `Foundation`*"]
     pub fn WebResourceRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<super::IWebViewControl, super::WebViewControlWebResourceRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -540,10 +597,12 @@ impl WebViewControl {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_UI_Interop`, `Foundation`*"]
     pub fn RemoveWebResourceRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).62)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Web_UI_Interop`*"]
     pub fn Process(&self) -> ::windows::runtime::Result<WebViewControlProcess> {
         let this = &::windows::runtime::Interface::cast::<IWebViewControlSite>(self)?;
         unsafe {
@@ -551,10 +610,12 @@ impl WebViewControl {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<WebViewControlProcess>(result__)
         }
     }
+    #[doc = "*Required features: `Web_UI_Interop`*"]
     pub fn SetScale(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IWebViewControlSite>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Web_UI_Interop`*"]
     pub fn Scale(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<IWebViewControlSite>(self)?;
         unsafe {
@@ -563,11 +624,13 @@ impl WebViewControl {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_UI_Interop`, `Foundation`*"]
     pub fn SetBounds<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Rect>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IWebViewControlSite>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_UI_Interop`, `Foundation`*"]
     pub fn Bounds(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Rect> {
         let this = &::windows::runtime::Interface::cast::<IWebViewControlSite>(self)?;
         unsafe {
@@ -575,10 +638,12 @@ impl WebViewControl {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Rect>(result__)
         }
     }
+    #[doc = "*Required features: `Web_UI_Interop`*"]
     pub fn SetIsVisible(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IWebViewControlSite>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Web_UI_Interop`*"]
     pub fn IsVisible(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IWebViewControlSite>(self)?;
         unsafe {
@@ -586,15 +651,18 @@ impl WebViewControl {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Web_UI_Interop`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IWebViewControlSite>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Web_UI_Interop`*"]
     pub fn MoveFocus(&self, reason: WebViewControlMoveFocusReason) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IWebViewControlSite>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), reason).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_UI_Interop`, `Foundation`*"]
     pub fn MoveFocusRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<WebViewControl, WebViewControlMoveFocusRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<IWebViewControlSite>(self)?;
         unsafe {
@@ -603,11 +671,13 @@ impl WebViewControl {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_UI_Interop`, `Foundation`*"]
     pub fn RemoveMoveFocusRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IWebViewControlSite>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_UI_Interop`, `Foundation`*"]
     pub fn AcceleratorKeyPressed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<WebViewControl, WebViewControlAcceleratorKeyPressedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<IWebViewControlSite>(self)?;
         unsafe {
@@ -616,15 +686,18 @@ impl WebViewControl {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_UI_Interop`, `Foundation`*"]
     pub fn RemoveAcceleratorKeyPressed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IWebViewControlSite>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Web_UI_Interop`*"]
     pub fn AddInitializeScript<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, script: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IWebViewControl2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), script.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_UI_Interop`, `Foundation`*"]
     pub fn GotFocus<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<WebViewControl, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<IWebViewControlSite2>(self)?;
         unsafe {
@@ -633,11 +706,13 @@ impl WebViewControl {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_UI_Interop`, `Foundation`*"]
     pub fn RemoveGotFocus<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IWebViewControlSite2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_UI_Interop`, `Foundation`*"]
     pub fn LostFocus<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<WebViewControl, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<IWebViewControlSite2>(self)?;
         unsafe {
@@ -646,6 +721,7 @@ impl WebViewControl {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_UI_Interop`, `Foundation`*"]
     pub fn RemoveLostFocus<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IWebViewControlSite2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
@@ -743,11 +819,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::IWebViewControl2> for &WebView
         ::std::convert::TryInto::<super::IWebViewControl2>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
+#[doc = "*Required features: `Web_UI_Interop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct WebViewControlAcceleratorKeyPressedEventArgs(::windows::runtime::IInspectable);
 impl WebViewControlAcceleratorKeyPressedEventArgs {
     #[cfg(feature = "UI_Core")]
+    #[doc = "*Required features: `Web_UI_Interop`, `UI_Core`*"]
     pub fn EventType(&self) -> ::windows::runtime::Result<super::super::super::UI::Core::CoreAcceleratorKeyEventType> {
         let this = self;
         unsafe {
@@ -756,6 +834,7 @@ impl WebViewControlAcceleratorKeyPressedEventArgs {
         }
     }
     #[cfg(feature = "System")]
+    #[doc = "*Required features: `Web_UI_Interop`, `System`*"]
     pub fn VirtualKey(&self) -> ::windows::runtime::Result<super::super::super::System::VirtualKey> {
         let this = self;
         unsafe {
@@ -764,6 +843,7 @@ impl WebViewControlAcceleratorKeyPressedEventArgs {
         }
     }
     #[cfg(feature = "UI_Core")]
+    #[doc = "*Required features: `Web_UI_Interop`, `UI_Core`*"]
     pub fn KeyStatus(&self) -> ::windows::runtime::Result<super::super::super::UI::Core::CorePhysicalKeyStatus> {
         let this = self;
         unsafe {
@@ -771,6 +851,7 @@ impl WebViewControlAcceleratorKeyPressedEventArgs {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::UI::Core::CorePhysicalKeyStatus>(result__)
         }
     }
+    #[doc = "*Required features: `Web_UI_Interop`*"]
     pub fn RoutingStage(&self) -> ::windows::runtime::Result<WebViewControlAcceleratorKeyRoutingStage> {
         let this = self;
         unsafe {
@@ -778,6 +859,7 @@ impl WebViewControlAcceleratorKeyPressedEventArgs {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<WebViewControlAcceleratorKeyRoutingStage>(result__)
         }
     }
+    #[doc = "*Required features: `Web_UI_Interop`*"]
     pub fn Handled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -785,6 +867,7 @@ impl WebViewControlAcceleratorKeyPressedEventArgs {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Web_UI_Interop`*"]
     pub fn SetHandled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
@@ -840,6 +923,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
+#[doc = "*Required features: `Web_UI_Interop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WebViewControlAcceleratorKeyRoutingStage(pub i32);
@@ -859,6 +943,7 @@ unsafe impl ::windows::runtime::Abi for WebViewControlAcceleratorKeyRoutingStage
 unsafe impl ::windows::runtime::RuntimeType for WebViewControlAcceleratorKeyRoutingStage {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Web.UI.Interop.WebViewControlAcceleratorKeyRoutingStage;i4)");
 }
+#[doc = "*Required features: `Web_UI_Interop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WebViewControlMoveFocusReason(pub i32);
@@ -879,10 +964,12 @@ unsafe impl ::windows::runtime::Abi for WebViewControlMoveFocusReason {
 unsafe impl ::windows::runtime::RuntimeType for WebViewControlMoveFocusReason {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Web.UI.Interop.WebViewControlMoveFocusReason;i4)");
 }
+#[doc = "*Required features: `Web_UI_Interop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct WebViewControlMoveFocusRequestedEventArgs(::windows::runtime::IInspectable);
 impl WebViewControlMoveFocusRequestedEventArgs {
+    #[doc = "*Required features: `Web_UI_Interop`*"]
     pub fn Reason(&self) -> ::windows::runtime::Result<WebViewControlMoveFocusReason> {
         let this = self;
         unsafe {
@@ -941,6 +1028,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
+#[doc = "*Required features: `Web_UI_Interop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct WebViewControlProcess(::windows::runtime::IInspectable);
@@ -952,6 +1040,7 @@ impl WebViewControlProcess {
         static mut SHARED: ::windows::runtime::FactoryCache<WebViewControlProcess, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `Web_UI_Interop`*"]
     pub fn ProcessId(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -959,6 +1048,7 @@ impl WebViewControlProcess {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Web_UI_Interop`*"]
     pub fn EnterpriseId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -966,6 +1056,7 @@ impl WebViewControlProcess {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Web_UI_Interop`*"]
     pub fn IsPrivateNetworkClientServerCapabilityEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -974,6 +1065,7 @@ impl WebViewControlProcess {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_UI_Interop`, `Foundation`*"]
     pub fn CreateWebViewControlAsync<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Rect>>(&self, hostwindowhandle: i64, bounds: Param1) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<WebViewControl>> {
         let this = self;
         unsafe {
@@ -982,6 +1074,7 @@ impl WebViewControlProcess {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Web_UI_Interop`, `Foundation_Collections`*"]
     pub fn GetWebViewControls(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<WebViewControl>> {
         let this = self;
         unsafe {
@@ -989,11 +1082,13 @@ impl WebViewControlProcess {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<WebViewControl>>(result__)
         }
     }
+    #[doc = "*Required features: `Web_UI_Interop`*"]
     pub fn Terminate(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_UI_Interop`, `Foundation`*"]
     pub fn ProcessExited<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<WebViewControlProcess, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1002,10 +1097,12 @@ impl WebViewControlProcess {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Web_UI_Interop`, `Foundation`*"]
     pub fn RemoveProcessExited<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Web_UI_Interop`*"]
     pub fn CreateWithOptions<'a, Param0: ::windows::runtime::IntoParam<'a, WebViewControlProcessOptions>>(processoptions: Param0) -> ::windows::runtime::Result<WebViewControlProcess> {
         Self::IWebViewControlProcessFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1067,6 +1164,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
+#[doc = "*Required features: `Web_UI_Interop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WebViewControlProcessCapabilityState(pub i32);
@@ -1087,6 +1185,7 @@ unsafe impl ::windows::runtime::Abi for WebViewControlProcessCapabilityState {
 unsafe impl ::windows::runtime::RuntimeType for WebViewControlProcessCapabilityState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Web.UI.Interop.WebViewControlProcessCapabilityState;i4)");
 }
+#[doc = "*Required features: `Web_UI_Interop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct WebViewControlProcessOptions(::windows::runtime::IInspectable);
@@ -1098,10 +1197,12 @@ impl WebViewControlProcessOptions {
         static mut SHARED: ::windows::runtime::FactoryCache<WebViewControlProcessOptions, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `Web_UI_Interop`*"]
     pub fn SetEnterpriseId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Web_UI_Interop`*"]
     pub fn EnterpriseId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1109,10 +1210,12 @@ impl WebViewControlProcessOptions {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Web_UI_Interop`*"]
     pub fn SetPrivateNetworkClientServerCapability(&self, value: WebViewControlProcessCapabilityState) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Web_UI_Interop`*"]
     pub fn PrivateNetworkClientServerCapability(&self) -> ::windows::runtime::Result<WebViewControlProcessCapabilityState> {
         let this = self;
         unsafe {

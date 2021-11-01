@@ -1,23 +1,28 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMLOperatorAttributes(::windows::runtime::IUnknown);
 impl IMLOperatorAttributes {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`, `Win32_Foundation`*"]
     pub unsafe fn GetAttributeElementCount<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, name: Param0, r#type: MLOperatorAttributeType) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), name.into_param().abi(), ::std::mem::transmute(r#type), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`, `Win32_Foundation`*"]
     pub unsafe fn GetAttribute<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, name: Param0, r#type: MLOperatorAttributeType, elementcount: u32, elementbytesize: usize, value: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), name.into_param().abi(), ::std::mem::transmute(r#type), ::std::mem::transmute(elementcount), ::std::mem::transmute(elementbytesize), ::std::mem::transmute(value)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`, `Win32_Foundation`*"]
     pub unsafe fn GetStringAttributeElementLength<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, name: Param0, elementindex: u32) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), name.into_param().abi(), ::std::mem::transmute(elementindex), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`, `Win32_Foundation`*"]
     pub unsafe fn GetStringAttributeElement<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, name: Param0, elementindex: u32, attributeelementbytesize: u32, attributeelement: super::super::super::Foundation::PSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), name.into_param().abi(), ::std::mem::transmute(elementindex), ::std::mem::transmute(attributeelementbytesize), ::std::mem::transmute(attributeelement)).ok()
     }
@@ -61,10 +66,12 @@ pub struct IMLOperatorAttributes_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: super::super::super::Foundation::PSTR, elementindex: u32, attributeelementbytesize: u32, attributeelement: super::super::super::Foundation::PSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMLOperatorKernel(::windows::runtime::IUnknown);
 impl IMLOperatorKernel {
+    #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
     pub unsafe fn Compute<'a, Param0: ::windows::runtime::IntoParam<'a, IMLOperatorKernelContext>>(&self, context: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), context.into_param().abi()).ok()
     }
@@ -101,26 +108,32 @@ pub struct IMLOperatorKernel_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, context: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMLOperatorKernelContext(::windows::runtime::IUnknown);
 impl IMLOperatorKernelContext {
+    #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
     pub unsafe fn GetInputTensor(&self, inputindex: u32) -> ::windows::runtime::Result<IMLOperatorTensor> {
         let mut result__: <IMLOperatorTensor as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(inputindex), &mut result__).from_abi::<IMLOperatorTensor>(result__)
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
     pub unsafe fn GetOutputTensor(&self, outputindex: u32, dimensioncount: u32, dimensionsizes: *const u32) -> ::windows::runtime::Result<IMLOperatorTensor> {
         let mut result__: <IMLOperatorTensor as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(outputindex), ::std::mem::transmute(dimensioncount), ::std::mem::transmute(dimensionsizes), &mut result__).from_abi::<IMLOperatorTensor>(result__)
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
     pub unsafe fn GetOutputTensor2(&self, outputindex: u32) -> ::windows::runtime::Result<IMLOperatorTensor> {
         let mut result__: <IMLOperatorTensor as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(outputindex), &mut result__).from_abi::<IMLOperatorTensor>(result__)
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
     pub unsafe fn AllocateTemporaryData(&self, size: usize) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
         let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(size), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
     pub unsafe fn GetExecutionInterface(&self, executionobject: *mut ::std::option::Option<::windows::runtime::IUnknown>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(executionobject)))
     }
@@ -161,55 +174,69 @@ pub struct IMLOperatorKernelContext_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, size: usize, data: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, executionobject: *mut ::windows::runtime::RawPtr),
 );
+#[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMLOperatorKernelCreationContext(::windows::runtime::IUnknown);
 impl IMLOperatorKernelCreationContext {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`, `Win32_Foundation`*"]
     pub unsafe fn GetAttributeElementCount<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, name: Param0, r#type: MLOperatorAttributeType) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), name.into_param().abi(), ::std::mem::transmute(r#type), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`, `Win32_Foundation`*"]
     pub unsafe fn GetAttribute<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, name: Param0, r#type: MLOperatorAttributeType, elementcount: u32, elementbytesize: usize, value: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), name.into_param().abi(), ::std::mem::transmute(r#type), ::std::mem::transmute(elementcount), ::std::mem::transmute(elementbytesize), ::std::mem::transmute(value)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`, `Win32_Foundation`*"]
     pub unsafe fn GetStringAttributeElementLength<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, name: Param0, elementindex: u32) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), name.into_param().abi(), ::std::mem::transmute(elementindex), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`, `Win32_Foundation`*"]
     pub unsafe fn GetStringAttributeElement<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, name: Param0, elementindex: u32, attributeelementbytesize: u32, attributeelement: super::super::super::Foundation::PSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), name.into_param().abi(), ::std::mem::transmute(elementindex), ::std::mem::transmute(attributeelementbytesize), ::std::mem::transmute(attributeelement)).ok()
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
     pub unsafe fn GetInputCount(&self) -> u32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
     pub unsafe fn GetOutputCount(&self) -> u32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
     pub unsafe fn IsInputValid(&self, inputindex: u32) -> bool {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(inputindex)))
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
     pub unsafe fn IsOutputValid(&self, outputindex: u32) -> bool {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(outputindex)))
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
     pub unsafe fn GetInputEdgeDescription(&self, inputindex: u32) -> ::windows::runtime::Result<MLOperatorEdgeDescription> {
         let mut result__: <MLOperatorEdgeDescription as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(inputindex), &mut result__).from_abi::<MLOperatorEdgeDescription>(result__)
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
     pub unsafe fn GetOutputEdgeDescription(&self, outputindex: u32) -> ::windows::runtime::Result<MLOperatorEdgeDescription> {
         let mut result__: <MLOperatorEdgeDescription as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(outputindex), &mut result__).from_abi::<MLOperatorEdgeDescription>(result__)
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
     pub unsafe fn HasTensorShapeDescription(&self) -> bool {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
     pub unsafe fn GetTensorShapeDescription(&self) -> ::windows::runtime::Result<IMLOperatorTensorShapeDescription> {
         let mut result__: <IMLOperatorTensorShapeDescription as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IMLOperatorTensorShapeDescription>(result__)
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
     pub unsafe fn GetExecutionInterface(&self, executionobject: *mut ::std::option::Option<::windows::runtime::IUnknown>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(executionobject)))
     }
@@ -282,10 +309,12 @@ pub struct IMLOperatorKernelCreationContext_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, shapedescription: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, executionobject: *mut ::windows::runtime::RawPtr),
 );
+#[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMLOperatorKernelFactory(::windows::runtime::IUnknown);
 impl IMLOperatorKernelFactory {
+    #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
     pub unsafe fn CreateKernel<'a, Param0: ::windows::runtime::IntoParam<'a, IMLOperatorKernelCreationContext>>(&self, context: Param0) -> ::windows::runtime::Result<IMLOperatorKernel> {
         let mut result__: <IMLOperatorKernel as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), context.into_param().abi(), &mut result__).from_abi::<IMLOperatorKernel>(result__)
@@ -323,15 +352,18 @@ pub struct IMLOperatorKernelFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, context: ::windows::runtime::RawPtr, kernel: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMLOperatorRegistry(::windows::runtime::IUnknown);
 impl IMLOperatorRegistry {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`, `Win32_Foundation`*"]
     pub unsafe fn RegisterOperatorSetSchema<'a, Param4: ::windows::runtime::IntoParam<'a, IMLOperatorTypeInferrer>, Param5: ::windows::runtime::IntoParam<'a, IMLOperatorShapeInferrer>>(&self, operatorsetid: *const MLOperatorSetId, baselineversion: i32, schema: *const *const MLOperatorSchemaDescription, schemacount: u32, typeinferrer: Param4, shapeinferrer: Param5) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(operatorsetid), ::std::mem::transmute(baselineversion), ::std::mem::transmute(schema), ::std::mem::transmute(schemacount), typeinferrer.into_param().abi(), shapeinferrer.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`, `Win32_Foundation`*"]
     pub unsafe fn RegisterOperatorKernel<'a, Param1: ::windows::runtime::IntoParam<'a, IMLOperatorKernelFactory>, Param2: ::windows::runtime::IntoParam<'a, IMLOperatorShapeInferrer>>(&self, operatorkernel: *const MLOperatorKernelDescription, operatorkernelfactory: Param1, shapeinferrer: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(operatorkernel), operatorkernelfactory.into_param().abi(), shapeinferrer.into_param().abi()).ok()
     }
@@ -371,51 +403,64 @@ pub struct IMLOperatorRegistry_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, operatorkernel: *const MLOperatorKernelDescription, operatorkernelfactory: ::windows::runtime::RawPtr, shapeinferrer: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMLOperatorShapeInferenceContext(::windows::runtime::IUnknown);
 impl IMLOperatorShapeInferenceContext {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`, `Win32_Foundation`*"]
     pub unsafe fn GetAttributeElementCount<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, name: Param0, r#type: MLOperatorAttributeType) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), name.into_param().abi(), ::std::mem::transmute(r#type), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`, `Win32_Foundation`*"]
     pub unsafe fn GetAttribute<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, name: Param0, r#type: MLOperatorAttributeType, elementcount: u32, elementbytesize: usize, value: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), name.into_param().abi(), ::std::mem::transmute(r#type), ::std::mem::transmute(elementcount), ::std::mem::transmute(elementbytesize), ::std::mem::transmute(value)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`, `Win32_Foundation`*"]
     pub unsafe fn GetStringAttributeElementLength<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, name: Param0, elementindex: u32) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), name.into_param().abi(), ::std::mem::transmute(elementindex), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`, `Win32_Foundation`*"]
     pub unsafe fn GetStringAttributeElement<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, name: Param0, elementindex: u32, attributeelementbytesize: u32, attributeelement: super::super::super::Foundation::PSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), name.into_param().abi(), ::std::mem::transmute(elementindex), ::std::mem::transmute(attributeelementbytesize), ::std::mem::transmute(attributeelement)).ok()
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
     pub unsafe fn GetInputCount(&self) -> u32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
     pub unsafe fn GetOutputCount(&self) -> u32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
     pub unsafe fn IsInputValid(&self, inputindex: u32) -> bool {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(inputindex)))
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
     pub unsafe fn IsOutputValid(&self, outputindex: u32) -> bool {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(outputindex)))
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
     pub unsafe fn GetInputEdgeDescription(&self, inputindex: u32) -> ::windows::runtime::Result<MLOperatorEdgeDescription> {
         let mut result__: <MLOperatorEdgeDescription as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(inputindex), &mut result__).from_abi::<MLOperatorEdgeDescription>(result__)
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
     pub unsafe fn GetInputTensorDimensionCount(&self, inputindex: u32) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(inputindex), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
     pub unsafe fn GetInputTensorShape(&self, inputindex: u32, dimensioncount: u32, dimensions: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(inputindex), ::std::mem::transmute(dimensioncount), ::std::mem::transmute(dimensions)).ok()
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
     pub unsafe fn SetOutputTensorShape(&self, outputindex: u32, dimensioncount: u32, dimensions: *const u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(outputindex), ::std::mem::transmute(dimensioncount), ::std::mem::transmute(dimensions)).ok()
     }
@@ -487,10 +532,12 @@ pub struct IMLOperatorShapeInferenceContext_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inputindex: u32, dimensioncount: u32, dimensions: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, outputindex: u32, dimensioncount: u32, dimensions: *const u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMLOperatorShapeInferrer(::windows::runtime::IUnknown);
 impl IMLOperatorShapeInferrer {
+    #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
     pub unsafe fn InferOutputShapes<'a, Param0: ::windows::runtime::IntoParam<'a, IMLOperatorShapeInferenceContext>>(&self, context: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), context.into_param().abi()).ok()
     }
@@ -527,28 +574,36 @@ pub struct IMLOperatorShapeInferrer_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, context: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMLOperatorTensor(::windows::runtime::IUnknown);
 impl IMLOperatorTensor {
+    #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
     pub unsafe fn GetDimensionCount(&self) -> u32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
     pub unsafe fn GetShape(&self, dimensioncount: u32, dimensions: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(dimensioncount), ::std::mem::transmute(dimensions)).ok()
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
     pub unsafe fn GetTensorDataType(&self) -> MLOperatorTensorDataType {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
     pub unsafe fn IsCpuData(&self) -> bool {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
     pub unsafe fn IsDataInterface(&self) -> bool {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
     pub unsafe fn GetData(&self) -> *mut ::std::ffi::c_void {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
     pub unsafe fn GetDataInterface(&self, datainterface: *mut ::std::option::Option<::windows::runtime::IUnknown>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(datainterface)))
     }
@@ -591,24 +646,30 @@ pub struct IMLOperatorTensor_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> *mut ::std::ffi::c_void,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, datainterface: *mut ::windows::runtime::RawPtr),
 );
+#[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMLOperatorTensorShapeDescription(::windows::runtime::IUnknown);
 impl IMLOperatorTensorShapeDescription {
+    #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
     pub unsafe fn GetInputTensorDimensionCount(&self, inputindex: u32) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(inputindex), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
     pub unsafe fn GetInputTensorShape(&self, inputindex: u32, dimensioncount: u32, dimensions: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(inputindex), ::std::mem::transmute(dimensioncount), ::std::mem::transmute(dimensions)).ok()
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
     pub unsafe fn HasOutputShapeDescription(&self) -> bool {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
     pub unsafe fn GetOutputTensorDimensionCount(&self, outputindex: u32) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(outputindex), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
     pub unsafe fn GetOutputTensorShape(&self, outputindex: u32, dimensioncount: u32, dimensions: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(outputindex), ::std::mem::transmute(dimensioncount), ::std::mem::transmute(dimensions)).ok()
     }
@@ -649,44 +710,55 @@ pub struct IMLOperatorTensorShapeDescription_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, outputindex: u32, dimensioncount: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, outputindex: u32, dimensioncount: u32, dimensions: *mut u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMLOperatorTypeInferenceContext(::windows::runtime::IUnknown);
 impl IMLOperatorTypeInferenceContext {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`, `Win32_Foundation`*"]
     pub unsafe fn GetAttributeElementCount<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, name: Param0, r#type: MLOperatorAttributeType) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), name.into_param().abi(), ::std::mem::transmute(r#type), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`, `Win32_Foundation`*"]
     pub unsafe fn GetAttribute<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, name: Param0, r#type: MLOperatorAttributeType, elementcount: u32, elementbytesize: usize, value: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), name.into_param().abi(), ::std::mem::transmute(r#type), ::std::mem::transmute(elementcount), ::std::mem::transmute(elementbytesize), ::std::mem::transmute(value)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`, `Win32_Foundation`*"]
     pub unsafe fn GetStringAttributeElementLength<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, name: Param0, elementindex: u32) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), name.into_param().abi(), ::std::mem::transmute(elementindex), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`, `Win32_Foundation`*"]
     pub unsafe fn GetStringAttributeElement<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, name: Param0, elementindex: u32, attributeelementbytesize: u32, attributeelement: super::super::super::Foundation::PSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), name.into_param().abi(), ::std::mem::transmute(elementindex), ::std::mem::transmute(attributeelementbytesize), ::std::mem::transmute(attributeelement)).ok()
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
     pub unsafe fn GetInputCount(&self) -> u32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
     pub unsafe fn GetOutputCount(&self) -> u32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
     pub unsafe fn IsInputValid(&self, inputindex: u32) -> bool {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(inputindex)))
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
     pub unsafe fn IsOutputValid(&self, outputindex: u32) -> bool {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(outputindex)))
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
     pub unsafe fn GetInputEdgeDescription(&self, inputindex: u32) -> ::windows::runtime::Result<MLOperatorEdgeDescription> {
         let mut result__: <MLOperatorEdgeDescription as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(inputindex), &mut result__).from_abi::<MLOperatorEdgeDescription>(result__)
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
     pub unsafe fn SetOutputEdgeDescription(&self, outputindex: u32, edgedescription: *const MLOperatorEdgeDescription) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(outputindex), ::std::mem::transmute(edgedescription)).ok()
     }
@@ -756,10 +828,12 @@ pub struct IMLOperatorTypeInferenceContext_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inputindex: u32, edgedescription: *mut MLOperatorEdgeDescription) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, outputindex: u32, edgedescription: *const MLOperatorEdgeDescription) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMLOperatorTypeInferrer(::windows::runtime::IUnknown);
 impl IMLOperatorTypeInferrer {
+    #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
     pub unsafe fn InferOutputTypes<'a, Param0: ::windows::runtime::IntoParam<'a, IMLOperatorTypeInferenceContext>>(&self, context: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), context.into_param().abi()).ok()
     }
@@ -796,19 +870,23 @@ pub struct IMLOperatorTypeInferrer_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, context: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWinMLEvaluationContext(::windows::runtime::IUnknown);
 impl IWinMLEvaluationContext {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
+    #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`, `Win32_Foundation`, `Win32_Graphics_Direct3D12`*"]
     pub unsafe fn BindValue(&self, pdescriptor: *const WINML_BINDING_DESC) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdescriptor)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
+    #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`, `Win32_Foundation`, `Win32_Graphics_Direct3D12`*"]
     pub unsafe fn GetValueByName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, name: Param0) -> ::windows::runtime::Result<*mut WINML_BINDING_DESC> {
         let mut result__: <*mut WINML_BINDING_DESC as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), name.into_param().abi(), &mut result__).from_abi::<*mut WINML_BINDING_DESC>(result__)
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
     pub unsafe fn Clear(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
@@ -849,25 +927,30 @@ pub struct IWinMLEvaluationContext_abi(
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWinMLModel(::windows::runtime::IUnknown);
 impl IWinMLModel {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`, `Win32_Foundation`*"]
     pub unsafe fn GetDescription(&self) -> ::windows::runtime::Result<*mut WINML_MODEL_DESC> {
         let mut result__: <*mut WINML_MODEL_DESC as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut WINML_MODEL_DESC>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`, `Win32_Foundation`*"]
     pub unsafe fn EnumerateMetadata(&self, index: u32, pkey: *mut super::super::super::Foundation::PWSTR, pvalue: *mut super::super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), ::std::mem::transmute(pkey), ::std::mem::transmute(pvalue)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`, `Win32_Foundation`*"]
     pub unsafe fn EnumerateModelInputs(&self, index: u32) -> ::windows::runtime::Result<*mut WINML_VARIABLE_DESC> {
         let mut result__: <*mut WINML_VARIABLE_DESC as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), &mut result__).from_abi::<*mut WINML_VARIABLE_DESC>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`, `Win32_Foundation`*"]
     pub unsafe fn EnumerateModelOutputs(&self, index: u32) -> ::windows::runtime::Result<*mut WINML_VARIABLE_DESC> {
         let mut result__: <*mut WINML_VARIABLE_DESC as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), &mut result__).from_abi::<*mut WINML_VARIABLE_DESC>(result__)
@@ -912,20 +995,24 @@ pub struct IWinMLModel_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, index: u32, ppoutputdescriptor: *mut *mut WINML_VARIABLE_DESC) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWinMLRuntime(::windows::runtime::IUnknown);
 impl IWinMLRuntime {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`, `Win32_Foundation`*"]
     pub unsafe fn LoadModel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, path: Param0) -> ::windows::runtime::Result<IWinMLModel> {
         let mut result__: <IWinMLModel as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), path.into_param().abi(), &mut result__).from_abi::<IWinMLModel>(result__)
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
+    #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`, `Win32_Graphics_Direct3D12`*"]
     pub unsafe fn CreateEvaluationContext<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Device>>(&self, device: Param0) -> ::windows::runtime::Result<IWinMLEvaluationContext> {
         let mut result__: <IWinMLEvaluationContext as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), device.into_param().abi(), &mut result__).from_abi::<IWinMLEvaluationContext>(result__)
     }
+    #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
     pub unsafe fn EvaluateModel<'a, Param0: ::windows::runtime::IntoParam<'a, IWinMLEvaluationContext>>(&self, pcontext: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), pcontext.into_param().abi()).ok()
     }
@@ -966,10 +1053,12 @@ pub struct IWinMLRuntime_abi(
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcontext: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWinMLRuntimeFactory(::windows::runtime::IUnknown);
 impl IWinMLRuntimeFactory {
+    #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
     pub unsafe fn CreateRuntime(&self, runtimetype: WINML_RUNTIME_TYPE) -> ::windows::runtime::Result<IWinMLRuntime> {
         let mut result__: <IWinMLRuntime as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(runtimetype), &mut result__).from_abi::<IWinMLRuntime>(result__)
@@ -1007,6 +1096,7 @@ pub struct IWinMLRuntimeFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, runtimetype: WINML_RUNTIME_TYPE, ppruntime: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
 #[inline]
 pub unsafe fn MLCreateOperatorRegistry() -> ::windows::runtime::Result<IMLOperatorRegistry> {
     #[cfg(windows)]
@@ -1024,6 +1114,7 @@ pub unsafe fn MLCreateOperatorRegistry() -> ::windows::runtime::Result<IMLOperat
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_AI_MachineLearning_WinML`, `Win32_Foundation`*"]
 pub struct MLOperatorAttribute {
     pub name: super::super::super::Foundation::PSTR,
     pub r#type: MLOperatorAttributeType,
@@ -1059,6 +1150,7 @@ unsafe impl ::windows::runtime::Abi for MLOperatorAttribute {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_AI_MachineLearning_WinML`, `Win32_Foundation`*"]
 pub struct MLOperatorAttributeNameValue {
     pub name: super::super::super::Foundation::PSTR,
     pub r#type: MLOperatorAttributeType,
@@ -1088,6 +1180,7 @@ unsafe impl ::windows::runtime::Abi for MLOperatorAttributeNameValue {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
 pub union MLOperatorAttributeNameValue_0 {
     pub reserved: *mut ::std::ffi::c_void,
     pub ints: *mut i64,
@@ -1110,6 +1203,7 @@ unsafe impl ::windows::runtime::Abi for MLOperatorAttributeNameValue_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MLOperatorAttributeType(pub u32);
@@ -1161,6 +1255,7 @@ impl ::std::ops::Not for MLOperatorAttributeType {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
 pub struct MLOperatorEdgeDescription {
     pub edgeType: MLOperatorEdgeType,
     pub Anonymous: MLOperatorEdgeDescription_0,
@@ -1183,6 +1278,7 @@ unsafe impl ::windows::runtime::Abi for MLOperatorEdgeDescription {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
 pub union MLOperatorEdgeDescription_0 {
     pub reserved: u64,
     pub tensorDataType: MLOperatorTensorDataType,
@@ -1203,6 +1299,7 @@ unsafe impl ::windows::runtime::Abi for MLOperatorEdgeDescription_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MLOperatorEdgeType(pub u32);
@@ -1250,6 +1347,7 @@ impl ::std::ops::Not for MLOperatorEdgeType {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_AI_MachineLearning_WinML`, `Win32_Foundation`*"]
 pub struct MLOperatorEdgeTypeConstraint {
     pub typeLabel: super::super::super::Foundation::PSTR,
     pub allowedTypes: *mut MLOperatorEdgeDescription,
@@ -1282,6 +1380,7 @@ unsafe impl ::windows::runtime::Abi for MLOperatorEdgeTypeConstraint {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MLOperatorExecutionType(pub u32);
@@ -1330,6 +1429,7 @@ impl ::std::ops::Not for MLOperatorExecutionType {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_AI_MachineLearning_WinML`, `Win32_Foundation`*"]
 pub struct MLOperatorKernelDescription {
     pub domain: super::super::super::Foundation::PSTR,
     pub name: super::super::super::Foundation::PSTR,
@@ -1380,6 +1480,7 @@ unsafe impl ::windows::runtime::Abi for MLOperatorKernelDescription {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MLOperatorKernelOptions(pub u32);
@@ -1424,6 +1525,7 @@ impl ::std::ops::Not for MLOperatorKernelOptions {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MLOperatorParameterOptions(pub u32);
@@ -1472,6 +1574,7 @@ impl ::std::ops::Not for MLOperatorParameterOptions {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_AI_MachineLearning_WinML`, `Win32_Foundation`*"]
 pub struct MLOperatorSchemaDescription {
     pub name: super::super::super::Foundation::PSTR,
     pub operatorSetVersionAtLastChange: i32,
@@ -1540,6 +1643,7 @@ unsafe impl ::windows::runtime::Abi for MLOperatorSchemaDescription {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_AI_MachineLearning_WinML`, `Win32_Foundation`*"]
 pub struct MLOperatorSchemaEdgeDescription {
     pub options: MLOperatorParameterOptions,
     pub typeFormat: MLOperatorSchemaEdgeTypeFormat,
@@ -1569,6 +1673,7 @@ unsafe impl ::windows::runtime::Abi for MLOperatorSchemaEdgeDescription {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_AI_MachineLearning_WinML`, `Win32_Foundation`*"]
 pub union MLOperatorSchemaEdgeDescription_0 {
     pub reserved: *mut ::std::ffi::c_void,
     pub typeLabel: super::super::super::Foundation::PSTR,
@@ -1595,6 +1700,7 @@ unsafe impl ::windows::runtime::Abi for MLOperatorSchemaEdgeDescription_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MLOperatorSchemaEdgeTypeFormat(pub i32);
@@ -1614,6 +1720,7 @@ unsafe impl ::windows::runtime::Abi for MLOperatorSchemaEdgeTypeFormat {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_AI_MachineLearning_WinML`, `Win32_Foundation`*"]
 pub struct MLOperatorSetId {
     pub domain: super::super::super::Foundation::PSTR,
     pub version: i32,
@@ -1645,6 +1752,7 @@ unsafe impl ::windows::runtime::Abi for MLOperatorSetId {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MLOperatorTensorDataType(pub u32);
@@ -1711,6 +1819,7 @@ impl ::std::clone::Clone for WINML_BINDING_DESC {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
+#[doc = "*Required features: `Win32_AI_MachineLearning_WinML`, `Win32_Foundation`, `Win32_Graphics_Direct3D12`*"]
 pub struct WINML_BINDING_DESC {
     pub Name: super::super::super::Foundation::PWSTR,
     pub BindType: WINML_BINDING_TYPE,
@@ -1745,6 +1854,7 @@ impl ::std::clone::Clone for WINML_BINDING_DESC_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
+#[doc = "*Required features: `Win32_AI_MachineLearning_WinML`, `Win32_Foundation`, `Win32_Graphics_Direct3D12`*"]
 pub union WINML_BINDING_DESC_0 {
     pub Tensor: WINML_TENSOR_BINDING_DESC,
     pub Sequence: WINML_SEQUENCE_BINDING_DESC,
@@ -1773,6 +1883,7 @@ unsafe impl ::windows::runtime::Abi for WINML_BINDING_DESC_0 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WINML_BINDING_TYPE(pub i32);
@@ -1791,6 +1902,7 @@ unsafe impl ::windows::runtime::Abi for WINML_BINDING_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WINML_FEATURE_TYPE(pub i32);
@@ -1810,6 +1922,7 @@ unsafe impl ::windows::runtime::Abi for WINML_FEATURE_TYPE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
 pub struct WINML_IMAGE_BINDING_DESC {
     pub ElementType: WINML_TENSOR_DATA_TYPE,
     pub NumDimensions: u32,
@@ -1840,6 +1953,7 @@ unsafe impl ::windows::runtime::Abi for WINML_IMAGE_BINDING_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
 pub struct WINML_IMAGE_VARIABLE_DESC {
     pub ElementType: WINML_TENSOR_DATA_TYPE,
     pub NumDimensions: u32,
@@ -1869,6 +1983,7 @@ unsafe impl ::windows::runtime::Abi for WINML_IMAGE_VARIABLE_DESC {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_AI_MachineLearning_WinML`, `Win32_Foundation`*"]
 pub struct WINML_MAP_BINDING_DESC {
     pub ElementCount: u32,
     pub KeyType: WINML_TENSOR_DATA_TYPE,
@@ -1900,6 +2015,7 @@ unsafe impl ::windows::runtime::Abi for WINML_MAP_BINDING_DESC {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_AI_MachineLearning_WinML`, `Win32_Foundation`*"]
 pub union WINML_MAP_BINDING_DESC_0 {
     pub pStringKeys: *mut super::super::super::Foundation::PWSTR,
     pub pIntKeys: *mut i64,
@@ -1928,6 +2044,7 @@ unsafe impl ::windows::runtime::Abi for WINML_MAP_BINDING_DESC_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_AI_MachineLearning_WinML`, `Win32_Foundation`*"]
 pub union WINML_MAP_BINDING_DESC_1 {
     pub pStringFields: *mut super::super::super::Foundation::PWSTR,
     pub pIntFields: *mut i64,
@@ -1957,6 +2074,7 @@ unsafe impl ::windows::runtime::Abi for WINML_MAP_BINDING_DESC_1 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
 pub struct WINML_MAP_VARIABLE_DESC {
     pub KeyType: WINML_TENSOR_DATA_TYPE,
     pub Fields: WINML_TENSOR_DATA_TYPE,
@@ -1985,6 +2103,7 @@ unsafe impl ::windows::runtime::Abi for WINML_MAP_VARIABLE_DESC {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_AI_MachineLearning_WinML`, `Win32_Foundation`*"]
 pub struct WINML_MODEL_DESC {
     pub Author: super::super::super::Foundation::PWSTR,
     pub Name: super::super::super::Foundation::PWSTR,
@@ -2022,6 +2141,7 @@ unsafe impl ::windows::runtime::Abi for WINML_MODEL_DESC {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+#[doc = "*Required features: `Win32_AI_MachineLearning_WinML`, `Win32_Graphics_Direct3D12`*"]
 pub struct WINML_RESOURCE_BINDING_DESC {
     pub ElementType: WINML_TENSOR_DATA_TYPE,
     pub NumDimensions: u32,
@@ -2055,6 +2175,7 @@ unsafe impl ::windows::runtime::Abi for WINML_RESOURCE_BINDING_DESC {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WINML_RUNTIME_TYPE(pub i32);
@@ -2071,6 +2192,7 @@ unsafe impl ::windows::runtime::Abi for WINML_RUNTIME_TYPE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_AI_MachineLearning_WinML`, `Win32_Foundation`*"]
 pub struct WINML_SEQUENCE_BINDING_DESC {
     pub ElementCount: u32,
     pub ElementType: WINML_TENSOR_DATA_TYPE,
@@ -2100,6 +2222,7 @@ unsafe impl ::windows::runtime::Abi for WINML_SEQUENCE_BINDING_DESC {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_AI_MachineLearning_WinML`, `Win32_Foundation`*"]
 pub union WINML_SEQUENCE_BINDING_DESC_0 {
     pub pStrings: *mut super::super::super::Foundation::PWSTR,
     pub pInts: *mut i64,
@@ -2129,6 +2252,7 @@ unsafe impl ::windows::runtime::Abi for WINML_SEQUENCE_BINDING_DESC_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
 pub struct WINML_SEQUENCE_VARIABLE_DESC {
     pub ElementType: WINML_TENSOR_DATA_TYPE,
 }
@@ -2155,6 +2279,7 @@ unsafe impl ::windows::runtime::Abi for WINML_SEQUENCE_VARIABLE_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
 pub struct WINML_TENSOR_BINDING_DESC {
     pub DataType: WINML_TENSOR_DATA_TYPE,
     pub NumDimensions: u32,
@@ -2183,6 +2308,7 @@ unsafe impl ::windows::runtime::Abi for WINML_TENSOR_BINDING_DESC {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WINML_TENSOR_DATA_TYPE(pub i32);
@@ -2211,9 +2337,11 @@ unsafe impl ::windows::runtime::Abi for WINML_TENSOR_DATA_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
 pub const WINML_TENSOR_DIMENSION_COUNT_MAX: u32 = 4u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
 pub struct WINML_TENSOR_VARIABLE_DESC {
     pub ElementType: WINML_TENSOR_DATA_TYPE,
     pub NumDimensions: u32,
@@ -2243,6 +2371,7 @@ unsafe impl ::windows::runtime::Abi for WINML_TENSOR_VARIABLE_DESC {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_AI_MachineLearning_WinML`, `Win32_Foundation`*"]
 pub struct WINML_VARIABLE_DESC {
     pub Name: super::super::super::Foundation::PWSTR,
     pub Description: super::super::super::Foundation::PWSTR,
@@ -2273,6 +2402,7 @@ unsafe impl ::windows::runtime::Abi for WINML_VARIABLE_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
 pub union WINML_VARIABLE_DESC_0 {
     pub Tensor: WINML_TENSOR_VARIABLE_DESC,
     pub Sequence: WINML_SEQUENCE_VARIABLE_DESC,
@@ -2295,6 +2425,7 @@ unsafe impl ::windows::runtime::Abi for WINML_VARIABLE_DESC_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
 #[inline]
 pub unsafe fn WinMLCreateRuntime() -> ::windows::runtime::Result<IWinMLRuntime> {
     #[cfg(windows)]

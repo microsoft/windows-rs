@@ -271,10 +271,12 @@ pub struct IUserDataAccountStoreChangedEventArgs_abi(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: `ApplicationModel_UserDataAccounts`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct UserDataAccount(::windows::runtime::IInspectable);
 impl UserDataAccount {
+    #[doc = "*Required features: `ApplicationModel_UserDataAccounts`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -282,6 +284,7 @@ impl UserDataAccount {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_UserDataAccounts`*"]
     pub fn UserDisplayName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -289,10 +292,12 @@ impl UserDataAccount {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_UserDataAccounts`*"]
     pub fn SetUserDisplayName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_UserDataAccounts`*"]
     pub fn OtherAppReadAccess(&self) -> ::windows::runtime::Result<UserDataAccountOtherAppReadAccess> {
         let this = self;
         unsafe {
@@ -300,11 +305,13 @@ impl UserDataAccount {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<UserDataAccountOtherAppReadAccess>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_UserDataAccounts`*"]
     pub fn SetOtherAppReadAccess(&self, value: UserDataAccountOtherAppReadAccess) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `ApplicationModel_UserDataAccounts`, `Storage_Streams`*"]
     pub fn Icon(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
         let this = self;
         unsafe {
@@ -312,6 +319,7 @@ impl UserDataAccount {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IRandomAccessStreamReference>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_UserDataAccounts`*"]
     pub fn DeviceAccountTypeId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -319,6 +327,7 @@ impl UserDataAccount {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_UserDataAccounts`*"]
     pub fn PackageFamilyName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -327,6 +336,7 @@ impl UserDataAccount {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_UserDataAccounts`, `Foundation`*"]
     pub fn SaveAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -335,6 +345,7 @@ impl UserDataAccount {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_UserDataAccounts`, `Foundation`*"]
     pub fn DeleteAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -343,6 +354,7 @@ impl UserDataAccount {
         }
     }
     #[cfg(all(feature = "ApplicationModel_Appointments", feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `ApplicationModel_UserDataAccounts`, `ApplicationModel_Appointments`, `Foundation`, `Foundation_Collections`*"]
     pub fn FindAppointmentCalendarsAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::Appointments::AppointmentCalendar>>> {
         let this = self;
         unsafe {
@@ -351,6 +363,7 @@ impl UserDataAccount {
         }
     }
     #[cfg(all(feature = "ApplicationModel_Email", feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `ApplicationModel_UserDataAccounts`, `ApplicationModel_Email`, `Foundation`, `Foundation_Collections`*"]
     pub fn FindEmailMailboxesAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::Email::EmailMailbox>>> {
         let this = self;
         unsafe {
@@ -359,6 +372,7 @@ impl UserDataAccount {
         }
     }
     #[cfg(all(feature = "ApplicationModel_Contacts", feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `ApplicationModel_UserDataAccounts`, `ApplicationModel_Contacts`, `Foundation`, `Foundation_Collections`*"]
     pub fn FindContactListsAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::Contacts::ContactList>>> {
         let this = self;
         unsafe {
@@ -367,6 +381,7 @@ impl UserDataAccount {
         }
     }
     #[cfg(all(feature = "ApplicationModel_Contacts", feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `ApplicationModel_UserDataAccounts`, `ApplicationModel_Contacts`, `Foundation`, `Foundation_Collections`*"]
     pub fn FindContactAnnotationListsAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::Contacts::ContactAnnotationList>>> {
         let this = self;
         unsafe {
@@ -374,6 +389,7 @@ impl UserDataAccount {
             (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::Contacts::ContactAnnotationList>>>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_UserDataAccounts`*"]
     pub fn EnterpriseId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IUserDataAccount2>(self)?;
         unsafe {
@@ -381,6 +397,7 @@ impl UserDataAccount {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_UserDataAccounts`*"]
     pub fn IsProtectedUnderLock(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IUserDataAccount2>(self)?;
         unsafe {
@@ -389,6 +406,7 @@ impl UserDataAccount {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_UserDataAccounts`, `Foundation_Collections`*"]
     pub fn ExplictReadAccessPackageFamilyNames(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>> {
         let this = &::windows::runtime::Interface::cast::<IUserDataAccount3>(self)?;
         unsafe {
@@ -396,6 +414,7 @@ impl UserDataAccount {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_UserDataAccounts`*"]
     pub fn DisplayName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IUserDataAccount3>(self)?;
         unsafe {
@@ -403,10 +422,12 @@ impl UserDataAccount {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_UserDataAccounts`*"]
     pub fn SetDisplayName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IUserDataAccount3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_UserDataAccounts`*"]
     pub fn CanShowCreateContactGroup(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IUserDataAccount4>(self)?;
         unsafe {
@@ -414,11 +435,13 @@ impl UserDataAccount {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_UserDataAccounts`*"]
     pub fn SetCanShowCreateContactGroup(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IUserDataAccount4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_UserDataAccounts`, `Foundation_Collections`*"]
     pub fn ProviderProperties(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IPropertySet> {
         let this = &::windows::runtime::Interface::cast::<IUserDataAccount4>(self)?;
         unsafe {
@@ -427,6 +450,7 @@ impl UserDataAccount {
         }
     }
     #[cfg(all(feature = "ApplicationModel_UserDataTasks", feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `ApplicationModel_UserDataAccounts`, `ApplicationModel_UserDataTasks`, `Foundation`, `Foundation_Collections`*"]
     pub fn FindUserDataTaskListsAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::UserDataTasks::UserDataTaskList>>> {
         let this = &::windows::runtime::Interface::cast::<IUserDataAccount4>(self)?;
         unsafe {
@@ -435,6 +459,7 @@ impl UserDataAccount {
         }
     }
     #[cfg(all(feature = "ApplicationModel_Contacts", feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `ApplicationModel_UserDataAccounts`, `ApplicationModel_Contacts`, `Foundation`, `Foundation_Collections`*"]
     pub fn FindContactGroupsAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::Contacts::ContactGroup>>> {
         let this = &::windows::runtime::Interface::cast::<IUserDataAccount4>(self)?;
         unsafe {
@@ -443,6 +468,7 @@ impl UserDataAccount {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_UserDataAccounts`, `Foundation`*"]
     pub fn TryShowCreateContactGroupAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<::windows::runtime::HSTRING>> {
         let this = &::windows::runtime::Interface::cast::<IUserDataAccount4>(self)?;
         unsafe {
@@ -450,11 +476,13 @@ impl UserDataAccount {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<::windows::runtime::HSTRING>>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_UserDataAccounts`*"]
     pub fn SetIsProtectedUnderLock(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IUserDataAccount4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `ApplicationModel_UserDataAccounts`, `Storage_Streams`*"]
     pub fn SetIcon<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IUserDataAccount4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -512,6 +540,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for UserDataAccount {}
 unsafe impl ::std::marker::Sync for UserDataAccount {}
+#[doc = "*Required features: `ApplicationModel_UserDataAccounts`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct UserDataAccountContentKinds(pub u32);
@@ -560,9 +589,11 @@ impl ::std::ops::Not for UserDataAccountContentKinds {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `ApplicationModel_UserDataAccounts`*"]
 pub struct UserDataAccountManager {}
 impl UserDataAccountManager {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_UserDataAccounts`, `Foundation`*"]
     pub fn RequestStoreAsync(storeaccesstype: UserDataAccountStoreAccessType) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<UserDataAccountStore>> {
         Self::IUserDataAccountManagerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -570,6 +601,7 @@ impl UserDataAccountManager {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_UserDataAccounts`, `Foundation`*"]
     pub fn ShowAddAccountAsync(contentkinds: UserDataAccountContentKinds) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<::windows::runtime::HSTRING>> {
         Self::IUserDataAccountManagerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -577,6 +609,7 @@ impl UserDataAccountManager {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_UserDataAccounts`, `Foundation`*"]
     pub fn ShowAccountSettingsAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(id: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         Self::IUserDataAccountManagerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -584,6 +617,7 @@ impl UserDataAccountManager {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_UserDataAccounts`, `Foundation`*"]
     pub fn ShowAccountErrorResolverAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(id: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         Self::IUserDataAccountManagerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -591,6 +625,7 @@ impl UserDataAccountManager {
         })
     }
     #[cfg(feature = "System")]
+    #[doc = "*Required features: `ApplicationModel_UserDataAccounts`, `System`*"]
     pub fn GetForUser<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::User>>(user: Param0) -> ::windows::runtime::Result<UserDataAccountManagerForUser> {
         Self::IUserDataAccountManagerStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -609,11 +644,13 @@ impl UserDataAccountManager {
 impl ::windows::runtime::RuntimeName for UserDataAccountManager {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataAccounts.UserDataAccountManager";
 }
+#[doc = "*Required features: `ApplicationModel_UserDataAccounts`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct UserDataAccountManagerForUser(::windows::runtime::IInspectable);
 impl UserDataAccountManagerForUser {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_UserDataAccounts`, `Foundation`*"]
     pub fn RequestStoreAsync(&self, storeaccesstype: UserDataAccountStoreAccessType) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<UserDataAccountStore>> {
         let this = self;
         unsafe {
@@ -622,6 +659,7 @@ impl UserDataAccountManagerForUser {
         }
     }
     #[cfg(feature = "System")]
+    #[doc = "*Required features: `ApplicationModel_UserDataAccounts`, `System`*"]
     pub fn User(&self) -> ::windows::runtime::Result<super::super::System::User> {
         let this = self;
         unsafe {
@@ -682,6 +720,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for UserDataAccountManagerForUser {}
 unsafe impl ::std::marker::Sync for UserDataAccountManagerForUser {}
+#[doc = "*Required features: `ApplicationModel_UserDataAccounts`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct UserDataAccountOtherAppReadAccess(pub i32);
@@ -702,11 +741,13 @@ unsafe impl ::windows::runtime::Abi for UserDataAccountOtherAppReadAccess {
 unsafe impl ::windows::runtime::RuntimeType for UserDataAccountOtherAppReadAccess {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataAccounts.UserDataAccountOtherAppReadAccess;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_UserDataAccounts`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct UserDataAccountStore(::windows::runtime::IInspectable);
 impl UserDataAccountStore {
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `ApplicationModel_UserDataAccounts`, `Foundation`, `Foundation_Collections`*"]
     pub fn FindAccountsAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<UserDataAccount>>> {
         let this = self;
         unsafe {
@@ -715,6 +756,7 @@ impl UserDataAccountStore {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_UserDataAccounts`, `Foundation`*"]
     pub fn GetAccountAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, id: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<UserDataAccount>> {
         let this = self;
         unsafe {
@@ -723,6 +765,7 @@ impl UserDataAccountStore {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_UserDataAccounts`, `Foundation`*"]
     pub fn CreateAccountAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, userdisplayname: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<UserDataAccount>> {
         let this = self;
         unsafe {
@@ -731,6 +774,7 @@ impl UserDataAccountStore {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_UserDataAccounts`, `Foundation`*"]
     pub fn CreateAccountWithPackageRelativeAppIdAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, userdisplayname: Param0, packagerelativeappid: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<UserDataAccount>> {
         let this = &::windows::runtime::Interface::cast::<IUserDataAccountStore2>(self)?;
         unsafe {
@@ -739,6 +783,7 @@ impl UserDataAccountStore {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_UserDataAccounts`, `Foundation`*"]
     pub fn StoreChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<UserDataAccountStore, UserDataAccountStoreChangedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<IUserDataAccountStore2>(self)?;
         unsafe {
@@ -747,11 +792,13 @@ impl UserDataAccountStore {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_UserDataAccounts`, `Foundation`*"]
     pub fn RemoveStoreChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IUserDataAccountStore2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_UserDataAccounts`, `Foundation`*"]
     pub fn CreateAccountWithPackageRelativeAppIdAndEnterpriseIdAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, userdisplayname: Param0, packagerelativeappid: Param1, enterpriseid: Param2) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<UserDataAccount>> {
         let this = &::windows::runtime::Interface::cast::<IUserDataAccountStore3>(self)?;
         unsafe {
@@ -812,6 +859,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for UserDataAccountStore {}
 unsafe impl ::std::marker::Sync for UserDataAccountStore {}
+#[doc = "*Required features: `ApplicationModel_UserDataAccounts`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct UserDataAccountStoreAccessType(pub i32);
@@ -831,11 +879,13 @@ unsafe impl ::windows::runtime::Abi for UserDataAccountStoreAccessType {
 unsafe impl ::windows::runtime::RuntimeType for UserDataAccountStoreAccessType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataAccounts.UserDataAccountStoreAccessType;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_UserDataAccounts`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct UserDataAccountStoreChangedEventArgs(::windows::runtime::IInspectable);
 impl UserDataAccountStoreChangedEventArgs {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_UserDataAccounts`, `Foundation`*"]
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<super::super::Foundation::Deferral> {
         let this = self;
         unsafe {

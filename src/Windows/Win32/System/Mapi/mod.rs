@@ -23,6 +23,7 @@ pub type LPMAPISENDDOCUMENTS = unsafe extern "system" fn(uluiparam: usize, lpszd
 pub type LPMAPISENDMAIL = unsafe extern "system" fn(lhsession: usize, uluiparam: usize, lpmessage: *mut MapiMessage, flflags: u32, ulreserved: u32) -> u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type LPMAPISENDMAILW = unsafe extern "system" fn(lhsession: usize, uluiparam: usize, lpmessage: *const MapiMessageW, flflags: u32, ulreserved: u32) -> u32;
+#[doc = "*Required features: `Win32_System_Mapi`*"]
 #[inline]
 pub unsafe fn MAPIFreeBuffer(pv: *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -36,63 +37,118 @@ pub unsafe fn MAPIFreeBuffer(pv: *mut ::std::ffi::c_void) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Mapi`*"]
 pub const MAPI_AB_NOMODIFY: u32 = 1024u32;
+#[doc = "*Required features: `Win32_System_Mapi`*"]
 pub const MAPI_BCC: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_Mapi`*"]
 pub const MAPI_BODY_AS_FILE: u32 = 512u32;
+#[doc = "*Required features: `Win32_System_Mapi`*"]
 pub const MAPI_CC: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Mapi`*"]
 pub const MAPI_DIALOG: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_Mapi`*"]
 pub const MAPI_ENVELOPE_ONLY: u32 = 64u32;
+#[doc = "*Required features: `Win32_System_Mapi`*"]
 pub const MAPI_EXTENDED: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_Mapi`*"]
 pub const MAPI_E_ACCESS_DENIED: u32 = 6u32;
+#[doc = "*Required features: `Win32_System_Mapi`*"]
 pub const MAPI_E_AMBIGUOUS_RECIPIENT: u32 = 21u32;
+#[doc = "*Required features: `Win32_System_Mapi`*"]
 pub const MAPI_E_AMBIG_RECIP: u32 = 21u32;
+#[doc = "*Required features: `Win32_System_Mapi`*"]
 pub const MAPI_E_ATTACHMENT_NOT_FOUND: u32 = 11u32;
+#[doc = "*Required features: `Win32_System_Mapi`*"]
 pub const MAPI_E_ATTACHMENT_OPEN_FAILURE: u32 = 12u32;
+#[doc = "*Required features: `Win32_System_Mapi`*"]
 pub const MAPI_E_ATTACHMENT_TOO_LARGE: u32 = 28u32;
+#[doc = "*Required features: `Win32_System_Mapi`*"]
 pub const MAPI_E_ATTACHMENT_WRITE_FAILURE: u32 = 13u32;
+#[doc = "*Required features: `Win32_System_Mapi`*"]
 pub const MAPI_E_BAD_RECIPTYPE: u32 = 15u32;
+#[doc = "*Required features: `Win32_System_Mapi`*"]
 pub const MAPI_E_DISK_FULL: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Mapi`*"]
 pub const MAPI_E_FAILURE: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Mapi`*"]
 pub const MAPI_E_INSUFFICIENT_MEMORY: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_Mapi`*"]
 pub const MAPI_E_INVALID_EDITFIELDS: u32 = 24u32;
+#[doc = "*Required features: `Win32_System_Mapi`*"]
 pub const MAPI_E_INVALID_MESSAGE: u32 = 17u32;
+#[doc = "*Required features: `Win32_System_Mapi`*"]
 pub const MAPI_E_INVALID_RECIPS: u32 = 25u32;
+#[doc = "*Required features: `Win32_System_Mapi`*"]
 pub const MAPI_E_INVALID_SESSION: u32 = 19u32;
+#[doc = "*Required features: `Win32_System_Mapi`*"]
 pub const MAPI_E_LOGIN_FAILURE: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_Mapi`*"]
 pub const MAPI_E_LOGON_FAILURE: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_Mapi`*"]
 pub const MAPI_E_MESSAGE_IN_USE: u32 = 22u32;
+#[doc = "*Required features: `Win32_System_Mapi`*"]
 pub const MAPI_E_NETWORK_FAILURE: u32 = 23u32;
+#[doc = "*Required features: `Win32_System_Mapi`*"]
 pub const MAPI_E_NOT_SUPPORTED: u32 = 26u32;
+#[doc = "*Required features: `Win32_System_Mapi`*"]
 pub const MAPI_E_NO_MESSAGES: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_Mapi`*"]
 pub const MAPI_E_TEXT_TOO_LARGE: u32 = 18u32;
+#[doc = "*Required features: `Win32_System_Mapi`*"]
 pub const MAPI_E_TOO_MANY_FILES: u32 = 9u32;
+#[doc = "*Required features: `Win32_System_Mapi`*"]
 pub const MAPI_E_TOO_MANY_RECIPIENTS: u32 = 10u32;
+#[doc = "*Required features: `Win32_System_Mapi`*"]
 pub const MAPI_E_TOO_MANY_SESSIONS: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_Mapi`*"]
 pub const MAPI_E_TYPE_NOT_SUPPORTED: u32 = 20u32;
+#[doc = "*Required features: `Win32_System_Mapi`*"]
 pub const MAPI_E_UNICODE_NOT_SUPPORTED: u32 = 27u32;
+#[doc = "*Required features: `Win32_System_Mapi`*"]
 pub const MAPI_E_UNKNOWN_RECIPIENT: u32 = 14u32;
+#[doc = "*Required features: `Win32_System_Mapi`*"]
 pub const MAPI_E_USER_ABORT: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Mapi`*"]
 pub const MAPI_FORCE_DOWNLOAD: u32 = 4096u32;
+#[doc = "*Required features: `Win32_System_Mapi`*"]
 pub const MAPI_FORCE_UNICODE: u32 = 262144u32;
+#[doc = "*Required features: `Win32_System_Mapi`*"]
 pub const MAPI_GUARANTEE_FIFO: u32 = 256u32;
+#[doc = "*Required features: `Win32_System_Mapi`*"]
 pub const MAPI_LOGON_UI: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Mapi`*"]
 pub const MAPI_LONG_MSGID: u32 = 16384u32;
+#[doc = "*Required features: `Win32_System_Mapi`*"]
 pub const MAPI_NEW_SESSION: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Mapi`*"]
 pub const MAPI_OLE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Mapi`*"]
 pub const MAPI_OLE_STATIC: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Mapi`*"]
 pub const MAPI_ORIG: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_Mapi`*"]
 pub const MAPI_PASSWORD_UI: u32 = 131072u32;
+#[doc = "*Required features: `Win32_System_Mapi`*"]
 pub const MAPI_PEEK: u32 = 128u32;
+#[doc = "*Required features: `Win32_System_Mapi`*"]
 pub const MAPI_RECEIPT_REQUESTED: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Mapi`*"]
 pub const MAPI_SENT: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Mapi`*"]
 pub const MAPI_SUPPRESS_ATTACH: u32 = 2048u32;
+#[doc = "*Required features: `Win32_System_Mapi`*"]
 pub const MAPI_TO: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Mapi`*"]
 pub const MAPI_UNREAD: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Mapi`*"]
 pub const MAPI_UNREAD_ONLY: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_Mapi`*"]
 pub const MAPI_USER_ABORT: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Mapi`, `Win32_Foundation`*"]
 pub struct MapiFileDesc {
     pub ulReserved: u32,
     pub flFlags: u32,
@@ -131,6 +187,7 @@ unsafe impl ::windows::runtime::Abi for MapiFileDesc {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Mapi`, `Win32_Foundation`*"]
 pub struct MapiFileDescW {
     pub ulReserved: u32,
     pub flFlags: u32,
@@ -168,6 +225,7 @@ unsafe impl ::windows::runtime::Abi for MapiFileDescW {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Mapi`*"]
 pub struct MapiFileTagExt {
     pub ulReserved: u32,
     pub cbTag: u32,
@@ -199,6 +257,7 @@ unsafe impl ::windows::runtime::Abi for MapiFileTagExt {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Mapi`, `Win32_Foundation`*"]
 pub struct MapiMessage {
     pub ulReserved: u32,
     pub lpszSubject: super::super::Foundation::PSTR,
@@ -267,6 +326,7 @@ unsafe impl ::windows::runtime::Abi for MapiMessage {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Mapi`, `Win32_Foundation`*"]
 pub struct MapiMessageW {
     pub ulReserved: u32,
     pub lpszSubject: super::super::Foundation::PWSTR,
@@ -335,6 +395,7 @@ unsafe impl ::windows::runtime::Abi for MapiMessageW {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Mapi`, `Win32_Foundation`*"]
 pub struct MapiRecipDesc {
     pub ulReserved: u32,
     pub ulRecipClass: u32,
@@ -373,6 +434,7 @@ unsafe impl ::windows::runtime::Abi for MapiRecipDesc {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Mapi`, `Win32_Foundation`*"]
 pub struct MapiRecipDescW {
     pub ulReserved: u32,
     pub ulRecipClass: u32,
@@ -408,4 +470,5 @@ unsafe impl ::windows::runtime::Abi for MapiRecipDescW {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Mapi`*"]
 pub const SUCCESS_SUCCESS: u32 = 0u32;

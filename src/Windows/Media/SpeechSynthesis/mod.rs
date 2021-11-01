@@ -194,6 +194,7 @@ pub struct IVoiceInformation_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut VoiceGender) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Media_SpeechSynthesis`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SpeechAppendedSilence(pub i32);
@@ -213,6 +214,7 @@ unsafe impl ::windows::runtime::Abi for SpeechAppendedSilence {
 unsafe impl ::windows::runtime::RuntimeType for SpeechAppendedSilence {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechSynthesis.SpeechAppendedSilence;i4)");
 }
+#[doc = "*Required features: `Media_SpeechSynthesis`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SpeechPunctuationSilence(pub i32);
@@ -232,11 +234,13 @@ unsafe impl ::windows::runtime::Abi for SpeechPunctuationSilence {
 unsafe impl ::windows::runtime::RuntimeType for SpeechPunctuationSilence {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechSynthesis.SpeechPunctuationSilence;i4)");
 }
+#[doc = "*Required features: `Media_SpeechSynthesis`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SpeechSynthesisStream(::windows::runtime::IInspectable);
 impl SpeechSynthesisStream {
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Media_SpeechSynthesis`, `Foundation_Collections`*"]
     pub fn Markers(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<super::IMediaMarker>> {
         let this = self;
         unsafe {
@@ -245,11 +249,13 @@ impl SpeechSynthesisStream {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_SpeechSynthesis`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Media_SpeechSynthesis`, `Storage_Streams`*"]
     pub fn ContentType(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<super::super::Storage::Streams::IContentTypeProvider>(self)?;
         unsafe {
@@ -258,6 +264,7 @@ impl SpeechSynthesisStream {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Media_SpeechSynthesis`, `Foundation`, `Storage_Streams`*"]
     pub fn ReadAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(&self, buffer: Param0, count: u32, options: super::super::Storage::Streams::InputStreamOptions) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u32>> {
         let this = &::windows::runtime::Interface::cast::<super::super::Storage::Streams::IInputStream>(self)?;
         unsafe {
@@ -266,6 +273,7 @@ impl SpeechSynthesisStream {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Media_SpeechSynthesis`, `Foundation`, `Storage_Streams`*"]
     pub fn WriteAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(&self, buffer: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>> {
         let this = &::windows::runtime::Interface::cast::<super::super::Storage::Streams::IOutputStream>(self)?;
         unsafe {
@@ -274,6 +282,7 @@ impl SpeechSynthesisStream {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Media_SpeechSynthesis`, `Foundation`, `Storage_Streams`*"]
     pub fn FlushAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows::runtime::Interface::cast::<super::super::Storage::Streams::IOutputStream>(self)?;
         unsafe {
@@ -282,6 +291,7 @@ impl SpeechSynthesisStream {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Media_SpeechSynthesis`, `Storage_Streams`*"]
     pub fn Size(&self) -> ::windows::runtime::Result<u64> {
         let this = &::windows::runtime::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
         unsafe {
@@ -290,11 +300,13 @@ impl SpeechSynthesisStream {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Media_SpeechSynthesis`, `Storage_Streams`*"]
     pub fn SetSize(&self, value: u64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Media_SpeechSynthesis`, `Storage_Streams`*"]
     pub fn GetInputStreamAt(&self, position: u64) -> ::windows::runtime::Result<super::super::Storage::Streams::IInputStream> {
         let this = &::windows::runtime::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
         unsafe {
@@ -303,6 +315,7 @@ impl SpeechSynthesisStream {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Media_SpeechSynthesis`, `Storage_Streams`*"]
     pub fn GetOutputStreamAt(&self, position: u64) -> ::windows::runtime::Result<super::super::Storage::Streams::IOutputStream> {
         let this = &::windows::runtime::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
         unsafe {
@@ -311,6 +324,7 @@ impl SpeechSynthesisStream {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Media_SpeechSynthesis`, `Storage_Streams`*"]
     pub fn Position(&self) -> ::windows::runtime::Result<u64> {
         let this = &::windows::runtime::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
         unsafe {
@@ -319,11 +333,13 @@ impl SpeechSynthesisStream {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Media_SpeechSynthesis`, `Storage_Streams`*"]
     pub fn Seek(&self, position: u64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), position).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Media_SpeechSynthesis`, `Storage_Streams`*"]
     pub fn CloneStream(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IRandomAccessStream> {
         let this = &::windows::runtime::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
         unsafe {
@@ -332,6 +348,7 @@ impl SpeechSynthesisStream {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Media_SpeechSynthesis`, `Storage_Streams`*"]
     pub fn CanRead(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
         unsafe {
@@ -340,6 +357,7 @@ impl SpeechSynthesisStream {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Media_SpeechSynthesis`, `Storage_Streams`*"]
     pub fn CanWrite(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
         unsafe {
@@ -348,6 +366,7 @@ impl SpeechSynthesisStream {
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
+    #[doc = "*Required features: `Media_SpeechSynthesis`, `Foundation_Collections`, `Media_Core`*"]
     pub fn TimedMetadataTracks(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<super::Core::TimedMetadataTrack>> {
         let this = &::windows::runtime::Interface::cast::<super::Core::ITimedMetadataTrackProvider>(self)?;
         unsafe {
@@ -590,6 +609,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::Core::ITimedMetadataTrackProvi
 }
 unsafe impl ::std::marker::Send for SpeechSynthesisStream {}
 unsafe impl ::std::marker::Sync for SpeechSynthesisStream {}
+#[doc = "*Required features: `Media_SpeechSynthesis`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SpeechSynthesizer(::windows::runtime::IInspectable);
@@ -602,6 +622,7 @@ impl SpeechSynthesizer {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_SpeechSynthesis`, `Foundation`*"]
     pub fn SynthesizeTextToStreamAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, text: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<SpeechSynthesisStream>> {
         let this = self;
         unsafe {
@@ -610,6 +631,7 @@ impl SpeechSynthesizer {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_SpeechSynthesis`, `Foundation`*"]
     pub fn SynthesizeSsmlToStreamAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, ssml: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<SpeechSynthesisStream>> {
         let this = self;
         unsafe {
@@ -617,10 +639,12 @@ impl SpeechSynthesizer {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), ssml.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<SpeechSynthesisStream>>(result__)
         }
     }
+    #[doc = "*Required features: `Media_SpeechSynthesis`*"]
     pub fn SetVoice<'a, Param0: ::windows::runtime::IntoParam<'a, VoiceInformation>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Media_SpeechSynthesis`*"]
     pub fn Voice(&self) -> ::windows::runtime::Result<VoiceInformation> {
         let this = self;
         unsafe {
@@ -629,23 +653,27 @@ impl SpeechSynthesizer {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_SpeechSynthesis`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Media_SpeechSynthesis`, `Foundation_Collections`*"]
     pub fn AllVoices() -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<VoiceInformation>> {
         Self::IInstalledVoicesStatic(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<VoiceInformation>>(result__)
         })
     }
+    #[doc = "*Required features: `Media_SpeechSynthesis`*"]
     pub fn DefaultVoice() -> ::windows::runtime::Result<VoiceInformation> {
         Self::IInstalledVoicesStatic(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<VoiceInformation>(result__)
         })
     }
+    #[doc = "*Required features: `Media_SpeechSynthesis`*"]
     pub fn Options(&self) -> ::windows::runtime::Result<SpeechSynthesizerOptions> {
         let this = &::windows::runtime::Interface::cast::<ISpeechSynthesizer2>(self)?;
         unsafe {
@@ -654,6 +682,7 @@ impl SpeechSynthesizer {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_SpeechSynthesis`, `Foundation`*"]
     pub fn TrySetDefaultVoiceAsync<'a, Param0: ::windows::runtime::IntoParam<'a, VoiceInformation>>(voice: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::IInstalledVoicesStatic2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -747,10 +776,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> 
 }
 unsafe impl ::std::marker::Send for SpeechSynthesizer {}
 unsafe impl ::std::marker::Sync for SpeechSynthesizer {}
+#[doc = "*Required features: `Media_SpeechSynthesis`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SpeechSynthesizerOptions(::windows::runtime::IInspectable);
 impl SpeechSynthesizerOptions {
+    #[doc = "*Required features: `Media_SpeechSynthesis`*"]
     pub fn IncludeWordBoundaryMetadata(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -758,10 +789,12 @@ impl SpeechSynthesizerOptions {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Media_SpeechSynthesis`*"]
     pub fn SetIncludeWordBoundaryMetadata(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_SpeechSynthesis`*"]
     pub fn IncludeSentenceBoundaryMetadata(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -769,10 +802,12 @@ impl SpeechSynthesizerOptions {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Media_SpeechSynthesis`*"]
     pub fn SetIncludeSentenceBoundaryMetadata(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_SpeechSynthesis`*"]
     pub fn AudioVolume(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<ISpeechSynthesizerOptions2>(self)?;
         unsafe {
@@ -780,10 +815,12 @@ impl SpeechSynthesizerOptions {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `Media_SpeechSynthesis`*"]
     pub fn SetAudioVolume(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ISpeechSynthesizerOptions2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_SpeechSynthesis`*"]
     pub fn SpeakingRate(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<ISpeechSynthesizerOptions2>(self)?;
         unsafe {
@@ -791,10 +828,12 @@ impl SpeechSynthesizerOptions {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `Media_SpeechSynthesis`*"]
     pub fn SetSpeakingRate(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ISpeechSynthesizerOptions2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_SpeechSynthesis`*"]
     pub fn AudioPitch(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<ISpeechSynthesizerOptions2>(self)?;
         unsafe {
@@ -802,10 +841,12 @@ impl SpeechSynthesizerOptions {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `Media_SpeechSynthesis`*"]
     pub fn SetAudioPitch(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ISpeechSynthesizerOptions2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_SpeechSynthesis`*"]
     pub fn AppendedSilence(&self) -> ::windows::runtime::Result<SpeechAppendedSilence> {
         let this = &::windows::runtime::Interface::cast::<ISpeechSynthesizerOptions3>(self)?;
         unsafe {
@@ -813,10 +854,12 @@ impl SpeechSynthesizerOptions {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SpeechAppendedSilence>(result__)
         }
     }
+    #[doc = "*Required features: `Media_SpeechSynthesis`*"]
     pub fn SetAppendedSilence(&self, value: SpeechAppendedSilence) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ISpeechSynthesizerOptions3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_SpeechSynthesis`*"]
     pub fn PunctuationSilence(&self) -> ::windows::runtime::Result<SpeechPunctuationSilence> {
         let this = &::windows::runtime::Interface::cast::<ISpeechSynthesizerOptions3>(self)?;
         unsafe {
@@ -824,6 +867,7 @@ impl SpeechSynthesizerOptions {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SpeechPunctuationSilence>(result__)
         }
     }
+    #[doc = "*Required features: `Media_SpeechSynthesis`*"]
     pub fn SetPunctuationSilence(&self, value: SpeechPunctuationSilence) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ISpeechSynthesizerOptions3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
@@ -881,6 +925,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for SpeechSynthesizerOptions {}
 unsafe impl ::std::marker::Sync for SpeechSynthesizerOptions {}
+#[doc = "*Required features: `Media_SpeechSynthesis`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct VoiceGender(pub i32);
@@ -900,10 +945,12 @@ unsafe impl ::windows::runtime::Abi for VoiceGender {
 unsafe impl ::windows::runtime::RuntimeType for VoiceGender {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechSynthesis.VoiceGender;i4)");
 }
+#[doc = "*Required features: `Media_SpeechSynthesis`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct VoiceInformation(::windows::runtime::IInspectable);
 impl VoiceInformation {
+    #[doc = "*Required features: `Media_SpeechSynthesis`*"]
     pub fn DisplayName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -911,6 +958,7 @@ impl VoiceInformation {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Media_SpeechSynthesis`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -918,6 +966,7 @@ impl VoiceInformation {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Media_SpeechSynthesis`*"]
     pub fn Language(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -925,6 +974,7 @@ impl VoiceInformation {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Media_SpeechSynthesis`*"]
     pub fn Description(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -932,6 +982,7 @@ impl VoiceInformation {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Media_SpeechSynthesis`*"]
     pub fn Gender(&self) -> ::windows::runtime::Result<VoiceGender> {
         let this = self;
         unsafe {

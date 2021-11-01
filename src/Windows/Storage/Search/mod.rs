@@ -1,4 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Storage_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CommonFileQuery(pub i32);
@@ -22,6 +23,7 @@ unsafe impl ::windows::runtime::Abi for CommonFileQuery {
 unsafe impl ::windows::runtime::RuntimeType for CommonFileQuery {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Storage.Search.CommonFileQuery;i4)");
 }
+#[doc = "*Required features: `Storage_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CommonFolderQuery(pub i32);
@@ -52,11 +54,13 @@ unsafe impl ::windows::runtime::Abi for CommonFolderQuery {
 unsafe impl ::windows::runtime::RuntimeType for CommonFolderQuery {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Storage.Search.CommonFolderQuery;i4)");
 }
+#[doc = "*Required features: `Storage_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ContentIndexer(::windows::runtime::IInspectable);
 impl ContentIndexer {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Storage_Search`, `Foundation`*"]
     pub fn AddAsync<'a, Param0: ::windows::runtime::IntoParam<'a, IIndexableContent>>(&self, indexablecontent: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -65,6 +69,7 @@ impl ContentIndexer {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Storage_Search`, `Foundation`*"]
     pub fn UpdateAsync<'a, Param0: ::windows::runtime::IntoParam<'a, IIndexableContent>>(&self, indexablecontent: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -73,6 +78,7 @@ impl ContentIndexer {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Storage_Search`, `Foundation`*"]
     pub fn DeleteAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, contentid: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -81,6 +87,7 @@ impl ContentIndexer {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Storage_Search`, `Foundation`, `Foundation_Collections`*"]
     pub fn DeleteMultipleAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>>(&self, contentids: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -89,6 +96,7 @@ impl ContentIndexer {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Storage_Search`, `Foundation`*"]
     pub fn DeleteAllAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -97,6 +105,7 @@ impl ContentIndexer {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Storage_Search`, `Foundation`, `Foundation_Collections`*"]
     pub fn RetrievePropertiesAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>>(&self, contentid: Param0, propertiestoretrieve: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>> {
         let this = self;
         unsafe {
@@ -104,6 +113,7 @@ impl ContentIndexer {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), contentid.into_param().abi(), propertiestoretrieve.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Search`*"]
     pub fn Revision(&self) -> ::windows::runtime::Result<u64> {
         let this = self;
         unsafe {
@@ -112,6 +122,7 @@ impl ContentIndexer {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Storage_Search`, `Foundation_Collections`*"]
     pub fn CreateQueryWithSortOrderAndLanguage<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<SortEntry>>, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(
         &self,
         searchfilter: Param0,
@@ -126,6 +137,7 @@ impl ContentIndexer {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Storage_Search`, `Foundation_Collections`*"]
     pub fn CreateQueryWithSortOrder<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<SortEntry>>>(&self, searchfilter: Param0, propertiestoretrieve: Param1, sortorder: Param2) -> ::windows::runtime::Result<ContentIndexerQuery> {
         let this = &::windows::runtime::Interface::cast::<IContentIndexerQueryOperations>(self)?;
         unsafe {
@@ -134,6 +146,7 @@ impl ContentIndexer {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Storage_Search`, `Foundation_Collections`*"]
     pub fn CreateQuery<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>>(&self, searchfilter: Param0, propertiestoretrieve: Param1) -> ::windows::runtime::Result<ContentIndexerQuery> {
         let this = &::windows::runtime::Interface::cast::<IContentIndexerQueryOperations>(self)?;
         unsafe {
@@ -141,12 +154,14 @@ impl ContentIndexer {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), searchfilter.into_param().abi(), propertiestoretrieve.into_param().abi(), &mut result__).from_abi::<ContentIndexerQuery>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Search`*"]
     pub fn GetIndexerWithName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(indexname: Param0) -> ::windows::runtime::Result<ContentIndexer> {
         Self::IContentIndexerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), indexname.into_param().abi(), &mut result__).from_abi::<ContentIndexer>(result__)
         })
     }
+    #[doc = "*Required features: `Storage_Search`*"]
     pub fn GetIndexer() -> ::windows::runtime::Result<ContentIndexer> {
         Self::IContentIndexerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -210,11 +225,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for ContentIndexer {}
 unsafe impl ::std::marker::Sync for ContentIndexer {}
+#[doc = "*Required features: `Storage_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ContentIndexerQuery(::windows::runtime::IInspectable);
 impl ContentIndexerQuery {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Storage_Search`, `Foundation`*"]
     pub fn GetCountAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<u32>> {
         let this = self;
         unsafe {
@@ -223,6 +240,7 @@ impl ContentIndexerQuery {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Storage_Search`, `Foundation`, `Foundation_Collections`*"]
     pub fn GetPropertiesAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>>> {
         let this = self;
         unsafe {
@@ -231,6 +249,7 @@ impl ContentIndexerQuery {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Storage_Search`, `Foundation`, `Foundation_Collections`*"]
     pub fn GetPropertiesRangeAsync(&self, startindex: u32, maxitems: u32) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>>> {
         let this = self;
         unsafe {
@@ -239,6 +258,7 @@ impl ContentIndexerQuery {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Storage_Search`, `Foundation`, `Foundation_Collections`*"]
     pub fn GetAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<IIndexableContent>>> {
         let this = self;
         unsafe {
@@ -247,6 +267,7 @@ impl ContentIndexerQuery {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Storage_Search`, `Foundation`, `Foundation_Collections`*"]
     pub fn GetRangeAsync(&self, startindex: u32, maxitems: u32) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<IIndexableContent>>> {
         let this = self;
         unsafe {
@@ -254,6 +275,7 @@ impl ContentIndexerQuery {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), startindex, maxitems, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<IIndexableContent>>>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Search`*"]
     pub fn QueryFolder(&self) -> ::windows::runtime::Result<super::StorageFolder> {
         let this = self;
         unsafe {
@@ -314,6 +336,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for ContentIndexerQuery {}
 unsafe impl ::std::marker::Sync for ContentIndexerQuery {}
+#[doc = "*Required features: `Storage_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DateStackOption(pub i32);
@@ -334,6 +357,7 @@ unsafe impl ::windows::runtime::Abi for DateStackOption {
 unsafe impl ::windows::runtime::RuntimeType for DateStackOption {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Storage.Search.DateStackOption;i4)");
 }
+#[doc = "*Required features: `Storage_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FolderDepth(pub i32);
@@ -459,12 +483,14 @@ pub struct IContentIndexerStatics_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Storage_Search`*"]
 pub struct IIndexableContent(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIndexableContent {
     type Vtable = IIndexableContent_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3438387295, 54453, 18490, [176, 110, 224, 219, 30, 196, 32, 228]);
 }
 impl IIndexableContent {
+    #[doc = "*Required features: `Storage_Search`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -472,11 +498,13 @@ impl IIndexableContent {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Search`*"]
     pub fn SetId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Storage_Search`, `Foundation_Collections`*"]
     pub fn Properties(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IMap<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>> {
         let this = self;
         unsafe {
@@ -485,6 +513,7 @@ impl IIndexableContent {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Storage_Search`, `Storage_Streams`*"]
     pub fn Stream(&self) -> ::windows::runtime::Result<super::Streams::IRandomAccessStream> {
         let this = self;
         unsafe {
@@ -493,10 +522,12 @@ impl IIndexableContent {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Storage_Search`, `Storage_Streams`*"]
     pub fn SetStream<'a, Param0: ::windows::runtime::IntoParam<'a, super::Streams::IRandomAccessStream>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Storage_Search`*"]
     pub fn StreamContentType(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -504,6 +535,7 @@ impl IIndexableContent {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Search`*"]
     pub fn SetStreamContentType<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -697,6 +729,7 @@ pub struct IStorageFileQueryResult2_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Storage_Search`*"]
 pub struct IStorageFolderQueryOperations(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageFolderQueryOperations {
     type Vtable = IStorageFolderQueryOperations_abi;
@@ -704,6 +737,7 @@ unsafe impl ::windows::runtime::Interface for IStorageFolderQueryOperations {
 }
 impl IStorageFolderQueryOperations {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Storage_Search`, `Foundation`*"]
     pub fn GetIndexedStateAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<IndexedState>> {
         let this = self;
         unsafe {
@@ -711,6 +745,7 @@ impl IStorageFolderQueryOperations {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<IndexedState>>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Search`*"]
     pub fn CreateFileQueryOverloadDefault(&self) -> ::windows::runtime::Result<StorageFileQueryResult> {
         let this = self;
         unsafe {
@@ -718,6 +753,7 @@ impl IStorageFolderQueryOperations {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<StorageFileQueryResult>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Search`*"]
     pub fn CreateFileQuery(&self, query: CommonFileQuery) -> ::windows::runtime::Result<StorageFileQueryResult> {
         let this = self;
         unsafe {
@@ -725,6 +761,7 @@ impl IStorageFolderQueryOperations {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), query, &mut result__).from_abi::<StorageFileQueryResult>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Search`*"]
     pub fn CreateFileQueryWithOptions<'a, Param0: ::windows::runtime::IntoParam<'a, QueryOptions>>(&self, queryoptions: Param0) -> ::windows::runtime::Result<StorageFileQueryResult> {
         let this = self;
         unsafe {
@@ -732,6 +769,7 @@ impl IStorageFolderQueryOperations {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), queryoptions.into_param().abi(), &mut result__).from_abi::<StorageFileQueryResult>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Search`*"]
     pub fn CreateFolderQueryOverloadDefault(&self) -> ::windows::runtime::Result<StorageFolderQueryResult> {
         let this = self;
         unsafe {
@@ -739,6 +777,7 @@ impl IStorageFolderQueryOperations {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<StorageFolderQueryResult>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Search`*"]
     pub fn CreateFolderQuery(&self, query: CommonFolderQuery) -> ::windows::runtime::Result<StorageFolderQueryResult> {
         let this = self;
         unsafe {
@@ -746,6 +785,7 @@ impl IStorageFolderQueryOperations {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), query, &mut result__).from_abi::<StorageFolderQueryResult>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Search`*"]
     pub fn CreateFolderQueryWithOptions<'a, Param0: ::windows::runtime::IntoParam<'a, QueryOptions>>(&self, queryoptions: Param0) -> ::windows::runtime::Result<StorageFolderQueryResult> {
         let this = self;
         unsafe {
@@ -753,6 +793,7 @@ impl IStorageFolderQueryOperations {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), queryoptions.into_param().abi(), &mut result__).from_abi::<StorageFolderQueryResult>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Search`*"]
     pub fn CreateItemQuery(&self) -> ::windows::runtime::Result<StorageItemQueryResult> {
         let this = self;
         unsafe {
@@ -760,6 +801,7 @@ impl IStorageFolderQueryOperations {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<StorageItemQueryResult>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Search`*"]
     pub fn CreateItemQueryWithOptions<'a, Param0: ::windows::runtime::IntoParam<'a, QueryOptions>>(&self, queryoptions: Param0) -> ::windows::runtime::Result<StorageItemQueryResult> {
         let this = self;
         unsafe {
@@ -768,6 +810,7 @@ impl IStorageFolderQueryOperations {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Storage_Search`, `Foundation`, `Foundation_Collections`*"]
     pub fn GetFilesAsync(&self, query: CommonFileQuery, startindex: u32, maxitemstoretrieve: u32) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFile>>> {
         let this = self;
         unsafe {
@@ -776,6 +819,7 @@ impl IStorageFolderQueryOperations {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Storage_Search`, `Foundation`, `Foundation_Collections`*"]
     pub fn GetFilesAsyncOverloadDefaultStartAndCount(&self, query: CommonFileQuery) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFile>>> {
         let this = self;
         unsafe {
@@ -784,6 +828,7 @@ impl IStorageFolderQueryOperations {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Storage_Search`, `Foundation`, `Foundation_Collections`*"]
     pub fn GetFoldersAsync(&self, query: CommonFolderQuery, startindex: u32, maxitemstoretrieve: u32) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFolder>>> {
         let this = self;
         unsafe {
@@ -792,6 +837,7 @@ impl IStorageFolderQueryOperations {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Storage_Search`, `Foundation`, `Foundation_Collections`*"]
     pub fn GetFoldersAsyncOverloadDefaultStartAndCount(&self, query: CommonFolderQuery) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFolder>>> {
         let this = self;
         unsafe {
@@ -800,6 +846,7 @@ impl IStorageFolderQueryOperations {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Storage_Search`, `Foundation`, `Foundation_Collections`*"]
     pub fn GetItemsAsync(&self, startindex: u32, maxitemstoretrieve: u32) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::IStorageItem>>> {
         let this = self;
         unsafe {
@@ -807,6 +854,7 @@ impl IStorageFolderQueryOperations {
             (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), startindex, maxitemstoretrieve, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::IStorageItem>>>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Search`*"]
     pub fn AreQueryOptionsSupported<'a, Param0: ::windows::runtime::IntoParam<'a, QueryOptions>>(&self, queryoptions: Param0) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -814,6 +862,7 @@ impl IStorageFolderQueryOperations {
             (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), queryoptions.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Search`*"]
     pub fn IsCommonFolderQuerySupported(&self, query: CommonFolderQuery) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -821,6 +870,7 @@ impl IStorageFolderQueryOperations {
             (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), query, &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Search`*"]
     pub fn IsCommonFileQuerySupported(&self, query: CommonFileQuery) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -992,6 +1042,7 @@ pub struct IStorageLibraryContentChangedTriggerDetails_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Storage_Search`*"]
 pub struct IStorageQueryResultBase(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageQueryResultBase {
     type Vtable = IStorageQueryResultBase_abi;
@@ -999,6 +1050,7 @@ unsafe impl ::windows::runtime::Interface for IStorageQueryResultBase {
 }
 impl IStorageQueryResultBase {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Storage_Search`, `Foundation`*"]
     pub fn GetItemCountAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<u32>> {
         let this = self;
         unsafe {
@@ -1006,6 +1058,7 @@ impl IStorageQueryResultBase {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<u32>>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Search`*"]
     pub fn Folder(&self) -> ::windows::runtime::Result<super::StorageFolder> {
         let this = self;
         unsafe {
@@ -1014,6 +1067,7 @@ impl IStorageQueryResultBase {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Storage_Search`, `Foundation`*"]
     pub fn ContentsChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<IStorageQueryResultBase, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1022,11 +1076,13 @@ impl IStorageQueryResultBase {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Storage_Search`, `Foundation`*"]
     pub fn RemoveContentsChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, eventcookie: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), eventcookie.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Storage_Search`, `Foundation`*"]
     pub fn OptionsChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<IStorageQueryResultBase, ::windows::runtime::IInspectable>>>(&self, changedhandler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1035,11 +1091,13 @@ impl IStorageQueryResultBase {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Storage_Search`, `Foundation`*"]
     pub fn RemoveOptionsChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, eventcookie: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), eventcookie.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Storage_Search`, `Foundation`*"]
     pub fn FindStartIndexAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, value: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<u32>> {
         let this = self;
         unsafe {
@@ -1047,6 +1105,7 @@ impl IStorageQueryResultBase {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<u32>>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Search`*"]
     pub fn GetCurrentQueryOptions(&self) -> ::windows::runtime::Result<QueryOptions> {
         let this = self;
         unsafe {
@@ -1054,6 +1113,7 @@ impl IStorageQueryResultBase {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<QueryOptions>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Search`*"]
     pub fn ApplyNewQueryOptions<'a, Param0: ::windows::runtime::IntoParam<'a, QueryOptions>>(&self, newqueryoptions: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), newqueryoptions.into_param().abi()).ok() }
@@ -1149,6 +1209,7 @@ pub struct IValueAndLanguage_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Storage_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IndexableContent(::windows::runtime::IInspectable);
@@ -1160,6 +1221,7 @@ impl IndexableContent {
         static mut SHARED: ::windows::runtime::FactoryCache<IndexableContent, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `Storage_Search`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1167,11 +1229,13 @@ impl IndexableContent {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Search`*"]
     pub fn SetId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Storage_Search`, `Foundation_Collections`*"]
     pub fn Properties(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IMap<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>> {
         let this = self;
         unsafe {
@@ -1180,6 +1244,7 @@ impl IndexableContent {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Storage_Search`, `Storage_Streams`*"]
     pub fn Stream(&self) -> ::windows::runtime::Result<super::Streams::IRandomAccessStream> {
         let this = self;
         unsafe {
@@ -1188,10 +1253,12 @@ impl IndexableContent {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Storage_Search`, `Storage_Streams`*"]
     pub fn SetStream<'a, Param0: ::windows::runtime::IntoParam<'a, super::Streams::IRandomAccessStream>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Storage_Search`*"]
     pub fn StreamContentType(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1199,6 +1266,7 @@ impl IndexableContent {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Search`*"]
     pub fn SetStreamContentType<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -1276,6 +1344,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IIndexableContent> for &IndexableCont
 }
 unsafe impl ::std::marker::Send for IndexableContent {}
 unsafe impl ::std::marker::Sync for IndexableContent {}
+#[doc = "*Required features: `Storage_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IndexedState(pub i32);
@@ -1297,6 +1366,7 @@ unsafe impl ::windows::runtime::Abi for IndexedState {
 unsafe impl ::windows::runtime::RuntimeType for IndexedState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Storage.Search.IndexedState;i4)");
 }
+#[doc = "*Required features: `Storage_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IndexerOption(pub i32);
@@ -1318,6 +1388,7 @@ unsafe impl ::windows::runtime::Abi for IndexerOption {
 unsafe impl ::windows::runtime::RuntimeType for IndexerOption {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Storage.Search.IndexerOption;i4)");
 }
+#[doc = "*Required features: `Storage_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct QueryOptions(::windows::runtime::IInspectable);
@@ -1330,6 +1401,7 @@ impl QueryOptions {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Storage_Search`, `Foundation_Collections`*"]
     pub fn FileTypeFilter(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -1337,6 +1409,7 @@ impl QueryOptions {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Search`*"]
     pub fn FolderDepth(&self) -> ::windows::runtime::Result<FolderDepth> {
         let this = self;
         unsafe {
@@ -1344,10 +1417,12 @@ impl QueryOptions {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<FolderDepth>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Search`*"]
     pub fn SetFolderDepth(&self, value: FolderDepth) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Storage_Search`*"]
     pub fn ApplicationSearchFilter(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1355,10 +1430,12 @@ impl QueryOptions {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Search`*"]
     pub fn SetApplicationSearchFilter<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Storage_Search`*"]
     pub fn UserSearchFilter(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1366,10 +1443,12 @@ impl QueryOptions {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Search`*"]
     pub fn SetUserSearchFilter<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Storage_Search`*"]
     pub fn Language(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1377,10 +1456,12 @@ impl QueryOptions {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Search`*"]
     pub fn SetLanguage<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Storage_Search`*"]
     pub fn IndexerOption(&self) -> ::windows::runtime::Result<IndexerOption> {
         let this = self;
         unsafe {
@@ -1388,11 +1469,13 @@ impl QueryOptions {
             (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IndexerOption>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Search`*"]
     pub fn SetIndexerOption(&self, value: IndexerOption) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Storage_Search`, `Foundation_Collections`*"]
     pub fn SortOrder(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<SortEntry>> {
         let this = self;
         unsafe {
@@ -1400,6 +1483,7 @@ impl QueryOptions {
             (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<SortEntry>>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Search`*"]
     pub fn GroupPropertyName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1407,6 +1491,7 @@ impl QueryOptions {
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Search`*"]
     pub fn DateStackOption(&self) -> ::windows::runtime::Result<DateStackOption> {
         let this = self;
         unsafe {
@@ -1414,6 +1499,7 @@ impl QueryOptions {
             (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), &mut result__).from_abi::<DateStackOption>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Search`*"]
     pub fn SaveToString(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1421,21 +1507,25 @@ impl QueryOptions {
             (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Search`*"]
     pub fn LoadFromString<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Storage_FileProperties")]
+    #[doc = "*Required features: `Storage_Search`, `Storage_FileProperties`*"]
     pub fn SetThumbnailPrefetch(&self, mode: super::FileProperties::ThumbnailMode, requestedsize: u32, options: super::FileProperties::ThumbnailOptions) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), mode, requestedsize, options).ok() }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_FileProperties"))]
+    #[doc = "*Required features: `Storage_Search`, `Foundation_Collections`, `Storage_FileProperties`*"]
     pub fn SetPropertyPrefetch<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>>(&self, options: super::FileProperties::PropertyPrefetchOptions, propertiestoretrieve: Param1) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), options, propertiestoretrieve.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Storage_Search`, `Foundation_Collections`*"]
     pub fn StorageProviderIdFilter(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>> {
         let this = &::windows::runtime::Interface::cast::<IQueryOptionsWithProviderFilter>(self)?;
         unsafe {
@@ -1444,12 +1534,14 @@ impl QueryOptions {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Storage_Search`, `Foundation_Collections`*"]
     pub fn CreateCommonFileQuery<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>>(query: CommonFileQuery, filetypefilter: Param1) -> ::windows::runtime::Result<QueryOptions> {
         Self::IQueryOptionsFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), query, filetypefilter.into_param().abi(), &mut result__).from_abi::<QueryOptions>(result__)
         })
     }
+    #[doc = "*Required features: `Storage_Search`*"]
     pub fn CreateCommonFolderQuery(query: CommonFolderQuery) -> ::windows::runtime::Result<QueryOptions> {
         Self::IQueryOptionsFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1515,6 +1607,7 @@ unsafe impl ::std::marker::Send for QueryOptions {}
 unsafe impl ::std::marker::Sync for QueryOptions {}
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
+#[doc = "*Required features: `Storage_Search`*"]
 pub struct SortEntry {
     pub PropertyName: ::windows::runtime::HSTRING,
     pub AscendingOrder: bool,
@@ -1544,12 +1637,14 @@ unsafe impl ::windows::runtime::RuntimeType for SortEntry {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Storage.Search.SortEntry;string;b1)");
 }
 #[cfg(feature = "Foundation_Collections")]
+#[doc = "*Required features: `Storage_Search`, `Foundation_Collections`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SortEntryVector(::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl SortEntryVector {
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Storage_Search`, `Foundation_Collections`*"]
     pub fn GetAt(&self, index: u32) -> ::windows::runtime::Result<SortEntry> {
         let this = self;
         unsafe {
@@ -1558,6 +1653,7 @@ impl SortEntryVector {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Storage_Search`, `Foundation_Collections`*"]
     pub fn Size(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -1566,6 +1662,7 @@ impl SortEntryVector {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Storage_Search`, `Foundation_Collections`*"]
     pub fn GetView(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<SortEntry>> {
         let this = self;
         unsafe {
@@ -1574,6 +1671,7 @@ impl SortEntryVector {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Storage_Search`, `Foundation_Collections`*"]
     pub fn IndexOf<'a, Param0: ::windows::runtime::IntoParam<'a, SortEntry>>(&self, value: Param0, index: &mut u32) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1582,36 +1680,43 @@ impl SortEntryVector {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Storage_Search`, `Foundation_Collections`*"]
     pub fn SetAt<'a, Param1: ::windows::runtime::IntoParam<'a, SortEntry>>(&self, index: u32, value: Param1) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), index, value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Storage_Search`, `Foundation_Collections`*"]
     pub fn InsertAt<'a, Param1: ::windows::runtime::IntoParam<'a, SortEntry>>(&self, index: u32, value: Param1) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), index, value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Storage_Search`, `Foundation_Collections`*"]
     pub fn RemoveAt(&self, index: u32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), index).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Storage_Search`, `Foundation_Collections`*"]
     pub fn Append<'a, Param0: ::windows::runtime::IntoParam<'a, SortEntry>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Storage_Search`, `Foundation_Collections`*"]
     pub fn RemoveAtEnd(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Storage_Search`, `Foundation_Collections`*"]
     pub fn Clear(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Storage_Search`, `Foundation_Collections`*"]
     pub fn GetMany(&self, startindex: u32, items: &mut [<SortEntry as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -1620,11 +1725,13 @@ impl SortEntryVector {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Storage_Search`, `Foundation_Collections`*"]
     pub fn ReplaceAll(&self, items: &[<SortEntry as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), items.len() as u32, ::std::mem::transmute(items.as_ptr())).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Storage_Search`, `Foundation_Collections`*"]
     pub fn First(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IIterator<SortEntry>> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::Collections::IIterable<SortEntry>>(self)?;
         unsafe {
@@ -1760,11 +1867,13 @@ impl ::std::iter::IntoIterator for &SortEntryVector {
         super::super::Foundation::Collections::VectorIterator::new(::std::convert::TryInto::try_into(self).ok())
     }
 }
+#[doc = "*Required features: `Storage_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct StorageFileQueryResult(::windows::runtime::IInspectable);
 impl StorageFileQueryResult {
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Storage_Search`, `Foundation`, `Foundation_Collections`*"]
     pub fn GetFilesAsync(&self, startindex: u32, maxnumberofitems: u32) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFile>>> {
         let this = self;
         unsafe {
@@ -1773,6 +1882,7 @@ impl StorageFileQueryResult {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Storage_Search`, `Foundation`, `Foundation_Collections`*"]
     pub fn GetFilesAsyncDefaultStartAndCount(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFile>>> {
         let this = self;
         unsafe {
@@ -1781,6 +1891,7 @@ impl StorageFileQueryResult {
         }
     }
     #[cfg(all(feature = "Data_Text", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Storage_Search`, `Data_Text`, `Foundation_Collections`*"]
     pub fn GetMatchingPropertiesWithRanges<'a, Param0: ::windows::runtime::IntoParam<'a, super::StorageFile>>(&self, file: Param0) -> ::windows::runtime::Result<super::super::Foundation::Collections::IMap<::windows::runtime::HSTRING, super::super::Foundation::Collections::IVectorView<super::super::Data::Text::TextSegment>>> {
         let this = &::windows::runtime::Interface::cast::<IStorageFileQueryResult2>(self)?;
         unsafe {
@@ -1789,6 +1900,7 @@ impl StorageFileQueryResult {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Storage_Search`, `Foundation`*"]
     pub fn GetItemCountAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<u32>> {
         let this = &::windows::runtime::Interface::cast::<IStorageQueryResultBase>(self)?;
         unsafe {
@@ -1796,6 +1908,7 @@ impl StorageFileQueryResult {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<u32>>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Search`*"]
     pub fn Folder(&self) -> ::windows::runtime::Result<super::StorageFolder> {
         let this = &::windows::runtime::Interface::cast::<IStorageQueryResultBase>(self)?;
         unsafe {
@@ -1804,6 +1917,7 @@ impl StorageFileQueryResult {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Storage_Search`, `Foundation`*"]
     pub fn ContentsChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<IStorageQueryResultBase, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<IStorageQueryResultBase>(self)?;
         unsafe {
@@ -1812,11 +1926,13 @@ impl StorageFileQueryResult {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Storage_Search`, `Foundation`*"]
     pub fn RemoveContentsChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, eventcookie: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IStorageQueryResultBase>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), eventcookie.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Storage_Search`, `Foundation`*"]
     pub fn OptionsChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<IStorageQueryResultBase, ::windows::runtime::IInspectable>>>(&self, changedhandler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<IStorageQueryResultBase>(self)?;
         unsafe {
@@ -1825,11 +1941,13 @@ impl StorageFileQueryResult {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Storage_Search`, `Foundation`*"]
     pub fn RemoveOptionsChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, eventcookie: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IStorageQueryResultBase>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), eventcookie.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Storage_Search`, `Foundation`*"]
     pub fn FindStartIndexAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, value: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<u32>> {
         let this = &::windows::runtime::Interface::cast::<IStorageQueryResultBase>(self)?;
         unsafe {
@@ -1837,6 +1955,7 @@ impl StorageFileQueryResult {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<u32>>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Search`*"]
     pub fn GetCurrentQueryOptions(&self) -> ::windows::runtime::Result<QueryOptions> {
         let this = &::windows::runtime::Interface::cast::<IStorageQueryResultBase>(self)?;
         unsafe {
@@ -1844,6 +1963,7 @@ impl StorageFileQueryResult {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<QueryOptions>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Search`*"]
     pub fn ApplyNewQueryOptions<'a, Param0: ::windows::runtime::IntoParam<'a, QueryOptions>>(&self, newqueryoptions: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IStorageQueryResultBase>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), newqueryoptions.into_param().abi()).ok() }
@@ -1921,11 +2041,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, IStorageQueryResultBase> for &Storage
         ::std::convert::TryInto::<IStorageQueryResultBase>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
+#[doc = "*Required features: `Storage_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct StorageFolderQueryResult(::windows::runtime::IInspectable);
 impl StorageFolderQueryResult {
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Storage_Search`, `Foundation`, `Foundation_Collections`*"]
     pub fn GetFoldersAsync(&self, startindex: u32, maxnumberofitems: u32) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFolder>>> {
         let this = self;
         unsafe {
@@ -1934,6 +2056,7 @@ impl StorageFolderQueryResult {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Storage_Search`, `Foundation`, `Foundation_Collections`*"]
     pub fn GetFoldersAsyncDefaultStartAndCount(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFolder>>> {
         let this = self;
         unsafe {
@@ -1942,6 +2065,7 @@ impl StorageFolderQueryResult {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Storage_Search`, `Foundation`*"]
     pub fn GetItemCountAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<u32>> {
         let this = &::windows::runtime::Interface::cast::<IStorageQueryResultBase>(self)?;
         unsafe {
@@ -1949,6 +2073,7 @@ impl StorageFolderQueryResult {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<u32>>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Search`*"]
     pub fn Folder(&self) -> ::windows::runtime::Result<super::StorageFolder> {
         let this = &::windows::runtime::Interface::cast::<IStorageQueryResultBase>(self)?;
         unsafe {
@@ -1957,6 +2082,7 @@ impl StorageFolderQueryResult {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Storage_Search`, `Foundation`*"]
     pub fn ContentsChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<IStorageQueryResultBase, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<IStorageQueryResultBase>(self)?;
         unsafe {
@@ -1965,11 +2091,13 @@ impl StorageFolderQueryResult {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Storage_Search`, `Foundation`*"]
     pub fn RemoveContentsChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, eventcookie: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IStorageQueryResultBase>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), eventcookie.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Storage_Search`, `Foundation`*"]
     pub fn OptionsChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<IStorageQueryResultBase, ::windows::runtime::IInspectable>>>(&self, changedhandler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<IStorageQueryResultBase>(self)?;
         unsafe {
@@ -1978,11 +2106,13 @@ impl StorageFolderQueryResult {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Storage_Search`, `Foundation`*"]
     pub fn RemoveOptionsChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, eventcookie: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IStorageQueryResultBase>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), eventcookie.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Storage_Search`, `Foundation`*"]
     pub fn FindStartIndexAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, value: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<u32>> {
         let this = &::windows::runtime::Interface::cast::<IStorageQueryResultBase>(self)?;
         unsafe {
@@ -1990,6 +2120,7 @@ impl StorageFolderQueryResult {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<u32>>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Search`*"]
     pub fn GetCurrentQueryOptions(&self) -> ::windows::runtime::Result<QueryOptions> {
         let this = &::windows::runtime::Interface::cast::<IStorageQueryResultBase>(self)?;
         unsafe {
@@ -1997,6 +2128,7 @@ impl StorageFolderQueryResult {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<QueryOptions>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Search`*"]
     pub fn ApplyNewQueryOptions<'a, Param0: ::windows::runtime::IntoParam<'a, QueryOptions>>(&self, newqueryoptions: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IStorageQueryResultBase>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), newqueryoptions.into_param().abi()).ok() }
@@ -2074,11 +2206,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, IStorageQueryResultBase> for &Storage
         ::std::convert::TryInto::<IStorageQueryResultBase>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
+#[doc = "*Required features: `Storage_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct StorageItemQueryResult(::windows::runtime::IInspectable);
 impl StorageItemQueryResult {
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Storage_Search`, `Foundation`, `Foundation_Collections`*"]
     pub fn GetItemsAsync(&self, startindex: u32, maxnumberofitems: u32) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::IStorageItem>>> {
         let this = self;
         unsafe {
@@ -2087,6 +2221,7 @@ impl StorageItemQueryResult {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Storage_Search`, `Foundation`, `Foundation_Collections`*"]
     pub fn GetItemsAsyncDefaultStartAndCount(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::IStorageItem>>> {
         let this = self;
         unsafe {
@@ -2095,6 +2230,7 @@ impl StorageItemQueryResult {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Storage_Search`, `Foundation`*"]
     pub fn GetItemCountAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<u32>> {
         let this = &::windows::runtime::Interface::cast::<IStorageQueryResultBase>(self)?;
         unsafe {
@@ -2102,6 +2238,7 @@ impl StorageItemQueryResult {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<u32>>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Search`*"]
     pub fn Folder(&self) -> ::windows::runtime::Result<super::StorageFolder> {
         let this = &::windows::runtime::Interface::cast::<IStorageQueryResultBase>(self)?;
         unsafe {
@@ -2110,6 +2247,7 @@ impl StorageItemQueryResult {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Storage_Search`, `Foundation`*"]
     pub fn ContentsChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<IStorageQueryResultBase, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<IStorageQueryResultBase>(self)?;
         unsafe {
@@ -2118,11 +2256,13 @@ impl StorageItemQueryResult {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Storage_Search`, `Foundation`*"]
     pub fn RemoveContentsChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, eventcookie: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IStorageQueryResultBase>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), eventcookie.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Storage_Search`, `Foundation`*"]
     pub fn OptionsChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<IStorageQueryResultBase, ::windows::runtime::IInspectable>>>(&self, changedhandler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<IStorageQueryResultBase>(self)?;
         unsafe {
@@ -2131,11 +2271,13 @@ impl StorageItemQueryResult {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Storage_Search`, `Foundation`*"]
     pub fn RemoveOptionsChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, eventcookie: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IStorageQueryResultBase>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), eventcookie.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Storage_Search`, `Foundation`*"]
     pub fn FindStartIndexAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, value: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<u32>> {
         let this = &::windows::runtime::Interface::cast::<IStorageQueryResultBase>(self)?;
         unsafe {
@@ -2143,6 +2285,7 @@ impl StorageItemQueryResult {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<u32>>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Search`*"]
     pub fn GetCurrentQueryOptions(&self) -> ::windows::runtime::Result<QueryOptions> {
         let this = &::windows::runtime::Interface::cast::<IStorageQueryResultBase>(self)?;
         unsafe {
@@ -2150,6 +2293,7 @@ impl StorageItemQueryResult {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<QueryOptions>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Search`*"]
     pub fn ApplyNewQueryOptions<'a, Param0: ::windows::runtime::IntoParam<'a, QueryOptions>>(&self, newqueryoptions: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IStorageQueryResultBase>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), newqueryoptions.into_param().abi()).ok() }
@@ -2227,10 +2371,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, IStorageQueryResultBase> for &Storage
         ::std::convert::TryInto::<IStorageQueryResultBase>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
+#[doc = "*Required features: `Storage_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct StorageLibraryChangeTrackerTriggerDetails(::windows::runtime::IInspectable);
 impl StorageLibraryChangeTrackerTriggerDetails {
+    #[doc = "*Required features: `Storage_Search`*"]
     pub fn Folder(&self) -> ::windows::runtime::Result<super::StorageFolder> {
         let this = self;
         unsafe {
@@ -2238,6 +2384,7 @@ impl StorageLibraryChangeTrackerTriggerDetails {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::StorageFolder>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Search`*"]
     pub fn ChangeTracker(&self) -> ::windows::runtime::Result<super::StorageLibraryChangeTracker> {
         let this = self;
         unsafe {
@@ -2296,10 +2443,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
+#[doc = "*Required features: `Storage_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct StorageLibraryContentChangedTriggerDetails(::windows::runtime::IInspectable);
 impl StorageLibraryContentChangedTriggerDetails {
+    #[doc = "*Required features: `Storage_Search`*"]
     pub fn Folder(&self) -> ::windows::runtime::Result<super::StorageFolder> {
         let this = self;
         unsafe {
@@ -2308,6 +2457,7 @@ impl StorageLibraryContentChangedTriggerDetails {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Storage_Search`, `Foundation`*"]
     pub fn CreateModifiedSinceQuery<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::DateTime>>(&self, lastquerytime: Param0) -> ::windows::runtime::Result<StorageItemQueryResult> {
         let this = self;
         unsafe {
@@ -2366,6 +2516,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
+#[doc = "*Required features: `Storage_Search`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ValueAndLanguage(::windows::runtime::IInspectable);
@@ -2377,6 +2528,7 @@ impl ValueAndLanguage {
         static mut SHARED: ::windows::runtime::FactoryCache<ValueAndLanguage, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `Storage_Search`*"]
     pub fn Language(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2384,10 +2536,12 @@ impl ValueAndLanguage {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Search`*"]
     pub fn SetLanguage<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Storage_Search`*"]
     pub fn Value(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = self;
         unsafe {
@@ -2395,6 +2549,7 @@ impl ValueAndLanguage {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_Search`*"]
     pub fn SetValue<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }

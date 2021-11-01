@@ -87,11 +87,13 @@ pub struct ISignalNotifierStatics_abi(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, handler: ::windows::runtime::RawPtr, timeout: super::super::super::Foundation::TimeSpan, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: `System_Threading_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PreallocatedWorkItem(::windows::runtime::IInspectable);
 impl PreallocatedWorkItem {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `System_Threading_Core`, `Foundation`*"]
     pub fn RunAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -100,6 +102,7 @@ impl PreallocatedWorkItem {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `System_Threading_Core`, `Foundation`*"]
     pub fn CreateWorkItem<'a, Param0: ::windows::runtime::IntoParam<'a, super::WorkItemHandler>>(handler: Param0) -> ::windows::runtime::Result<PreallocatedWorkItem> {
         Self::IPreallocatedWorkItemFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -107,6 +110,7 @@ impl PreallocatedWorkItem {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `System_Threading_Core`, `Foundation`*"]
     pub fn CreateWorkItemWithPriority<'a, Param0: ::windows::runtime::IntoParam<'a, super::WorkItemHandler>>(handler: Param0, priority: super::WorkItemPriority) -> ::windows::runtime::Result<PreallocatedWorkItem> {
         Self::IPreallocatedWorkItemFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -114,6 +118,7 @@ impl PreallocatedWorkItem {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `System_Threading_Core`, `Foundation`*"]
     pub fn CreateWorkItemWithPriorityAndOptions<'a, Param0: ::windows::runtime::IntoParam<'a, super::WorkItemHandler>>(handler: Param0, priority: super::WorkItemPriority, options: super::WorkItemOptions) -> ::windows::runtime::Result<PreallocatedWorkItem> {
         Self::IPreallocatedWorkItemFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -177,6 +182,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for PreallocatedWorkItem {}
 unsafe impl ::std::marker::Sync for PreallocatedWorkItem {}
+#[doc = "*Required features: `System_Threading_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SignalHandler(::windows::runtime::IUnknown);
@@ -189,6 +195,7 @@ impl SignalHandler {
         };
         unsafe { std::mem::transmute(::std::boxed::Box::new(com)) }
     }
+    #[doc = "*Required features: `System_Threading_Core`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, SignalNotifier>>(&self, signalnotifier: Param0, timedout: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).3)(::std::mem::transmute_copy(this), signalnotifier.into_param().abi(), timedout).ok() }
@@ -248,18 +255,22 @@ impl<F: FnMut(&::std::option::Option<SignalNotifier>, bool) -> ::windows::runtim
         ((*this).invoke)(&*(&signalnotifier as *const <SignalNotifier as ::windows::runtime::Abi>::Abi as *const <SignalNotifier as ::windows::runtime::Abi>::DefaultType), timedout).into()
     }
 }
+#[doc = "*Required features: `System_Threading_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SignalNotifier(::windows::runtime::IInspectable);
 impl SignalNotifier {
+    #[doc = "*Required features: `System_Threading_Core`*"]
     pub fn Enable(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `System_Threading_Core`*"]
     pub fn Terminate(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `System_Threading_Core`*"]
     pub fn AttachToEvent<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, SignalHandler>>(name: Param0, handler: Param1) -> ::windows::runtime::Result<SignalNotifier> {
         Self::ISignalNotifierStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -267,12 +278,14 @@ impl SignalNotifier {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `System_Threading_Core`, `Foundation`*"]
     pub fn AttachToEventWithTimeout<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, SignalHandler>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TimeSpan>>(name: Param0, handler: Param1, timeout: Param2) -> ::windows::runtime::Result<SignalNotifier> {
         Self::ISignalNotifierStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), name.into_param().abi(), handler.into_param().abi(), timeout.into_param().abi(), &mut result__).from_abi::<SignalNotifier>(result__)
         })
     }
+    #[doc = "*Required features: `System_Threading_Core`*"]
     pub fn AttachToSemaphore<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, SignalHandler>>(name: Param0, handler: Param1) -> ::windows::runtime::Result<SignalNotifier> {
         Self::ISignalNotifierStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -280,6 +293,7 @@ impl SignalNotifier {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `System_Threading_Core`, `Foundation`*"]
     pub fn AttachToSemaphoreWithTimeout<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, SignalHandler>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TimeSpan>>(name: Param0, handler: Param1, timeout: Param2) -> ::windows::runtime::Result<SignalNotifier> {
         Self::ISignalNotifierStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();

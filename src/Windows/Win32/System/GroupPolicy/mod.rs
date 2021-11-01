@@ -1,4 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct APPSTATE(pub i32);
@@ -15,6 +16,7 @@ unsafe impl ::windows::runtime::Abi for APPSTATE {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn BrowseForGPO(lpbrowseinfo: *mut GPOBROWSEINFO) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -32,6 +34,7 @@ pub const CLSID_GPESnapIn: ::windows::runtime::GUID = ::windows::runtime::GUID::
 pub const CLSID_GroupPolicyObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3931121442, 41533, 4561, [167, 211, 0, 0, 248, 117, 113, 227]);
 pub const CLSID_RSOPSnapIn: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1841528907, 29202, 17805, [173, 176, 154, 7, 226, 174, 31, 162]);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CommandLineFromMsiDescriptor<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(descriptor: Param0, commandline: super::super::Foundation::PWSTR, commandlinelength: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -46,6 +49,7 @@ pub unsafe fn CommandLineFromMsiDescriptor<'a, Param0: ::windows::runtime::IntoP
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CreateGPOLink<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(lpgpo: Param0, lpcontainer: Param1, fhighpriority: Param2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -73,6 +77,7 @@ unsafe impl ::windows::runtime::Abi for CriticalPolicySectionHandle {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn DeleteAllGPOLinks<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpcontainer: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -87,6 +92,7 @@ pub unsafe fn DeleteAllGPOLinks<'a, Param0: ::windows::runtime::IntoParam<'a, su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn DeleteGPOLink<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpgpo: Param0, lpcontainer: Param1) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -101,6 +107,7 @@ pub unsafe fn DeleteGPOLink<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn EnterCriticalPolicySection<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(bmachine: Param0) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
@@ -115,6 +122,7 @@ pub unsafe fn EnterCriticalPolicySection<'a, Param0: ::windows::runtime::IntoPar
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn ExportRSoPData<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpnamespace: Param0, lpfilename: Param1) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -128,18 +136,30 @@ pub unsafe fn ExportRSoPData<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const FLAG_ASSUME_COMP_WQLFILTER_TRUE: u32 = 33554432u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const FLAG_ASSUME_SLOW_LINK: u32 = 536870912u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const FLAG_ASSUME_USER_WQLFILTER_TRUE: u32 = 67108864u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const FLAG_FORCE_CREATENAMESPACE: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const FLAG_LOOPBACK_MERGE: u32 = 268435456u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const FLAG_LOOPBACK_REPLACE: u32 = 134217728u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const FLAG_NO_COMPUTER: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const FLAG_NO_CSE_INVOKE: u32 = 1073741824u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const FLAG_NO_GPO_FILTER: u32 = 2147483648u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const FLAG_NO_USER: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const FLAG_PLANNING_MODE: u32 = 16777216u32;
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn FreeGPOListA(pgpolist: *const GROUP_POLICY_OBJECTA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -154,6 +174,7 @@ pub unsafe fn FreeGPOListA(pgpolist: *const GROUP_POLICY_OBJECTA) -> super::supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn FreeGPOListW(pgpolist: *const GROUP_POLICY_OBJECTW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -167,6 +188,7 @@ pub unsafe fn FreeGPOListW(pgpolist: *const GROUP_POLICY_OBJECTW) -> super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const GPC_BLOCK_POLICY: u32 = 1u32;
 pub const GPM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4117317384, 35070, 19253, [186, 191, 229, 97, 98, 213, 251, 200]);
 pub const GPMAsyncCancel: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(925341353, 30444, 18333, [173, 108, 85, 99, 24, 237, 95, 157]);
@@ -174,6 +196,7 @@ pub const GPMBackup: ::windows::runtime::GUID = ::windows::runtime::GUID::from_v
 pub const GPMBackupCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3952018267, 28891, 19103, [150, 118, 55, 194, 89, 148, 233, 220]);
 pub const GPMBackupDir: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4242843037, 3873, 19194, [184, 89, 230, 208, 198, 44, 209, 12]);
 pub const GPMBackupDirEx: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3904936074, 52995, 19547, [139, 226, 42, 169, 173, 50, 170, 218]);
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GPMBackupType(pub i32);
@@ -191,6 +214,7 @@ unsafe impl ::windows::runtime::Abi for GPMBackupType {
 pub const GPMCSECollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3482499112, 11588, 19297, [177, 10, 179, 39, 175, 212, 45, 168]);
 pub const GPMClientSideExtension: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3248678670, 26012, 19226, [148, 11, 248, 139, 10, 249, 200, 164]);
 pub const GPMConstants: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(945154176, 52638, 19724, [158, 175, 21, 121, 40, 58, 24, 136]);
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GPMDestinationOption(pub i32);
@@ -208,6 +232,7 @@ unsafe impl ::windows::runtime::Abi for GPMDestinationOption {
     type DefaultType = Self;
 }
 pub const GPMDomain: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1896415678, 4176, 19633, [131, 138, 197, 207, 242, 89, 225, 131]);
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GPMEntryType(pub i32);
@@ -235,6 +260,7 @@ pub const GPMMapEntry: ::windows::runtime::GUID = ::windows::runtime::GUID::from
 pub const GPMMapEntryCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(217537883, 41889, 19541, [180, 254, 158, 20, 156, 65, 246, 109]);
 pub const GPMMigrationTable: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1437548611, 10758, 20338, [171, 239, 99, 27, 68, 7, 156, 118]);
 pub const GPMPermission: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1483842570, 59840, 18156, [145, 62, 148, 78, 249, 34, 90, 148]);
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GPMPermissionType(pub i32);
@@ -267,6 +293,7 @@ unsafe impl ::windows::runtime::Abi for GPMPermissionType {
     type DefaultType = Self;
 }
 pub const GPMRSOP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1218120879, 40642, 20151, [145, 245, 182, 247, 29, 67, 218, 140]);
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GPMRSOPMode(pub i32);
@@ -282,6 +309,7 @@ unsafe impl ::windows::runtime::Abi for GPMRSOPMode {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GPMReportType(pub i32);
@@ -300,6 +328,7 @@ unsafe impl ::windows::runtime::Abi for GPMReportType {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GPMReportingOptions(pub i32);
@@ -317,6 +346,7 @@ unsafe impl ::windows::runtime::Abi for GPMReportingOptions {
 pub const GPMResult: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2450528960, 37511, 16902, [163, 178, 75, 219, 115, 210, 37, 246]);
 pub const GPMSOM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(853098412, 17678, 17615, [130, 156, 139, 34, 255, 107, 218, 225]);
 pub const GPMSOMCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(616689991, 14112, 20315, [169, 195, 6, 180, 228, 249, 49, 210]);
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GPMSOMType(pub i32);
@@ -333,6 +363,7 @@ unsafe impl ::windows::runtime::Abi for GPMSOMType {
     type DefaultType = Self;
 }
 pub const GPMSearchCriteria: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(397068838, 23776, 17658, [140, 192, 82, 89, 230, 72, 53, 102]);
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GPMSearchOperation(pub i32);
@@ -349,6 +380,7 @@ unsafe impl ::windows::runtime::Abi for GPMSearchOperation {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GPMSearchProperty(pub i32);
@@ -381,6 +413,7 @@ pub const GPMSitesContainer: ::windows::runtime::GUID = ::windows::runtime::GUID
 pub const GPMStarterGPOBackup: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(949895178, 55535, 17755, [168, 97, 95, 156, 163, 74, 106, 2]);
 pub const GPMStarterGPOBackupCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3881739677, 6891, 19637, [167, 138, 40, 29, 170, 88, 36, 6]);
 pub const GPMStarterGPOCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2197334667, 18874, 17330, [149, 110, 51, 151, 249, 185, 76, 58]);
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GPMStarterGPOType(pub i32);
@@ -401,15 +434,22 @@ pub const GPMTemplate: ::windows::runtime::GUID = ::windows::runtime::GUID::from
 pub const GPMTrustee: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3309989901, 6582, 16913, [188, 176, 232, 226, 71, 94, 71, 30]);
 pub const GPMWMIFilter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1650935256, 3562, 16482, [191, 96, 207, 197, 177, 202, 18, 134]);
 pub const GPMWMIFilterCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1960602920, 59424, 18390, [160, 184, 240, 141, 147, 215, 250, 51]);
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const GPM_DONOTUSE_W2KDC: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const GPM_DONOT_VALIDATEDC: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const GPM_MIGRATIONTABLE_ONLY: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const GPM_PROCESS_SECURITY: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const GPM_USE_ANYDC: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const GPM_USE_PDC: u32 = 0u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
 pub struct GPOBROWSEINFO {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -462,25 +502,45 @@ unsafe impl ::windows::runtime::Abi for GPOBROWSEINFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const GPO_BROWSE_DISABLENEW: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const GPO_BROWSE_INITTOALL: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const GPO_BROWSE_NOCOMPUTERS: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const GPO_BROWSE_NODSGPOS: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const GPO_BROWSE_NOUSERGPOS: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const GPO_BROWSE_OPENBUTTON: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const GPO_BROWSE_SENDAPPLYONEDIT: u32 = 64u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const GPO_FLAG_DISABLE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const GPO_FLAG_FORCE: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const GPO_INFO_FLAG_ASYNC_FOREGROUND: u32 = 4096u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const GPO_INFO_FLAG_BACKGROUND: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const GPO_INFO_FLAG_FORCED_REFRESH: u32 = 1024u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const GPO_INFO_FLAG_LINKTRANSITION: u32 = 256u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const GPO_INFO_FLAG_LOGRSOP_TRANSITION: u32 = 512u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const GPO_INFO_FLAG_MACHINE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const GPO_INFO_FLAG_NOCHANGES: u32 = 128u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const GPO_INFO_FLAG_SAFEMODE_BOOT: u32 = 2048u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const GPO_INFO_FLAG_SLOWLINK: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const GPO_INFO_FLAG_VERBOSE: u32 = 64u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GPO_LINK(pub i32);
@@ -498,17 +558,29 @@ unsafe impl ::windows::runtime::Abi for GPO_LINK {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const GPO_LIST_FLAG_MACHINE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const GPO_LIST_FLAG_NO_SECURITYFILTERS: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const GPO_LIST_FLAG_NO_WMIFILTERS: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const GPO_LIST_FLAG_SITEONLY: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const GPO_OPEN_LOAD_REGISTRY: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const GPO_OPEN_READ_ONLY: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const GPO_OPTION_DISABLE_MACHINE: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const GPO_OPTION_DISABLE_USER: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const GPO_SECTION_MACHINE: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const GPO_SECTION_ROOT: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const GPO_SECTION_USER: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GROUP_POLICY_HINT_TYPE(pub i32);
@@ -529,6 +601,7 @@ unsafe impl ::windows::runtime::Abi for GROUP_POLICY_HINT_TYPE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
 pub struct GROUP_POLICY_OBJECTA {
     pub dwOptions: u32,
     pub dwVersion: u32,
@@ -588,6 +661,7 @@ unsafe impl ::windows::runtime::Abi for GROUP_POLICY_OBJECTA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
 pub struct GROUP_POLICY_OBJECTW {
     pub dwOptions: u32,
     pub dwVersion: u32,
@@ -644,6 +718,7 @@ unsafe impl ::windows::runtime::Abi for GROUP_POLICY_OBJECTW {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GROUP_POLICY_OBJECT_TYPE(pub i32);
@@ -662,6 +737,7 @@ unsafe impl ::windows::runtime::Abi for GROUP_POLICY_OBJECT_TYPE {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GenerateGPNotification<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(bmachine: Param0, lpwszmgmtproduct: Param1, dwmgmtproductoptions: u32) -> u32 {
     #[cfg(windows)]
@@ -676,6 +752,7 @@ pub unsafe fn GenerateGPNotification<'a, Param0: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetAppliedGPOListA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSID>>(dwflags: u32, pmachinename: Param1, psiduser: Param2, pguidextension: *const ::windows::runtime::GUID, ppgpolist: *mut *mut GROUP_POLICY_OBJECTA) -> u32 {
     #[cfg(windows)]
@@ -690,6 +767,7 @@ pub unsafe fn GetAppliedGPOListA<'a, Param1: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetAppliedGPOListW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSID>>(dwflags: u32, pmachinename: Param1, psiduser: Param2, pguidextension: *const ::windows::runtime::GUID, ppgpolist: *mut *mut GROUP_POLICY_OBJECTW) -> u32 {
     #[cfg(windows)]
@@ -704,6 +782,7 @@ pub unsafe fn GetAppliedGPOListW<'a, Param1: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetGPOListA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(htoken: Param0, lpname: Param1, lphostname: Param2, lpcomputername: Param3, dwflags: u32, pgpolist: *mut *mut GROUP_POLICY_OBJECTA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -718,6 +797,7 @@ pub unsafe fn GetGPOListA<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetGPOListW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
     htoken: Param0,
@@ -739,6 +819,7 @@ pub unsafe fn GetGPOListW<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetLocalManagedApplicationData<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(productcode: Param0, displayname: *mut super::super::Foundation::PWSTR, supporturl: *mut super::super::Foundation::PWSTR) {
     #[cfg(windows)]
@@ -753,6 +834,7 @@ pub unsafe fn GetLocalManagedApplicationData<'a, Param0: ::windows::runtime::Int
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetLocalManagedApplications<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(buserapps: Param0, pdwapps: *mut u32, prglocalapps: *mut *mut LOCALMANAGEDAPPLICATION) -> u32 {
     #[cfg(windows)]
@@ -767,6 +849,7 @@ pub unsafe fn GetLocalManagedApplications<'a, Param0: ::windows::runtime::IntoPa
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
+#[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`, `Win32_UI_Shell`*"]
 #[inline]
 pub unsafe fn GetManagedApplicationCategories(dwreserved: u32, pappcategory: *mut super::super::UI::Shell::APPCATEGORYINFOLIST) -> u32 {
     #[cfg(windows)]
@@ -781,6 +864,7 @@ pub unsafe fn GetManagedApplicationCategories(dwreserved: u32, pappcategory: *mu
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetManagedApplications(pcategory: *const ::windows::runtime::GUID, dwqueryflags: u32, dwinfolevel: u32, pdwapps: *mut u32, prgmanagedapps: *mut *mut MANAGEDAPPLICATION) -> u32 {
     #[cfg(windows)]
@@ -794,40 +878,50 @@ pub unsafe fn GetManagedApplications(pcategory: *const ::windows::runtime::GUID,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IGPEInformation(::windows::runtime::IUnknown);
 impl IGPEInformation {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn GetName(&self, pszname: super::super::Foundation::PWSTR, cchmaxlength: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pszname), ::std::mem::transmute(cchmaxlength)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn GetDisplayName(&self, pszname: super::super::Foundation::PWSTR, cchmaxlength: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pszname), ::std::mem::transmute(cchmaxlength)).ok()
     }
     #[cfg(feature = "Win32_System_Registry")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_System_Registry`*"]
     pub unsafe fn GetRegistryKey(&self, dwsection: u32, hkey: *mut super::Registry::HKEY) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwsection), ::std::mem::transmute(hkey)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn GetDSPath(&self, dwsection: u32, pszpath: super::super::Foundation::PWSTR, cchmaxpath: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwsection), ::std::mem::transmute(pszpath), ::std::mem::transmute(cchmaxpath)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn GetFileSysPath(&self, dwsection: u32, pszpath: super::super::Foundation::PWSTR, cchmaxpath: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwsection), ::std::mem::transmute(pszpath), ::std::mem::transmute(cchmaxpath)).ok()
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn GetOptions(&self, dwoptions: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoptions)).ok()
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn GetType(&self, gpotype: *mut GROUP_POLICY_OBJECT_TYPE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(gpotype)).ok()
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn GetHint(&self, gphint: *mut GROUP_POLICY_HINT_TYPE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(gphint)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn PolicyChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bmachine: Param0, badd: Param1, pguidextension: *mut ::windows::runtime::GUID, pguidsnapin: *mut ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), bmachine.into_param().abi(), badd.into_param().abi(), ::std::mem::transmute(pguidextension), ::std::mem::transmute(pguidsnapin)).ok()
     }
@@ -878,62 +972,75 @@ pub struct IGPEInformation_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bmachine: super::super::Foundation::BOOL, badd: super::super::Foundation::BOOL, pguidextension: *mut ::windows::runtime::GUID, pguidsnapin: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IGPM(::windows::runtime::IUnknown);
 impl IGPM {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn GetDomain<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdomain: Param0, bstrdomaincontroller: Param1, ldcflags: i32) -> ::windows::runtime::Result<IGPMDomain> {
         let mut result__: <IGPMDomain as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), bstrdomain.into_param().abi(), bstrdomaincontroller.into_param().abi(), ::std::mem::transmute(ldcflags), &mut result__).from_abi::<IGPMDomain>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn GetBackupDir<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrbackupdir: Param0) -> ::windows::runtime::Result<IGPMBackupDir> {
         let mut result__: <IGPMBackupDir as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), bstrbackupdir.into_param().abi(), &mut result__).from_abi::<IGPMBackupDir>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn GetSitesContainer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrforest: Param0, bstrdomain: Param1, bstrdomaincontroller: Param2, ldcflags: i32) -> ::windows::runtime::Result<IGPMSitesContainer> {
         let mut result__: <IGPMSitesContainer as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), bstrforest.into_param().abi(), bstrdomain.into_param().abi(), bstrdomaincontroller.into_param().abi(), ::std::mem::transmute(ldcflags), &mut result__).from_abi::<IGPMSitesContainer>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn GetRSOP<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, gpmrsopmode: GPMRSOPMode, bstrnamespace: Param1, lflags: i32) -> ::windows::runtime::Result<IGPMRSOP> {
         let mut result__: <IGPMRSOP as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(gpmrsopmode), bstrnamespace.into_param().abi(), ::std::mem::transmute(lflags), &mut result__).from_abi::<IGPMRSOP>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn CreatePermission<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrtrustee: Param0, perm: GPMPermissionType, binheritable: i16) -> ::windows::runtime::Result<IGPMPermission> {
         let mut result__: <IGPMPermission as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), bstrtrustee.into_param().abi(), ::std::mem::transmute(perm), ::std::mem::transmute(binheritable), &mut result__).from_abi::<IGPMPermission>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn CreateSearchCriteria(&self) -> ::windows::runtime::Result<IGPMSearchCriteria> {
         let mut result__: <IGPMSearchCriteria as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IGPMSearchCriteria>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn CreateTrustee<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrtrustee: Param0) -> ::windows::runtime::Result<IGPMTrustee> {
         let mut result__: <IGPMTrustee as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), bstrtrustee.into_param().abi(), &mut result__).from_abi::<IGPMTrustee>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn GetClientSideExtensions(&self) -> ::windows::runtime::Result<IGPMCSECollection> {
         let mut result__: <IGPMCSECollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IGPMCSECollection>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn GetConstants(&self) -> ::windows::runtime::Result<IGPMConstants> {
         let mut result__: <IGPMConstants as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IGPMConstants>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn GetMigrationTable<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrmigrationtablepath: Param0) -> ::windows::runtime::Result<IGPMMigrationTable> {
         let mut result__: <IGPMMigrationTable as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), bstrmigrationtablepath.into_param().abi(), &mut result__).from_abi::<IGPMMigrationTable>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn CreateMigrationTable(&self) -> ::windows::runtime::Result<IGPMMigrationTable> {
         let mut result__: <IGPMMigrationTable as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IGPMMigrationTable>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn InitializeReporting<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstradmpath: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), bstradmpath.into_param().abi()).ok()
     }
@@ -1021,88 +1128,107 @@ pub struct IGPM_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bstradmpath: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IGPM2(::windows::runtime::IUnknown);
 impl IGPM2 {
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::Ole::Automation::ITypeInfo> {
         let mut result__: <super::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Ole::Automation::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn GetDomain<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdomain: Param0, bstrdomaincontroller: Param1, ldcflags: i32) -> ::windows::runtime::Result<IGPMDomain> {
         let mut result__: <IGPMDomain as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), bstrdomain.into_param().abi(), bstrdomaincontroller.into_param().abi(), ::std::mem::transmute(ldcflags), &mut result__).from_abi::<IGPMDomain>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn GetBackupDir<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrbackupdir: Param0) -> ::windows::runtime::Result<IGPMBackupDir> {
         let mut result__: <IGPMBackupDir as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), bstrbackupdir.into_param().abi(), &mut result__).from_abi::<IGPMBackupDir>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn GetSitesContainer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrforest: Param0, bstrdomain: Param1, bstrdomaincontroller: Param2, ldcflags: i32) -> ::windows::runtime::Result<IGPMSitesContainer> {
         let mut result__: <IGPMSitesContainer as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), bstrforest.into_param().abi(), bstrdomain.into_param().abi(), bstrdomaincontroller.into_param().abi(), ::std::mem::transmute(ldcflags), &mut result__).from_abi::<IGPMSitesContainer>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn GetRSOP<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, gpmrsopmode: GPMRSOPMode, bstrnamespace: Param1, lflags: i32) -> ::windows::runtime::Result<IGPMRSOP> {
         let mut result__: <IGPMRSOP as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(gpmrsopmode), bstrnamespace.into_param().abi(), ::std::mem::transmute(lflags), &mut result__).from_abi::<IGPMRSOP>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn CreatePermission<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrtrustee: Param0, perm: GPMPermissionType, binheritable: i16) -> ::windows::runtime::Result<IGPMPermission> {
         let mut result__: <IGPMPermission as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), bstrtrustee.into_param().abi(), ::std::mem::transmute(perm), ::std::mem::transmute(binheritable), &mut result__).from_abi::<IGPMPermission>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn CreateSearchCriteria(&self) -> ::windows::runtime::Result<IGPMSearchCriteria> {
         let mut result__: <IGPMSearchCriteria as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IGPMSearchCriteria>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn CreateTrustee<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrtrustee: Param0) -> ::windows::runtime::Result<IGPMTrustee> {
         let mut result__: <IGPMTrustee as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), bstrtrustee.into_param().abi(), &mut result__).from_abi::<IGPMTrustee>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn GetClientSideExtensions(&self) -> ::windows::runtime::Result<IGPMCSECollection> {
         let mut result__: <IGPMCSECollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IGPMCSECollection>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn GetConstants(&self) -> ::windows::runtime::Result<IGPMConstants> {
         let mut result__: <IGPMConstants as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IGPMConstants>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn GetMigrationTable<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrmigrationtablepath: Param0) -> ::windows::runtime::Result<IGPMMigrationTable> {
         let mut result__: <IGPMMigrationTable as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), bstrmigrationtablepath.into_param().abi(), &mut result__).from_abi::<IGPMMigrationTable>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn CreateMigrationTable(&self) -> ::windows::runtime::Result<IGPMMigrationTable> {
         let mut result__: <IGPMMigrationTable as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IGPMMigrationTable>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn InitializeReporting<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstradmpath: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), bstradmpath.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn GetBackupDirEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrbackupdir: Param0, backupdirtype: GPMBackupType) -> ::windows::runtime::Result<IGPMBackupDirEx> {
         let mut result__: <IGPMBackupDirEx as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), bstrbackupdir.into_param().abi(), ::std::mem::transmute(backupdirtype), &mut result__).from_abi::<IGPMBackupDirEx>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn InitializeReportingEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstradmpath: Param0, reportingoptions: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), bstradmpath.into_param().abi(), ::std::mem::transmute(reportingoptions)).ok()
     }
@@ -1214,10 +1340,12 @@ pub struct IGPM2_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bstradmpath: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, reportingoptions: i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IGPMAsyncCancel(::windows::runtime::IUnknown);
 impl IGPMAsyncCancel {
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn Cancel(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)).ok()
     }
@@ -1286,11 +1414,13 @@ pub struct IGPMAsyncCancel_abi(
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IGPMAsyncProgress(::windows::runtime::IUnknown);
 impl IGPMAsyncProgress {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Status<'a, Param4: ::windows::runtime::IntoParam<'a, IGPMStatusMsgCollection>>(&self, lprogressnumerator: i32, lprogressdenominator: i32, hrstatus: ::windows::runtime::HRESULT, presult: *const super::Com::VARIANT, ppigpmstatusmsgcollection: Param4) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(lprogressnumerator), ::std::mem::transmute(lprogressdenominator), ::std::mem::transmute(hrstatus), ::std::mem::transmute(presult), ppigpmstatusmsgcollection.into_param().abi()).ok()
     }
@@ -1360,52 +1490,63 @@ pub struct IGPMAsyncProgress_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lprogressnumerator: i32, lprogressdenominator: i32, hrstatus: ::windows::runtime::HRESULT, presult: *const ::std::mem::ManuallyDrop<super::Com::VARIANT>, ppigpmstatusmsgcollection: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
 );
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IGPMBackup(::windows::runtime::IUnknown);
 impl IGPMBackup {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn ID(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn GPOID(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn GPODomain(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn GPODisplayName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn Timestamp(&self) -> ::windows::runtime::Result<f64> {
         let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<f64>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn Comment(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn BackupDir(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn Delete(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GenerateReport(&self, gpmreporttype: GPMReportType, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::std::option::Option<IGPMResult>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(gpmreporttype), ::std::mem::transmute(pvargpmprogress), ::std::mem::transmute(pvargpmcancel), ::std::mem::transmute(ppigpmresult)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn GenerateReportToFile<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, gpmreporttype: GPMReportType, bstrtargetfilepath: Param1) -> ::windows::runtime::Result<IGPMResult> {
         let mut result__: <IGPMResult as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(gpmreporttype), bstrtargetfilepath.into_param().abi(), &mut result__).from_abi::<IGPMResult>(result__)
@@ -1492,20 +1633,24 @@ pub struct IGPMBackup_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, gpmreporttype: GPMReportType, bstrtargetfilepath: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppigpmresult: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IGPMBackupCollection(::windows::runtime::IUnknown);
 impl IGPMBackupCollection {
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Item(&self, lindex: i32) -> ::windows::runtime::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(lindex), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::runtime::Result<super::Ole::Automation::IEnumVARIANT> {
         let mut result__: <super::Ole::Automation::IEnumVARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::Ole::Automation::IEnumVARIANT>(result__)
@@ -1579,20 +1724,24 @@ pub struct IGPMBackupCollection_abi(
     #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppigpmbackup: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IGPMBackupDir(::windows::runtime::IUnknown);
 impl IGPMBackupDir {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn BackupDirectory(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn GetBackup<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrid: Param0) -> ::windows::runtime::Result<IGPMBackup> {
         let mut result__: <IGPMBackup as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), bstrid.into_param().abi(), &mut result__).from_abi::<IGPMBackup>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SearchBackups<'a, Param0: ::windows::runtime::IntoParam<'a, IGPMSearchCriteria>>(&self, pigpmsearchcriteria: Param0) -> ::windows::runtime::Result<IGPMBackupCollection> {
         let mut result__: <IGPMBackupCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), pigpmsearchcriteria.into_param().abi(), &mut result__).from_abi::<IGPMBackupCollection>(result__)
@@ -1666,25 +1815,30 @@ pub struct IGPMBackupDir_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pigpmsearchcriteria: ::windows::runtime::RawPtr, ppigpmbackupcollection: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IGPMBackupDirEx(::windows::runtime::IUnknown);
 impl IGPMBackupDirEx {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn BackupDir(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn BackupType(&self) -> ::windows::runtime::Result<GPMBackupType> {
         let mut result__: <GPMBackupType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMBackupType>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetBackup<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrid: Param0) -> ::windows::runtime::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), bstrid.into_param().abi(), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SearchBackups<'a, Param0: ::windows::runtime::IntoParam<'a, IGPMSearchCriteria>>(&self, pigpmsearchcriteria: Param0) -> ::windows::runtime::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), pigpmsearchcriteria.into_param().abi(), &mut result__).from_abi::<super::Com::VARIANT>(result__)
@@ -1760,20 +1914,24 @@ pub struct IGPMBackupDirEx_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pigpmsearchcriteria: ::windows::runtime::RawPtr, pvarbackupcollection: *mut ::std::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
 );
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IGPMCSECollection(::windows::runtime::IUnknown);
 impl IGPMCSECollection {
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Item(&self, lindex: i32) -> ::windows::runtime::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(lindex), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::runtime::Result<super::Ole::Automation::IEnumVARIANT> {
         let mut result__: <super::Ole::Automation::IEnumVARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::Ole::Automation::IEnumVARIANT>(result__)
@@ -1847,24 +2005,29 @@ pub struct IGPMCSECollection_abi(
     #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppigpmcses: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IGPMClientSideExtension(::windows::runtime::IUnknown);
 impl IGPMClientSideExtension {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn ID(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn DisplayName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn IsUserEnabled(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn IsComputerEnabled(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
@@ -1939,246 +2102,307 @@ pub struct IGPMClientSideExtension_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvbenabled: *mut i16) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvbenabled: *mut i16) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IGPMConstants(::windows::runtime::IUnknown);
 impl IGPMConstants {
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn PermGPOApply(&self) -> ::windows::runtime::Result<GPMPermissionType> {
         let mut result__: <GPMPermissionType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMPermissionType>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn PermGPORead(&self) -> ::windows::runtime::Result<GPMPermissionType> {
         let mut result__: <GPMPermissionType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMPermissionType>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn PermGPOEdit(&self) -> ::windows::runtime::Result<GPMPermissionType> {
         let mut result__: <GPMPermissionType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMPermissionType>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn PermGPOEditSecurityAndDelete(&self) -> ::windows::runtime::Result<GPMPermissionType> {
         let mut result__: <GPMPermissionType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMPermissionType>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn PermGPOCustom(&self) -> ::windows::runtime::Result<GPMPermissionType> {
         let mut result__: <GPMPermissionType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMPermissionType>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn PermWMIFilterEdit(&self) -> ::windows::runtime::Result<GPMPermissionType> {
         let mut result__: <GPMPermissionType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMPermissionType>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn PermWMIFilterFullControl(&self) -> ::windows::runtime::Result<GPMPermissionType> {
         let mut result__: <GPMPermissionType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMPermissionType>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn PermWMIFilterCustom(&self) -> ::windows::runtime::Result<GPMPermissionType> {
         let mut result__: <GPMPermissionType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMPermissionType>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn PermSOMLink(&self) -> ::windows::runtime::Result<GPMPermissionType> {
         let mut result__: <GPMPermissionType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMPermissionType>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn PermSOMLogging(&self) -> ::windows::runtime::Result<GPMPermissionType> {
         let mut result__: <GPMPermissionType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMPermissionType>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn PermSOMPlanning(&self) -> ::windows::runtime::Result<GPMPermissionType> {
         let mut result__: <GPMPermissionType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMPermissionType>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn PermSOMGPOCreate(&self) -> ::windows::runtime::Result<GPMPermissionType> {
         let mut result__: <GPMPermissionType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMPermissionType>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn PermSOMWMICreate(&self) -> ::windows::runtime::Result<GPMPermissionType> {
         let mut result__: <GPMPermissionType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMPermissionType>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn PermSOMWMIFullControl(&self) -> ::windows::runtime::Result<GPMPermissionType> {
         let mut result__: <GPMPermissionType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMPermissionType>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SearchPropertyGPOPermissions(&self) -> ::windows::runtime::Result<GPMSearchProperty> {
         let mut result__: <GPMSearchProperty as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMSearchProperty>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SearchPropertyGPOEffectivePermissions(&self) -> ::windows::runtime::Result<GPMSearchProperty> {
         let mut result__: <GPMSearchProperty as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMSearchProperty>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SearchPropertyGPODisplayName(&self) -> ::windows::runtime::Result<GPMSearchProperty> {
         let mut result__: <GPMSearchProperty as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMSearchProperty>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SearchPropertyGPOWMIFilter(&self) -> ::windows::runtime::Result<GPMSearchProperty> {
         let mut result__: <GPMSearchProperty as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMSearchProperty>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SearchPropertyGPOID(&self) -> ::windows::runtime::Result<GPMSearchProperty> {
         let mut result__: <GPMSearchProperty as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMSearchProperty>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SearchPropertyGPOComputerExtensions(&self) -> ::windows::runtime::Result<GPMSearchProperty> {
         let mut result__: <GPMSearchProperty as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMSearchProperty>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SearchPropertyGPOUserExtensions(&self) -> ::windows::runtime::Result<GPMSearchProperty> {
         let mut result__: <GPMSearchProperty as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMSearchProperty>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SearchPropertySOMLinks(&self) -> ::windows::runtime::Result<GPMSearchProperty> {
         let mut result__: <GPMSearchProperty as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMSearchProperty>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SearchPropertyGPODomain(&self) -> ::windows::runtime::Result<GPMSearchProperty> {
         let mut result__: <GPMSearchProperty as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMSearchProperty>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SearchPropertyBackupMostRecent(&self) -> ::windows::runtime::Result<GPMSearchProperty> {
         let mut result__: <GPMSearchProperty as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMSearchProperty>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SearchOpEquals(&self) -> ::windows::runtime::Result<GPMSearchOperation> {
         let mut result__: <GPMSearchOperation as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMSearchOperation>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SearchOpContains(&self) -> ::windows::runtime::Result<GPMSearchOperation> {
         let mut result__: <GPMSearchOperation as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).32)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMSearchOperation>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SearchOpNotContains(&self) -> ::windows::runtime::Result<GPMSearchOperation> {
         let mut result__: <GPMSearchOperation as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).33)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMSearchOperation>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SearchOpNotEquals(&self) -> ::windows::runtime::Result<GPMSearchOperation> {
         let mut result__: <GPMSearchOperation as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).34)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMSearchOperation>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn UsePDC(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).35)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn UseAnyDC(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).36)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn DoNotUseW2KDC(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).37)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SOMSite(&self) -> ::windows::runtime::Result<GPMSOMType> {
         let mut result__: <GPMSOMType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).38)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMSOMType>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SOMDomain(&self) -> ::windows::runtime::Result<GPMSOMType> {
         let mut result__: <GPMSOMType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).39)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMSOMType>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SOMOU(&self) -> ::windows::runtime::Result<GPMSOMType> {
         let mut result__: <GPMSOMType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).40)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMSOMType>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SecurityFlags(&self, vbowner: i16, vbgroup: i16, vbdacl: i16, vbsacl: i16) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).41)(::std::mem::transmute_copy(self), ::std::mem::transmute(vbowner), ::std::mem::transmute(vbgroup), ::std::mem::transmute(vbdacl), ::std::mem::transmute(vbsacl), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn DoNotValidateDC(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).42)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn ReportHTML(&self) -> ::windows::runtime::Result<GPMReportType> {
         let mut result__: <GPMReportType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).43)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMReportType>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn ReportXML(&self) -> ::windows::runtime::Result<GPMReportType> {
         let mut result__: <GPMReportType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).44)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMReportType>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn RSOPModeUnknown(&self) -> ::windows::runtime::Result<GPMRSOPMode> {
         let mut result__: <GPMRSOPMode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).45)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMRSOPMode>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn RSOPModePlanning(&self) -> ::windows::runtime::Result<GPMRSOPMode> {
         let mut result__: <GPMRSOPMode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).46)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMRSOPMode>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn RSOPModeLogging(&self) -> ::windows::runtime::Result<GPMRSOPMode> {
         let mut result__: <GPMRSOPMode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).47)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMRSOPMode>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn EntryTypeUser(&self) -> ::windows::runtime::Result<GPMEntryType> {
         let mut result__: <GPMEntryType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).48)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMEntryType>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn EntryTypeComputer(&self) -> ::windows::runtime::Result<GPMEntryType> {
         let mut result__: <GPMEntryType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).49)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMEntryType>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn EntryTypeLocalGroup(&self) -> ::windows::runtime::Result<GPMEntryType> {
         let mut result__: <GPMEntryType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).50)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMEntryType>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn EntryTypeGlobalGroup(&self) -> ::windows::runtime::Result<GPMEntryType> {
         let mut result__: <GPMEntryType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).51)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMEntryType>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn EntryTypeUniversalGroup(&self) -> ::windows::runtime::Result<GPMEntryType> {
         let mut result__: <GPMEntryType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).52)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMEntryType>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn EntryTypeUNCPath(&self) -> ::windows::runtime::Result<GPMEntryType> {
         let mut result__: <GPMEntryType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).53)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMEntryType>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn EntryTypeUnknown(&self) -> ::windows::runtime::Result<GPMEntryType> {
         let mut result__: <GPMEntryType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).54)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMEntryType>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn DestinationOptionSameAsSource(&self) -> ::windows::runtime::Result<GPMDestinationOption> {
         let mut result__: <GPMDestinationOption as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).55)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMDestinationOption>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn DestinationOptionNone(&self) -> ::windows::runtime::Result<GPMDestinationOption> {
         let mut result__: <GPMDestinationOption as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).56)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMDestinationOption>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn DestinationOptionByRelativeName(&self) -> ::windows::runtime::Result<GPMDestinationOption> {
         let mut result__: <GPMDestinationOption as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).57)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMDestinationOption>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn DestinationOptionSet(&self) -> ::windows::runtime::Result<GPMDestinationOption> {
         let mut result__: <GPMDestinationOption as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).58)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMDestinationOption>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn MigrationTableOnly(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).59)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn ProcessSecurity(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).60)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn RsopLoggingNoComputer(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).61)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn RsopLoggingNoUser(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).62)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn RsopPlanningAssumeSlowLink(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).63)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn RsopPlanningLoopbackOption(&self, vbmerge: i16) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).64)(::std::mem::transmute_copy(self), ::std::mem::transmute(vbmerge), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn RsopPlanningAssumeUserWQLFilterTrue(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).65)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn RsopPlanningAssumeCompWQLFilterTrue(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).66)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
@@ -2307,323 +2531,403 @@ pub struct IGPMConstants_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pval: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pval: *mut i32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IGPMConstants2(::windows::runtime::IUnknown);
 impl IGPMConstants2 {
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::Ole::Automation::ITypeInfo> {
         let mut result__: <super::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Ole::Automation::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn PermGPOApply(&self) -> ::windows::runtime::Result<GPMPermissionType> {
         let mut result__: <GPMPermissionType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMPermissionType>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn PermGPORead(&self) -> ::windows::runtime::Result<GPMPermissionType> {
         let mut result__: <GPMPermissionType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMPermissionType>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn PermGPOEdit(&self) -> ::windows::runtime::Result<GPMPermissionType> {
         let mut result__: <GPMPermissionType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMPermissionType>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn PermGPOEditSecurityAndDelete(&self) -> ::windows::runtime::Result<GPMPermissionType> {
         let mut result__: <GPMPermissionType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMPermissionType>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn PermGPOCustom(&self) -> ::windows::runtime::Result<GPMPermissionType> {
         let mut result__: <GPMPermissionType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMPermissionType>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn PermWMIFilterEdit(&self) -> ::windows::runtime::Result<GPMPermissionType> {
         let mut result__: <GPMPermissionType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMPermissionType>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn PermWMIFilterFullControl(&self) -> ::windows::runtime::Result<GPMPermissionType> {
         let mut result__: <GPMPermissionType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMPermissionType>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn PermWMIFilterCustom(&self) -> ::windows::runtime::Result<GPMPermissionType> {
         let mut result__: <GPMPermissionType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMPermissionType>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn PermSOMLink(&self) -> ::windows::runtime::Result<GPMPermissionType> {
         let mut result__: <GPMPermissionType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMPermissionType>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn PermSOMLogging(&self) -> ::windows::runtime::Result<GPMPermissionType> {
         let mut result__: <GPMPermissionType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMPermissionType>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn PermSOMPlanning(&self) -> ::windows::runtime::Result<GPMPermissionType> {
         let mut result__: <GPMPermissionType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMPermissionType>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn PermSOMGPOCreate(&self) -> ::windows::runtime::Result<GPMPermissionType> {
         let mut result__: <GPMPermissionType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMPermissionType>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn PermSOMWMICreate(&self) -> ::windows::runtime::Result<GPMPermissionType> {
         let mut result__: <GPMPermissionType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMPermissionType>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn PermSOMWMIFullControl(&self) -> ::windows::runtime::Result<GPMPermissionType> {
         let mut result__: <GPMPermissionType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMPermissionType>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SearchPropertyGPOPermissions(&self) -> ::windows::runtime::Result<GPMSearchProperty> {
         let mut result__: <GPMSearchProperty as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMSearchProperty>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SearchPropertyGPOEffectivePermissions(&self) -> ::windows::runtime::Result<GPMSearchProperty> {
         let mut result__: <GPMSearchProperty as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMSearchProperty>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SearchPropertyGPODisplayName(&self) -> ::windows::runtime::Result<GPMSearchProperty> {
         let mut result__: <GPMSearchProperty as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMSearchProperty>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SearchPropertyGPOWMIFilter(&self) -> ::windows::runtime::Result<GPMSearchProperty> {
         let mut result__: <GPMSearchProperty as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMSearchProperty>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SearchPropertyGPOID(&self) -> ::windows::runtime::Result<GPMSearchProperty> {
         let mut result__: <GPMSearchProperty as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMSearchProperty>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SearchPropertyGPOComputerExtensions(&self) -> ::windows::runtime::Result<GPMSearchProperty> {
         let mut result__: <GPMSearchProperty as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMSearchProperty>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SearchPropertyGPOUserExtensions(&self) -> ::windows::runtime::Result<GPMSearchProperty> {
         let mut result__: <GPMSearchProperty as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMSearchProperty>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SearchPropertySOMLinks(&self) -> ::windows::runtime::Result<GPMSearchProperty> {
         let mut result__: <GPMSearchProperty as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMSearchProperty>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SearchPropertyGPODomain(&self) -> ::windows::runtime::Result<GPMSearchProperty> {
         let mut result__: <GPMSearchProperty as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMSearchProperty>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SearchPropertyBackupMostRecent(&self) -> ::windows::runtime::Result<GPMSearchProperty> {
         let mut result__: <GPMSearchProperty as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMSearchProperty>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SearchOpEquals(&self) -> ::windows::runtime::Result<GPMSearchOperation> {
         let mut result__: <GPMSearchOperation as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMSearchOperation>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SearchOpContains(&self) -> ::windows::runtime::Result<GPMSearchOperation> {
         let mut result__: <GPMSearchOperation as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).32)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMSearchOperation>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SearchOpNotContains(&self) -> ::windows::runtime::Result<GPMSearchOperation> {
         let mut result__: <GPMSearchOperation as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).33)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMSearchOperation>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SearchOpNotEquals(&self) -> ::windows::runtime::Result<GPMSearchOperation> {
         let mut result__: <GPMSearchOperation as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).34)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMSearchOperation>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn UsePDC(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).35)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn UseAnyDC(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).36)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn DoNotUseW2KDC(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).37)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SOMSite(&self) -> ::windows::runtime::Result<GPMSOMType> {
         let mut result__: <GPMSOMType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).38)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMSOMType>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SOMDomain(&self) -> ::windows::runtime::Result<GPMSOMType> {
         let mut result__: <GPMSOMType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).39)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMSOMType>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SOMOU(&self) -> ::windows::runtime::Result<GPMSOMType> {
         let mut result__: <GPMSOMType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).40)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMSOMType>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SecurityFlags(&self, vbowner: i16, vbgroup: i16, vbdacl: i16, vbsacl: i16) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).41)(::std::mem::transmute_copy(self), ::std::mem::transmute(vbowner), ::std::mem::transmute(vbgroup), ::std::mem::transmute(vbdacl), ::std::mem::transmute(vbsacl), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn DoNotValidateDC(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).42)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn ReportHTML(&self) -> ::windows::runtime::Result<GPMReportType> {
         let mut result__: <GPMReportType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).43)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMReportType>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn ReportXML(&self) -> ::windows::runtime::Result<GPMReportType> {
         let mut result__: <GPMReportType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).44)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMReportType>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn RSOPModeUnknown(&self) -> ::windows::runtime::Result<GPMRSOPMode> {
         let mut result__: <GPMRSOPMode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).45)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMRSOPMode>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn RSOPModePlanning(&self) -> ::windows::runtime::Result<GPMRSOPMode> {
         let mut result__: <GPMRSOPMode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).46)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMRSOPMode>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn RSOPModeLogging(&self) -> ::windows::runtime::Result<GPMRSOPMode> {
         let mut result__: <GPMRSOPMode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).47)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMRSOPMode>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn EntryTypeUser(&self) -> ::windows::runtime::Result<GPMEntryType> {
         let mut result__: <GPMEntryType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).48)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMEntryType>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn EntryTypeComputer(&self) -> ::windows::runtime::Result<GPMEntryType> {
         let mut result__: <GPMEntryType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).49)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMEntryType>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn EntryTypeLocalGroup(&self) -> ::windows::runtime::Result<GPMEntryType> {
         let mut result__: <GPMEntryType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).50)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMEntryType>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn EntryTypeGlobalGroup(&self) -> ::windows::runtime::Result<GPMEntryType> {
         let mut result__: <GPMEntryType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).51)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMEntryType>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn EntryTypeUniversalGroup(&self) -> ::windows::runtime::Result<GPMEntryType> {
         let mut result__: <GPMEntryType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).52)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMEntryType>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn EntryTypeUNCPath(&self) -> ::windows::runtime::Result<GPMEntryType> {
         let mut result__: <GPMEntryType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).53)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMEntryType>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn EntryTypeUnknown(&self) -> ::windows::runtime::Result<GPMEntryType> {
         let mut result__: <GPMEntryType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).54)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMEntryType>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn DestinationOptionSameAsSource(&self) -> ::windows::runtime::Result<GPMDestinationOption> {
         let mut result__: <GPMDestinationOption as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).55)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMDestinationOption>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn DestinationOptionNone(&self) -> ::windows::runtime::Result<GPMDestinationOption> {
         let mut result__: <GPMDestinationOption as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).56)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMDestinationOption>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn DestinationOptionByRelativeName(&self) -> ::windows::runtime::Result<GPMDestinationOption> {
         let mut result__: <GPMDestinationOption as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).57)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMDestinationOption>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn DestinationOptionSet(&self) -> ::windows::runtime::Result<GPMDestinationOption> {
         let mut result__: <GPMDestinationOption as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).58)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMDestinationOption>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn MigrationTableOnly(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).59)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn ProcessSecurity(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).60)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn RsopLoggingNoComputer(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).61)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn RsopLoggingNoUser(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).62)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn RsopPlanningAssumeSlowLink(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).63)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn RsopPlanningLoopbackOption(&self, vbmerge: i16) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).64)(::std::mem::transmute_copy(self), ::std::mem::transmute(vbmerge), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn RsopPlanningAssumeUserWQLFilterTrue(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).65)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn RsopPlanningAssumeCompWQLFilterTrue(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).66)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn BackupTypeGPO(&self) -> ::windows::runtime::Result<GPMBackupType> {
         let mut result__: <GPMBackupType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).67)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMBackupType>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn BackupTypeStarterGPO(&self) -> ::windows::runtime::Result<GPMBackupType> {
         let mut result__: <GPMBackupType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).68)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMBackupType>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn StarterGPOTypeSystem(&self) -> ::windows::runtime::Result<GPMStarterGPOType> {
         let mut result__: <GPMStarterGPOType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).69)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMStarterGPOType>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn StarterGPOTypeCustom(&self) -> ::windows::runtime::Result<GPMStarterGPOType> {
         let mut result__: <GPMStarterGPOType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).70)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMStarterGPOType>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SearchPropertyStarterGPOPermissions(&self) -> ::windows::runtime::Result<GPMSearchProperty> {
         let mut result__: <GPMSearchProperty as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).71)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMSearchProperty>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SearchPropertyStarterGPOEffectivePermissions(&self) -> ::windows::runtime::Result<GPMSearchProperty> {
         let mut result__: <GPMSearchProperty as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).72)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMSearchProperty>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SearchPropertyStarterGPODisplayName(&self) -> ::windows::runtime::Result<GPMSearchProperty> {
         let mut result__: <GPMSearchProperty as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).73)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMSearchProperty>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SearchPropertyStarterGPOID(&self) -> ::windows::runtime::Result<GPMSearchProperty> {
         let mut result__: <GPMSearchProperty as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).74)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMSearchProperty>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SearchPropertyStarterGPODomain(&self) -> ::windows::runtime::Result<GPMSearchProperty> {
         let mut result__: <GPMSearchProperty as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).75)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMSearchProperty>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn PermStarterGPORead(&self) -> ::windows::runtime::Result<GPMPermissionType> {
         let mut result__: <GPMPermissionType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).76)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMPermissionType>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn PermStarterGPOEdit(&self) -> ::windows::runtime::Result<GPMPermissionType> {
         let mut result__: <GPMPermissionType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).77)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMPermissionType>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn PermStarterGPOFullControl(&self) -> ::windows::runtime::Result<GPMPermissionType> {
         let mut result__: <GPMPermissionType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).78)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMPermissionType>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn PermStarterGPOCustom(&self) -> ::windows::runtime::Result<GPMPermissionType> {
         let mut result__: <GPMPermissionType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).79)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMPermissionType>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn ReportLegacy(&self) -> ::windows::runtime::Result<GPMReportingOptions> {
         let mut result__: <GPMReportingOptions as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).80)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMReportingOptions>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn ReportComments(&self) -> ::windows::runtime::Result<GPMReportingOptions> {
         let mut result__: <GPMReportingOptions as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).81)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMReportingOptions>(result__)
@@ -2787,51 +3091,62 @@ pub struct IGPMConstants2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pval: *mut GPMReportingOptions) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pval: *mut GPMReportingOptions) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IGPMDomain(::windows::runtime::IUnknown);
 impl IGPMDomain {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn DomainController(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn Domain(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn CreateGPO(&self) -> ::windows::runtime::Result<IGPMGPO> {
         let mut result__: <IGPMGPO as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IGPMGPO>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn GetGPO<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrguid: Param0) -> ::windows::runtime::Result<IGPMGPO> {
         let mut result__: <IGPMGPO as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), bstrguid.into_param().abi(), &mut result__).from_abi::<IGPMGPO>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SearchGPOs<'a, Param0: ::windows::runtime::IntoParam<'a, IGPMSearchCriteria>>(&self, pigpmsearchcriteria: Param0) -> ::windows::runtime::Result<IGPMGPOCollection> {
         let mut result__: <IGPMGPOCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), pigpmsearchcriteria.into_param().abi(), &mut result__).from_abi::<IGPMGPOCollection>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn RestoreGPO<'a, Param0: ::windows::runtime::IntoParam<'a, IGPMBackup>>(&self, pigpmbackup: Param0, ldcflags: i32, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::std::option::Option<IGPMResult>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), pigpmbackup.into_param().abi(), ::std::mem::transmute(ldcflags), ::std::mem::transmute(pvargpmprogress), ::std::mem::transmute(pvargpmcancel), ::std::mem::transmute(ppigpmresult)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn GetSOM<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrpath: Param0) -> ::windows::runtime::Result<IGPMSOM> {
         let mut result__: <IGPMSOM as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), bstrpath.into_param().abi(), &mut result__).from_abi::<IGPMSOM>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SearchSOMs<'a, Param0: ::windows::runtime::IntoParam<'a, IGPMSearchCriteria>>(&self, pigpmsearchcriteria: Param0) -> ::windows::runtime::Result<IGPMSOMCollection> {
         let mut result__: <IGPMSOMCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), pigpmsearchcriteria.into_param().abi(), &mut result__).from_abi::<IGPMSOMCollection>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn GetWMIFilter<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrpath: Param0) -> ::windows::runtime::Result<IGPMWMIFilter> {
         let mut result__: <IGPMWMIFilter as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), bstrpath.into_param().abi(), &mut result__).from_abi::<IGPMWMIFilter>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SearchWMIFilters<'a, Param0: ::windows::runtime::IntoParam<'a, IGPMSearchCriteria>>(&self, pigpmsearchcriteria: Param0) -> ::windows::runtime::Result<IGPMWMIFilterCollection> {
         let mut result__: <IGPMWMIFilterCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), pigpmsearchcriteria.into_param().abi(), &mut result__).from_abi::<IGPMWMIFilterCollection>(result__)
@@ -2916,94 +3231,115 @@ pub struct IGPMDomain_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pigpmsearchcriteria: ::windows::runtime::RawPtr, ppigpmwmifiltercollection: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IGPMDomain2(::windows::runtime::IUnknown);
 impl IGPMDomain2 {
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::Ole::Automation::ITypeInfo> {
         let mut result__: <super::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Ole::Automation::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn DomainController(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn Domain(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn CreateGPO(&self) -> ::windows::runtime::Result<IGPMGPO> {
         let mut result__: <IGPMGPO as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IGPMGPO>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn GetGPO<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrguid: Param0) -> ::windows::runtime::Result<IGPMGPO> {
         let mut result__: <IGPMGPO as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), bstrguid.into_param().abi(), &mut result__).from_abi::<IGPMGPO>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SearchGPOs<'a, Param0: ::windows::runtime::IntoParam<'a, IGPMSearchCriteria>>(&self, pigpmsearchcriteria: Param0) -> ::windows::runtime::Result<IGPMGPOCollection> {
         let mut result__: <IGPMGPOCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), pigpmsearchcriteria.into_param().abi(), &mut result__).from_abi::<IGPMGPOCollection>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn RestoreGPO<'a, Param0: ::windows::runtime::IntoParam<'a, IGPMBackup>>(&self, pigpmbackup: Param0, ldcflags: i32, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::std::option::Option<IGPMResult>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), pigpmbackup.into_param().abi(), ::std::mem::transmute(ldcflags), ::std::mem::transmute(pvargpmprogress), ::std::mem::transmute(pvargpmcancel), ::std::mem::transmute(ppigpmresult)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn GetSOM<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrpath: Param0) -> ::windows::runtime::Result<IGPMSOM> {
         let mut result__: <IGPMSOM as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), bstrpath.into_param().abi(), &mut result__).from_abi::<IGPMSOM>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SearchSOMs<'a, Param0: ::windows::runtime::IntoParam<'a, IGPMSearchCriteria>>(&self, pigpmsearchcriteria: Param0) -> ::windows::runtime::Result<IGPMSOMCollection> {
         let mut result__: <IGPMSOMCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), pigpmsearchcriteria.into_param().abi(), &mut result__).from_abi::<IGPMSOMCollection>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn GetWMIFilter<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrpath: Param0) -> ::windows::runtime::Result<IGPMWMIFilter> {
         let mut result__: <IGPMWMIFilter as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), bstrpath.into_param().abi(), &mut result__).from_abi::<IGPMWMIFilter>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SearchWMIFilters<'a, Param0: ::windows::runtime::IntoParam<'a, IGPMSearchCriteria>>(&self, pigpmsearchcriteria: Param0) -> ::windows::runtime::Result<IGPMWMIFilterCollection> {
         let mut result__: <IGPMWMIFilterCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), pigpmsearchcriteria.into_param().abi(), &mut result__).from_abi::<IGPMWMIFilterCollection>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn CreateStarterGPO(&self) -> ::windows::runtime::Result<IGPMStarterGPO> {
         let mut result__: <IGPMStarterGPO as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IGPMStarterGPO>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn CreateGPOFromStarterGPO<'a, Param0: ::windows::runtime::IntoParam<'a, IGPMStarterGPO>>(&self, pgpotemplate: Param0) -> ::windows::runtime::Result<IGPMGPO> {
         let mut result__: <IGPMGPO as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), pgpotemplate.into_param().abi(), &mut result__).from_abi::<IGPMGPO>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn GetStarterGPO<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrguid: Param0) -> ::windows::runtime::Result<IGPMStarterGPO> {
         let mut result__: <IGPMStarterGPO as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), bstrguid.into_param().abi(), &mut result__).from_abi::<IGPMStarterGPO>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SearchStarterGPOs<'a, Param0: ::windows::runtime::IntoParam<'a, IGPMSearchCriteria>>(&self, pigpmsearchcriteria: Param0) -> ::windows::runtime::Result<IGPMStarterGPOCollection> {
         let mut result__: <IGPMStarterGPOCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), pigpmsearchcriteria.into_param().abi(), &mut result__).from_abi::<IGPMStarterGPOCollection>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn LoadStarterGPO<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrloadfile: Param0, boverwrite: i16, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::std::option::Option<IGPMResult>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), bstrloadfile.into_param().abi(), ::std::mem::transmute(boverwrite), ::std::mem::transmute(pvargpmprogress), ::std::mem::transmute(pvargpmcancel), ::std::mem::transmute(ppigpmresult)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn RestoreStarterGPO<'a, Param0: ::windows::runtime::IntoParam<'a, IGPMStarterGPOBackup>>(&self, pigpmtmplbackup: Param0, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::std::option::Option<IGPMResult>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), pigpmtmplbackup.into_param().abi(), ::std::mem::transmute(pvargpmprogress), ::std::mem::transmute(pvargpmcancel), ::std::mem::transmute(ppigpmresult)).ok()
     }
@@ -3116,110 +3452,135 @@ pub struct IGPMDomain2_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pigpmtmplbackup: ::windows::runtime::RawPtr, pvargpmprogress: *const ::std::mem::ManuallyDrop<super::Com::VARIANT>, pvargpmcancel: *mut ::std::mem::ManuallyDrop<super::Com::VARIANT>, ppigpmresult: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
 );
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IGPMDomain3(::windows::runtime::IUnknown);
 impl IGPMDomain3 {
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::Ole::Automation::ITypeInfo> {
         let mut result__: <super::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Ole::Automation::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn DomainController(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn Domain(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn CreateGPO(&self) -> ::windows::runtime::Result<IGPMGPO> {
         let mut result__: <IGPMGPO as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IGPMGPO>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn GetGPO<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrguid: Param0) -> ::windows::runtime::Result<IGPMGPO> {
         let mut result__: <IGPMGPO as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), bstrguid.into_param().abi(), &mut result__).from_abi::<IGPMGPO>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SearchGPOs<'a, Param0: ::windows::runtime::IntoParam<'a, IGPMSearchCriteria>>(&self, pigpmsearchcriteria: Param0) -> ::windows::runtime::Result<IGPMGPOCollection> {
         let mut result__: <IGPMGPOCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), pigpmsearchcriteria.into_param().abi(), &mut result__).from_abi::<IGPMGPOCollection>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn RestoreGPO<'a, Param0: ::windows::runtime::IntoParam<'a, IGPMBackup>>(&self, pigpmbackup: Param0, ldcflags: i32, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::std::option::Option<IGPMResult>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), pigpmbackup.into_param().abi(), ::std::mem::transmute(ldcflags), ::std::mem::transmute(pvargpmprogress), ::std::mem::transmute(pvargpmcancel), ::std::mem::transmute(ppigpmresult)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn GetSOM<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrpath: Param0) -> ::windows::runtime::Result<IGPMSOM> {
         let mut result__: <IGPMSOM as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), bstrpath.into_param().abi(), &mut result__).from_abi::<IGPMSOM>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SearchSOMs<'a, Param0: ::windows::runtime::IntoParam<'a, IGPMSearchCriteria>>(&self, pigpmsearchcriteria: Param0) -> ::windows::runtime::Result<IGPMSOMCollection> {
         let mut result__: <IGPMSOMCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), pigpmsearchcriteria.into_param().abi(), &mut result__).from_abi::<IGPMSOMCollection>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn GetWMIFilter<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrpath: Param0) -> ::windows::runtime::Result<IGPMWMIFilter> {
         let mut result__: <IGPMWMIFilter as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), bstrpath.into_param().abi(), &mut result__).from_abi::<IGPMWMIFilter>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SearchWMIFilters<'a, Param0: ::windows::runtime::IntoParam<'a, IGPMSearchCriteria>>(&self, pigpmsearchcriteria: Param0) -> ::windows::runtime::Result<IGPMWMIFilterCollection> {
         let mut result__: <IGPMWMIFilterCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), pigpmsearchcriteria.into_param().abi(), &mut result__).from_abi::<IGPMWMIFilterCollection>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn CreateStarterGPO(&self) -> ::windows::runtime::Result<IGPMStarterGPO> {
         let mut result__: <IGPMStarterGPO as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IGPMStarterGPO>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn CreateGPOFromStarterGPO<'a, Param0: ::windows::runtime::IntoParam<'a, IGPMStarterGPO>>(&self, pgpotemplate: Param0) -> ::windows::runtime::Result<IGPMGPO> {
         let mut result__: <IGPMGPO as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), pgpotemplate.into_param().abi(), &mut result__).from_abi::<IGPMGPO>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn GetStarterGPO<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrguid: Param0) -> ::windows::runtime::Result<IGPMStarterGPO> {
         let mut result__: <IGPMStarterGPO as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), bstrguid.into_param().abi(), &mut result__).from_abi::<IGPMStarterGPO>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SearchStarterGPOs<'a, Param0: ::windows::runtime::IntoParam<'a, IGPMSearchCriteria>>(&self, pigpmsearchcriteria: Param0) -> ::windows::runtime::Result<IGPMStarterGPOCollection> {
         let mut result__: <IGPMStarterGPOCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), pigpmsearchcriteria.into_param().abi(), &mut result__).from_abi::<IGPMStarterGPOCollection>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn LoadStarterGPO<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrloadfile: Param0, boverwrite: i16, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::std::option::Option<IGPMResult>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), bstrloadfile.into_param().abi(), ::std::mem::transmute(boverwrite), ::std::mem::transmute(pvargpmprogress), ::std::mem::transmute(pvargpmcancel), ::std::mem::transmute(ppigpmresult)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn RestoreStarterGPO<'a, Param0: ::windows::runtime::IntoParam<'a, IGPMStarterGPOBackup>>(&self, pigpmtmplbackup: Param0, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::std::option::Option<IGPMResult>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), pigpmtmplbackup.into_param().abi(), ::std::mem::transmute(pvargpmprogress), ::std::mem::transmute(pvargpmcancel), ::std::mem::transmute(ppigpmresult)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GenerateReport(&self, gpmreporttype: GPMReportType, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::std::option::Option<IGPMResult>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), ::std::mem::transmute(gpmreporttype), ::std::mem::transmute(pvargpmprogress), ::std::mem::transmute(pvargpmcancel), ::std::mem::transmute(ppigpmresult)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn InfrastructureDC(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn SetInfrastructureDC<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, newval: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), newval.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SetInfrastructureFlags(&self, dwflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwflags)).ok()
     }
@@ -3359,123 +3720,153 @@ pub struct IGPMDomain3_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwflags: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IGPMGPO(::windows::runtime::IUnknown);
 impl IGPMGPO {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn DisplayName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn SetDisplayName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, newval: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), newval.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn Path(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn ID(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn DomainName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn CreationTime(&self) -> ::windows::runtime::Result<f64> {
         let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<f64>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn ModificationTime(&self) -> ::windows::runtime::Result<f64> {
         let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<f64>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn UserDSVersionNumber(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn ComputerDSVersionNumber(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn UserSysvolVersionNumber(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn ComputerSysvolVersionNumber(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn GetWMIFilter(&self) -> ::windows::runtime::Result<IGPMWMIFilter> {
         let mut result__: <IGPMWMIFilter as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IGPMWMIFilter>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SetWMIFilter<'a, Param0: ::windows::runtime::IntoParam<'a, IGPMWMIFilter>>(&self, pigpmwmifilter: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), pigpmwmifilter.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SetUserEnabled(&self, vbenabled: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(vbenabled)).ok()
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SetComputerEnabled(&self, vbenabled: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(vbenabled)).ok()
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn IsUserEnabled(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn IsComputerEnabled(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn GetSecurityInfo(&self) -> ::windows::runtime::Result<IGPMSecurityInfo> {
         let mut result__: <IGPMSecurityInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IGPMSecurityInfo>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SetSecurityInfo<'a, Param0: ::windows::runtime::IntoParam<'a, IGPMSecurityInfo>>(&self, psecurityinfo: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), psecurityinfo.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn Delete(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Backup<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrbackupdir: Param0, bstrcomment: Param1, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::std::option::Option<IGPMResult>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), bstrbackupdir.into_param().abi(), bstrcomment.into_param().abi(), ::std::mem::transmute(pvargpmprogress), ::std::mem::transmute(pvargpmcancel), ::std::mem::transmute(ppigpmresult)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Import<'a, Param1: ::windows::runtime::IntoParam<'a, IGPMBackup>>(&self, lflags: i32, pigpmbackup: Param1, pvarmigrationtable: *const super::Com::VARIANT, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::std::option::Option<IGPMResult>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), pigpmbackup.into_param().abi(), ::std::mem::transmute(pvarmigrationtable), ::std::mem::transmute(pvargpmprogress), ::std::mem::transmute(pvargpmcancel), ::std::mem::transmute(ppigpmresult)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GenerateReport(&self, gpmreporttype: GPMReportType, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::std::option::Option<IGPMResult>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), ::std::mem::transmute(gpmreporttype), ::std::mem::transmute(pvargpmprogress), ::std::mem::transmute(pvargpmcancel), ::std::mem::transmute(ppigpmresult)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn GenerateReportToFile<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, gpmreporttype: GPMReportType, bstrtargetfilepath: Param1) -> ::windows::runtime::Result<IGPMResult> {
         let mut result__: <IGPMResult as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), ::std::mem::transmute(gpmreporttype), bstrtargetfilepath.into_param().abi(), &mut result__).from_abi::<IGPMResult>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn CopyTo<'a, Param1: ::windows::runtime::IntoParam<'a, IGPMDomain>>(&self, lflags: i32, pigpmdomain: Param1, pvarnewdisplayname: *const super::Com::VARIANT, pvarmigrationtable: *const super::Com::VARIANT, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::std::option::Option<IGPMResult>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), pigpmdomain.into_param().abi(), ::std::mem::transmute(pvarnewdisplayname), ::std::mem::transmute(pvarmigrationtable), ::std::mem::transmute(pvargpmprogress), ::std::mem::transmute(pvargpmcancel), ::std::mem::transmute(ppigpmresult)).ok()
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetSecurityDescriptor<'a, Param1: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(&self, lflags: i32, psd: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).32)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), psd.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetSecurityDescriptor(&self, lflags: i32) -> ::windows::runtime::Result<super::Ole::Automation::IDispatch> {
         let mut result__: <super::Ole::Automation::IDispatch as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).33)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), &mut result__).from_abi::<super::Ole::Automation::IDispatch>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn IsACLConsistent(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).34)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn MakeACLConsistent(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).35)(::std::mem::transmute_copy(self)).ok()
     }
@@ -3587,149 +3978,185 @@ pub struct IGPMGPO_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvbconsistent: *mut i16) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IGPMGPO2(::windows::runtime::IUnknown);
 impl IGPMGPO2 {
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::Ole::Automation::ITypeInfo> {
         let mut result__: <super::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Ole::Automation::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn DisplayName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn SetDisplayName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, newval: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), newval.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn Path(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn ID(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn DomainName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn CreationTime(&self) -> ::windows::runtime::Result<f64> {
         let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<f64>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn ModificationTime(&self) -> ::windows::runtime::Result<f64> {
         let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<f64>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn UserDSVersionNumber(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn ComputerDSVersionNumber(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn UserSysvolVersionNumber(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn ComputerSysvolVersionNumber(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn GetWMIFilter(&self) -> ::windows::runtime::Result<IGPMWMIFilter> {
         let mut result__: <IGPMWMIFilter as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IGPMWMIFilter>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SetWMIFilter<'a, Param0: ::windows::runtime::IntoParam<'a, IGPMWMIFilter>>(&self, pigpmwmifilter: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), pigpmwmifilter.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SetUserEnabled(&self, vbenabled: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(vbenabled)).ok()
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SetComputerEnabled(&self, vbenabled: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(vbenabled)).ok()
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn IsUserEnabled(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn IsComputerEnabled(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn GetSecurityInfo(&self) -> ::windows::runtime::Result<IGPMSecurityInfo> {
         let mut result__: <IGPMSecurityInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IGPMSecurityInfo>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SetSecurityInfo<'a, Param0: ::windows::runtime::IntoParam<'a, IGPMSecurityInfo>>(&self, psecurityinfo: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), psecurityinfo.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn Delete(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Backup<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrbackupdir: Param0, bstrcomment: Param1, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::std::option::Option<IGPMResult>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), bstrbackupdir.into_param().abi(), bstrcomment.into_param().abi(), ::std::mem::transmute(pvargpmprogress), ::std::mem::transmute(pvargpmcancel), ::std::mem::transmute(ppigpmresult)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Import<'a, Param1: ::windows::runtime::IntoParam<'a, IGPMBackup>>(&self, lflags: i32, pigpmbackup: Param1, pvarmigrationtable: *const super::Com::VARIANT, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::std::option::Option<IGPMResult>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), pigpmbackup.into_param().abi(), ::std::mem::transmute(pvarmigrationtable), ::std::mem::transmute(pvargpmprogress), ::std::mem::transmute(pvargpmcancel), ::std::mem::transmute(ppigpmresult)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GenerateReport(&self, gpmreporttype: GPMReportType, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::std::option::Option<IGPMResult>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), ::std::mem::transmute(gpmreporttype), ::std::mem::transmute(pvargpmprogress), ::std::mem::transmute(pvargpmcancel), ::std::mem::transmute(ppigpmresult)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn GenerateReportToFile<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, gpmreporttype: GPMReportType, bstrtargetfilepath: Param1) -> ::windows::runtime::Result<IGPMResult> {
         let mut result__: <IGPMResult as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), ::std::mem::transmute(gpmreporttype), bstrtargetfilepath.into_param().abi(), &mut result__).from_abi::<IGPMResult>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn CopyTo<'a, Param1: ::windows::runtime::IntoParam<'a, IGPMDomain>>(&self, lflags: i32, pigpmdomain: Param1, pvarnewdisplayname: *const super::Com::VARIANT, pvarmigrationtable: *const super::Com::VARIANT, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::std::option::Option<IGPMResult>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), pigpmdomain.into_param().abi(), ::std::mem::transmute(pvarnewdisplayname), ::std::mem::transmute(pvarmigrationtable), ::std::mem::transmute(pvargpmprogress), ::std::mem::transmute(pvargpmcancel), ::std::mem::transmute(ppigpmresult)).ok()
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetSecurityDescriptor<'a, Param1: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(&self, lflags: i32, psd: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).32)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), psd.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetSecurityDescriptor(&self, lflags: i32) -> ::windows::runtime::Result<super::Ole::Automation::IDispatch> {
         let mut result__: <super::Ole::Automation::IDispatch as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).33)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), &mut result__).from_abi::<super::Ole::Automation::IDispatch>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn IsACLConsistent(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).34)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn MakeACLConsistent(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).35)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn Description(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).36)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn SetDescription<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, newval: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).37)(::std::mem::transmute_copy(self), newval.into_param().abi()).ok()
     }
@@ -3865,161 +4292,200 @@ pub struct IGPMGPO2_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, newval: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IGPMGPO3(::windows::runtime::IUnknown);
 impl IGPMGPO3 {
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::Ole::Automation::ITypeInfo> {
         let mut result__: <super::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Ole::Automation::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn DisplayName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn SetDisplayName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, newval: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), newval.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn Path(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn ID(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn DomainName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn CreationTime(&self) -> ::windows::runtime::Result<f64> {
         let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<f64>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn ModificationTime(&self) -> ::windows::runtime::Result<f64> {
         let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<f64>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn UserDSVersionNumber(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn ComputerDSVersionNumber(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn UserSysvolVersionNumber(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn ComputerSysvolVersionNumber(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn GetWMIFilter(&self) -> ::windows::runtime::Result<IGPMWMIFilter> {
         let mut result__: <IGPMWMIFilter as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IGPMWMIFilter>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SetWMIFilter<'a, Param0: ::windows::runtime::IntoParam<'a, IGPMWMIFilter>>(&self, pigpmwmifilter: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), pigpmwmifilter.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SetUserEnabled(&self, vbenabled: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(vbenabled)).ok()
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SetComputerEnabled(&self, vbenabled: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(vbenabled)).ok()
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn IsUserEnabled(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn IsComputerEnabled(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn GetSecurityInfo(&self) -> ::windows::runtime::Result<IGPMSecurityInfo> {
         let mut result__: <IGPMSecurityInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IGPMSecurityInfo>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SetSecurityInfo<'a, Param0: ::windows::runtime::IntoParam<'a, IGPMSecurityInfo>>(&self, psecurityinfo: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), psecurityinfo.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn Delete(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Backup<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrbackupdir: Param0, bstrcomment: Param1, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::std::option::Option<IGPMResult>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), bstrbackupdir.into_param().abi(), bstrcomment.into_param().abi(), ::std::mem::transmute(pvargpmprogress), ::std::mem::transmute(pvargpmcancel), ::std::mem::transmute(ppigpmresult)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Import<'a, Param1: ::windows::runtime::IntoParam<'a, IGPMBackup>>(&self, lflags: i32, pigpmbackup: Param1, pvarmigrationtable: *const super::Com::VARIANT, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::std::option::Option<IGPMResult>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), pigpmbackup.into_param().abi(), ::std::mem::transmute(pvarmigrationtable), ::std::mem::transmute(pvargpmprogress), ::std::mem::transmute(pvargpmcancel), ::std::mem::transmute(ppigpmresult)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GenerateReport(&self, gpmreporttype: GPMReportType, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::std::option::Option<IGPMResult>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), ::std::mem::transmute(gpmreporttype), ::std::mem::transmute(pvargpmprogress), ::std::mem::transmute(pvargpmcancel), ::std::mem::transmute(ppigpmresult)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn GenerateReportToFile<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, gpmreporttype: GPMReportType, bstrtargetfilepath: Param1) -> ::windows::runtime::Result<IGPMResult> {
         let mut result__: <IGPMResult as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), ::std::mem::transmute(gpmreporttype), bstrtargetfilepath.into_param().abi(), &mut result__).from_abi::<IGPMResult>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn CopyTo<'a, Param1: ::windows::runtime::IntoParam<'a, IGPMDomain>>(&self, lflags: i32, pigpmdomain: Param1, pvarnewdisplayname: *const super::Com::VARIANT, pvarmigrationtable: *const super::Com::VARIANT, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::std::option::Option<IGPMResult>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), pigpmdomain.into_param().abi(), ::std::mem::transmute(pvarnewdisplayname), ::std::mem::transmute(pvarmigrationtable), ::std::mem::transmute(pvargpmprogress), ::std::mem::transmute(pvargpmcancel), ::std::mem::transmute(ppigpmresult)).ok()
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetSecurityDescriptor<'a, Param1: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(&self, lflags: i32, psd: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).32)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), psd.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetSecurityDescriptor(&self, lflags: i32) -> ::windows::runtime::Result<super::Ole::Automation::IDispatch> {
         let mut result__: <super::Ole::Automation::IDispatch as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).33)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), &mut result__).from_abi::<super::Ole::Automation::IDispatch>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn IsACLConsistent(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).34)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn MakeACLConsistent(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).35)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn Description(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).36)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn SetDescription<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, newval: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).37)(::std::mem::transmute_copy(self), newval.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn InfrastructureDC(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).38)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn SetInfrastructureDC<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, newval: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).39)(::std::mem::transmute_copy(self), newval.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SetInfrastructureFlags(&self, dwflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).40)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwflags)).ok()
     }
@@ -4180,20 +4646,24 @@ pub struct IGPMGPO3_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwflags: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IGPMGPOCollection(::windows::runtime::IUnknown);
 impl IGPMGPOCollection {
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Item(&self, lindex: i32) -> ::windows::runtime::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(lindex), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::runtime::Result<super::Ole::Automation::IEnumVARIANT> {
         let mut result__: <super::Ole::Automation::IEnumVARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::Ole::Automation::IEnumVARIANT>(result__)
@@ -4267,42 +4737,52 @@ pub struct IGPMGPOCollection_abi(
     #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppigpmgpos: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IGPMGPOLink(::windows::runtime::IUnknown);
 impl IGPMGPOLink {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn GPOID(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn GPODomain(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn Enabled(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SetEnabled(&self, newval: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(newval)).ok()
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn Enforced(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SetEnforced(&self, newval: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(newval)).ok()
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SOMLinkOrder(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SOM(&self) -> ::windows::runtime::Result<IGPMSOM> {
         let mut result__: <IGPMSOM as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IGPMSOM>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn Delete(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self)).ok()
     }
@@ -4381,20 +4861,24 @@ pub struct IGPMGPOLink_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppigpmsom: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IGPMGPOLinksCollection(::windows::runtime::IUnknown);
 impl IGPMGPOLinksCollection {
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Item(&self, lindex: i32) -> ::windows::runtime::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(lindex), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::runtime::Result<super::Ole::Automation::IEnumVARIANT> {
         let mut result__: <super::Ole::Automation::IEnumVARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::Ole::Automation::IEnumVARIANT>(result__)
@@ -4468,24 +4952,29 @@ pub struct IGPMGPOLinksCollection_abi(
     #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppigpmlinks: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IGPMMapEntry(::windows::runtime::IUnknown);
 impl IGPMMapEntry {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn Source(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn Destination(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn DestinationOption(&self) -> ::windows::runtime::Result<GPMDestinationOption> {
         let mut result__: <GPMDestinationOption as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMDestinationOption>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn EntryType(&self) -> ::windows::runtime::Result<GPMEntryType> {
         let mut result__: <GPMEntryType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMEntryType>(result__)
@@ -4560,20 +5049,24 @@ pub struct IGPMMapEntry_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pgpmdestoption: *mut GPMDestinationOption) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pgpmentrytype: *mut GPMEntryType) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IGPMMapEntryCollection(::windows::runtime::IUnknown);
 impl IGPMMapEntryCollection {
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Item(&self, lindex: i32) -> ::windows::runtime::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(lindex), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::runtime::Result<super::Ole::Automation::IEnumVARIANT> {
         let mut result__: <super::Ole::Automation::IEnumVARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::Ole::Automation::IEnumVARIANT>(result__)
@@ -4647,41 +5140,50 @@ pub struct IGPMMapEntryCollection_abi(
     #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pval: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IGPMMigrationTable(::windows::runtime::IUnknown);
 impl IGPMMigrationTable {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn Save<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrmigrationtablepath: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), bstrmigrationtablepath.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Add<'a, Param1: ::windows::runtime::IntoParam<'a, super::Com::VARIANT>>(&self, lflags: i32, var: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), var.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn AddEntry<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrsource: Param0, gpmentrytype: GPMEntryType, pvardestination: *const super::Com::VARIANT) -> ::windows::runtime::Result<IGPMMapEntry> {
         let mut result__: <IGPMMapEntry as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), bstrsource.into_param().abi(), ::std::mem::transmute(gpmentrytype), ::std::mem::transmute(pvardestination), &mut result__).from_abi::<IGPMMapEntry>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn GetEntry<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrsource: Param0) -> ::windows::runtime::Result<IGPMMapEntry> {
         let mut result__: <IGPMMapEntry as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), bstrsource.into_param().abi(), &mut result__).from_abi::<IGPMMapEntry>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn DeleteEntry<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrsource: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), bstrsource.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn UpdateDestination<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrsource: Param0, pvardestination: *const super::Com::VARIANT) -> ::windows::runtime::Result<IGPMMapEntry> {
         let mut result__: <IGPMMapEntry as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), bstrsource.into_param().abi(), ::std::mem::transmute(pvardestination), &mut result__).from_abi::<IGPMMapEntry>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn Validate(&self) -> ::windows::runtime::Result<IGPMResult> {
         let mut result__: <IGPMResult as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IGPMResult>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn GetEntries(&self) -> ::windows::runtime::Result<IGPMMapEntryCollection> {
         let mut result__: <IGPMMapEntryCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IGPMMapEntryCollection>(result__)
@@ -4764,26 +5266,32 @@ pub struct IGPMMigrationTable_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppresult: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppentries: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IGPMPermission(::windows::runtime::IUnknown);
 impl IGPMPermission {
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn Inherited(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn Inheritable(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn Denied(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn Permission(&self) -> ::windows::runtime::Result<GPMPermissionType> {
         let mut result__: <GPMPermissionType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMPermissionType>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn Trustee(&self) -> ::windows::runtime::Result<IGPMTrustee> {
         let mut result__: <IGPMTrustee as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IGPMTrustee>(result__)
@@ -4857,157 +5365,193 @@ pub struct IGPMPermission_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pval: *mut GPMPermissionType) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppigpmtrustee: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IGPMRSOP(::windows::runtime::IUnknown);
 impl IGPMRSOP {
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn Mode(&self) -> ::windows::runtime::Result<GPMRSOPMode> {
         let mut result__: <GPMRSOPMode as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMRSOPMode>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn Namespace(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn SetLoggingComputer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrval: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), bstrval.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn LoggingComputer(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn SetLoggingUser<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrval: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), bstrval.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn LoggingUser(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SetLoggingFlags(&self, lval: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(lval)).ok()
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn LoggingFlags(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SetPlanningFlags(&self, lval: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(lval)).ok()
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn PlanningFlags(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn SetPlanningDomainController<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrval: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), bstrval.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn PlanningDomainController(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn SetPlanningSiteName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrval: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), bstrval.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn PlanningSiteName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn SetPlanningUser<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrval: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), bstrval.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn PlanningUser(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn SetPlanningUserSOM<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrval: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), bstrval.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn PlanningUserSOM(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetPlanningUserWMIFilters<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::VARIANT>>(&self, varval: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), varval.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn PlanningUserWMIFilters(&self) -> ::windows::runtime::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetPlanningUserSecurityGroups<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::VARIANT>>(&self, varval: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), varval.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn PlanningUserSecurityGroups(&self) -> ::windows::runtime::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn SetPlanningComputer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrval: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), bstrval.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn PlanningComputer(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn SetPlanningComputerSOM<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrval: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self), bstrval.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn PlanningComputerSOM(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).32)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetPlanningComputerWMIFilters<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::VARIANT>>(&self, varval: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).33)(::std::mem::transmute_copy(self), varval.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn PlanningComputerWMIFilters(&self) -> ::windows::runtime::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).34)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetPlanningComputerSecurityGroups<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::VARIANT>>(&self, varval: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).35)(::std::mem::transmute_copy(self), varval.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn PlanningComputerSecurityGroups(&self) -> ::windows::runtime::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).36)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn LoggingEnumerateUsers(&self) -> ::windows::runtime::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).37)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn CreateQueryResults(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).38)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn ReleaseQueryResults(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).39)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GenerateReport(&self, gpmreporttype: GPMReportType, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::std::option::Option<IGPMResult>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).40)(::std::mem::transmute_copy(self), ::std::mem::transmute(gpmreporttype), ::std::mem::transmute(pvargpmprogress), ::std::mem::transmute(pvargpmcancel), ::std::mem::transmute(ppigpmresult)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn GenerateReportToFile<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, gpmreporttype: GPMReportType, bstrtargetfilepath: Param1) -> ::windows::runtime::Result<IGPMResult> {
         let mut result__: <IGPMResult as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).41)(::std::mem::transmute_copy(self), ::std::mem::transmute(gpmreporttype), bstrtargetfilepath.into_param().abi(), &mut result__).from_abi::<IGPMResult>(result__)
@@ -5139,19 +5683,23 @@ pub struct IGPMRSOP_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, gpmreporttype: GPMReportType, bstrtargetfilepath: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppigpmresult: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IGPMResult(::windows::runtime::IUnknown);
 impl IGPMResult {
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn Status(&self) -> ::windows::runtime::Result<IGPMStatusMsgCollection> {
         let mut result__: <IGPMStatusMsgCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IGPMStatusMsgCollection>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Result(&self) -> ::windows::runtime::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn OverallStatus(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self)).ok()
     }
@@ -5223,47 +5771,58 @@ pub struct IGPMResult_abi(
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IGPMSOM(::windows::runtime::IUnknown);
 impl IGPMSOM {
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn GPOInheritanceBlocked(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SetGPOInheritanceBlocked(&self, newval: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(newval)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn Name(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn Path(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn CreateGPOLink<'a, Param1: ::windows::runtime::IntoParam<'a, IGPMGPO>>(&self, llinkpos: i32, pgpo: Param1) -> ::windows::runtime::Result<IGPMGPOLink> {
         let mut result__: <IGPMGPOLink as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(llinkpos), pgpo.into_param().abi(), &mut result__).from_abi::<IGPMGPOLink>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn Type(&self) -> ::windows::runtime::Result<GPMSOMType> {
         let mut result__: <GPMSOMType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMSOMType>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn GetGPOLinks(&self) -> ::windows::runtime::Result<IGPMGPOLinksCollection> {
         let mut result__: <IGPMGPOLinksCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IGPMGPOLinksCollection>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn GetInheritedGPOLinks(&self) -> ::windows::runtime::Result<IGPMGPOLinksCollection> {
         let mut result__: <IGPMGPOLinksCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IGPMGPOLinksCollection>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn GetSecurityInfo(&self) -> ::windows::runtime::Result<IGPMSecurityInfo> {
         let mut result__: <IGPMSecurityInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IGPMSecurityInfo>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SetSecurityInfo<'a, Param0: ::windows::runtime::IntoParam<'a, IGPMSecurityInfo>>(&self, psecurityinfo: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), psecurityinfo.into_param().abi()).ok()
     }
@@ -5343,20 +5902,24 @@ pub struct IGPMSOM_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppsecurityinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, psecurityinfo: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IGPMSOMCollection(::windows::runtime::IUnknown);
 impl IGPMSOMCollection {
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Item(&self, lindex: i32) -> ::windows::runtime::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(lindex), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::runtime::Result<super::Ole::Automation::IEnumVARIANT> {
         let mut result__: <super::Ole::Automation::IEnumVARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::Ole::Automation::IEnumVARIANT>(result__)
@@ -5430,11 +5993,13 @@ pub struct IGPMSOMCollection_abi(
     #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppigpmsom: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IGPMSearchCriteria(::windows::runtime::IUnknown);
 impl IGPMSearchCriteria {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Add<'a, Param2: ::windows::runtime::IntoParam<'a, super::Com::VARIANT>>(&self, searchproperty: GPMSearchProperty, searchoperation: GPMSearchOperation, varvalue: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(searchproperty), ::std::mem::transmute(searchoperation), varvalue.into_param().abi()).ok()
     }
@@ -5504,31 +6069,38 @@ pub struct IGPMSearchCriteria_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, searchproperty: GPMSearchProperty, searchoperation: GPMSearchOperation, varvalue: ::std::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
 );
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IGPMSecurityInfo(::windows::runtime::IUnknown);
 impl IGPMSecurityInfo {
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Item(&self, lindex: i32) -> ::windows::runtime::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(lindex), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::runtime::Result<super::Ole::Automation::IEnumVARIANT> {
         let mut result__: <super::Ole::Automation::IEnumVARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::Ole::Automation::IEnumVARIANT>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn Add<'a, Param0: ::windows::runtime::IntoParam<'a, IGPMPermission>>(&self, pperm: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), pperm.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn Remove<'a, Param0: ::windows::runtime::IntoParam<'a, IGPMPermission>>(&self, pperm: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), pperm.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn RemoveTrustee<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrtrustee: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), bstrtrustee.into_param().abi()).ok()
     }
@@ -5605,30 +6177,36 @@ pub struct IGPMSecurityInfo_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bstrtrustee: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IGPMSitesContainer(::windows::runtime::IUnknown);
 impl IGPMSitesContainer {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn DomainController(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn Domain(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn Forest(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn GetSite<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrsitename: Param0) -> ::windows::runtime::Result<IGPMSOM> {
         let mut result__: <IGPMSOM as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), bstrsitename.into_param().abi(), &mut result__).from_abi::<IGPMSOM>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SearchSites<'a, Param0: ::windows::runtime::IntoParam<'a, IGPMSearchCriteria>>(&self, pigpmsearchcriteria: Param0) -> ::windows::runtime::Result<IGPMSOMCollection> {
         let mut result__: <IGPMSOMCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), pigpmsearchcriteria.into_param().abi(), &mut result__).from_abi::<IGPMSOMCollection>(result__)
@@ -5706,72 +6284,88 @@ pub struct IGPMSitesContainer_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pigpmsearchcriteria: ::windows::runtime::RawPtr, ppigpmsomcollection: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IGPMStarterGPO(::windows::runtime::IUnknown);
 impl IGPMStarterGPO {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn DisplayName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn SetDisplayName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, newval: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), newval.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn Description(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn SetDescription<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, newval: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), newval.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn Author(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn Product(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn CreationTime(&self) -> ::windows::runtime::Result<f64> {
         let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<f64>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn ID(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn ModifiedTime(&self) -> ::windows::runtime::Result<f64> {
         let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<f64>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn Type(&self) -> ::windows::runtime::Result<GPMStarterGPOType> {
         let mut result__: <GPMStarterGPOType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMStarterGPOType>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn ComputerVersion(&self) -> ::windows::runtime::Result<u16> {
         let mut result__: <u16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn UserVersion(&self) -> ::windows::runtime::Result<u16> {
         let mut result__: <u16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u16>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn StarterGPOVersion(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn Delete(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Save<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(
         &self,
         bstrsavefile: Param0,
@@ -5803,28 +6397,34 @@ impl IGPMStarterGPO {
         .ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Backup<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrbackupdir: Param0, bstrcomment: Param1, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::std::option::Option<IGPMResult>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), bstrbackupdir.into_param().abi(), bstrcomment.into_param().abi(), ::std::mem::transmute(pvargpmprogress), ::std::mem::transmute(pvargpmcancel), ::std::mem::transmute(ppigpmresult)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn CopyTo(&self, pvarnewdisplayname: *const super::Com::VARIANT, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *const super::Com::VARIANT) -> ::windows::runtime::Result<IGPMResult> {
         let mut result__: <IGPMResult as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), ::std::mem::transmute(pvarnewdisplayname), ::std::mem::transmute(pvargpmprogress), ::std::mem::transmute(pvargpmcancel), &mut result__).from_abi::<IGPMResult>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GenerateReport(&self, gpmreporttype: GPMReportType, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *const super::Com::VARIANT) -> ::windows::runtime::Result<IGPMResult> {
         let mut result__: <IGPMResult as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), ::std::mem::transmute(gpmreporttype), ::std::mem::transmute(pvargpmprogress), ::std::mem::transmute(pvargpmcancel), &mut result__).from_abi::<IGPMResult>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn GenerateReportToFile<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, gpmreporttype: GPMReportType, bstrtargetfilepath: Param1) -> ::windows::runtime::Result<IGPMResult> {
         let mut result__: <IGPMResult as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), ::std::mem::transmute(gpmreporttype), bstrtargetfilepath.into_param().abi(), &mut result__).from_abi::<IGPMResult>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn GetSecurityInfo(&self) -> ::windows::runtime::Result<IGPMSecurityInfo> {
         let mut result__: <IGPMSecurityInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IGPMSecurityInfo>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SetSecurityInfo<'a, Param0: ::windows::runtime::IntoParam<'a, IGPMSecurityInfo>>(&self, psecurityinfo: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), psecurityinfo.into_param().abi()).ok()
     }
@@ -5941,56 +6541,68 @@ pub struct IGPMStarterGPO_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppsecurityinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, psecurityinfo: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IGPMStarterGPOBackup(::windows::runtime::IUnknown);
 impl IGPMStarterGPOBackup {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn BackupDir(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn Comment(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn DisplayName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn Domain(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn StarterGPOID(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn ID(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn Timestamp(&self) -> ::windows::runtime::Result<f64> {
         let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<f64>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn Type(&self) -> ::windows::runtime::Result<GPMStarterGPOType> {
         let mut result__: <GPMStarterGPOType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<GPMStarterGPOType>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn Delete(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GenerateReport(&self, gpmreporttype: GPMReportType, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::std::option::Option<IGPMResult>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(gpmreporttype), ::std::mem::transmute(pvargpmprogress), ::std::mem::transmute(pvargpmcancel), ::std::mem::transmute(ppigpmresult)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn GenerateReportToFile<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, gpmreporttype: GPMReportType, bstrtargetfilepath: Param1) -> ::windows::runtime::Result<IGPMResult> {
         let mut result__: <IGPMResult as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(gpmreporttype), bstrtargetfilepath.into_param().abi(), &mut result__).from_abi::<IGPMResult>(result__)
@@ -6078,20 +6690,24 @@ pub struct IGPMStarterGPOBackup_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, gpmreporttype: GPMReportType, bstrtargetfilepath: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppigpmresult: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IGPMStarterGPOBackupCollection(::windows::runtime::IUnknown);
 impl IGPMStarterGPOBackupCollection {
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Item(&self, lindex: i32) -> ::windows::runtime::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(lindex), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::runtime::Result<super::Ole::Automation::IEnumVARIANT> {
         let mut result__: <super::Ole::Automation::IEnumVARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::Ole::Automation::IEnumVARIANT>(result__)
@@ -6165,20 +6781,24 @@ pub struct IGPMStarterGPOBackupCollection_abi(
     #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppigpmtmplbackup: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IGPMStarterGPOCollection(::windows::runtime::IUnknown);
 impl IGPMStarterGPOCollection {
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Item(&self, lindex: i32) -> ::windows::runtime::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(lindex), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::runtime::Result<super::Ole::Automation::IEnumVARIANT> {
         let mut result__: <super::Ole::Automation::IEnumVARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::Ole::Automation::IEnumVARIANT>(result__)
@@ -6252,32 +6872,39 @@ pub struct IGPMStarterGPOCollection_abi(
     #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppigpmtemplates: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IGPMStatusMessage(::windows::runtime::IUnknown);
 impl IGPMStatusMessage {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn ObjectPath(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn ErrorCode(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn ExtensionName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn SettingsName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn OperationCode(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn Message(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
@@ -6356,20 +6983,24 @@ pub struct IGPMStatusMessage_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pval: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IGPMStatusMsgCollection(::windows::runtime::IUnknown);
 impl IGPMStatusMsgCollection {
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Item(&self, lindex: i32) -> ::windows::runtime::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(lindex), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::runtime::Result<super::Ole::Automation::IEnumVARIANT> {
         let mut result__: <super::Ole::Automation::IEnumVARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::Ole::Automation::IEnumVARIANT>(result__)
@@ -6443,30 +7074,36 @@ pub struct IGPMStatusMsgCollection_abi(
     #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pval: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IGPMTrustee(::windows::runtime::IUnknown);
 impl IGPMTrustee {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn TrusteeSid(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn TrusteeName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn TrusteeDomain(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn TrusteeDSPath(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn TrusteeType(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
@@ -6544,42 +7181,51 @@ pub struct IGPMTrustee_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lval: *mut i32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IGPMWMIFilter(::windows::runtime::IUnknown);
 impl IGPMWMIFilter {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn Path(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, newval: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), newval.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn Name(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn SetDescription<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, newval: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), newval.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn Description(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetQueryList(&self) -> ::windows::runtime::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn GetSecurityInfo(&self) -> ::windows::runtime::Result<IGPMSecurityInfo> {
         let mut result__: <IGPMSecurityInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IGPMSecurityInfo>(result__)
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SetSecurityInfo<'a, Param0: ::windows::runtime::IntoParam<'a, IGPMSecurityInfo>>(&self, psecurityinfo: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), psecurityinfo.into_param().abi()).ok()
     }
@@ -6661,20 +7307,24 @@ pub struct IGPMWMIFilter_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppsecurityinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, psecurityinfo: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IGPMWMIFilterCollection(::windows::runtime::IUnknown);
 impl IGPMWMIFilterCollection {
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Item(&self, lindex: i32) -> ::windows::runtime::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(lindex), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::runtime::Result<super::Ole::Automation::IEnumVARIANT> {
         let mut result__: <super::Ole::Automation::IEnumVARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::Ole::Automation::IEnumVARIANT>(result__)
@@ -6748,74 +7398,93 @@ pub struct IGPMWMIFilterCollection_abi(
     #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pval: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IGroupPolicyObject(::windows::runtime::IUnknown);
 impl IGroupPolicyObject {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn New<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszdomainname: Param0, pszdisplayname: Param1, dwflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pszdomainname.into_param().abi(), pszdisplayname.into_param().abi(), ::std::mem::transmute(dwflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn OpenDSGPO<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszpath: Param0, dwflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pszpath.into_param().abi(), ::std::mem::transmute(dwflags)).ok()
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn OpenLocalMachineGPO(&self, dwflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn OpenRemoteMachineGPO<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszcomputername: Param0, dwflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), pszcomputername.into_param().abi(), ::std::mem::transmute(dwflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn Save<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bmachine: Param0, badd: Param1, pguidextension: *mut ::windows::runtime::GUID, pguid: *mut ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), bmachine.into_param().abi(), badd.into_param().abi(), ::std::mem::transmute(pguidextension), ::std::mem::transmute(pguid)).ok()
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn Delete(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn GetName(&self, pszname: super::super::Foundation::PWSTR, cchmaxlength: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(pszname), ::std::mem::transmute(cchmaxlength)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn GetDisplayName(&self, pszname: super::super::Foundation::PWSTR, cchmaxlength: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(pszname), ::std::mem::transmute(cchmaxlength)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn SetDisplayName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszname: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), pszname.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn GetPath(&self, pszpath: super::super::Foundation::PWSTR, cchmaxlength: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(pszpath), ::std::mem::transmute(cchmaxlength)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn GetDSPath(&self, dwsection: u32, pszpath: super::super::Foundation::PWSTR, cchmaxpath: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwsection), ::std::mem::transmute(pszpath), ::std::mem::transmute(cchmaxpath)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn GetFileSysPath(&self, dwsection: u32, pszpath: super::super::Foundation::PWSTR, cchmaxpath: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwsection), ::std::mem::transmute(pszpath), ::std::mem::transmute(cchmaxpath)).ok()
     }
     #[cfg(feature = "Win32_System_Registry")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_System_Registry`*"]
     pub unsafe fn GetRegistryKey(&self, dwsection: u32, hkey: *mut super::Registry::HKEY) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwsection), ::std::mem::transmute(hkey)).ok()
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn GetOptions(&self, dwoptions: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoptions)).ok()
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn SetOptions(&self, dwoptions: u32, dwmask: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoptions), ::std::mem::transmute(dwmask)).ok()
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn GetType(&self, gpotype: *mut GROUP_POLICY_OBJECT_TYPE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(gpotype)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn GetMachineName(&self, pszname: super::super::Foundation::PWSTR, cchmaxlength: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(pszname), ::std::mem::transmute(cchmaxlength)).ok()
     }
     #[cfg(feature = "Win32_UI_Controls")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_UI_Controls`*"]
     pub unsafe fn GetPropertySheetPages(&self, hpages: *mut *mut super::super::UI::Controls::HPROPSHEETPAGE, upagecount: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(hpages), ::std::mem::transmute(upagecount)).ok()
     }
@@ -6885,6 +7554,7 @@ pub struct IGroupPolicyObject_abi(
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
 pub struct INSTALLDATA {
     pub Type: INSTALLSPECTYPE,
     pub Spec: INSTALLSPEC,
@@ -6913,6 +7583,7 @@ unsafe impl ::windows::runtime::Abi for INSTALLDATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
 pub union INSTALLSPEC {
     pub AppName: INSTALLSPEC_0,
     pub FileExt: super::super::Foundation::PWSTR,
@@ -6943,6 +7614,7 @@ unsafe impl ::windows::runtime::Abi for INSTALLSPEC {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
 pub struct INSTALLSPEC_0 {
     pub Name: super::super::Foundation::PWSTR,
     pub GPOId: ::windows::runtime::GUID,
@@ -6976,6 +7648,7 @@ unsafe impl ::windows::runtime::Abi for INSTALLSPEC_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub struct INSTALLSPEC_1 {
     pub Clsid: ::windows::runtime::GUID,
     pub ClsCtx: u32,
@@ -7001,6 +7674,7 @@ unsafe impl ::windows::runtime::Abi for INSTALLSPEC_1 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct INSTALLSPECTYPE(pub i32);
@@ -7017,18 +7691,22 @@ unsafe impl ::windows::runtime::Abi for INSTALLSPECTYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRSOPInformation(::windows::runtime::IUnknown);
 impl IRSOPInformation {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn GetNamespace(&self, dwsection: u32, pszname: super::super::Foundation::PWSTR, cchmaxlength: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwsection), ::std::mem::transmute(pszname), ::std::mem::transmute(cchmaxlength)).ok()
     }
+    #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
     pub unsafe fn GetFlags(&self, pdwflags: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
     pub unsafe fn GetEventLogEntryText<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszeventsource: Param0, pszeventlogname: Param1, pszeventtime: Param2, dweventid: u32) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
         let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), pszeventsource.into_param().abi(), pszeventlogname.into_param().abi(), pszeventtime.into_param().abi(), ::std::mem::transmute(dweventid), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
@@ -7071,6 +7749,7 @@ pub struct IRSOPInformation_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn ImportRSoPData<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpnamespace: Param0, lpfilename: Param1) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -7085,6 +7764,7 @@ pub unsafe fn ImportRSoPData<'a, Param0: ::windows::runtime::IntoParam<'a, super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn InstallApplication(pinstallinfo: *const INSTALLDATA) -> u32 {
     #[cfg(windows)]
@@ -7101,6 +7781,7 @@ pub unsafe fn InstallApplication(pinstallinfo: *const INSTALLDATA) -> u32 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
 pub struct LOCALMANAGEDAPPLICATION {
     pub pszDeploymentName: super::super::Foundation::PWSTR,
     pub pszPolicyName: super::super::Foundation::PWSTR,
@@ -7134,14 +7815,22 @@ unsafe impl ::windows::runtime::Abi for LOCALMANAGEDAPPLICATION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const LOCALSTATE_ASSIGNED: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const LOCALSTATE_ORPHANED: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const LOCALSTATE_POLICYREMOVE_ORPHAN: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const LOCALSTATE_POLICYREMOVE_UNINSTALL: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const LOCALSTATE_PUBLISHED: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const LOCALSTATE_UNINSTALLED: u32 = 64u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const LOCALSTATE_UNINSTALL_UNMANAGED: u32 = 4u32;
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn LeaveCriticalPolicySection<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hsection: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -7158,6 +7847,7 @@ pub unsafe fn LeaveCriticalPolicySection<'a, Param0: ::windows::runtime::IntoPar
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
 pub struct MANAGEDAPPLICATION {
     pub pszPackageName: super::super::Foundation::PWSTR,
     pub pszPublisher: super::super::Foundation::PWSTR,
@@ -7235,11 +7925,17 @@ unsafe impl ::windows::runtime::Abi for MANAGEDAPPLICATION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const MANAGED_APPS_FROMCATEGORY: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const MANAGED_APPS_INFOLEVEL_DEFAULT: u32 = 65536u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const MANAGED_APPS_USERAPPLICATIONS: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const MANAGED_APPTYPE_SETUPEXE: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const MANAGED_APPTYPE_UNSUPPORTED: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const MANAGED_APPTYPE_WINDOWSINSTALLER: u32 = 1u32;
 pub const NODEID_Machine: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2411771703, 41185, 4561, [167, 211, 0, 0, 248, 117, 113, 227]);
 pub const NODEID_MachineSWSettings: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2411771706, 41185, 4561, [167, 211, 0, 0, 248, 117, 113, 227]);
@@ -7257,11 +7953,14 @@ pub type PFNPROCESSGROUPPOLICY = unsafe extern "system" fn(dwflags: u32, htoken:
 pub type PFNPROCESSGROUPPOLICYEX = unsafe extern "system" fn(dwflags: u32, htoken: super::super::Foundation::HANDLE, hkeyroot: super::Registry::HKEY, pdeletedgpolist: *const GROUP_POLICY_OBJECTA, pchangedgpolist: *const GROUP_POLICY_OBJECTA, phandle: usize, pbabort: *mut super::super::Foundation::BOOL, pstatuscallback: ::windows::runtime::RawPtr, pwbemservices: ::windows::runtime::RawPtr, prsopstatus: *mut ::windows::runtime::HRESULT) -> u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNSTATUSMESSAGECALLBACK = unsafe extern "system" fn(bverbose: super::super::Foundation::BOOL, lpmessage: super::super::Foundation::PWSTR) -> u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const PI_APPLYPOLICY: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const PI_NOUI: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
 pub struct POLICYSETTINGSTATUSINFO {
     pub szKey: super::super::Foundation::PWSTR,
     pub szEventSource: super::super::Foundation::PWSTR,
@@ -7306,10 +8005,15 @@ unsafe impl ::windows::runtime::Abi for POLICYSETTINGSTATUSINFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const PT_MANDATORY: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const PT_ROAMING: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const PT_ROAMING_PREEXISTING: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const PT_TEMPORARY: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[inline]
 pub unsafe fn ProcessGroupPolicyCompleted(extensionid: *const ::windows::runtime::GUID, pasynchandle: usize, dwstatus: u32) -> u32 {
     #[cfg(windows)]
@@ -7323,6 +8027,7 @@ pub unsafe fn ProcessGroupPolicyCompleted(extensionid: *const ::windows::runtime
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[inline]
 pub unsafe fn ProcessGroupPolicyCompletedEx(extensionid: *const ::windows::runtime::GUID, pasynchandle: usize, dwstatus: u32, rsopstatus: ::windows::runtime::HRESULT) -> u32 {
     #[cfg(windows)]
@@ -7336,20 +8041,32 @@ pub unsafe fn ProcessGroupPolicyCompletedEx(extensionid: *const ::windows::runti
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const RP_FORCE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const RP_SYNC: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const RSOP_COMPUTER_ACCESS_DENIED: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const RSOP_INFO_FLAG_DIAGNOSTIC_MODE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const RSOP_NO_COMPUTER: u32 = 65536u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const RSOP_NO_USER: u32 = 131072u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const RSOP_PLANNING_ASSUME_COMP_WQLFILTER_TRUE: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const RSOP_PLANNING_ASSUME_LOOPBACK_MERGE: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const RSOP_PLANNING_ASSUME_LOOPBACK_REPLACE: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const RSOP_PLANNING_ASSUME_SLOW_LINK: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const RSOP_PLANNING_ASSUME_USER_WQLFILTER_TRUE: u32 = 8u32;
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Wmi"))]
+#[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Wmi`*"]
 pub struct RSOP_TARGET {
     pub pwszAccountName: super::super::Foundation::PWSTR,
     pub pwszNewSOM: super::super::Foundation::PWSTR,
@@ -7385,9 +8102,12 @@ unsafe impl ::windows::runtime::Abi for RSOP_TARGET {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const RSOP_TEMPNAMESPACE_EXISTS: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const RSOP_USER_ACCESS_DENIED: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RefreshPolicy<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(bmachine: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -7402,6 +8122,7 @@ pub unsafe fn RefreshPolicy<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RefreshPolicyEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(bmachine: Param0, dwoptions: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -7416,6 +8137,7 @@ pub unsafe fn RefreshPolicyEx<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RegisterGPNotification<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hevent: Param0, bmachine: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -7430,6 +8152,7 @@ pub unsafe fn RegisterGPNotification<'a, Param0: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`, `Win32_Security`*"]
 #[inline]
 pub unsafe fn RsopAccessCheckByType<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSID>>(
     psecuritydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR,
@@ -7481,6 +8204,7 @@ pub unsafe fn RsopAccessCheckByType<'a, Param1: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RsopFileAccessCheck<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszfilename: Param0, prsoptoken: *const ::std::ffi::c_void, dwdesiredaccessmask: u32, pdwgrantedaccessmask: *mut u32, pbaccessstatus: *mut i32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -7495,6 +8219,7 @@ pub unsafe fn RsopFileAccessCheck<'a, Param0: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Wmi")]
+#[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_System_Wmi`*"]
 #[inline]
 pub unsafe fn RsopResetPolicySettingStatus<'a, Param1: ::windows::runtime::IntoParam<'a, super::Wmi::IWbemServices>, Param2: ::windows::runtime::IntoParam<'a, super::Wmi::IWbemClassObject>>(dwflags: u32, pservices: Param1, psettinginstance: Param2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -7509,6 +8234,7 @@ pub unsafe fn RsopResetPolicySettingStatus<'a, Param1: ::windows::runtime::IntoP
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Wmi"))]
+#[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`, `Win32_System_Wmi`*"]
 #[inline]
 pub unsafe fn RsopSetPolicySettingStatus<'a, Param1: ::windows::runtime::IntoParam<'a, super::Wmi::IWbemServices>, Param2: ::windows::runtime::IntoParam<'a, super::Wmi::IWbemClassObject>>(dwflags: u32, pservices: Param1, psettinginstance: Param2, ninfo: u32, pstatus: *const POLICYSETTINGSTATUSINFO) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -7522,6 +8248,7 @@ pub unsafe fn RsopSetPolicySettingStatus<'a, Param1: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SETTINGSTATUS(pub i32);
@@ -7540,6 +8267,7 @@ unsafe impl ::windows::runtime::Abi for SETTINGSTATUS {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn UninstallApplication<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(productcode: Param0, dwstatus: u32) -> u32 {
     #[cfg(windows)]
@@ -7554,6 +8282,7 @@ pub unsafe fn UninstallApplication<'a, Param0: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn UnregisterGPNotification<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hevent: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]

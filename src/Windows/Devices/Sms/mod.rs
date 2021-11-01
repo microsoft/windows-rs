@@ -1,4 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Devices_Sms`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CellularClass(pub i32);
@@ -20,17 +21,20 @@ unsafe impl ::windows::runtime::RuntimeType for CellularClass {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Sms.CellularClass;i4)");
 }
 #[cfg(feature = "Foundation")]
+#[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct DeleteSmsMessageOperation(::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation")]
 impl DeleteSmsMessageOperation {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
     pub fn SetCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::AsyncActionCompletedHandler>>(&self, handler: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), handler.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
     pub fn Completed(&self) -> ::windows::runtime::Result<super::super::Foundation::AsyncActionCompletedHandler> {
         let this = self;
         unsafe {
@@ -39,11 +43,13 @@ impl DeleteSmsMessageOperation {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
     pub fn GetResults(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
         unsafe {
@@ -52,6 +58,7 @@ impl DeleteSmsMessageOperation {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<super::super::Foundation::AsyncStatus> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
         unsafe {
@@ -60,6 +67,7 @@ impl DeleteSmsMessageOperation {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
     pub fn ErrorCode(&self) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
         unsafe {
@@ -68,11 +76,13 @@ impl DeleteSmsMessageOperation {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
     pub fn Cancel(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this)).ok() }
@@ -217,17 +227,20 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IAsyncInfo>
     }
 }
 #[cfg(feature = "Foundation")]
+#[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct DeleteSmsMessagesOperation(::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation")]
 impl DeleteSmsMessagesOperation {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
     pub fn SetCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::AsyncActionCompletedHandler>>(&self, handler: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), handler.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
     pub fn Completed(&self) -> ::windows::runtime::Result<super::super::Foundation::AsyncActionCompletedHandler> {
         let this = self;
         unsafe {
@@ -236,11 +249,13 @@ impl DeleteSmsMessagesOperation {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
     pub fn GetResults(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
         unsafe {
@@ -249,6 +264,7 @@ impl DeleteSmsMessagesOperation {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<super::super::Foundation::AsyncStatus> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
         unsafe {
@@ -257,6 +273,7 @@ impl DeleteSmsMessagesOperation {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
     pub fn ErrorCode(&self) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
         unsafe {
@@ -265,11 +282,13 @@ impl DeleteSmsMessagesOperation {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
     pub fn Cancel(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this)).ok() }
@@ -414,17 +433,20 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IAsyncInfo>
     }
 }
 #[cfg(feature = "Foundation")]
+#[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct GetSmsDeviceOperation(::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation")]
 impl GetSmsDeviceOperation {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
     pub fn SetCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::AsyncOperationCompletedHandler<SmsDevice>>>(&self, handler: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), handler.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
     pub fn Completed(&self) -> ::windows::runtime::Result<super::super::Foundation::AsyncOperationCompletedHandler<SmsDevice>> {
         let this = self;
         unsafe {
@@ -433,6 +455,7 @@ impl GetSmsDeviceOperation {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
     pub fn GetResults(&self) -> ::windows::runtime::Result<SmsDevice> {
         let this = self;
         unsafe {
@@ -441,6 +464,7 @@ impl GetSmsDeviceOperation {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
         unsafe {
@@ -449,6 +473,7 @@ impl GetSmsDeviceOperation {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<super::super::Foundation::AsyncStatus> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
         unsafe {
@@ -457,6 +482,7 @@ impl GetSmsDeviceOperation {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
     pub fn ErrorCode(&self) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
         unsafe {
@@ -465,11 +491,13 @@ impl GetSmsDeviceOperation {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
     pub fn Cancel(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this)).ok() }
@@ -614,17 +642,20 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IAsyncInfo>
     }
 }
 #[cfg(feature = "Foundation")]
+#[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct GetSmsMessageOperation(::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation")]
 impl GetSmsMessageOperation {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
     pub fn SetCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::AsyncOperationCompletedHandler<ISmsMessage>>>(&self, handler: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), handler.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
     pub fn Completed(&self) -> ::windows::runtime::Result<super::super::Foundation::AsyncOperationCompletedHandler<ISmsMessage>> {
         let this = self;
         unsafe {
@@ -633,6 +664,7 @@ impl GetSmsMessageOperation {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
     pub fn GetResults(&self) -> ::windows::runtime::Result<ISmsMessage> {
         let this = self;
         unsafe {
@@ -641,6 +673,7 @@ impl GetSmsMessageOperation {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
         unsafe {
@@ -649,6 +682,7 @@ impl GetSmsMessageOperation {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<super::super::Foundation::AsyncStatus> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
         unsafe {
@@ -657,6 +691,7 @@ impl GetSmsMessageOperation {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
     pub fn ErrorCode(&self) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
         unsafe {
@@ -665,11 +700,13 @@ impl GetSmsMessageOperation {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
     pub fn Cancel(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this)).ok() }
@@ -814,17 +851,20 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IAsyncInfo>
     }
 }
 #[cfg(feature = "Foundation")]
+#[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct GetSmsMessagesOperation(::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation")]
 impl GetSmsMessagesOperation {
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`, `Foundation_Collections`*"]
     pub fn SetProgress<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::AsyncOperationProgressHandler<super::super::Foundation::Collections::IVectorView<ISmsMessage>, i32>>>(&self, handler: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), handler.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`, `Foundation_Collections`*"]
     pub fn Progress(&self) -> ::windows::runtime::Result<super::super::Foundation::AsyncOperationProgressHandler<super::super::Foundation::Collections::IVectorView<ISmsMessage>, i32>> {
         let this = self;
         unsafe {
@@ -833,11 +873,13 @@ impl GetSmsMessagesOperation {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`, `Foundation_Collections`*"]
     pub fn SetCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::AsyncOperationWithProgressCompletedHandler<super::super::Foundation::Collections::IVectorView<ISmsMessage>, i32>>>(&self, handler: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), handler.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`, `Foundation_Collections`*"]
     pub fn Completed(&self) -> ::windows::runtime::Result<super::super::Foundation::AsyncOperationWithProgressCompletedHandler<super::super::Foundation::Collections::IVectorView<ISmsMessage>, i32>> {
         let this = self;
         unsafe {
@@ -846,6 +888,7 @@ impl GetSmsMessagesOperation {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`, `Foundation_Collections`*"]
     pub fn GetResults(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<ISmsMessage>> {
         let this = self;
         unsafe {
@@ -854,6 +897,7 @@ impl GetSmsMessagesOperation {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
         unsafe {
@@ -862,6 +906,7 @@ impl GetSmsMessagesOperation {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<super::super::Foundation::AsyncStatus> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
         unsafe {
@@ -870,6 +915,7 @@ impl GetSmsMessagesOperation {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
     pub fn ErrorCode(&self) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
         unsafe {
@@ -878,11 +924,13 @@ impl GetSmsMessagesOperation {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
     pub fn Cancel(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this)).ok() }
@@ -1071,6 +1119,7 @@ pub struct ISmsAppMessage_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Devices_Sms`*"]
 pub struct ISmsBinaryMessage(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsBinaryMessage {
     type Vtable = ISmsBinaryMessage_abi;
@@ -1078,6 +1127,7 @@ unsafe impl ::windows::runtime::Interface for ISmsBinaryMessage {
 }
 impl ISmsBinaryMessage {
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn Format(&self) -> ::windows::runtime::Result<SmsDataFormat> {
         let this = self;
         unsafe {
@@ -1086,11 +1136,13 @@ impl ISmsBinaryMessage {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn SetFormat(&self, value: SmsDataFormat) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn GetData(&self) -> ::windows::runtime::Result<::windows::runtime::Array<u8>> {
         let this = self;
         unsafe {
@@ -1099,10 +1151,12 @@ impl ISmsBinaryMessage {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn SetData(&self, value: &[<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.len() as u32, ::std::mem::transmute(value.as_ptr())).ok() }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<ISmsMessage>(self)?;
         unsafe {
@@ -1110,6 +1164,7 @@ impl ISmsBinaryMessage {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn MessageClass(&self) -> ::windows::runtime::Result<SmsMessageClass> {
         let this = &::windows::runtime::Interface::cast::<ISmsMessage>(self)?;
         unsafe {
@@ -1228,6 +1283,7 @@ pub struct ISmsBroadcastMessage_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Devices_Sms`*"]
 pub struct ISmsDevice(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsDevice {
     type Vtable = ISmsDevice_abi;
@@ -1236,6 +1292,7 @@ unsafe impl ::windows::runtime::Interface for ISmsDevice {
 impl ISmsDevice {
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
     pub fn SendMessageAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ISmsMessage>>(&self, message: Param0) -> ::windows::runtime::Result<SendSmsMessageOperation> {
         let this = self;
         unsafe {
@@ -1244,6 +1301,7 @@ impl ISmsDevice {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn CalculateLength<'a, Param0: ::windows::runtime::IntoParam<'a, SmsTextMessage>>(&self, message: Param0) -> ::windows::runtime::Result<SmsEncodedLength> {
         let this = self;
         unsafe {
@@ -1252,6 +1310,7 @@ impl ISmsDevice {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn AccountPhoneNumber(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1260,6 +1319,7 @@ impl ISmsDevice {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn CellularClass(&self) -> ::windows::runtime::Result<CellularClass> {
         let this = self;
         unsafe {
@@ -1268,6 +1328,7 @@ impl ISmsDevice {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn MessageStore(&self) -> ::windows::runtime::Result<SmsDeviceMessageStore> {
         let this = self;
         unsafe {
@@ -1276,6 +1337,7 @@ impl ISmsDevice {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn DeviceStatus(&self) -> ::windows::runtime::Result<SmsDeviceStatus> {
         let this = self;
         unsafe {
@@ -1285,6 +1347,7 @@ impl ISmsDevice {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
     pub fn SmsMessageReceived<'a, Param0: ::windows::runtime::IntoParam<'a, SmsMessageReceivedEventHandler>>(&self, eventhandler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1294,12 +1357,14 @@ impl ISmsDevice {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
     pub fn RemoveSmsMessageReceived<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, eventcookie: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), eventcookie.into_param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
     pub fn SmsDeviceStatusChanged<'a, Param0: ::windows::runtime::IntoParam<'a, SmsDeviceStatusChangedEventHandler>>(&self, eventhandler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1309,6 +1374,7 @@ impl ISmsDevice {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
     pub fn RemoveSmsDeviceStatusChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, eventcookie: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), eventcookie.into_param().abi()).ok() }
@@ -1610,12 +1676,14 @@ pub struct ISmsFilterRulesFactory_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Devices_Sms`*"]
 pub struct ISmsMessage(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsMessage {
     type Vtable = ISmsMessage_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3980156456, 27012, 19207, [129, 29, 141, 89, 6, 237, 60, 234]);
 }
 impl ISmsMessage {
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -1623,6 +1691,7 @@ impl ISmsMessage {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn MessageClass(&self) -> ::windows::runtime::Result<SmsMessageClass> {
         let this = self;
         unsafe {
@@ -1688,12 +1757,14 @@ pub struct ISmsMessage_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Devices_Sms`*"]
 pub struct ISmsMessageBase(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsMessageBase {
     type Vtable = ISmsMessageBase_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(753991216, 65104, 20422, [170, 136, 76, 207, 226, 122, 41, 234]);
 }
 impl ISmsMessageBase {
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn MessageType(&self) -> ::windows::runtime::Result<SmsMessageType> {
         let this = self;
         unsafe {
@@ -1701,6 +1772,7 @@ impl ISmsMessageBase {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SmsMessageType>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn DeviceId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1708,6 +1780,7 @@ impl ISmsMessageBase {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn CellularClass(&self) -> ::windows::runtime::Result<CellularClass> {
         let this = self;
         unsafe {
@@ -1715,6 +1788,7 @@ impl ISmsMessageBase {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<CellularClass>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn MessageClass(&self) -> ::windows::runtime::Result<SmsMessageClass> {
         let this = self;
         unsafe {
@@ -1722,6 +1796,7 @@ impl ISmsMessageBase {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SmsMessageClass>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn SimIccId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1975,6 +2050,7 @@ pub struct ISmsStatusMessage_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Devices_Sms`*"]
 pub struct ISmsTextMessage(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsTextMessage {
     type Vtable = ISmsTextMessage_abi;
@@ -1983,6 +2059,7 @@ unsafe impl ::windows::runtime::Interface for ISmsTextMessage {
 impl ISmsTextMessage {
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
     pub fn Timestamp(&self) -> ::windows::runtime::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -1991,6 +2068,7 @@ impl ISmsTextMessage {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn PartReferenceId(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -1999,6 +2077,7 @@ impl ISmsTextMessage {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn PartNumber(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -2007,6 +2086,7 @@ impl ISmsTextMessage {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn PartCount(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -2015,6 +2095,7 @@ impl ISmsTextMessage {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn To(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2023,11 +2104,13 @@ impl ISmsTextMessage {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn SetTo<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn From(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2036,11 +2119,13 @@ impl ISmsTextMessage {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn SetFrom<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn Body(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2049,11 +2134,13 @@ impl ISmsTextMessage {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn SetBody<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn Encoding(&self) -> ::windows::runtime::Result<SmsEncoding> {
         let this = self;
         unsafe {
@@ -2062,12 +2149,14 @@ impl ISmsTextMessage {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn SetEncoding(&self, value: SmsEncoding) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation_Collections`*"]
     pub fn ToBinaryMessages(&self, format: SmsDataFormat) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<ISmsBinaryMessage>> {
         let this = self;
         unsafe {
@@ -2075,6 +2164,7 @@ impl ISmsTextMessage {
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), format, &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<ISmsBinaryMessage>>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<ISmsMessage>(self)?;
         unsafe {
@@ -2082,6 +2172,7 @@ impl ISmsTextMessage {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn MessageClass(&self) -> ::windows::runtime::Result<SmsMessageClass> {
         let this = &::windows::runtime::Interface::cast::<ISmsMessage>(self)?;
         unsafe {
@@ -2291,17 +2382,20 @@ pub struct ISmsWapMessage_abi(
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
 pub struct LegacySmsApiContract(pub u8);
 #[cfg(feature = "Foundation")]
+#[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SendSmsMessageOperation(::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation")]
 impl SendSmsMessageOperation {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
     pub fn SetCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::AsyncActionCompletedHandler>>(&self, handler: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), handler.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
     pub fn Completed(&self) -> ::windows::runtime::Result<super::super::Foundation::AsyncActionCompletedHandler> {
         let this = self;
         unsafe {
@@ -2310,11 +2404,13 @@ impl SendSmsMessageOperation {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
     pub fn GetResults(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
         unsafe {
@@ -2323,6 +2419,7 @@ impl SendSmsMessageOperation {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<super::super::Foundation::AsyncStatus> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
         unsafe {
@@ -2331,6 +2428,7 @@ impl SendSmsMessageOperation {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
     pub fn ErrorCode(&self) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
         unsafe {
@@ -2339,11 +2437,13 @@ impl SendSmsMessageOperation {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
     pub fn Cancel(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this)).ok() }
@@ -2487,6 +2587,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IAsyncInfo>
         ::std::convert::TryInto::<super::super::Foundation::IAsyncInfo>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
+#[doc = "*Required features: `Devices_Sms`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SmsAppMessage(::windows::runtime::IInspectable);
@@ -2499,6 +2600,7 @@ impl SmsAppMessage {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
     pub fn Timestamp(&self) -> ::windows::runtime::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -2506,6 +2608,7 @@ impl SmsAppMessage {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn To(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2513,10 +2616,12 @@ impl SmsAppMessage {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn SetTo<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn From(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2524,6 +2629,7 @@ impl SmsAppMessage {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn Body(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2531,10 +2637,12 @@ impl SmsAppMessage {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn SetBody<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn CallbackNumber(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2542,10 +2650,12 @@ impl SmsAppMessage {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn SetCallbackNumber<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn IsDeliveryNotificationEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -2553,10 +2663,12 @@ impl SmsAppMessage {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn SetIsDeliveryNotificationEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn RetryAttemptCount(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -2564,10 +2676,12 @@ impl SmsAppMessage {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn SetRetryAttemptCount(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn Encoding(&self) -> ::windows::runtime::Result<SmsEncoding> {
         let this = self;
         unsafe {
@@ -2575,10 +2689,12 @@ impl SmsAppMessage {
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SmsEncoding>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn SetEncoding(&self, value: SmsEncoding) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn PortNumber(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -2586,10 +2702,12 @@ impl SmsAppMessage {
             (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn SetPortNumber(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn TeleserviceId(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -2597,10 +2715,12 @@ impl SmsAppMessage {
             (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn SetTeleserviceId(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn ProtocolId(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -2608,11 +2728,13 @@ impl SmsAppMessage {
             (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn SetProtocolId(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Devices_Sms`, `Storage_Streams`*"]
     pub fn BinaryBody(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
@@ -2621,10 +2743,12 @@ impl SmsAppMessage {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Devices_Sms`, `Storage_Streams`*"]
     pub fn SetBinaryBody<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn MessageType(&self) -> ::windows::runtime::Result<SmsMessageType> {
         let this = &::windows::runtime::Interface::cast::<ISmsMessageBase>(self)?;
         unsafe {
@@ -2632,6 +2756,7 @@ impl SmsAppMessage {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SmsMessageType>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn DeviceId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<ISmsMessageBase>(self)?;
         unsafe {
@@ -2639,6 +2764,7 @@ impl SmsAppMessage {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn CellularClass(&self) -> ::windows::runtime::Result<CellularClass> {
         let this = &::windows::runtime::Interface::cast::<ISmsMessageBase>(self)?;
         unsafe {
@@ -2646,6 +2772,7 @@ impl SmsAppMessage {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<CellularClass>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn MessageClass(&self) -> ::windows::runtime::Result<SmsMessageClass> {
         let this = &::windows::runtime::Interface::cast::<ISmsMessageBase>(self)?;
         unsafe {
@@ -2653,6 +2780,7 @@ impl SmsAppMessage {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SmsMessageClass>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn SimIccId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<ISmsMessageBase>(self)?;
         unsafe {
@@ -2735,6 +2863,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ISmsMessageBase> for &SmsAppMessage {
 }
 unsafe impl ::std::marker::Send for SmsAppMessage {}
 unsafe impl ::std::marker::Sync for SmsAppMessage {}
+#[doc = "*Required features: `Devices_Sms`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SmsBinaryMessage(::windows::runtime::IInspectable);
@@ -2747,6 +2876,7 @@ impl SmsBinaryMessage {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn Format(&self) -> ::windows::runtime::Result<SmsDataFormat> {
         let this = self;
         unsafe {
@@ -2755,11 +2885,13 @@ impl SmsBinaryMessage {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn SetFormat(&self, value: SmsDataFormat) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn GetData(&self) -> ::windows::runtime::Result<::windows::runtime::Array<u8>> {
         let this = self;
         unsafe {
@@ -2768,10 +2900,12 @@ impl SmsBinaryMessage {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn SetData(&self, value: &[<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.len() as u32, ::std::mem::transmute(value.as_ptr())).ok() }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<ISmsMessage>(self)?;
         unsafe {
@@ -2779,6 +2913,7 @@ impl SmsBinaryMessage {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn MessageClass(&self) -> ::windows::runtime::Result<SmsMessageClass> {
         let this = &::windows::runtime::Interface::cast::<ISmsMessage>(self)?;
         unsafe {
@@ -2881,11 +3016,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ISmsMessage> for &SmsBinaryMessage {
 }
 unsafe impl ::std::marker::Send for SmsBinaryMessage {}
 unsafe impl ::std::marker::Sync for SmsBinaryMessage {}
+#[doc = "*Required features: `Devices_Sms`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SmsBroadcastMessage(::windows::runtime::IInspectable);
 impl SmsBroadcastMessage {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
     pub fn Timestamp(&self) -> ::windows::runtime::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -2893,6 +3030,7 @@ impl SmsBroadcastMessage {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn To(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2900,6 +3038,7 @@ impl SmsBroadcastMessage {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn Body(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2907,6 +3046,7 @@ impl SmsBroadcastMessage {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn Channel(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -2914,6 +3054,7 @@ impl SmsBroadcastMessage {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn GeographicalScope(&self) -> ::windows::runtime::Result<SmsGeographicalScope> {
         let this = self;
         unsafe {
@@ -2921,6 +3062,7 @@ impl SmsBroadcastMessage {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SmsGeographicalScope>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn MessageCode(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -2928,6 +3070,7 @@ impl SmsBroadcastMessage {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn UpdateNumber(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -2935,6 +3078,7 @@ impl SmsBroadcastMessage {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn BroadcastType(&self) -> ::windows::runtime::Result<SmsBroadcastType> {
         let this = self;
         unsafe {
@@ -2942,6 +3086,7 @@ impl SmsBroadcastMessage {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SmsBroadcastType>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn IsEmergencyAlert(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -2949,6 +3094,7 @@ impl SmsBroadcastMessage {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn IsUserPopupRequested(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -2956,6 +3102,7 @@ impl SmsBroadcastMessage {
             (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn MessageType(&self) -> ::windows::runtime::Result<SmsMessageType> {
         let this = &::windows::runtime::Interface::cast::<ISmsMessageBase>(self)?;
         unsafe {
@@ -2963,6 +3110,7 @@ impl SmsBroadcastMessage {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SmsMessageType>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn DeviceId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<ISmsMessageBase>(self)?;
         unsafe {
@@ -2970,6 +3118,7 @@ impl SmsBroadcastMessage {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn CellularClass(&self) -> ::windows::runtime::Result<CellularClass> {
         let this = &::windows::runtime::Interface::cast::<ISmsMessageBase>(self)?;
         unsafe {
@@ -2977,6 +3126,7 @@ impl SmsBroadcastMessage {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<CellularClass>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn MessageClass(&self) -> ::windows::runtime::Result<SmsMessageClass> {
         let this = &::windows::runtime::Interface::cast::<ISmsMessageBase>(self)?;
         unsafe {
@@ -2984,6 +3134,7 @@ impl SmsBroadcastMessage {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SmsMessageClass>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn SimIccId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<ISmsMessageBase>(self)?;
         unsafe {
@@ -3066,6 +3217,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ISmsMessageBase> for &SmsBroadcastMes
 }
 unsafe impl ::std::marker::Send for SmsBroadcastMessage {}
 unsafe impl ::std::marker::Sync for SmsBroadcastMessage {}
+#[doc = "*Required features: `Devices_Sms`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SmsBroadcastType(pub i32);
@@ -3098,6 +3250,7 @@ unsafe impl ::windows::runtime::Abi for SmsBroadcastType {
 unsafe impl ::windows::runtime::RuntimeType for SmsBroadcastType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Sms.SmsBroadcastType;i4)");
 }
+#[doc = "*Required features: `Devices_Sms`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SmsDataFormat(pub i32);
@@ -3120,12 +3273,14 @@ unsafe impl ::windows::runtime::Abi for SmsDataFormat {
 unsafe impl ::windows::runtime::RuntimeType for SmsDataFormat {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Sms.SmsDataFormat;i4)");
 }
+#[doc = "*Required features: `Devices_Sms`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SmsDevice(::windows::runtime::IInspectable);
 impl SmsDevice {
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
     pub fn SendMessageAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ISmsMessage>>(&self, message: Param0) -> ::windows::runtime::Result<SendSmsMessageOperation> {
         let this = self;
         unsafe {
@@ -3134,6 +3289,7 @@ impl SmsDevice {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn CalculateLength<'a, Param0: ::windows::runtime::IntoParam<'a, SmsTextMessage>>(&self, message: Param0) -> ::windows::runtime::Result<SmsEncodedLength> {
         let this = self;
         unsafe {
@@ -3142,6 +3298,7 @@ impl SmsDevice {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn AccountPhoneNumber(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -3150,6 +3307,7 @@ impl SmsDevice {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn CellularClass(&self) -> ::windows::runtime::Result<CellularClass> {
         let this = self;
         unsafe {
@@ -3158,6 +3316,7 @@ impl SmsDevice {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn MessageStore(&self) -> ::windows::runtime::Result<SmsDeviceMessageStore> {
         let this = self;
         unsafe {
@@ -3166,6 +3325,7 @@ impl SmsDevice {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn DeviceStatus(&self) -> ::windows::runtime::Result<SmsDeviceStatus> {
         let this = self;
         unsafe {
@@ -3175,6 +3335,7 @@ impl SmsDevice {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
     pub fn SmsMessageReceived<'a, Param0: ::windows::runtime::IntoParam<'a, SmsMessageReceivedEventHandler>>(&self, eventhandler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -3184,12 +3345,14 @@ impl SmsDevice {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
     pub fn RemoveSmsMessageReceived<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, eventcookie: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), eventcookie.into_param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
     pub fn SmsDeviceStatusChanged<'a, Param0: ::windows::runtime::IntoParam<'a, SmsDeviceStatusChangedEventHandler>>(&self, eventhandler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -3199,11 +3362,13 @@ impl SmsDevice {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
     pub fn RemoveSmsDeviceStatusChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, eventcookie: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), eventcookie.into_param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn GetDeviceSelector() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ISmsDeviceStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
@@ -3212,6 +3377,7 @@ impl SmsDevice {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
     pub fn FromIdAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(deviceid: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<SmsDevice>> {
         Self::ISmsDeviceStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -3220,6 +3386,7 @@ impl SmsDevice {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
     pub fn GetDefaultAsync() -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<SmsDevice>> {
         Self::ISmsDeviceStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -3228,6 +3395,7 @@ impl SmsDevice {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
     pub fn FromNetworkAccountIdAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(networkaccountid: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<SmsDevice>> {
         Self::ISmsDeviceStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -3313,10 +3481,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ISmsDevice> for &SmsDevice {
         ::windows::runtime::Param::Owned(::std::convert::Into::<ISmsDevice>::into(::std::clone::Clone::clone(self)))
     }
 }
+#[doc = "*Required features: `Devices_Sms`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SmsDevice2(::windows::runtime::IInspectable);
 impl SmsDevice2 {
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn SmscAddress(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -3324,10 +3494,12 @@ impl SmsDevice2 {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn SetSmscAddress<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn DeviceId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -3335,6 +3507,7 @@ impl SmsDevice2 {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn ParentDeviceId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -3342,6 +3515,7 @@ impl SmsDevice2 {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn AccountPhoneNumber(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -3349,6 +3523,7 @@ impl SmsDevice2 {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn CellularClass(&self) -> ::windows::runtime::Result<CellularClass> {
         let this = self;
         unsafe {
@@ -3356,6 +3531,7 @@ impl SmsDevice2 {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<CellularClass>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn DeviceStatus(&self) -> ::windows::runtime::Result<SmsDeviceStatus> {
         let this = self;
         unsafe {
@@ -3363,6 +3539,7 @@ impl SmsDevice2 {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SmsDeviceStatus>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn CalculateLength<'a, Param0: ::windows::runtime::IntoParam<'a, ISmsMessageBase>>(&self, message: Param0) -> ::windows::runtime::Result<SmsEncodedLength> {
         let this = self;
         unsafe {
@@ -3371,6 +3548,7 @@ impl SmsDevice2 {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
     pub fn SendMessageAndGetResultAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ISmsMessageBase>>(&self, message: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<SmsSendMessageResult>> {
         let this = self;
         unsafe {
@@ -3379,6 +3557,7 @@ impl SmsDevice2 {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
     pub fn DeviceStatusChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<SmsDevice2, ::windows::runtime::IInspectable>>>(&self, eventhandler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -3387,28 +3566,33 @@ impl SmsDevice2 {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
     pub fn RemoveDeviceStatusChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, eventcookie: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), eventcookie.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn GetDeviceSelector() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ISmsDevice2Statics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn FromId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(deviceid: Param0) -> ::windows::runtime::Result<SmsDevice2> {
         Self::ISmsDevice2Statics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), deviceid.into_param().abi(), &mut result__).from_abi::<SmsDevice2>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn GetDefault() -> ::windows::runtime::Result<SmsDevice2> {
         Self::ISmsDevice2Statics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SmsDevice2>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn FromParentId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(parentdeviceid: Param0) -> ::windows::runtime::Result<SmsDevice2> {
         Self::ISmsDevice2Statics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -3470,12 +3654,14 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
+#[doc = "*Required features: `Devices_Sms`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SmsDeviceMessageStore(::windows::runtime::IInspectable);
 impl SmsDeviceMessageStore {
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
     pub fn DeleteMessageAsync(&self, messageid: u32) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -3485,6 +3671,7 @@ impl SmsDeviceMessageStore {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
     pub fn DeleteMessagesAsync(&self, messagefilter: SmsMessageFilter) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -3494,6 +3681,7 @@ impl SmsDeviceMessageStore {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
     pub fn GetMessageAsync(&self, messageid: u32) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<ISmsMessage>> {
         let this = self;
         unsafe {
@@ -3503,6 +3691,7 @@ impl SmsDeviceMessageStore {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`, `Foundation_Collections`*"]
     pub fn GetMessagesAsync(&self, messagefilter: SmsMessageFilter) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Foundation::Collections::IVectorView<ISmsMessage>, i32>> {
         let this = self;
         unsafe {
@@ -3511,6 +3700,7 @@ impl SmsDeviceMessageStore {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn MaxMessages(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -3569,6 +3759,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
+#[doc = "*Required features: `Devices_Sms`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SmsDeviceStatus(pub i32);
@@ -3594,6 +3785,7 @@ unsafe impl ::windows::runtime::Abi for SmsDeviceStatus {
 unsafe impl ::windows::runtime::RuntimeType for SmsDeviceStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Sms.SmsDeviceStatus;i4)");
 }
+#[doc = "*Required features: `Devices_Sms`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SmsDeviceStatusChangedEventHandler(::windows::runtime::IUnknown);
@@ -3606,6 +3798,7 @@ impl SmsDeviceStatusChangedEventHandler {
         };
         unsafe { std::mem::transmute(::std::boxed::Box::new(com)) }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, SmsDevice>>(&self, sender: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).3)(::std::mem::transmute_copy(this), sender.into_param().abi()).ok() }
@@ -3667,6 +3860,7 @@ impl<F: FnMut(&::std::option::Option<SmsDevice>) -> ::windows::runtime::Result<(
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Devices_Sms`*"]
 pub struct SmsEncodedLength {
     pub SegmentCount: u32,
     pub CharacterCountLastSegment: u32,
@@ -3704,6 +3898,7 @@ unsafe impl ::windows::runtime::Abi for SmsEncodedLength {
 unsafe impl ::windows::runtime::RuntimeType for SmsEncodedLength {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Devices.Sms.SmsEncodedLength;u4;u4;u4;u4;u4)");
 }
+#[doc = "*Required features: `Devices_Sms`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SmsEncoding(pub i32);
@@ -3732,6 +3927,7 @@ unsafe impl ::windows::runtime::Abi for SmsEncoding {
 unsafe impl ::windows::runtime::RuntimeType for SmsEncoding {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Sms.SmsEncoding;i4)");
 }
+#[doc = "*Required features: `Devices_Sms`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SmsFilterActionType(pub i32);
@@ -3753,10 +3949,12 @@ unsafe impl ::windows::runtime::Abi for SmsFilterActionType {
 unsafe impl ::windows::runtime::RuntimeType for SmsFilterActionType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Sms.SmsFilterActionType;i4)");
 }
+#[doc = "*Required features: `Devices_Sms`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SmsFilterRule(::windows::runtime::IInspectable);
 impl SmsFilterRule {
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn MessageType(&self) -> ::windows::runtime::Result<SmsMessageType> {
         let this = self;
         unsafe {
@@ -3765,6 +3963,7 @@ impl SmsFilterRule {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation_Collections`*"]
     pub fn ImsiPrefixes(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -3773,6 +3972,7 @@ impl SmsFilterRule {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation_Collections`*"]
     pub fn DeviceIds(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -3781,6 +3981,7 @@ impl SmsFilterRule {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation_Collections`*"]
     pub fn SenderNumbers(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -3789,6 +3990,7 @@ impl SmsFilterRule {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation_Collections`*"]
     pub fn TextMessagePrefixes(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -3797,6 +3999,7 @@ impl SmsFilterRule {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation_Collections`*"]
     pub fn PortNumbers(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<i32>> {
         let this = self;
         unsafe {
@@ -3804,6 +4007,7 @@ impl SmsFilterRule {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<i32>>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn CellularClass(&self) -> ::windows::runtime::Result<CellularClass> {
         let this = self;
         unsafe {
@@ -3811,11 +4015,13 @@ impl SmsFilterRule {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<CellularClass>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn SetCellularClass(&self, value: CellularClass) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation_Collections`*"]
     pub fn ProtocolIds(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<i32>> {
         let this = self;
         unsafe {
@@ -3824,6 +4030,7 @@ impl SmsFilterRule {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation_Collections`*"]
     pub fn TeleserviceIds(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<i32>> {
         let this = self;
         unsafe {
@@ -3832,6 +4039,7 @@ impl SmsFilterRule {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation_Collections`*"]
     pub fn WapApplicationIds(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -3840,6 +4048,7 @@ impl SmsFilterRule {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation_Collections`*"]
     pub fn WapContentTypes(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -3848,6 +4057,7 @@ impl SmsFilterRule {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation_Collections`*"]
     pub fn BroadcastTypes(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<SmsBroadcastType>> {
         let this = self;
         unsafe {
@@ -3856,6 +4066,7 @@ impl SmsFilterRule {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation_Collections`*"]
     pub fn BroadcastChannels(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<i32>> {
         let this = self;
         unsafe {
@@ -3863,6 +4074,7 @@ impl SmsFilterRule {
             (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<i32>>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn CreateFilterRule(messagetype: SmsMessageType) -> ::windows::runtime::Result<SmsFilterRule> {
         Self::ISmsFilterRuleFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -3926,10 +4138,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for SmsFilterRule {}
 unsafe impl ::std::marker::Sync for SmsFilterRule {}
+#[doc = "*Required features: `Devices_Sms`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SmsFilterRules(::windows::runtime::IInspectable);
 impl SmsFilterRules {
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn ActionType(&self) -> ::windows::runtime::Result<SmsFilterActionType> {
         let this = self;
         unsafe {
@@ -3938,6 +4152,7 @@ impl SmsFilterRules {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation_Collections`*"]
     pub fn Rules(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<SmsFilterRule>> {
         let this = self;
         unsafe {
@@ -3945,6 +4160,7 @@ impl SmsFilterRules {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<SmsFilterRule>>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn CreateFilterRules(actiontype: SmsFilterActionType) -> ::windows::runtime::Result<SmsFilterRules> {
         Self::ISmsFilterRulesFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -4008,6 +4224,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for SmsFilterRules {}
 unsafe impl ::std::marker::Sync for SmsFilterRules {}
+#[doc = "*Required features: `Devices_Sms`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SmsGeographicalScope(pub i32);
@@ -4030,6 +4247,7 @@ unsafe impl ::windows::runtime::Abi for SmsGeographicalScope {
 unsafe impl ::windows::runtime::RuntimeType for SmsGeographicalScope {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Sms.SmsGeographicalScope;i4)");
 }
+#[doc = "*Required features: `Devices_Sms`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SmsMessageClass(pub i32);
@@ -4052,6 +4270,7 @@ unsafe impl ::windows::runtime::Abi for SmsMessageClass {
 unsafe impl ::windows::runtime::RuntimeType for SmsMessageClass {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Sms.SmsMessageClass;i4)");
 }
+#[doc = "*Required features: `Devices_Sms`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SmsMessageFilter(pub i32);
@@ -4074,11 +4293,13 @@ unsafe impl ::windows::runtime::Abi for SmsMessageFilter {
 unsafe impl ::windows::runtime::RuntimeType for SmsMessageFilter {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Sms.SmsMessageFilter;i4)");
 }
+#[doc = "*Required features: `Devices_Sms`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SmsMessageReceivedEventArgs(::windows::runtime::IInspectable);
 impl SmsMessageReceivedEventArgs {
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn TextMessage(&self) -> ::windows::runtime::Result<SmsTextMessage> {
         let this = self;
         unsafe {
@@ -4087,6 +4308,7 @@ impl SmsMessageReceivedEventArgs {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn BinaryMessage(&self) -> ::windows::runtime::Result<SmsBinaryMessage> {
         let this = self;
         unsafe {
@@ -4145,6 +4367,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
+#[doc = "*Required features: `Devices_Sms`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SmsMessageReceivedEventHandler(::windows::runtime::IUnknown);
@@ -4157,6 +4380,7 @@ impl SmsMessageReceivedEventHandler {
         };
         unsafe { std::mem::transmute(::std::boxed::Box::new(com)) }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, SmsDevice>, Param1: ::windows::runtime::IntoParam<'a, SmsMessageReceivedEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).3)(::std::mem::transmute_copy(this), sender.into_param().abi(), e.into_param().abi()).ok() }
@@ -4216,10 +4440,12 @@ impl<F: FnMut(&::std::option::Option<SmsDevice>, &::std::option::Option<SmsMessa
         ((*this).invoke)(&*(&sender as *const <SmsDevice as ::windows::runtime::Abi>::Abi as *const <SmsDevice as ::windows::runtime::Abi>::DefaultType), &*(&e as *const <SmsMessageReceivedEventArgs as ::windows::runtime::Abi>::Abi as *const <SmsMessageReceivedEventArgs as ::windows::runtime::Abi>::DefaultType)).into()
     }
 }
+#[doc = "*Required features: `Devices_Sms`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SmsMessageReceivedTriggerDetails(::windows::runtime::IInspectable);
 impl SmsMessageReceivedTriggerDetails {
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn MessageType(&self) -> ::windows::runtime::Result<SmsMessageType> {
         let this = self;
         unsafe {
@@ -4227,6 +4453,7 @@ impl SmsMessageReceivedTriggerDetails {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SmsMessageType>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn TextMessage(&self) -> ::windows::runtime::Result<SmsTextMessage2> {
         let this = self;
         unsafe {
@@ -4234,6 +4461,7 @@ impl SmsMessageReceivedTriggerDetails {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SmsTextMessage2>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn WapMessage(&self) -> ::windows::runtime::Result<SmsWapMessage> {
         let this = self;
         unsafe {
@@ -4241,6 +4469,7 @@ impl SmsMessageReceivedTriggerDetails {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SmsWapMessage>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn AppMessage(&self) -> ::windows::runtime::Result<SmsAppMessage> {
         let this = self;
         unsafe {
@@ -4248,6 +4477,7 @@ impl SmsMessageReceivedTriggerDetails {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SmsAppMessage>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn BroadcastMessage(&self) -> ::windows::runtime::Result<SmsBroadcastMessage> {
         let this = self;
         unsafe {
@@ -4255,6 +4485,7 @@ impl SmsMessageReceivedTriggerDetails {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SmsBroadcastMessage>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn VoicemailMessage(&self) -> ::windows::runtime::Result<SmsVoicemailMessage> {
         let this = self;
         unsafe {
@@ -4262,6 +4493,7 @@ impl SmsMessageReceivedTriggerDetails {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SmsVoicemailMessage>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn StatusMessage(&self) -> ::windows::runtime::Result<SmsStatusMessage> {
         let this = self;
         unsafe {
@@ -4269,10 +4501,12 @@ impl SmsMessageReceivedTriggerDetails {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SmsStatusMessage>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn Drop(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn Accept(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this)).ok() }
@@ -4330,10 +4564,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for SmsMessageReceivedTriggerDetails {}
 unsafe impl ::std::marker::Sync for SmsMessageReceivedTriggerDetails {}
+#[doc = "*Required features: `Devices_Sms`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SmsMessageRegistration(::windows::runtime::IInspectable);
 impl SmsMessageRegistration {
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -4341,11 +4577,13 @@ impl SmsMessageRegistration {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn Unregister(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
     pub fn MessageReceived<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<SmsMessageRegistration, SmsMessageReceivedTriggerDetails>>>(&self, eventhandler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -4354,17 +4592,20 @@ impl SmsMessageRegistration {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
     pub fn RemoveMessageReceived<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, eventcookie: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), eventcookie.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation_Collections`*"]
     pub fn AllRegistrations() -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<SmsMessageRegistration>> {
         Self::ISmsMessageRegistrationStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<SmsMessageRegistration>>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn Register<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, SmsFilterRules>>(id: Param0, filterrules: Param1) -> ::windows::runtime::Result<SmsMessageRegistration> {
         Self::ISmsMessageRegistrationStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -4426,6 +4667,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
+#[doc = "*Required features: `Devices_Sms`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SmsMessageType(pub i32);
@@ -4450,6 +4692,7 @@ unsafe impl ::windows::runtime::Abi for SmsMessageType {
 unsafe impl ::windows::runtime::RuntimeType for SmsMessageType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Sms.SmsMessageType;i4)");
 }
+#[doc = "*Required features: `Devices_Sms`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SmsModemErrorCode(pub i32);
@@ -4479,11 +4722,13 @@ unsafe impl ::windows::runtime::Abi for SmsModemErrorCode {
 unsafe impl ::windows::runtime::RuntimeType for SmsModemErrorCode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Sms.SmsModemErrorCode;i4)");
 }
+#[doc = "*Required features: `Devices_Sms`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SmsReceivedEventDetails(::windows::runtime::IInspectable);
 impl SmsReceivedEventDetails {
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn DeviceId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -4492,6 +4737,7 @@ impl SmsReceivedEventDetails {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn MessageIndex(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -4500,6 +4746,7 @@ impl SmsReceivedEventDetails {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn MessageClass(&self) -> ::windows::runtime::Result<SmsMessageClass> {
         let this = &::windows::runtime::Interface::cast::<ISmsReceivedEventDetails2>(self)?;
         unsafe {
@@ -4508,6 +4755,7 @@ impl SmsReceivedEventDetails {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn BinaryMessage(&self) -> ::windows::runtime::Result<SmsBinaryMessage> {
         let this = &::windows::runtime::Interface::cast::<ISmsReceivedEventDetails2>(self)?;
         unsafe {
@@ -4568,10 +4816,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for SmsReceivedEventDetails {}
 unsafe impl ::std::marker::Sync for SmsReceivedEventDetails {}
+#[doc = "*Required features: `Devices_Sms`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SmsSendMessageResult(::windows::runtime::IInspectable);
 impl SmsSendMessageResult {
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn IsSuccessful(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -4580,6 +4830,7 @@ impl SmsSendMessageResult {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation_Collections`*"]
     pub fn MessageReferenceNumbers(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<i32>> {
         let this = self;
         unsafe {
@@ -4587,6 +4838,7 @@ impl SmsSendMessageResult {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<i32>>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn CellularClass(&self) -> ::windows::runtime::Result<CellularClass> {
         let this = self;
         unsafe {
@@ -4594,6 +4846,7 @@ impl SmsSendMessageResult {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<CellularClass>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn ModemErrorCode(&self) -> ::windows::runtime::Result<SmsModemErrorCode> {
         let this = self;
         unsafe {
@@ -4601,6 +4854,7 @@ impl SmsSendMessageResult {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SmsModemErrorCode>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn IsErrorTransient(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -4608,6 +4862,7 @@ impl SmsSendMessageResult {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn NetworkCauseCode(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -4615,6 +4870,7 @@ impl SmsSendMessageResult {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn TransportFailureCause(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -4675,10 +4931,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for SmsSendMessageResult {}
 unsafe impl ::std::marker::Sync for SmsSendMessageResult {}
+#[doc = "*Required features: `Devices_Sms`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SmsStatusMessage(::windows::runtime::IInspectable);
 impl SmsStatusMessage {
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn To(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -4686,6 +4944,7 @@ impl SmsStatusMessage {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn From(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -4693,6 +4952,7 @@ impl SmsStatusMessage {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn Body(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -4700,6 +4960,7 @@ impl SmsStatusMessage {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -4707,6 +4968,7 @@ impl SmsStatusMessage {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn MessageReferenceNumber(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -4715,6 +4977,7 @@ impl SmsStatusMessage {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
     pub fn ServiceCenterTimestamp(&self) -> ::windows::runtime::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -4723,6 +4986,7 @@ impl SmsStatusMessage {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
     pub fn DischargeTime(&self) -> ::windows::runtime::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -4730,6 +4994,7 @@ impl SmsStatusMessage {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn MessageType(&self) -> ::windows::runtime::Result<SmsMessageType> {
         let this = &::windows::runtime::Interface::cast::<ISmsMessageBase>(self)?;
         unsafe {
@@ -4737,6 +5002,7 @@ impl SmsStatusMessage {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SmsMessageType>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn DeviceId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<ISmsMessageBase>(self)?;
         unsafe {
@@ -4744,6 +5010,7 @@ impl SmsStatusMessage {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn CellularClass(&self) -> ::windows::runtime::Result<CellularClass> {
         let this = &::windows::runtime::Interface::cast::<ISmsMessageBase>(self)?;
         unsafe {
@@ -4751,6 +5018,7 @@ impl SmsStatusMessage {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<CellularClass>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn MessageClass(&self) -> ::windows::runtime::Result<SmsMessageClass> {
         let this = &::windows::runtime::Interface::cast::<ISmsMessageBase>(self)?;
         unsafe {
@@ -4758,6 +5026,7 @@ impl SmsStatusMessage {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SmsMessageClass>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn SimIccId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<ISmsMessageBase>(self)?;
         unsafe {
@@ -4840,6 +5109,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ISmsMessageBase> for &SmsStatusMessag
 }
 unsafe impl ::std::marker::Send for SmsStatusMessage {}
 unsafe impl ::std::marker::Sync for SmsStatusMessage {}
+#[doc = "*Required features: `Devices_Sms`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SmsTextMessage(::windows::runtime::IInspectable);
@@ -4853,6 +5123,7 @@ impl SmsTextMessage {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
     pub fn Timestamp(&self) -> ::windows::runtime::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -4861,6 +5132,7 @@ impl SmsTextMessage {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn PartReferenceId(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -4869,6 +5141,7 @@ impl SmsTextMessage {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn PartNumber(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -4877,6 +5150,7 @@ impl SmsTextMessage {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn PartCount(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -4885,6 +5159,7 @@ impl SmsTextMessage {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn To(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -4893,11 +5168,13 @@ impl SmsTextMessage {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn SetTo<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn From(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -4906,11 +5183,13 @@ impl SmsTextMessage {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn SetFrom<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn Body(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -4919,11 +5198,13 @@ impl SmsTextMessage {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn SetBody<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn Encoding(&self) -> ::windows::runtime::Result<SmsEncoding> {
         let this = self;
         unsafe {
@@ -4932,12 +5213,14 @@ impl SmsTextMessage {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn SetEncoding(&self, value: SmsEncoding) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation_Collections`*"]
     pub fn ToBinaryMessages(&self, format: SmsDataFormat) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<ISmsBinaryMessage>> {
         let this = self;
         unsafe {
@@ -4945,6 +5228,7 @@ impl SmsTextMessage {
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), format, &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<ISmsBinaryMessage>>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<ISmsMessage>(self)?;
         unsafe {
@@ -4952,6 +5236,7 @@ impl SmsTextMessage {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn MessageClass(&self) -> ::windows::runtime::Result<SmsMessageClass> {
         let this = &::windows::runtime::Interface::cast::<ISmsMessage>(self)?;
         unsafe {
@@ -4960,6 +5245,7 @@ impl SmsTextMessage {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn FromBinaryMessage<'a, Param0: ::windows::runtime::IntoParam<'a, SmsBinaryMessage>>(binarymessage: Param0) -> ::windows::runtime::Result<SmsTextMessage> {
         Self::ISmsTextMessageStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -4967,6 +5253,7 @@ impl SmsTextMessage {
         })
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn FromBinaryData(format: SmsDataFormat, value: &[<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<SmsTextMessage> {
         Self::ISmsTextMessageStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -5072,6 +5359,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ISmsMessage> for &SmsTextMessage {
 }
 unsafe impl ::std::marker::Send for SmsTextMessage {}
 unsafe impl ::std::marker::Sync for SmsTextMessage {}
+#[doc = "*Required features: `Devices_Sms`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SmsTextMessage2(::windows::runtime::IInspectable);
@@ -5084,6 +5372,7 @@ impl SmsTextMessage2 {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
     pub fn Timestamp(&self) -> ::windows::runtime::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -5091,6 +5380,7 @@ impl SmsTextMessage2 {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn To(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -5098,10 +5388,12 @@ impl SmsTextMessage2 {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn SetTo<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn From(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -5109,6 +5401,7 @@ impl SmsTextMessage2 {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn Body(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -5116,10 +5409,12 @@ impl SmsTextMessage2 {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn SetBody<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn Encoding(&self) -> ::windows::runtime::Result<SmsEncoding> {
         let this = self;
         unsafe {
@@ -5127,10 +5422,12 @@ impl SmsTextMessage2 {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SmsEncoding>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn SetEncoding(&self, value: SmsEncoding) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn CallbackNumber(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -5138,10 +5435,12 @@ impl SmsTextMessage2 {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn SetCallbackNumber<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn IsDeliveryNotificationEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -5149,10 +5448,12 @@ impl SmsTextMessage2 {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn SetIsDeliveryNotificationEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn RetryAttemptCount(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -5160,10 +5461,12 @@ impl SmsTextMessage2 {
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn SetRetryAttemptCount(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn TeleserviceId(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -5171,6 +5474,7 @@ impl SmsTextMessage2 {
             (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn ProtocolId(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -5178,6 +5482,7 @@ impl SmsTextMessage2 {
             (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn MessageType(&self) -> ::windows::runtime::Result<SmsMessageType> {
         let this = &::windows::runtime::Interface::cast::<ISmsMessageBase>(self)?;
         unsafe {
@@ -5185,6 +5490,7 @@ impl SmsTextMessage2 {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SmsMessageType>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn DeviceId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<ISmsMessageBase>(self)?;
         unsafe {
@@ -5192,6 +5498,7 @@ impl SmsTextMessage2 {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn CellularClass(&self) -> ::windows::runtime::Result<CellularClass> {
         let this = &::windows::runtime::Interface::cast::<ISmsMessageBase>(self)?;
         unsafe {
@@ -5199,6 +5506,7 @@ impl SmsTextMessage2 {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<CellularClass>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn MessageClass(&self) -> ::windows::runtime::Result<SmsMessageClass> {
         let this = &::windows::runtime::Interface::cast::<ISmsMessageBase>(self)?;
         unsafe {
@@ -5206,6 +5514,7 @@ impl SmsTextMessage2 {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SmsMessageClass>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn SimIccId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<ISmsMessageBase>(self)?;
         unsafe {
@@ -5288,11 +5597,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ISmsMessageBase> for &SmsTextMessage2
 }
 unsafe impl ::std::marker::Send for SmsTextMessage2 {}
 unsafe impl ::std::marker::Sync for SmsTextMessage2 {}
+#[doc = "*Required features: `Devices_Sms`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SmsVoicemailMessage(::windows::runtime::IInspectable);
 impl SmsVoicemailMessage {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
     pub fn Timestamp(&self) -> ::windows::runtime::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -5300,6 +5611,7 @@ impl SmsVoicemailMessage {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn To(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -5307,6 +5619,7 @@ impl SmsVoicemailMessage {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn Body(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -5315,6 +5628,7 @@ impl SmsVoicemailMessage {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
     pub fn MessageCount(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
@@ -5322,6 +5636,7 @@ impl SmsVoicemailMessage {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn MessageType(&self) -> ::windows::runtime::Result<SmsMessageType> {
         let this = &::windows::runtime::Interface::cast::<ISmsMessageBase>(self)?;
         unsafe {
@@ -5329,6 +5644,7 @@ impl SmsVoicemailMessage {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SmsMessageType>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn DeviceId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<ISmsMessageBase>(self)?;
         unsafe {
@@ -5336,6 +5652,7 @@ impl SmsVoicemailMessage {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn CellularClass(&self) -> ::windows::runtime::Result<CellularClass> {
         let this = &::windows::runtime::Interface::cast::<ISmsMessageBase>(self)?;
         unsafe {
@@ -5343,6 +5660,7 @@ impl SmsVoicemailMessage {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<CellularClass>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn MessageClass(&self) -> ::windows::runtime::Result<SmsMessageClass> {
         let this = &::windows::runtime::Interface::cast::<ISmsMessageBase>(self)?;
         unsafe {
@@ -5350,6 +5668,7 @@ impl SmsVoicemailMessage {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SmsMessageClass>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn SimIccId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<ISmsMessageBase>(self)?;
         unsafe {
@@ -5432,11 +5751,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ISmsMessageBase> for &SmsVoicemailMes
 }
 unsafe impl ::std::marker::Send for SmsVoicemailMessage {}
 unsafe impl ::std::marker::Sync for SmsVoicemailMessage {}
+#[doc = "*Required features: `Devices_Sms`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SmsWapMessage(::windows::runtime::IInspectable);
 impl SmsWapMessage {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
     pub fn Timestamp(&self) -> ::windows::runtime::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -5444,6 +5765,7 @@ impl SmsWapMessage {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn To(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -5451,6 +5773,7 @@ impl SmsWapMessage {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn From(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -5458,6 +5781,7 @@ impl SmsWapMessage {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn ApplicationId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -5465,6 +5789,7 @@ impl SmsWapMessage {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn ContentType(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -5473,6 +5798,7 @@ impl SmsWapMessage {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Devices_Sms`, `Storage_Streams`*"]
     pub fn BinaryBody(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
@@ -5481,6 +5807,7 @@ impl SmsWapMessage {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Devices_Sms`, `Foundation_Collections`*"]
     pub fn Headers(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IMap<::windows::runtime::HSTRING, ::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -5488,6 +5815,7 @@ impl SmsWapMessage {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IMap<::windows::runtime::HSTRING, ::windows::runtime::HSTRING>>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn MessageType(&self) -> ::windows::runtime::Result<SmsMessageType> {
         let this = &::windows::runtime::Interface::cast::<ISmsMessageBase>(self)?;
         unsafe {
@@ -5495,6 +5823,7 @@ impl SmsWapMessage {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SmsMessageType>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn DeviceId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<ISmsMessageBase>(self)?;
         unsafe {
@@ -5502,6 +5831,7 @@ impl SmsWapMessage {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn CellularClass(&self) -> ::windows::runtime::Result<CellularClass> {
         let this = &::windows::runtime::Interface::cast::<ISmsMessageBase>(self)?;
         unsafe {
@@ -5509,6 +5839,7 @@ impl SmsWapMessage {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<CellularClass>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn MessageClass(&self) -> ::windows::runtime::Result<SmsMessageClass> {
         let this = &::windows::runtime::Interface::cast::<ISmsMessageBase>(self)?;
         unsafe {
@@ -5516,6 +5847,7 @@ impl SmsWapMessage {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SmsMessageClass>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Sms`*"]
     pub fn SimIccId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<ISmsMessageBase>(self)?;
         unsafe {

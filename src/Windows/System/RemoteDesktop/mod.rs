@@ -20,8 +20,10 @@ pub struct IInteractiveSessionStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `System_RemoteDesktop`*"]
 pub struct InteractiveSession {}
 impl InteractiveSession {
+    #[doc = "*Required features: `System_RemoteDesktop`*"]
     pub fn IsRemote() -> ::windows::runtime::Result<bool> {
         Self::IInteractiveSessionStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();

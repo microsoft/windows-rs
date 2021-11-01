@@ -150,92 +150,108 @@ pub struct IVibrationDeviceStatics_abi(
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
+#[doc = "*Required features: `Devices_Haptics`*"]
 pub struct KnownSimpleHapticsControllerWaveforms {}
 impl KnownSimpleHapticsControllerWaveforms {
+    #[doc = "*Required features: `Devices_Haptics`*"]
     pub fn Click() -> ::windows::runtime::Result<u16> {
         Self::IKnownSimpleHapticsControllerWaveformsStatics(|this| unsafe {
             let mut result__: u16 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Haptics`*"]
     pub fn BuzzContinuous() -> ::windows::runtime::Result<u16> {
         Self::IKnownSimpleHapticsControllerWaveformsStatics(|this| unsafe {
             let mut result__: u16 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Haptics`*"]
     pub fn RumbleContinuous() -> ::windows::runtime::Result<u16> {
         Self::IKnownSimpleHapticsControllerWaveformsStatics(|this| unsafe {
             let mut result__: u16 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Haptics`*"]
     pub fn Press() -> ::windows::runtime::Result<u16> {
         Self::IKnownSimpleHapticsControllerWaveformsStatics(|this| unsafe {
             let mut result__: u16 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Haptics`*"]
     pub fn Release() -> ::windows::runtime::Result<u16> {
         Self::IKnownSimpleHapticsControllerWaveformsStatics(|this| unsafe {
             let mut result__: u16 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Haptics`*"]
     pub fn BrushContinuous() -> ::windows::runtime::Result<u16> {
         Self::IKnownSimpleHapticsControllerWaveformsStatics2(|this| unsafe {
             let mut result__: u16 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Haptics`*"]
     pub fn ChiselMarkerContinuous() -> ::windows::runtime::Result<u16> {
         Self::IKnownSimpleHapticsControllerWaveformsStatics2(|this| unsafe {
             let mut result__: u16 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Haptics`*"]
     pub fn EraserContinuous() -> ::windows::runtime::Result<u16> {
         Self::IKnownSimpleHapticsControllerWaveformsStatics2(|this| unsafe {
             let mut result__: u16 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Haptics`*"]
     pub fn Error() -> ::windows::runtime::Result<u16> {
         Self::IKnownSimpleHapticsControllerWaveformsStatics2(|this| unsafe {
             let mut result__: u16 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Haptics`*"]
     pub fn GalaxyPenContinuous() -> ::windows::runtime::Result<u16> {
         Self::IKnownSimpleHapticsControllerWaveformsStatics2(|this| unsafe {
             let mut result__: u16 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Haptics`*"]
     pub fn Hover() -> ::windows::runtime::Result<u16> {
         Self::IKnownSimpleHapticsControllerWaveformsStatics2(|this| unsafe {
             let mut result__: u16 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Haptics`*"]
     pub fn InkContinuous() -> ::windows::runtime::Result<u16> {
         Self::IKnownSimpleHapticsControllerWaveformsStatics2(|this| unsafe {
             let mut result__: u16 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Haptics`*"]
     pub fn MarkerContinuous() -> ::windows::runtime::Result<u16> {
         Self::IKnownSimpleHapticsControllerWaveformsStatics2(|this| unsafe {
             let mut result__: u16 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Haptics`*"]
     pub fn PencilContinuous() -> ::windows::runtime::Result<u16> {
         Self::IKnownSimpleHapticsControllerWaveformsStatics2(|this| unsafe {
             let mut result__: u16 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Haptics`*"]
     pub fn Success() -> ::windows::runtime::Result<u16> {
         Self::IKnownSimpleHapticsControllerWaveformsStatics2(|this| unsafe {
             let mut result__: u16 = ::std::mem::zeroed();
@@ -254,10 +270,12 @@ impl KnownSimpleHapticsControllerWaveforms {
 impl ::windows::runtime::RuntimeName for KnownSimpleHapticsControllerWaveforms {
     const NAME: &'static str = "Windows.Devices.Haptics.KnownSimpleHapticsControllerWaveforms";
 }
+#[doc = "*Required features: `Devices_Haptics`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SimpleHapticsController(::windows::runtime::IInspectable);
 impl SimpleHapticsController {
+    #[doc = "*Required features: `Devices_Haptics`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -266,6 +284,7 @@ impl SimpleHapticsController {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Devices_Haptics`, `Foundation_Collections`*"]
     pub fn SupportedFeedback(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<SimpleHapticsControllerFeedback>> {
         let this = self;
         unsafe {
@@ -273,6 +292,7 @@ impl SimpleHapticsController {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<SimpleHapticsControllerFeedback>>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Haptics`*"]
     pub fn IsIntensitySupported(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -280,6 +300,7 @@ impl SimpleHapticsController {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Haptics`*"]
     pub fn IsPlayCountSupported(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -287,6 +308,7 @@ impl SimpleHapticsController {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Haptics`*"]
     pub fn IsPlayDurationSupported(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -294,6 +316,7 @@ impl SimpleHapticsController {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Haptics`*"]
     pub fn IsReplayPauseIntervalSupported(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -301,24 +324,29 @@ impl SimpleHapticsController {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Haptics`*"]
     pub fn StopFeedback(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Devices_Haptics`*"]
     pub fn SendHapticFeedback<'a, Param0: ::windows::runtime::IntoParam<'a, SimpleHapticsControllerFeedback>>(&self, feedback: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), feedback.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Devices_Haptics`*"]
     pub fn SendHapticFeedbackWithIntensity<'a, Param0: ::windows::runtime::IntoParam<'a, SimpleHapticsControllerFeedback>>(&self, feedback: Param0, intensity: f64) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), feedback.into_param().abi(), intensity).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Haptics`, `Foundation`*"]
     pub fn SendHapticFeedbackForDuration<'a, Param0: ::windows::runtime::IntoParam<'a, SimpleHapticsControllerFeedback>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, feedback: Param0, intensity: f64, playduration: Param2) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), feedback.into_param().abi(), intensity, playduration.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Haptics`, `Foundation`*"]
     pub fn SendHapticFeedbackForPlayCount<'a, Param0: ::windows::runtime::IntoParam<'a, SimpleHapticsControllerFeedback>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, feedback: Param0, intensity: f64, playcount: i32, replaypauseinterval: Param3) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), feedback.into_param().abi(), intensity, playcount, replaypauseinterval.into_param().abi()).ok() }
@@ -376,10 +404,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for SimpleHapticsController {}
 unsafe impl ::std::marker::Sync for SimpleHapticsController {}
+#[doc = "*Required features: `Devices_Haptics`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SimpleHapticsControllerFeedback(::windows::runtime::IInspectable);
 impl SimpleHapticsControllerFeedback {
+    #[doc = "*Required features: `Devices_Haptics`*"]
     pub fn Waveform(&self) -> ::windows::runtime::Result<u16> {
         let this = self;
         unsafe {
@@ -388,6 +418,7 @@ impl SimpleHapticsControllerFeedback {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Haptics`, `Foundation`*"]
     pub fn Duration(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -448,6 +479,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for SimpleHapticsControllerFeedback {}
 unsafe impl ::std::marker::Sync for SimpleHapticsControllerFeedback {}
+#[doc = "*Required features: `Devices_Haptics`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct VibrationAccessStatus(pub i32);
@@ -469,10 +501,12 @@ unsafe impl ::windows::runtime::Abi for VibrationAccessStatus {
 unsafe impl ::windows::runtime::RuntimeType for VibrationAccessStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Haptics.VibrationAccessStatus;i4)");
 }
+#[doc = "*Required features: `Devices_Haptics`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct VibrationDevice(::windows::runtime::IInspectable);
 impl VibrationDevice {
+    #[doc = "*Required features: `Devices_Haptics`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -480,6 +514,7 @@ impl VibrationDevice {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Haptics`*"]
     pub fn SimpleHapticsController(&self) -> ::windows::runtime::Result<SimpleHapticsController> {
         let this = self;
         unsafe {
@@ -488,12 +523,14 @@ impl VibrationDevice {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Haptics`, `Foundation`*"]
     pub fn RequestAccessAsync() -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<VibrationAccessStatus>> {
         Self::IVibrationDeviceStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<VibrationAccessStatus>>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Haptics`*"]
     pub fn GetDeviceSelector() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IVibrationDeviceStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
@@ -501,6 +538,7 @@ impl VibrationDevice {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Haptics`, `Foundation`*"]
     pub fn FromIdAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(deviceid: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<VibrationDevice>> {
         Self::IVibrationDeviceStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -508,6 +546,7 @@ impl VibrationDevice {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Haptics`, `Foundation`*"]
     pub fn GetDefaultAsync() -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<VibrationDevice>> {
         Self::IVibrationDeviceStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -515,6 +554,7 @@ impl VibrationDevice {
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Devices_Haptics`, `Foundation`, `Foundation_Collections`*"]
     pub fn FindAllAsync() -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<VibrationDevice>>> {
         Self::IVibrationDeviceStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();

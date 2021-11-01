@@ -1,6 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[cfg(feature = "ApplicationModel_ExtendedExecution_Foreground")]
 pub mod Foreground;
+#[doc = "*Required features: `ApplicationModel_ExtendedExecution`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ExtendedExecutionReason(pub i32);
@@ -21,6 +22,7 @@ unsafe impl ::windows::runtime::Abi for ExtendedExecutionReason {
 unsafe impl ::windows::runtime::RuntimeType for ExtendedExecutionReason {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionReason;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_ExtendedExecution`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ExtendedExecutionResult(pub i32);
@@ -40,10 +42,12 @@ unsafe impl ::windows::runtime::Abi for ExtendedExecutionResult {
 unsafe impl ::windows::runtime::RuntimeType for ExtendedExecutionResult {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionResult;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_ExtendedExecution`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ExtendedExecutionRevokedEventArgs(::windows::runtime::IInspectable);
 impl ExtendedExecutionRevokedEventArgs {
+    #[doc = "*Required features: `ApplicationModel_ExtendedExecution`*"]
     pub fn Reason(&self) -> ::windows::runtime::Result<ExtendedExecutionRevokedReason> {
         let this = self;
         unsafe {
@@ -104,6 +108,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for ExtendedExecutionRevokedEventArgs {}
 unsafe impl ::std::marker::Sync for ExtendedExecutionRevokedEventArgs {}
+#[doc = "*Required features: `ApplicationModel_ExtendedExecution`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ExtendedExecutionRevokedReason(pub i32);
@@ -123,6 +128,7 @@ unsafe impl ::windows::runtime::Abi for ExtendedExecutionRevokedReason {
 unsafe impl ::windows::runtime::RuntimeType for ExtendedExecutionRevokedReason {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionRevokedReason;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_ExtendedExecution`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ExtendedExecutionSession(::windows::runtime::IInspectable);
@@ -134,6 +140,7 @@ impl ExtendedExecutionSession {
         static mut SHARED: ::windows::runtime::FactoryCache<ExtendedExecutionSession, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `ApplicationModel_ExtendedExecution`*"]
     pub fn Reason(&self) -> ::windows::runtime::Result<ExtendedExecutionReason> {
         let this = self;
         unsafe {
@@ -141,10 +148,12 @@ impl ExtendedExecutionSession {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ExtendedExecutionReason>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_ExtendedExecution`*"]
     pub fn SetReason(&self, value: ExtendedExecutionReason) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_ExtendedExecution`*"]
     pub fn Description(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -152,10 +161,12 @@ impl ExtendedExecutionSession {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_ExtendedExecution`*"]
     pub fn SetDescription<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_ExtendedExecution`*"]
     pub fn PercentProgress(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -163,11 +174,13 @@ impl ExtendedExecutionSession {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_ExtendedExecution`*"]
     pub fn SetPercentProgress(&self, value: u32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_ExtendedExecution`, `Foundation`*"]
     pub fn Revoked<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<::windows::runtime::IInspectable, ExtendedExecutionRevokedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -176,11 +189,13 @@ impl ExtendedExecutionSession {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_ExtendedExecution`, `Foundation`*"]
     pub fn RemoveRevoked<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_ExtendedExecution`, `Foundation`*"]
     pub fn RequestExtensionAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<ExtendedExecutionResult>> {
         let this = self;
         unsafe {
@@ -189,6 +204,7 @@ impl ExtendedExecutionSession {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_ExtendedExecution`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }

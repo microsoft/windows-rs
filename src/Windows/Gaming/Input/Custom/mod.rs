@@ -1,15 +1,20 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Gaming_Input_Custom`*"]
 pub struct GameControllerFactoryManager {}
 impl GameControllerFactoryManager {
+    #[doc = "*Required features: `Gaming_Input_Custom`*"]
     pub fn RegisterCustomFactoryForGipInterface<'a, Param0: ::windows::runtime::IntoParam<'a, ICustomGameControllerFactory>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(factory: Param0, interfaceid: Param1) -> ::windows::runtime::Result<()> {
         Self::IGameControllerFactoryManagerStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), factory.into_param().abi(), interfaceid.into_param().abi()).ok() })
     }
+    #[doc = "*Required features: `Gaming_Input_Custom`*"]
     pub fn RegisterCustomFactoryForHardwareId<'a, Param0: ::windows::runtime::IntoParam<'a, ICustomGameControllerFactory>>(factory: Param0, hardwarevendorid: u16, hardwareproductid: u16) -> ::windows::runtime::Result<()> {
         Self::IGameControllerFactoryManagerStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), factory.into_param().abi(), hardwarevendorid, hardwareproductid).ok() })
     }
+    #[doc = "*Required features: `Gaming_Input_Custom`*"]
     pub fn RegisterCustomFactoryForXusbType<'a, Param0: ::windows::runtime::IntoParam<'a, ICustomGameControllerFactory>>(factory: Param0, xusbtype: XusbDeviceType, xusbsubtype: XusbDeviceSubtype) -> ::windows::runtime::Result<()> {
         Self::IGameControllerFactoryManagerStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), factory.into_param().abi(), xusbtype, xusbsubtype).ok() })
     }
+    #[doc = "*Required features: `Gaming_Input_Custom`*"]
     pub fn TryGetFactoryControllerFromGameController<'a, Param0: ::windows::runtime::IntoParam<'a, ICustomGameControllerFactory>, Param1: ::windows::runtime::IntoParam<'a, super::IGameController>>(factory: Param0, gamecontroller: Param1) -> ::windows::runtime::Result<super::IGameController> {
         Self::IGameControllerFactoryManagerStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -30,6 +35,7 @@ impl ::windows::runtime::RuntimeName for GameControllerFactoryManager {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Gaming_Input_Custom`*"]
 pub struct GameControllerVersionInfo {
     pub Major: u16,
     pub Minor: u16,
@@ -62,6 +68,7 @@ unsafe impl ::windows::runtime::RuntimeType for GameControllerVersionInfo {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Gaming_Input_Custom`*"]
 pub struct GipFirmwareUpdateProgress {
     pub PercentCompleted: f64,
     pub CurrentComponentId: u32,
@@ -90,10 +97,12 @@ unsafe impl ::windows::runtime::Abi for GipFirmwareUpdateProgress {
 unsafe impl ::windows::runtime::RuntimeType for GipFirmwareUpdateProgress {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.Custom.GipFirmwareUpdateProgress;f8;u4)");
 }
+#[doc = "*Required features: `Gaming_Input_Custom`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct GipFirmwareUpdateResult(::windows::runtime::IInspectable);
 impl GipFirmwareUpdateResult {
+    #[doc = "*Required features: `Gaming_Input_Custom`*"]
     pub fn ExtendedErrorCode(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -101,6 +110,7 @@ impl GipFirmwareUpdateResult {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Gaming_Input_Custom`*"]
     pub fn FinalComponentId(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -108,6 +118,7 @@ impl GipFirmwareUpdateResult {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Gaming_Input_Custom`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<GipFirmwareUpdateStatus> {
         let this = self;
         unsafe {
@@ -168,6 +179,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for GipFirmwareUpdateResult {}
 unsafe impl ::std::marker::Sync for GipFirmwareUpdateResult {}
+#[doc = "*Required features: `Gaming_Input_Custom`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GipFirmwareUpdateStatus(pub i32);
@@ -188,19 +200,23 @@ unsafe impl ::windows::runtime::Abi for GipFirmwareUpdateStatus {
 unsafe impl ::windows::runtime::RuntimeType for GipFirmwareUpdateStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Custom.GipFirmwareUpdateStatus;i4)");
 }
+#[doc = "*Required features: `Gaming_Input_Custom`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct GipGameControllerProvider(::windows::runtime::IInspectable);
 impl GipGameControllerProvider {
+    #[doc = "*Required features: `Gaming_Input_Custom`*"]
     pub fn SendMessage(&self, messageclass: GipMessageClass, messageid: u8, messagebuffer: &[<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), messageclass, messageid, messagebuffer.len() as u32, ::std::mem::transmute(messagebuffer.as_ptr())).ok() }
     }
+    #[doc = "*Required features: `Gaming_Input_Custom`*"]
     pub fn SendReceiveMessage(&self, messageclass: GipMessageClass, messageid: u8, requestmessagebuffer: &[<u8 as ::windows::runtime::Abi>::DefaultType], responsemessagebuffer: &mut [<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), messageclass, messageid, requestmessagebuffer.len() as u32, ::std::mem::transmute(requestmessagebuffer.as_ptr()), responsemessagebuffer.len() as u32, ::std::mem::transmute_copy(&responsemessagebuffer)).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Gaming_Input_Custom`, `Foundation`, `Storage_Streams`*"]
     pub fn UpdateFirmwareAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Storage::Streams::IInputStream>>(&self, firmwareimage: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperationWithProgress<GipFirmwareUpdateResult, GipFirmwareUpdateProgress>> {
         let this = self;
         unsafe {
@@ -208,6 +224,7 @@ impl GipGameControllerProvider {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), firmwareimage.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperationWithProgress<GipFirmwareUpdateResult, GipFirmwareUpdateProgress>>(result__)
         }
     }
+    #[doc = "*Required features: `Gaming_Input_Custom`*"]
     pub fn FirmwareVersionInfo(&self) -> ::windows::runtime::Result<GameControllerVersionInfo> {
         let this = &::windows::runtime::Interface::cast::<IGameControllerProvider>(self)?;
         unsafe {
@@ -215,6 +232,7 @@ impl GipGameControllerProvider {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<GameControllerVersionInfo>(result__)
         }
     }
+    #[doc = "*Required features: `Gaming_Input_Custom`*"]
     pub fn HardwareProductId(&self) -> ::windows::runtime::Result<u16> {
         let this = &::windows::runtime::Interface::cast::<IGameControllerProvider>(self)?;
         unsafe {
@@ -222,6 +240,7 @@ impl GipGameControllerProvider {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         }
     }
+    #[doc = "*Required features: `Gaming_Input_Custom`*"]
     pub fn HardwareVendorId(&self) -> ::windows::runtime::Result<u16> {
         let this = &::windows::runtime::Interface::cast::<IGameControllerProvider>(self)?;
         unsafe {
@@ -229,6 +248,7 @@ impl GipGameControllerProvider {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         }
     }
+    #[doc = "*Required features: `Gaming_Input_Custom`*"]
     pub fn HardwareVersionInfo(&self) -> ::windows::runtime::Result<GameControllerVersionInfo> {
         let this = &::windows::runtime::Interface::cast::<IGameControllerProvider>(self)?;
         unsafe {
@@ -236,6 +256,7 @@ impl GipGameControllerProvider {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<GameControllerVersionInfo>(result__)
         }
     }
+    #[doc = "*Required features: `Gaming_Input_Custom`*"]
     pub fn IsConnected(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IGameControllerProvider>(self)?;
         unsafe {
@@ -318,6 +339,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IGameControllerProvider> for &GipGame
 }
 unsafe impl ::std::marker::Send for GipGameControllerProvider {}
 unsafe impl ::std::marker::Sync for GipGameControllerProvider {}
+#[doc = "*Required features: `Gaming_Input_Custom`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GipMessageClass(pub i32);
@@ -338,10 +360,12 @@ unsafe impl ::windows::runtime::Abi for GipMessageClass {
 unsafe impl ::windows::runtime::RuntimeType for GipMessageClass {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Custom.GipMessageClass;i4)");
 }
+#[doc = "*Required features: `Gaming_Input_Custom`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct HidGameControllerProvider(::windows::runtime::IInspectable);
 impl HidGameControllerProvider {
+    #[doc = "*Required features: `Gaming_Input_Custom`*"]
     pub fn FirmwareVersionInfo(&self) -> ::windows::runtime::Result<GameControllerVersionInfo> {
         let this = &::windows::runtime::Interface::cast::<IGameControllerProvider>(self)?;
         unsafe {
@@ -349,6 +373,7 @@ impl HidGameControllerProvider {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<GameControllerVersionInfo>(result__)
         }
     }
+    #[doc = "*Required features: `Gaming_Input_Custom`*"]
     pub fn HardwareProductId(&self) -> ::windows::runtime::Result<u16> {
         let this = &::windows::runtime::Interface::cast::<IGameControllerProvider>(self)?;
         unsafe {
@@ -356,6 +381,7 @@ impl HidGameControllerProvider {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         }
     }
+    #[doc = "*Required features: `Gaming_Input_Custom`*"]
     pub fn HardwareVendorId(&self) -> ::windows::runtime::Result<u16> {
         let this = &::windows::runtime::Interface::cast::<IGameControllerProvider>(self)?;
         unsafe {
@@ -363,6 +389,7 @@ impl HidGameControllerProvider {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         }
     }
+    #[doc = "*Required features: `Gaming_Input_Custom`*"]
     pub fn HardwareVersionInfo(&self) -> ::windows::runtime::Result<GameControllerVersionInfo> {
         let this = &::windows::runtime::Interface::cast::<IGameControllerProvider>(self)?;
         unsafe {
@@ -370,6 +397,7 @@ impl HidGameControllerProvider {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<GameControllerVersionInfo>(result__)
         }
     }
+    #[doc = "*Required features: `Gaming_Input_Custom`*"]
     pub fn IsConnected(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IGameControllerProvider>(self)?;
         unsafe {
@@ -377,6 +405,7 @@ impl HidGameControllerProvider {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Gaming_Input_Custom`*"]
     pub fn UsageId(&self) -> ::windows::runtime::Result<u16> {
         let this = self;
         unsafe {
@@ -384,6 +413,7 @@ impl HidGameControllerProvider {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         }
     }
+    #[doc = "*Required features: `Gaming_Input_Custom`*"]
     pub fn UsagePage(&self) -> ::windows::runtime::Result<u16> {
         let this = self;
         unsafe {
@@ -391,14 +421,17 @@ impl HidGameControllerProvider {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         }
     }
+    #[doc = "*Required features: `Gaming_Input_Custom`*"]
     pub fn GetFeatureReport(&self, reportid: u8, reportbuffer: &mut [<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), reportid, reportbuffer.len() as u32, ::std::mem::transmute_copy(&reportbuffer)).ok() }
     }
+    #[doc = "*Required features: `Gaming_Input_Custom`*"]
     pub fn SendFeatureReport(&self, reportid: u8, reportbuffer: &[<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), reportid, reportbuffer.len() as u32, ::std::mem::transmute(reportbuffer.as_ptr())).ok() }
     }
+    #[doc = "*Required features: `Gaming_Input_Custom`*"]
     pub fn SendOutputReport(&self, reportid: u8, reportbuffer: &[<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), reportid, reportbuffer.len() as u32, ::std::mem::transmute(reportbuffer.as_ptr())).ok() }
@@ -480,12 +513,14 @@ unsafe impl ::std::marker::Send for HidGameControllerProvider {}
 unsafe impl ::std::marker::Sync for HidGameControllerProvider {}
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Gaming_Input_Custom`*"]
 pub struct ICustomGameControllerFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICustomGameControllerFactory {
     type Vtable = ICustomGameControllerFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1772138078, 30094, 19646, [172, 230, 98, 21, 95, 233, 18, 111]);
 }
 impl ICustomGameControllerFactory {
+    #[doc = "*Required features: `Gaming_Input_Custom`*"]
     pub fn CreateGameController<'a, Param0: ::windows::runtime::IntoParam<'a, IGameControllerProvider>>(&self, provider: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = self;
         unsafe {
@@ -493,10 +528,12 @@ impl ICustomGameControllerFactory {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), provider.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Gaming_Input_Custom`*"]
     pub fn OnGameControllerAdded<'a, Param0: ::windows::runtime::IntoParam<'a, super::IGameController>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Gaming_Input_Custom`*"]
     pub fn OnGameControllerRemoved<'a, Param0: ::windows::runtime::IntoParam<'a, super::IGameController>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -600,16 +637,19 @@ pub struct IGameControllerFactoryManagerStatics2_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Gaming_Input_Custom`*"]
 pub struct IGameControllerInputSink(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameControllerInputSink {
     type Vtable = IGameControllerInputSink_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(536279330, 50752, 19576, [168, 32, 154, 113, 92, 85, 139, 203]);
 }
 impl IGameControllerInputSink {
+    #[doc = "*Required features: `Gaming_Input_Custom`*"]
     pub fn OnInputResumed(&self, timestamp: u64) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), timestamp).ok() }
     }
+    #[doc = "*Required features: `Gaming_Input_Custom`*"]
     pub fn OnInputSuspended(&self, timestamp: u64) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), timestamp).ok() }
@@ -672,12 +712,14 @@ pub struct IGameControllerInputSink_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Gaming_Input_Custom`*"]
 pub struct IGameControllerProvider(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameControllerProvider {
     type Vtable = IGameControllerProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3872864642, 10646, 17753, [177, 108, 62, 87, 212, 110, 88, 214]);
 }
 impl IGameControllerProvider {
+    #[doc = "*Required features: `Gaming_Input_Custom`*"]
     pub fn FirmwareVersionInfo(&self) -> ::windows::runtime::Result<GameControllerVersionInfo> {
         let this = self;
         unsafe {
@@ -685,6 +727,7 @@ impl IGameControllerProvider {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<GameControllerVersionInfo>(result__)
         }
     }
+    #[doc = "*Required features: `Gaming_Input_Custom`*"]
     pub fn HardwareProductId(&self) -> ::windows::runtime::Result<u16> {
         let this = self;
         unsafe {
@@ -692,6 +735,7 @@ impl IGameControllerProvider {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         }
     }
+    #[doc = "*Required features: `Gaming_Input_Custom`*"]
     pub fn HardwareVendorId(&self) -> ::windows::runtime::Result<u16> {
         let this = self;
         unsafe {
@@ -699,6 +743,7 @@ impl IGameControllerProvider {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         }
     }
+    #[doc = "*Required features: `Gaming_Input_Custom`*"]
     pub fn HardwareVersionInfo(&self) -> ::windows::runtime::Result<GameControllerVersionInfo> {
         let this = self;
         unsafe {
@@ -706,6 +751,7 @@ impl IGameControllerProvider {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<GameControllerVersionInfo>(result__)
         }
     }
+    #[doc = "*Required features: `Gaming_Input_Custom`*"]
     pub fn IsConnected(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -795,24 +841,29 @@ pub struct IGipFirmwareUpdateResult_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Gaming_Input_Custom`*"]
 pub struct IGipGameControllerInputSink(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGipGameControllerInputSink {
     type Vtable = IGipGameControllerInputSink_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2718993087, 2545, 17340, [161, 64, 128, 248, 153, 236, 54, 251]);
 }
 impl IGipGameControllerInputSink {
+    #[doc = "*Required features: `Gaming_Input_Custom`*"]
     pub fn OnKeyReceived(&self, timestamp: u64, keycode: u8, ispressed: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), timestamp, keycode, ispressed).ok() }
     }
+    #[doc = "*Required features: `Gaming_Input_Custom`*"]
     pub fn OnMessageReceived(&self, timestamp: u64, messageclass: GipMessageClass, messageid: u8, sequenceid: u8, messagebuffer: &[<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), timestamp, messageclass, messageid, sequenceid, messagebuffer.len() as u32, ::std::mem::transmute(messagebuffer.as_ptr())).ok() }
     }
+    #[doc = "*Required features: `Gaming_Input_Custom`*"]
     pub fn OnInputResumed(&self, timestamp: u64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IGameControllerInputSink>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), timestamp).ok() }
     }
+    #[doc = "*Required features: `Gaming_Input_Custom`*"]
     pub fn OnInputSuspended(&self, timestamp: u64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IGameControllerInputSink>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), timestamp).ok() }
@@ -919,20 +970,24 @@ pub struct IGipGameControllerProvider_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Gaming_Input_Custom`*"]
 pub struct IHidGameControllerInputSink(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHidGameControllerInputSink {
     type Vtable = IHidGameControllerInputSink_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4149527330, 6189, 16612, [161, 38, 252, 238, 79, 250, 30, 49]);
 }
 impl IHidGameControllerInputSink {
+    #[doc = "*Required features: `Gaming_Input_Custom`*"]
     pub fn OnInputResumed(&self, timestamp: u64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IGameControllerInputSink>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), timestamp).ok() }
     }
+    #[doc = "*Required features: `Gaming_Input_Custom`*"]
     pub fn OnInputSuspended(&self, timestamp: u64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IGameControllerInputSink>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), timestamp).ok() }
     }
+    #[doc = "*Required features: `Gaming_Input_Custom`*"]
     pub fn OnInputReportReceived(&self, timestamp: u64, reportid: u8, reportbuffer: &[<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), timestamp, reportid, reportbuffer.len() as u32, ::std::mem::transmute(reportbuffer.as_ptr())).ok() }
@@ -1039,20 +1094,24 @@ pub struct IHidGameControllerProvider_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Gaming_Input_Custom`*"]
 pub struct IXusbGameControllerInputSink(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXusbGameControllerInputSink {
     type Vtable = IXusbGameControllerInputSink_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2997624213, 28363, 17075, [138, 171, 2, 84, 1, 202, 71, 18]);
 }
 impl IXusbGameControllerInputSink {
+    #[doc = "*Required features: `Gaming_Input_Custom`*"]
     pub fn OnInputReceived(&self, timestamp: u64, reportid: u8, inputbuffer: &[<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), timestamp, reportid, inputbuffer.len() as u32, ::std::mem::transmute(inputbuffer.as_ptr())).ok() }
     }
+    #[doc = "*Required features: `Gaming_Input_Custom`*"]
     pub fn OnInputResumed(&self, timestamp: u64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IGameControllerInputSink>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), timestamp).ok() }
     }
+    #[doc = "*Required features: `Gaming_Input_Custom`*"]
     pub fn OnInputSuspended(&self, timestamp: u64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IGameControllerInputSink>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), timestamp).ok() }
@@ -1153,6 +1212,7 @@ pub struct IXusbGameControllerProvider_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lowfrequencymotorspeed: f64, highfrequencymotorspeed: f64) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Gaming_Input_Custom`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct XusbDeviceSubtype(pub i32);
@@ -1181,6 +1241,7 @@ unsafe impl ::windows::runtime::Abi for XusbDeviceSubtype {
 unsafe impl ::windows::runtime::RuntimeType for XusbDeviceSubtype {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Custom.XusbDeviceSubtype;i4)");
 }
+#[doc = "*Required features: `Gaming_Input_Custom`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct XusbDeviceType(pub i32);
@@ -1200,14 +1261,17 @@ unsafe impl ::windows::runtime::Abi for XusbDeviceType {
 unsafe impl ::windows::runtime::RuntimeType for XusbDeviceType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Custom.XusbDeviceType;i4)");
 }
+#[doc = "*Required features: `Gaming_Input_Custom`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct XusbGameControllerProvider(::windows::runtime::IInspectable);
 impl XusbGameControllerProvider {
+    #[doc = "*Required features: `Gaming_Input_Custom`*"]
     pub fn SetVibration(&self, lowfrequencymotorspeed: f64, highfrequencymotorspeed: f64) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), lowfrequencymotorspeed, highfrequencymotorspeed).ok() }
     }
+    #[doc = "*Required features: `Gaming_Input_Custom`*"]
     pub fn FirmwareVersionInfo(&self) -> ::windows::runtime::Result<GameControllerVersionInfo> {
         let this = &::windows::runtime::Interface::cast::<IGameControllerProvider>(self)?;
         unsafe {
@@ -1215,6 +1279,7 @@ impl XusbGameControllerProvider {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<GameControllerVersionInfo>(result__)
         }
     }
+    #[doc = "*Required features: `Gaming_Input_Custom`*"]
     pub fn HardwareProductId(&self) -> ::windows::runtime::Result<u16> {
         let this = &::windows::runtime::Interface::cast::<IGameControllerProvider>(self)?;
         unsafe {
@@ -1222,6 +1287,7 @@ impl XusbGameControllerProvider {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         }
     }
+    #[doc = "*Required features: `Gaming_Input_Custom`*"]
     pub fn HardwareVendorId(&self) -> ::windows::runtime::Result<u16> {
         let this = &::windows::runtime::Interface::cast::<IGameControllerProvider>(self)?;
         unsafe {
@@ -1229,6 +1295,7 @@ impl XusbGameControllerProvider {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         }
     }
+    #[doc = "*Required features: `Gaming_Input_Custom`*"]
     pub fn HardwareVersionInfo(&self) -> ::windows::runtime::Result<GameControllerVersionInfo> {
         let this = &::windows::runtime::Interface::cast::<IGameControllerProvider>(self)?;
         unsafe {
@@ -1236,6 +1303,7 @@ impl XusbGameControllerProvider {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<GameControllerVersionInfo>(result__)
         }
     }
+    #[doc = "*Required features: `Gaming_Input_Custom`*"]
     pub fn IsConnected(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IGameControllerProvider>(self)?;
         unsafe {

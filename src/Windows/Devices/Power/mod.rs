@@ -1,8 +1,10 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Devices_Power`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct Battery(::windows::runtime::IInspectable);
 impl Battery {
+    #[doc = "*Required features: `Devices_Power`*"]
     pub fn DeviceId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -10,6 +12,7 @@ impl Battery {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Power`*"]
     pub fn GetReport(&self) -> ::windows::runtime::Result<BatteryReport> {
         let this = self;
         unsafe {
@@ -18,6 +21,7 @@ impl Battery {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Power`, `Foundation`*"]
     pub fn ReportUpdated<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<Battery, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -26,10 +30,12 @@ impl Battery {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Power`, `Foundation`*"]
     pub fn RemoveReportUpdated<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Devices_Power`*"]
     pub fn AggregateBattery() -> ::windows::runtime::Result<Battery> {
         Self::IBatteryStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -37,12 +43,14 @@ impl Battery {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Power`, `Foundation`*"]
     pub fn FromIdAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(deviceid: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<Battery>> {
         Self::IBatteryStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), deviceid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<Battery>>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Power`*"]
     pub fn GetDeviceSelector() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IBatteryStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
@@ -106,11 +114,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for Battery {}
 unsafe impl ::std::marker::Sync for Battery {}
+#[doc = "*Required features: `Devices_Power`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct BatteryReport(::windows::runtime::IInspectable);
 impl BatteryReport {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Power`, `Foundation`*"]
     pub fn ChargeRateInMilliwatts(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
@@ -119,6 +129,7 @@ impl BatteryReport {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Power`, `Foundation`*"]
     pub fn DesignCapacityInMilliwattHours(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
@@ -127,6 +138,7 @@ impl BatteryReport {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Power`, `Foundation`*"]
     pub fn FullChargeCapacityInMilliwattHours(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
@@ -135,6 +147,7 @@ impl BatteryReport {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Power`, `Foundation`*"]
     pub fn RemainingCapacityInMilliwattHours(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
@@ -143,6 +156,7 @@ impl BatteryReport {
         }
     }
     #[cfg(feature = "System_Power")]
+    #[doc = "*Required features: `Devices_Power`, `System_Power`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<super::super::System::Power::BatteryStatus> {
         let this = self;
         unsafe {

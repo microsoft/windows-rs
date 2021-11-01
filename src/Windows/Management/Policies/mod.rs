@@ -55,8 +55,10 @@ pub struct INamedPolicyStatics_abi(
     #[cfg(feature = "System")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, user: ::windows::runtime::RawPtr, area: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, name: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "System"))] usize,
 );
+#[doc = "*Required features: `Management_Policies`*"]
 pub struct NamedPolicy {}
 impl NamedPolicy {
+    #[doc = "*Required features: `Management_Policies`*"]
     pub fn GetPolicyFromPath<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(area: Param0, name: Param1) -> ::windows::runtime::Result<NamedPolicyData> {
         Self::INamedPolicyStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -64,6 +66,7 @@ impl NamedPolicy {
         })
     }
     #[cfg(feature = "System")]
+    #[doc = "*Required features: `Management_Policies`, `System`*"]
     pub fn GetPolicyFromPathForUser<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::User>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(user: Param0, area: Param1, name: Param2) -> ::windows::runtime::Result<NamedPolicyData> {
         Self::INamedPolicyStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -78,10 +81,12 @@ impl NamedPolicy {
 impl ::windows::runtime::RuntimeName for NamedPolicy {
     const NAME: &'static str = "Windows.Management.Policies.NamedPolicy";
 }
+#[doc = "*Required features: `Management_Policies`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct NamedPolicyData(::windows::runtime::IInspectable);
 impl NamedPolicyData {
+    #[doc = "*Required features: `Management_Policies`*"]
     pub fn Area(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -89,6 +94,7 @@ impl NamedPolicyData {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Policies`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -96,6 +102,7 @@ impl NamedPolicyData {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Policies`*"]
     pub fn Kind(&self) -> ::windows::runtime::Result<NamedPolicyKind> {
         let this = self;
         unsafe {
@@ -103,6 +110,7 @@ impl NamedPolicyData {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<NamedPolicyKind>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Policies`*"]
     pub fn IsManaged(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -110,6 +118,7 @@ impl NamedPolicyData {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Policies`*"]
     pub fn IsUserPolicy(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -118,6 +127,7 @@ impl NamedPolicyData {
         }
     }
     #[cfg(feature = "System")]
+    #[doc = "*Required features: `Management_Policies`, `System`*"]
     pub fn User(&self) -> ::windows::runtime::Result<super::super::System::User> {
         let this = self;
         unsafe {
@@ -125,6 +135,7 @@ impl NamedPolicyData {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Policies`*"]
     pub fn GetBoolean(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -133,6 +144,7 @@ impl NamedPolicyData {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Management_Policies`, `Storage_Streams`*"]
     pub fn GetBinary(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
@@ -140,6 +152,7 @@ impl NamedPolicyData {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Policies`*"]
     pub fn GetInt32(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -147,6 +160,7 @@ impl NamedPolicyData {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Policies`*"]
     pub fn GetInt64(&self) -> ::windows::runtime::Result<i64> {
         let this = self;
         unsafe {
@@ -154,6 +168,7 @@ impl NamedPolicyData {
             (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i64>(result__)
         }
     }
+    #[doc = "*Required features: `Management_Policies`*"]
     pub fn GetString(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -162,6 +177,7 @@ impl NamedPolicyData {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Management_Policies`, `Foundation`*"]
     pub fn Changed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<NamedPolicyData, ::windows::runtime::IInspectable>>>(&self, changedhandler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -170,6 +186,7 @@ impl NamedPolicyData {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Management_Policies`, `Foundation`*"]
     pub fn RemoveChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
@@ -227,6 +244,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for NamedPolicyData {}
 unsafe impl ::std::marker::Sync for NamedPolicyData {}
+#[doc = "*Required features: `Management_Policies`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NamedPolicyKind(pub i32);

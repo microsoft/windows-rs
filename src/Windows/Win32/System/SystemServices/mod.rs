@@ -1,28 +1,51 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ACCESS_ALLOWED_ACE_TYPE: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ACCESS_ALLOWED_CALLBACK_ACE_TYPE: u32 = 9u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ACCESS_ALLOWED_CALLBACK_OBJECT_ACE_TYPE: u32 = 11u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ACCESS_ALLOWED_COMPOUND_ACE_TYPE: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ACCESS_ALLOWED_OBJECT_ACE_TYPE: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ACCESS_DENIED_ACE_TYPE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ACCESS_DENIED_CALLBACK_ACE_TYPE: u32 = 10u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ACCESS_DENIED_CALLBACK_OBJECT_ACE_TYPE: u32 = 12u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ACCESS_DENIED_OBJECT_ACE_TYPE: u32 = 6u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ACCESS_FILTER_SECURITY_INFORMATION: i32 = 256i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ACCESS_MAX_LEVEL: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ACCESS_MAX_MS_ACE_TYPE: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ACCESS_MAX_MS_OBJECT_ACE_TYPE: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ACCESS_MAX_MS_V2_ACE_TYPE: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ACCESS_MAX_MS_V3_ACE_TYPE: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ACCESS_MAX_MS_V4_ACE_TYPE: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ACCESS_MAX_MS_V5_ACE_TYPE: u32 = 21u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ACCESS_MIN_MS_ACE_TYPE: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ACCESS_MIN_MS_OBJECT_ACE_TYPE: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ACCESS_OBJECT_GUID: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ACCESS_PROPERTY_GUID: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ACCESS_PROPERTY_SET_GUID: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct ACCESS_REASONS {
     pub Data: [u32; 32],
 }
@@ -47,9 +70,13 @@ unsafe impl ::windows::runtime::Abi for ACCESS_REASONS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ACCESS_REASON_DATA_MASK: u32 = 65535u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ACCESS_REASON_EXDATA_MASK: u32 = 2130706432u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ACCESS_REASON_STAGING_MASK: u32 = 2147483648u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ACCESS_REASON_TYPE(pub i32);
@@ -80,15 +107,25 @@ unsafe impl ::windows::runtime::Abi for ACCESS_REASON_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ACCESS_REASON_TYPE_MASK: u32 = 16711680u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ACCESS_SYSTEM_SECURITY: u32 = 16777216u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ACL_REVISION1: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ACL_REVISION2: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ACL_REVISION3: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ACL_REVISION4: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ACPI_PPM_HARDWARE_ALL: u32 = 254u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ACPI_PPM_SOFTWARE_ALL: u32 = 252u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ACPI_PPM_SOFTWARE_ANY: u32 = 253u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ACTIVATION_CONTEXT_INFO_CLASS(pub i32);
@@ -111,22 +148,39 @@ unsafe impl ::windows::runtime::Abi for ACTIVATION_CONTEXT_INFO_CLASS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ACTIVATION_CONTEXT_PATH_TYPE_ASSEMBLYREF: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ACTIVATION_CONTEXT_PATH_TYPE_NONE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ACTIVATION_CONTEXT_PATH_TYPE_URL: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ACTIVATION_CONTEXT_PATH_TYPE_WIN32_FILE: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ACTIVATION_CONTEXT_SECTION_APPLICATION_SETTINGS: u32 = 10u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ACTIVATION_CONTEXT_SECTION_ASSEMBLY_INFORMATION: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ACTIVATION_CONTEXT_SECTION_CLR_SURROGATES: u32 = 9u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ACTIVATION_CONTEXT_SECTION_COMPATIBILITY_INFO: u32 = 11u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ACTIVATION_CONTEXT_SECTION_COM_INTERFACE_REDIRECTION: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ACTIVATION_CONTEXT_SECTION_COM_PROGID_REDIRECTION: u32 = 7u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ACTIVATION_CONTEXT_SECTION_COM_SERVER_REDIRECTION: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ACTIVATION_CONTEXT_SECTION_COM_TYPE_LIBRARY_REDIRECTION: u32 = 6u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ACTIVATION_CONTEXT_SECTION_DLL_REDIRECTION: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ACTIVATION_CONTEXT_SECTION_GLOBAL_OBJECT_RENAME_TABLE: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ACTIVATION_CONTEXT_SECTION_WINDOW_CLASS_REDIRECTION: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ACTIVATION_CONTEXT_SECTION_WINRT_ACTIVATABLE_CLASSES: u32 = 12u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ALERT_SYSTEM_SEV(pub u32);
@@ -173,9 +227,11 @@ impl ::std::ops::Not for ALERT_SYSTEM_SEV {
     }
 }
 pub const ALL_POWERSCHEMES_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1755441502, 5098, 16865, [128, 17, 12, 73, 108, 164, 144, 176]);
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ALL_PROCESSOR_GROUPS: u32 = 65535u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct ANON_OBJECT_HEADER {
     pub Sig1: u16,
     pub Sig2: u16,
@@ -208,6 +264,7 @@ unsafe impl ::windows::runtime::Abi for ANON_OBJECT_HEADER {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct ANON_OBJECT_HEADER_BIGOBJ {
     pub Sig1: u16,
     pub Sig2: u16,
@@ -272,6 +329,7 @@ unsafe impl ::windows::runtime::Abi for ANON_OBJECT_HEADER_BIGOBJ {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct ANON_OBJECT_HEADER_V2 {
     pub Sig1: u16,
     pub Sig2: u16,
@@ -316,8 +374,10 @@ unsafe impl ::windows::runtime::Abi for ANON_OBJECT_HEADER_V2 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ANYSIZE_ARRAY: u32 = 1u32;
 pub type APC_CALLBACK_FUNCTION = unsafe extern "system" fn(param0: u32, param1: *mut ::std::ffi::c_void, param2: *mut ::std::ffi::c_void);
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct APPCOMMAND_ID(pub u32);
@@ -414,6 +474,7 @@ impl ::std::ops::Not for APPCOMMAND_ID {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct APPLICATIONLAUNCH_SETTING_VALUE {
     pub ActivationTime: i64,
     pub Flags: u32,
@@ -440,7 +501,9 @@ unsafe impl ::windows::runtime::Abi for APPLICATIONLAUNCH_SETTING_VALUE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const APPLICATION_ERROR_MASK: u32 = 536870912u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ARM64_FNPDATA_CR(pub i32);
@@ -457,6 +520,7 @@ unsafe impl ::windows::runtime::Abi for ARM64_FNPDATA_CR {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ARM64_FNPDATA_FLAGS(pub i32);
@@ -472,11 +536,15 @@ unsafe impl ::windows::runtime::Abi for ARM64_FNPDATA_FLAGS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ARM64_MAX_BREAKPOINTS: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ARM64_MAX_WATCHPOINTS: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ARM64_MULT_INTRINSICS_SUPPORTED: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct ARM64_NT_CONTEXT {
     pub ContextFlags: u32,
     pub Cpsr: u32,
@@ -509,6 +577,7 @@ unsafe impl ::windows::runtime::Abi for ARM64_NT_CONTEXT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union ARM64_NT_CONTEXT_0 {
     pub Anonymous: ARM64_NT_CONTEXT_0_0,
     pub X: [u64; 31],
@@ -531,6 +600,7 @@ unsafe impl ::windows::runtime::Abi for ARM64_NT_CONTEXT_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct ARM64_NT_CONTEXT_0_0 {
     pub X0: u64,
     pub X1: u64,
@@ -649,6 +719,7 @@ unsafe impl ::windows::runtime::Abi for ARM64_NT_CONTEXT_0_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union ARM64_NT_NEON128 {
     pub Anonymous: ARM64_NT_NEON128_0,
     pub D: [f64; 2],
@@ -674,6 +745,7 @@ unsafe impl ::windows::runtime::Abi for ARM64_NT_NEON128 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct ARM64_NT_NEON128_0 {
     pub Low: u64,
     pub High: i64,
@@ -699,18 +771,31 @@ unsafe impl ::windows::runtime::Abi for ARM64_NT_NEON128_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ARM64_PREFETCH_KEEP: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ARM64_PREFETCH_L1: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ARM64_PREFETCH_L2: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ARM64_PREFETCH_L3: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ARM64_PREFETCH_PLD: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ARM64_PREFETCH_PLI: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ARM64_PREFETCH_PST: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ARM64_PREFETCH_STRM: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ARM_CACHE_ALIGNMENT_SIZE: u32 = 128u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ARM_MAX_BREAKPOINTS: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ARM_MAX_WATCHPOINTS: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ASSERT_BREAKPOINT: u32 = 524291u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ATF_FLAGS(pub u32);
@@ -753,42 +838,75 @@ impl ::std::ops::Not for ATF_FLAGS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const AUDIT_ALLOW_NO_PRIVILEGE: u32 = 1u32;
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
 pub struct AtlThunkData_t(pub u8);
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const BATTERY_DISCHARGE_FLAGS_ENABLE: u32 = 2147483648u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const BATTERY_DISCHARGE_FLAGS_EVENTCODE_MASK: u32 = 7u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const BMF_16BPP: i32 = 4i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const BMF_1BPP: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const BMF_24BPP: i32 = 5i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const BMF_32BPP: i32 = 6i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const BMF_4BPP: i32 = 2i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const BMF_4RLE: i32 = 7i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const BMF_8BPP: i32 = 3i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const BMF_8RLE: i32 = 8i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const BMF_ACC_NOTIFY: u32 = 32768u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const BMF_DONTCACHE: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const BMF_JPEG: i32 = 9i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const BMF_KMSECTION: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const BMF_NOTSYSMEM: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const BMF_NOZEROINIT: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const BMF_PNG: i32 = 10i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const BMF_RESERVED: u32 = 15872u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const BMF_RMT_ENTER: u32 = 16384u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const BMF_TEMP_ALPHA: u32 = 256u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const BMF_TOPDOWN: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const BMF_UMPDMEM: u32 = 128u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const BMF_USERMEM: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const BMF_WINDOW_BLT: u32 = 64u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const BREAK_DEBUG_BASE: u32 = 524288u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const BR_CMYKCOLOR: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const BR_DEVICE_ICM: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const BR_HOST_ICM: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const BR_ORIGCOLOR: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const BSF_MSGSRV32ISOK: u32 = 2147483648u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const BSF_MSGSRV32ISOK_BIT: u32 = 31u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[inline]
 pub unsafe fn BindIoCompletionCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, function: ::std::option::Option<super::IO::LPOVERLAPPED_COMPLETION_ROUTINE>, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -802,15 +920,22 @@ pub unsafe fn BindIoCompletionCallback<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const CACHE_FULLY_ASSOCIATIVE: u32 = 255u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const CDBEX_CROSSADAPTER: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const CDBEX_DXINTEROP: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const CDBEX_NTSHAREDSURFACEHANDLE: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const CDBEX_REDIRECTION: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const CDBEX_REUSE: u32 = 16u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub struct CDDDXGK_REDIRBITMAPPRESENTINFO {
     pub NumDirtyRects: u32,
     pub DirtyRect: *mut super::super::Foundation::RECT,
@@ -845,13 +970,21 @@ unsafe impl ::windows::runtime::Abi for CDDDXGK_REDIRBITMAPPRESENTINFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const CD_ANY: i32 = 4i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const CD_LEFTDOWN: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const CD_LEFTUP: i32 = 3i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const CD_LEFTWARDS: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const CD_RIGHTDOWN: i32 = 0i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const CD_RIGHTUP: i32 = 2i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const CD_UPWARDS: i32 = 2i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CERT_VIEWPROPERTIES_STRUCT_FLAGS(pub u32);
@@ -902,6 +1035,7 @@ impl ::std::ops::Not for CERT_VIEWPROPERTIES_STRUCT_FLAGS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CFE_UNDERLINE(pub u32);
@@ -963,10 +1097,13 @@ impl ::std::ops::Not for CFE_UNDERLINE {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const CFG_CALL_TARGET_CONVERT_EXPORT_SUPPRESSED_TO_VALID: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const CFG_CALL_TARGET_CONVERT_XFG_TO_CFG: u32 = 16u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct CFG_CALL_TARGET_INFO {
     pub Offset: usize,
     pub Flags: usize,
@@ -992,9 +1129,13 @@ unsafe impl ::windows::runtime::Abi for CFG_CALL_TARGET_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const CFG_CALL_TARGET_PROCESSED: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const CFG_CALL_TARGET_VALID: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const CFG_CALL_TARGET_VALID_XFG: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CHOOSECOLOR_FLAGS(pub u32);
@@ -1044,10 +1185,15 @@ impl ::std::ops::Not for CHOOSECOLOR_FLAGS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const CLAIM_SECURITY_ATTRIBUTES_INFORMATION_VERSION: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const CLAIM_SECURITY_ATTRIBUTES_INFORMATION_VERSION_V1: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const CLAIM_SECURITY_ATTRIBUTE_CUSTOM_FLAGS: u32 = 4294901760u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_INVALID: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CLIPBOARD_FORMATS(pub u32);
@@ -1115,6 +1261,7 @@ impl ::std::ops::Not for CLIPBOARD_FORMATS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CM_ERROR_CONTROL_TYPE(pub i32);
@@ -1134,6 +1281,7 @@ unsafe impl ::windows::runtime::Abi for CM_ERROR_CONTROL_TYPE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Power")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_Power`*"]
 pub struct CM_Power_Data_s {
     pub PD_Size: u32,
     pub PD_MostRecentPowerState: DEVICE_POWER_STATE,
@@ -1180,6 +1328,7 @@ unsafe impl ::windows::runtime::Abi for CM_Power_Data_s {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CM_SERVICE_LOAD_TYPE(pub i32);
@@ -1197,8 +1346,11 @@ unsafe impl ::windows::runtime::Abi for CM_SERVICE_LOAD_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const CM_SERVICE_MEASURED_BOOT_LOAD: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const CM_SERVICE_NETWORK_BOOT_LOAD: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CM_SERVICE_NODE_TYPE(pub i32);
@@ -1217,15 +1369,23 @@ unsafe impl ::windows::runtime::Abi for CM_SERVICE_NODE_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const CM_SERVICE_RAM_DISK_BOOT_LOAD: u32 = 256u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const CM_SERVICE_SD_DISK_BOOT_LOAD: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const CM_SERVICE_USB3_DISK_BOOT_LOAD: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const CM_SERVICE_USB_DISK_BOOT_LOAD: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const CM_SERVICE_VERIFIER_BOOT_LOAD: u32 = 64u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const CM_SERVICE_VIRTUAL_DISK_BOOT_LOAD: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const CM_SERVICE_WINPE_BOOT_LOAD: u32 = 128u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct COMPONENT_FILTER {
     pub ComponentFlags: u32,
 }
@@ -1250,39 +1410,70 @@ unsafe impl ::windows::runtime::Abi for COMPONENT_FILTER {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const COMPONENT_KTM: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const COMPONENT_VALID_FLAGS: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const COMPRESSION_ENGINE_HIBER: u32 = 512u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const COMPRESSION_ENGINE_MAXIMUM: u32 = 256u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const COMPRESSION_ENGINE_STANDARD: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const COMPRESSION_FORMAT_DEFAULT: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const COMPRESSION_FORMAT_LZNT1: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const COMPRESSION_FORMAT_NONE: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const COMPRESSION_FORMAT_XP10: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const COMPRESSION_FORMAT_XPRESS: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const COMPRESSION_FORMAT_XPRESS_HUFF: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const CONTEXT_AMD64: i32 = 1048576i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const CONTEXT_ARM: i32 = 2097152i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const CONTEXT_ARM64: i32 = 4194304i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const CONTEXT_ARM64_RET_TO_GUEST: u32 = 67108864u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const CONTEXT_ARM64_UNWOUND_TO_CALL: u32 = 536870912u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const CONTEXT_EXCEPTION_ACTIVE: i32 = 134217728i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const CONTEXT_EXCEPTION_REPORTING: i32 = -2147483648i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const CONTEXT_EXCEPTION_REQUEST: i32 = 1073741824i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const CONTEXT_KERNEL_DEBUGGER: i32 = 67108864i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const CONTEXT_RET_TO_GUEST: u32 = 67108864u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const CONTEXT_SERVICE_ACTIVE: i32 = 268435456i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const CONTEXT_UNWOUND_TO_CALL: u32 = 536870912u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const CONTEXT_i386: i32 = 65536i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const CONTEXT_i486: i32 = 65536i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const CORE_PARKING_POLICY_CHANGE_IDEAL: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const CORE_PARKING_POLICY_CHANGE_MAX: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const CORE_PARKING_POLICY_CHANGE_MULTISTEP: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const CORE_PARKING_POLICY_CHANGE_ROCKET: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const CORE_PARKING_POLICY_CHANGE_SINGLE: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub struct CORRELATION_VECTOR {
     pub Version: super::super::Foundation::CHAR,
     pub Vector: [super::super::Foundation::CHAR; 129],
@@ -1314,14 +1505,20 @@ unsafe impl ::windows::runtime::Abi for CORRELATION_VECTOR {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const CREATE_BOUNDARY_DESCRIPTOR_ADD_APPCONTAINER_SID: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const CRITICAL_ACE_FLAG: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const CTMF_INCLUDE_APPCONTAINER: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const CTMF_INCLUDE_LPAC: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const CT_RECTANGLES: i32 = 0i32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub struct CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG {
     pub Size: u32,
     pub TriggerId: super::super::Foundation::PWSTR,
@@ -1353,6 +1550,7 @@ unsafe impl ::windows::runtime::Abi for CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3DANTIALIASMODE(pub i32);
@@ -1372,6 +1570,7 @@ unsafe impl ::windows::runtime::Abi for D3DANTIALIASMODE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub struct D3DBRANCH {
     pub dwMask: u32,
     pub dwValue: u32,
@@ -1405,17 +1604,27 @@ unsafe impl ::windows::runtime::Abi for D3DBRANCH {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DCLEAR_STENCIL: i32 = 4i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DCLEAR_TARGET: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DCLEAR_ZBUFFER: i32 = 2i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DCLIPPLANE0: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DCLIPPLANE1: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DCLIPPLANE2: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DCLIPPLANE3: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DCLIPPLANE4: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DCLIPPLANE5: u32 = 32u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct D3DCLIPSTATUS {
     pub dwFlags: u32,
     pub dwStatus: u32,
@@ -1447,64 +1656,120 @@ unsafe impl ::windows::runtime::Abi for D3DCLIPSTATUS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DCLIPSTATUS_EXTENTS2: i32 = 2i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DCLIPSTATUS_EXTENTS3: i32 = 4i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DCLIPSTATUS_STATUS: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DCLIP_BACK: i32 = 32i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DCLIP_BOTTOM: i32 = 8i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DCLIP_FRONT: i32 = 16i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DCLIP_GEN0: i32 = 64i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DCLIP_GEN1: i32 = 128i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DCLIP_GEN2: i32 = 256i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DCLIP_GEN3: i32 = 512i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DCLIP_GEN4: i32 = 1024i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DCLIP_GEN5: i32 = 2048i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DCLIP_LEFT: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DCLIP_RIGHT: i32 = 2i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DCLIP_TOP: i32 = 4i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DCOLOR_MONO: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DCOLOR_RGB: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DDD_BCLIPPING: i32 = 16i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DDD_COLORMODEL: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DDD_DEVCAPS: i32 = 2i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DDD_DEVICERENDERBITDEPTH: i32 = 128i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DDD_DEVICEZBUFFERBITDEPTH: i32 = 256i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DDD_LIGHTINGCAPS: i32 = 8i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DDD_LINECAPS: i32 = 32i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DDD_MAXBUFFERSIZE: i32 = 512i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DDD_MAXVERTEXCOUNT: i32 = 1024i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DDD_TRANSFORMCAPS: i32 = 4i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DDD_TRICAPS: i32 = 64i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DDEBCAPS_SYSTEMMEMORY: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DDEBCAPS_VIDEOMEMORY: i32 = 2i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DDEB_BUFSIZE: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DDEB_CAPS: i32 = 2i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DDEB_LPDATA: i32 = 4i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DDEVCAPS_CANBLTSYSTONONLOCAL: i32 = 131072i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DDEVCAPS_CANRENDERAFTERFLIP: i32 = 2048i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DDEVCAPS_DRAWPRIMITIVES2: i32 = 8192i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DDEVCAPS_DRAWPRIMITIVES2EX: i32 = 32768i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DDEVCAPS_DRAWPRIMTLVERTEX: i32 = 1024i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DDEVCAPS_EXECUTESYSTEMMEMORY: i32 = 16i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DDEVCAPS_EXECUTEVIDEOMEMORY: i32 = 32i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DDEVCAPS_FLOATTLVERTEX: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DDEVCAPS_HWRASTERIZATION: i32 = 524288i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DDEVCAPS_HWTRANSFORMANDLIGHT: i32 = 65536i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DDEVCAPS_SEPARATETEXTUREMEMORIES: i32 = 16384i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DDEVCAPS_SORTDECREASINGZ: i32 = 4i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DDEVCAPS_SORTEXACT: i32 = 8i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DDEVCAPS_SORTINCREASINGZ: i32 = 2i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DDEVCAPS_TEXTURENONLOCALVIDMEM: i32 = 4096i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DDEVCAPS_TEXTURESYSTEMMEMORY: i32 = 256i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DDEVCAPS_TEXTUREVIDEOMEMORY: i32 = 512i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DDEVCAPS_TLVERTEXSYSTEMMEMORY: i32 = 64i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DDEVCAPS_TLVERTEXVIDEOMEMORY: i32 = 128i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DDEVINFOID_D3DTEXTUREMANAGER: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DDEVINFOID_TEXTUREMANAGER: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DDEVINFOID_TEXTURING: u32 = 3u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub struct D3DDEVINFO_TEXTUREMANAGER {
     pub bThrashing: super::super::Foundation::BOOL,
     pub dwApproxBytesDownloaded: u32,
@@ -1569,6 +1834,7 @@ unsafe impl ::windows::runtime::Abi for D3DDEVINFO_TEXTUREMANAGER {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct D3DDEVINFO_TEXTURING {
     pub dwNumLoads: u32,
     pub dwApproxBytesLoaded: u32,
@@ -1613,9 +1879,11 @@ unsafe impl ::windows::runtime::Abi for D3DDEVINFO_TEXTURING {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DDP_MAXTEXCOORD: u32 = 8u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct D3DDP_PTRSTRIDE {
     pub lpvData: *mut ::std::ffi::c_void,
     pub dwStride: u32,
@@ -1643,6 +1911,7 @@ unsafe impl ::windows::runtime::Abi for D3DDP_PTRSTRIDE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct D3DDRAWPRIMITIVESTRIDEDDATA {
     pub position: D3DDP_PTRSTRIDE,
     pub normal: D3DDP_PTRSTRIDE,
@@ -1674,6 +1943,7 @@ unsafe impl ::windows::runtime::Abi for D3DDRAWPRIMITIVESTRIDEDDATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Graphics_Direct3D9`*"]
 pub struct D3DEXECUTEDATA {
     pub dwSize: u32,
     pub dwVertexOffset: u32,
@@ -1718,27 +1988,46 @@ unsafe impl ::windows::runtime::Abi for D3DEXECUTEDATA {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DEXECUTE_CLIPPED: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DEXECUTE_UNCLIPPED: i32 = 2i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DFDS_ALPHACMPCAPS: i32 = 256i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DFDS_COLORMODEL: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DFDS_DSTBLENDCAPS: i32 = 1024i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DFDS_GUID: i32 = 2i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DFDS_HARDWARE: i32 = 4i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DFDS_LINES: i32 = 16i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DFDS_MISCCAPS: i32 = 32i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DFDS_RASTERCAPS: i32 = 64i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DFDS_SHADECAPS: i32 = 2048i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DFDS_SRCBLENDCAPS: i32 = 512i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DFDS_TEXTUREADDRESSCAPS: i32 = 32768i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DFDS_TEXTUREBLENDCAPS: i32 = 16384i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DFDS_TEXTURECAPS: i32 = 4096i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DFDS_TEXTUREFILTERCAPS: i32 = 8192i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DFDS_TRIANGLES: i32 = 8i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DFDS_ZCMPCAPS: i32 = 128i32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub struct D3DFINDDEVICERESULT {
     pub dwSize: u32,
     pub guid: ::windows::runtime::GUID,
@@ -1775,6 +2064,7 @@ unsafe impl ::windows::runtime::Abi for D3DFINDDEVICERESULT {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub struct D3DFINDDEVICESEARCH {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -1811,46 +2101,85 @@ unsafe impl ::windows::runtime::Abi for D3DFINDDEVICESEARCH {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DFVFCAPS_DONOTSTRIPELEMENTS: i32 = 524288i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DFVFCAPS_TEXCOORDCOUNTMASK: i32 = 65535i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DFVF_DIFFUSE: u32 = 64u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DFVF_NORMAL: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DFVF_POSITION_MASK: u32 = 14u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DFVF_RESERVED0: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DFVF_RESERVED1: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DFVF_RESERVED2: u32 = 61440u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DFVF_SPECULAR: u32 = 128u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DFVF_TEX0: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DFVF_TEX1: u32 = 256u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DFVF_TEX2: u32 = 512u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DFVF_TEX3: u32 = 768u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DFVF_TEX4: u32 = 1024u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DFVF_TEX5: u32 = 1280u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DFVF_TEX6: u32 = 1536u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DFVF_TEX7: u32 = 1792u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DFVF_TEX8: u32 = 2048u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DFVF_TEXCOUNT_MASK: u32 = 3840u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DFVF_TEXCOUNT_SHIFT: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DFVF_TEXTUREFORMAT1: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DFVF_TEXTUREFORMAT2: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DFVF_TEXTUREFORMAT3: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DFVF_TEXTUREFORMAT4: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DFVF_XYZ: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DFVF_XYZB1: u32 = 6u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DFVF_XYZB2: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DFVF_XYZB3: u32 = 10u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DFVF_XYZB4: u32 = 12u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DFVF_XYZB5: u32 = 14u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DFVF_XYZRHW: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DHAL_SAMPLER_MAXSAMP: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DHAL_SAMPLER_MAXVERTEXSAMP: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DHAL_STATESETBEGIN: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DHAL_STATESETCAPTURE: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DHAL_STATESETDELETE: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DHAL_STATESETEND: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DHAL_STATESETEXECUTE: u32 = 3u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct D3DHVERTEX {
     pub dwFlags: u32,
     pub Anonymous1: D3DHVERTEX_0,
@@ -1875,6 +2204,7 @@ unsafe impl ::windows::runtime::Abi for D3DHVERTEX {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union D3DHVERTEX_0 {
     pub hx: f32,
     pub dvHX: f32,
@@ -1897,6 +2227,7 @@ unsafe impl ::windows::runtime::Abi for D3DHVERTEX_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union D3DHVERTEX_1 {
     pub hy: f32,
     pub dvHY: f32,
@@ -1919,6 +2250,7 @@ unsafe impl ::windows::runtime::Abi for D3DHVERTEX_1 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union D3DHVERTEX_2 {
     pub hz: f32,
     pub dvHZ: f32,
@@ -1939,9 +2271,11 @@ unsafe impl ::windows::runtime::Abi for D3DHVERTEX_2 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DINFINITEINSTRUCTIONS: u32 = 4294967295u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct D3DINSTRUCTION {
     pub bOpcode: u8,
     pub bSize: u8,
@@ -1971,6 +2305,7 @@ unsafe impl ::windows::runtime::Abi for D3DINSTRUCTION {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Graphics_Direct3D9`*"]
 pub struct D3DLIGHT {
     pub dwSize: u32,
     pub dltType: super::super::Graphics::Direct3D9::D3DLIGHTTYPE,
@@ -2028,6 +2363,7 @@ unsafe impl ::windows::runtime::Abi for D3DLIGHT {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Graphics_Direct3D9`*"]
 pub struct D3DLIGHT2 {
     pub dwSize: u32,
     pub dltType: super::super::Graphics::Direct3D9::D3DLIGHTTYPE,
@@ -2087,6 +2423,7 @@ unsafe impl ::windows::runtime::Abi for D3DLIGHT2 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Graphics_Direct3D9`*"]
 pub struct D3DLIGHT7 {
     pub dltType: super::super::Graphics::Direct3D9::D3DLIGHTTYPE,
     pub dcvDiffuse: super::super::Graphics::Direct3D9::D3DCOLORVALUE,
@@ -2155,14 +2492,20 @@ unsafe impl ::windows::runtime::Abi for D3DLIGHT7 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DLIGHTCAPS_DIRECTIONAL: i32 = 4i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DLIGHTCAPS_GLSPOT: i32 = 16i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DLIGHTCAPS_PARALLELPOINT: i32 = 8i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DLIGHTCAPS_POINT: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DLIGHTCAPS_SPOT: i32 = 2i32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Graphics_Direct3D9`*"]
 pub struct D3DLIGHTDATA {
     pub dwSize: u32,
     pub lpIn: *mut D3DLIGHTINGELEMENT,
@@ -2199,6 +2542,7 @@ unsafe impl ::windows::runtime::Abi for D3DLIGHTDATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct D3DLIGHTINGCAPS {
     pub dwSize: u32,
     pub dwCaps: u32,
@@ -2229,6 +2573,7 @@ unsafe impl ::windows::runtime::Abi for D3DLIGHTINGCAPS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Graphics_Direct3D9`*"]
 pub struct D3DLIGHTINGELEMENT {
     pub dvPosition: super::super::Graphics::Direct3D9::D3DVECTOR,
     pub dvNormal: super::super::Graphics::Direct3D9::D3DVECTOR,
@@ -2260,8 +2605,11 @@ unsafe impl ::windows::runtime::Abi for D3DLIGHTINGELEMENT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DLIGHTINGMODEL_MONO: i32 = 2i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DLIGHTINGMODEL_RGB: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3DLIGHTSTATETYPE(pub i32);
@@ -2283,10 +2631,13 @@ unsafe impl ::windows::runtime::Abi for D3DLIGHTSTATETYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DLIGHT_ACTIVE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DLIGHT_NO_SPECULAR: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct D3DLINE {
     pub Anonymous1: D3DLINE_0,
     pub Anonymous2: D3DLINE_1,
@@ -2309,6 +2660,7 @@ unsafe impl ::windows::runtime::Abi for D3DLINE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union D3DLINE_0 {
     pub v1: u16,
     pub wV1: u16,
@@ -2331,6 +2683,7 @@ unsafe impl ::windows::runtime::Abi for D3DLINE_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union D3DLINE_1 {
     pub v2: u16,
     pub wV2: u16,
@@ -2353,6 +2706,7 @@ unsafe impl ::windows::runtime::Abi for D3DLINE_1 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct D3DLINEPATTERN {
     pub wRepeatFactor: u16,
     pub wLinePattern: u16,
@@ -2380,6 +2734,7 @@ unsafe impl ::windows::runtime::Abi for D3DLINEPATTERN {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct D3DLVERTEX {
     pub Anonymous1: D3DLVERTEX_0,
     pub Anonymous2: D3DLVERTEX_1,
@@ -2408,6 +2763,7 @@ unsafe impl ::windows::runtime::Abi for D3DLVERTEX {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union D3DLVERTEX_0 {
     pub x: f32,
     pub dvX: f32,
@@ -2430,6 +2786,7 @@ unsafe impl ::windows::runtime::Abi for D3DLVERTEX_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union D3DLVERTEX_1 {
     pub y: f32,
     pub dvY: f32,
@@ -2452,6 +2809,7 @@ unsafe impl ::windows::runtime::Abi for D3DLVERTEX_1 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union D3DLVERTEX_2 {
     pub z: f32,
     pub dvZ: f32,
@@ -2474,6 +2832,7 @@ unsafe impl ::windows::runtime::Abi for D3DLVERTEX_2 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union D3DLVERTEX_3 {
     pub color: u32,
     pub dcColor: u32,
@@ -2496,6 +2855,7 @@ unsafe impl ::windows::runtime::Abi for D3DLVERTEX_3 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union D3DLVERTEX_4 {
     pub specular: u32,
     pub dcSpecular: u32,
@@ -2518,6 +2878,7 @@ unsafe impl ::windows::runtime::Abi for D3DLVERTEX_4 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union D3DLVERTEX_5 {
     pub tu: f32,
     pub dvTU: f32,
@@ -2540,6 +2901,7 @@ unsafe impl ::windows::runtime::Abi for D3DLVERTEX_5 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union D3DLVERTEX_6 {
     pub tv: f32,
     pub dvTV: f32,
@@ -2563,6 +2925,7 @@ unsafe impl ::windows::runtime::Abi for D3DLVERTEX_6 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Graphics_Direct3D9`*"]
 pub struct D3DMATERIAL {
     pub dwSize: u32,
     pub Anonymous1: D3DMATERIAL_0,
@@ -2597,6 +2960,7 @@ unsafe impl ::windows::runtime::Abi for D3DMATERIAL {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Graphics_Direct3D9`*"]
 pub union D3DMATERIAL_0 {
     pub diffuse: super::super::Graphics::Direct3D9::D3DCOLORVALUE,
     pub dcvDiffuse: super::super::Graphics::Direct3D9::D3DCOLORVALUE,
@@ -2625,6 +2989,7 @@ unsafe impl ::windows::runtime::Abi for D3DMATERIAL_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Graphics_Direct3D9`*"]
 pub union D3DMATERIAL_1 {
     pub ambient: super::super::Graphics::Direct3D9::D3DCOLORVALUE,
     pub dcvAmbient: super::super::Graphics::Direct3D9::D3DCOLORVALUE,
@@ -2653,6 +3018,7 @@ unsafe impl ::windows::runtime::Abi for D3DMATERIAL_1 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Graphics_Direct3D9`*"]
 pub union D3DMATERIAL_2 {
     pub specular: super::super::Graphics::Direct3D9::D3DCOLORVALUE,
     pub dcvSpecular: super::super::Graphics::Direct3D9::D3DCOLORVALUE,
@@ -2681,6 +3047,7 @@ unsafe impl ::windows::runtime::Abi for D3DMATERIAL_2 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Graphics_Direct3D9`*"]
 pub union D3DMATERIAL_3 {
     pub emissive: super::super::Graphics::Direct3D9::D3DCOLORVALUE,
     pub dcvEmissive: super::super::Graphics::Direct3D9::D3DCOLORVALUE,
@@ -2708,6 +3075,7 @@ unsafe impl ::windows::runtime::Abi for D3DMATERIAL_3 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union D3DMATERIAL_4 {
     pub power: f32,
     pub dvPower: f32,
@@ -2731,6 +3099,7 @@ unsafe impl ::windows::runtime::Abi for D3DMATERIAL_4 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Graphics_Direct3D9`*"]
 pub struct D3DMATERIAL7 {
     pub Anonymous1: D3DMATERIAL7_0,
     pub Anonymous2: D3DMATERIAL7_1,
@@ -2762,6 +3131,7 @@ unsafe impl ::windows::runtime::Abi for D3DMATERIAL7 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Graphics_Direct3D9`*"]
 pub union D3DMATERIAL7_0 {
     pub diffuse: super::super::Graphics::Direct3D9::D3DCOLORVALUE,
     pub dcvDiffuse: super::super::Graphics::Direct3D9::D3DCOLORVALUE,
@@ -2790,6 +3160,7 @@ unsafe impl ::windows::runtime::Abi for D3DMATERIAL7_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Graphics_Direct3D9`*"]
 pub union D3DMATERIAL7_1 {
     pub ambient: super::super::Graphics::Direct3D9::D3DCOLORVALUE,
     pub dcvAmbient: super::super::Graphics::Direct3D9::D3DCOLORVALUE,
@@ -2818,6 +3189,7 @@ unsafe impl ::windows::runtime::Abi for D3DMATERIAL7_1 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Graphics_Direct3D9`*"]
 pub union D3DMATERIAL7_2 {
     pub specular: super::super::Graphics::Direct3D9::D3DCOLORVALUE,
     pub dcvSpecular: super::super::Graphics::Direct3D9::D3DCOLORVALUE,
@@ -2846,6 +3218,7 @@ unsafe impl ::windows::runtime::Abi for D3DMATERIAL7_2 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Graphics_Direct3D9`*"]
 pub union D3DMATERIAL7_3 {
     pub emissive: super::super::Graphics::Direct3D9::D3DCOLORVALUE,
     pub dcvEmissive: super::super::Graphics::Direct3D9::D3DCOLORVALUE,
@@ -2873,6 +3246,7 @@ unsafe impl ::windows::runtime::Abi for D3DMATERIAL7_3 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union D3DMATERIAL7_4 {
     pub power: f32,
     pub dvPower: f32,
@@ -2895,6 +3269,7 @@ unsafe impl ::windows::runtime::Abi for D3DMATERIAL7_4 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct D3DMATRIXLOAD {
     pub hDestMatrix: u32,
     pub hSrcMatrix: u32,
@@ -2922,6 +3297,7 @@ unsafe impl ::windows::runtime::Abi for D3DMATRIXLOAD {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct D3DMATRIXMULTIPLY {
     pub hDestMatrix: u32,
     pub hSrcMatrix1: u32,
@@ -2948,24 +3324,40 @@ unsafe impl ::windows::runtime::Abi for D3DMATRIXMULTIPLY {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DMAXUSERCLIPPLANES: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DNTCLEAR_COMPUTERECTS: i32 = 8i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DNTHAL2_CB32_SETRENDERTARGET: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DNTHAL3_CB32_CLEAR2: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DNTHAL3_CB32_DRAWPRIMITIVES2: i32 = 8i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DNTHAL3_CB32_RESERVED: i32 = 2i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DNTHAL3_CB32_VALIDATETEXTURESTAGESTATE: i32 = 4i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DNTHALDP2_EXECUTEBUFFER: i32 = 2i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DNTHALDP2_REQCOMMANDBUFSIZE: i32 = 32i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DNTHALDP2_REQVERTEXBUFSIZE: i32 = 16i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DNTHALDP2_SWAPCOMMANDBUFFER: i32 = 8i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DNTHALDP2_SWAPVERTEXBUFFER: i32 = 4i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DNTHALDP2_USERMEMVERTICES: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DNTHALDP2_VIDMEMCOMMANDBUF: i32 = 128i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DNTHALDP2_VIDMEMVERTEXBUF: i32 = 64i32;
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`, `Win32_UI_DisplayDevices`*"]
 pub struct D3DNTHAL_CALLBACKS {
     pub dwSize: u32,
     pub ContextCreate: ::std::option::Option<LPD3DNTHAL_CONTEXTCREATECB>,
@@ -3095,6 +3487,7 @@ unsafe impl ::windows::runtime::Abi for D3DNTHAL_CALLBACKS {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`, `Win32_UI_DisplayDevices`*"]
 pub struct D3DNTHAL_CALLBACKS2 {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -3134,6 +3527,7 @@ unsafe impl ::windows::runtime::Abi for D3DNTHAL_CALLBACKS2 {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Direct3D9`, `Win32_Graphics_DirectDraw`, `Win32_UI_DisplayDevices`*"]
 pub struct D3DNTHAL_CALLBACKS3 {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -3172,6 +3566,7 @@ unsafe impl ::windows::runtime::Abi for D3DNTHAL_CALLBACKS3 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Graphics_Direct3D9`*"]
 pub struct D3DNTHAL_CLEAR2DATA {
     pub dwhContext: usize,
     pub dwFlags: u32,
@@ -3218,10 +3613,12 @@ unsafe impl ::windows::runtime::Abi for D3DNTHAL_CLEAR2DATA {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DNTHAL_COL_WEIGHTS: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`, `Win32_UI_DisplayDevices`*"]
 pub struct D3DNTHAL_CONTEXTCREATEDATA {
     pub Anonymous1: D3DNTHAL_CONTEXTCREATEDATA_0,
     pub Anonymous2: D3DNTHAL_CONTEXTCREATEDATA_1,
@@ -3254,6 +3651,7 @@ unsafe impl ::windows::runtime::Abi for D3DNTHAL_CONTEXTCREATEDATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_UI_DisplayDevices")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_UI_DisplayDevices`*"]
 pub union D3DNTHAL_CONTEXTCREATEDATA_0 {
     pub lpDDGbl: *mut super::super::UI::DisplayDevices::DD_DIRECTDRAW_GLOBAL,
     pub lpDDLcl: *mut super::super::UI::DisplayDevices::DD_DIRECTDRAW_LOCAL,
@@ -3282,6 +3680,7 @@ unsafe impl ::windows::runtime::Abi for D3DNTHAL_CONTEXTCREATEDATA_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`, `Win32_UI_DisplayDevices`*"]
 pub union D3DNTHAL_CONTEXTCREATEDATA_1 {
     pub lpDDS: *mut super::super::UI::DisplayDevices::DD_SURFACE_LOCAL,
     pub lpDDSLcl: *mut super::super::UI::DisplayDevices::DD_SURFACE_LOCAL,
@@ -3310,6 +3709,7 @@ unsafe impl ::windows::runtime::Abi for D3DNTHAL_CONTEXTCREATEDATA_1 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`, `Win32_UI_DisplayDevices`*"]
 pub union D3DNTHAL_CONTEXTCREATEDATA_2 {
     pub lpDDSZ: *mut super::super::UI::DisplayDevices::DD_SURFACE_LOCAL,
     pub lpDDSZLcl: *mut super::super::UI::DisplayDevices::DD_SURFACE_LOCAL,
@@ -3337,6 +3737,7 @@ unsafe impl ::windows::runtime::Abi for D3DNTHAL_CONTEXTCREATEDATA_2 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct D3DNTHAL_CONTEXTDESTROYALLDATA {
     pub dwPID: u32,
     pub ddrval: ::windows::runtime::HRESULT,
@@ -3364,6 +3765,7 @@ unsafe impl ::windows::runtime::Abi for D3DNTHAL_CONTEXTDESTROYALLDATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct D3DNTHAL_CONTEXTDESTROYDATA {
     pub dwhContext: usize,
     pub ddrval: ::windows::runtime::HRESULT,
@@ -3389,9 +3791,11 @@ unsafe impl ::windows::runtime::Abi for D3DNTHAL_CONTEXTDESTROYDATA {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DNTHAL_CONTEXT_BAD: i64 = 512i64;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct D3DNTHAL_D3DDX6EXTENDEDCAPS {
     pub dwSize: u32,
     pub dwMinTextureWidth: u32,
@@ -3483,6 +3887,7 @@ unsafe impl ::windows::runtime::Abi for D3DNTHAL_D3DDX6EXTENDEDCAPS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct D3DNTHAL_D3DEXTENDEDCAPS {
     pub dwSize: u32,
     pub dwMinTextureWidth: u32,
@@ -3602,6 +4007,7 @@ unsafe impl ::windows::runtime::Abi for D3DNTHAL_D3DEXTENDEDCAPS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub struct D3DNTHAL_DP2CLEAR {
     pub dwFlags: u32,
     pub dwFillColor: u32,
@@ -3638,6 +4044,7 @@ unsafe impl ::windows::runtime::Abi for D3DNTHAL_DP2CLEAR {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct D3DNTHAL_DP2COMMAND {
     pub bCommand: u8,
     pub bReserved: u8,
@@ -3661,6 +4068,7 @@ unsafe impl ::windows::runtime::Abi for D3DNTHAL_DP2COMMAND {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union D3DNTHAL_DP2COMMAND_0 {
     pub wPrimitiveCount: u16,
     pub wStateCount: u16,
@@ -3683,6 +4091,7 @@ unsafe impl ::windows::runtime::Abi for D3DNTHAL_DP2COMMAND_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct D3DNTHAL_DP2CREATELIGHT {
     pub dwIndex: u32,
 }
@@ -3709,6 +4118,7 @@ unsafe impl ::windows::runtime::Abi for D3DNTHAL_DP2CREATELIGHT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct D3DNTHAL_DP2EXT {
     pub dwExtToken: u32,
     pub dwSize: u32,
@@ -3736,6 +4146,7 @@ unsafe impl ::windows::runtime::Abi for D3DNTHAL_DP2EXT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct D3DNTHAL_DP2INDEXEDLINELIST {
     pub wV1: u16,
     pub wV2: u16,
@@ -3763,6 +4174,7 @@ unsafe impl ::windows::runtime::Abi for D3DNTHAL_DP2INDEXEDLINELIST {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct D3DNTHAL_DP2INDEXEDLINESTRIP {
     pub wV: [u16; 2],
 }
@@ -3789,6 +4201,7 @@ unsafe impl ::windows::runtime::Abi for D3DNTHAL_DP2INDEXEDLINESTRIP {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct D3DNTHAL_DP2INDEXEDTRIANGLEFAN {
     pub wV: [u16; 3],
 }
@@ -3815,6 +4228,7 @@ unsafe impl ::windows::runtime::Abi for D3DNTHAL_DP2INDEXEDTRIANGLEFAN {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct D3DNTHAL_DP2INDEXEDTRIANGLELIST {
     pub wV1: u16,
     pub wV2: u16,
@@ -3844,6 +4258,7 @@ unsafe impl ::windows::runtime::Abi for D3DNTHAL_DP2INDEXEDTRIANGLELIST {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct D3DNTHAL_DP2INDEXEDTRIANGLELIST2 {
     pub wV1: u16,
     pub wV2: u16,
@@ -3872,6 +4287,7 @@ unsafe impl ::windows::runtime::Abi for D3DNTHAL_DP2INDEXEDTRIANGLELIST2 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct D3DNTHAL_DP2INDEXEDTRIANGLESTRIP {
     pub wV: [u16; 3],
 }
@@ -3898,6 +4314,7 @@ unsafe impl ::windows::runtime::Abi for D3DNTHAL_DP2INDEXEDTRIANGLESTRIP {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct D3DNTHAL_DP2LINELIST {
     pub wVStart: u16,
 }
@@ -3924,6 +4341,7 @@ unsafe impl ::windows::runtime::Abi for D3DNTHAL_DP2LINELIST {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct D3DNTHAL_DP2LINESTRIP {
     pub wVStart: u16,
 }
@@ -3948,6 +4366,7 @@ unsafe impl ::windows::runtime::Abi for D3DNTHAL_DP2LINESTRIP {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3DNTHAL_DP2OPERATION(pub i32);
@@ -3995,6 +4414,7 @@ unsafe impl ::windows::runtime::Abi for D3DNTHAL_DP2OPERATION {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct D3DNTHAL_DP2POINTS {
     pub wCount: u16,
     pub wVStart: u16,
@@ -4023,6 +4443,7 @@ unsafe impl ::windows::runtime::Abi for D3DNTHAL_DP2POINTS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Graphics_Direct3D9`*"]
 pub struct D3DNTHAL_DP2RENDERSTATE {
     pub RenderState: super::super::Graphics::Direct3D9::D3DRENDERSTATETYPE,
     pub Anonymous: D3DNTHAL_DP2RENDERSTATE_0,
@@ -4050,6 +4471,7 @@ unsafe impl ::windows::runtime::Abi for D3DNTHAL_DP2RENDERSTATE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union D3DNTHAL_DP2RENDERSTATE_0 {
     pub fState: f32,
     pub dwState: u32,
@@ -4072,6 +4494,7 @@ unsafe impl ::windows::runtime::Abi for D3DNTHAL_DP2RENDERSTATE_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct D3DNTHAL_DP2SETCLIPPLANE {
     pub dwIndex: u32,
     pub plane: [f32; 4],
@@ -4099,6 +4522,7 @@ unsafe impl ::windows::runtime::Abi for D3DNTHAL_DP2SETCLIPPLANE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct D3DNTHAL_DP2SETLIGHT {
     pub dwIndex: u32,
     pub Anonymous: D3DNTHAL_DP2SETLIGHT_0,
@@ -4121,6 +4545,7 @@ unsafe impl ::windows::runtime::Abi for D3DNTHAL_DP2SETLIGHT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union D3DNTHAL_DP2SETLIGHT_0 {
     pub lightData: u32,
     pub dwDataType: u32,
@@ -4143,6 +4568,7 @@ unsafe impl ::windows::runtime::Abi for D3DNTHAL_DP2SETLIGHT_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct D3DNTHAL_DP2SETPALETTE {
     pub dwPaletteHandle: u32,
     pub dwPaletteFlags: u32,
@@ -4171,6 +4597,7 @@ unsafe impl ::windows::runtime::Abi for D3DNTHAL_DP2SETPALETTE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct D3DNTHAL_DP2SETPRIORITY {
     pub dwDDDestSurface: u32,
     pub dwPriority: u32,
@@ -4198,6 +4625,7 @@ unsafe impl ::windows::runtime::Abi for D3DNTHAL_DP2SETPRIORITY {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct D3DNTHAL_DP2SETRENDERTARGET {
     pub hRenderTarget: u32,
     pub hZBuffer: u32,
@@ -4225,6 +4653,7 @@ unsafe impl ::windows::runtime::Abi for D3DNTHAL_DP2SETRENDERTARGET {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct D3DNTHAL_DP2SETTEXLOD {
     pub dwDDSurface: u32,
     pub dwLOD: u32,
@@ -4253,6 +4682,7 @@ unsafe impl ::windows::runtime::Abi for D3DNTHAL_DP2SETTEXLOD {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Graphics_Direct3D9`*"]
 pub struct D3DNTHAL_DP2SETTRANSFORM {
     pub xfrmType: super::super::Graphics::Direct3D9::D3DTRANSFORMSTATETYPE,
     pub matrix: super::super::Graphics::Direct3D9::D3DMATRIX,
@@ -4280,6 +4710,7 @@ unsafe impl ::windows::runtime::Abi for D3DNTHAL_DP2SETTRANSFORM {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct D3DNTHAL_DP2STARTVERTEX {
     pub wVStart: u16,
 }
@@ -4307,6 +4738,7 @@ unsafe impl ::windows::runtime::Abi for D3DNTHAL_DP2STARTVERTEX {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Graphics_Direct3D9`*"]
 pub struct D3DNTHAL_DP2STATESET {
     pub dwOperation: u32,
     pub dwParam: u32,
@@ -4342,6 +4774,7 @@ unsafe impl ::windows::runtime::Abi for D3DNTHAL_DP2STATESET {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub struct D3DNTHAL_DP2TEXBLT {
     pub dwDDDestSurface: u32,
     pub dwDDSrcSurface: u32,
@@ -4378,6 +4811,7 @@ unsafe impl ::windows::runtime::Abi for D3DNTHAL_DP2TEXBLT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct D3DNTHAL_DP2TEXTURESTAGESTATE {
     pub wStage: u16,
     pub TSState: u16,
@@ -4406,6 +4840,7 @@ unsafe impl ::windows::runtime::Abi for D3DNTHAL_DP2TEXTURESTAGESTATE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct D3DNTHAL_DP2TRIANGLEFAN {
     pub wVStart: u16,
 }
@@ -4432,6 +4867,7 @@ unsafe impl ::windows::runtime::Abi for D3DNTHAL_DP2TRIANGLEFAN {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct D3DNTHAL_DP2TRIANGLEFAN_IMM {
     pub dwEdgeFlags: u32,
 }
@@ -4458,6 +4894,7 @@ unsafe impl ::windows::runtime::Abi for D3DNTHAL_DP2TRIANGLEFAN_IMM {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct D3DNTHAL_DP2TRIANGLELIST {
     pub wVStart: u16,
 }
@@ -4484,6 +4921,7 @@ unsafe impl ::windows::runtime::Abi for D3DNTHAL_DP2TRIANGLELIST {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct D3DNTHAL_DP2TRIANGLESTRIP {
     pub wVStart: u16,
 }
@@ -4510,6 +4948,7 @@ unsafe impl ::windows::runtime::Abi for D3DNTHAL_DP2TRIANGLESTRIP {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct D3DNTHAL_DP2UPDATEPALETTE {
     pub dwPaletteHandle: u32,
     pub wStartIndex: u16,
@@ -4538,6 +4977,7 @@ unsafe impl ::windows::runtime::Abi for D3DNTHAL_DP2UPDATEPALETTE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct D3DNTHAL_DP2VIEWPORTINFO {
     pub dwX: u32,
     pub dwY: u32,
@@ -4567,6 +5007,7 @@ unsafe impl ::windows::runtime::Abi for D3DNTHAL_DP2VIEWPORTINFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct D3DNTHAL_DP2WINFO {
     pub dvWNear: f32,
     pub dvWFar: f32,
@@ -4594,6 +5035,7 @@ unsafe impl ::windows::runtime::Abi for D3DNTHAL_DP2WINFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct D3DNTHAL_DP2ZRANGE {
     pub dvMinZ: f32,
     pub dvMaxZ: f32,
@@ -4622,6 +5064,7 @@ unsafe impl ::windows::runtime::Abi for D3DNTHAL_DP2ZRANGE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`, `Win32_UI_DisplayDevices`*"]
 pub struct D3DNTHAL_DRAWPRIMITIVES2DATA {
     pub dwhContext: usize,
     pub dwFlags: u32,
@@ -4662,6 +5105,7 @@ unsafe impl ::windows::runtime::Abi for D3DNTHAL_DRAWPRIMITIVES2DATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`, `Win32_UI_DisplayDevices`*"]
 pub union D3DNTHAL_DRAWPRIMITIVES2DATA_0 {
     pub lpDDVertex: *mut super::super::UI::DisplayDevices::DD_SURFACE_LOCAL,
     pub lpVertices: *mut ::std::ffi::c_void,
@@ -4689,6 +5133,7 @@ unsafe impl ::windows::runtime::Abi for D3DNTHAL_DRAWPRIMITIVES2DATA_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union D3DNTHAL_DRAWPRIMITIVES2DATA_1 {
     pub dwVertexSize: u32,
     pub ddrval: ::windows::runtime::HRESULT,
@@ -4712,6 +5157,7 @@ unsafe impl ::windows::runtime::Abi for D3DNTHAL_DRAWPRIMITIVES2DATA_1 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`*"]
 pub struct D3DNTHAL_GLOBALDRIVERDATA {
     pub dwSize: u32,
     pub hwCaps: _D3DNTHALDeviceDesc_V1,
@@ -4754,11 +5200,15 @@ unsafe impl ::windows::runtime::Abi for D3DNTHAL_GLOBALDRIVERDATA {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DNTHAL_NUMCLIPVERTICES: u32 = 20u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DNTHAL_OUTOFCONTEXTS: i64 = 513i64;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DNTHAL_ROW_WEIGHTS: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct D3DNTHAL_SCENECAPTUREDATA {
     pub dwhContext: usize,
     pub dwFlag: u32,
@@ -4785,11 +5235,14 @@ unsafe impl ::windows::runtime::Abi for D3DNTHAL_SCENECAPTUREDATA {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DNTHAL_SCENE_CAPTURE_END: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DNTHAL_SCENE_CAPTURE_START: i32 = 0i32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`, `Win32_UI_DisplayDevices`*"]
 pub struct D3DNTHAL_SETRENDERTARGETDATA {
     pub dwhContext: usize,
     pub lpDDS: *mut super::super::UI::DisplayDevices::DD_SURFACE_LOCAL,
@@ -4823,10 +5276,12 @@ unsafe impl ::windows::runtime::Abi for D3DNTHAL_SETRENDERTARGETDATA {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DNTHAL_STATESETCREATE: u32 = 5u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub struct D3DNTHAL_TEXTURECREATEDATA {
     pub dwhContext: usize,
     pub hDDS: super::super::Foundation::HANDLE,
@@ -4862,6 +5317,7 @@ unsafe impl ::windows::runtime::Abi for D3DNTHAL_TEXTURECREATEDATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct D3DNTHAL_TEXTUREDESTROYDATA {
     pub dwhContext: usize,
     pub dwHandle: usize,
@@ -4891,6 +5347,7 @@ unsafe impl ::windows::runtime::Abi for D3DNTHAL_TEXTUREDESTROYDATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub struct D3DNTHAL_TEXTUREGETSURFDATA {
     pub dwhContext: usize,
     pub hDDS: super::super::Foundation::HANDLE,
@@ -4926,6 +5383,7 @@ unsafe impl ::windows::runtime::Abi for D3DNTHAL_TEXTUREGETSURFDATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct D3DNTHAL_TEXTURESWAPDATA {
     pub dwhContext: usize,
     pub dwHandle1: usize,
@@ -4953,11 +5411,15 @@ unsafe impl ::windows::runtime::Abi for D3DNTHAL_TEXTURESWAPDATA {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DNTHAL_TSS_MAXSTAGES: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DNTHAL_TSS_RENDERSTATEBASE: u32 = 256u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DNTHAL_TSS_STATESPERSTAGE: u32 = 64u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct D3DNTHAL_VALIDATETEXTURESTAGESTATEDATA {
     pub dwhContext: usize,
     pub dwFlags: u32,
@@ -4986,6 +5448,7 @@ unsafe impl ::windows::runtime::Abi for D3DNTHAL_VALIDATETEXTURESTAGESTATEDATA {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3DOPCODE(pub i32);
@@ -5013,32 +5476,57 @@ unsafe impl ::windows::runtime::Abi for D3DOPCODE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPAL_FREE: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPAL_READONLY: u32 = 64u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPAL_RESERVED: u32 = 128u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPBLENDCAPS_BOTHINVSRCALPHA: i32 = 4096i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPBLENDCAPS_BOTHSRCALPHA: i32 = 2048i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPBLENDCAPS_DESTALPHA: i32 = 64i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPBLENDCAPS_DESTCOLOR: i32 = 256i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPBLENDCAPS_INVDESTALPHA: i32 = 128i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPBLENDCAPS_INVDESTCOLOR: i32 = 512i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPBLENDCAPS_INVSRCALPHA: i32 = 32i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPBLENDCAPS_INVSRCCOLOR: i32 = 8i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPBLENDCAPS_ONE: i32 = 2i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPBLENDCAPS_SRCALPHA: i32 = 16i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPBLENDCAPS_SRCALPHASAT: i32 = 1024i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPBLENDCAPS_SRCCOLOR: i32 = 4i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPBLENDCAPS_ZERO: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPCMPCAPS_ALWAYS: i32 = 128i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPCMPCAPS_EQUAL: i32 = 4i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPCMPCAPS_GREATER: i32 = 16i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPCMPCAPS_GREATEREQUAL: i32 = 64i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPCMPCAPS_LESS: i32 = 2i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPCMPCAPS_LESSEQUAL: i32 = 8i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPCMPCAPS_NEVER: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPCMPCAPS_NOTEQUAL: i32 = 32i32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct D3DPICKRECORD {
     pub bOpcode: u8,
     pub bPad: u8,
@@ -5066,15 +5554,23 @@ unsafe impl ::windows::runtime::Abi for D3DPICKRECORD {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPMISCCAPS_CONFORMANT: i32 = 8i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPMISCCAPS_CULLCCW: i32 = 64i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPMISCCAPS_CULLCW: i32 = 32i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPMISCCAPS_CULLNONE: i32 = 16i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPMISCCAPS_LINEPATTERNREP: i32 = 4i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPMISCCAPS_MASKPLANES: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPMISCCAPS_MASKZ: i32 = 2i32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct D3DPOINT {
     pub wCount: u16,
     pub wFirst: u16,
@@ -5100,31 +5596,55 @@ unsafe impl ::windows::runtime::Abi for D3DPOINT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPRASTERCAPS_ANISOTROPY: i32 = 131072i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPRASTERCAPS_ANTIALIASEDGES: i32 = 4096i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPRASTERCAPS_ANTIALIASSORTDEPENDENT: i32 = 1024i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPRASTERCAPS_ANTIALIASSORTINDEPENDENT: i32 = 2048i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPRASTERCAPS_DITHER: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPRASTERCAPS_FOGRANGE: i32 = 65536i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPRASTERCAPS_FOGTABLE: i32 = 256i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPRASTERCAPS_FOGVERTEX: i32 = 128i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPRASTERCAPS_MIPMAPLODBIAS: i32 = 8192i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPRASTERCAPS_PAT: i32 = 8i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPRASTERCAPS_ROP2: i32 = 2i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPRASTERCAPS_STIPPLE: i32 = 512i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPRASTERCAPS_STRETCHBLTMULTISAMPLE: i32 = 8388608i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPRASTERCAPS_SUBPIXEL: i32 = 32i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPRASTERCAPS_SUBPIXELX: i32 = 64i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPRASTERCAPS_TRANSLUCENTSORTINDEPENDENT: i32 = 524288i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPRASTERCAPS_WBUFFER: i32 = 262144i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPRASTERCAPS_WFOG: i32 = 1048576i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPRASTERCAPS_XOR: i32 = 4i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPRASTERCAPS_ZBIAS: i32 = 16384i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPRASTERCAPS_ZBUFFERLESSHSR: i32 = 32768i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPRASTERCAPS_ZFOG: i32 = 2097152i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPRASTERCAPS_ZTEST: i32 = 16i32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct D3DPROCESSVERTICES {
     pub dwFlags: u32,
     pub wStart: u16,
@@ -5153,84 +5673,161 @@ unsafe impl ::windows::runtime::Abi for D3DPROCESSVERTICES {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPROCESSVERTICES_COPY: i32 = 2i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPROCESSVERTICES_NOCOLOR: i32 = 16i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPROCESSVERTICES_OPMASK: i32 = 7i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPROCESSVERTICES_TRANSFORM: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPROCESSVERTICES_TRANSFORMLIGHT: i32 = 0i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPROCESSVERTICES_UPDATEEXTENTS: i32 = 8i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPSHADECAPS_ALPHAFLATBLEND: i32 = 4096i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPSHADECAPS_ALPHAFLATSTIPPLED: i32 = 8192i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPSHADECAPS_ALPHAGOURAUDBLEND: i32 = 16384i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPSHADECAPS_ALPHAGOURAUDSTIPPLED: i32 = 32768i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPSHADECAPS_ALPHAPHONGBLEND: i32 = 65536i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPSHADECAPS_ALPHAPHONGSTIPPLED: i32 = 131072i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPSHADECAPS_COLORFLATMONO: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPSHADECAPS_COLORFLATRGB: i32 = 2i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPSHADECAPS_COLORGOURAUDMONO: i32 = 4i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPSHADECAPS_COLORGOURAUDRGB: i32 = 8i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPSHADECAPS_COLORPHONGMONO: i32 = 16i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPSHADECAPS_COLORPHONGRGB: i32 = 32i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPSHADECAPS_FOGFLAT: i32 = 262144i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPSHADECAPS_FOGGOURAUD: i32 = 524288i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPSHADECAPS_FOGPHONG: i32 = 1048576i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPSHADECAPS_SPECULARFLATMONO: i32 = 64i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPSHADECAPS_SPECULARFLATRGB: i32 = 128i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPSHADECAPS_SPECULARGOURAUDMONO: i32 = 256i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPSHADECAPS_SPECULARGOURAUDRGB: i32 = 512i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPSHADECAPS_SPECULARPHONGMONO: i32 = 1024i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPSHADECAPS_SPECULARPHONGRGB: i32 = 2048i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPTADDRESSCAPS_BORDER: i32 = 8i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPTADDRESSCAPS_CLAMP: i32 = 4i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPTADDRESSCAPS_INDEPENDENTUV: i32 = 16i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPTADDRESSCAPS_MIRROR: i32 = 2i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPTADDRESSCAPS_WRAP: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPTBLENDCAPS_ADD: i32 = 128i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPTBLENDCAPS_COPY: i32 = 64i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPTBLENDCAPS_DECAL: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPTBLENDCAPS_DECALALPHA: i32 = 4i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPTBLENDCAPS_DECALMASK: i32 = 16i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPTBLENDCAPS_MODULATE: i32 = 2i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPTBLENDCAPS_MODULATEALPHA: i32 = 8i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPTBLENDCAPS_MODULATEMASK: i32 = 32i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPTEXTURECAPS_ALPHA: i32 = 4i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPTEXTURECAPS_ALPHAPALETTE: i32 = 128i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPTEXTURECAPS_BORDER: i32 = 16i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPTEXTURECAPS_COLORKEYBLEND: i32 = 4096i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPTEXTURECAPS_CUBEMAP: i32 = 2048i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPTEXTURECAPS_NONPOW2CONDITIONAL: i32 = 256i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPTEXTURECAPS_PERSPECTIVE: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPTEXTURECAPS_POW2: i32 = 2i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPTEXTURECAPS_PROJECTED: i32 = 1024i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPTEXTURECAPS_SQUAREONLY: i32 = 32i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPTEXTURECAPS_TEXREPEATNOTSCALEDBYSIZE: i32 = 64i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPTEXTURECAPS_TRANSPARENCY: i32 = 8i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPTFILTERCAPS_LINEAR: i32 = 2i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPTFILTERCAPS_LINEARMIPLINEAR: i32 = 32i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPTFILTERCAPS_LINEARMIPNEAREST: i32 = 16i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPTFILTERCAPS_MAGFAFLATCUBIC: i32 = 134217728i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPTFILTERCAPS_MAGFANISOTROPIC: i32 = 67108864i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPTFILTERCAPS_MAGFGAUSSIANCUBIC: i32 = 268435456i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPTFILTERCAPS_MAGFLINEAR: i32 = 33554432i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPTFILTERCAPS_MAGFPOINT: i32 = 16777216i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPTFILTERCAPS_MINFANISOTROPIC: i32 = 1024i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPTFILTERCAPS_MINFLINEAR: i32 = 512i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPTFILTERCAPS_MINFPOINT: i32 = 256i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPTFILTERCAPS_MIPFLINEAR: i32 = 131072i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPTFILTERCAPS_MIPFPOINT: i32 = 65536i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPTFILTERCAPS_MIPLINEAR: i32 = 8i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPTFILTERCAPS_MIPNEAREST: i32 = 4i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPTFILTERCAPS_NEAREST: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DPV_DONOTCOPYDATA: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DRENDERSTATE_EVICTMANAGEDTEXTURES: u32 = 61u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DRENDERSTATE_SCENECAPTURE: u32 = 62u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DRENDERSTATE_WRAPBIAS: u32 = 128u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DRS_MAXPIXELSHADERINST: u32 = 197u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DRS_MAXVERTEXSHADERINST: u32 = 196u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DSETSTATUS_EXTENTS: i32 = 2i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DSETSTATUS_STATUS: i32 = 1i32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct D3DSPAN {
     pub wCount: u16,
     pub wFirst: u16,
@@ -5259,6 +5856,7 @@ unsafe impl ::windows::runtime::Abi for D3DSPAN {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Graphics_Direct3D9`*"]
 pub struct D3DSTATE {
     pub Anonymous1: D3DSTATE_0,
     pub Anonymous2: D3DSTATE_1,
@@ -5287,6 +5885,7 @@ unsafe impl ::windows::runtime::Abi for D3DSTATE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Graphics_Direct3D9`*"]
 pub union D3DSTATE_0 {
     pub dtstTransformStateType: super::super::Graphics::Direct3D9::D3DTRANSFORMSTATETYPE,
     pub dlstLightStateType: D3DLIGHTSTATETYPE,
@@ -5315,6 +5914,7 @@ unsafe impl ::windows::runtime::Abi for D3DSTATE_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union D3DSTATE_1 {
     pub dwArg: [u32; 1],
     pub dvArg: [f32; 1],
@@ -5335,9 +5935,11 @@ unsafe impl ::windows::runtime::Abi for D3DSTATE_1 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DSTATE_OVERRIDE_BIAS: u32 = 256u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct D3DSTATS {
     pub dwSize: u32,
     pub dwTrianglesDrawn: u32,
@@ -5377,6 +5979,7 @@ unsafe impl ::windows::runtime::Abi for D3DSTATS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Graphics_Direct3D9`*"]
 pub struct D3DSTATUS {
     pub dwFlags: u32,
     pub dwStatus: u32,
@@ -5409,71 +6012,137 @@ unsafe impl ::windows::runtime::Abi for D3DSTATUS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DSTATUS_CLIPINTERSECTIONBACK: i32 = 131072i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DSTATUS_CLIPINTERSECTIONBOTTOM: i32 = 32768i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DSTATUS_CLIPINTERSECTIONFRONT: i32 = 65536i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DSTATUS_CLIPINTERSECTIONGEN0: i32 = 262144i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DSTATUS_CLIPINTERSECTIONGEN1: i32 = 524288i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DSTATUS_CLIPINTERSECTIONGEN2: i32 = 1048576i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DSTATUS_CLIPINTERSECTIONGEN3: i32 = 2097152i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DSTATUS_CLIPINTERSECTIONGEN4: i32 = 4194304i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DSTATUS_CLIPINTERSECTIONGEN5: i32 = 8388608i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DSTATUS_CLIPINTERSECTIONLEFT: i32 = 4096i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DSTATUS_CLIPINTERSECTIONRIGHT: i32 = 8192i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DSTATUS_CLIPINTERSECTIONTOP: i32 = 16384i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DSTATUS_CLIPUNIONBACK: i32 = 32i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DSTATUS_CLIPUNIONBOTTOM: i32 = 8i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DSTATUS_CLIPUNIONFRONT: i32 = 16i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DSTATUS_CLIPUNIONGEN0: i32 = 64i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DSTATUS_CLIPUNIONGEN1: i32 = 128i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DSTATUS_CLIPUNIONGEN2: i32 = 256i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DSTATUS_CLIPUNIONGEN3: i32 = 512i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DSTATUS_CLIPUNIONGEN4: i32 = 1024i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DSTATUS_CLIPUNIONGEN5: i32 = 2048i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DSTATUS_CLIPUNIONLEFT: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DSTATUS_CLIPUNIONRIGHT: i32 = 2i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DSTATUS_CLIPUNIONTOP: i32 = 4i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DSTATUS_ZNOTVISIBLE: i32 = 16777216i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DSTENCILCAPS_DECR: i32 = 128i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DSTENCILCAPS_DECRSAT: i32 = 16i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DSTENCILCAPS_INCR: i32 = 64i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DSTENCILCAPS_INCRSAT: i32 = 8i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DSTENCILCAPS_INVERT: i32 = 32i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DSTENCILCAPS_KEEP: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DSTENCILCAPS_REPLACE: i32 = 4i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DSTENCILCAPS_ZERO: i32 = 2i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DTA_ALPHAREPLICATE: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DTA_COMPLEMENT: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DTA_CURRENT: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DTA_DIFFUSE: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DTA_SELECTMASK: u32 = 15u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DTA_SPECULAR: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DTA_TEXTURE: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DTA_TFACTOR: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DTEXOPCAPS_ADD: i32 = 64i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DTEXOPCAPS_ADDSIGNED: i32 = 128i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DTEXOPCAPS_ADDSIGNED2X: i32 = 256i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DTEXOPCAPS_ADDSMOOTH: i32 = 1024i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DTEXOPCAPS_BLENDCURRENTALPHA: i32 = 32768i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DTEXOPCAPS_BLENDDIFFUSEALPHA: i32 = 2048i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DTEXOPCAPS_BLENDFACTORALPHA: i32 = 8192i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DTEXOPCAPS_BLENDTEXTUREALPHA: i32 = 4096i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DTEXOPCAPS_BLENDTEXTUREALPHAPM: i32 = 16384i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DTEXOPCAPS_BUMPENVMAP: i32 = 2097152i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DTEXOPCAPS_BUMPENVMAPLUMINANCE: i32 = 4194304i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DTEXOPCAPS_DISABLE: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DTEXOPCAPS_DOTPRODUCT3: i32 = 8388608i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DTEXOPCAPS_MODULATE: i32 = 8i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DTEXOPCAPS_MODULATE2X: i32 = 16i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DTEXOPCAPS_MODULATE4X: i32 = 32i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DTEXOPCAPS_MODULATEALPHA_ADDCOLOR: i32 = 131072i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DTEXOPCAPS_MODULATECOLOR_ADDALPHA: i32 = 262144i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DTEXOPCAPS_MODULATEINVALPHA_ADDCOLOR: i32 = 524288i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DTEXOPCAPS_MODULATEINVCOLOR_ADDALPHA: i32 = 1048576i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DTEXOPCAPS_PREMODULATE: i32 = 65536i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DTEXOPCAPS_SELECTARG1: i32 = 2i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DTEXOPCAPS_SELECTARG2: i32 = 4i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DTEXOPCAPS_SUBTRACT: i32 = 512i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3DTEXTUREBLEND(pub i32);
@@ -5495,6 +6164,7 @@ unsafe impl ::windows::runtime::Abi for D3DTEXTUREBLEND {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3DTEXTUREFILTER(pub i32);
@@ -5516,6 +6186,7 @@ unsafe impl ::windows::runtime::Abi for D3DTEXTUREFILTER {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct D3DTEXTURELOAD {
     pub hDestTexture: u32,
     pub hSrcTexture: u32,
@@ -5541,6 +6212,7 @@ unsafe impl ::windows::runtime::Abi for D3DTEXTURELOAD {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3DTEXTUREMAGFILTER(pub i32);
@@ -5559,6 +6231,7 @@ unsafe impl ::windows::runtime::Abi for D3DTEXTUREMAGFILTER {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3DTEXTUREMINFILTER(pub i32);
@@ -5575,6 +6248,7 @@ unsafe impl ::windows::runtime::Abi for D3DTEXTUREMINFILTER {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3DTEXTUREMIPFILTER(pub i32);
@@ -5593,6 +6267,7 @@ unsafe impl ::windows::runtime::Abi for D3DTEXTUREMIPFILTER {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct D3DTLVERTEX {
     pub Anonymous1: D3DTLVERTEX_0,
     pub Anonymous2: D3DTLVERTEX_1,
@@ -5621,6 +6296,7 @@ unsafe impl ::windows::runtime::Abi for D3DTLVERTEX {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union D3DTLVERTEX_0 {
     pub sx: f32,
     pub dvSX: f32,
@@ -5643,6 +6319,7 @@ unsafe impl ::windows::runtime::Abi for D3DTLVERTEX_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union D3DTLVERTEX_1 {
     pub sy: f32,
     pub dvSY: f32,
@@ -5665,6 +6342,7 @@ unsafe impl ::windows::runtime::Abi for D3DTLVERTEX_1 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union D3DTLVERTEX_2 {
     pub sz: f32,
     pub dvSZ: f32,
@@ -5687,6 +6365,7 @@ unsafe impl ::windows::runtime::Abi for D3DTLVERTEX_2 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union D3DTLVERTEX_3 {
     pub rhw: f32,
     pub dvRHW: f32,
@@ -5709,6 +6388,7 @@ unsafe impl ::windows::runtime::Abi for D3DTLVERTEX_3 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union D3DTLVERTEX_4 {
     pub color: u32,
     pub dcColor: u32,
@@ -5731,6 +6411,7 @@ unsafe impl ::windows::runtime::Abi for D3DTLVERTEX_4 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union D3DTLVERTEX_5 {
     pub specular: u32,
     pub dcSpecular: u32,
@@ -5753,6 +6434,7 @@ unsafe impl ::windows::runtime::Abi for D3DTLVERTEX_5 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union D3DTLVERTEX_6 {
     pub tu: f32,
     pub dvTU: f32,
@@ -5775,6 +6457,7 @@ unsafe impl ::windows::runtime::Abi for D3DTLVERTEX_6 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union D3DTLVERTEX_7 {
     pub tv: f32,
     pub dvTV: f32,
@@ -5797,6 +6480,7 @@ unsafe impl ::windows::runtime::Abi for D3DTLVERTEX_7 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct D3DTRANSFORMCAPS {
     pub dwSize: u32,
     pub dwCaps: u32,
@@ -5822,10 +6506,12 @@ unsafe impl ::windows::runtime::Abi for D3DTRANSFORMCAPS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DTRANSFORMCAPS_CLIP: i32 = 1i32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Graphics_Direct3D9`*"]
 pub struct D3DTRANSFORMDATA {
     pub dwSize: u32,
     pub lpIn: *mut ::std::ffi::c_void,
@@ -5876,10 +6562,13 @@ unsafe impl ::windows::runtime::Abi for D3DTRANSFORMDATA {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DTRANSFORM_CLIPPED: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DTRANSFORM_UNCLIPPED: i32 = 2i32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct D3DTRIANGLE {
     pub Anonymous1: D3DTRIANGLE_0,
     pub Anonymous2: D3DTRIANGLE_1,
@@ -5904,6 +6593,7 @@ unsafe impl ::windows::runtime::Abi for D3DTRIANGLE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union D3DTRIANGLE_0 {
     pub v1: u16,
     pub wV1: u16,
@@ -5926,6 +6616,7 @@ unsafe impl ::windows::runtime::Abi for D3DTRIANGLE_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union D3DTRIANGLE_1 {
     pub v2: u16,
     pub wV2: u16,
@@ -5948,6 +6639,7 @@ unsafe impl ::windows::runtime::Abi for D3DTRIANGLE_1 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union D3DTRIANGLE_2 {
     pub v3: u16,
     pub wV3: u16,
@@ -5968,23 +6660,39 @@ unsafe impl ::windows::runtime::Abi for D3DTRIANGLE_2 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DTRIFLAG_EDGEENABLE1: i32 = 256i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DTRIFLAG_EDGEENABLE2: i32 = 512i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DTRIFLAG_EDGEENABLE3: i32 = 1024i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DTRIFLAG_EVEN: i32 = 31i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DTRIFLAG_ODD: i32 = 30i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DTRIFLAG_START: i32 = 0i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DTSS_TCI_CAMERASPACENORMAL: u32 = 65536u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DTSS_TCI_CAMERASPACEPOSITION: u32 = 131072u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DTSS_TCI_CAMERASPACEREFLECTIONVECTOR: u32 = 196608u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DTSS_TCI_PASSTHRU: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DTSS_TEXTUREMAP: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVBCAPS_DONOTCLIP: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVBCAPS_OPTIMIZED: i32 = -2147483648i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVBCAPS_SYSTEMMEMORY: i32 = 2048i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVBCAPS_WRITEONLY: i32 = 65536i32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct D3DVERTEX {
     pub Anonymous1: D3DVERTEX_0,
     pub Anonymous2: D3DVERTEX_1,
@@ -6013,6 +6721,7 @@ unsafe impl ::windows::runtime::Abi for D3DVERTEX {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union D3DVERTEX_0 {
     pub x: f32,
     pub dvX: f32,
@@ -6035,6 +6744,7 @@ unsafe impl ::windows::runtime::Abi for D3DVERTEX_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union D3DVERTEX_1 {
     pub y: f32,
     pub dvY: f32,
@@ -6057,6 +6767,7 @@ unsafe impl ::windows::runtime::Abi for D3DVERTEX_1 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union D3DVERTEX_2 {
     pub z: f32,
     pub dvZ: f32,
@@ -6079,6 +6790,7 @@ unsafe impl ::windows::runtime::Abi for D3DVERTEX_2 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union D3DVERTEX_3 {
     pub nx: f32,
     pub dvNX: f32,
@@ -6101,6 +6813,7 @@ unsafe impl ::windows::runtime::Abi for D3DVERTEX_3 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union D3DVERTEX_4 {
     pub ny: f32,
     pub dvNY: f32,
@@ -6123,6 +6836,7 @@ unsafe impl ::windows::runtime::Abi for D3DVERTEX_4 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union D3DVERTEX_5 {
     pub nz: f32,
     pub dvNZ: f32,
@@ -6145,6 +6859,7 @@ unsafe impl ::windows::runtime::Abi for D3DVERTEX_5 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union D3DVERTEX_6 {
     pub tu: f32,
     pub dvTU: f32,
@@ -6167,6 +6882,7 @@ unsafe impl ::windows::runtime::Abi for D3DVERTEX_6 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union D3DVERTEX_7 {
     pub tv: f32,
     pub dvTV: f32,
@@ -6189,6 +6905,7 @@ unsafe impl ::windows::runtime::Abi for D3DVERTEX_7 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct D3DVERTEXBUFFERDESC {
     pub dwSize: u32,
     pub dwCaps: u32,
@@ -6216,6 +6933,7 @@ unsafe impl ::windows::runtime::Abi for D3DVERTEXBUFFERDESC {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3DVERTEXTYPE(pub i32);
@@ -6234,6 +6952,7 @@ unsafe impl ::windows::runtime::Abi for D3DVERTEXTYPE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct D3DVIEWPORT {
     pub dwSize: u32,
     pub dwX: u32,
@@ -6282,6 +7001,7 @@ unsafe impl ::windows::runtime::Abi for D3DVIEWPORT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct D3DVIEWPORT2 {
     pub dwSize: u32,
     pub dwX: u32,
@@ -6330,6 +7050,7 @@ unsafe impl ::windows::runtime::Abi for D3DVIEWPORT2 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct D3DVIEWPORT7 {
     pub dwX: u32,
     pub dwY: u32,
@@ -6359,206 +7080,405 @@ unsafe impl ::windows::runtime::Abi for D3DVIEWPORT7 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVIS_INSIDE_BOTTOM: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVIS_INSIDE_FAR: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVIS_INSIDE_FRUSTUM: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVIS_INSIDE_LEFT: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVIS_INSIDE_NEAR: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVIS_INSIDE_RIGHT: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVIS_INSIDE_TOP: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVIS_INTERSECT_BOTTOM: u32 = 256u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVIS_INTERSECT_FAR: u32 = 4096u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVIS_INTERSECT_FRUSTUM: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVIS_INTERSECT_LEFT: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVIS_INTERSECT_NEAR: u32 = 1024u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVIS_INTERSECT_RIGHT: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVIS_INTERSECT_TOP: u32 = 64u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVIS_MASK_BOTTOM: u32 = 768u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVIS_MASK_FAR: u32 = 12288u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVIS_MASK_FRUSTUM: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVIS_MASK_LEFT: u32 = 12u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVIS_MASK_NEAR: u32 = 3072u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVIS_MASK_RIGHT: u32 = 48u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVIS_MASK_TOP: u32 = 192u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVIS_OUTSIDE_BOTTOM: u32 = 512u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVIS_OUTSIDE_FAR: u32 = 8192u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVIS_OUTSIDE_FRUSTUM: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVIS_OUTSIDE_LEFT: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVIS_OUTSIDE_NEAR: u32 = 2048u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVIS_OUTSIDE_RIGHT: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVIS_OUTSIDE_TOP: u32 = 128u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVOP_CLIP: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVOP_EXTENTS: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVOP_LIGHT: u32 = 1024u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVOP_TRANSFORM: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVSDE_BLENDINDICES: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVSDE_BLENDWEIGHT: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVSDE_DIFFUSE: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVSDE_NORMAL: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVSDE_NORMAL2: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVSDE_POSITION: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVSDE_POSITION2: u32 = 15u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVSDE_PSIZE: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVSDE_SPECULAR: u32 = 6u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVSDE_TEXCOORD0: u32 = 7u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVSDE_TEXCOORD1: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVSDE_TEXCOORD2: u32 = 9u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVSDE_TEXCOORD3: u32 = 10u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVSDE_TEXCOORD4: u32 = 11u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVSDE_TEXCOORD5: u32 = 12u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVSDE_TEXCOORD6: u32 = 13u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVSDE_TEXCOORD7: u32 = 14u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVSDT_D3DCOLOR: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVSDT_FLOAT1: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVSDT_FLOAT2: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVSDT_FLOAT3: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVSDT_FLOAT4: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVSDT_SHORT2: u32 = 6u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVSDT_SHORT4: u32 = 7u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVSDT_UBYTE4: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVSD_CONSTADDRESSSHIFT: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVSD_CONSTCOUNTSHIFT: u32 = 25u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVSD_CONSTRSSHIFT: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVSD_DATALOADTYPESHIFT: u32 = 28u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVSD_DATATYPESHIFT: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVSD_EXTCOUNTSHIFT: u32 = 24u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVSD_EXTINFOSHIFT: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVSD_SKIPCOUNTSHIFT: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVSD_STREAMNUMBERSHIFT: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVSD_STREAMTESSSHIFT: u32 = 28u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVSD_TOKENTYPESHIFT: u32 = 29u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVSD_VERTEXREGINSHIFT: u32 = 20u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVSD_VERTEXREGSHIFT: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVTXPCAPS_DIRECTIONALLIGHTS: i32 = 8i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVTXPCAPS_LOCALVIEWER: i32 = 32i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVTXPCAPS_MATERIALSOURCE7: i32 = 2i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVTXPCAPS_POSITIONALLIGHTS: i32 = 16i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVTXPCAPS_TEXGEN: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DVTXPCAPS_VERTEXFOG: i32 = 4i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DWRAPCOORD_0: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DWRAPCOORD_1: i32 = 2i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DWRAPCOORD_2: i32 = 4i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DWRAPCOORD_3: i32 = 8i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DWRAP_U: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const D3DWRAP_V: i32 = 2i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DBTF_RESOURCE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DBTF_SLOWNET: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DBTF_XPORT: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DBT_APPYBEGIN: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DBT_APPYEND: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DBT_CONFIGCHANGECANCELED: u32 = 25u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DBT_CONFIGCHANGED: u32 = 24u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DBT_CONFIGMGAPI32: u32 = 34u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DBT_CONFIGMGPRIVATE: u32 = 32767u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DBT_CUSTOMEVENT: u32 = 32774u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DBT_DEVICEARRIVAL: u32 = 32768u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DBT_DEVICEQUERYREMOVE: u32 = 32769u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DBT_DEVICEQUERYREMOVEFAILED: u32 = 32770u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DBT_DEVICEREMOVECOMPLETE: u32 = 32772u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DBT_DEVICEREMOVEPENDING: u32 = 32771u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DBT_DEVICETYPESPECIFIC: u32 = 32773u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DBT_DEVNODES_CHANGED: u32 = 7u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DBT_DEVTYP_DEVNODE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DBT_DEVTYP_NET: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DBT_LOW_DISK_SPACE: u32 = 72u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DBT_MONITORCHANGE: u32 = 27u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DBT_NO_DISK_SPACE: u32 = 71u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DBT_QUERYCHANGECONFIG: u32 = 23u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DBT_SHELLLOGGEDON: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DBT_USERDEFINED: u32 = 65535u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DBT_VOLLOCKLOCKFAILED: u32 = 32835u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DBT_VOLLOCKLOCKRELEASED: u32 = 32837u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DBT_VOLLOCKLOCKTAKEN: u32 = 32834u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DBT_VOLLOCKQUERYLOCK: u32 = 32833u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DBT_VOLLOCKQUERYUNLOCK: u32 = 32836u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DBT_VOLLOCKUNLOCKFAILED: u32 = 32838u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DBT_VPOWERDAPI: u32 = 33024u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DBT_VXDINITCOMPLETE: u32 = 35u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DCR_DRIVER: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DCR_HALFTONE: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DCR_SOLID: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DC_COMPLEX: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DC_RECT: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DC_TRIVIAL: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DDBLT_EXTENDED_PRESENTATION_STRETCHFACTOR: i32 = 16i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DDI_DRIVER_VERSION_NT4: u32 = 131072u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DDI_DRIVER_VERSION_NT5: u32 = 196608u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DDI_DRIVER_VERSION_NT5_01: u32 = 196864u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DDI_DRIVER_VERSION_NT5_01_SP1: u32 = 196865u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DDI_DRIVER_VERSION_SP3: u32 = 131075u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DDI_ERROR: u32 = 4294967295u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEDICATED_MEMORY_CACHE_ELIGIBLE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DELETE: u32 = 65536u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVHTADJF_ADDITIVE_DEVICE: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVHTADJF_COLOR_DEVICE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVICEFAMILYDEVICEFORM_ALLINONE: u32 = 7u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVICEFAMILYDEVICEFORM_BANKING: u32 = 14u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVICEFAMILYDEVICEFORM_BUILDING_AUTOMATION: u32 = 15u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVICEFAMILYDEVICEFORM_CONVERTIBLE: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVICEFAMILYDEVICEFORM_DESKTOP: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVICEFAMILYDEVICEFORM_DETACHABLE: u32 = 6u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVICEFAMILYDEVICEFORM_DIGITAL_SIGNAGE: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVICEFAMILYDEVICEFORM_GAMING: u32 = 17u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVICEFAMILYDEVICEFORM_HMD: u32 = 11u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVICEFAMILYDEVICEFORM_HOME_AUTOMATION: u32 = 18u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVICEFAMILYDEVICEFORM_INDUSTRIAL_AUTOMATION: u32 = 19u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVICEFAMILYDEVICEFORM_INDUSTRY_HANDHELD: u32 = 12u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVICEFAMILYDEVICEFORM_INDUSTRY_OTHER: u32 = 29u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVICEFAMILYDEVICEFORM_INDUSTRY_TABLET: u32 = 13u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVICEFAMILYDEVICEFORM_KIOSK: u32 = 20u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVICEFAMILYDEVICEFORM_LARGESCREEN: u32 = 10u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVICEFAMILYDEVICEFORM_MAKER_BOARD: u32 = 21u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVICEFAMILYDEVICEFORM_MAX: u32 = 45u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVICEFAMILYDEVICEFORM_MEDICAL: u32 = 22u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVICEFAMILYDEVICEFORM_NETWORKING: u32 = 23u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVICEFAMILYDEVICEFORM_NOTEBOOK: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVICEFAMILYDEVICEFORM_PHONE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVICEFAMILYDEVICEFORM_POINT_OF_SERVICE: u32 = 24u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVICEFAMILYDEVICEFORM_PRINTING: u32 = 25u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVICEFAMILYDEVICEFORM_PUCK: u32 = 9u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVICEFAMILYDEVICEFORM_STICKPC: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVICEFAMILYDEVICEFORM_TABLET: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVICEFAMILYDEVICEFORM_THIN_CLIENT: u32 = 26u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVICEFAMILYDEVICEFORM_TOY: u32 = 27u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVICEFAMILYDEVICEFORM_UNKNOWN: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVICEFAMILYDEVICEFORM_VENDING: u32 = 28u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVICEFAMILYDEVICEFORM_XBOX_ONE: u32 = 30u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVICEFAMILYDEVICEFORM_XBOX_ONE_S: u32 = 31u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVICEFAMILYDEVICEFORM_XBOX_ONE_X: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVICEFAMILYDEVICEFORM_XBOX_ONE_X_DEVKIT: u32 = 33u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVICEFAMILYDEVICEFORM_XBOX_RESERVED_00: u32 = 36u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVICEFAMILYDEVICEFORM_XBOX_RESERVED_01: u32 = 37u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVICEFAMILYDEVICEFORM_XBOX_RESERVED_02: u32 = 38u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVICEFAMILYDEVICEFORM_XBOX_RESERVED_03: u32 = 39u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVICEFAMILYDEVICEFORM_XBOX_RESERVED_04: u32 = 40u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVICEFAMILYDEVICEFORM_XBOX_RESERVED_05: u32 = 41u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVICEFAMILYDEVICEFORM_XBOX_RESERVED_06: u32 = 42u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVICEFAMILYDEVICEFORM_XBOX_RESERVED_07: u32 = 43u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVICEFAMILYDEVICEFORM_XBOX_RESERVED_08: u32 = 44u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVICEFAMILYDEVICEFORM_XBOX_RESERVED_09: u32 = 45u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVICEFAMILYDEVICEFORM_XBOX_SERIES_X: u32 = 34u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVICEFAMILYDEVICEFORM_XBOX_SERIES_X_DEVKIT: u32 = 35u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVICEFAMILYINFOENUM_7067329: u32 = 15u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVICEFAMILYINFOENUM_8828080: u32 = 14u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVICEFAMILYINFOENUM_DESKTOP: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVICEFAMILYINFOENUM_HOLOGRAPHIC: u32 = 10u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVICEFAMILYINFOENUM_IOT: u32 = 7u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVICEFAMILYINFOENUM_IOT_HEADLESS: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVICEFAMILYINFOENUM_MAX: u32 = 17u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVICEFAMILYINFOENUM_MOBILE: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVICEFAMILYINFOENUM_SERVER: u32 = 9u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVICEFAMILYINFOENUM_SERVER_NANO: u32 = 13u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVICEFAMILYINFOENUM_TEAM: u32 = 6u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVICEFAMILYINFOENUM_UAP: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVICEFAMILYINFOENUM_WINDOWS_8X: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVICEFAMILYINFOENUM_WINDOWS_CORE: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVICEFAMILYINFOENUM_WINDOWS_CORE_HEADLESS: u32 = 17u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVICEFAMILYINFOENUM_WINDOWS_PHONE_8X: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVICEFAMILYINFOENUM_XBOX: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVICEFAMILYINFOENUM_XBOXERA: u32 = 12u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVICEFAMILYINFOENUM_XBOXSRA: u32 = 11u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct DEVICE_EVENT_BECOMING_READY {
     pub Version: u32,
     pub Reason: u32,
@@ -6587,6 +7507,7 @@ unsafe impl ::windows::runtime::Abi for DEVICE_EVENT_BECOMING_READY {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct DEVICE_EVENT_EXTERNAL_REQUEST {
     pub Version: u32,
     pub DeviceClass: u32,
@@ -6617,6 +7538,7 @@ unsafe impl ::windows::runtime::Abi for DEVICE_EVENT_EXTERNAL_REQUEST {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct DEVICE_EVENT_GENERIC_DATA {
     pub EventNumber: u32,
 }
@@ -6643,6 +7565,7 @@ unsafe impl ::windows::runtime::Abi for DEVICE_EVENT_GENERIC_DATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct DEVICE_EVENT_MOUNT {
     pub Version: u32,
     pub Flags: u32,
@@ -6672,6 +7595,7 @@ unsafe impl ::windows::runtime::Abi for DEVICE_EVENT_MOUNT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct DEVICE_EVENT_RBC_DATA {
     pub EventNumber: u32,
     pub SenseQualifier: u8,
@@ -6701,6 +7625,7 @@ unsafe impl ::windows::runtime::Abi for DEVICE_EVENT_RBC_DATA {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DEVICE_POWER_STATE(pub i32);
@@ -6720,976 +7645,1171 @@ unsafe impl ::windows::runtime::Abi for DEVICE_POWER_STATE {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DevQuery_ObjectType: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(325533506, 41942, 18934, [180, 218, 174, 70, 224, 197, 35, 124]),
     pid: 2u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceClass_Characteristics: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(1126273419, 63134, 18189, [165, 222, 77, 136, 199, 90, 210, 75]),
     pid: 29u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceClass_ClassCoInstallers: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(1899828995, 41698, 18933, [146, 20, 86, 71, 46, 243, 218, 92]),
     pid: 2u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceClass_ClassInstaller: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(630898684, 20647, 18382, [175, 8, 104, 201, 167, 215, 51, 102]),
     pid: 5u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceClass_ClassName: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(630898684, 20647, 18382, [175, 8, 104, 201, 167, 215, 51, 102]),
     pid: 3u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceClass_DHPRebalanceOptOut: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(3511500531, 26319, 19362, [157, 56, 13, 219, 55, 171, 71, 1]),
     pid: 2u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceClass_DefaultService: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(630898684, 20647, 18382, [175, 8, 104, 201, 167, 215, 51, 102]),
     pid: 11u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceClass_DevType: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(1126273419, 63134, 18189, [165, 222, 77, 136, 199, 90, 210, 75]),
     pid: 27u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceClass_Exclusive: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(1126273419, 63134, 18189, [165, 222, 77, 136, 199, 90, 210, 75]),
     pid: 28u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceClass_Icon: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(630898684, 20647, 18382, [175, 8, 104, 201, 167, 215, 51, 102]),
     pid: 4u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceClass_IconPath: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(630898684, 20647, 18382, [175, 8, 104, 201, 167, 215, 51, 102]),
     pid: 12u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceClass_LowerFilters: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(1126273419, 63134, 18189, [165, 222, 77, 136, 199, 90, 210, 75]),
     pid: 20u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceClass_Name: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(630898684, 20647, 18382, [175, 8, 104, 201, 167, 215, 51, 102]),
     pid: 2u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceClass_NoDisplayClass: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(630898684, 20647, 18382, [175, 8, 104, 201, 167, 215, 51, 102]),
     pid: 8u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceClass_NoInstallClass: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(630898684, 20647, 18382, [175, 8, 104, 201, 167, 215, 51, 102]),
     pid: 7u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceClass_NoUseClass: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(630898684, 20647, 18382, [175, 8, 104, 201, 167, 215, 51, 102]),
     pid: 10u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceClass_PropPageProvider: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(630898684, 20647, 18382, [175, 8, 104, 201, 167, 215, 51, 102]),
     pid: 6u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceClass_Security: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(1126273419, 63134, 18189, [165, 222, 77, 136, 199, 90, 210, 75]),
     pid: 25u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceClass_SecuritySDS: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(1126273419, 63134, 18189, [165, 222, 77, 136, 199, 90, 210, 75]),
     pid: 26u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceClass_SilentInstall: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(630898684, 20647, 18382, [175, 8, 104, 201, 167, 215, 51, 102]),
     pid: 9u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceClass_UpperFilters: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(1126273419, 63134, 18189, [165, 222, 77, 136, 199, 90, 210, 75]),
     pid: 19u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceContainer_Address: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
     pid: 51u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceContainer_AlwaysShowDeviceAsConnected: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
     pid: 101u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceContainer_AssociationArray: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
     pid: 80u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceContainer_BaselineExperienceId: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
     pid: 78u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceContainer_Category: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
     pid: 90u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceContainer_CategoryGroup_Desc: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
     pid: 94u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceContainer_CategoryGroup_Icon: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
     pid: 95u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceContainer_Category_Desc_Plural: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
     pid: 92u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceContainer_Category_Desc_Singular: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
     pid: 91u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceContainer_Category_Icon: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
     pid: 93u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceContainer_ConfigFlags: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
     pid: 105u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceContainer_CustomPrivilegedPackageFamilyNames: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
     pid: 107u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceContainer_DeviceDescription1: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
     pid: 81u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceContainer_DeviceDescription2: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
     pid: 82u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceContainer_DeviceFunctionSubRank: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
     pid: 100u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceContainer_DiscoveryMethod: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
     pid: 52u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceContainer_ExperienceId: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
     pid: 89u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceContainer_FriendlyName: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(1701460915, 60608, 17405, [132, 119, 74, 224, 64, 74, 150, 205]),
     pid: 12288u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceContainer_HasProblem: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
     pid: 83u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceContainer_Icon: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
     pid: 57u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceContainer_InstallInProgress: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2212127526, 38822, 16520, [148, 83, 161, 146, 63, 87, 59, 41]),
     pid: 9u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceContainer_IsAuthenticated: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
     pid: 54u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceContainer_IsConnected: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
     pid: 55u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceContainer_IsDefaultDevice: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
     pid: 86u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceContainer_IsDeviceUniquelyIdentifiable: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
     pid: 79u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceContainer_IsEncrypted: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
     pid: 53u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceContainer_IsLocalMachine: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
     pid: 70u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceContainer_IsMetadataSearchInProgress: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
     pid: 72u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceContainer_IsNetworkDevice: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
     pid: 85u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceContainer_IsNotInterestingForDisplay: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
     pid: 74u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceContainer_IsPaired: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
     pid: 56u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceContainer_IsRebootRequired: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
     pid: 108u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceContainer_IsSharedDevice: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
     pid: 84u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceContainer_IsShowInDisconnectedState: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
     pid: 68u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceContainer_Last_Connected: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
     pid: 67u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceContainer_Last_Seen: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
     pid: 66u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceContainer_LaunchDeviceStageFromExplorer: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
     pid: 77u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceContainer_LaunchDeviceStageOnDeviceConnect: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
     pid: 76u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceContainer_Manufacturer: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(1701460915, 60608, 17405, [132, 119, 74, 224, 64, 74, 150, 205]),
     pid: 8192u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceContainer_MetadataCabinet: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
     pid: 87u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceContainer_MetadataChecksum: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
     pid: 73u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceContainer_MetadataPath: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
     pid: 71u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceContainer_ModelName: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(1701460915, 60608, 17405, [132, 119, 74, 224, 64, 74, 150, 205]),
     pid: 8194u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceContainer_ModelNumber: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(1701460915, 60608, 17405, [132, 119, 74, 224, 64, 74, 150, 205]),
     pid: 8195u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceContainer_PrimaryCategory: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
     pid: 97u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceContainer_PrivilegedPackageFamilyNames: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
     pid: 106u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceContainer_RequiresPairingElevation: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
     pid: 88u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceContainer_RequiresUninstallElevation: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
     pid: 99u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceContainer_UnpairUninstall: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
     pid: 98u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceContainer_Version: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
     pid: 65u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceInterfaceClass_DefaultInterface: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(348666521, 2879, 17591, [190, 76, 161, 120, 211, 153, 5, 100]),
     pid: 2u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceInterfaceClass_Name: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(348666521, 2879, 17591, [190, 76, 161, 120, 211, 153, 5, 100]),
     pid: 3u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceInterface_Autoplay_Silent: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(1129173647, 40565, 17674, [154, 185, 255, 97, 230, 24, 186, 208]),
     pid: 2u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceInterface_ClassGuid: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(40784238, 47124, 16715, [131, 205, 133, 109, 111, 239, 72, 34]),
     pid: 4u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceInterface_Enabled: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(40784238, 47124, 16715, [131, 205, 133, 109, 111, 239, 72, 34]),
     pid: 3u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceInterface_FriendlyName: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(40784238, 47124, 16715, [131, 205, 133, 109, 111, 239, 72, 34]),
     pid: 2u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceInterface_ReferenceString: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(40784238, 47124, 16715, [131, 205, 133, 109, 111, 239, 72, 34]),
     pid: 5u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceInterface_Restricted: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(40784238, 47124, 16715, [131, 205, 133, 109, 111, 239, 72, 34]),
     pid: 6u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceInterface_SchematicName: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(40784238, 47124, 16715, [131, 205, 133, 109, 111, 239, 72, 34]),
     pid: 9u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DeviceInterface_UnrestrictedAppCapabilities: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(40784238, 47124, 16715, [131, 205, 133, 109, 111, 239, 72, 34]),
     pid: 8u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_AdditionalSoftwareRequested: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2830656989, 11837, 16532, [173, 151, 229, 147, 167, 12, 117, 214]),
     pid: 19u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_Address: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
     pid: 30u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_AssignedToGuest: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(1410045054, 35648, 17852, [168, 162, 106, 11, 137, 76, 189, 162]),
     pid: 24u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_BaseContainerId: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
     pid: 38u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_BiosDeviceName: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(1410045054, 35648, 17852, [168, 162, 106, 11, 137, 76, 189, 162]),
     pid: 10u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_BusNumber: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
     pid: 23u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_BusRelations: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(1128310469, 37882, 18182, [151, 44, 123, 100, 128, 8, 165, 167]),
     pid: 7u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_BusReportedDeviceDesc: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(1410045054, 35648, 17852, [168, 162, 106, 11, 137, 76, 189, 162]),
     pid: 4u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_BusTypeGuid: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
     pid: 21u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_Capabilities: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
     pid: 17u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_Characteristics: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
     pid: 29u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_Children: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(1128310469, 37882, 18182, [151, 44, 123, 100, 128, 8, 165, 167]),
     pid: 9u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_Class: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
     pid: 9u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_ClassGuid: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
     pid: 10u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_CompatibleIds: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
     pid: 4u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_ConfigFlags: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
     pid: 12u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_ConfigurationId: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(1410045054, 35648, 17852, [168, 162, 106, 11, 137, 76, 189, 162]),
     pid: 7u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_ContainerId: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2357121542, 16266, 18471, [179, 171, 174, 158, 31, 174, 252, 108]),
     pid: 2u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_CreatorProcessId: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(1410045054, 35648, 17852, [168, 162, 106, 11, 137, 76, 189, 162]),
     pid: 25u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_DHP_Rebalance_Policy: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(1410045054, 35648, 17852, [168, 162, 106, 11, 137, 76, 189, 162]),
     pid: 2u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_DebuggerSafe: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(1410045054, 35648, 17852, [168, 162, 106, 11, 137, 76, 189, 162]),
     pid: 12u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_DependencyDependents: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(1410045054, 35648, 17852, [168, 162, 106, 11, 137, 76, 189, 162]),
     pid: 21u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_DependencyProviders: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(1410045054, 35648, 17852, [168, 162, 106, 11, 137, 76, 189, 162]),
     pid: 20u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_DevNodeStatus: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(1128310469, 37882, 18182, [151, 44, 123, 100, 128, 8, 165, 167]),
     pid: 2u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_DevType: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
     pid: 27u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_DeviceDesc: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
     pid: 2u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_Driver: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
     pid: 11u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_DriverCoInstallers: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2830656989, 11837, 16532, [173, 151, 229, 147, 167, 12, 117, 214]),
     pid: 11u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_DriverDate: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2830656989, 11837, 16532, [173, 151, 229, 147, 167, 12, 117, 214]),
     pid: 2u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_DriverDesc: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2830656989, 11837, 16532, [173, 151, 229, 147, 167, 12, 117, 214]),
     pid: 4u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_DriverInfPath: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2830656989, 11837, 16532, [173, 151, 229, 147, 167, 12, 117, 214]),
     pid: 5u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_DriverInfSection: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2830656989, 11837, 16532, [173, 151, 229, 147, 167, 12, 117, 214]),
     pid: 6u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_DriverInfSectionExt: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2830656989, 11837, 16532, [173, 151, 229, 147, 167, 12, 117, 214]),
     pid: 7u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_DriverLogoLevel: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2830656989, 11837, 16532, [173, 151, 229, 147, 167, 12, 117, 214]),
     pid: 15u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_DriverProblemDesc: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(1410045054, 35648, 17852, [168, 162, 106, 11, 137, 76, 189, 162]),
     pid: 11u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_DriverPropPageProvider: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2830656989, 11837, 16532, [173, 151, 229, 147, 167, 12, 117, 214]),
     pid: 10u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_DriverProvider: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2830656989, 11837, 16532, [173, 151, 229, 147, 167, 12, 117, 214]),
     pid: 9u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_DriverRank: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2830656989, 11837, 16532, [173, 151, 229, 147, 167, 12, 117, 214]),
     pid: 14u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_DriverVersion: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2830656989, 11837, 16532, [173, 151, 229, 147, 167, 12, 117, 214]),
     pid: 3u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_EjectionRelations: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(1128310469, 37882, 18182, [151, 44, 123, 100, 128, 8, 165, 167]),
     pid: 4u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_EnumeratorName: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
     pid: 24u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_Exclusive: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
     pid: 28u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_ExtendedAddress: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(1410045054, 35648, 17852, [168, 162, 106, 11, 137, 76, 189, 162]),
     pid: 23u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_ExtendedConfigurationIds: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(1410045054, 35648, 17852, [168, 162, 106, 11, 137, 76, 189, 162]),
     pid: 15u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_FirmwareDate: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(1410045054, 35648, 17852, [168, 162, 106, 11, 137, 76, 189, 162]),
     pid: 17u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_FirmwareRevision: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(1410045054, 35648, 17852, [168, 162, 106, 11, 137, 76, 189, 162]),
     pid: 19u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_FirmwareVersion: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(1410045054, 35648, 17852, [168, 162, 106, 11, 137, 76, 189, 162]),
     pid: 18u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_FirstInstallDate: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2212127526, 38822, 16520, [148, 83, 161, 146, 63, 87, 59, 41]),
     pid: 101u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_FriendlyName: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
     pid: 14u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_FriendlyNameAttributes: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2161647270, 29811, 19212, [130, 22, 239, 193, 26, 44, 76, 139]),
     pid: 3u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_GenericDriverInstalled: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2830656989, 11837, 16532, [173, 151, 229, 147, 167, 12, 117, 214]),
     pid: 18u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_HardwareIds: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
     pid: 3u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_HasProblem: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(1410045054, 35648, 17852, [168, 162, 106, 11, 137, 76, 189, 162]),
     pid: 6u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_InLocalMachineContainer: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2357121542, 16266, 18471, [179, 171, 174, 158, 31, 174, 252, 108]),
     pid: 4u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_InstallDate: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2212127526, 38822, 16520, [148, 83, 161, 146, 63, 87, 59, 41]),
     pid: 100u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_InstallState: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
     pid: 36u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_InstanceId: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
     pid: 256u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_IsAssociateableByUserAction: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2161647270, 29811, 19212, [130, 22, 239, 193, 26, 44, 76, 139]),
     pid: 7u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_IsPresent: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(1410045054, 35648, 17852, [168, 162, 106, 11, 137, 76, 189, 162]),
     pid: 5u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_IsRebootRequired: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(1410045054, 35648, 17852, [168, 162, 106, 11, 137, 76, 189, 162]),
     pid: 16u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_LastArrivalDate: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2212127526, 38822, 16520, [148, 83, 161, 146, 63, 87, 59, 41]),
     pid: 102u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_LastRemovalDate: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2212127526, 38822, 16520, [148, 83, 161, 146, 63, 87, 59, 41]),
     pid: 103u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_Legacy: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2152296704, 35955, 18617, [170, 217, 206, 56, 126, 25, 197, 110]),
     pid: 3u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_LegacyBusType: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
     pid: 22u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_LocationInfo: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
     pid: 15u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_LocationPaths: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
     pid: 37u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_LowerFilters: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
     pid: 20u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_Manufacturer: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
     pid: 13u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_ManufacturerAttributes: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2161647270, 29811, 19212, [130, 22, 239, 193, 26, 44, 76, 139]),
     pid: 4u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_MatchingDeviceId: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2830656989, 11837, 16532, [173, 151, 229, 147, 167, 12, 117, 214]),
     pid: 8u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_Model: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
     pid: 39u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_ModelId: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2161647270, 29811, 19212, [130, 22, 239, 193, 26, 44, 76, 139]),
     pid: 2u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_NoConnectSound: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2830656989, 11837, 16532, [173, 151, 229, 147, 167, 12, 117, 214]),
     pid: 17u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_Numa_Node: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(1410045054, 35648, 17852, [168, 162, 106, 11, 137, 76, 189, 162]),
     pid: 3u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_Numa_Proximity_Domain: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(1410045054, 35648, 17852, [168, 162, 106, 11, 137, 76, 189, 162]),
     pid: 1u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_PDOName: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
     pid: 16u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_Parent: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(1128310469, 37882, 18182, [151, 44, 123, 100, 128, 8, 165, 167]),
     pid: 8u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_PhysicalDeviceLocation: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(1410045054, 35648, 17852, [168, 162, 106, 11, 137, 76, 189, 162]),
     pid: 9u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_PostInstallInProgress: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(1410045054, 35648, 17852, [168, 162, 106, 11, 137, 76, 189, 162]),
     pid: 13u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_PowerData: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
     pid: 32u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_PowerRelations: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(1128310469, 37882, 18182, [151, 44, 123, 100, 128, 8, 165, 167]),
     pid: 6u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_PresenceNotForDevice: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2161647270, 29811, 19212, [130, 22, 239, 193, 26, 44, 76, 139]),
     pid: 5u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_ProblemCode: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(1128310469, 37882, 18182, [151, 44, 123, 100, 128, 8, 165, 167]),
     pid: 3u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_ProblemStatus: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(1128310469, 37882, 18182, [151, 44, 123, 100, 128, 8, 165, 167]),
     pid: 12u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_RemovalPolicy: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
     pid: 33u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_RemovalPolicyDefault: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
     pid: 34u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_RemovalPolicyOverride: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
     pid: 35u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_RemovalRelations: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(1128310469, 37882, 18182, [151, 44, 123, 100, 128, 8, 165, 167]),
     pid: 5u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_Reported: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2152296704, 35955, 18617, [170, 217, 206, 56, 126, 25, 197, 110]),
     pid: 2u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_ReportedDeviceIdsHash: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(1410045054, 35648, 17852, [168, 162, 106, 11, 137, 76, 189, 162]),
     pid: 8u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_ResourcePickerExceptions: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2830656989, 11837, 16532, [173, 151, 229, 147, 167, 12, 117, 214]),
     pid: 13u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_ResourcePickerTags: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2830656989, 11837, 16532, [173, 151, 229, 147, 167, 12, 117, 214]),
     pid: 12u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_SafeRemovalRequired: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2950264384, 34467, 16912, [182, 124, 40, 156, 65, 170, 190, 85]),
     pid: 2u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_SafeRemovalRequiredOverride: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2950264384, 34467, 16912, [182, 124, 40, 156, 65, 170, 190, 85]),
     pid: 3u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_Security: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
     pid: 25u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_SecuritySDS: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
     pid: 26u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_Service: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
     pid: 6u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_SessionId: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2212127526, 38822, 16520, [148, 83, 161, 146, 63, 87, 59, 41]),
     pid: 6u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_ShowInUninstallUI: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2161647270, 29811, 19212, [130, 22, 239, 193, 26, 44, 76, 139]),
     pid: 8u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_Siblings: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(1128310469, 37882, 18182, [151, 44, 123, 100, 128, 8, 165, 167]),
     pid: 10u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_SignalStrength: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2161647270, 29811, 19212, [130, 22, 239, 193, 26, 44, 76, 139]),
     pid: 6u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_SoftRestartSupported: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(1410045054, 35648, 17852, [168, 162, 106, 11, 137, 76, 189, 162]),
     pid: 22u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_Stack: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(1410045054, 35648, 17852, [168, 162, 106, 11, 137, 76, 189, 162]),
     pid: 14u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_TransportRelations: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(1128310469, 37882, 18182, [151, 44, 123, 100, 128, 8, 165, 167]),
     pid: 11u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_UINumber: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
     pid: 18u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_UINumberDescFormat: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
     pid: 31u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Device_UpperFilters: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
     pid: 19u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DrvPkg_BrandingIcon: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(3480468305, 15039, 17570, [133, 224, 154, 61, 199, 161, 33, 50]),
     pid: 7u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DrvPkg_DetailedDescription: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(3480468305, 15039, 17570, [133, 224, 154, 61, 199, 161, 33, 50]),
     pid: 4u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DrvPkg_DocumentationLink: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(3480468305, 15039, 17570, [133, 224, 154, 61, 199, 161, 33, 50]),
     pid: 5u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DrvPkg_Icon: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(3480468305, 15039, 17570, [133, 224, 154, 61, 199, 161, 33, 50]),
     pid: 6u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DrvPkg_Model: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(3480468305, 15039, 17570, [133, 224, 154, 61, 199, 161, 33, 50]),
     pid: 2u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_DrvPkg_VendorWebSite: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(3480468305, 15039, 17570, [133, 224, 154, 61, 199, 161, 33, 50]),
     pid: 3u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_NAME: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(3072717104, 18415, 4122, [165, 241, 2, 96, 140, 158, 235, 172]),
     pid: 10u32,
@@ -7697,6 +8817,7 @@ pub const DEVPKEY_NAME: super::PropertiesSystem::PROPERTYKEY = super::Properties
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub struct DEVPROPCOMPKEY {
     pub Key: DEVPROPKEY,
     pub Store: DEVPROPSTORE,
@@ -7732,6 +8853,7 @@ unsafe impl ::windows::runtime::Abi for DEVPROPCOMPKEY {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub struct DEVPROPERTY {
     pub CompKey: DEVPROPCOMPKEY,
     pub Type: u32,
@@ -7765,9 +8887,11 @@ unsafe impl ::windows::runtime::Abi for DEVPROPERTY {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVPROPID_FIRST_USABLE: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct DEVPROPKEY {
     pub fmtid: ::windows::runtime::GUID,
     pub pid: u32,
@@ -7793,6 +8917,7 @@ unsafe impl ::windows::runtime::Abi for DEVPROPKEY {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DEVPROPSTORE(pub i32);
@@ -7807,39 +8932,70 @@ unsafe impl ::windows::runtime::Abi for DEVPROPSTORE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVPROP_MASK_TYPE: u32 = 4095u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVPROP_MASK_TYPEMOD: u32 = 61440u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVPROP_TYPEMOD_ARRAY: u32 = 4096u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVPROP_TYPEMOD_LIST: u32 = 8192u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVPROP_TYPE_BOOLEAN: u32 = 17u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVPROP_TYPE_BYTE: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVPROP_TYPE_CURRENCY: u32 = 14u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVPROP_TYPE_DATE: u32 = 15u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVPROP_TYPE_DECIMAL: u32 = 12u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVPROP_TYPE_DEVPROPKEY: u32 = 21u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVPROP_TYPE_DEVPROPTYPE: u32 = 22u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVPROP_TYPE_DOUBLE: u32 = 11u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVPROP_TYPE_EMPTY: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVPROP_TYPE_ERROR: u32 = 23u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVPROP_TYPE_FILETIME: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVPROP_TYPE_FLOAT: u32 = 10u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVPROP_TYPE_GUID: u32 = 13u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVPROP_TYPE_INT16: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVPROP_TYPE_INT32: u32 = 6u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVPROP_TYPE_INT64: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVPROP_TYPE_NTSTATUS: u32 = 24u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVPROP_TYPE_NULL: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVPROP_TYPE_SBYTE: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVPROP_TYPE_SECURITY_DESCRIPTOR: u32 = 19u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVPROP_TYPE_SECURITY_DESCRIPTOR_STRING: u32 = 20u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVPROP_TYPE_STRING: u32 = 18u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVPROP_TYPE_STRING_INDIRECT: u32 = 25u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVPROP_TYPE_UINT16: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVPROP_TYPE_UINT32: u32 = 7u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DEVPROP_TYPE_UINT64: u32 = 9u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub struct DEV_BROADCAST_DEVICEINTERFACE_A {
     pub dbcc_size: u32,
     pub dbcc_devicetype: u32,
@@ -7876,6 +9032,7 @@ unsafe impl ::windows::runtime::Abi for DEV_BROADCAST_DEVICEINTERFACE_A {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct DEV_BROADCAST_DEVICEINTERFACE_W {
     pub dbcc_size: u32,
     pub dbcc_devicetype: u32,
@@ -7906,6 +9063,7 @@ unsafe impl ::windows::runtime::Abi for DEV_BROADCAST_DEVICEINTERFACE_W {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct DEV_BROADCAST_DEVNODE {
     pub dbcd_size: u32,
     pub dbcd_devicetype: u32,
@@ -7936,6 +9094,7 @@ unsafe impl ::windows::runtime::Abi for DEV_BROADCAST_DEVNODE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub struct DEV_BROADCAST_HANDLE {
     pub dbch_size: u32,
     pub dbch_devicetype: u32,
@@ -7984,6 +9143,7 @@ unsafe impl ::windows::runtime::Abi for DEV_BROADCAST_HANDLE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct DEV_BROADCAST_HANDLE32 {
     pub dbch_size: u32,
     pub dbch_devicetype: u32,
@@ -8026,6 +9186,7 @@ unsafe impl ::windows::runtime::Abi for DEV_BROADCAST_HANDLE32 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct DEV_BROADCAST_HANDLE64 {
     pub dbch_size: u32,
     pub dbch_devicetype: u32,
@@ -8068,6 +9229,7 @@ unsafe impl ::windows::runtime::Abi for DEV_BROADCAST_HANDLE64 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct DEV_BROADCAST_HDR {
     pub dbch_size: u32,
     pub dbch_devicetype: DEV_BROADCAST_HDR_DEVICE_TYPE,
@@ -8094,6 +9256,7 @@ unsafe impl ::windows::runtime::Abi for DEV_BROADCAST_HDR {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DEV_BROADCAST_HDR_DEVICE_TYPE(pub u32);
@@ -8141,6 +9304,7 @@ impl ::std::ops::Not for DEV_BROADCAST_HDR_DEVICE_TYPE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct DEV_BROADCAST_NET {
     pub dbcn_size: u32,
     pub dbcn_devicetype: u32,
@@ -8171,6 +9335,7 @@ unsafe impl ::windows::runtime::Abi for DEV_BROADCAST_NET {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct DEV_BROADCAST_OEM {
     pub dbco_size: u32,
     pub dbco_devicetype: u32,
@@ -8202,6 +9367,7 @@ unsafe impl ::windows::runtime::Abi for DEV_BROADCAST_OEM {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub struct DEV_BROADCAST_PORT_A {
     pub dbcp_size: u32,
     pub dbcp_devicetype: u32,
@@ -8237,6 +9403,7 @@ unsafe impl ::windows::runtime::Abi for DEV_BROADCAST_PORT_A {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct DEV_BROADCAST_PORT_W {
     pub dbcp_size: u32,
     pub dbcp_devicetype: u32,
@@ -8266,6 +9433,7 @@ unsafe impl ::windows::runtime::Abi for DEV_BROADCAST_PORT_W {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct DEV_BROADCAST_VOLUME {
     pub dbcv_size: u32,
     pub dbcv_devicetype: u32,
@@ -8294,6 +9462,7 @@ unsafe impl ::windows::runtime::Abi for DEV_BROADCAST_VOLUME {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DEV_BROADCAST_VOLUME_FLAGS(pub u16);
@@ -8334,15 +9503,23 @@ unsafe impl ::windows::runtime::Abi for DHSURF {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DIAGNOSTIC_REASON_DETAILED_STRING: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DIAGNOSTIC_REASON_NOT_SPECIFIED: u32 = 2147483648u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DIAGNOSTIC_REASON_SIMPLE_STRING: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DIAGNOSTIC_REASON_VERSION: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DIRECT3D_VERSION: u32 = 1792u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DISCHARGE_POLICY_CRITICAL: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DISCHARGE_POLICY_LOW: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct DISK_HEALTH_NOTIFICATION_DATA {
     pub DeviceGuid: ::windows::runtime::GUID,
 }
@@ -8370,6 +9547,7 @@ unsafe impl ::windows::runtime::Abi for DISK_HEALTH_NOTIFICATION_DATA {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_System_Diagnostics_Debug`, `Win32_System_Kernel`*"]
 pub struct DISPATCHER_CONTEXT {
     pub ControlPc: usize,
     pub ImageBase: usize,
@@ -8437,6 +9615,7 @@ unsafe impl ::windows::runtime::Abi for DISPATCHER_CONTEXT {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_System_Diagnostics_Debug`, `Win32_System_Kernel`*"]
 pub struct DISPATCHER_CONTEXT_ARM64 {
     pub ControlPc: usize,
     pub ImageBase: usize,
@@ -8503,6 +9682,7 @@ unsafe impl ::windows::runtime::Abi for DISPATCHER_CONTEXT_ARM64 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union DISPATCHER_CONTEXT_NONVOLREG_ARM64 {
     pub Buffer: [u8; 152],
     pub Anonymous: DISPATCHER_CONTEXT_NONVOLREG_ARM64_0,
@@ -8525,6 +9705,7 @@ unsafe impl ::windows::runtime::Abi for DISPATCHER_CONTEXT_NONVOLREG_ARM64 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct DISPATCHER_CONTEXT_NONVOLREG_ARM64_0 {
     pub GpNvRegs: [u64; 11],
     pub FpNvRegs: [f64; 8],
@@ -8550,86 +9731,164 @@ unsafe impl ::windows::runtime::Abi for DISPATCHER_CONTEXT_NONVOLREG_ARM64_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DLL_PROCESS_ATTACH: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DLL_PROCESS_DETACH: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DLL_THREAD_ATTACH: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DLL_THREAD_DETACH: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DM_DEFAULT: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DM_MONOCHROME: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DN_ACCELERATION_LEVEL: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DN_ASSOCIATE_WINDOW: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DN_COMPOSITION_CHANGED: u32 = 6u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DN_DEVICE_ORIGIN: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DN_DRAWING_BEGIN: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DN_DRAWING_BEGIN_APIBITMAP: u32 = 7u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DN_SLEEP_MODE: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DN_SURFOBJ_DESTRUCTION: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DOMAIN_ALIAS_RID_ACCESS_CONTROL_ASSISTANCE_OPS: i32 = 579i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DOMAIN_ALIAS_RID_ACCOUNT_OPS: i32 = 548i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DOMAIN_ALIAS_RID_ADMINS: i32 = 544i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DOMAIN_ALIAS_RID_AUTHORIZATIONACCESS: i32 = 560i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DOMAIN_ALIAS_RID_BACKUP_OPS: i32 = 551i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DOMAIN_ALIAS_RID_CACHEABLE_PRINCIPALS_GROUP: i32 = 571i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DOMAIN_ALIAS_RID_CERTSVC_DCOM_ACCESS_GROUP: i32 = 574i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DOMAIN_ALIAS_RID_CRYPTO_OPERATORS: i32 = 569i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DOMAIN_ALIAS_RID_DCOM_USERS: i32 = 562i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DOMAIN_ALIAS_RID_DEFAULT_ACCOUNT: i32 = 581i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DOMAIN_ALIAS_RID_DEVICE_OWNERS: i32 = 583i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DOMAIN_ALIAS_RID_EVENT_LOG_READERS_GROUP: i32 = 573i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DOMAIN_ALIAS_RID_GUESTS: i32 = 546i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DOMAIN_ALIAS_RID_HYPER_V_ADMINS: i32 = 578i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DOMAIN_ALIAS_RID_INCOMING_FOREST_TRUST_BUILDERS: i32 = 557i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DOMAIN_ALIAS_RID_IUSERS: i32 = 568i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DOMAIN_ALIAS_RID_LOGGING_USERS: i32 = 559i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DOMAIN_ALIAS_RID_MONITORING_USERS: i32 = 558i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DOMAIN_ALIAS_RID_NETWORK_CONFIGURATION_OPS: i32 = 556i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DOMAIN_ALIAS_RID_NON_CACHEABLE_PRINCIPALS_GROUP: i32 = 572i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DOMAIN_ALIAS_RID_POWER_USERS: i32 = 547i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DOMAIN_ALIAS_RID_PREW2KCOMPACCESS: i32 = 554i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DOMAIN_ALIAS_RID_PRINT_OPS: i32 = 550i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DOMAIN_ALIAS_RID_RAS_SERVERS: i32 = 553i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DOMAIN_ALIAS_RID_RDS_ENDPOINT_SERVERS: i32 = 576i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DOMAIN_ALIAS_RID_RDS_MANAGEMENT_SERVERS: i32 = 577i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DOMAIN_ALIAS_RID_RDS_REMOTE_ACCESS_SERVERS: i32 = 575i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DOMAIN_ALIAS_RID_REMOTE_DESKTOP_USERS: i32 = 555i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DOMAIN_ALIAS_RID_REMOTE_MANAGEMENT_USERS: i32 = 580i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DOMAIN_ALIAS_RID_REPLICATOR: i32 = 552i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DOMAIN_ALIAS_RID_STORAGE_REPLICA_ADMINS: i32 = 582i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DOMAIN_ALIAS_RID_SYSTEM_OPS: i32 = 549i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DOMAIN_ALIAS_RID_TS_LICENSE_SERVERS: i32 = 561i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DOMAIN_ALIAS_RID_USERS: i32 = 545i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DOMAIN_GROUP_RID_ADMINS: i32 = 512i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DOMAIN_GROUP_RID_AUTHORIZATION_DATA_CONTAINS_CLAIMS: i32 = 497i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DOMAIN_GROUP_RID_AUTHORIZATION_DATA_IS_COMPOUNDED: i32 = 496i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DOMAIN_GROUP_RID_CDC_RESERVED: i32 = 524i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DOMAIN_GROUP_RID_CERT_ADMINS: i32 = 517i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DOMAIN_GROUP_RID_CLONEABLE_CONTROLLERS: i32 = 522i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DOMAIN_GROUP_RID_COMPUTERS: i32 = 515i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DOMAIN_GROUP_RID_CONTROLLERS: i32 = 516i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DOMAIN_GROUP_RID_ENTERPRISE_ADMINS: i32 = 519i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DOMAIN_GROUP_RID_ENTERPRISE_KEY_ADMINS: i32 = 527i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DOMAIN_GROUP_RID_ENTERPRISE_READONLY_DOMAIN_CONTROLLERS: i32 = 498i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DOMAIN_GROUP_RID_GUESTS: i32 = 514i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DOMAIN_GROUP_RID_KEY_ADMINS: i32 = 526i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DOMAIN_GROUP_RID_POLICY_ADMINS: i32 = 520i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DOMAIN_GROUP_RID_PROTECTED_USERS: i32 = 525i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DOMAIN_GROUP_RID_READONLY_CONTROLLERS: i32 = 521i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DOMAIN_GROUP_RID_SCHEMA_ADMINS: i32 = 518i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DOMAIN_GROUP_RID_USERS: i32 = 513i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DOMAIN_USER_RID_ADMIN: i32 = 500i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DOMAIN_USER_RID_DEFAULT_ACCOUNT: i32 = 503i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DOMAIN_USER_RID_GUEST: i32 = 501i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DOMAIN_USER_RID_KRBTGT: i32 = 502i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DOMAIN_USER_RID_MAX: i32 = 999i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DOMAIN_USER_RID_WDAG_ACCOUNT: i32 = 504i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DP2BLT_LINEAR: i32 = 2i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DP2BLT_POINT: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DRD_ERROR: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DRD_SUCCESS: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DRH_APIBITMAP: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 pub struct DRH_APIBITMAPDATA {
     pub pso: *mut super::super::UI::DisplayDevices::SURFOBJ,
     pub b: super::super::Foundation::BOOL,
@@ -8661,57 +9920,106 @@ unsafe impl ::windows::runtime::Abi for DRH_APIBITMAPDATA {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DRVQUERY_USERMODE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DSS_FLUSH_EVENT: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DSS_RESERVED: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DSS_RESERVED1: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DSS_RESERVED2: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DSS_TIMER_EVENT: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DX9_DDI_VERSION: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DYNAMIC_EH_CONTINUATION_TARGET_ADD: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DYNAMIC_EH_CONTINUATION_TARGET_PROCESSED: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DYNAMIC_ENFORCED_ADDRESS_RANGE_ADD: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const DYNAMIC_ENFORCED_ADDRESS_RANGE_PROCESSED: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ECS_REDRAW: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ECS_TEARDOWN: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ED_ABORTDOC: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const EHN_ERROR: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const EHN_RESTORED: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const EMARCH_ENC_I17_IC_INST_WORD_POS_X: u32 = 12u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const EMARCH_ENC_I17_IC_INST_WORD_X: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const EMARCH_ENC_I17_IC_SIZE_X: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const EMARCH_ENC_I17_IC_VAL_POS_X: u32 = 21u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const EMARCH_ENC_I17_IMM41a_INST_WORD_POS_X: u32 = 14u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const EMARCH_ENC_I17_IMM41a_INST_WORD_X: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const EMARCH_ENC_I17_IMM41a_SIZE_X: u32 = 10u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const EMARCH_ENC_I17_IMM41a_VAL_POS_X: u32 = 22u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const EMARCH_ENC_I17_IMM41b_INST_WORD_POS_X: u32 = 24u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const EMARCH_ENC_I17_IMM41b_INST_WORD_X: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const EMARCH_ENC_I17_IMM41b_SIZE_X: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const EMARCH_ENC_I17_IMM41b_VAL_POS_X: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const EMARCH_ENC_I17_IMM41c_INST_WORD_POS_X: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const EMARCH_ENC_I17_IMM41c_INST_WORD_X: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const EMARCH_ENC_I17_IMM41c_SIZE_X: u32 = 23u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const EMARCH_ENC_I17_IMM41c_VAL_POS_X: u32 = 40u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const EMARCH_ENC_I17_IMM5C_INST_WORD_POS_X: u32 = 13u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const EMARCH_ENC_I17_IMM5C_INST_WORD_X: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const EMARCH_ENC_I17_IMM5C_SIZE_X: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const EMARCH_ENC_I17_IMM5C_VAL_POS_X: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const EMARCH_ENC_I17_IMM7B_INST_WORD_POS_X: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const EMARCH_ENC_I17_IMM7B_INST_WORD_X: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const EMARCH_ENC_I17_IMM7B_SIZE_X: u32 = 7u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const EMARCH_ENC_I17_IMM7B_VAL_POS_X: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const EMARCH_ENC_I17_IMM9D_INST_WORD_POS_X: u32 = 18u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const EMARCH_ENC_I17_IMM9D_INST_WORD_X: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const EMARCH_ENC_I17_IMM9D_SIZE_X: u32 = 9u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const EMARCH_ENC_I17_IMM9D_VAL_POS_X: u32 = 7u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const EMARCH_ENC_I17_SIGN_INST_WORD_POS_X: u32 = 27u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const EMARCH_ENC_I17_SIGN_INST_WORD_X: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const EMARCH_ENC_I17_SIGN_SIZE_X: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const EMARCH_ENC_I17_SIGN_VAL_POS_X: u32 = 63u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Graphics_Gdi`*"]
 pub struct EMFINFO {
     pub nSize: u32,
     pub hdc: super::super::Graphics::Gdi::HDC,
@@ -8745,16 +10053,27 @@ unsafe impl ::windows::runtime::Abi for EMFINFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ENCLAVE_LONG_ID_LENGTH: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ENCLAVE_SHORT_ID_LENGTH: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ENCLAVE_TYPE_SGX: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ENCLAVE_TYPE_SGX2: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ENCLAVE_TYPE_VBS: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ENCLAVE_TYPE_VBS_BASIC: u32 = 17u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ENCLAVE_VBS_FLAG_DEBUG: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ENDCAP_BUTT: i32 = 2i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ENDCAP_ROUND: i32 = 0i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ENDCAP_SQUARE: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ENG_DEVICE_ATTRIBUTE(pub i32);
@@ -8769,8 +10088,11 @@ unsafe impl ::windows::runtime::Abi for ENG_DEVICE_ATTRIBUTE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ENG_FNT_CACHE_READ_FAULT: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ENG_FNT_CACHE_WRITE_FAULT: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ENG_SYSTEM_ATTRIBUTE(pub i32);
@@ -8789,6 +10111,7 @@ unsafe impl ::windows::runtime::Abi for ENG_SYSTEM_ATTRIBUTE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct ENLISTMENT_BASIC_INFORMATION {
     pub EnlistmentId: ::windows::runtime::GUID,
     pub TransactionId: ::windows::runtime::GUID,
@@ -8817,6 +10140,7 @@ unsafe impl ::windows::runtime::Abi for ENLISTMENT_BASIC_INFORMATION {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct ENLISTMENT_CRM_INFORMATION {
     pub CrmTransactionManagerId: ::windows::runtime::GUID,
     pub CrmResourceManagerId: ::windows::runtime::GUID,
@@ -8843,6 +10167,7 @@ unsafe impl ::windows::runtime::Abi for ENLISTMENT_CRM_INFORMATION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ENLISTMENT_INFORMATION_CLASS(pub i32);
@@ -8858,18 +10183,28 @@ unsafe impl ::windows::runtime::Abi for ENLISTMENT_INFORMATION_CLASS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ENLISTMENT_QUERY_INFORMATION: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ENLISTMENT_RECOVER: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ENLISTMENT_SET_INFORMATION: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ENLISTMENT_SUBORDINATE_RIGHTS: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ENLISTMENT_SUPERIOR_RIGHTS: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ERROR_SEVERITY_ERROR: u32 = 3221225472u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ERROR_SEVERITY_INFORMATIONAL: u32 = 1073741824u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ERROR_SEVERITY_SUCCESS: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ERROR_SEVERITY_WARNING: u32 = 2147483648u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_EventLog")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_EventLog`*"]
 pub struct EVENTLOGRECORD {
     pub Length: u32,
     pub Reserved: u32,
@@ -8947,16 +10282,24 @@ unsafe impl ::windows::runtime::Abi for EVENTLOGRECORD {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const EVENTLOG_BACKWARDS_READ: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const EVENTLOG_END_ALL_PAIRED_EVENTS: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const EVENTLOG_END_PAIRED_EVENT: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const EVENTLOG_FORWARDS_READ: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const EVENTLOG_PAIRED_EVENT_ACTIVE: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const EVENTLOG_PAIRED_EVENT_INACTIVE: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const EVENTLOG_START_PAIRED_EVENT: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_EventLog")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_EventLog`*"]
 pub struct EVENTSFORLOGFILE {
     pub ulSize: u32,
     pub szLogicalLogFile: [u16; 256],
@@ -8990,17 +10333,26 @@ unsafe impl ::windows::runtime::Abi for EVENTSFORLOGFILE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const EVENT_MODIFY_STATE: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const EXCEPTION_COLLIDED_UNWIND: u32 = 64u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const EXCEPTION_EXECUTE_FAULT: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const EXCEPTION_EXIT_UNWIND: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const EXCEPTION_MAXIMUM_PARAMETERS: u32 = 15u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const EXCEPTION_NESTED_CALL: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const EXCEPTION_NONCONTINUABLE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const EXCEPTION_READ_FAULT: u32 = 0u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub struct EXCEPTION_RECORD32 {
     pub ExceptionCode: super::super::Foundation::NTSTATUS,
     pub ExceptionFlags: u32,
@@ -9046,6 +10398,7 @@ unsafe impl ::windows::runtime::Abi for EXCEPTION_RECORD32 {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_System_Diagnostics_Debug`, `Win32_System_Kernel`*"]
 pub struct EXCEPTION_REGISTRATION_RECORD {
     pub Next: *mut EXCEPTION_REGISTRATION_RECORD,
     pub Handler: ::std::option::Option<super::Kernel::EXCEPTION_ROUTINE>,
@@ -9077,12 +10430,18 @@ unsafe impl ::windows::runtime::Abi for EXCEPTION_REGISTRATION_RECORD {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const EXCEPTION_SOFTWARE_ORIGINATE: u32 = 128u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const EXCEPTION_STACK_INVALID: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const EXCEPTION_TARGET_UNWIND: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const EXCEPTION_UNWINDING: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const EXCEPTION_WRITE_FAULT: u32 = 1u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[inline]
 pub unsafe fn EngQueryEMFInfo<'a, Param0: ::windows::runtime::IntoParam<'a, HDEV>>(hdev: Param0, pemfinfo: *mut EMFINFO) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -9096,88 +10455,168 @@ pub unsafe fn EngQueryEMFInfo<'a, Param0: ::windows::runtime::IntoParam<'a, HDEV
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FACILITY_MCA_ERROR_CODE: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FAST_FAIL_ADMINLESS_ACCESS_DENIED: u32 = 55u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FAST_FAIL_APCS_DISABLED: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FAST_FAIL_CAST_GUARD: u32 = 65u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FAST_FAIL_CERTIFICATION_FAILURE: u32 = 20u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FAST_FAIL_CONTROL_INVALID_RETURN_ADDRESS: u32 = 57u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FAST_FAIL_CORRUPT_LIST_ENTRY: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FAST_FAIL_CRYPTO_LIBRARY: u32 = 22u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FAST_FAIL_DEPRECATED_SERVICE_INVOKED: u32 = 27u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FAST_FAIL_DLOAD_PROTECTION_FAILURE: u32 = 25u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FAST_FAIL_ENCLAVE_CALL_FAILURE: u32 = 53u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FAST_FAIL_ETW_CORRUPTION: u32 = 61u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FAST_FAIL_FATAL_APP_EXIT: u32 = 7u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FAST_FAIL_FLAGS_CORRUPTION: u32 = 59u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FAST_FAIL_GS_COOKIE_INIT: u32 = 6u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FAST_FAIL_GUARD_EXPORT_SUPPRESSION_FAILURE: u32 = 46u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FAST_FAIL_GUARD_ICALL_CHECK_FAILURE: u32 = 10u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FAST_FAIL_GUARD_ICALL_CHECK_FAILURE_XFG: u32 = 64u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FAST_FAIL_GUARD_ICALL_CHECK_SUPPRESSED: u32 = 31u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FAST_FAIL_GUARD_JUMPTABLE: u32 = 37u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FAST_FAIL_GUARD_SS_FAILURE: u32 = 44u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FAST_FAIL_GUARD_WRITE_CHECK_FAILURE: u32 = 11u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FAST_FAIL_HEAP_METADATA_CORRUPTION: u32 = 50u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FAST_FAIL_HOST_VISIBILITY_CHANGE: u32 = 66u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FAST_FAIL_INCORRECT_STACK: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FAST_FAIL_INVALID_ARG: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FAST_FAIL_INVALID_BALANCED_TREE: u32 = 29u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FAST_FAIL_INVALID_BUFFER_ACCESS: u32 = 28u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FAST_FAIL_INVALID_CALL_IN_DLL_CALLOUT: u32 = 23u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FAST_FAIL_INVALID_CONTROL_STACK: u32 = 47u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FAST_FAIL_INVALID_DISPATCH_CONTEXT: u32 = 39u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FAST_FAIL_INVALID_EXCEPTION_CHAIN: u32 = 21u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FAST_FAIL_INVALID_FAST_FAIL_CODE: u32 = 4294967295u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FAST_FAIL_INVALID_FIBER_SWITCH: u32 = 12u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FAST_FAIL_INVALID_FILE_OPERATION: u32 = 42u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FAST_FAIL_INVALID_FLS_DATA: u32 = 70u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FAST_FAIL_INVALID_IAT: u32 = 49u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FAST_FAIL_INVALID_IDLE_STATE: u32 = 33u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FAST_FAIL_INVALID_IMAGE_BASE: u32 = 24u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FAST_FAIL_INVALID_JUMP_BUFFER: u32 = 18u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FAST_FAIL_INVALID_LOCK_STATE: u32 = 36u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FAST_FAIL_INVALID_LONGJUMP_TARGET: u32 = 38u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FAST_FAIL_INVALID_NEXT_THREAD: u32 = 30u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FAST_FAIL_INVALID_PFN: u32 = 63u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FAST_FAIL_INVALID_REFERENCE_COUNT: u32 = 14u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FAST_FAIL_INVALID_SET_OF_CONTEXT: u32 = 13u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FAST_FAIL_INVALID_SYSCALL_NUMBER: u32 = 41u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FAST_FAIL_INVALID_THREAD: u32 = 40u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FAST_FAIL_KERNEL_CET_SHADOW_STACK_ASSIST: u32 = 67u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FAST_FAIL_LEGACY_GS_VIOLATION: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FAST_FAIL_LOADER_CONTINUITY_FAILURE: u32 = 45u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FAST_FAIL_LOW_LABEL_ACCESS_DENIED: u32 = 52u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FAST_FAIL_LPAC_ACCESS_DENIED: u32 = 43u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FAST_FAIL_MRDATA_MODIFIED: u32 = 19u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FAST_FAIL_MRDATA_PROTECTION_FAILURE: u32 = 34u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FAST_FAIL_NTDLL_PATCH_FAILED: u32 = 69u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FAST_FAIL_PATCH_CALLBACK_FAILED: u32 = 68u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FAST_FAIL_PAYLOAD_RESTRICTION_VIOLATION: u32 = 51u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FAST_FAIL_RANGE_CHECK_FAILURE: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FAST_FAIL_RIO_ABORT: u32 = 62u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FAST_FAIL_SET_CONTEXT_DENIED: u32 = 48u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FAST_FAIL_STACK_COOKIE_CHECK_FAILURE: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FAST_FAIL_UNEXPECTED_CALL: u32 = 56u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FAST_FAIL_UNEXPECTED_HEAP_EXCEPTION: u32 = 35u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FAST_FAIL_UNEXPECTED_HOST_BEHAVIOR: u32 = 58u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FAST_FAIL_UNHANDLED_LSS_EXCEPTON: u32 = 54u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FAST_FAIL_UNSAFE_EXTENSION_CALL: u32 = 26u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FAST_FAIL_UNSAFE_REGISTRY_ACCESS: u32 = 9u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FAST_FAIL_VEH_CORRUPTION: u32 = 60u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FAST_FAIL_VTGUARD_CHECK_FAILURE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FC_COMPLEX: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FC_RECT: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FC_RECT4: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FDM_TYPE_BM_SIDE_CONST: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FDM_TYPE_CHAR_INC_EQUAL_BM_BASE: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FDM_TYPE_CONST_BEARINGS: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FDM_TYPE_MAXEXT_EQUAL_BM_SIDE: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FDM_TYPE_ZERO_BEARINGS: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FD_ERROR: u32 = 4294967295u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub struct FD_LIGATURE {
     pub culThis: u32,
     pub ulType: u32,
@@ -9211,44 +10650,81 @@ unsafe impl ::windows::runtime::Abi for FD_LIGATURE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FD_NEGATIVE_FONT: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FF_IGNORED_SIGNATURE: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FF_SIGNATURE_VERIFIED: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FILE_ATTRIBUTE_STRICTLY_SEQUENTIAL: u32 = 536870912u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FILE_CASE_PRESERVED_NAMES: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FILE_CASE_SENSITIVE_SEARCH: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FILE_CS_FLAG_CASE_SENSITIVE_DIR: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FILE_DAX_VOLUME: u32 = 536870912u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FILE_FILE_COMPRESSION: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FILE_NAMED_STREAMS: u32 = 262144u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FILE_PERSISTENT_ACLS: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FILE_READ_ONLY_VOLUME: u32 = 524288u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FILE_RETURNS_CLEANUP_RESULT_INFO: u32 = 512u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FILE_SEQUENTIAL_WRITE_ONCE: u32 = 1048576u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FILE_SUPPORTS_BLOCK_REFCOUNTING: u32 = 134217728u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FILE_SUPPORTS_BYPASS_IO: u32 = 2048u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FILE_SUPPORTS_ENCRYPTION: u32 = 131072u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FILE_SUPPORTS_EXTENDED_ATTRIBUTES: u32 = 8388608u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FILE_SUPPORTS_GHOSTING: u32 = 1073741824u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FILE_SUPPORTS_HARD_LINKS: u32 = 4194304u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FILE_SUPPORTS_INTEGRITY_STREAMS: u32 = 67108864u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FILE_SUPPORTS_OBJECT_IDS: u32 = 65536u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FILE_SUPPORTS_OPEN_BY_FILE_ID: u32 = 16777216u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FILE_SUPPORTS_POSIX_UNLINK_RENAME: u32 = 1024u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FILE_SUPPORTS_REMOTE_STORAGE: u32 = 256u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FILE_SUPPORTS_REPARSE_POINTS: u32 = 128u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FILE_SUPPORTS_SPARSE_FILES: u32 = 64u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FILE_SUPPORTS_SPARSE_VDL: u32 = 268435456u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FILE_SUPPORTS_TRANSACTIONS: u32 = 2097152u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FILE_SUPPORTS_USN_JOURNAL: u32 = 33554432u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FILE_UNICODE_ON_DISK: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FILE_VOLUME_IS_COMPRESSED: u32 = 32768u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FILE_VOLUME_QUOTAS: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FILL_NV_MEMORY_FLAG_FLUSH: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FILL_NV_MEMORY_FLAG_NON_TEMPORAL: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FILL_NV_MEMORY_FLAG_NO_DRAIN: u32 = 256u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union FLOAT_LONG {
     pub e: f32,
     pub l: i32,
@@ -9269,141 +10745,272 @@ unsafe impl ::windows::runtime::Abi for FLOAT_LONG {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FLS_MAXIMUM_AVAILABLE: u32 = 4080u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FLUSH_FLAGS_FILE_DATA_ONLY: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FLUSH_FLAGS_FILE_DATA_SYNC_ONLY: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FLUSH_FLAGS_NO_SYNC: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FLUSH_NV_MEMORY_IN_FLAG_NO_DRAIN: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FL_NONPAGED_MEMORY: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FL_NON_SESSION: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FL_ZERO_MEMORY: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FM_EDITABLE_EMBED: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FM_INFO_16BPP: u32 = 256u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FM_INFO_1BPP: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FM_INFO_24BPP: u32 = 512u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FM_INFO_32BPP: u32 = 1024u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FM_INFO_4BPP: u32 = 64u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FM_INFO_8BPP: u32 = 128u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FM_INFO_90DEGREE_ROTATIONS: u32 = 2097152u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FM_INFO_ANISOTROPIC_SCALING_ONLY: u32 = 33554432u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FM_INFO_ARB_XFORMS: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FM_INFO_CONSTANT_WIDTH: u32 = 4096u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FM_INFO_DBCS_FIXED_PITCH: u32 = 268435456u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FM_INFO_DO_NOT_ENUMERATE: u32 = 8388608u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FM_INFO_DSIG: u32 = 262144u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FM_INFO_FAMILY_EQUIV: u32 = 134217728u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FM_INFO_IGNORE_TC_RA_ABLE: u32 = 1073741824u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FM_INFO_INTEGER_WIDTH: u32 = 2048u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FM_INFO_INTEGRAL_SCALING: u32 = 1048576u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FM_INFO_ISOTROPIC_SCALING_ONLY: u32 = 16777216u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FM_INFO_NONNEGATIVE_AC: u32 = 536870912u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FM_INFO_NOT_CONTIGUOUS: u32 = 8192u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FM_INFO_OPTICALLY_FIXED_PITCH: u32 = 4194304u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FM_INFO_RETURNS_BITMAPS: u32 = 131072u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FM_INFO_RETURNS_OUTLINES: u32 = 32768u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FM_INFO_RETURNS_STROKES: u32 = 65536u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FM_INFO_RIGHT_HANDED: u32 = 524288u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FM_INFO_TECH_BITMAP: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FM_INFO_TECH_CFF: u32 = 67108864u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FM_INFO_TECH_MM: u32 = 16384u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FM_INFO_TECH_OUTLINE_NOT_TRUETYPE: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FM_INFO_TECH_STROKE: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FM_INFO_TECH_TRUETYPE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FM_INFO_TECH_TYPE1: u32 = 2147483648u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FM_NO_EMBEDDING: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FM_PANOSE_CULTURE_LATIN: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FM_READONLY_EMBED: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FM_SEL_BOLD: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FM_SEL_ITALIC: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FM_SEL_NEGATIVE: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FM_SEL_OUTLINED: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FM_SEL_REGULAR: u32 = 64u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FM_SEL_STRIKEOUT: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FM_SEL_UNDERSCORE: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FM_TYPE_LICENSED: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FM_VERSION_NUMBER: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FOREST_USER_RID_MAX: i32 = 499i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FO_ATTR_MODE_ROTATE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FO_CFF: u32 = 1048576u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FO_CLEARTYPENATURAL_X: u32 = 1073741824u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FO_CLEARTYPE_X: u32 = 268435456u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FO_CLEARTYPE_Y: u32 = 536870912u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FO_DBCS_FONT: u32 = 16777216u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FO_DEVICE_FONT: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FO_EM_HEIGHT: u32 = 32768u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FO_GLYPHBITS: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FO_GRAY16: u32 = 65536u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FO_HGLYPHS: i32 = 0i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FO_MULTIPLEMASTER: u32 = 4194304u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FO_NOCLEARTYPE: u32 = 33554432u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FO_NOGRAY16: u32 = 131072u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FO_NOHINTS: u32 = 262144u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FO_NO_CHOICE: u32 = 524288u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FO_OUTLINE_CAPABLE: i32 = 2i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FO_PATHOBJ: i32 = 2i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FO_POSTSCRIPT: u32 = 2097152u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FO_SIM_BOLD: u32 = 8192u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FO_SIM_ITALIC: u32 = 16384u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FO_VERT_FACE: u32 = 8388608u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FP_ALTERNATEMODE: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FP_WINDINGMODE: i32 = 2i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FRAME_FPO: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FRAME_NONFPO: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FRAME_TRAP: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FRAME_TSS: u32 = 2u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type FREEOBJPROC = unsafe extern "system" fn(pdriverobj: *mut ::std::mem::ManuallyDrop<super::super::UI::DisplayDevices::DRIVEROBJ>) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const GCAPS2_ACC_DRIVER: u32 = 32768u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const GCAPS2_ALPHACURSOR: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const GCAPS2_BITMAPEXREUSE: u32 = 65536u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const GCAPS2_CHANGEGAMMARAMP: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const GCAPS2_CLEARTYPE: u32 = 16384u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const GCAPS2_EXCLUDELAYERED: u32 = 2048u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const GCAPS2_ICD_MULTIMON: u32 = 256u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const GCAPS2_INCLUDEAPIBITMAPS: u32 = 4096u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const GCAPS2_JPEGSRC: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const GCAPS2_MOUSETRAILS: u32 = 512u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const GCAPS2_PNGSRC: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const GCAPS2_REMOTEDRIVER: u32 = 1024u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const GCAPS2_RESERVED1: u32 = 1024u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const GCAPS2_SHOWHIDDENPOINTER: u32 = 8192u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const GCAPS2_SYNCFLUSH: u32 = 64u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const GCAPS2_SYNCTIMER: u32 = 128u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const GCAPS2_xxxx: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const GCAPS_ALTERNATEFILL: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const GCAPS_ARBRUSHOPAQUE: u32 = 32768u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const GCAPS_ARBRUSHTEXT: u32 = 268435456u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const GCAPS_ASYNCCHANGE: u32 = 2048u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const GCAPS_ASYNCMOVE: u32 = 4096u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const GCAPS_BEZIERS: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const GCAPS_CMYKCOLOR: u32 = 67108864u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const GCAPS_COLOR_DITHER: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const GCAPS_DIRECTDRAW: u32 = 16384u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const GCAPS_DITHERONREALIZE: u32 = 2097152u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const GCAPS_DONTJOURNAL: u32 = 8192u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const GCAPS_FONT_RASTERIZER: u32 = 1073741824u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const GCAPS_FORCEDITHER: u32 = 8388608u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const GCAPS_GEOMETRICWIDE: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const GCAPS_GRAY16: u32 = 16777216u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const GCAPS_HALFTONE: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const GCAPS_HIGHRESTEXT: u32 = 262144u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const GCAPS_HORIZSTRIKE: u32 = 64u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const GCAPS_ICM: u32 = 33554432u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const GCAPS_LAYERED: u32 = 134217728u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const GCAPS_MONO_DITHER: u32 = 1024u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const GCAPS_NO64BITMEMACCESS: u32 = 4194304u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const GCAPS_NUP: u32 = 2147483648u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const GCAPS_OPAQUERECT: u32 = 256u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const GCAPS_PALMANAGED: u32 = 524288u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const GCAPS_PANNING: u32 = 65536u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const GCAPS_SCREENPRECISION: u32 = 536870912u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const GCAPS_VECTORFONT: u32 = 512u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const GCAPS_VERTSTRIKE: u32 = 128u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const GCAPS_WINDINGFILL: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const GDI_DRIVER_VERSION: u32 = 16384u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_Com`*"]
 pub struct GDI_NONREMOTE {
     pub fContext: i32,
     pub u: GDI_NONREMOTE_0,
@@ -9432,6 +11039,7 @@ unsafe impl ::windows::runtime::Abi for GDI_NONREMOTE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_Com`*"]
 pub union GDI_NONREMOTE_0 {
     pub hInproc: i32,
     pub hRemote: *mut super::Com::DWORD_BLOB,
@@ -9457,10 +11065,15 @@ unsafe impl ::windows::runtime::Abi for GDI_NONREMOTE_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const GENERIC_ALL: u32 = 268435456u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const GENERIC_EXECUTE: u32 = 536870912u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const GENERIC_READ: u32 = 2147483648u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const GENERIC_WRITE: u32 = 1073741824u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GESTURECONFIG_FLAGS(pub u32);
@@ -9512,8 +11125,11 @@ impl ::std::ops::Not for GESTURECONFIG_FLAGS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const GS_16BIT_HANDLES: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const GS_8BIT_HANDLES: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const GS_UNICODE_HANDLES: u32 = 1u32;
 pub const GUID_ACDC_POWER_SOURCE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1564383833, 59861, 19200, [166, 189, 255, 52, 255, 81, 101, 72]);
 pub const GUID_ACTIVE_POWERSCHEME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(838464134, 20612, 17150, [183, 32, 43, 2, 100, 153, 55, 99]);
@@ -9589,6 +11205,7 @@ pub const GUID_IO_DEVICE_EXTERNAL_REQUEST: ::windows::runtime::GUID = ::windows:
 pub const GUID_IO_DISK_CLONE_ARRIVAL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1784776795, 31801, 17373, [155, 86, 184, 172, 34, 165, 73, 170]);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct GUID_IO_DISK_CLONE_ARRIVAL_INFORMATION {
     pub DiskNumber: u32,
 }
@@ -9778,9 +11395,13 @@ pub const GUID_VIDEO_CURRENT_MONITOR_BRIGHTNESS: ::windows::runtime::GUID = ::wi
 pub const GUID_VIDEO_DIM_TIMEOUT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(397058715, 35651, 19348, [170, 254, 53, 246, 77, 170, 241, 238]);
 pub const GUID_VIDEO_POWERDOWN_TIMEOUT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1007403041, 51368, 19975, [169, 115, 107, 20, 203, 203, 43, 126]);
 pub const GUID_VIDEO_SUBGROUP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1964423519, 63350, 17508, [140, 83, 6, 22, 127, 64, 204, 153]);
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const GX_GENERAL: i32 = 3i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const GX_IDENTITY: i32 = 0i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const GX_OFFSET: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const GX_SCALE: i32 = 2i32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -9821,6 +11442,7 @@ unsafe impl ::windows::runtime::Abi for HDRVOBJ {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HEAP_INFORMATION_CLASS(pub i32);
@@ -9837,9 +11459,11 @@ unsafe impl ::windows::runtime::Abi for HEAP_INFORMATION_CLASS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const HEAP_OPTIMIZE_RESOURCES_CURRENT_VERSION: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct HEAP_OPTIMIZE_RESOURCES_INFORMATION {
     pub Version: u32,
     pub Flags: u32,
@@ -9880,6 +11504,7 @@ unsafe impl ::windows::runtime::Abi for HFASTMUTEX {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct HIBERFILE_BUCKET {
     pub MaxPhysicalMemory: u64,
     pub PhysicalMemoryPercent: [u32; 3],
@@ -9905,6 +11530,7 @@ unsafe impl ::windows::runtime::Abi for HIBERFILE_BUCKET {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HIBERFILE_BUCKET_SIZE(pub i32);
@@ -9925,9 +11551,13 @@ unsafe impl ::windows::runtime::Abi for HIBERFILE_BUCKET_SIZE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const HIBERFILE_TYPE_FULL: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const HIBERFILE_TYPE_MAX: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const HIBERFILE_TYPE_NONE: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const HIBERFILE_TYPE_REDUCED: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -9942,26 +11572,45 @@ unsafe impl ::windows::runtime::Abi for HLSURF {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const HOOK_ALPHABLEND: u32 = 65536u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const HOOK_BITBLT: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const HOOK_COPYBITS: u32 = 1024u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const HOOK_FILLPATH: u32 = 64u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const HOOK_FLAGS: u32 = 243199u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const HOOK_GRADIENTFILL: u32 = 131072u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const HOOK_LINETO: u32 = 256u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const HOOK_MOVEPANNING: u32 = 2048u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const HOOK_PAINT: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const HOOK_PLGBLT: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const HOOK_STRETCHBLT: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const HOOK_STRETCHBLTROP: u32 = 8192u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const HOOK_STROKEANDFILLPATH: u32 = 128u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const HOOK_STROKEPATH: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const HOOK_SYNCHRONIZE: u32 = 4096u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const HOOK_SYNCHRONIZEACCESS: u32 = 16384u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const HOOK_TEXTOUT: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const HOOK_TRANSPARENTBLT: u32 = 32768u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct HSEMAPHORE__ {
     pub unused: i32,
 }
@@ -10012,57 +11661,109 @@ unsafe impl ::windows::runtime::Abi for HSTR {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const HS_DDI_MAX: u32 = 6u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const HT_FLAG_8BPP_CMY332_MASK: u32 = 4278190080u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const HT_FLAG_ADDITIVE_PRIMS: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const HT_FLAG_DO_DEVCLR_XFORM: u32 = 128u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const HT_FLAG_HAS_BLACK_DYE: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const HT_FLAG_INK_ABSORPTION_IDX0: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const HT_FLAG_INK_ABSORPTION_IDX1: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const HT_FLAG_INK_ABSORPTION_IDX2: u32 = 64u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const HT_FLAG_INK_ABSORPTION_IDX3: u32 = 96u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const HT_FLAG_INK_ABSORPTION_INDICES: u32 = 96u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const HT_FLAG_INK_HIGH_ABSORPTION: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const HT_FLAG_INVERT_8BPP_BITMASK_IDX: u32 = 1024u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const HT_FLAG_LOWER_INK_ABSORPTION: u32 = 64u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const HT_FLAG_LOWEST_INK_ABSORPTION: u32 = 96u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const HT_FLAG_LOW_INK_ABSORPTION: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const HT_FLAG_NORMAL_INK_ABSORPTION: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const HT_FLAG_OUTPUT_CMY: u32 = 256u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const HT_FLAG_PRINT_DRAFT_MODE: u32 = 512u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const HT_FLAG_SQUARE_DEVICE_PEL: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const HT_FLAG_USE_8BPP_BITMASK: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const HT_FORMAT_16BPP: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const HT_FORMAT_1BPP: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const HT_FORMAT_24BPP: u32 = 6u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const HT_FORMAT_32BPP: u32 = 7u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const HT_FORMAT_4BPP: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const HT_FORMAT_4BPP_IRGB: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const HT_FORMAT_8BPP: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const HT_PATSIZE_10x10: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const HT_PATSIZE_10x10_M: u32 = 9u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const HT_PATSIZE_12x12: u32 = 10u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const HT_PATSIZE_12x12_M: u32 = 11u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const HT_PATSIZE_14x14: u32 = 12u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const HT_PATSIZE_14x14_M: u32 = 13u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const HT_PATSIZE_16x16: u32 = 14u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const HT_PATSIZE_16x16_M: u32 = 15u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const HT_PATSIZE_2x2: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const HT_PATSIZE_2x2_M: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const HT_PATSIZE_4x4: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const HT_PATSIZE_4x4_M: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const HT_PATSIZE_6x6: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const HT_PATSIZE_6x6_M: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const HT_PATSIZE_8x8: u32 = 6u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const HT_PATSIZE_8x8_M: u32 = 7u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const HT_PATSIZE_DEFAULT: u32 = 17u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const HT_PATSIZE_MAX_INDEX: u32 = 18u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const HT_PATSIZE_SUPERCELL: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const HT_PATSIZE_SUPERCELL_M: u32 = 17u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const HT_PATSIZE_USER: u32 = 18u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const HT_USERPAT_CX_MAX: u32 = 256u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const HT_USERPAT_CX_MIN: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const HT_USERPAT_CY_MAX: u32 = 256u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const HT_USERPAT_CY_MIN: u32 = 4u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -10077,6 +11778,7 @@ unsafe impl ::windows::runtime::Abi for HUMPD {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IGP_ID(pub u32);
@@ -10124,10 +11826,13 @@ impl ::std::ops::Not for IGP_ID {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IGRF_RGB_256BYTES: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IGRF_RGB_256WORDS: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(4))]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct IMAGE_ALPHA64_RUNTIME_FUNCTION_ENTRY {
     pub BeginAddress: u64,
     pub EndAddress: u64,
@@ -10153,6 +11858,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_ALPHA64_RUNTIME_FUNCTION_ENTRY {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct IMAGE_ALPHA_RUNTIME_FUNCTION_ENTRY {
     pub BeginAddress: u32,
     pub EndAddress: u32,
@@ -10183,6 +11889,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_ALPHA_RUNTIME_FUNCTION_ENTRY {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct IMAGE_ARCHITECTURE_ENTRY {
     pub FixupInstRVA: u32,
     pub NewInst: u32,
@@ -10210,6 +11917,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_ARCHITECTURE_ENTRY {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct IMAGE_ARCHITECTURE_HEADER {
     pub _bitfield: u32,
     pub FirstEntryRVA: u32,
@@ -10237,6 +11945,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_ARCHITECTURE_HEADER {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct IMAGE_ARCHIVE_MEMBER_HEADER {
     pub Name: [u8; 16],
     pub Date: [u8; 12],
@@ -10267,9 +11976,11 @@ unsafe impl ::windows::runtime::Abi for IMAGE_ARCHIVE_MEMBER_HEADER {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_ARCHIVE_START_SIZE: u32 = 8u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY {
     pub BeginAddress: u32,
     pub Anonymous: IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_0,
@@ -10292,6 +12003,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_0 {
     pub UnwindData: u32,
     pub Anonymous: IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_0_0,
@@ -10314,6 +12026,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_0_0 {
     pub _bitfield: u32,
 }
@@ -10340,6 +12053,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_0_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA {
     pub HeaderData: u32,
     pub Anonymous: IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_0,
@@ -10362,6 +12076,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_0 {
     pub _bitfield: u32,
 }
@@ -10388,6 +12103,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct IMAGE_ARM_RUNTIME_FUNCTION_ENTRY {
     pub BeginAddress: u32,
     pub Anonymous: IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0,
@@ -10410,6 +12126,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_ARM_RUNTIME_FUNCTION_ENTRY {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0 {
     pub UnwindData: u32,
     pub Anonymous: IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0_0,
@@ -10432,6 +12149,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0_0 {
     pub _bitfield: u32,
 }
@@ -10458,6 +12176,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union IMAGE_AUX_SYMBOL {
     pub Sym: IMAGE_AUX_SYMBOL_3,
     pub File: IMAGE_AUX_SYMBOL_1,
@@ -10483,6 +12202,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_AUX_SYMBOL {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(2))]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct IMAGE_AUX_SYMBOL_0 {
     pub crc: u32,
     pub rgbReserved: [u8; 14],
@@ -10505,6 +12225,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_AUX_SYMBOL_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct IMAGE_AUX_SYMBOL_1 {
     pub Name: [u8; 18],
 }
@@ -10531,6 +12252,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_AUX_SYMBOL_1 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(2))]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct IMAGE_AUX_SYMBOL_2 {
     pub Length: u32,
     pub NumberOfRelocations: u16,
@@ -10559,6 +12281,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_AUX_SYMBOL_2 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(2))]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct IMAGE_AUX_SYMBOL_3 {
     pub TagIndex: u32,
     pub Misc: IMAGE_AUX_SYMBOL_3_1,
@@ -10583,6 +12306,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_AUX_SYMBOL_3 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union IMAGE_AUX_SYMBOL_3_0 {
     pub Function: IMAGE_AUX_SYMBOL_3_0_1,
     pub Array: IMAGE_AUX_SYMBOL_3_0_0,
@@ -10605,6 +12329,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_AUX_SYMBOL_3_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct IMAGE_AUX_SYMBOL_3_0_0 {
     pub Dimension: [u16; 4],
 }
@@ -10631,6 +12356,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_AUX_SYMBOL_3_0_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(2))]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct IMAGE_AUX_SYMBOL_3_0_1 {
     pub PointerToLinenumber: u32,
     pub PointerToNextFunction: u32,
@@ -10653,6 +12379,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_AUX_SYMBOL_3_0_1 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(2))]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union IMAGE_AUX_SYMBOL_3_1 {
     pub LnSz: IMAGE_AUX_SYMBOL_3_1_0,
     pub TotalSize: u32,
@@ -10675,6 +12402,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_AUX_SYMBOL_3_1 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct IMAGE_AUX_SYMBOL_3_1_0 {
     pub Linenumber: u16,
     pub Size: u16,
@@ -10702,6 +12430,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_AUX_SYMBOL_3_1_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union IMAGE_AUX_SYMBOL_EX {
     pub Sym: IMAGE_AUX_SYMBOL_EX_4,
     pub File: IMAGE_AUX_SYMBOL_EX_2,
@@ -10727,6 +12456,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_AUX_SYMBOL_EX {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct IMAGE_AUX_SYMBOL_EX_0 {
     pub TokenDef: IMAGE_AUX_SYMBOL_TOKEN_DEF,
     pub rgbReserved: [u8; 2],
@@ -10749,6 +12479,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_AUX_SYMBOL_EX_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(2))]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct IMAGE_AUX_SYMBOL_EX_1 {
     pub crc: u32,
     pub rgbReserved: [u8; 16],
@@ -10771,6 +12502,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_AUX_SYMBOL_EX_1 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct IMAGE_AUX_SYMBOL_EX_2 {
     pub Name: [u8; 20],
 }
@@ -10797,6 +12529,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_AUX_SYMBOL_EX_2 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(2))]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct IMAGE_AUX_SYMBOL_EX_3 {
     pub Length: u32,
     pub NumberOfRelocations: u16,
@@ -10826,6 +12559,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_AUX_SYMBOL_EX_3 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(2))]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct IMAGE_AUX_SYMBOL_EX_4 {
     pub WeakDefaultSymIndex: u32,
     pub WeakSearchType: u32,
@@ -10849,6 +12583,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_AUX_SYMBOL_EX_4 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(2))]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct IMAGE_AUX_SYMBOL_TOKEN_DEF {
     pub bAuxType: u8,
     pub bReserved: u8,
@@ -10871,6 +12606,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_AUX_SYMBOL_TOKEN_DEF {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IMAGE_AUX_SYMBOL_TYPE(pub i32);
@@ -10886,6 +12622,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_AUX_SYMBOL_TYPE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct IMAGE_BASE_RELOCATION {
     pub VirtualAddress: u32,
     pub SizeOfBlock: u32,
@@ -10913,6 +12650,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_BASE_RELOCATION {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct IMAGE_BOUND_FORWARDER_REF {
     pub TimeDateStamp: u32,
     pub OffsetModuleName: u16,
@@ -10941,6 +12679,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_BOUND_FORWARDER_REF {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct IMAGE_BOUND_IMPORT_DESCRIPTOR {
     pub TimeDateStamp: u32,
     pub OffsetModuleName: u16,
@@ -10969,6 +12708,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_BOUND_IMPORT_DESCRIPTOR {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct IMAGE_CE_RUNTIME_FUNCTION_ENTRY {
     pub FuncStart: u32,
     pub _bitfield: u32,
@@ -10994,16 +12734,24 @@ unsafe impl ::windows::runtime::Abi for IMAGE_CE_RUNTIME_FUNCTION_ENTRY {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_COMDAT_SELECT_ANY: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_COMDAT_SELECT_ASSOCIATIVE: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_COMDAT_SELECT_EXACT_MATCH: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_COMDAT_SELECT_LARGEST: u32 = 6u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_COMDAT_SELECT_NEWEST: u32 = 7u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_COMDAT_SELECT_NODUPLICATES: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_COMDAT_SELECT_SAME_SIZE: u32 = 3u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_Diagnostics_Debug`*"]
 pub struct IMAGE_COR20_HEADER {
     pub cb: u32,
     pub MajorRuntimeVersion: u16,
@@ -11041,6 +12789,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_COR20_HEADER {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union IMAGE_COR20_HEADER_0 {
     pub EntryPointToken: u32,
     pub EntryPointRVA: u32,
@@ -11064,6 +12813,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_COR20_HEADER_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub struct IMAGE_DEBUG_MISC {
     pub DataType: u32,
     pub Length: u32,
@@ -11098,19 +12848,31 @@ unsafe impl ::windows::runtime::Abi for IMAGE_DEBUG_MISC {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_DEBUG_MISC_EXENAME: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_DEBUG_TYPE_CLSID: u32 = 11u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_DEBUG_TYPE_EX_DLLCHARACTERISTICS: u32 = 20u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_DEBUG_TYPE_ILTCG: u32 = 14u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_DEBUG_TYPE_MPX: u32 = 15u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_DEBUG_TYPE_OMAP_FROM_SRC: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_DEBUG_TYPE_OMAP_TO_SRC: u32 = 7u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_DEBUG_TYPE_POGO: u32 = 13u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_DEBUG_TYPE_REPRO: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_DEBUG_TYPE_RESERVED10: u32 = 10u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_DEBUG_TYPE_VC_FEATURE: u32 = 12u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct IMAGE_DELAYLOAD_DESCRIPTOR {
     pub Attributes: IMAGE_DELAYLOAD_DESCRIPTOR_0,
     pub DllNameRVA: u32,
@@ -11139,6 +12901,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_DELAYLOAD_DESCRIPTOR {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union IMAGE_DELAYLOAD_DESCRIPTOR_0 {
     pub AllAttributes: u32,
     pub Anonymous: IMAGE_DELAYLOAD_DESCRIPTOR_0_0,
@@ -11161,6 +12924,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_DELAYLOAD_DESCRIPTOR_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct IMAGE_DELAYLOAD_DESCRIPTOR_0_0 {
     pub _bitfield: u32,
 }
@@ -11187,6 +12951,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_DELAYLOAD_DESCRIPTOR_0_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(2))]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct IMAGE_DOS_HEADER {
     pub e_magic: u16,
     pub e_cblp: u16,
@@ -11224,9 +12989,11 @@ unsafe impl ::windows::runtime::Abi for IMAGE_DOS_HEADER {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_DOS_SIGNATURE: u32 = 23117u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct IMAGE_DYNAMIC_RELOCATION32 {
     pub Symbol: u32,
     pub BaseRelocSize: u32,
@@ -11249,6 +13016,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_DYNAMIC_RELOCATION32 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct IMAGE_DYNAMIC_RELOCATION32_V2 {
     pub HeaderSize: u32,
     pub FixupInfoSize: u32,
@@ -11274,6 +13042,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_DYNAMIC_RELOCATION32_V2 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct IMAGE_DYNAMIC_RELOCATION64 {
     pub Symbol: u64,
     pub BaseRelocSize: u32,
@@ -11296,6 +13065,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_DYNAMIC_RELOCATION64 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct IMAGE_DYNAMIC_RELOCATION64_V2 {
     pub HeaderSize: u32,
     pub FixupInfoSize: u32,
@@ -11319,13 +13089,19 @@ unsafe impl ::windows::runtime::Abi for IMAGE_DYNAMIC_RELOCATION64_V2 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_DYNAMIC_RELOCATION_GUARD_IMPORT_CONTROL_TRANSFER: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_DYNAMIC_RELOCATION_GUARD_INDIR_CONTROL_TRANSFER: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_DYNAMIC_RELOCATION_GUARD_RF_EPILOGUE: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_DYNAMIC_RELOCATION_GUARD_RF_PROLOGUE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_DYNAMIC_RELOCATION_GUARD_SWITCHTABLE_BRANCH: u32 = 5u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct IMAGE_DYNAMIC_RELOCATION_TABLE {
     pub Version: u32,
     pub Size: u32,
@@ -11351,17 +13127,27 @@ unsafe impl ::windows::runtime::Abi for IMAGE_DYNAMIC_RELOCATION_TABLE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_ENCLAVE_FLAG_PRIMARY_IMAGE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_ENCLAVE_IMPORT_MATCH_AUTHOR_ID: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_ENCLAVE_IMPORT_MATCH_FAMILY_ID: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_ENCLAVE_IMPORT_MATCH_IMAGE_ID: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_ENCLAVE_IMPORT_MATCH_NONE: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_ENCLAVE_IMPORT_MATCH_UNIQUE_ID: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_ENCLAVE_LONG_ID_LENGTH: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_ENCLAVE_POLICY_DEBUGGABLE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_ENCLAVE_SHORT_ID_LENGTH: u32 = 16u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct IMAGE_EPILOGUE_DYNAMIC_RELOCATION_HEADER {
     pub EpilogueCount: u32,
     pub EpilogueByteCount: u8,
@@ -11386,6 +13172,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_EPILOGUE_DYNAMIC_RELOCATION_HEADER
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct IMAGE_EXPORT_DIRECTORY {
     pub Characteristics: u32,
     pub TimeDateStamp: u32,
@@ -11432,30 +13219,53 @@ unsafe impl ::windows::runtime::Abi for IMAGE_EXPORT_DIRECTORY {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_GUARD_CFW_INSTRUMENTED: u32 = 512u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_GUARD_CF_ENABLE_EXPORT_SUPPRESSION: u32 = 32768u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_GUARD_CF_EXPORT_SUPPRESSION_INFO_PRESENT: u32 = 16384u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_GUARD_CF_FUNCTION_TABLE_PRESENT: u32 = 1024u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_GUARD_CF_FUNCTION_TABLE_SIZE_MASK: u32 = 4026531840u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_GUARD_CF_FUNCTION_TABLE_SIZE_SHIFT: u32 = 28u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_GUARD_CF_INSTRUMENTED: u32 = 256u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_GUARD_CF_LONGJUMP_TABLE_PRESENT: u32 = 65536u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_GUARD_DELAYLOAD_IAT_IN_ITS_OWN_SECTION: u32 = 8192u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_GUARD_EH_CONTINUATION_TABLE_PRESENT: u32 = 4194304u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_GUARD_FLAG_EXPORT_SUPPRESSED: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_GUARD_FLAG_FID_LANGEXCPTHANDLER: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_GUARD_FLAG_FID_SUPPRESSED: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_GUARD_FLAG_FID_XFG: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_GUARD_PROTECT_DELAYLOAD_IAT: u32 = 4096u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_GUARD_RETPOLINE_PRESENT: u32 = 1048576u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_GUARD_RF_ENABLE: u32 = 262144u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_GUARD_RF_INSTRUMENTED: u32 = 131072u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_GUARD_RF_STRICT: u32 = 524288u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_GUARD_SECURITY_COOKIE_UNUSED: u32 = 2048u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_GUARD_XFG_ENABLED: u32 = 8388608u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_HOT_PATCH_ABSOLUTE: u32 = 180224u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct IMAGE_HOT_PATCH_BASE {
     pub SequenceNumber: u32,
     pub Flags: u32,
@@ -11496,20 +13306,33 @@ unsafe impl ::windows::runtime::Abi for IMAGE_HOT_PATCH_BASE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_HOT_PATCH_BASE_CAN_ROLL_BACK: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_HOT_PATCH_BASE_OBLIGATORY: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_HOT_PATCH_CALL_TARGET: u32 = 278528u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_HOT_PATCH_CHUNK_INVERSE: u32 = 2147483648u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_HOT_PATCH_CHUNK_OBLIGATORY: u32 = 1073741824u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_HOT_PATCH_CHUNK_RESERVED: u32 = 1072705536u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_HOT_PATCH_CHUNK_SIZE: u32 = 4095u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_HOT_PATCH_CHUNK_SOURCE_RVA: u32 = 32768u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_HOT_PATCH_CHUNK_TARGET_RVA: u32 = 16384u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_HOT_PATCH_CHUNK_TYPE: u32 = 1032192u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_HOT_PATCH_DYNAMIC_VALUE: u32 = 491520u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_HOT_PATCH_FUNCTION: u32 = 114688u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct IMAGE_HOT_PATCH_HASHES {
     pub SHA256: [u8; 32],
     pub SHA1: [u8; 20],
@@ -11535,9 +13358,11 @@ unsafe impl ::windows::runtime::Abi for IMAGE_HOT_PATCH_HASHES {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_HOT_PATCH_INDIRECT: u32 = 376832u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct IMAGE_HOT_PATCH_INFO {
     pub Version: u32,
     pub Size: u32,
@@ -11576,12 +13401,16 @@ unsafe impl ::windows::runtime::Abi for IMAGE_HOT_PATCH_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_HOT_PATCH_NONE: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_HOT_PATCH_NO_CALL_TARGET: u32 = 409600u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_HOT_PATCH_REL32: u32 = 245760u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub struct IMAGE_IMPORT_BY_NAME {
     pub Hint: u16,
     pub Name: [super::super::Foundation::CHAR; 1],
@@ -11615,6 +13444,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_IMPORT_BY_NAME {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct IMAGE_IMPORT_CONTROL_TRANSFER_DYNAMIC_RELOCATION {
     pub _bitfield: u32,
 }
@@ -11636,6 +13466,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_IMPORT_CONTROL_TRANSFER_DYNAMIC_RE
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct IMAGE_IMPORT_DESCRIPTOR {
     pub Anonymous: IMAGE_IMPORT_DESCRIPTOR_0,
     pub TimeDateStamp: u32,
@@ -11661,6 +13492,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_IMPORT_DESCRIPTOR {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union IMAGE_IMPORT_DESCRIPTOR_0 {
     pub Characteristics: u32,
     pub OriginalFirstThunk: u32,
@@ -11683,6 +13515,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_IMPORT_DESCRIPTOR_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct IMAGE_INDIR_CONTROL_TRANSFER_DYNAMIC_RELOCATION {
     pub _bitfield: u16,
 }
@@ -11704,6 +13537,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_INDIR_CONTROL_TRANSFER_DYNAMIC_REL
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct IMAGE_LINENUMBER {
     pub Type: IMAGE_LINENUMBER_0,
     pub Linenumber: u16,
@@ -11726,6 +13560,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_LINENUMBER {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(2))]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union IMAGE_LINENUMBER_0 {
     pub SymbolTableIndex: u32,
     pub VirtualAddress: u32,
@@ -11748,6 +13583,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_LINENUMBER_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct IMAGE_LOAD_CONFIG_CODE_INTEGRITY {
     pub Flags: u16,
     pub Catalog: u16,
@@ -11775,14 +13611,20 @@ unsafe impl ::windows::runtime::Abi for IMAGE_LOAD_CONFIG_CODE_INTEGRITY {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_NT_SIGNATURE: u32 = 17744u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_NUMBEROF_DIRECTORY_ENTRIES: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_ORDINAL_FLAG: u64 = 9223372036854775808u64;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_ORDINAL_FLAG32: u32 = 2147483648u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_ORDINAL_FLAG64: u64 = 9223372036854775808u64;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(2))]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub struct IMAGE_OS2_HEADER {
     pub ne_magic: u16,
     pub ne_ver: super::super::Foundation::CHAR,
@@ -11836,11 +13678,14 @@ unsafe impl ::windows::runtime::Abi for IMAGE_OS2_HEADER {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_OS2_SIGNATURE: u32 = 17742u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_OS2_SIGNATURE_LE: u32 = 17740u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub struct IMAGE_POLICY_ENTRY {
     pub Type: IMAGE_POLICY_ENTRY_TYPE,
     pub PolicyId: IMAGE_POLICY_ID,
@@ -11870,6 +13715,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_POLICY_ENTRY {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub union IMAGE_POLICY_ENTRY_0 {
     pub None: *mut ::std::ffi::c_void,
     pub BoolValue: super::super::Foundation::BOOLEAN,
@@ -11905,6 +13751,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_POLICY_ENTRY_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IMAGE_POLICY_ENTRY_TYPE(pub i32);
@@ -11931,6 +13778,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_POLICY_ENTRY_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IMAGE_POLICY_ID(pub i32);
@@ -11959,6 +13807,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_POLICY_ID {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub struct IMAGE_POLICY_METADATA {
     pub Version: u8,
     pub Reserved0: [u8; 7],
@@ -11986,9 +13835,11 @@ unsafe impl ::windows::runtime::Abi for IMAGE_POLICY_METADATA {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_POLICY_METADATA_VERSION: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct IMAGE_PROLOGUE_DYNAMIC_RELOCATION_HEADER {
     pub PrologueByteCount: u8,
 }
@@ -12015,6 +13866,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_PROLOGUE_DYNAMIC_RELOCATION_HEADER
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(2))]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct IMAGE_RELOCATION {
     pub Anonymous: IMAGE_RELOCATION_0,
     pub SymbolTableIndex: u32,
@@ -12038,6 +13890,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_RELOCATION {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(2))]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union IMAGE_RELOCATION_0 {
     pub VirtualAddress: u32,
     pub RelocCount: u32,
@@ -12058,268 +13911,529 @@ unsafe impl ::windows::runtime::Abi for IMAGE_RELOCATION_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_ALPHA_ABSOLUTE: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_ALPHA_BRADDR: u32 = 7u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_ALPHA_GPDISP: u32 = 6u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_ALPHA_GPREL32: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_ALPHA_GPRELHI: u32 = 23u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_ALPHA_GPRELLO: u32 = 22u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_ALPHA_HINT: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_ALPHA_INLINE_REFLONG: u32 = 9u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_ALPHA_LITERAL: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_ALPHA_LITUSE: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_ALPHA_MATCH: u32 = 13u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_ALPHA_PAIR: u32 = 12u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_ALPHA_REFHI: u32 = 10u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_ALPHA_REFLO: u32 = 11u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_ALPHA_REFLONG: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_ALPHA_REFLONGNB: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_ALPHA_REFQ1: u32 = 21u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_ALPHA_REFQ2: u32 = 20u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_ALPHA_REFQ3: u32 = 19u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_ALPHA_REFQUAD: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_ALPHA_SECREL: u32 = 15u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_ALPHA_SECRELHI: u32 = 18u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_ALPHA_SECRELLO: u32 = 17u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_ALPHA_SECTION: u32 = 14u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_AMD64_ABSOLUTE: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_AMD64_ADDR32: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_AMD64_ADDR32NB: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_AMD64_ADDR64: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_AMD64_CFG_BR: u32 = 20u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_AMD64_CFG_BR_REX: u32 = 21u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_AMD64_CFG_CALL: u32 = 22u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_AMD64_EHANDLER: u32 = 17u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_AMD64_IMPORT_BR: u32 = 18u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_AMD64_IMPORT_CALL: u32 = 19u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_AMD64_INDIR_BR: u32 = 23u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_AMD64_INDIR_BR_REX: u32 = 24u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_AMD64_INDIR_BR_SWITCHTABLE_FIRST: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_AMD64_INDIR_BR_SWITCHTABLE_LAST: u32 = 47u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_AMD64_INDIR_CALL: u32 = 25u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_AMD64_PAIR: u32 = 15u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_AMD64_REL32: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_AMD64_REL32_1: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_AMD64_REL32_2: u32 = 6u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_AMD64_REL32_3: u32 = 7u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_AMD64_REL32_4: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_AMD64_REL32_5: u32 = 9u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_AMD64_SECREL: u32 = 11u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_AMD64_SECREL7: u32 = 12u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_AMD64_SECTION: u32 = 10u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_AMD64_SREL32: u32 = 14u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_AMD64_SSPAN32: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_AMD64_TOKEN: u32 = 13u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_AM_ABSOLUTE: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_AM_ADDR32: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_AM_ADDR32NB: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_AM_CALL32: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_AM_FUNCINFO: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_AM_REL32_1: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_AM_REL32_2: u32 = 6u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_AM_SECREL: u32 = 7u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_AM_SECTION: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_AM_TOKEN: u32 = 9u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_ARM64_ABSOLUTE: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_ARM64_ADDR32: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_ARM64_ADDR32NB: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_ARM64_ADDR64: u32 = 14u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_ARM64_BRANCH19: u32 = 15u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_ARM64_BRANCH26: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_ARM64_PAGEBASE_REL21: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_ARM64_PAGEOFFSET_12A: u32 = 6u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_ARM64_PAGEOFFSET_12L: u32 = 7u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_ARM64_REL21: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_ARM64_SECREL: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_ARM64_SECREL_HIGH12A: u32 = 10u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_ARM64_SECREL_LOW12A: u32 = 9u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_ARM64_SECREL_LOW12L: u32 = 11u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_ARM64_SECTION: u32 = 13u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_ARM64_TOKEN: u32 = 12u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_ARM_ABSOLUTE: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_ARM_ADDR32: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_ARM_ADDR32NB: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_ARM_BLX11: u32 = 9u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_ARM_BLX23T: u32 = 21u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_ARM_BLX24: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_ARM_BRANCH11: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_ARM_BRANCH20T: u32 = 18u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_ARM_BRANCH24: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_ARM_BRANCH24T: u32 = 20u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_ARM_GPREL12: u32 = 6u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_ARM_GPREL7: u32 = 7u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_ARM_MOV32: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_ARM_MOV32A: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_ARM_MOV32T: u32 = 17u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_ARM_SECREL: u32 = 15u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_ARM_SECTION: u32 = 14u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_ARM_TOKEN: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_BASED_ABSOLUTE: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_BASED_ARM_MOV32: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_BASED_DIR64: u32 = 10u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_BASED_HIGH: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_BASED_HIGHADJ: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_BASED_HIGHLOW: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_BASED_IA64_IMM64: u32 = 9u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_BASED_LOW: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_BASED_MACHINE_SPECIFIC_5: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_BASED_MACHINE_SPECIFIC_7: u32 = 7u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_BASED_MACHINE_SPECIFIC_8: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_BASED_MACHINE_SPECIFIC_9: u32 = 9u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_BASED_MIPS_JMPADDR: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_BASED_MIPS_JMPADDR16: u32 = 9u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_BASED_RESERVED: u32 = 6u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_BASED_THUMB_MOV32: u32 = 7u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_CEE_ABSOLUTE: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_CEE_ADDR32: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_CEE_ADDR32NB: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_CEE_ADDR64: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_CEE_SECREL: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_CEE_SECTION: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_CEE_TOKEN: u32 = 6u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_CEF_ABSOLUTE: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_CEF_ADDR32: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_CEF_ADDR32NB: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_CEF_ADDR64: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_CEF_SECREL: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_CEF_SECTION: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_CEF_TOKEN: u32 = 6u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_EBC_ABSOLUTE: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_EBC_ADDR32NB: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_EBC_REL32: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_EBC_SECREL: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_EBC_SECTION: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_I386_ABSOLUTE: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_I386_DIR16: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_I386_DIR32: u32 = 6u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_I386_DIR32NB: u32 = 7u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_I386_REL16: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_I386_REL32: u32 = 20u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_I386_SECREL: u32 = 11u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_I386_SECREL7: u32 = 13u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_I386_SECTION: u32 = 10u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_I386_SEG12: u32 = 9u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_I386_TOKEN: u32 = 12u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_IA64_ABSOLUTE: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_IA64_ADDEND: u32 = 31u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_IA64_DIR32: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_IA64_DIR32NB: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_IA64_DIR64: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_IA64_GPREL22: u32 = 9u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_IA64_GPREL32: u32 = 28u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_IA64_IMM14: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_IA64_IMM22: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_IA64_IMM64: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_IA64_IMMGPREL64: u32 = 26u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_IA64_LTOFF22: u32 = 10u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_IA64_PCREL21B: u32 = 6u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_IA64_PCREL21F: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_IA64_PCREL21M: u32 = 7u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_IA64_PCREL60B: u32 = 22u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_IA64_PCREL60F: u32 = 23u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_IA64_PCREL60I: u32 = 24u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_IA64_PCREL60M: u32 = 25u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_IA64_PCREL60X: u32 = 21u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_IA64_SECREL22: u32 = 12u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_IA64_SECREL32: u32 = 14u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_IA64_SECREL64I: u32 = 13u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_IA64_SECTION: u32 = 11u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_IA64_SREL14: u32 = 17u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_IA64_SREL22: u32 = 18u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_IA64_SREL32: u32 = 19u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_IA64_TOKEN: u32 = 27u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_IA64_UREL32: u32 = 20u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_M32R_ABSOLUTE: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_M32R_ADDR24: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_M32R_ADDR32: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_M32R_ADDR32NB: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_M32R_GPREL16: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_M32R_PAIR: u32 = 11u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_M32R_PCREL16: u32 = 6u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_M32R_PCREL24: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_M32R_PCREL8: u32 = 7u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_M32R_REFHALF: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_M32R_REFHI: u32 = 9u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_M32R_REFLO: u32 = 10u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_M32R_SECREL32: u32 = 13u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_M32R_SECTION: u32 = 12u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_M32R_TOKEN: u32 = 14u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_MIPS_ABSOLUTE: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_MIPS_GPREL: u32 = 6u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_MIPS_JMPADDR: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_MIPS_JMPADDR16: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_MIPS_LITERAL: u32 = 7u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_MIPS_PAIR: u32 = 37u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_MIPS_REFHALF: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_MIPS_REFHI: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_MIPS_REFLO: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_MIPS_REFWORD: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_MIPS_REFWORDNB: u32 = 34u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_MIPS_SECREL: u32 = 11u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_MIPS_SECRELHI: u32 = 13u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_MIPS_SECRELLO: u32 = 12u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_MIPS_SECTION: u32 = 10u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_MIPS_TOKEN: u32 = 14u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_PPC_ABSOLUTE: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_PPC_ADDR14: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_PPC_ADDR16: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_PPC_ADDR24: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_PPC_ADDR32: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_PPC_ADDR32NB: u32 = 10u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_PPC_ADDR64: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_PPC_BRNTAKEN: u32 = 1024u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_PPC_BRTAKEN: u32 = 512u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_PPC_GPREL: u32 = 21u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_PPC_IFGLUE: u32 = 13u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_PPC_IMGLUE: u32 = 14u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_PPC_NEG: u32 = 256u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_PPC_PAIR: u32 = 18u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_PPC_REFHI: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_PPC_REFLO: u32 = 17u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_PPC_REL14: u32 = 7u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_PPC_REL24: u32 = 6u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_PPC_SECREL: u32 = 11u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_PPC_SECREL16: u32 = 15u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_PPC_SECRELHI: u32 = 20u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_PPC_SECRELLO: u32 = 19u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_PPC_SECTION: u32 = 12u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_PPC_TOCDEFN: u32 = 2048u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_PPC_TOCREL14: u32 = 9u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_PPC_TOCREL16: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_PPC_TOKEN: u32 = 22u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_PPC_TYPEMASK: u32 = 255u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_SH3_ABSOLUTE: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_SH3_DIRECT16: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_SH3_DIRECT32: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_SH3_DIRECT32_NB: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_SH3_DIRECT4: u32 = 6u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_SH3_DIRECT4_LONG: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_SH3_DIRECT4_WORD: u32 = 7u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_SH3_DIRECT8: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_SH3_DIRECT8_LONG: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_SH3_DIRECT8_WORD: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_SH3_GPREL4_LONG: u32 = 17u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_SH3_PCREL12_WORD: u32 = 11u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_SH3_PCREL8_LONG: u32 = 10u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_SH3_PCREL8_WORD: u32 = 9u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_SH3_SECREL: u32 = 15u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_SH3_SECTION: u32 = 14u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_SH3_SIZEOF_SECTION: u32 = 13u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_SH3_STARTOF_SECTION: u32 = 12u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_SH3_TOKEN: u32 = 18u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_SHM_PAIR: u32 = 24u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_SHM_PCRELPT: u32 = 19u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_SHM_REFHALF: u32 = 21u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_SHM_REFLO: u32 = 20u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_SHM_RELHALF: u32 = 23u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_SHM_RELLO: u32 = 22u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_SH_NOMODE: u32 = 32768u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_THUMB_BLX23: u32 = 21u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_THUMB_BRANCH20: u32 = 18u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_THUMB_BRANCH24: u32 = 20u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_REL_THUMB_MOV32: u32 = 17u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct IMAGE_RESOURCE_DATA_ENTRY {
     pub OffsetToData: u32,
     pub Size: u32,
@@ -12347,9 +14461,11 @@ unsafe impl ::windows::runtime::Abi for IMAGE_RESOURCE_DATA_ENTRY {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_RESOURCE_DATA_IS_DIRECTORY: u32 = 2147483648u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct IMAGE_RESOURCE_DIRECTORY {
     pub Characteristics: u32,
     pub TimeDateStamp: u32,
@@ -12388,6 +14504,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_RESOURCE_DIRECTORY {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct IMAGE_RESOURCE_DIRECTORY_ENTRY {
     pub Anonymous1: IMAGE_RESOURCE_DIRECTORY_ENTRY_0,
     pub Anonymous2: IMAGE_RESOURCE_DIRECTORY_ENTRY_1,
@@ -12410,6 +14527,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_RESOURCE_DIRECTORY_ENTRY {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union IMAGE_RESOURCE_DIRECTORY_ENTRY_0 {
     pub Anonymous: IMAGE_RESOURCE_DIRECTORY_ENTRY_0_0,
     pub Name: u32,
@@ -12433,6 +14551,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_RESOURCE_DIRECTORY_ENTRY_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct IMAGE_RESOURCE_DIRECTORY_ENTRY_0_0 {
     pub _bitfield: u32,
 }
@@ -12459,6 +14578,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_RESOURCE_DIRECTORY_ENTRY_0_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union IMAGE_RESOURCE_DIRECTORY_ENTRY_1 {
     pub OffsetToData: u32,
     pub Anonymous: IMAGE_RESOURCE_DIRECTORY_ENTRY_1_0,
@@ -12481,6 +14601,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_RESOURCE_DIRECTORY_ENTRY_1 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct IMAGE_RESOURCE_DIRECTORY_ENTRY_1_0 {
     pub _bitfield: u32,
 }
@@ -12508,6 +14629,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_RESOURCE_DIRECTORY_ENTRY_1_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub struct IMAGE_RESOURCE_DIRECTORY_STRING {
     pub Length: u16,
     pub NameString: [super::super::Foundation::CHAR; 1],
@@ -12541,6 +14663,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_RESOURCE_DIRECTORY_STRING {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct IMAGE_RESOURCE_DIR_STRING_U {
     pub Length: u16,
     pub NameString: [u16; 1],
@@ -12566,10 +14689,12 @@ unsafe impl ::windows::runtime::Abi for IMAGE_RESOURCE_DIR_STRING_U {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_RESOURCE_NAME_IS_STRING: u32 = 2147483648u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_Diagnostics_Debug`*"]
 pub struct IMAGE_ROM_HEADERS {
     pub FileHeader: super::Diagnostics::Debug::IMAGE_FILE_HEADER,
     pub OptionalHeader: IMAGE_ROM_OPTIONAL_HEADER,
@@ -12603,6 +14728,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_ROM_HEADERS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct IMAGE_ROM_OPTIONAL_HEADER {
     pub Magic: u16,
     pub MajorLinkerVersion: u8,
@@ -12667,6 +14793,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_ROM_OPTIONAL_HEADER {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct IMAGE_RUNTIME_FUNCTION_ENTRY {
     pub BeginAddress: u32,
     pub EndAddress: u32,
@@ -12690,6 +14817,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_RUNTIME_FUNCTION_ENTRY {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union IMAGE_RUNTIME_FUNCTION_ENTRY_0 {
     pub UnwindInfoAddress: u32,
     pub UnwindData: u32,
@@ -12710,9 +14838,11 @@ unsafe impl ::windows::runtime::Abi for IMAGE_RUNTIME_FUNCTION_ENTRY_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_SEPARATE_DEBUG_FLAGS_MASK: u32 = 32768u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct IMAGE_SEPARATE_DEBUG_HEADER {
     pub Signature: u16,
     pub Flags: u16,
@@ -12775,15 +14905,23 @@ unsafe impl ::windows::runtime::Abi for IMAGE_SEPARATE_DEBUG_HEADER {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_SEPARATE_DEBUG_MISMATCH: u32 = 32768u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_SEPARATE_DEBUG_SIGNATURE: u32 = 18756u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_SIZEOF_ARCHIVE_MEMBER_HDR: u32 = 60u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_SIZEOF_FILE_HEADER: u32 = 20u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_SIZEOF_SECTION_HEADER: u32 = 40u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_SIZEOF_SHORT_NAME: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_SIZEOF_SYMBOL: u32 = 18u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct IMAGE_SWITCHTABLE_BRANCH_DYNAMIC_RELOCATION {
     pub _bitfield: u16,
 }
@@ -12805,6 +14943,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_SWITCHTABLE_BRANCH_DYNAMIC_RELOCAT
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(2))]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct IMAGE_SYMBOL {
     pub N: IMAGE_SYMBOL_0,
     pub Value: u32,
@@ -12831,6 +14970,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_SYMBOL {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(2))]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union IMAGE_SYMBOL_0 {
     pub ShortName: [u8; 8],
     pub Name: IMAGE_SYMBOL_0_0,
@@ -12854,6 +14994,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_SYMBOL_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(2))]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct IMAGE_SYMBOL_0_0 {
     pub Short: u32,
     pub Long: u32,
@@ -12876,6 +15017,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_SYMBOL_0_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(2))]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct IMAGE_SYMBOL_EX {
     pub N: IMAGE_SYMBOL_EX_0,
     pub Value: u32,
@@ -12902,6 +15044,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_SYMBOL_EX {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(2))]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union IMAGE_SYMBOL_EX_0 {
     pub ShortName: [u8; 8],
     pub Name: IMAGE_SYMBOL_EX_0_0,
@@ -12925,6 +15068,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_SYMBOL_EX_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(2))]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct IMAGE_SYMBOL_EX_0_0 {
     pub Short: u32,
     pub Long: u32,
@@ -12945,58 +15089,109 @@ unsafe impl ::windows::runtime::Abi for IMAGE_SYMBOL_EX_0_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_SYM_CLASS_ARGUMENT: u32 = 9u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_SYM_CLASS_AUTOMATIC: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_SYM_CLASS_BIT_FIELD: u32 = 18u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_SYM_CLASS_BLOCK: u32 = 100u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_SYM_CLASS_CLR_TOKEN: u32 = 107u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_SYM_CLASS_END_OF_STRUCT: u32 = 102u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_SYM_CLASS_ENUM_TAG: u32 = 15u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_SYM_CLASS_EXTERNAL: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_SYM_CLASS_EXTERNAL_DEF: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_SYM_CLASS_FAR_EXTERNAL: u32 = 68u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_SYM_CLASS_FILE: u32 = 103u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_SYM_CLASS_FUNCTION: u32 = 101u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_SYM_CLASS_LABEL: u32 = 6u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_SYM_CLASS_MEMBER_OF_ENUM: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_SYM_CLASS_MEMBER_OF_STRUCT: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_SYM_CLASS_MEMBER_OF_UNION: u32 = 11u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_SYM_CLASS_NULL: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_SYM_CLASS_REGISTER: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_SYM_CLASS_REGISTER_PARAM: u32 = 17u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_SYM_CLASS_SECTION: u32 = 104u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_SYM_CLASS_STATIC: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_SYM_CLASS_STRUCT_TAG: u32 = 10u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_SYM_CLASS_TYPE_DEFINITION: u32 = 13u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_SYM_CLASS_UNDEFINED_LABEL: u32 = 7u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_SYM_CLASS_UNDEFINED_STATIC: u32 = 14u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_SYM_CLASS_UNION_TAG: u32 = 12u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_SYM_CLASS_WEAK_EXTERNAL: u32 = 105u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_SYM_DTYPE_ARRAY: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_SYM_DTYPE_FUNCTION: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_SYM_DTYPE_NULL: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_SYM_DTYPE_POINTER: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_SYM_SECTION_MAX: u32 = 65279u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_SYM_SECTION_MAX_EX: u32 = 2147483647u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_SYM_TYPE_BYTE: u32 = 12u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_SYM_TYPE_CHAR: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_SYM_TYPE_DOUBLE: u32 = 7u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_SYM_TYPE_DWORD: u32 = 15u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_SYM_TYPE_ENUM: u32 = 10u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_SYM_TYPE_FLOAT: u32 = 6u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_SYM_TYPE_INT: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_SYM_TYPE_LONG: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_SYM_TYPE_MOE: u32 = 11u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_SYM_TYPE_NULL: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_SYM_TYPE_PCODE: u32 = 32768u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_SYM_TYPE_SHORT: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_SYM_TYPE_STRUCT: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_SYM_TYPE_UINT: u32 = 14u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_SYM_TYPE_UNION: u32 = 9u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_SYM_TYPE_VOID: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_SYM_TYPE_WORD: u32 = 13u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct IMAGE_THUNK_DATA32 {
     pub u1: IMAGE_THUNK_DATA32_0,
 }
@@ -13018,6 +15213,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_THUNK_DATA32 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union IMAGE_THUNK_DATA32_0 {
     pub ForwarderString: u32,
     pub Function: u32,
@@ -13042,6 +15238,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_THUNK_DATA32_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct IMAGE_THUNK_DATA64 {
     pub u1: IMAGE_THUNK_DATA64_0,
 }
@@ -13063,6 +15260,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_THUNK_DATA64 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union IMAGE_THUNK_DATA64_0 {
     pub ForwarderString: u64,
     pub Function: u64,
@@ -13087,6 +15285,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_THUNK_DATA64_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct IMAGE_TLS_DIRECTORY32 {
     pub StartAddressOfRawData: u32,
     pub EndAddressOfRawData: u32,
@@ -13113,6 +15312,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_TLS_DIRECTORY32 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union IMAGE_TLS_DIRECTORY32_0 {
     pub Characteristics: u32,
     pub Anonymous: IMAGE_TLS_DIRECTORY32_0_0,
@@ -13135,6 +15335,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_TLS_DIRECTORY32_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct IMAGE_TLS_DIRECTORY32_0_0 {
     pub _bitfield: u32,
 }
@@ -13161,6 +15362,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_TLS_DIRECTORY32_0_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(4))]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct IMAGE_TLS_DIRECTORY64 {
     pub StartAddressOfRawData: u64,
     pub EndAddressOfRawData: u64,
@@ -13187,6 +15389,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_TLS_DIRECTORY64 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union IMAGE_TLS_DIRECTORY64_0 {
     pub Characteristics: u32,
     pub Anonymous: IMAGE_TLS_DIRECTORY64_0_0,
@@ -13209,6 +15412,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_TLS_DIRECTORY64_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct IMAGE_TLS_DIRECTORY64_0_0 {
     pub _bitfield: u32,
 }
@@ -13235,6 +15439,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_TLS_DIRECTORY64_0_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(2))]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct IMAGE_VXD_HEADER {
     pub e32_magic: u16,
     pub e32_border: u8,
@@ -13304,14 +15509,21 @@ unsafe impl ::windows::runtime::Abi for IMAGE_VXD_HEADER {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_VXD_SIGNATURE: u32 = 17740u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_WEAK_EXTERN_ANTI_DEPENDENCY: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_WEAK_EXTERN_SEARCH_ALIAS: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_WEAK_EXTERN_SEARCH_LIBRARY: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMAGE_WEAK_EXTERN_SEARCH_NOLIBRARY: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IMPORT_OBJECT_HDR_SIG2: u32 = 65535u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct IMPORT_OBJECT_HEADER {
     pub Sig1: u16,
     pub Sig2: u16,
@@ -13340,6 +15552,7 @@ unsafe impl ::windows::runtime::Abi for IMPORT_OBJECT_HEADER {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union IMPORT_OBJECT_HEADER_0 {
     pub Ordinal: u16,
     pub Hint: u16,
@@ -13360,6 +15573,7 @@ unsafe impl ::windows::runtime::Abi for IMPORT_OBJECT_HEADER_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IMPORT_OBJECT_NAME_TYPE(pub i32);
@@ -13377,6 +15591,7 @@ unsafe impl ::windows::runtime::Abi for IMPORT_OBJECT_NAME_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IMPORT_OBJECT_TYPE(pub i32);
@@ -13392,117 +15607,225 @@ unsafe impl ::windows::runtime::Abi for IMPORT_OBJECT_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvAccumulateD3DDirtyRect: i32 = 98i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvAlphaBlend: i32 = 71i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvAssertMode: i32 = 5i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvAssociateSharedSurface: i32 = 96i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvBitBlt: i32 = 18i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvCompletePDEV: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvCopyBits: i32 = 19i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvCreateDeviceBitmap: i32 = 10i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvCreateDeviceBitmapEx: i32 = 94i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvDeleteDeviceBitmap: i32 = 11i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvDeleteDeviceBitmapEx: i32 = 95i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvDeriveSurface: i32 = 85i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvDescribePixelFormat: i32 = 55i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvDestroyFont: i32 = 43i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvDisableDirectDraw: i32 = 61i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvDisableDriver: i32 = 8i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvDisablePDEV: i32 = 2i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvDisableSurface: i32 = 4i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvDitherColor: i32 = 13i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvDrawEscape: i32 = 25i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvEnableDirectDraw: i32 = 60i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvEnablePDEV: i32 = 0i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvEnableSurface: i32 = 3i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvEndDoc: i32 = 34i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvEndDxInterop: i32 = 100i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvEscape: i32 = 24i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvFillPath: i32 = 15i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvFontManagement: i32 = 47i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvFree: i32 = 42i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvGetDirectDrawInfo: i32 = 59i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvGetGlyphMode: i32 = 37i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvGetModes: i32 = 41i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvGetSynthesizedFontFiles: i32 = 73i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvGetTrueTypeFile: i32 = 50i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvGradientFill: i32 = 68i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvIcmCheckBitmapBits: i32 = 66i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvIcmCreateColorTransform: i32 = 64i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvIcmDeleteColorTransform: i32 = 65i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvIcmSetDeviceGammaRamp: i32 = 67i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvLineTo: i32 = 31i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvLoadFontFile: i32 = 45i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvLockDisplayArea: i32 = 101i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvMovePanning: i32 = 52i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvMovePointer: i32 = 30i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvNextBand: i32 = 58i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvNotify: i32 = 87i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvOffset: i32 = 6i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvPaint: i32 = 17i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvPlgBlt: i32 = 70i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvQueryAdvanceWidths: i32 = 53i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvQueryDeviceSupport: i32 = 76i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvQueryFont: i32 = 26i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvQueryFontCaps: i32 = 44i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvQueryFontData: i32 = 28i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvQueryFontFile: i32 = 51i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvQueryFontTree: i32 = 27i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvQueryGlyphAttrs: i32 = 86i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvQueryPerBandInfo: i32 = 75i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvQuerySpoolType: i32 = 62i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvQueryTrueTypeOutline: i32 = 49i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvQueryTrueTypeTable: i32 = 48i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvRealizeBrush: i32 = 12i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvRenderHint: i32 = 93i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvReserved1: i32 = 77i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvReserved10: i32 = 91i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvReserved11: i32 = 92i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvReserved2: i32 = 78i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvReserved3: i32 = 79i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvReserved4: i32 = 80i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvReserved5: i32 = 81i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvReserved6: i32 = 82i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvReserved7: i32 = 83i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvReserved8: i32 = 84i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvReserved9: i32 = 90i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvResetDevice: i32 = 89i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvResetPDEV: i32 = 7i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvSaveScreenBits: i32 = 40i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvSendPage: i32 = 32i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvSetPalette: i32 = 22i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvSetPixelFormat: i32 = 54i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvSetPointerShape: i32 = 29i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvStartBanding: i32 = 57i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvStartDoc: i32 = 35i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvStartDxInterop: i32 = 99i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvStartPage: i32 = 33i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvStretchBlt: i32 = 20i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvStretchBltROP: i32 = 69i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvStrokeAndFillPath: i32 = 16i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvStrokePath: i32 = 14i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvSurfaceComplete: i32 = 103i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvSwapBuffers: i32 = 56i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvSynchronize: i32 = 38i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvSynchronizeRedirectionBitmaps: i32 = 97i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvSynchronizeSurface: i32 = 88i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvSynthesizeFont: i32 = 72i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvTextOut: i32 = 23i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvTransparentBlt: i32 = 74i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvUnloadFontFile: i32 = 46i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_DrvUnlockDisplayArea: i32 = 102i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INDEX_LAST: i32 = 89i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INITIAL_CPSR: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INITIAL_FPCSR: u32 = 639u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INITIAL_FPSCR: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const INITIAL_MXCSR: u32 = 8064u32;
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_BAD_BLOCK_WITH_NAME: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479649i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_CDROM_EXCLUSIVE_LOCK: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(1074004101i32 as _);
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IO_COMPLETION_MODIFY_STATE: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct IO_COUNTERS {
     pub ReadOperationCount: u64,
     pub WriteOperationCount: u64,
@@ -13540,232 +15863,371 @@ unsafe impl ::windows::runtime::Abi for IO_COUNTERS {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_DRIVER_CANCEL_TIMEOUT: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147221450i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_DUMP_CALLBACK_EXCEPTION: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479517i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_DUMP_CREATION_SUCCESS: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(262306i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_DUMP_DIRECT_CONFIG_FAILED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479632i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_DUMP_DRIVER_LOAD_FAILURE: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479635i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_DUMP_DUMPFILE_CONFLICT: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479633i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_DUMP_INITIALIZATION_FAILURE: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479634i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_DUMP_PAGE_CONFIG_FAILED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479631i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_DUMP_POINTER_FAILURE: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479636i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_ERROR_DISK_RESOURCES_EXHAUSTED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479530i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_ERROR_DUMP_CREATION_ERROR: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479519i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_ERROR_IO_HARDWARE_ERROR: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479526i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_ERR_BAD_BLOCK: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479673i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_ERR_BAD_FIRMWARE: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479655i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_ERR_CONFIGURATION_ERROR: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479677i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_ERR_CONTROLLER_ERROR: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479669i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_ERR_DMA_CONFLICT_DETECTED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479657i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_ERR_DMA_RESOURCE_CONFLICT: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479653i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_ERR_DRIVER_ERROR: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479676i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_ERR_INCORRECT_IRQL: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479667i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_ERR_INSUFFICIENT_RESOURCES: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479678i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_ERR_INTERNAL_ERROR: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479668i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_ERR_INTERRUPT_RESOURCE_CONFLICT: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479652i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_ERR_INVALID_IOBASE: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479666i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_ERR_INVALID_REQUEST: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479664i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_ERR_IRQ_CONFLICT_DETECTED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479656i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_ERR_LAYERED_FAILURE: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479662i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_ERR_MEMORY_CONFLICT_DETECTED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479659i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_ERR_MEMORY_RESOURCE_CONFLICT: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479651i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_ERR_NOT_READY: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479665i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_ERR_OVERRUN_ERROR: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479672i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_ERR_PARITY: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479675i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_ERR_PORT_CONFLICT_DETECTED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479658i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_ERR_PORT_RESOURCE_CONFLICT: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479650i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_ERR_PORT_TIMEOUT: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479563i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_ERR_PROTOCOL: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479660i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_ERR_RESET: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479661i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_ERR_RETRY_SUCCEEDED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(262145i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_ERR_SEEK_ERROR: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479674i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_ERR_SEQUENCE: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479670i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_ERR_THREAD_STUCK_IN_DEVICE_DRIVER: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479572i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_ERR_TIMEOUT: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479671i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_ERR_VERSION: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479663i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_FILE_QUOTA_CORRUPT: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479638i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_FILE_QUOTA_FAILED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147221464i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_FILE_QUOTA_LIMIT: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(1074004005i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_FILE_QUOTA_STARTED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(1074004006i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_FILE_QUOTA_SUCCEEDED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(1074004007i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_FILE_QUOTA_THRESHOLD: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(1074004004i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_FILE_SYSTEM_CORRUPT: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479639i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_FILE_SYSTEM_CORRUPT_WITH_NAME: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479625i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_INFO_THROTTLE_COMPLETE: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(1074004087i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_LOST_DELAYED_WRITE: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147221454i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_LOST_DELAYED_WRITE_NETWORK_DISCONNECTED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147221365i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_LOST_DELAYED_WRITE_NETWORK_LOCAL_DISK_ERROR: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147221363i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_LOST_DELAYED_WRITE_NETWORK_SERVER_ERROR: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147221364i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_RECOVERED_VIA_ECC: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147221471i32 as _);
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IO_REPARSE_TAG_AF_UNIX: i32 = -2147483613i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IO_REPARSE_TAG_APPEXECLINK: i32 = -2147483621i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IO_REPARSE_TAG_CLOUD: i32 = -1879048166i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IO_REPARSE_TAG_CLOUD_1: i32 = -1879044070i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IO_REPARSE_TAG_CLOUD_2: i32 = -1879039974i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IO_REPARSE_TAG_CLOUD_3: i32 = -1879035878i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IO_REPARSE_TAG_CLOUD_4: i32 = -1879031782i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IO_REPARSE_TAG_CLOUD_5: i32 = -1879027686i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IO_REPARSE_TAG_CLOUD_6: i32 = -1879023590i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IO_REPARSE_TAG_CLOUD_7: i32 = -1879019494i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IO_REPARSE_TAG_CLOUD_8: i32 = -1879015398i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IO_REPARSE_TAG_CLOUD_9: i32 = -1879011302i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IO_REPARSE_TAG_CLOUD_A: i32 = -1879007206i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IO_REPARSE_TAG_CLOUD_B: i32 = -1879003110i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IO_REPARSE_TAG_CLOUD_C: i32 = -1878999014i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IO_REPARSE_TAG_CLOUD_D: i32 = -1878994918i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IO_REPARSE_TAG_CLOUD_E: i32 = -1878990822i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IO_REPARSE_TAG_CLOUD_F: i32 = -1878986726i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IO_REPARSE_TAG_CLOUD_MASK: i32 = 61440i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IO_REPARSE_TAG_CSV: i32 = -2147483639i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IO_REPARSE_TAG_DATALESS_CIM: i32 = -1610612696i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IO_REPARSE_TAG_DEDUP: i32 = -2147483629i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IO_REPARSE_TAG_DFS: i32 = -2147483638i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IO_REPARSE_TAG_DFSR: i32 = -2147483630i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IO_REPARSE_TAG_FILE_PLACEHOLDER: i32 = -2147483627i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IO_REPARSE_TAG_GLOBAL_REPARSE: i32 = -1610612711i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IO_REPARSE_TAG_HSM: i32 = -1073741820i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IO_REPARSE_TAG_HSM2: i32 = -2147483642i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IO_REPARSE_TAG_MOUNT_POINT: i32 = -1610612733i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IO_REPARSE_TAG_NFS: i32 = -2147483628i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IO_REPARSE_TAG_ONEDRIVE: i32 = -2147483615i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IO_REPARSE_TAG_PROJFS: i32 = -1879048164i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IO_REPARSE_TAG_PROJFS_TOMBSTONE: i32 = -1610612702i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IO_REPARSE_TAG_RESERVED_ONE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IO_REPARSE_TAG_RESERVED_RANGE: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IO_REPARSE_TAG_RESERVED_TWO: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IO_REPARSE_TAG_RESERVED_ZERO: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IO_REPARSE_TAG_SIS: i32 = -2147483641i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IO_REPARSE_TAG_STORAGE_SYNC: i32 = -2147483618i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IO_REPARSE_TAG_SYMLINK: i32 = -1610612724i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IO_REPARSE_TAG_UNHANDLED: i32 = -2147483616i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IO_REPARSE_TAG_WCI: i32 = -2147483624i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IO_REPARSE_TAG_WCI_1: i32 = -1879044072i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IO_REPARSE_TAG_WCI_LINK: i32 = -1610612697i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IO_REPARSE_TAG_WCI_LINK_1: i32 = -1610608601i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IO_REPARSE_TAG_WCI_TOMBSTONE: i32 = -1610612705i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IO_REPARSE_TAG_WIM: i32 = -2147483640i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IO_REPARSE_TAG_WOF: i32 = -2147483625i32;
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_SYSTEM_SLEEP_FAILED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479637i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_WARNING_ADAPTER_FIRMWARE_UPDATED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(1074004128i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_WARNING_ALLOCATION_FAILED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147221448i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_WARNING_BUS_RESET: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147221386i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_WARNING_COMPLETION_TIME: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147221349i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_WARNING_DEVICE_HAS_INTERNAL_DUMP: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147221361i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_WARNING_DISK_CAPACITY_CHANGED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147221353i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_WARNING_DISK_FIRMWARE_UPDATED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(1074004127i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_WARNING_DISK_PROVISIONING_TYPE_CHANGED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147221352i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_WARNING_DISK_SURPRISE_REMOVED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147221347i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_WARNING_DUMP_DISABLED_DEVICE_GONE: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147221348i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_WARNING_DUPLICATE_PATH: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147221445i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_WARNING_DUPLICATE_SIGNATURE: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147221446i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_WARNING_INTERRUPT_STILL_PENDING: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147221451i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_WARNING_IO_OPERATION_RETRIED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147221351i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_WARNING_LOG_FLUSH_FAILED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147221447i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_WARNING_PAGING_FAILURE: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147221453i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_WARNING_REPEATED_DISK_GUID: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147221346i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_WARNING_RESET: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147221375i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_WARNING_SOFT_THRESHOLD_REACHED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147221360i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_WARNING_SOFT_THRESHOLD_REACHED_EX: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147221359i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_WARNING_SOFT_THRESHOLD_REACHED_EX_LUN_LUN: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147221358i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_WARNING_SOFT_THRESHOLD_REACHED_EX_LUN_POOL: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147221357i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_WARNING_SOFT_THRESHOLD_REACHED_EX_POOL_LUN: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147221356i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_WARNING_SOFT_THRESHOLD_REACHED_EX_POOL_POOL: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147221355i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_WARNING_VOLUME_LOST_DISK_EXTENT: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147221362i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_WARNING_WRITE_FUA_PROBLEM: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147221372i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_WRITE_CACHE_DISABLED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147221470i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_WRITE_CACHE_ENABLED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147221472i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_WRN_BAD_FIRMWARE: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147221478i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const IO_WRN_FAILURE_PREDICTED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147221452i32 as _);
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IS_TEXT_UNICODE_DBCS_LEADBYTE: u32 = 1024u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IS_TEXT_UNICODE_UTF8: u32 = 2048u32;
 #[cfg(feature = "Win32_System_Rpc")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_Rpc`*"]
 #[inline]
 pub unsafe fn I_RpcNsGetBuffer(message: *mut super::Rpc::RPC_MESSAGE) -> super::Rpc::RPC_STATUS {
     #[cfg(windows)]
@@ -13780,6 +16242,7 @@ pub unsafe fn I_RpcNsGetBuffer(message: *mut super::Rpc::RPC_MESSAGE) -> super::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Rpc")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_Rpc`*"]
 #[inline]
 pub unsafe fn I_RpcNsRaiseException(message: *mut super::Rpc::RPC_MESSAGE, status: super::Rpc::RPC_STATUS) {
     #[cfg(windows)]
@@ -13794,6 +16257,7 @@ pub unsafe fn I_RpcNsRaiseException(message: *mut super::Rpc::RPC_MESSAGE, statu
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Rpc")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_Rpc`*"]
 #[inline]
 pub unsafe fn I_RpcNsSendReceive(message: *mut super::Rpc::RPC_MESSAGE, handle: *mut *mut ::std::ffi::c_void) -> super::Rpc::RPC_STATUS {
     #[cfg(windows)]
@@ -13808,6 +16272,7 @@ pub unsafe fn I_RpcNsSendReceive(message: *mut super::Rpc::RPC_MESSAGE, handle: 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Rpc")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_Rpc`*"]
 #[inline]
 pub unsafe fn I_RpcReBindBuffer(message: *mut super::Rpc::RPC_MESSAGE) -> super::Rpc::RPC_STATUS {
     #[cfg(windows)]
@@ -13821,6 +16286,7 @@ pub unsafe fn I_RpcReBindBuffer(message: *mut super::Rpc::RPC_MESSAGE) -> super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct JOBOBJECTINFOCLASS(pub i32);
@@ -13884,6 +16350,7 @@ unsafe impl ::windows::runtime::Abi for JOBOBJECTINFOCLASS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub struct JOBOBJECT_ASSOCIATE_COMPLETION_PORT {
     pub CompletionKey: *mut ::std::ffi::c_void,
     pub CompletionPort: super::super::Foundation::HANDLE,
@@ -13917,6 +16384,7 @@ unsafe impl ::windows::runtime::Abi for JOBOBJECT_ASSOCIATE_COMPLETION_PORT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct JOBOBJECT_BASIC_ACCOUNTING_INFORMATION {
     pub TotalUserTime: i64,
     pub TotalKernelTime: i64,
@@ -13959,6 +16427,7 @@ unsafe impl ::windows::runtime::Abi for JOBOBJECT_BASIC_ACCOUNTING_INFORMATION {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct JOBOBJECT_BASIC_AND_IO_ACCOUNTING_INFORMATION {
     pub BasicInfo: JOBOBJECT_BASIC_ACCOUNTING_INFORMATION,
     pub IoInfo: IO_COUNTERS,
@@ -13987,6 +16456,7 @@ unsafe impl ::windows::runtime::Abi for JOBOBJECT_BASIC_AND_IO_ACCOUNTING_INFORM
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_JobObjects")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_JobObjects`*"]
 pub struct JOBOBJECT_BASIC_LIMIT_INFORMATION {
     pub PerProcessUserTimeLimit: i64,
     pub PerJobUserTimeLimit: i64,
@@ -14037,6 +16507,7 @@ unsafe impl ::windows::runtime::Abi for JOBOBJECT_BASIC_LIMIT_INFORMATION {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct JOBOBJECT_BASIC_PROCESS_ID_LIST {
     pub NumberOfAssignedProcesses: u32,
     pub NumberOfProcessIdsInList: u32,
@@ -14066,6 +16537,7 @@ unsafe impl ::windows::runtime::Abi for JOBOBJECT_BASIC_PROCESS_ID_LIST {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_JobObjects")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_JobObjects`*"]
 pub struct JOBOBJECT_BASIC_UI_RESTRICTIONS {
     pub UIRestrictionsClass: super::JobObjects::JOB_OBJECT_UILIMIT,
 }
@@ -14098,6 +16570,7 @@ unsafe impl ::windows::runtime::Abi for JOBOBJECT_BASIC_UI_RESTRICTIONS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct JOBOBJECT_CPU_RATE_CONTROL_INFORMATION {
     pub ControlFlags: JOB_OBJECT_CPU_RATE_CONTROL,
     pub Anonymous: JOBOBJECT_CPU_RATE_CONTROL_INFORMATION_0,
@@ -14120,6 +16593,7 @@ unsafe impl ::windows::runtime::Abi for JOBOBJECT_CPU_RATE_CONTROL_INFORMATION {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union JOBOBJECT_CPU_RATE_CONTROL_INFORMATION_0 {
     pub CpuRate: u32,
     pub Weight: u32,
@@ -14143,6 +16617,7 @@ unsafe impl ::windows::runtime::Abi for JOBOBJECT_CPU_RATE_CONTROL_INFORMATION_0
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct JOBOBJECT_CPU_RATE_CONTROL_INFORMATION_0_0 {
     pub MinRate: u16,
     pub MaxRate: u16,
@@ -14170,6 +16645,7 @@ unsafe impl ::windows::runtime::Abi for JOBOBJECT_CPU_RATE_CONTROL_INFORMATION_0
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct JOBOBJECT_END_OF_JOB_TIME_INFORMATION {
     pub EndOfJobTimeAction: JOB_OBJECT_TERMINATE_AT_END_ACTION,
 }
@@ -14197,6 +16673,7 @@ unsafe impl ::windows::runtime::Abi for JOBOBJECT_END_OF_JOB_TIME_INFORMATION {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_JobObjects")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_JobObjects`*"]
 pub struct JOBOBJECT_EXTENDED_LIMIT_INFORMATION {
     pub BasicLimitInformation: JOBOBJECT_BASIC_LIMIT_INFORMATION,
     pub IoInfo: IO_COUNTERS,
@@ -14239,6 +16716,7 @@ unsafe impl ::windows::runtime::Abi for JOBOBJECT_EXTENDED_LIMIT_INFORMATION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS(pub i32);
@@ -14256,6 +16734,7 @@ unsafe impl ::windows::runtime::Abi for JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct JOBOBJECT_IO_ATTRIBUTION_INFORMATION {
     pub ControlFlags: u32,
     pub ReadStats: JOBOBJECT_IO_ATTRIBUTION_STATS,
@@ -14284,6 +16763,7 @@ unsafe impl ::windows::runtime::Abi for JOBOBJECT_IO_ATTRIBUTION_INFORMATION {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct JOBOBJECT_IO_ATTRIBUTION_STATS {
     pub IoCount: usize,
     pub TotalNonOverlappedQueueTime: u64,
@@ -14314,6 +16794,7 @@ unsafe impl ::windows::runtime::Abi for JOBOBJECT_IO_ATTRIBUTION_STATS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub struct JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE {
     pub MaxIops: i64,
     pub MaxBandwidth: i64,
@@ -14361,6 +16842,7 @@ unsafe impl ::windows::runtime::Abi for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NA
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub struct JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V2 {
     pub MaxIops: i64,
     pub MaxBandwidth: i64,
@@ -14432,6 +16914,7 @@ unsafe impl ::windows::runtime::Abi for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NA
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub struct JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V3 {
     pub MaxIops: i64,
     pub MaxBandwidth: i64,
@@ -14520,6 +17003,7 @@ unsafe impl ::windows::runtime::Abi for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NA
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct JOBOBJECT_JOBSET_INFORMATION {
     pub MemberLevel: u32,
 }
@@ -14547,6 +17031,7 @@ unsafe impl ::windows::runtime::Abi for JOBOBJECT_JOBSET_INFORMATION {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_JobObjects")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_JobObjects`*"]
 pub struct JOBOBJECT_LIMIT_VIOLATION_INFORMATION {
     pub LimitFlags: super::JobObjects::JOB_OBJECT_LIMIT,
     pub ViolationLimitFlags: super::JobObjects::JOB_OBJECT_LIMIT,
@@ -14615,6 +17100,7 @@ unsafe impl ::windows::runtime::Abi for JOBOBJECT_LIMIT_VIOLATION_INFORMATION {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_JobObjects")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_JobObjects`*"]
 pub struct JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2 {
     pub LimitFlags: super::JobObjects::JOB_OBJECT_LIMIT,
     pub ViolationLimitFlags: super::JobObjects::JOB_OBJECT_LIMIT,
@@ -14657,6 +17143,7 @@ unsafe impl ::windows::runtime::Abi for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2 
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_0 {
     pub JobHighMemoryLimit: u64,
     pub JobMemoryLimit: u64,
@@ -14679,6 +17166,7 @@ unsafe impl ::windows::runtime::Abi for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_1 {
     pub RateControlTolerance: JOBOBJECT_RATE_CONTROL_TOLERANCE,
     pub CpuRateControlTolerance: JOBOBJECT_RATE_CONTROL_TOLERANCE,
@@ -14701,6 +17189,7 @@ unsafe impl ::windows::runtime::Abi for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_2 {
     pub RateControlToleranceLimit: JOBOBJECT_RATE_CONTROL_TOLERANCE,
     pub CpuRateControlToleranceLimit: JOBOBJECT_RATE_CONTROL_TOLERANCE,
@@ -14723,6 +17212,7 @@ unsafe impl ::windows::runtime::Abi for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct JOBOBJECT_NET_RATE_CONTROL_INFORMATION {
     pub MaxBandwidth: u64,
     pub ControlFlags: JOB_OBJECT_NET_RATE_CONTROL_FLAGS,
@@ -14752,6 +17242,7 @@ unsafe impl ::windows::runtime::Abi for JOBOBJECT_NET_RATE_CONTROL_INFORMATION {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_JobObjects")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_JobObjects`*"]
 pub struct JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION {
     pub IoReadBytesLimit: u64,
     pub IoWriteBytesLimit: u64,
@@ -14799,6 +17290,7 @@ unsafe impl ::windows::runtime::Abi for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_JobObjects")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_JobObjects`*"]
 pub struct JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2 {
     pub IoReadBytesLimit: u64,
     pub IoWriteBytesLimit: u64,
@@ -14836,6 +17328,7 @@ unsafe impl ::windows::runtime::Abi for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_0 {
     pub JobHighMemoryLimit: u64,
     pub JobMemoryLimit: u64,
@@ -14858,6 +17351,7 @@ unsafe impl ::windows::runtime::Abi for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_1 {
     pub RateControlTolerance: JOBOBJECT_RATE_CONTROL_TOLERANCE,
     pub CpuRateControlTolerance: JOBOBJECT_RATE_CONTROL_TOLERANCE,
@@ -14880,6 +17374,7 @@ unsafe impl ::windows::runtime::Abi for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_2 {
     pub RateControlToleranceInterval: JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL,
     pub CpuRateControlToleranceInterval: JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL,
@@ -14900,6 +17395,7 @@ unsafe impl ::windows::runtime::Abi for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct JOBOBJECT_RATE_CONTROL_TOLERANCE(pub i32);
@@ -14915,6 +17411,7 @@ unsafe impl ::windows::runtime::Abi for JOBOBJECT_RATE_CONTROL_TOLERANCE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL(pub i32);
@@ -14933,6 +17430,7 @@ unsafe impl ::windows::runtime::Abi for JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVA
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_JobObjects"))]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_Security`, `Win32_System_JobObjects`*"]
 pub struct JOBOBJECT_SECURITY_LIMIT_INFORMATION {
     pub SecurityLimitFlags: super::JobObjects::JOB_OBJECT_SECURITY,
     pub JobToken: super::super::Foundation::HANDLE,
@@ -14967,7 +17465,9 @@ unsafe impl ::windows::runtime::Abi for JOBOBJECT_SECURITY_LIMIT_INFORMATION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const JOB_OBJECT_ASSIGN_PROCESS: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct JOB_OBJECT_CPU_RATE_CONTROL(pub u32);
@@ -15013,9 +17513,13 @@ impl ::std::ops::Not for JOB_OBJECT_CPU_RATE_CONTROL {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const JOB_OBJECT_CPU_RATE_CONTROL_MIN_MAX_RATE: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const JOB_OBJECT_CPU_RATE_CONTROL_VALID_FLAGS: u32 = 31u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const JOB_OBJECT_IMPERSONATE: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct JOB_OBJECT_IO_RATE_CONTROL_FLAGS(pub i32);
@@ -15033,20 +17537,35 @@ unsafe impl ::windows::runtime::Abi for JOB_OBJECT_IO_RATE_CONTROL_FLAGS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const JOB_OBJECT_MSG_ABNORMAL_EXIT_PROCESS: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const JOB_OBJECT_MSG_ACTIVE_PROCESS_LIMIT: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const JOB_OBJECT_MSG_ACTIVE_PROCESS_ZERO: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const JOB_OBJECT_MSG_END_OF_JOB_TIME: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const JOB_OBJECT_MSG_END_OF_PROCESS_TIME: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const JOB_OBJECT_MSG_EXIT_PROCESS: u32 = 7u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const JOB_OBJECT_MSG_JOB_CYCLE_TIME_LIMIT: u32 = 12u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const JOB_OBJECT_MSG_JOB_MEMORY_LIMIT: u32 = 10u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const JOB_OBJECT_MSG_MAXIMUM: u32 = 13u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const JOB_OBJECT_MSG_MINIMUM: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const JOB_OBJECT_MSG_NEW_PROCESS: u32 = 6u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const JOB_OBJECT_MSG_NOTIFICATION_LIMIT: u32 = 11u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const JOB_OBJECT_MSG_PROCESS_MEMORY_LIMIT: u32 = 9u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const JOB_OBJECT_MSG_SILO_TERMINATED: u32 = 13u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct JOB_OBJECT_NET_RATE_CONTROL_FLAGS(pub i32);
@@ -15063,11 +17582,17 @@ unsafe impl ::windows::runtime::Abi for JOB_OBJECT_NET_RATE_CONTROL_FLAGS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const JOB_OBJECT_NET_RATE_CONTROL_MAX_DSCP_TAG: u32 = 64u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const JOB_OBJECT_QUERY: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const JOB_OBJECT_SET_ATTRIBUTES: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const JOB_OBJECT_SET_SECURITY_ATTRIBUTES: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const JOB_OBJECT_TERMINATE: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct JOB_OBJECT_TERMINATE_AT_END_ACTION(pub u32);
@@ -15110,11 +17635,14 @@ impl ::std::ops::Not for JOB_OBJECT_TERMINATE_AT_END_ACTION {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const JOB_OBJECT_UILIMIT_ALL: u32 = 255u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const JOB_OBJECT_UI_VALID_FLAGS: u32 = 255u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub struct JOB_SET_ARRAY {
     pub JobHandle: super::super::Foundation::HANDLE,
     pub MemberLevel: u32,
@@ -15147,11 +17675,15 @@ unsafe impl ::windows::runtime::Abi for JOB_SET_ARRAY {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const JOIN_BEVEL: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const JOIN_MITER: i32 = 2i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const JOIN_ROUND: i32 = 0i32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct KERNEL_CET_CONTEXT {
     pub Ssp: u64,
     pub Rip: u64,
@@ -15177,6 +17709,7 @@ unsafe impl ::windows::runtime::Abi for KERNEL_CET_CONTEXT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union KERNEL_CET_CONTEXT_0 {
     pub AllFlags: u16,
     pub Anonymous: KERNEL_CET_CONTEXT_0_0,
@@ -15199,6 +17732,7 @@ unsafe impl ::windows::runtime::Abi for KERNEL_CET_CONTEXT_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct KERNEL_CET_CONTEXT_0_0 {
     pub _bitfield: u16,
 }
@@ -15225,6 +17759,7 @@ unsafe impl ::windows::runtime::Abi for KERNEL_CET_CONTEXT_0_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct KNONVOLATILE_CONTEXT_POINTERS {
     pub Anonymous1: KNONVOLATILE_CONTEXT_POINTERS_0,
     pub Anonymous2: KNONVOLATILE_CONTEXT_POINTERS_1,
@@ -15247,6 +17782,7 @@ unsafe impl ::windows::runtime::Abi for KNONVOLATILE_CONTEXT_POINTERS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union KNONVOLATILE_CONTEXT_POINTERS_0 {
     pub FloatingContext: [*mut M128A; 16],
     pub Anonymous: KNONVOLATILE_CONTEXT_POINTERS_0_0,
@@ -15269,6 +17805,7 @@ unsafe impl ::windows::runtime::Abi for KNONVOLATILE_CONTEXT_POINTERS_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct KNONVOLATILE_CONTEXT_POINTERS_0_0 {
     pub Xmm0: *mut M128A,
     pub Xmm1: *mut M128A,
@@ -15327,6 +17864,7 @@ unsafe impl ::windows::runtime::Abi for KNONVOLATILE_CONTEXT_POINTERS_0_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union KNONVOLATILE_CONTEXT_POINTERS_1 {
     pub IntegerContext: [*mut u64; 16],
     pub Anonymous: KNONVOLATILE_CONTEXT_POINTERS_1_0,
@@ -15349,6 +17887,7 @@ unsafe impl ::windows::runtime::Abi for KNONVOLATILE_CONTEXT_POINTERS_1 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct KNONVOLATILE_CONTEXT_POINTERS_1_0 {
     pub Rax: *mut u64,
     pub Rcx: *mut u64,
@@ -15407,6 +17946,7 @@ unsafe impl ::windows::runtime::Abi for KNONVOLATILE_CONTEXT_POINTERS_1_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct KNONVOLATILE_CONTEXT_POINTERS_ARM64 {
     pub X19: *mut u64,
     pub X20: *mut u64,
@@ -15473,6 +18013,7 @@ unsafe impl ::windows::runtime::Abi for KNONVOLATILE_CONTEXT_POINTERS_ARM64 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct KTMOBJECT_CURSOR {
     pub LastQuery: ::windows::runtime::GUID,
     pub ObjectIdCount: u32,
@@ -15499,6 +18040,7 @@ unsafe impl ::windows::runtime::Abi for KTMOBJECT_CURSOR {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct KTMOBJECT_TYPE(pub i32);
@@ -15516,153 +18058,298 @@ unsafe impl ::windows::runtime::Abi for KTMOBJECT_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_AFRIKAANS: u32 = 54u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_ALBANIAN: u32 = 28u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_ALSATIAN: u32 = 132u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_AMHARIC: u32 = 94u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_ARABIC: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_ARMENIAN: u32 = 43u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_ASSAMESE: u32 = 77u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_AZERBAIJANI: u32 = 44u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_AZERI: u32 = 44u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_BANGLA: u32 = 69u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_BASHKIR: u32 = 109u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_BASQUE: u32 = 45u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_BELARUSIAN: u32 = 35u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_BENGALI: u32 = 69u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_BOSNIAN: u32 = 26u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_BOSNIAN_NEUTRAL: u32 = 30746u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_BRETON: u32 = 126u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_BULGARIAN: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_CATALAN: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_CENTRAL_KURDISH: u32 = 146u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_CHEROKEE: u32 = 92u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_CHINESE: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_CHINESE_SIMPLIFIED: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_CHINESE_TRADITIONAL: u32 = 31748u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_CORSICAN: u32 = 131u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_CROATIAN: u32 = 26u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_CZECH: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_DANISH: u32 = 6u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_DARI: u32 = 140u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_DIVEHI: u32 = 101u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_DUTCH: u32 = 19u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_ENGLISH: u32 = 9u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_ESTONIAN: u32 = 37u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_FAEROESE: u32 = 56u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_FARSI: u32 = 41u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_FILIPINO: u32 = 100u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_FINNISH: u32 = 11u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_FRENCH: u32 = 12u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_FRISIAN: u32 = 98u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_FULAH: u32 = 103u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_GALICIAN: u32 = 86u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_GEORGIAN: u32 = 55u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_GERMAN: u32 = 7u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_GREEK: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_GREENLANDIC: u32 = 111u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_GUJARATI: u32 = 71u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_HAUSA: u32 = 104u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_HAWAIIAN: u32 = 117u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_HEBREW: u32 = 13u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_HINDI: u32 = 57u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_HUNGARIAN: u32 = 14u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_ICELANDIC: u32 = 15u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_IGBO: u32 = 112u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_INDONESIAN: u32 = 33u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_INUKTITUT: u32 = 93u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_INVARIANT: u32 = 127u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_IRISH: u32 = 60u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_ITALIAN: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_JAPANESE: u32 = 17u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_KANNADA: u32 = 75u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_KASHMIRI: u32 = 96u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_KAZAK: u32 = 63u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_KHMER: u32 = 83u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_KICHE: u32 = 134u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_KINYARWANDA: u32 = 135u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_KONKANI: u32 = 87u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_KOREAN: u32 = 18u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_KYRGYZ: u32 = 64u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_LAO: u32 = 84u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_LATVIAN: u32 = 38u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_LITHUANIAN: u32 = 39u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_LOWER_SORBIAN: u32 = 46u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_LUXEMBOURGISH: u32 = 110u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_MACEDONIAN: u32 = 47u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_MALAY: u32 = 62u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_MALAYALAM: u32 = 76u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_MALTESE: u32 = 58u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_MANIPURI: u32 = 88u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_MAORI: u32 = 129u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_MAPUDUNGUN: u32 = 122u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_MARATHI: u32 = 78u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_MOHAWK: u32 = 124u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_MONGOLIAN: u32 = 80u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_NEPALI: u32 = 97u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_NEUTRAL: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_NORWEGIAN: u32 = 20u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_OCCITAN: u32 = 130u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_ODIA: u32 = 72u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_ORIYA: u32 = 72u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_PASHTO: u32 = 99u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_PERSIAN: u32 = 41u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_POLISH: u32 = 21u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_PORTUGUESE: u32 = 22u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_PULAR: u32 = 103u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_PUNJABI: u32 = 70u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_QUECHUA: u32 = 107u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_ROMANIAN: u32 = 24u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_ROMANSH: u32 = 23u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_RUSSIAN: u32 = 25u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_SAKHA: u32 = 133u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_SAMI: u32 = 59u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_SANSKRIT: u32 = 79u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_SCOTTISH_GAELIC: u32 = 145u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_SERBIAN: u32 = 26u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_SERBIAN_NEUTRAL: u32 = 31770u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_SINDHI: u32 = 89u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_SINHALESE: u32 = 91u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_SLOVAK: u32 = 27u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_SLOVENIAN: u32 = 36u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_SOTHO: u32 = 108u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_SPANISH: u32 = 10u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_SWAHILI: u32 = 65u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_SWEDISH: u32 = 29u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_SYRIAC: u32 = 90u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_TAJIK: u32 = 40u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_TAMAZIGHT: u32 = 95u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_TAMIL: u32 = 73u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_TATAR: u32 = 68u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_TELUGU: u32 = 74u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_THAI: u32 = 30u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_TIBETAN: u32 = 81u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_TIGRIGNA: u32 = 115u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_TIGRINYA: u32 = 115u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_TSWANA: u32 = 50u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_TURKISH: u32 = 31u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_TURKMEN: u32 = 66u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_UIGHUR: u32 = 128u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_UKRAINIAN: u32 = 34u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_UPPER_SORBIAN: u32 = 46u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_URDU: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_UZBEK: u32 = 67u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_VALENCIAN: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_VIETNAMESE: u32 = 42u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_WELSH: u32 = 82u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_WOLOF: u32 = 136u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_XHOSA: u32 = 52u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_YAKUT: u32 = 133u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_YI: u32 = 120u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_YORUBA: u32 = 106u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LANG_ZULU: u32 = 53u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LA_ALTERNATE: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LA_GEOMETRIC: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LA_STARTGAP: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LA_STYLED: u32 = 8u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub struct LIGATURE {
     pub culSize: u32,
     pub pwsz: super::super::Foundation::PWSTR,
@@ -15696,26 +18383,47 @@ unsafe impl ::windows::runtime::Abi for LIGATURE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LMEM_DISCARDABLE: u32 = 3840u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LMEM_DISCARDED: u32 = 16384u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LMEM_INVALID_HANDLE: u32 = 32768u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LMEM_LOCKCOUNT: u32 = 255u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LMEM_MODIFY: u32 = 128u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LMEM_NOCOMPACT: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LMEM_NODISCARD: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LMEM_VALID_FLAGS: u32 = 3954u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LOCALE_NAME_MAX_LENGTH: u32 = 85u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LOCALE_TRANSIENT_KEYBOARD1: u32 = 8192u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LOCALE_TRANSIENT_KEYBOARD2: u32 = 9216u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LOCALE_TRANSIENT_KEYBOARD3: u32 = 10240u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LOCALE_TRANSIENT_KEYBOARD4: u32 = 11264u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LOCKF_LOGICAL_LOCK: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LOCKF_PHYSICAL_LOCK: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LOCKP_ALLOW_MEM_MAPPING: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LOCKP_ALLOW_WRITES: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LOCKP_FAIL_MEM_MAPPING: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LOCKP_FAIL_WRITES: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LOCKP_LOCK_FOR_FORMAT: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LOCKP_USER_MASK: u32 = 3u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type LPD3DENUMDEVICESCALLBACK = unsafe extern "system" fn(lpguid: *mut ::windows::runtime::GUID, lpdevicedescription: super::super::Foundation::PSTR, lpdevicename: super::super::Foundation::PSTR, param3: *mut _D3DDeviceDesc, param4: *mut _D3DDeviceDesc, param5: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
@@ -15746,9 +18454,11 @@ pub type LPD3DNTHAL_VALIDATETEXTURESTAGESTATECB = unsafe extern "system" fn(para
 pub type LPD3DVALIDATECALLBACK = unsafe extern "system" fn(lpuserarg: *mut ::std::ffi::c_void, dwoffset: u32) -> ::windows::runtime::HRESULT;
 pub type LPTHREAD_START_ROUTINE = unsafe extern "system" fn(lpthreadparameter: *mut ::std::ffi::c_void) -> u32;
 pub type LPTIMECALLBACK = unsafe extern "system" fn(utimerid: u32, umsg: u32, dwuser: usize, dw1: usize, dw2: usize);
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LTP_PC_SMT: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct M128A {
     pub Low: u64,
     pub High: i64,
@@ -15774,25 +18484,43 @@ unsafe impl ::windows::runtime::Abi for M128A {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const MAILSLOT_NO_MESSAGE: u32 = 4294967295u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const MAILSLOT_WAIT_FOREVER: u32 = 4294967295u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const MAXBYTE: u32 = 255u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const MAXCHAR: u32 = 127u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const MAXCHARSETS: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const MAXDWORD: u32 = 4294967295u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const MAXIMUM_ALLOWED: u32 = 33554432u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const MAXIMUM_PROCESSORS: u32 = 64u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const MAXIMUM_PROC_PER_GROUP: u32 = 64u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const MAXIMUM_SUPPORTED_EXTENSION: u32 = 512u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const MAXIMUM_SUSPEND_COUNT: u32 = 127u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const MAXIMUM_WAIT_OBJECTS: u32 = 64u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const MAXIMUM_XSTATE_FEATURES: u32 = 64u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const MAXLOGICALLOGNAMESIZE: u32 = 256u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const MAXLONG: u32 = 2147483647u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const MAXLONGLONG: u64 = 9223372036854775807u64;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const MAXSHORT: u32 = 32767u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct MAXVERSIONTESTED_INFO {
     pub MaxVersionTested: u64,
 }
@@ -15817,143 +18545,215 @@ unsafe impl ::windows::runtime::Abi for MAXVERSIONTESTED_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const MAXWORD: u32 = 65535u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const MAX_ACL_REVISION: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const MAX_DEVPROP_TYPE: u32 = 25u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const MAX_DEVPROP_TYPEMOD: u32 = 8192u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const MAX_HW_COUNTERS: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const MAX_UCSCHAR: u32 = 1114111u32;
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const MCA_BUS_ERROR: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073414022i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const MCA_BUS_TIMEOUT_ERROR: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073414021i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const MCA_ERROR_CACHE: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073414083i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const MCA_ERROR_CPU: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073414030i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const MCA_ERROR_CPU_BUS: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073414079i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const MCA_ERROR_MAS: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073414075i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const MCA_ERROR_MEM_1_2: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073414071i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const MCA_ERROR_MEM_1_2_5: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073414069i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const MCA_ERROR_MEM_1_2_5_4: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073414067i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const MCA_ERROR_MEM_UNKNOWN: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073414073i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const MCA_ERROR_PCI_BUS_MASTER_ABORT: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073414055i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const MCA_ERROR_PCI_BUS_MASTER_ABORT_NO_INFO: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073414053i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const MCA_ERROR_PCI_BUS_PARITY: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073414063i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const MCA_ERROR_PCI_BUS_PARITY_NO_INFO: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073414061i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const MCA_ERROR_PCI_BUS_SERR: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073414059i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const MCA_ERROR_PCI_BUS_SERR_NO_INFO: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073414057i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const MCA_ERROR_PCI_BUS_TIMEOUT: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073414051i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const MCA_ERROR_PCI_BUS_TIMEOUT_NO_INFO: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073414049i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const MCA_ERROR_PCI_BUS_UNKNOWN: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073414047i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const MCA_ERROR_PCI_DEVICE: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073414045i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const MCA_ERROR_PLATFORM_SPECIFIC: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073414041i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const MCA_ERROR_REGISTER_FILE: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073414077i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const MCA_ERROR_SMBIOS: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073414043i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const MCA_ERROR_SYSTEM_EVENT: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073414065i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const MCA_ERROR_TLB: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073414081i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const MCA_ERROR_UNKNOWN: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073414039i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const MCA_ERROR_UNKNOWN_NO_CPU: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073414037i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const MCA_EXTERNAL_ERROR: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073414017i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const MCA_FRC_ERROR: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073414016i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const MCA_INFO_CPU_THERMAL_THROTTLING_REMOVED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(1074069616i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const MCA_INFO_MEMORY_PAGE_MARKED_BAD: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(1074069620i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const MCA_INFO_NO_MORE_CORRECTED_ERROR_LOGS: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(1074069619i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const MCA_INTERNALTIMER_ERROR: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073414020i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const MCA_MEMORYHIERARCHY_ERROR: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073414024i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const MCA_MICROCODE_ROM_PARITY_ERROR: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073414018i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const MCA_TLB_ERROR: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073414023i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const MCA_WARNING_CACHE: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147155908i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const MCA_WARNING_CMC_THRESHOLD_EXCEEDED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147155859i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const MCA_WARNING_CPE_THRESHOLD_EXCEEDED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147155858i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const MCA_WARNING_CPU: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147155855i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const MCA_WARNING_CPU_BUS: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147155904i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const MCA_WARNING_CPU_THERMAL_THROTTLED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147155857i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const MCA_WARNING_MAS: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147155900i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const MCA_WARNING_MEM_1_2: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147155896i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const MCA_WARNING_MEM_1_2_5: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147155894i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const MCA_WARNING_MEM_1_2_5_4: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147155892i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const MCA_WARNING_MEM_UNKNOWN: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147155898i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const MCA_WARNING_PCI_BUS_MASTER_ABORT: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147155880i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const MCA_WARNING_PCI_BUS_MASTER_ABORT_NO_INFO: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147155878i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const MCA_WARNING_PCI_BUS_PARITY: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147155888i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const MCA_WARNING_PCI_BUS_PARITY_NO_INFO: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147155886i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const MCA_WARNING_PCI_BUS_SERR: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147155884i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const MCA_WARNING_PCI_BUS_SERR_NO_INFO: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147155882i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const MCA_WARNING_PCI_BUS_TIMEOUT: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147155876i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const MCA_WARNING_PCI_BUS_TIMEOUT_NO_INFO: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147155874i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const MCA_WARNING_PCI_BUS_UNKNOWN: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147155872i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const MCA_WARNING_PCI_DEVICE: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147155870i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const MCA_WARNING_PLATFORM_SPECIFIC: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147155866i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const MCA_WARNING_REGISTER_FILE: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147155902i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const MCA_WARNING_SMBIOS: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147155868i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const MCA_WARNING_SYSTEM_EVENT: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147155890i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const MCA_WARNING_TLB: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147155906i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const MCA_WARNING_UNKNOWN: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147155864i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const MCA_WARNING_UNKNOWN_NO_CPU: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147155862i32 as _);
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const MEMORY_ALLOCATION_ALIGNMENT: u32 = 16u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct MEMORY_PARTITION_DEDICATED_MEMORY_ATTRIBUTE {
     pub Type: MEM_DEDICATED_ATTRIBUTE_TYPE,
     pub Reserved: u32,
@@ -15982,6 +18782,7 @@ unsafe impl ::windows::runtime::Abi for MEMORY_PARTITION_DEDICATED_MEMORY_ATTRIB
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct MEMORY_PARTITION_DEDICATED_MEMORY_INFORMATION {
     pub NextEntryOffset: u32,
     pub SizeOfInformation: u32,
@@ -16020,12 +18821,17 @@ unsafe impl ::windows::runtime::Abi for MEMORY_PARTITION_DEDICATED_MEMORY_INFORM
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const MEMORY_PARTITION_MODIFY_ACCESS: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const MEMORY_PARTITION_QUERY_ACCESS: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const MEMORY_PRIORITY_LOWEST: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const MEM_4MB_PAGES: u32 = 2147483648u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct MEM_ADDRESS_REQUIREMENTS {
     pub LowestStartingAddress: *mut ::std::ffi::c_void,
     pub HighestEndingAddress: *mut ::std::ffi::c_void,
@@ -16052,7 +18858,9 @@ unsafe impl ::windows::runtime::Abi for MEM_ADDRESS_REQUIREMENTS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const MEM_COALESCE_PLACEHOLDERS: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MEM_DEDICATED_ATTRIBUTE_TYPE(pub i32);
@@ -16070,10 +18878,12 @@ unsafe impl ::windows::runtime::Abi for MEM_DEDICATED_ATTRIBUTE_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const MEM_DIFFERENT_IMAGE_BASE_OK: u32 = 8388608u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub struct MEM_EXTENDED_PARAMETER {
     pub Anonymous1: MEM_EXTENDED_PARAMETER_0,
     pub Anonymous2: MEM_EXTENDED_PARAMETER_1,
@@ -16101,6 +18911,7 @@ unsafe impl ::windows::runtime::Abi for MEM_EXTENDED_PARAMETER {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct MEM_EXTENDED_PARAMETER_0 {
     pub _bitfield: u64,
 }
@@ -16128,6 +18939,7 @@ unsafe impl ::windows::runtime::Abi for MEM_EXTENDED_PARAMETER_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub union MEM_EXTENDED_PARAMETER_1 {
     pub ULong64: u64,
     pub Pointer: *mut ::std::ffi::c_void,
@@ -16156,12 +18968,19 @@ unsafe impl ::windows::runtime::Abi for MEM_EXTENDED_PARAMETER_1 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const MEM_EXTENDED_PARAMETER_EC_CODE: u32 = 64u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const MEM_EXTENDED_PARAMETER_GRAPHICS: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const MEM_EXTENDED_PARAMETER_NONPAGED: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const MEM_EXTENDED_PARAMETER_NONPAGED_HUGE: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const MEM_EXTENDED_PARAMETER_NONPAGED_LARGE: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const MEM_EXTENDED_PARAMETER_SOFT_FAULT_PAGES: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MEM_EXTENDED_PARAMETER_TYPE(pub i32);
@@ -16182,10 +19001,15 @@ unsafe impl ::windows::runtime::Abi for MEM_EXTENDED_PARAMETER_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const MEM_EXTENDED_PARAMETER_TYPE_BITS: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const MEM_EXTENDED_PARAMETER_ZERO_PAGES_OPTIONAL: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const MEM_PHYSICAL: u32 = 4194304u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const MEM_ROTATE: u32 = 8388608u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MEM_SECTION_EXTENDED_PARAMETER_TYPE(pub i32);
@@ -16203,14 +19027,23 @@ unsafe impl ::windows::runtime::Abi for MEM_SECTION_EXTENDED_PARAMETER_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const MEM_TOP_DOWN: u32 = 1048576u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const MEM_WRITE_WATCH: u32 = 2097152u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const MESSAGE_RESOURCE_UNICODE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const MESSAGE_RESOURCE_UTF8: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const MINCHAR: u32 = 128u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const MINLONG: u32 = 2147483648u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const MINSHORT: u32 = 32768u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const MIN_UCSCHAR: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MONITOR_DISPLAY_STATE(pub i32);
@@ -16226,15 +19059,23 @@ unsafe impl ::windows::runtime::Abi for MONITOR_DISPLAY_STATE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const MS_CDDDEVICEBITMAP: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const MS_NOTSYSTEMMEMORY: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const MS_PPM_SOFTWARE_ALL: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const MS_REUSEDDEVICEBITMAP: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const MS_SHAREDACCESS: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const MUTANT_QUERY_STATE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const NETWORK_APP_INSTANCE_CSV_FLAGS_VALID_ONLY_IF_CSV_COORDINATOR: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct NETWORK_APP_INSTANCE_EA {
     pub AppInstanceID: ::windows::runtime::GUID,
     pub CsvFlags: u32,
@@ -16260,11 +19101,15 @@ unsafe impl ::windows::runtime::Abi for NETWORK_APP_INSTANCE_EA {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const NLS_VALID_LOCALE_MASK: u32 = 1048575u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const NONVOL_FP_NUMREG_ARM64: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const NONVOL_INT_NUMREG_ARM64: u32 = 11u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(4))]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct NON_PAGED_DEBUG_INFO {
     pub Signature: u16,
     pub Flags: u16,
@@ -16292,9 +19137,11 @@ unsafe impl ::windows::runtime::Abi for NON_PAGED_DEBUG_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const NON_PAGED_DEBUG_SIGNATURE: u32 = 18766u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct NOTIFY_USER_POWER_SETTING {
     pub Guid: ::windows::runtime::GUID,
 }
@@ -16323,6 +19170,7 @@ pub const NO_SUBGROUP_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID:
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_System_Diagnostics_Debug`, `Win32_System_Kernel`*"]
 pub struct NT_TIB {
     pub ExceptionList: *mut EXCEPTION_REGISTRATION_RECORD,
     pub StackBase: *mut ::std::ffi::c_void,
@@ -16355,6 +19203,7 @@ unsafe impl ::windows::runtime::Abi for NT_TIB {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union NT_TIB_0 {
     pub FiberData: *mut ::std::ffi::c_void,
     pub Version: u32,
@@ -16377,6 +19226,7 @@ unsafe impl ::windows::runtime::Abi for NT_TIB_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct NT_TIB32 {
     pub ExceptionList: u32,
     pub StackBase: u32,
@@ -16404,6 +19254,7 @@ unsafe impl ::windows::runtime::Abi for NT_TIB32 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union NT_TIB32_0 {
     pub FiberData: u32,
     pub Version: u32,
@@ -16426,6 +19277,7 @@ unsafe impl ::windows::runtime::Abi for NT_TIB32_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct NT_TIB64 {
     pub ExceptionList: u64,
     pub StackBase: u64,
@@ -16453,6 +19305,7 @@ unsafe impl ::windows::runtime::Abi for NT_TIB64 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union NT_TIB64_0 {
     pub FiberData: u64,
     pub Version: u32,
@@ -16473,10 +19326,13 @@ unsafe impl ::windows::runtime::Abi for NT_TIB64_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const NUMA_NO_PREFERRED_NODE: u32 = 4294967295u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const NUM_DISCHARGE_POLICIES: u32 = 4u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct NV_MEMORY_RANGE {
     pub BaseAddress: *mut ::std::ffi::c_void,
     pub Length: usize,
@@ -16502,15 +19358,25 @@ unsafe impl ::windows::runtime::Abi for NV_MEMORY_RANGE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const N_BTMASK: u32 = 15u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const N_BTSHFT: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const N_TMASK: u32 = 48u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const N_TMASK1: u32 = 192u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const N_TMASK2: u32 = 240u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const N_TSHIFT: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const OC_BANK_CLIP: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const OPENGL_CMD: u32 = 4352u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const OPENGL_GETINFO: u32 = 4353u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct OS_DEPLOYEMENT_STATE_VALUES(pub i32);
@@ -16527,6 +19393,7 @@ unsafe impl ::windows::runtime::Abi for OS_DEPLOYEMENT_STATE_VALUES {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct PACKEDEVENTINFO {
     pub ulSize: u32,
     pub ulNumEventsForLogFile: u32,
@@ -16553,32 +19420,58 @@ unsafe impl ::windows::runtime::Abi for PACKEDEVENTINFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PAL_BGR: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PAL_BITFIELDS: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PAL_CMYK: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PAL_INDEXED: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PAL_RGB: u32 = 4u32;
 pub type PAPCFUNC = unsafe extern "system" fn(parameter: usize);
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PDCAP_D0_SUPPORTED: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PDCAP_D1_SUPPORTED: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PDCAP_D2_SUPPORTED: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PDCAP_D3_SUPPORTED: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PDCAP_WAKE_FROM_D0_SUPPORTED: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PDCAP_WAKE_FROM_D1_SUPPORTED: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PDCAP_WAKE_FROM_D2_SUPPORTED: u32 = 64u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PDCAP_WAKE_FROM_D3_SUPPORTED: u32 = 128u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PDCAP_WARM_EJECT_SUPPORTED: u32 = 256u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PD_BEGINSUBPATH: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PD_BEZIERS: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PD_CLOSEFIGURE: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PD_ENDSUBPATH: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PD_RESETSTYLE: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PERFORMANCE_DATA_VERSION: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PERFSTATE_POLICY_CHANGE_DECREASE_MAX: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PERFSTATE_POLICY_CHANGE_IDEAL: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PERFSTATE_POLICY_CHANGE_IDEAL_AGGRESSIVE: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PERFSTATE_POLICY_CHANGE_INCREASE_MAX: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PERFSTATE_POLICY_CHANGE_ROCKET: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PERFSTATE_POLICY_CHANGE_SINGLE: u32 = 1u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 pub type PEXCEPTION_FILTER = unsafe extern "system" fn(exceptionpointers: *mut super::Diagnostics::Debug::EXCEPTION_POINTERS, establisherframe: *const ::std::ffi::c_void) -> i32;
@@ -16817,31 +19710,53 @@ pub type PFN_EngSubtractRgn = unsafe extern "system" fn(hrgnresult: super::super
 pub type PFN_EngUnionRgn = unsafe extern "system" fn(hrgnresult: super::super::Foundation::HANDLE, hrgna: super::super::Foundation::HANDLE, hrgnb: super::super::Foundation::HANDLE) -> i32;
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_EngXorRgn = unsafe extern "system" fn(hrgnresult: super::super::Foundation::HANDLE, hrgna: super::super::Foundation::HANDLE, hrgnb: super::super::Foundation::HANDLE) -> i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PF_ALPHA_BYTE_INSTRUCTIONS: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PF_ARM_NEON_INSTRUCTIONS_AVAILABLE: u32 = 19u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PF_ARM_V82_DP_INSTRUCTIONS_AVAILABLE: u32 = 43u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PF_ARM_V83_JSCVT_INSTRUCTIONS_AVAILABLE: u32 = 44u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PF_AVX2_INSTRUCTIONS_AVAILABLE: u32 = 40u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PF_AVX512F_INSTRUCTIONS_AVAILABLE: u32 = 41u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PF_AVX_INSTRUCTIONS_AVAILABLE: u32 = 39u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PF_ERMS_AVAILABLE: u32 = 42u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PF_MONITORX_INSTRUCTION_AVAILABLE: u32 = 35u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PF_NON_TEMPORAL_LEVEL_ALL: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PF_PPC_MOVEMEM_64BIT_OK: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PF_RDPID_INSTRUCTION_AVAILABLE: u32 = 33u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PF_RDRAND_INSTRUCTION_AVAILABLE: u32 = 28u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PF_RDTSCP_INSTRUCTION_AVAILABLE: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PF_SSE4_1_INSTRUCTIONS_AVAILABLE: u32 = 37u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PF_SSE4_2_INSTRUCTIONS_AVAILABLE: u32 = 38u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PF_SSE_DAZ_MODE_AVAILABLE: u32 = 11u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PF_SSSE3_INSTRUCTIONS_AVAILABLE: u32 = 36u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PF_TEMPORAL_LEVEL_1: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PF_TEMPORAL_LEVEL_2: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PF_TEMPORAL_LEVEL_3: u32 = 3u32;
 pub type PGET_RUNTIME_FUNCTION_CALLBACK = unsafe extern "system" fn(controlpc: u64, context: *const ::std::ffi::c_void) -> *mut IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY;
 pub type PIMAGE_TLS_CALLBACK = unsafe extern "system" fn(dllhandle: *mut ::std::ffi::c_void, reason: u32, reserved: *mut ::std::ffi::c_void);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct POINTE {
     pub x: f32,
     pub y: f32,
@@ -16869,6 +19784,7 @@ unsafe impl ::windows::runtime::Abi for POINTE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct POINTFIX {
     pub x: i32,
     pub y: i32,
@@ -16896,6 +19812,7 @@ unsafe impl ::windows::runtime::Abi for POINTFIX {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct POINTQF {
     pub x: i64,
     pub y: i64,
@@ -16921,42 +19838,75 @@ unsafe impl ::windows::runtime::Abi for POINTQF {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const POLICY_AUDIT_SUBCATEGORY_COUNT: u32 = 59u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type POUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK = unsafe extern "system" fn(process: super::super::Foundation::HANDLE, tableaddress: *const ::std::ffi::c_void, entries: *mut u32, functions: *mut *mut IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY) -> u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const POWERBUTTON_ACTION_INDEX_HIBERNATE: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const POWERBUTTON_ACTION_INDEX_NOTHING: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const POWERBUTTON_ACTION_INDEX_SHUTDOWN: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const POWERBUTTON_ACTION_INDEX_SLEEP: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const POWERBUTTON_ACTION_INDEX_TURN_OFF_THE_DISPLAY: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const POWERBUTTON_ACTION_VALUE_HIBERNATE: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const POWERBUTTON_ACTION_VALUE_NOTHING: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const POWERBUTTON_ACTION_VALUE_SHUTDOWN: u32 = 6u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const POWERBUTTON_ACTION_VALUE_SLEEP: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const POWERBUTTON_ACTION_VALUE_TURN_OFF_THE_DISPLAY: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const POWER_ACTION_ACPI_CRITICAL: u32 = 16777216u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const POWER_ACTION_ACPI_USER_NOTIFY: u32 = 33554432u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const POWER_ACTION_CRITICAL: u32 = 2147483648u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const POWER_ACTION_DIRECTED_DRIPS: u32 = 67108864u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const POWER_ACTION_DISABLE_WAKES: u32 = 1073741824u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const POWER_ACTION_DOZE_TO_HIBERNATE: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const POWER_ACTION_HIBERBOOT: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const POWER_ACTION_LIGHTEST_FIRST: u32 = 268435456u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const POWER_ACTION_LOCK_CONSOLE: u32 = 536870912u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const POWER_ACTION_OVERRIDE_APPS: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const POWER_ACTION_PSEUDO_TRANSITION: u32 = 134217728u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const POWER_ACTION_QUERY_ALLOWED: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const POWER_ACTION_UI_ALLOWED: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const POWER_ACTION_USER_NOTIFY: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const POWER_CONNECTIVITY_IN_STANDBY_DISABLED: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const POWER_CONNECTIVITY_IN_STANDBY_ENABLED: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const POWER_CONNECTIVITY_IN_STANDBY_SYSTEM_MANAGED: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const POWER_DEVICE_IDLE_POLICY_CONSERVATIVE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const POWER_DEVICE_IDLE_POLICY_PERFORMANCE: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const POWER_DISCONNECTED_STANDBY_MODE_AGGRESSIVE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const POWER_DISCONNECTED_STANDBY_MODE_NORMAL: u32 = 0u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct POWER_IDLE_RESILIENCY {
     pub CoalescingTimeout: u32,
     pub IdleResiliencyPeriod: u32,
@@ -16982,6 +19932,7 @@ unsafe impl ::windows::runtime::Abi for POWER_IDLE_RESILIENCY {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct POWER_INFORMATION_LEVEL(pub i32);
@@ -17095,6 +20046,7 @@ unsafe impl ::windows::runtime::Abi for POWER_INFORMATION_LEVEL {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub struct POWER_MONITOR_INVOCATION {
     pub Console: super::super::Foundation::BOOLEAN,
     pub RequestReason: POWER_MONITOR_REQUEST_REASON,
@@ -17126,6 +20078,7 @@ unsafe impl ::windows::runtime::Abi for POWER_MONITOR_INVOCATION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct POWER_MONITOR_REQUEST_REASON(pub i32);
@@ -17194,6 +20147,7 @@ unsafe impl ::windows::runtime::Abi for POWER_MONITOR_REQUEST_REASON {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct POWER_MONITOR_REQUEST_TYPE(pub i32);
@@ -17212,6 +20166,7 @@ unsafe impl ::windows::runtime::Abi for POWER_MONITOR_REQUEST_TYPE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub struct POWER_PLATFORM_INFORMATION {
     pub AoAc: super::super::Foundation::BOOLEAN,
 }
@@ -17242,6 +20197,7 @@ unsafe impl ::windows::runtime::Abi for POWER_PLATFORM_INFORMATION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct POWER_REQUEST_CONTEXT_FLAGS(pub u32);
@@ -17284,7 +20240,9 @@ impl ::std::ops::Not for POWER_REQUEST_CONTEXT_FLAGS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const POWER_REQUEST_CONTEXT_VERSION: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct POWER_REQUEST_TYPE(pub i32);
@@ -17304,6 +20262,7 @@ unsafe impl ::windows::runtime::Abi for POWER_REQUEST_TYPE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub struct POWER_SESSION_ALLOW_EXTERNAL_DMA_DEVICES {
     pub IsAllowed: super::super::Foundation::BOOLEAN,
 }
@@ -17337,6 +20296,7 @@ unsafe impl ::windows::runtime::Abi for POWER_SESSION_ALLOW_EXTERNAL_DMA_DEVICES
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub struct POWER_SESSION_CONNECT {
     pub Connected: super::super::Foundation::BOOLEAN,
     pub Console: super::super::Foundation::BOOLEAN,
@@ -17371,6 +20331,7 @@ unsafe impl ::windows::runtime::Abi for POWER_SESSION_CONNECT {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub struct POWER_SESSION_RIT_STATE {
     pub Active: super::super::Foundation::BOOLEAN,
     pub LastInputTime: u64,
@@ -17404,6 +20365,7 @@ unsafe impl ::windows::runtime::Abi for POWER_SESSION_RIT_STATE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct POWER_SESSION_TIMEOUTS {
     pub InputTimeout: u32,
     pub DisplayTimeout: u32,
@@ -17432,6 +20394,7 @@ unsafe impl ::windows::runtime::Abi for POWER_SESSION_TIMEOUTS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub struct POWER_SESSION_WINLOGON {
     pub SessionId: u32,
     pub Console: super::super::Foundation::BOOLEAN,
@@ -17464,6 +20427,7 @@ unsafe impl ::windows::runtime::Abi for POWER_SESSION_WINLOGON {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct POWER_SETTING_ALTITUDE(pub i32);
@@ -17483,11 +20447,15 @@ unsafe impl ::windows::runtime::Abi for POWER_SETTING_ALTITUDE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const POWER_SETTING_VALUE_VERSION: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const POWER_SYSTEM_MAXIMUM: u32 = 7u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const POWER_USER_NOTIFY_FORCED_SHUTDOWN: u32 = 32u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct POWER_USER_PRESENCE {
     pub UserPresence: POWER_USER_PRESENCE_TYPE,
 }
@@ -17512,6 +20480,7 @@ unsafe impl ::windows::runtime::Abi for POWER_USER_PRESENCE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct POWER_USER_PRESENCE_TYPE(pub i32);
@@ -17527,48 +20496,87 @@ unsafe impl ::windows::runtime::Abi for POWER_USER_PRESENCE_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PO_ALL_INTEGERS: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PO_BEZIERS: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PO_ELLIPSE: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PO_ENUM_AS_INTEGERS: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PO_THROTTLE_ADAPTIVE: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PO_THROTTLE_CONSTANT: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PO_THROTTLE_DEGRADE: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PO_THROTTLE_MAXIMUM: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PO_THROTTLE_NONE: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PO_WIDENED: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PPC_BGR_ORDER_HORIZONTAL_STRIPES: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PPC_BGR_ORDER_VERTICAL_STRIPES: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PPC_DEFAULT: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PPC_RGB_ORDER_HORIZONTAL_STRIPES: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PPC_RGB_ORDER_VERTICAL_STRIPES: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PPC_UNDEFINED: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PPG_DEFAULT: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PPG_SRGB: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PPM_FIRMWARE_ACPI1C2: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PPM_FIRMWARE_ACPI1C3: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PPM_FIRMWARE_ACPI1TSTATES: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PPM_FIRMWARE_CPC: u32 = 262144u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PPM_FIRMWARE_CSD: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PPM_FIRMWARE_CST: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PPM_FIRMWARE_LPI: u32 = 524288u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PPM_FIRMWARE_OSC: u32 = 65536u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PPM_FIRMWARE_PCCH: u32 = 16384u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PPM_FIRMWARE_PCCP: u32 = 32768u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PPM_FIRMWARE_PCT: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PPM_FIRMWARE_PDC: u32 = 131072u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PPM_FIRMWARE_PPC: u32 = 256u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PPM_FIRMWARE_PSD: u32 = 512u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PPM_FIRMWARE_PSS: u32 = 64u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PPM_FIRMWARE_PTC: u32 = 1024u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PPM_FIRMWARE_TPC: u32 = 4096u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PPM_FIRMWARE_TSD: u32 = 8192u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PPM_FIRMWARE_TSS: u32 = 2048u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PPM_FIRMWARE_XPSS: u32 = 128u32;
 pub const PPM_IDLESTATES_DATA_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3121843728, 57936, 19159, [134, 22, 207, 26, 122, 212, 16, 231]);
 pub const PPM_IDLESTATE_CHANGE_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1211694671, 63260, 20049, [158, 204, 132, 48, 167, 172, 76, 108]);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct PPM_IDLESTATE_EVENT {
     pub NewState: u32,
     pub OldState: u32,
@@ -17597,6 +20605,7 @@ unsafe impl ::windows::runtime::Abi for PPM_IDLESTATE_EVENT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct PPM_IDLE_ACCOUNTING {
     pub StateCount: u32,
     pub TotalTransitions: u32,
@@ -17627,6 +20636,7 @@ unsafe impl ::windows::runtime::Abi for PPM_IDLE_ACCOUNTING {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct PPM_IDLE_ACCOUNTING_EX {
     pub StateCount: u32,
     pub TotalTransitions: u32,
@@ -17658,13 +20668,19 @@ unsafe impl ::windows::runtime::Abi for PPM_IDLE_ACCOUNTING_EX {
 }
 pub const PPM_IDLE_ACCOUNTING_EX_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3598368057, 33272, 19038, [129, 82, 114, 227, 30, 201, 18, 238]);
 pub const PPM_IDLE_ACCOUNTING_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3802296184, 44551, 20192, [163, 15, 206, 84, 245, 90, 148, 205]);
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PPM_IDLE_IMPLEMENTATION_CSTATES: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PPM_IDLE_IMPLEMENTATION_LPISTATES: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PPM_IDLE_IMPLEMENTATION_MICROPEP: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PPM_IDLE_IMPLEMENTATION_NONE: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PPM_IDLE_IMPLEMENTATION_PEP: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct PPM_IDLE_STATE_ACCOUNTING {
     pub IdleTransitions: u32,
     pub FailedTransitions: u32,
@@ -17695,6 +20711,7 @@ unsafe impl ::windows::runtime::Abi for PPM_IDLE_STATE_ACCOUNTING {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct PPM_IDLE_STATE_ACCOUNTING_EX {
     pub TotalTime: u64,
     pub IdleTransitions: u32,
@@ -17737,6 +20754,7 @@ unsafe impl ::windows::runtime::Abi for PPM_IDLE_STATE_ACCOUNTING_EX {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct PPM_IDLE_STATE_BUCKET_EX {
     pub TotalTimeUs: u64,
     pub MinTimeUs: u32,
@@ -17765,16 +20783,22 @@ unsafe impl ::windows::runtime::Abi for PPM_IDLE_STATE_BUCKET_EX {
     type DefaultType = Self;
 }
 pub const PPM_PERFMON_PERFSTATE_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2144437842, 3326, 16594, [176, 161, 11, 6, 106, 135, 117, 158]);
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PPM_PERFORMANCE_IMPLEMENTATION_CPPC: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PPM_PERFORMANCE_IMPLEMENTATION_NONE: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PPM_PERFORMANCE_IMPLEMENTATION_PCCV1: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PPM_PERFORMANCE_IMPLEMENTATION_PEP: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PPM_PERFORMANCE_IMPLEMENTATION_PSTATES: u32 = 1u32;
 pub const PPM_PERFSTATES_DATA_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1460194336, 32064, 19444, [180, 170, 43, 1, 51, 141, 1, 38]);
 pub const PPM_PERFSTATE_CHANGE_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2779983325, 32569, 19132, [184, 146, 144, 14, 67, 181, 158, 187]);
 pub const PPM_PERFSTATE_DOMAIN_CHANGE_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2573101951, 54867, 18810, [185, 120, 54, 163, 12, 41, 191, 1]);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct PPM_PERFSTATE_DOMAIN_EVENT {
     pub State: u32,
     pub Latency: u32,
@@ -17804,6 +20828,7 @@ unsafe impl ::windows::runtime::Abi for PPM_PERFSTATE_DOMAIN_EVENT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct PPM_PERFSTATE_EVENT {
     pub State: u32,
     pub Status: u32,
@@ -17834,6 +20859,7 @@ unsafe impl ::windows::runtime::Abi for PPM_PERFSTATE_EVENT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct PPM_THERMALCHANGE_EVENT {
     pub ThermalConstraint: u32,
     pub Processors: u64,
@@ -17863,6 +20889,7 @@ pub const PPM_THERMALCONSTRAINT_GUID: ::windows::runtime::GUID = ::windows::runt
 pub const PPM_THERMAL_POLICY_CHANGE_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1223915448, 26752, 19579, [139, 220, 56, 1, 118, 198, 101, 77]);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct PPM_THERMAL_POLICY_EVENT {
     pub Mode: u8,
     pub Processors: u64,
@@ -17890,6 +20917,7 @@ unsafe impl ::windows::runtime::Abi for PPM_THERMAL_POLICY_EVENT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct PPM_WMI_IDLE_STATE {
     pub Latency: u32,
     pub Power: u32,
@@ -17938,6 +20966,7 @@ unsafe impl ::windows::runtime::Abi for PPM_WMI_IDLE_STATE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct PPM_WMI_IDLE_STATES {
     pub Type: u32,
     pub Count: u32,
@@ -17969,6 +20998,7 @@ unsafe impl ::windows::runtime::Abi for PPM_WMI_IDLE_STATES {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct PPM_WMI_IDLE_STATES_EX {
     pub Type: u32,
     pub Count: u32,
@@ -18000,6 +21030,7 @@ unsafe impl ::windows::runtime::Abi for PPM_WMI_IDLE_STATES_EX {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct PPM_WMI_LEGACY_PERFSTATE {
     pub Frequency: u32,
     pub Flags: u32,
@@ -18028,6 +21059,7 @@ unsafe impl ::windows::runtime::Abi for PPM_WMI_LEGACY_PERFSTATE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct PPM_WMI_PERF_STATE {
     pub Frequency: u32,
     pub Power: u32,
@@ -18095,6 +21127,7 @@ unsafe impl ::windows::runtime::Abi for PPM_WMI_PERF_STATE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct PPM_WMI_PERF_STATES {
     pub Count: u32,
     pub MaxFrequency: u32,
@@ -18183,6 +21216,7 @@ unsafe impl ::windows::runtime::Abi for PPM_WMI_PERF_STATES {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct PPM_WMI_PERF_STATES_EX {
     pub Count: u32,
     pub MaxFrequency: u32,
@@ -18269,38 +21303,69 @@ unsafe impl ::windows::runtime::Abi for PPM_WMI_PERF_STATES_EX {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRAGMA_DEPRECATED_DDK: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRIMARY_ORDER_ABC: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRIMARY_ORDER_ACB: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRIMARY_ORDER_BAC: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRIMARY_ORDER_BCA: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRIMARY_ORDER_CAB: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRIMARY_ORDER_CBA: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRIVILEGE_SET_ALL_NECESSARY: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PROCESSOR_ALPHA_21064: u32 = 21064u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PROCESSOR_AMD_X8664: u32 = 8664u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PROCESSOR_ARCHITECTURE_ALPHA: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PROCESSOR_ARCHITECTURE_ALPHA64: u32 = 7u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PROCESSOR_ARCHITECTURE_ARM32_ON_WIN64: u32 = 13u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PROCESSOR_ARCHITECTURE_ARM64: u32 = 12u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PROCESSOR_ARCHITECTURE_IA32_ON_ARM64: u32 = 14u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PROCESSOR_ARCHITECTURE_IA32_ON_WIN64: u32 = 10u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PROCESSOR_ARCHITECTURE_MIPS: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PROCESSOR_ARCHITECTURE_MSIL: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PROCESSOR_ARCHITECTURE_NEUTRAL: u32 = 11u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PROCESSOR_ARCHITECTURE_PPC: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PROCESSOR_ARCHITECTURE_SHX: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PROCESSOR_ARM720: u32 = 1824u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PROCESSOR_ARM820: u32 = 2080u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PROCESSOR_ARM920: u32 = 2336u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PROCESSOR_ARM_7TDMI: u32 = 70001u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PROCESSOR_DUTY_CYCLING_DISABLED: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PROCESSOR_DUTY_CYCLING_ENABLED: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PROCESSOR_HITACHI_SH3: u32 = 10003u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PROCESSOR_HITACHI_SH3E: u32 = 10004u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PROCESSOR_HITACHI_SH4: u32 = 10005u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct PROCESSOR_IDLESTATE_INFO {
     pub TimeCheck: u32,
     pub DemotePercent: u8,
@@ -18330,6 +21395,7 @@ unsafe impl ::windows::runtime::Abi for PROCESSOR_IDLESTATE_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct PROCESSOR_IDLESTATE_POLICY {
     pub Revision: u16,
     pub Flags: PROCESSOR_IDLESTATE_POLICY_0,
@@ -18354,6 +21420,7 @@ unsafe impl ::windows::runtime::Abi for PROCESSOR_IDLESTATE_POLICY {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union PROCESSOR_IDLESTATE_POLICY_0 {
     pub AsWORD: u16,
     pub Anonymous: PROCESSOR_IDLESTATE_POLICY_0_0,
@@ -18376,6 +21443,7 @@ unsafe impl ::windows::runtime::Abi for PROCESSOR_IDLESTATE_POLICY_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct PROCESSOR_IDLESTATE_POLICY_0_0 {
     pub _bitfield: u16,
 }
@@ -18400,16 +21468,25 @@ unsafe impl ::windows::runtime::Abi for PROCESSOR_IDLESTATE_POLICY_0_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PROCESSOR_IDLESTATE_POLICY_COUNT: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PROCESSOR_INTEL_386: u32 = 386u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PROCESSOR_INTEL_486: u32 = 486u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PROCESSOR_INTEL_IA64: u32 = 2200u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PROCESSOR_INTEL_PENTIUM: u32 = 586u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PROCESSOR_MIPS_R4000: u32 = 4000u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PROCESSOR_MOTOROLA_821: u32 = 821u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PROCESSOR_OPTIL: u32 = 18767u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct PROCESSOR_PERFSTATE_POLICY {
     pub Revision: u32,
     pub MaxThrottle: u8,
@@ -18440,6 +21517,7 @@ unsafe impl ::windows::runtime::Abi for PROCESSOR_PERFSTATE_POLICY {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union PROCESSOR_PERFSTATE_POLICY_0 {
     pub Spare: u8,
     pub Flags: PROCESSOR_PERFSTATE_POLICY_0_0,
@@ -18462,6 +21540,7 @@ unsafe impl ::windows::runtime::Abi for PROCESSOR_PERFSTATE_POLICY_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union PROCESSOR_PERFSTATE_POLICY_0_0 {
     pub AsBYTE: u8,
     pub Anonymous: PROCESSOR_PERFSTATE_POLICY_0_0_0,
@@ -18484,6 +21563,7 @@ unsafe impl ::windows::runtime::Abi for PROCESSOR_PERFSTATE_POLICY_0_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct PROCESSOR_PERFSTATE_POLICY_0_0_0 {
     pub _bitfield: u8,
 }
@@ -18508,34 +21588,61 @@ unsafe impl ::windows::runtime::Abi for PROCESSOR_PERFSTATE_POLICY_0_0_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PROCESSOR_PERF_AUTONOMOUS_MODE_DISABLED: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PROCESSOR_PERF_AUTONOMOUS_MODE_ENABLED: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PROCESSOR_PERF_BOOST_MODE_AGGRESSIVE: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PROCESSOR_PERF_BOOST_MODE_AGGRESSIVE_AT_GUARANTEED: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PROCESSOR_PERF_BOOST_MODE_DISABLED: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PROCESSOR_PERF_BOOST_MODE_EFFICIENT_AGGRESSIVE: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PROCESSOR_PERF_BOOST_MODE_EFFICIENT_AGGRESSIVE_AT_GUARANTEED: u32 = 6u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PROCESSOR_PERF_BOOST_MODE_EFFICIENT_ENABLED: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PROCESSOR_PERF_BOOST_MODE_ENABLED: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PROCESSOR_PERF_BOOST_MODE_MAX: u32 = 6u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PROCESSOR_PERF_BOOST_POLICY_DISABLED: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PROCESSOR_PERF_BOOST_POLICY_MAX: u32 = 100u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PROCESSOR_PERF_ENERGY_PREFERENCE: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PROCESSOR_PERF_MAXIMUM_ACTIVITY_WINDOW: u32 = 1270000000u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PROCESSOR_PERF_MINIMUM_ACTIVITY_WINDOW: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PROCESSOR_PERF_PERFORMANCE_PREFERENCE: u32 = 255u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PROCESSOR_PPC_601: u32 = 601u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PROCESSOR_PPC_603: u32 = 603u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PROCESSOR_PPC_604: u32 = 604u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PROCESSOR_PPC_620: u32 = 620u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PROCESSOR_SHx_SH3: u32 = 103u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PROCESSOR_SHx_SH4: u32 = 104u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PROCESSOR_STRONGARM: u32 = 2577u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PROCESSOR_THROTTLE_AUTOMATIC: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PROCESSOR_THROTTLE_DISABLED: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PROCESSOR_THROTTLE_ENABLED: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct PROCESS_DYNAMIC_EH_CONTINUATION_TARGET {
     pub TargetAddress: usize,
     pub Flags: usize,
@@ -18563,6 +21670,7 @@ unsafe impl ::windows::runtime::Abi for PROCESS_DYNAMIC_EH_CONTINUATION_TARGET {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct PROCESS_DYNAMIC_EH_CONTINUATION_TARGETS_INFORMATION {
     pub NumberOfTargets: u16,
     pub Reserved: u16,
@@ -18592,6 +21700,7 @@ unsafe impl ::windows::runtime::Abi for PROCESS_DYNAMIC_EH_CONTINUATION_TARGETS_
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE {
     pub BaseAddress: usize,
     pub Size: usize,
@@ -18620,6 +21729,7 @@ unsafe impl ::windows::runtime::Abi for PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGES_INFORMATION {
     pub NumberOfRanges: u16,
     pub Reserved: u16,
@@ -18650,6 +21760,7 @@ unsafe impl ::windows::runtime::Abi for PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGES_
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub struct PROCESS_HEAP_ENTRY {
     pub lpData: *mut ::std::ffi::c_void,
     pub cbData: u32,
@@ -18682,6 +21793,7 @@ unsafe impl ::windows::runtime::Abi for PROCESS_HEAP_ENTRY {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub union PROCESS_HEAP_ENTRY_0 {
     pub Block: PROCESS_HEAP_ENTRY_0_0,
     pub Region: PROCESS_HEAP_ENTRY_0_1,
@@ -18710,6 +21822,7 @@ unsafe impl ::windows::runtime::Abi for PROCESS_HEAP_ENTRY_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub struct PROCESS_HEAP_ENTRY_0_0 {
     pub hMem: super::super::Foundation::HANDLE,
     pub dwReserved: [u32; 3],
@@ -18743,6 +21856,7 @@ unsafe impl ::windows::runtime::Abi for PROCESS_HEAP_ENTRY_0_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct PROCESS_HEAP_ENTRY_0_1 {
     pub dwCommittedSize: u32,
     pub dwUnCommittedSize: u32,
@@ -18770,14 +21884,21 @@ unsafe impl ::windows::runtime::Abi for PROCESS_HEAP_ENTRY_0_1 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PROCESS_HEAP_ENTRY_BUSY: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PROCESS_HEAP_ENTRY_DDESHARE: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PROCESS_HEAP_ENTRY_MOVEABLE: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PROCESS_HEAP_REGION: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PROCESS_HEAP_SEG_ALLOC: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PROCESS_HEAP_UNCOMMITTED_RANGE: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct PROCESS_MITIGATION_ASLR_POLICY {
     pub Anonymous: PROCESS_MITIGATION_ASLR_POLICY_0,
 }
@@ -18799,6 +21920,7 @@ unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_ASLR_POLICY {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union PROCESS_MITIGATION_ASLR_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_ASLR_POLICY_0_0,
@@ -18821,6 +21943,7 @@ unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_ASLR_POLICY_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct PROCESS_MITIGATION_ASLR_POLICY_0_0 {
     pub _bitfield: u32,
 }
@@ -18847,6 +21970,7 @@ unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_ASLR_POLICY_0_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY {
     pub Anonymous: PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0,
 }
@@ -18868,6 +21992,7 @@ unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_BINARY_SIGNATURE_POLI
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0_0,
@@ -18890,6 +22015,7 @@ unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_BINARY_SIGNATURE_POLI
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0_0 {
     pub _bitfield: u32,
 }
@@ -18916,6 +22042,7 @@ unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_BINARY_SIGNATURE_POLI
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct PROCESS_MITIGATION_CHILD_PROCESS_POLICY {
     pub Anonymous: PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0,
 }
@@ -18937,6 +22064,7 @@ unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_CHILD_PROCESS_POLICY 
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0_0,
@@ -18959,6 +22087,7 @@ unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_CHILD_PROCESS_POLICY_
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0_0 {
     pub _bitfield: u32,
 }
@@ -18985,6 +22114,7 @@ unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_CHILD_PROCESS_POLICY_
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY {
     pub Anonymous: PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0,
 }
@@ -19006,6 +22136,7 @@ unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_CONTROL_FLOW_GUARD_PO
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0_0,
@@ -19028,6 +22159,7 @@ unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_CONTROL_FLOW_GUARD_PO
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0_0 {
     pub _bitfield: u32,
 }
@@ -19055,6 +22187,7 @@ unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_CONTROL_FLOW_GUARD_PO
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub struct PROCESS_MITIGATION_DEP_POLICY {
     pub Anonymous: PROCESS_MITIGATION_DEP_POLICY_0,
     pub Permanent: super::super::Foundation::BOOLEAN,
@@ -19082,6 +22215,7 @@ unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_DEP_POLICY {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union PROCESS_MITIGATION_DEP_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_DEP_POLICY_0_0,
@@ -19104,6 +22238,7 @@ unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_DEP_POLICY_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct PROCESS_MITIGATION_DEP_POLICY_0_0 {
     pub _bitfield: u32,
 }
@@ -19130,6 +22265,7 @@ unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_DEP_POLICY_0_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct PROCESS_MITIGATION_DYNAMIC_CODE_POLICY {
     pub Anonymous: PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0,
 }
@@ -19151,6 +22287,7 @@ unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_DYNAMIC_CODE_POLICY {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0_0,
@@ -19173,6 +22310,7 @@ unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0_0 {
     pub _bitfield: u32,
 }
@@ -19199,6 +22337,7 @@ unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY {
     pub Anonymous: PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_0,
 }
@@ -19220,6 +22359,7 @@ unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_EXTENSION_POINT_DISAB
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_0_0,
@@ -19242,6 +22382,7 @@ unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_EXTENSION_POINT_DISAB
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_0_0 {
     pub _bitfield: u32,
 }
@@ -19268,6 +22409,7 @@ unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_EXTENSION_POINT_DISAB
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct PROCESS_MITIGATION_FONT_DISABLE_POLICY {
     pub Anonymous: PROCESS_MITIGATION_FONT_DISABLE_POLICY_0,
 }
@@ -19289,6 +22431,7 @@ unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_FONT_DISABLE_POLICY {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union PROCESS_MITIGATION_FONT_DISABLE_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_FONT_DISABLE_POLICY_0_0,
@@ -19311,6 +22454,7 @@ unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_FONT_DISABLE_POLICY_0
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct PROCESS_MITIGATION_FONT_DISABLE_POLICY_0_0 {
     pub _bitfield: u32,
 }
@@ -19337,6 +22481,7 @@ unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_FONT_DISABLE_POLICY_0
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct PROCESS_MITIGATION_IMAGE_LOAD_POLICY {
     pub Anonymous: PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0,
 }
@@ -19358,6 +22503,7 @@ unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_IMAGE_LOAD_POLICY {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0_0,
@@ -19380,6 +22526,7 @@ unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0_0 {
     pub _bitfield: u32,
 }
@@ -19406,6 +22553,7 @@ unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0_0
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY {
     pub Anonymous: PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0,
 }
@@ -19427,6 +22575,7 @@ unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_PAYLOAD_RESTRICTION_P
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0_0,
@@ -19449,6 +22598,7 @@ unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_PAYLOAD_RESTRICTION_P
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0_0 {
     pub _bitfield: u32,
 }
@@ -19473,6 +22623,7 @@ unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_PAYLOAD_RESTRICTION_P
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PROCESS_MITIGATION_POLICY(pub i32);
@@ -19505,6 +22656,7 @@ unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_POLICY {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY {
     pub Anonymous: PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0,
 }
@@ -19526,6 +22678,7 @@ unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_REDIRECTION_TRUST_POL
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0_0,
@@ -19548,6 +22701,7 @@ unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_REDIRECTION_TRUST_POL
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0_0 {
     pub _bitfield: u32,
 }
@@ -19574,6 +22728,7 @@ unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_REDIRECTION_TRUST_POL
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY {
     pub Anonymous: PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0,
 }
@@ -19595,6 +22750,7 @@ unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATIO
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0_0,
@@ -19617,6 +22773,7 @@ unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATIO
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0_0 {
     pub _bitfield: u32,
 }
@@ -19643,6 +22800,7 @@ unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATIO
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY {
     pub Anonymous: PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0,
 }
@@ -19664,6 +22822,7 @@ unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_STRICT_HANDLE_CHECK_P
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0_0,
@@ -19686,6 +22845,7 @@ unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_STRICT_HANDLE_CHECK_P
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0_0 {
     pub _bitfield: u32,
 }
@@ -19712,6 +22872,7 @@ unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_STRICT_HANDLE_CHECK_P
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY {
     pub Anonymous: PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0,
 }
@@ -19733,6 +22894,7 @@ unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_P
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0_0,
@@ -19755,6 +22917,7 @@ unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_P
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0_0 {
     pub _bitfield: u32,
 }
@@ -19781,6 +22944,7 @@ unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_P
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY {
     pub Anonymous: PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0,
 }
@@ -19802,6 +22966,7 @@ unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_SYSTEM_CALL_FILTER_PO
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0_0,
@@ -19824,6 +22989,7 @@ unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_SYSTEM_CALL_FILTER_PO
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0_0 {
     pub _bitfield: u32,
 }
@@ -19850,6 +23016,7 @@ unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_SYSTEM_CALL_FILTER_PO
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY {
     pub Anonymous: PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0,
 }
@@ -19871,6 +23038,7 @@ unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_USER_SHADOW_STACK_POL
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0_0,
@@ -19893,6 +23061,7 @@ unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_USER_SHADOW_STACK_POL
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0_0 {
     pub _bitfield: u32,
 }
@@ -19917,85 +23086,165 @@ unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_USER_SHADOW_STACK_POL
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PROCESS_TRUST_LABEL_SECURITY_INFORMATION: i32 = 128i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PROC_IDLE_BUCKET_COUNT: u32 = 6u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PROC_IDLE_BUCKET_COUNT_EX: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_ARM64_SERVER: u32 = 120u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_AZURESTACKHCI_SERVER_CORE: u32 = 406u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_AZURE_NANO_SERVER: u32 = 169u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_AZURE_SERVER_CLOUDHOST: u32 = 199u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_AZURE_SERVER_CLOUDMOS: u32 = 200u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_AZURE_SERVER_CORE: u32 = 168u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_CLOUD: u32 = 178u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_CLOUDE: u32 = 183u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_CLOUDEDITION: u32 = 203u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_CLOUDEDITIONN: u32 = 202u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_CLOUDEN: u32 = 186u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_CLOUDN: u32 = 179u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_CLOUD_HOST_INFRASTRUCTURE_SERVER: u32 = 124u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_CLOUD_STORAGE_SERVER: u32 = 110u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_CONNECTED_CAR: u32 = 117u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_CORE_ARM: u32 = 97u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_CORE_CONNECTED: u32 = 111u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_CORE_CONNECTED_COUNTRYSPECIFIC: u32 = 116u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_CORE_CONNECTED_N: u32 = 113u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_CORE_CONNECTED_SINGLELANGUAGE: u32 = 115u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_DATACENTER_EVALUATION_SERVER_CORE: u32 = 159u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_DATACENTER_NANO_SERVER: u32 = 143u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_DATACENTER_SERVER_AZURE_EDITION: u32 = 407u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_DATACENTER_SERVER_CORE_AZURE_EDITION: u32 = 408u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_DATACENTER_WS_SERVER_CORE: u32 = 147u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_EMBEDDED: u32 = 65u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_EMBEDDED_A: u32 = 88u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_EMBEDDED_AUTOMOTIVE: u32 = 85u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_EMBEDDED_E: u32 = 90u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_EMBEDDED_EVAL: u32 = 107u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_EMBEDDED_E_EVAL: u32 = 108u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_EMBEDDED_INDUSTRY: u32 = 89u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_EMBEDDED_INDUSTRY_A: u32 = 86u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_EMBEDDED_INDUSTRY_A_E: u32 = 92u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_EMBEDDED_INDUSTRY_E: u32 = 91u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_EMBEDDED_INDUSTRY_EVAL: u32 = 105u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_EMBEDDED_INDUSTRY_E_EVAL: u32 = 106u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_ENTERPRISEG: u32 = 171u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_ENTERPRISEGN: u32 = 172u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_ENTERPRISE_SUBSCRIPTION: u32 = 140u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_ENTERPRISE_SUBSCRIPTION_N: u32 = 141u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_HOLOGRAPHIC: u32 = 135u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_HOLOGRAPHIC_BUSINESS: u32 = 136u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_HUBOS: u32 = 180u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_INDUSTRY_HANDHELD: u32 = 118u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_IOTEDGEOS: u32 = 187u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_IOTENTERPRISE: u32 = 188u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_IOTENTERPRISES: u32 = 191u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_IOTOS: u32 = 185u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_LITE: u32 = 189u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_NANO_SERVER: u32 = 109u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_ONECOREUPDATEOS: u32 = 182u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_PPI_PRO: u32 = 119u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_PROFESSIONAL_EMBEDDED: u32 = 58u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_PROFESSIONAL_S: u32 = 127u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_PROFESSIONAL_STUDENT: u32 = 112u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_PROFESSIONAL_STUDENT_N: u32 = 114u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_PROFESSIONAL_S_N: u32 = 128u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_PRO_CHINA: u32 = 139u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_PRO_FOR_EDUCATION: u32 = 164u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_PRO_FOR_EDUCATION_N: u32 = 165u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_PRO_SINGLE_LANGUAGE: u32 = 138u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_SERVERRDSH: u32 = 175u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_SOLUTION_EMBEDDEDSERVER_CORE: u32 = 57u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_STANDARD_EVALUATION_SERVER_CORE: u32 = 160u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_STANDARD_NANO_SERVER: u32 = 144u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_STANDARD_SERVER_CORE: u32 = 13u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_STANDARD_WS_SERVER_CORE: u32 = 148u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_THINPC: u32 = 87u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_UNLICENSED: u32 = 2882382797u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_UTILITY_VM: u32 = 149u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_XBOX_DURANGOHOSTOS: u32 = 196u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_XBOX_ERAOS: u32 = 195u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_XBOX_GAMEOS: u32 = 194u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_XBOX_NATIVEOS: u32 = 193u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_XBOX_SCARLETTHOSTOS: u32 = 197u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_XBOX_SYSTEMOS: u32 = 192u32;
 pub type PRTL_UMS_SCHEDULER_ENTRY_POINT = unsafe extern "system" fn(reason: RTL_UMS_SCHEDULER_REASON, activationpayload: usize, schedulerparam: *const ::std::ffi::c_void);
 #[cfg(feature = "Win32_Foundation")]
@@ -20006,36 +23255,65 @@ pub type PTP_TIMER_CALLBACK = unsafe extern "system" fn(instance: *mut TP_CALLBA
 pub type PTP_WAIT_CALLBACK = unsafe extern "system" fn(instance: *mut TP_CALLBACK_INSTANCE, context: *mut ::std::ffi::c_void, wait: *mut TP_WAIT, waitresult: u32);
 pub type PTP_WORK_CALLBACK = unsafe extern "system" fn(instance: *mut TP_CALLBACK_INSTANCE, context: *mut ::std::ffi::c_void, work: *mut TP_WORK);
 pub type PUMS_SCHEDULER_ENTRY_POINT = unsafe extern "system" fn(reason: RTL_UMS_SCHEDULER_REASON, activationpayload: usize, schedulerparam: *const ::std::ffi::c_void);
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PcTeb: u32 = 24u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const QAW_GETEASYWIDTHS: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const QAW_GETWIDTHS: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const QC_1BIT: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const QC_4BIT: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const QC_OUTLINES: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const QDS_CHECKJPEGFORMAT: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const QDS_CHECKPNGFORMAT: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const QFD_GLYPHANDBITMAP: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const QFD_GLYPHANDOUTLINE: i32 = 2i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const QFD_MAXEXTENTS: i32 = 3i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const QFD_TT_GLYPHANDBITMAP: i32 = 4i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const QFD_TT_GRAY1_BITMAP: i32 = 5i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const QFD_TT_GRAY2_BITMAP: i32 = 6i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const QFD_TT_GRAY4_BITMAP: i32 = 8i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const QFD_TT_GRAY8_BITMAP: i32 = 9i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const QFD_TT_MONO_BITMAP: i32 = 5i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const QFF_DESCRIPTION: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const QFF_NUMFACES: i32 = 2i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const QFT_GLYPHSET: i32 = 3i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const QFT_KERNPAIRS: i32 = 2i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const QFT_LIGATURES: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const QSA_3DNOW: u32 = 16384u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const QSA_MMX: u32 = 256u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const QSA_SSE: u32 = 8192u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const QSA_SSE1: u32 = 8192u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const QSA_SSE2: u32 = 65536u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const QSA_SSE3: u32 = 524288u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct QUOTA_LIMITS_EX {
     pub PagedPoolLimit: usize,
     pub NonPagedPoolLimit: usize,
@@ -20066,13 +23344,19 @@ unsafe impl ::windows::runtime::Abi for QUOTA_LIMITS_EX {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const QUOTA_LIMITS_HARDWS_MAX_DISABLE: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const QUOTA_LIMITS_HARDWS_MAX_ENABLE: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const QUOTA_LIMITS_HARDWS_MIN_DISABLE: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const QUOTA_LIMITS_HARDWS_MIN_ENABLE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const QUOTA_LIMITS_USE_DEFAULT_LIMITS: u32 = 16u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union RATE_QUOTA_LIMIT {
     pub RateData: u32,
     pub Anonymous: RATE_QUOTA_LIMIT_0,
@@ -20095,6 +23379,7 @@ unsafe impl ::windows::runtime::Abi for RATE_QUOTA_LIMIT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct RATE_QUOTA_LIMIT_0 {
     pub _bitfield: u32,
 }
@@ -20119,12 +23404,16 @@ unsafe impl ::windows::runtime::Abi for RATE_QUOTA_LIMIT_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const RB_DITHERCOLOR: i32 = -2147483648i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const READ_THREAD_PROFILING_FLAG_DISPATCHING: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const READ_THREAD_PROFILING_FLAG_HARDWARE_COUNTERS: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub struct REARRANGE_FILE_DATA {
     pub SourceStartingOffset: u64,
     pub TargetOffset: u64,
@@ -20161,6 +23450,7 @@ unsafe impl ::windows::runtime::Abi for REARRANGE_FILE_DATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct REARRANGE_FILE_DATA32 {
     pub SourceStartingOffset: u64,
     pub TargetOffset: u64,
@@ -20192,6 +23482,7 @@ unsafe impl ::windows::runtime::Abi for REARRANGE_FILE_DATA32 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub struct REASON_CONTEXT {
     pub Version: u32,
     pub Flags: POWER_REQUEST_CONTEXT_FLAGS,
@@ -20221,6 +23512,7 @@ unsafe impl ::windows::runtime::Abi for REASON_CONTEXT {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub union REASON_CONTEXT_0 {
     pub Detailed: REASON_CONTEXT_0_0,
     pub SimpleReasonString: super::super::Foundation::PWSTR,
@@ -20249,6 +23541,7 @@ unsafe impl ::windows::runtime::Abi for REASON_CONTEXT_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub struct REASON_CONTEXT_0_0 {
     pub LocalizedReasonModule: super::super::Foundation::HINSTANCE,
     pub LocalizedReasonId: u32,
@@ -20284,6 +23577,7 @@ unsafe impl ::windows::runtime::Abi for REASON_CONTEXT_0_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct RECTFX {
     pub xLeft: i32,
     pub yTop: i32,
@@ -20313,6 +23607,7 @@ unsafe impl ::windows::runtime::Abi for RECTFX {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct REDBOOK_DIGITAL_AUDIO_EXTRACTION_INFO {
     pub Version: u32,
     pub Accurate: u32,
@@ -20340,26 +23635,45 @@ unsafe impl ::windows::runtime::Abi for REDBOOK_DIGITAL_AUDIO_EXTRACTION_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const REDBOOK_DIGITAL_AUDIO_EXTRACTION_INFO_VERSION: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const REG_APP_HIVE: i32 = 16i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const REG_APP_HIVE_OPEN_READ_ONLY: i32 = 8192i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const REG_BOOT_HIVE: i32 = 1024i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const REG_FLUSH_HIVE_FILE_GROWTH: i32 = 4096i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const REG_FORCE_UNLOAD: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const REG_HIVE_EXACT_FILE_GROWTH: i32 = 128i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const REG_HIVE_NO_RM: i32 = 256i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const REG_HIVE_SINGLE_LOG: i32 = 512i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const REG_IMMUTABLE: i32 = 16384i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const REG_LOAD_HIVE_OPEN_HANDLE: i32 = 2048i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const REG_NO_IMPERSONATION_FALLBACK: i32 = 32768i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const REG_NO_LAZY_FLUSH: i32 = 4i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const REG_OPEN_READ_ONLY: i32 = 8192i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const REG_PROCESS_PRIVATE: i32 = 32i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const REG_REFRESH_HIVE: i32 = 2i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const REG_START_JOURNAL: i32 = 64i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const REG_UNLOAD_LEGAL_FLAGS: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct RESOURCEMANAGER_BASIC_INFORMATION {
     pub ResourceManagerId: ::windows::runtime::GUID,
     pub DescriptionLength: u32,
@@ -20386,10 +23700,12 @@ unsafe impl ::windows::runtime::Abi for RESOURCEMANAGER_BASIC_INFORMATION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const RESOURCEMANAGER_COMPLETE_PROPAGATION: u32 = 64u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub struct RESOURCEMANAGER_COMPLETION_INFORMATION {
     pub IoCompletionPortHandle: super::super::Foundation::HANDLE,
     pub CompletionKey: usize,
@@ -20421,8 +23737,11 @@ unsafe impl ::windows::runtime::Abi for RESOURCEMANAGER_COMPLETION_INFORMATION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const RESOURCEMANAGER_ENLIST: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const RESOURCEMANAGER_GET_NOTIFICATION: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RESOURCEMANAGER_INFORMATION_CLASS(pub i32);
@@ -20437,12 +23756,17 @@ unsafe impl ::windows::runtime::Abi for RESOURCEMANAGER_INFORMATION_CLASS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const RESOURCEMANAGER_QUERY_INFORMATION: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const RESOURCEMANAGER_RECOVER: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const RESOURCEMANAGER_REGISTER_PROTOCOL: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const RESOURCEMANAGER_SET_INFORMATION: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct RESUME_PERFORMANCE {
     pub PostTimeMs: u32,
     pub TotalResumeTimeMs: u64,
@@ -20469,12 +23793,16 @@ unsafe impl ::windows::runtime::Abi for RESUME_PERFORMANCE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ROTFLAGS_ALLOWANYCLIENT: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ROTFLAGS_REGISTRATIONKEEPSALIVE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ROT_COMPARE_MAX: u32 = 2048u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Rpc")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_Rpc`*"]
 pub struct RPC_IMPORT_CONTEXT_P {
     pub LookupContext: *mut ::std::ffi::c_void,
     pub ProposedHandle: *mut ::std::ffi::c_void,
@@ -20509,6 +23837,7 @@ unsafe impl ::windows::runtime::Abi for RPC_IMPORT_CONTEXT_P {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct RTL_BARRIER {
     pub Reserved1: u32,
     pub Reserved2: u32,
@@ -20539,6 +23868,7 @@ unsafe impl ::windows::runtime::Abi for RTL_BARRIER {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct RTL_CONDITION_VARIABLE {
     pub Ptr: *mut ::std::ffi::c_void,
 }
@@ -20563,15 +23893,22 @@ unsafe impl ::windows::runtime::Abi for RTL_CONDITION_VARIABLE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const RTL_CONDITION_VARIABLE_LOCKMODE_SHARED: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const RTL_CORRELATION_VECTOR_STRING_LENGTH: u32 = 129u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const RTL_CORRELATION_VECTOR_V1_LENGTH: u32 = 64u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const RTL_CORRELATION_VECTOR_V1_PREFIX_LENGTH: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const RTL_CORRELATION_VECTOR_V2_LENGTH: u32 = 128u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const RTL_CORRELATION_VECTOR_V2_PREFIX_LENGTH: u32 = 22u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_System_Kernel`*"]
 pub struct RTL_CRITICAL_SECTION {
     pub DebugInfo: *mut RTL_CRITICAL_SECTION_DEBUG,
     pub LockCount: i32,
@@ -20607,10 +23944,12 @@ unsafe impl ::windows::runtime::Abi for RTL_CRITICAL_SECTION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const RTL_CRITICAL_SECTION_ALL_FLAG_BITS: u32 = 4278190080u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_System_Kernel`*"]
 pub struct RTL_CRITICAL_SECTION_DEBUG {
     pub Type: u16,
     pub CreatorBackTraceIndex: u16,
@@ -20659,14 +23998,21 @@ unsafe impl ::windows::runtime::Abi for RTL_CRITICAL_SECTION_DEBUG {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const RTL_CRITICAL_SECTION_DEBUG_FLAG_STATIC_INIT: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const RTL_CRITICAL_SECTION_FLAG_DYNAMIC_SPIN: u32 = 33554432u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const RTL_CRITICAL_SECTION_FLAG_FORCE_DEBUG_INFO: u32 = 268435456u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const RTL_CRITICAL_SECTION_FLAG_NO_DEBUG_INFO: u32 = 16777216u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const RTL_CRITICAL_SECTION_FLAG_RESOURCE_TYPE: u32 = 134217728u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const RTL_CRITICAL_SECTION_FLAG_STATIC_INIT: u32 = 67108864u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union RTL_RUN_ONCE {
     pub Ptr: *mut ::std::ffi::c_void,
 }
@@ -20686,12 +24032,17 @@ unsafe impl ::windows::runtime::Abi for RTL_RUN_ONCE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const RTL_RUN_ONCE_ASYNC: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const RTL_RUN_ONCE_CHECK_ONLY: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const RTL_RUN_ONCE_CTX_RESERVED_BITS: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const RTL_RUN_ONCE_INIT_FAILED: u32 = 4u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct RTL_SRWLOCK {
     pub Ptr: *mut ::std::ffi::c_void,
 }
@@ -20716,6 +24067,7 @@ unsafe impl ::windows::runtime::Abi for RTL_SRWLOCK {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RTL_SYSTEM_GLOBAL_DATA_ID(pub i32);
@@ -20742,6 +24094,7 @@ unsafe impl ::windows::runtime::Abi for RTL_SYSTEM_GLOBAL_DATA_ID {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RTL_UMS_SCHEDULER_REASON(pub i32);
@@ -20757,6 +24110,7 @@ unsafe impl ::windows::runtime::Abi for RTL_UMS_SCHEDULER_REASON {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RTL_UMS_THREAD_INFO_CLASS(pub i32);
@@ -20777,10 +24131,14 @@ unsafe impl ::windows::runtime::Abi for RTL_UMS_THREAD_INFO_CLASS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const RTL_UMS_VERSION: u32 = 256u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const RTL_VIRTUAL_UNWIND2_VALIDATE_PAC: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const RUNTIME_FUNCTION_INDIRECT: u32 = 1u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Power"))]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_System_Power`*"]
 #[inline]
 pub unsafe fn RegisterDeviceNotificationA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hrecipient: Param0, notificationfilter: *const ::std::ffi::c_void, flags: super::Power::POWER_SETTING_REGISTER_NOTIFICATION_FLAGS) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
@@ -20795,6 +24153,7 @@ pub unsafe fn RegisterDeviceNotificationA<'a, Param0: ::windows::runtime::IntoPa
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Power"))]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_System_Power`*"]
 #[inline]
 pub unsafe fn RegisterDeviceNotificationW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hrecipient: Param0, notificationfilter: *const ::std::ffi::c_void, flags: super::Power::POWER_SETTING_REGISTER_NOTIFICATION_FLAGS) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
@@ -20810,6 +24169,7 @@ pub unsafe fn RegisterDeviceNotificationW<'a, Param0: ::windows::runtime::IntoPa
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct RemBRUSH {
     pub cbData: u32,
     pub data: [u8; 1],
@@ -20837,6 +24197,7 @@ unsafe impl ::windows::runtime::Abi for RemBRUSH {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct RemHBITMAP {
     pub cbData: u32,
     pub data: [u8; 1],
@@ -20864,6 +24225,7 @@ unsafe impl ::windows::runtime::Abi for RemHBITMAP {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct RemHENHMETAFILE {
     pub cbData: u32,
     pub data: [u8; 1],
@@ -20891,6 +24253,7 @@ unsafe impl ::windows::runtime::Abi for RemHENHMETAFILE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct RemHGLOBAL {
     pub fNullHGlobal: i32,
     pub cbData: u32,
@@ -20919,6 +24282,7 @@ unsafe impl ::windows::runtime::Abi for RemHGLOBAL {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct RemHMETAFILEPICT {
     pub mm: i32,
     pub xExt: i32,
@@ -20949,6 +24313,7 @@ unsafe impl ::windows::runtime::Abi for RemHMETAFILEPICT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct RemHPALETTE {
     pub cbData: u32,
     pub data: [u8; 1],
@@ -20976,6 +24341,7 @@ unsafe impl ::windows::runtime::Abi for RemHPALETTE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct RemotableHandle {
     pub fContext: i32,
     pub u: RemotableHandle_0,
@@ -20998,6 +24364,7 @@ unsafe impl ::windows::runtime::Abi for RemotableHandle {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union RemotableHandle_0 {
     pub hInproc: i32,
     pub hRemote: i32,
@@ -21018,6 +24385,7 @@ unsafe impl ::windows::runtime::Abi for RemotableHandle_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ReplacesCorHdrNumericDefines(pub i32);
@@ -21055,6 +24423,7 @@ unsafe impl ::windows::runtime::Abi for ReplacesCorHdrNumericDefines {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[inline]
 pub unsafe fn RtlCompareMemory(source1: *const ::std::ffi::c_void, source2: *const ::std::ffi::c_void, length: usize) -> usize {
     #[cfg(windows)]
@@ -21069,6 +24438,7 @@ pub unsafe fn RtlCompareMemory(source1: *const ::std::ffi::c_void, source2: *con
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RtlConvertDeviceFamilyInfoToString(puldevicefamilybuffersize: *mut u32, puldeviceformbuffersize: *mut u32, devicefamily: super::super::Foundation::PWSTR, deviceform: super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
@@ -21082,6 +24452,7 @@ pub unsafe fn RtlConvertDeviceFamilyInfoToString(puldevicefamilybuffersize: *mut
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[inline]
 pub unsafe fn RtlCrc32(buffer: *const ::std::ffi::c_void, size: usize, initialcrc: u32) -> u32 {
     #[cfg(windows)]
@@ -21095,6 +24466,7 @@ pub unsafe fn RtlCrc32(buffer: *const ::std::ffi::c_void, size: usize, initialcr
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[inline]
 pub unsafe fn RtlCrc64(buffer: *const ::std::ffi::c_void, size: usize, initialcrc: u64) -> u64 {
     #[cfg(windows)]
@@ -21108,6 +24480,7 @@ pub unsafe fn RtlCrc64(buffer: *const ::std::ffi::c_void, size: usize, initialcr
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[inline]
 pub unsafe fn RtlDrainNonVolatileFlush(nvtoken: *const ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -21122,6 +24495,7 @@ pub unsafe fn RtlDrainNonVolatileFlush(nvtoken: *const ::std::ffi::c_void) -> u3
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RtlExtendCorrelationVector(correlationvector: *mut CORRELATION_VECTOR) -> u32 {
     #[cfg(windows)]
@@ -21135,6 +24509,7 @@ pub unsafe fn RtlExtendCorrelationVector(correlationvector: *mut CORRELATION_VEC
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[inline]
 pub unsafe fn RtlFillNonVolatileMemory(nvtoken: *const ::std::ffi::c_void, nvdestination: *mut ::std::ffi::c_void, size: usize, value: u8, flags: u32) -> u32 {
     #[cfg(windows)]
@@ -21149,6 +24524,7 @@ pub unsafe fn RtlFillNonVolatileMemory(nvtoken: *const ::std::ffi::c_void, nvdes
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Kernel")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_Kernel`*"]
 #[inline]
 pub unsafe fn RtlFirstEntrySList(listhead: *const super::Kernel::SLIST_HEADER) -> *mut super::Kernel::SLIST_ENTRY {
     #[cfg(windows)]
@@ -21162,6 +24538,7 @@ pub unsafe fn RtlFirstEntrySList(listhead: *const super::Kernel::SLIST_HEADER) -
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[inline]
 pub unsafe fn RtlFlushNonVolatileMemory(nvtoken: *const ::std::ffi::c_void, nvbuffer: *const ::std::ffi::c_void, size: usize, flags: u32) -> u32 {
     #[cfg(windows)]
@@ -21175,6 +24552,7 @@ pub unsafe fn RtlFlushNonVolatileMemory(nvtoken: *const ::std::ffi::c_void, nvbu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[inline]
 pub unsafe fn RtlFlushNonVolatileMemoryRanges(nvtoken: *const ::std::ffi::c_void, nvranges: *const NV_MEMORY_RANGE, numranges: usize, flags: u32) -> u32 {
     #[cfg(windows)]
@@ -21188,6 +24566,7 @@ pub unsafe fn RtlFlushNonVolatileMemoryRanges(nvtoken: *const ::std::ffi::c_void
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[inline]
 pub unsafe fn RtlFreeNonVolatileToken(nvtoken: *const ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -21201,6 +24580,7 @@ pub unsafe fn RtlFreeNonVolatileToken(nvtoken: *const ::std::ffi::c_void) -> u32
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[inline]
 pub unsafe fn RtlGetDeviceFamilyInfoEnum(pulluapinfo: *mut u64, puldevicefamily: *mut u32, puldeviceform: *mut u32) {
     #[cfg(windows)]
@@ -21214,6 +24594,7 @@ pub unsafe fn RtlGetDeviceFamilyInfoEnum(pulluapinfo: *mut u64, puldevicefamily:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[inline]
 pub unsafe fn RtlGetNonVolatileToken(nvbuffer: *const ::std::ffi::c_void, size: usize, nvtoken: *mut *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -21228,6 +24609,7 @@ pub unsafe fn RtlGetNonVolatileToken(nvbuffer: *const ::std::ffi::c_void, size: 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RtlGetProductInfo(osmajorversion: u32, osminorversion: u32, spmajorversion: u32, spminorversion: u32, returnedproducttype: *mut u32) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
@@ -21241,6 +24623,7 @@ pub unsafe fn RtlGetProductInfo(osmajorversion: u32, osminorversion: u32, spmajo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[inline]
 pub unsafe fn RtlGetReturnAddressHijackTarget() -> usize {
     #[cfg(windows)]
@@ -21254,6 +24637,7 @@ pub unsafe fn RtlGetReturnAddressHijackTarget() -> usize {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[inline]
 pub unsafe fn RtlGetSystemGlobalData(dataid: RTL_SYSTEM_GLOBAL_DATA_ID, buffer: *mut ::std::ffi::c_void, size: u32) -> u32 {
     #[cfg(windows)]
@@ -21268,6 +24652,7 @@ pub unsafe fn RtlGetSystemGlobalData(dataid: RTL_SYSTEM_GLOBAL_DATA_ID, buffer: 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RtlIncrementCorrelationVector(correlationvector: *mut CORRELATION_VECTOR) -> u32 {
     #[cfg(windows)]
@@ -21282,6 +24667,7 @@ pub unsafe fn RtlIncrementCorrelationVector(correlationvector: *mut CORRELATION_
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RtlInitializeCorrelationVector(correlationvector: *mut CORRELATION_VECTOR, version: i32, guid: *const ::windows::runtime::GUID) -> u32 {
     #[cfg(windows)]
@@ -21296,6 +24682,7 @@ pub unsafe fn RtlInitializeCorrelationVector(correlationvector: *mut CORRELATION
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Kernel")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_Kernel`*"]
 #[inline]
 pub unsafe fn RtlInitializeSListHead(listhead: *mut super::Kernel::SLIST_HEADER) {
     #[cfg(windows)]
@@ -21310,6 +24697,7 @@ pub unsafe fn RtlInitializeSListHead(listhead: *mut super::Kernel::SLIST_HEADER)
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Kernel")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_Kernel`*"]
 #[inline]
 pub unsafe fn RtlInterlockedFlushSList(listhead: *mut super::Kernel::SLIST_HEADER) -> *mut super::Kernel::SLIST_ENTRY {
     #[cfg(windows)]
@@ -21324,6 +24712,7 @@ pub unsafe fn RtlInterlockedFlushSList(listhead: *mut super::Kernel::SLIST_HEADE
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Kernel")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_Kernel`*"]
 #[inline]
 pub unsafe fn RtlInterlockedPopEntrySList(listhead: *mut super::Kernel::SLIST_HEADER) -> *mut super::Kernel::SLIST_ENTRY {
     #[cfg(windows)]
@@ -21338,6 +24727,7 @@ pub unsafe fn RtlInterlockedPopEntrySList(listhead: *mut super::Kernel::SLIST_HE
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Kernel")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_Kernel`*"]
 #[inline]
 pub unsafe fn RtlInterlockedPushEntrySList(listhead: *mut super::Kernel::SLIST_HEADER, listentry: *mut super::Kernel::SLIST_ENTRY) -> *mut super::Kernel::SLIST_ENTRY {
     #[cfg(windows)]
@@ -21352,6 +24742,7 @@ pub unsafe fn RtlInterlockedPushEntrySList(listhead: *mut super::Kernel::SLIST_H
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Kernel")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_Kernel`*"]
 #[inline]
 pub unsafe fn RtlInterlockedPushListSListEx(listhead: *mut super::Kernel::SLIST_HEADER, list: *mut super::Kernel::SLIST_ENTRY, listend: *mut super::Kernel::SLIST_ENTRY, count: u32) -> *mut super::Kernel::SLIST_ENTRY {
     #[cfg(windows)]
@@ -21366,6 +24757,7 @@ pub unsafe fn RtlInterlockedPushListSListEx(listhead: *mut super::Kernel::SLIST_
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RtlIsZeroMemory(buffer: *const ::std::ffi::c_void, length: usize) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
@@ -21380,6 +24772,7 @@ pub unsafe fn RtlIsZeroMemory(buffer: *const ::std::ffi::c_void, length: usize) 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_Security`*"]
 #[inline]
 pub unsafe fn RtlNormalizeSecurityDescriptor<'a, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>>(securitydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR, securitydescriptorlength: u32, newsecuritydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR, newsecuritydescriptorlength: *mut u32, checkonly: Param4) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
@@ -21393,6 +24786,7 @@ pub unsafe fn RtlNormalizeSecurityDescriptor<'a, Param4: ::windows::runtime::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[inline]
 pub unsafe fn RtlOsDeploymentState(flags: u32) -> OS_DEPLOYEMENT_STATE_VALUES {
     #[cfg(windows)]
@@ -21407,6 +24801,7 @@ pub unsafe fn RtlOsDeploymentState(flags: u32) -> OS_DEPLOYEMENT_STATE_VALUES {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Kernel")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_Kernel`*"]
 #[inline]
 pub unsafe fn RtlQueryDepthSList(listhead: *const super::Kernel::SLIST_HEADER) -> u16 {
     #[cfg(windows)]
@@ -21421,6 +24816,7 @@ pub unsafe fn RtlQueryDepthSList(listhead: *const super::Kernel::SLIST_HEADER) -
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RtlRaiseCustomSystemEventTrigger(triggerconfig: *const CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG) -> u32 {
     #[cfg(windows)]
@@ -21435,6 +24831,7 @@ pub unsafe fn RtlRaiseCustomSystemEventTrigger(triggerconfig: *const CUSTOM_SYST
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_System_Diagnostics_Debug`*"]
 #[inline]
 pub unsafe fn RtlRaiseException(exceptionrecord: *const super::Diagnostics::Debug::EXCEPTION_RECORD) {
     #[cfg(windows)]
@@ -21449,6 +24846,7 @@ pub unsafe fn RtlRaiseException(exceptionrecord: *const super::Diagnostics::Debu
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemInformation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_SystemInformation`*"]
 #[inline]
 pub unsafe fn RtlSwitchedVVI(versioninfo: *const super::SystemInformation::OSVERSIONINFOEXW, typemask: u32, conditionmask: u64) -> u32 {
     #[cfg(windows)]
@@ -21463,6 +24861,7 @@ pub unsafe fn RtlSwitchedVVI(versioninfo: *const super::SystemInformation::OSVER
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RtlValidateCorrelationVector(vector: *const CORRELATION_VECTOR) -> u32 {
     #[cfg(windows)]
@@ -21476,6 +24875,7 @@ pub unsafe fn RtlValidateCorrelationVector(vector: *const CORRELATION_VECTOR) ->
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[inline]
 pub unsafe fn RtlWriteNonVolatileMemory(nvtoken: *const ::std::ffi::c_void, nvdestination: *mut ::std::ffi::c_void, source: *const ::std::ffi::c_void, size: usize, flags: u32) -> u32 {
     #[cfg(windows)]
@@ -21491,6 +24891,7 @@ pub unsafe fn RtlWriteNonVolatileMemory(nvtoken: *const ::std::ffi::c_void, nvde
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct SCOPE_TABLE_AMD64 {
     pub Count: u32,
     pub ScopeRecord: [SCOPE_TABLE_AMD64_0; 1],
@@ -21518,6 +24919,7 @@ unsafe impl ::windows::runtime::Abi for SCOPE_TABLE_AMD64 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct SCOPE_TABLE_AMD64_0 {
     pub BeginAddress: u32,
     pub EndAddress: u32,
@@ -21547,6 +24949,7 @@ unsafe impl ::windows::runtime::Abi for SCOPE_TABLE_AMD64_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct SCOPE_TABLE_ARM {
     pub Count: u32,
     pub ScopeRecord: [SCOPE_TABLE_ARM_0; 1],
@@ -21574,6 +24977,7 @@ unsafe impl ::windows::runtime::Abi for SCOPE_TABLE_ARM {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct SCOPE_TABLE_ARM_0 {
     pub BeginAddress: u32,
     pub EndAddress: u32,
@@ -21603,6 +25007,7 @@ unsafe impl ::windows::runtime::Abi for SCOPE_TABLE_ARM_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct SCOPE_TABLE_ARM64 {
     pub Count: u32,
     pub ScopeRecord: [SCOPE_TABLE_ARM64_0; 1],
@@ -21630,6 +25035,7 @@ unsafe impl ::windows::runtime::Abi for SCOPE_TABLE_ARM64 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct SCOPE_TABLE_ARM64_0 {
     pub BeginAddress: u32,
     pub EndAddress: u32,
@@ -21659,6 +25065,7 @@ unsafe impl ::windows::runtime::Abi for SCOPE_TABLE_ARM64_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct SCRUB_DATA_INPUT {
     pub Size: u32,
     pub Flags: u32,
@@ -21688,15 +25095,23 @@ unsafe impl ::windows::runtime::Abi for SCRUB_DATA_INPUT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SCRUB_DATA_INPUT_FLAG_IGNORE_REDUNDANCY: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SCRUB_DATA_INPUT_FLAG_OPLOCK_NOT_ACQUIRED: u32 = 64u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SCRUB_DATA_INPUT_FLAG_RESUME: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SCRUB_DATA_INPUT_FLAG_SCRUB_BY_OBJECT_ID: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SCRUB_DATA_INPUT_FLAG_SKIP_DATA: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SCRUB_DATA_INPUT_FLAG_SKIP_IN_SYNC: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SCRUB_DATA_INPUT_FLAG_SKIP_NON_INTEGRITY_DATA: u32 = 4u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct SCRUB_DATA_OUTPUT {
     pub Size: u32,
     pub Flags: u32,
@@ -21792,12 +25207,17 @@ unsafe impl ::windows::runtime::Abi for SCRUB_DATA_OUTPUT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SCRUB_DATA_OUTPUT_FLAG_INCOMPLETE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SCRUB_DATA_OUTPUT_FLAG_NON_USER_DATA_RANGE: u32 = 65536u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SCRUB_DATA_OUTPUT_FLAG_PARITY_EXTENT_DATA_RETURNED: u32 = 131072u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SCRUB_DATA_OUTPUT_FLAG_RESUME_CONTEXT_LENGTH_SPECIFIED: u32 = 262144u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct SCRUB_PARITY_EXTENT {
     pub Offset: i64,
     pub Length: u64,
@@ -21825,6 +25245,7 @@ unsafe impl ::windows::runtime::Abi for SCRUB_PARITY_EXTENT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct SCRUB_PARITY_EXTENT_DATA {
     pub Size: u16,
     pub Flags: u16,
@@ -21853,6 +25274,7 @@ unsafe impl ::windows::runtime::Abi for SCRUB_PARITY_EXTENT_DATA {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SECTION_FLAGS(pub u32);
@@ -21900,58 +25322,109 @@ impl ::std::ops::Not for SECTION_FLAGS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_ANONYMOUS_LOGON_RID: i32 = 7i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_APPPOOL_ID_BASE_RID: i32 = 82i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_APPPOOL_ID_RID_COUNT: i32 = 6i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_APP_PACKAGE_BASE_RID: i32 = 2i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_APP_PACKAGE_RID_COUNT: i32 = 8i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_AUTHENTICATED_USER_RID: i32 = 11i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_AUTHENTICATION_AUTHORITY_ASSERTED_RID: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_AUTHENTICATION_AUTHORITY_RID_COUNT: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_AUTHENTICATION_FRESH_KEY_AUTH_RID: i32 = 3i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_AUTHENTICATION_KEY_PROPERTY_ATTESTATION_RID: i32 = 6i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_AUTHENTICATION_KEY_PROPERTY_MFA_RID: i32 = 5i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_AUTHENTICATION_KEY_TRUST_RID: i32 = 4i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_AUTHENTICATION_SERVICE_ASSERTED_RID: i32 = 2i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_BATCH_RID: i32 = 3i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_BUILTIN_APP_PACKAGE_RID_COUNT: i32 = 2i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_BUILTIN_CAPABILITY_RID_COUNT: i32 = 2i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_BUILTIN_DOMAIN_RID: i32 = 32i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_BUILTIN_PACKAGE_ANY_PACKAGE: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_BUILTIN_PACKAGE_ANY_RESTRICTED_PACKAGE: i32 = 2i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_CAPABILITY_APPOINTMENTS: i32 = 11i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_CAPABILITY_APP_RID: u64 = 1024u64;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_CAPABILITY_BASE_RID: i32 = 3i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_CAPABILITY_CONTACTS: i32 = 12i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_CAPABILITY_DOCUMENTS_LIBRARY: i32 = 7i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_CAPABILITY_ENTERPRISE_AUTHENTICATION: i32 = 8i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_CAPABILITY_INTERNET_CLIENT: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_CAPABILITY_INTERNET_CLIENT_SERVER: i32 = 2i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_CAPABILITY_INTERNET_EXPLORER: i32 = 4096i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_CAPABILITY_MUSIC_LIBRARY: i32 = 6i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_CAPABILITY_PICTURES_LIBRARY: i32 = 4i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_CAPABILITY_PRIVATE_NETWORK_CLIENT_SERVER: i32 = 3i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_CAPABILITY_REMOVABLE_STORAGE: i32 = 10i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_CAPABILITY_RID_COUNT: i32 = 5i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_CAPABILITY_SHARED_USER_CERTIFICATES: i32 = 9i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_CAPABILITY_VIDEOS_LIBRARY: i32 = 5i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_CCG_ID_BASE_RID: i32 = 95i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_CHILD_PACKAGE_RID_COUNT: i32 = 12i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_CLOUD_INFRASTRUCTURE_SERVICES_ID_BASE_RID: i32 = 85i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_CLOUD_INFRASTRUCTURE_SERVICES_ID_RID_COUNT: i32 = 6i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_COM_ID_BASE_RID: i32 = 89i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_CREATOR_GROUP_RID: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_CREATOR_GROUP_SERVER_RID: i32 = 3i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_CREATOR_OWNER_RID: i32 = 0i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_CREATOR_OWNER_RIGHTS_RID: i32 = 4i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_CREATOR_OWNER_SERVER_RID: i32 = 2i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_CRED_TYPE_BASE_RID: i32 = 65i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_CRED_TYPE_RID_COUNT: i32 = 2i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_CRED_TYPE_THIS_ORG_CERT_RID: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_DASHOST_ID_BASE_RID: i32 = 92i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_DASHOST_ID_RID_COUNT: i32 = 6i32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct SECURITY_DESCRIPTOR_RELATIVE {
     pub Revision: u8,
     pub Sbz1: u8,
@@ -21982,44 +25455,81 @@ unsafe impl ::windows::runtime::Abi for SECURITY_DESCRIPTOR_RELATIVE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_DESCRIPTOR_REVISION: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_DESCRIPTOR_REVISION1: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_DIALUP_RID: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_ENTERPRISE_CONTROLLERS_RID: i32 = 9i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_ENTERPRISE_READONLY_CONTROLLERS_RID: i32 = 22i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_INSTALLER_CAPABILITY_RID_COUNT: u32 = 10u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_INSTALLER_GROUP_CAPABILITY_BASE: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_INSTALLER_GROUP_CAPABILITY_RID_COUNT: u32 = 9u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_INTERACTIVE_RID: i32 = 4i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_IUSER_RID: i32 = 17i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_LOCAL_ACCOUNT_AND_ADMIN_RID: i32 = 114i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_LOCAL_ACCOUNT_RID: i32 = 113i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_LOCAL_LOGON_RID: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_LOCAL_RID: i32 = 0i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_LOCAL_SERVICE_RID: i32 = 19i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_LOCAL_SYSTEM_RID: i32 = 18i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_LOGON_IDS_RID: i32 = 5i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_LOGON_IDS_RID_COUNT: i32 = 3i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_MANDATORY_HIGH_RID: i32 = 12288i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_MANDATORY_LOW_RID: i32 = 4096i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_MANDATORY_MAXIMUM_USER_RID: i32 = 16384i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_MANDATORY_MEDIUM_PLUS_RID: u32 = 8448u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_MANDATORY_MEDIUM_RID: i32 = 8192i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_MANDATORY_PROTECTED_PROCESS_RID: i32 = 20480i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_MANDATORY_SYSTEM_RID: i32 = 16384i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_MANDATORY_UNTRUSTED_RID: i32 = 0i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_MAX_ALWAYS_FILTERED: i32 = 999i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_MAX_BASE_RID: i32 = 111i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_MIN_BASE_RID: i32 = 80i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_MIN_NEVER_FILTERED: i32 = 1000i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_NETWORK_RID: i32 = 2i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_NETWORK_SERVICE_RID: i32 = 20i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_NFS_ID_BASE_RID: i32 = 88i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_NT_NON_UNIQUE: i32 = 21i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_NT_NON_UNIQUE_SUB_AUTH_COUNT: i32 = 3i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_NULL_RID: i32 = 0i32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct SECURITY_OBJECT_AI_PARAMS {
     pub Size: u32,
     pub ConstraintMask: u32,
@@ -22045,64 +25555,120 @@ unsafe impl ::windows::runtime::Abi for SECURITY_OBJECT_AI_PARAMS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_OTHER_ORGANIZATION_RID: i32 = 1000i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_PACKAGE_BASE_RID: i32 = 64i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_PACKAGE_DIGEST_RID: i32 = 21i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_PACKAGE_NTLM_RID: i32 = 10i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_PACKAGE_RID_COUNT: i32 = 2i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_PACKAGE_SCHANNEL_RID: i32 = 14i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_PARENT_PACKAGE_RID_COUNT: i32 = 8i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_PRINCIPAL_SELF_RID: i32 = 10i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_PROCESS_PROTECTION_LEVEL_ANTIMALWARE_RID: i32 = 1536i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_PROCESS_PROTECTION_LEVEL_APP_RID: i32 = 2048i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_PROCESS_PROTECTION_LEVEL_AUTHENTICODE_RID: i32 = 1024i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_PROCESS_PROTECTION_LEVEL_NONE_RID: i32 = 0i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_PROCESS_PROTECTION_LEVEL_WINDOWS_RID: i32 = 4096i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_PROCESS_PROTECTION_LEVEL_WINTCB_RID: i32 = 8192i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_PROCESS_PROTECTION_TYPE_FULL_RID: i32 = 1024i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_PROCESS_PROTECTION_TYPE_LITE_RID: i32 = 512i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_PROCESS_PROTECTION_TYPE_NONE_RID: i32 = 0i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_PROCESS_TRUST_AUTHORITY_RID_COUNT: i32 = 2i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_PROXY_RID: i32 = 8i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_RDV_GFX_BASE_RID: i32 = 91i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_REMOTE_LOGON_RID: i32 = 14i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_RESERVED_ID_BASE_RID: i32 = 81i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_RESTRICTED_CODE_RID: i32 = 12i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_SERVER_LOGON_RID: i32 = 9i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_SERVICE_ID_BASE_RID: i32 = 80i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_SERVICE_ID_RID_COUNT: i32 = 6i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_SERVICE_RID: i32 = 6i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_TASK_ID_BASE_RID: i32 = 87i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_TERMINAL_SERVER_RID: i32 = 13i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_THIS_ORGANIZATION_RID: i32 = 15i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_TRUSTED_INSTALLER_RID1: u32 = 956008885u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_TRUSTED_INSTALLER_RID2: u32 = 3418522649u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_TRUSTED_INSTALLER_RID3: u32 = 1831038044u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_TRUSTED_INSTALLER_RID4: u32 = 1853292631u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_TRUSTED_INSTALLER_RID5: u32 = 2271478464u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_UMFD_BASE_RID: i32 = 96i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_USERMANAGER_ID_BASE_RID: i32 = 93i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_USERMANAGER_ID_RID_COUNT: i32 = 6i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_USERMODEDRIVERHOST_ID_BASE_RID: i32 = 84i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_USERMODEDRIVERHOST_ID_RID_COUNT: i32 = 6i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_VIRTUALACCOUNT_ID_RID_COUNT: i32 = 6i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_VIRTUALSERVER_ID_BASE_RID: i32 = 83i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_VIRTUALSERVER_ID_RID_COUNT: i32 = 6i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_WINDOWSMOBILE_ID_BASE_RID: i32 = 112i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_WINDOW_MANAGER_BASE_RID: i32 = 90i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_WINRM_ID_BASE_RID: i32 = 94i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_WINRM_ID_RID_COUNT: i32 = 6i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_WMIHOST_ID_BASE_RID: i32 = 86i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_WMIHOST_ID_RID_COUNT: i32 = 6i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_WORLD_RID: i32 = 0i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SECURITY_WRITE_RESTRICTED_CODE_RID: i32 = 33i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SEC_HUGE_PAGES: u32 = 131072u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SEF_AI_USE_EXTRA_PARAMS: u32 = 2048u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SEF_FORCE_USER_MODE: u32 = 8192u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SEMAPHORE_MODIFY_STATE: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub struct SERVERSILO_BASIC_INFORMATION {
     pub ServiceSessionId: u32,
     pub State: SERVERSILO_STATE,
@@ -22145,6 +25711,7 @@ unsafe impl ::windows::runtime::Abi for SERVERSILO_BASIC_INFORMATION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SERVERSILO_STATE(pub i32);
@@ -22162,15 +25729,22 @@ unsafe impl ::windows::runtime::Abi for SERVERSILO_STATE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SERVICE_INTERACTIVE_PROCESS: u32 = 256u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SERVICE_PKG_SERVICE: u32 = 512u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SERVICE_USERSERVICE_INSTANCE: u32 = 128u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SERVICE_USER_SERVICE: u32 = 64u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SESSION_MODIFY_ACCESS: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SESSION_QUERY_ACCESS: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Power")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_Power`*"]
 pub struct SET_POWER_SETTING_VALUE {
     pub Version: u32,
     pub Guid: ::windows::runtime::GUID,
@@ -22205,11 +25779,14 @@ unsafe impl ::windows::runtime::Abi for SET_POWER_SETTING_VALUE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SE_ACCESS_CHECK_FLAG_NO_LEARNING_MODE_LOGGING: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SE_ACCESS_CHECK_VALID_FLAGS: u32 = 8u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_Security`*"]
 pub struct SE_ACCESS_REPLY {
     pub Size: u32,
     pub ResultListCount: u32,
@@ -22248,6 +25825,7 @@ unsafe impl ::windows::runtime::Abi for SE_ACCESS_REPLY {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_Security`*"]
 pub struct SE_ACCESS_REQUEST {
     pub Size: u32,
     pub SeSecurityDescriptor: *mut SE_SECURITY_DESCRIPTOR,
@@ -22294,21 +25872,37 @@ unsafe impl ::windows::runtime::Abi for SE_ACCESS_REQUEST {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SE_DACL_AUTO_INHERITED: u32 = 1024u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SE_DACL_AUTO_INHERIT_REQ: u32 = 256u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SE_DACL_DEFAULTED: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SE_DACL_PRESENT: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SE_DACL_PROTECTED: u32 = 4096u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SE_GROUP_DEFAULTED: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SE_GROUP_ENABLED: i32 = 4i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SE_GROUP_ENABLED_BY_DEFAULT: i32 = 2i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SE_GROUP_INTEGRITY: i32 = 32i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SE_GROUP_INTEGRITY_ENABLED: i32 = 64i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SE_GROUP_LOGON_ID: i32 = -1073741824i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SE_GROUP_MANDATORY: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SE_GROUP_OWNER: i32 = 8i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SE_GROUP_RESOURCE: i32 = 536870912i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SE_GROUP_USE_FOR_DENY_ONLY: i32 = 16i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SE_IMAGE_SIGNATURE_TYPE(pub i32);
@@ -22332,6 +25926,7 @@ unsafe impl ::windows::runtime::Abi for SE_IMAGE_SIGNATURE_TYPE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_Security`*"]
 pub struct SE_IMPERSONATION_STATE {
     pub Token: *mut ::std::ffi::c_void,
     pub CopyOnOpen: super::super::Foundation::BOOLEAN,
@@ -22365,6 +25960,7 @@ unsafe impl ::windows::runtime::Abi for SE_IMPERSONATION_STATE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SE_LEARNING_MODE_DATA_TYPE(pub i32);
@@ -22380,17 +25976,26 @@ unsafe impl ::windows::runtime::Abi for SE_LEARNING_MODE_DATA_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SE_LEARNING_MODE_FLAG_PERMISSIVE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SE_OWNER_DEFAULTED: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SE_RM_CONTROL_VALID: u32 = 16384u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SE_SACL_AUTO_INHERITED: u32 = 2048u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SE_SACL_AUTO_INHERIT_REQ: u32 = 512u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SE_SACL_DEFAULTED: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SE_SACL_PRESENT: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SE_SACL_PROTECTED: u32 = 8192u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_Security`*"]
 pub struct SE_SECURITY_DESCRIPTOR {
     pub Size: u32,
     pub Flags: u32,
@@ -22423,14 +26028,20 @@ unsafe impl ::windows::runtime::Abi for SE_SECURITY_DESCRIPTOR {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SE_SECURITY_DESCRIPTOR_FLAG_NO_ACCESS_FILTER_ACE: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SE_SECURITY_DESCRIPTOR_FLAG_NO_LABEL_ACE: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SE_SECURITY_DESCRIPTOR_FLAG_NO_OWNER_ACE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SE_SECURITY_DESCRIPTOR_VALID_FLAGS: u32 = 7u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SE_SELF_RELATIVE: u32 = 32768u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Security`*"]
 pub union SE_SID {
     pub Sid: super::super::Security::SID,
     pub Buffer: [u8; 68],
@@ -22456,27 +26067,46 @@ unsafe impl ::windows::runtime::Abi for SE_SID {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SE_SIGNING_LEVEL_ANTIMALWARE: u32 = 7u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SE_SIGNING_LEVEL_AUTHENTICODE: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SE_SIGNING_LEVEL_CUSTOM_1: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SE_SIGNING_LEVEL_CUSTOM_2: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SE_SIGNING_LEVEL_CUSTOM_3: u32 = 7u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SE_SIGNING_LEVEL_CUSTOM_4: u32 = 9u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SE_SIGNING_LEVEL_CUSTOM_5: u32 = 10u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SE_SIGNING_LEVEL_CUSTOM_6: u32 = 15u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SE_SIGNING_LEVEL_CUSTOM_7: u32 = 13u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SE_SIGNING_LEVEL_DEVELOPER: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SE_SIGNING_LEVEL_DYNAMIC_CODEGEN: u32 = 11u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SE_SIGNING_LEVEL_ENTERPRISE: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SE_SIGNING_LEVEL_MICROSOFT: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SE_SIGNING_LEVEL_STORE: u32 = 6u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SE_SIGNING_LEVEL_UNCHECKED: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SE_SIGNING_LEVEL_UNSIGNED: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SE_SIGNING_LEVEL_WINDOWS: u32 = 12u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SE_SIGNING_LEVEL_WINDOWS_TCB: u32 = 14u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_Security`*"]
 pub struct SE_TOKEN_USER {
     pub Anonymous1: SE_TOKEN_USER_0,
     pub Anonymous2: SE_TOKEN_USER_1,
@@ -22505,6 +26135,7 @@ unsafe impl ::windows::runtime::Abi for SE_TOKEN_USER {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_Security`*"]
 pub union SE_TOKEN_USER_0 {
     pub TokenUser: super::super::Security::TOKEN_USER,
     pub User: super::super::Security::SID_AND_ATTRIBUTES,
@@ -22533,6 +26164,7 @@ unsafe impl ::windows::runtime::Abi for SE_TOKEN_USER_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Security`*"]
 pub union SE_TOKEN_USER_1 {
     pub Sid: super::super::Security::SID,
     pub Buffer: [u8; 68],
@@ -22558,9 +26190,11 @@ unsafe impl ::windows::runtime::Abi for SE_TOKEN_USER_1 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SGI_EXTRASPACE: u32 = 0u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct SHARED_VIRTUAL_DISK_SUPPORT {
     pub SharedVirtualDiskSupport: SharedVirtualDiskSupportType,
     pub HandleState: SharedVirtualDiskHandleState,
@@ -22588,6 +26222,7 @@ unsafe impl ::windows::runtime::Abi for SHARED_VIRTUAL_DISK_SUPPORT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct SHUFFLE_FILE_DATA {
     pub StartingOffset: i64,
     pub Length: i64,
@@ -22614,14 +26249,20 @@ unsafe impl ::windows::runtime::Abi for SHUFFLE_FILE_DATA {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SHUFFLE_FILE_FLAG_SKIP_INITIALIZING_NEW_CLUSTERS: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SID_HASH_SIZE: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SID_MAX_SUB_AUTHORITIES: u32 = 15u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SID_RECOMMENDED_SUB_AUTHORITIES: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SID_REVISION: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub struct SILOOBJECT_BASIC_INFORMATION {
     pub SiloId: u32,
     pub SiloParentId: u32,
@@ -22656,306 +26297,604 @@ unsafe impl ::windows::runtime::Abi for SILOOBJECT_BASIC_INFORMATION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SIZEOF_RFPO_DATA: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SIZE_OF_80387_REGISTERS: u32 = 80u32;
 pub type SORTCOMP = unsafe extern "system" fn(pv1: *const ::std::ffi::c_void, pv2: *const ::std::ffi::c_void) -> i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SORT_CHINESE_BIG5: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SORT_CHINESE_BOPOMOFO: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SORT_CHINESE_PRC: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SORT_CHINESE_PRCP: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SORT_CHINESE_RADICALSTROKE: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SORT_CHINESE_UNICODE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SORT_DEFAULT: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SORT_GEORGIAN_MODERN: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SORT_GEORGIAN_TRADITIONAL: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SORT_GERMAN_PHONE_BOOK: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SORT_HUNGARIAN_DEFAULT: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SORT_HUNGARIAN_TECHNICAL: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SORT_INVARIANT_MATH: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SORT_JAPANESE_RADICALSTROKE: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SORT_JAPANESE_UNICODE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SORT_JAPANESE_XJIS: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SORT_KOREAN_KSC: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SORT_KOREAN_UNICODE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SO_BREAK_EXTRA: u32 = 4096u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SO_CHARACTER_EXTRA: u32 = 2048u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SO_CHAR_INC_EQUAL_BM_BASE: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SO_DO_NOT_SUBSTITUTE_DEVICE_FONT: u32 = 128u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SO_DXDY: u32 = 1024u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SO_ESC_NOT_ORIENT: u32 = 512u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SO_FLAG_DEFAULT_PLACEMENT: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SO_GLYPHINDEX_TEXTOUT: u32 = 256u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SO_HORIZONTAL: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SO_MAXEXT_EQUAL_BM_SIDE: u32 = 64u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SO_REVERSED: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SO_VERTICAL: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SO_ZERO_BEARINGS: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SPS_ACCEPT_EXCLUDE: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SPS_ACCEPT_NOEXCLUDE: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SPS_ACCEPT_SYNCHRONOUS: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SPS_ALPHA: i32 = 16i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SPS_ANIMATESTART: i32 = 4i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SPS_ANIMATEUPDATE: i32 = 8i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SPS_ASYNCCHANGE: i32 = 2i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SPS_CHANGE: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SPS_DECLINE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SPS_ERROR: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SPS_FLAGSMASK: i32 = 255i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SPS_FREQMASK: i32 = 1044480i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SPS_LENGTHMASK: i32 = 3840i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SPS_RESERVED: i32 = 32i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SPS_RESERVED1: i32 = 64i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SS_FREE: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SS_RESTORE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SS_SAVE: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const STYPE_BITMAP: i32 = 0i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const STYPE_DEVBITMAP: i32 = 3i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_AFRIKAANS_SOUTH_AFRICA: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_ALBANIAN_ALBANIA: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_ALSATIAN_FRANCE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_AMHARIC_ETHIOPIA: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_ARABIC_ALGERIA: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_ARABIC_BAHRAIN: u32 = 15u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_ARABIC_EGYPT: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_ARABIC_IRAQ: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_ARABIC_JORDAN: u32 = 11u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_ARABIC_KUWAIT: u32 = 13u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_ARABIC_LEBANON: u32 = 12u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_ARABIC_LIBYA: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_ARABIC_MOROCCO: u32 = 6u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_ARABIC_OMAN: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_ARABIC_QATAR: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_ARABIC_SAUDI_ARABIA: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_ARABIC_SYRIA: u32 = 10u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_ARABIC_TUNISIA: u32 = 7u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_ARABIC_UAE: u32 = 14u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_ARABIC_YEMEN: u32 = 9u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_ARMENIAN_ARMENIA: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_ASSAMESE_INDIA: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_AZERBAIJANI_AZERBAIJAN_CYRILLIC: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_AZERBAIJANI_AZERBAIJAN_LATIN: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_AZERI_CYRILLIC: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_AZERI_LATIN: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_BANGLA_BANGLADESH: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_BANGLA_INDIA: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_BASHKIR_RUSSIA: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_BASQUE_BASQUE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_BELARUSIAN_BELARUS: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_BENGALI_BANGLADESH: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_BENGALI_INDIA: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_BOSNIAN_BOSNIA_HERZEGOVINA_CYRILLIC: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_BOSNIAN_BOSNIA_HERZEGOVINA_LATIN: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_BRETON_FRANCE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_BULGARIAN_BULGARIA: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_CATALAN_CATALAN: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_CENTRAL_KURDISH_IRAQ: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_CHEROKEE_CHEROKEE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_CHINESE_HONGKONG: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_CHINESE_MACAU: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_CHINESE_SIMPLIFIED: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_CHINESE_SINGAPORE: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_CHINESE_TRADITIONAL: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_CORSICAN_FRANCE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_CROATIAN_BOSNIA_HERZEGOVINA_LATIN: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_CROATIAN_CROATIA: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_CUSTOM_DEFAULT: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_CUSTOM_UNSPECIFIED: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_CZECH_CZECH_REPUBLIC: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_DANISH_DENMARK: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_DARI_AFGHANISTAN: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_DEFAULT: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_DIVEHI_MALDIVES: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_DUTCH: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_DUTCH_BELGIAN: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_ENGLISH_AUS: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_ENGLISH_BELIZE: u32 = 10u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_ENGLISH_CAN: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_ENGLISH_CARIBBEAN: u32 = 9u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_ENGLISH_EIRE: u32 = 6u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_ENGLISH_INDIA: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_ENGLISH_JAMAICA: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_ENGLISH_MALAYSIA: u32 = 17u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_ENGLISH_NZ: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_ENGLISH_PHILIPPINES: u32 = 13u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_ENGLISH_SINGAPORE: u32 = 18u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_ENGLISH_SOUTH_AFRICA: u32 = 7u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_ENGLISH_TRINIDAD: u32 = 11u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_ENGLISH_UK: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_ENGLISH_US: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_ENGLISH_ZIMBABWE: u32 = 12u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_ESTONIAN_ESTONIA: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_FAEROESE_FAROE_ISLANDS: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_FILIPINO_PHILIPPINES: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_FINNISH_FINLAND: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_FRENCH: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_FRENCH_BELGIAN: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_FRENCH_CANADIAN: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_FRENCH_LUXEMBOURG: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_FRENCH_MONACO: u32 = 6u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_FRENCH_SWISS: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_FRISIAN_NETHERLANDS: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_FULAH_SENEGAL: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_GALICIAN_GALICIAN: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_GEORGIAN_GEORGIA: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_GERMAN: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_GERMAN_AUSTRIAN: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_GERMAN_LIECHTENSTEIN: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_GERMAN_LUXEMBOURG: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_GERMAN_SWISS: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_GREEK_GREECE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_GREENLANDIC_GREENLAND: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_GUJARATI_INDIA: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_HAUSA_NIGERIA_LATIN: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_HAWAIIAN_US: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_HEBREW_ISRAEL: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_HINDI_INDIA: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_HUNGARIAN_HUNGARY: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_ICELANDIC_ICELAND: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_IGBO_NIGERIA: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_INDONESIAN_INDONESIA: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_INUKTITUT_CANADA: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_INUKTITUT_CANADA_LATIN: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_IRISH_IRELAND: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_ITALIAN: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_ITALIAN_SWISS: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_JAPANESE_JAPAN: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_KANNADA_INDIA: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_KASHMIRI_INDIA: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_KASHMIRI_SASIA: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_KAZAK_KAZAKHSTAN: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_KHMER_CAMBODIA: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_KICHE_GUATEMALA: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_KINYARWANDA_RWANDA: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_KONKANI_INDIA: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_KOREAN: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_KYRGYZ_KYRGYZSTAN: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_LAO_LAO: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_LATVIAN_LATVIA: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_LITHUANIAN: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_LOWER_SORBIAN_GERMANY: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_LUXEMBOURGISH_LUXEMBOURG: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_MACEDONIAN_MACEDONIA: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_MALAYALAM_INDIA: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_MALAY_BRUNEI_DARUSSALAM: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_MALAY_MALAYSIA: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_MALTESE_MALTA: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_MAORI_NEW_ZEALAND: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_MAPUDUNGUN_CHILE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_MARATHI_INDIA: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_MOHAWK_MOHAWK: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_MONGOLIAN_CYRILLIC_MONGOLIA: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_MONGOLIAN_PRC: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_NEPALI_INDIA: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_NEPALI_NEPAL: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_NEUTRAL: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_NORWEGIAN_BOKMAL: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_NORWEGIAN_NYNORSK: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_OCCITAN_FRANCE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_ODIA_INDIA: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_ORIYA_INDIA: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_PASHTO_AFGHANISTAN: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_PERSIAN_IRAN: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_POLISH_POLAND: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_PORTUGUESE: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_PORTUGUESE_BRAZILIAN: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_PULAR_SENEGAL: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_PUNJABI_INDIA: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_PUNJABI_PAKISTAN: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_QUECHUA_BOLIVIA: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_QUECHUA_ECUADOR: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_QUECHUA_PERU: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_ROMANIAN_ROMANIA: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_ROMANSH_SWITZERLAND: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_RUSSIAN_RUSSIA: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_SAKHA_RUSSIA: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_SAMI_INARI_FINLAND: u32 = 9u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_SAMI_LULE_NORWAY: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_SAMI_LULE_SWEDEN: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_SAMI_NORTHERN_FINLAND: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_SAMI_NORTHERN_NORWAY: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_SAMI_NORTHERN_SWEDEN: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_SAMI_SKOLT_FINLAND: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_SAMI_SOUTHERN_NORWAY: u32 = 6u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_SAMI_SOUTHERN_SWEDEN: u32 = 7u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_SANSKRIT_INDIA: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_SCOTTISH_GAELIC: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_SERBIAN_BOSNIA_HERZEGOVINA_CYRILLIC: u32 = 7u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_SERBIAN_BOSNIA_HERZEGOVINA_LATIN: u32 = 6u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_SERBIAN_CROATIA: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_SERBIAN_CYRILLIC: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_SERBIAN_LATIN: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_SERBIAN_MONTENEGRO_CYRILLIC: u32 = 12u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_SERBIAN_MONTENEGRO_LATIN: u32 = 11u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_SERBIAN_SERBIA_CYRILLIC: u32 = 10u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_SERBIAN_SERBIA_LATIN: u32 = 9u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_SINDHI_AFGHANISTAN: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_SINDHI_INDIA: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_SINDHI_PAKISTAN: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_SINHALESE_SRI_LANKA: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_SLOVAK_SLOVAKIA: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_SLOVENIAN_SLOVENIA: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_SOTHO_NORTHERN_SOUTH_AFRICA: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_SPANISH: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_SPANISH_ARGENTINA: u32 = 11u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_SPANISH_BOLIVIA: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_SPANISH_CHILE: u32 = 13u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_SPANISH_COLOMBIA: u32 = 9u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_SPANISH_COSTA_RICA: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_SPANISH_DOMINICAN_REPUBLIC: u32 = 7u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_SPANISH_ECUADOR: u32 = 12u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_SPANISH_EL_SALVADOR: u32 = 17u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_SPANISH_GUATEMALA: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_SPANISH_HONDURAS: u32 = 18u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_SPANISH_MEXICAN: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_SPANISH_MODERN: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_SPANISH_NICARAGUA: u32 = 19u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_SPANISH_PANAMA: u32 = 6u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_SPANISH_PARAGUAY: u32 = 15u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_SPANISH_PERU: u32 = 10u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_SPANISH_PUERTO_RICO: u32 = 20u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_SPANISH_URUGUAY: u32 = 14u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_SPANISH_US: u32 = 21u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_SPANISH_VENEZUELA: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_SWAHILI_KENYA: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_SWEDISH: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_SWEDISH_FINLAND: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_SYRIAC_SYRIA: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_SYS_DEFAULT: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_TAJIK_TAJIKISTAN: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_TAMAZIGHT_ALGERIA_LATIN: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_TAMAZIGHT_MOROCCO_TIFINAGH: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_TAMIL_INDIA: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_TAMIL_SRI_LANKA: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_TATAR_RUSSIA: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_TELUGU_INDIA: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_THAI_THAILAND: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_TIBETAN_PRC: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_TIGRIGNA_ERITREA: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_TIGRINYA_ERITREA: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_TIGRINYA_ETHIOPIA: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_TSWANA_BOTSWANA: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_TSWANA_SOUTH_AFRICA: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_TURKISH_TURKEY: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_TURKMEN_TURKMENISTAN: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_UIGHUR_PRC: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_UI_CUSTOM_DEFAULT: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_UKRAINIAN_UKRAINE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_UPPER_SORBIAN_GERMANY: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_URDU_INDIA: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_URDU_PAKISTAN: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_UZBEK_CYRILLIC: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_UZBEK_LATIN: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_VALENCIAN_VALENCIA: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_VIETNAMESE_VIETNAM: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_WELSH_UNITED_KINGDOM: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_WOLOF_SENEGAL: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_XHOSA_SOUTH_AFRICA: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_YAKUT_RUSSIA: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_YI_PRC: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_YORUBA_NIGERIA: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SUBLANG_ZULU_SOUTH_AFRICA: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct SUPPORTED_OS_INFO {
     pub MajorVersion: u16,
     pub MinorVersion: u16,
@@ -22984,6 +26923,7 @@ unsafe impl ::windows::runtime::Abi for SUPPORTED_OS_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Security`*"]
 pub struct SYSTEM_ACCESS_FILTER_ACE {
     pub Header: super::super::Security::ACE_HEADER,
     pub Mask: u32,
@@ -23016,29 +26956,50 @@ unsafe impl ::windows::runtime::Abi for SYSTEM_ACCESS_FILTER_ACE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SYSTEM_ACCESS_FILTER_ACE_TYPE: u32 = 21u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SYSTEM_ACCESS_FILTER_NOCONSTRAINT_MASK: u32 = 4294967295u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SYSTEM_ACCESS_FILTER_VALID_MASK: u32 = 16777215u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SYSTEM_ALARM_ACE_TYPE: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SYSTEM_ALARM_CALLBACK_ACE_TYPE: u32 = 14u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SYSTEM_ALARM_CALLBACK_OBJECT_ACE_TYPE: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SYSTEM_ALARM_OBJECT_ACE_TYPE: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SYSTEM_AUDIT_ACE_TYPE: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SYSTEM_AUDIT_CALLBACK_ACE_TYPE: u32 = 13u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SYSTEM_AUDIT_CALLBACK_OBJECT_ACE_TYPE: u32 = 15u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SYSTEM_AUDIT_OBJECT_ACE_TYPE: u32 = 7u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SYSTEM_CACHE_ALIGNMENT_SIZE: u32 = 64u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SYSTEM_CPU_SET_INFORMATION_ALLOCATED: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SYSTEM_CPU_SET_INFORMATION_ALLOCATED_TO_TARGET_PROCESS: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SYSTEM_CPU_SET_INFORMATION_PARKED: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SYSTEM_CPU_SET_INFORMATION_REALTIME: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SYSTEM_MANDATORY_LABEL_ACE_TYPE: u32 = 17u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SYSTEM_MANDATORY_LABEL_NO_EXECUTE_UP: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SYSTEM_MANDATORY_LABEL_NO_READ_UP: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SYSTEM_MANDATORY_LABEL_NO_WRITE_UP: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Security`*"]
 pub struct SYSTEM_PROCESS_TRUST_LABEL_ACE {
     pub Header: super::super::Security::ACE_HEADER,
     pub Mask: u32,
@@ -23071,11 +27032,17 @@ unsafe impl ::windows::runtime::Abi for SYSTEM_PROCESS_TRUST_LABEL_ACE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SYSTEM_PROCESS_TRUST_LABEL_ACE_TYPE: u32 = 20u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SYSTEM_PROCESS_TRUST_LABEL_VALID_MASK: u32 = 16777215u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SYSTEM_PROCESS_TRUST_NOCONSTRAINT_MASK: u32 = 4294967295u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SYSTEM_RESOURCE_ATTRIBUTE_ACE_TYPE: u32 = 18u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SYSTEM_SCOPED_POLICY_ID_ACE_TYPE: u32 = 19u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SharedVirtualDiskHandleState(pub i32);
@@ -23091,6 +27058,7 @@ unsafe impl ::windows::runtime::Abi for SharedVirtualDiskHandleState {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SharedVirtualDiskSupportType(pub i32);
@@ -23107,9 +27075,11 @@ unsafe impl ::windows::runtime::Abi for SharedVirtualDiskSupportType {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TAPE_CHECK_FOR_DRIVE_PROBLEM: i32 = 2i32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct TAPE_CREATE_PARTITION {
     pub Method: u32,
     pub Count: u32,
@@ -23136,24 +27106,43 @@ unsafe impl ::windows::runtime::Abi for TAPE_CREATE_PARTITION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TAPE_DRIVE_CLEAN_REQUESTS: u32 = 33554432u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TAPE_DRIVE_COMPRESSION: u32 = 131072u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TAPE_DRIVE_ECC: u32 = 65536u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TAPE_DRIVE_EJECT_MEDIA: u32 = 16777216u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TAPE_DRIVE_EOT_WZ_SIZE: u32 = 8192u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TAPE_DRIVE_ERASE_BOP_ONLY: u32 = 64u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TAPE_DRIVE_ERASE_IMMEDIATE: u32 = 128u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TAPE_DRIVE_ERASE_LONG: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TAPE_DRIVE_ERASE_SHORT: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TAPE_DRIVE_FIXED: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TAPE_DRIVE_FIXED_BLOCK: u32 = 1024u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TAPE_DRIVE_FORMAT: u32 = 2684354560u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TAPE_DRIVE_FORMAT_IMMEDIATE: u32 = 3221225472u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TAPE_DRIVE_GET_ABSOLUTE_BLK: u32 = 1048576u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TAPE_DRIVE_GET_LOGICAL_BLK: u32 = 2097152u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TAPE_DRIVE_HIGH_FEATURES: u32 = 2147483648u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TAPE_DRIVE_INITIATOR: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TAPE_DRIVE_PADDING: u32 = 262144u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TAPE_DRIVE_PROBLEM_TYPE(pub i32);
@@ -23180,18 +27169,28 @@ unsafe impl ::windows::runtime::Abi for TAPE_DRIVE_PROBLEM_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TAPE_DRIVE_REPORT_SMKS: u32 = 524288u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TAPE_DRIVE_RESERVED_BIT: u32 = 2147483648u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TAPE_DRIVE_SELECT: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TAPE_DRIVE_SET_CMP_BOP_ONLY: u32 = 67108864u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TAPE_DRIVE_SET_EOT_WZ_SIZE: u32 = 4194304u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TAPE_DRIVE_TAPE_CAPACITY: u32 = 256u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TAPE_DRIVE_TAPE_REMAINING: u32 = 512u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TAPE_DRIVE_VARIABLE_BLOCK: u32 = 2048u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TAPE_DRIVE_WRITE_PROTECT: u32 = 4096u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_Storage_FileSystem`*"]
 pub struct TAPE_ERASE {
     pub Type: super::super::Storage::FileSystem::ERASE_TAPE_TYPE,
     pub Immediate: super::super::Foundation::BOOLEAN,
@@ -23226,6 +27225,7 @@ unsafe impl ::windows::runtime::Abi for TAPE_ERASE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub struct TAPE_GET_DRIVE_PARAMETERS {
     pub ECC: super::super::Foundation::BOOLEAN,
     pub Compression: super::super::Foundation::BOOLEAN,
@@ -23288,6 +27288,7 @@ unsafe impl ::windows::runtime::Abi for TAPE_GET_DRIVE_PARAMETERS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(pub u32);
@@ -23360,6 +27361,7 @@ impl ::std::ops::Not for TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub struct TAPE_GET_MEDIA_PARAMETERS {
     pub Capacity: i64,
     pub Remaining: i64,
@@ -23397,6 +27399,7 @@ unsafe impl ::windows::runtime::Abi for TAPE_GET_MEDIA_PARAMETERS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Storage_FileSystem`*"]
 pub struct TAPE_GET_POSITION {
     pub Type: super::super::Storage::FileSystem::TAPE_POSITION_TYPE,
     pub Partition: u32,
@@ -23432,6 +27435,7 @@ unsafe impl ::windows::runtime::Abi for TAPE_GET_POSITION {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_Storage_FileSystem`*"]
 pub struct TAPE_PREPARE {
     pub Operation: super::super::Storage::FileSystem::PREPARE_TAPE_OPERATION,
     pub Immediate: super::super::Foundation::BOOLEAN,
@@ -23463,15 +27467,22 @@ unsafe impl ::windows::runtime::Abi for TAPE_PREPARE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TAPE_PSEUDO_LOGICAL_BLOCK: i32 = 3i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TAPE_PSEUDO_LOGICAL_POSITION: i32 = 2i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TAPE_QUERY_DEVICE_ERROR_DATA: i32 = 4i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TAPE_QUERY_DRIVE_PARAMETERS: i32 = 0i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TAPE_QUERY_IO_ERROR_DATA: i32 = 3i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TAPE_QUERY_MEDIA_CAPACITY: i32 = 1i32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub struct TAPE_SET_DRIVE_PARAMETERS {
     pub ECC: super::super::Foundation::BOOLEAN,
     pub Compression: super::super::Foundation::BOOLEAN,
@@ -23508,6 +27519,7 @@ unsafe impl ::windows::runtime::Abi for TAPE_SET_DRIVE_PARAMETERS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct TAPE_SET_MEDIA_PARAMETERS {
     pub BlockSize: u32,
 }
@@ -23535,6 +27547,7 @@ unsafe impl ::windows::runtime::Abi for TAPE_SET_MEDIA_PARAMETERS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_Storage_FileSystem`*"]
 pub struct TAPE_SET_POSITION {
     pub Method: super::super::Storage::FileSystem::TAPE_POSITION_METHOD,
     pub Partition: u32,
@@ -23570,6 +27583,7 @@ unsafe impl ::windows::runtime::Abi for TAPE_SET_POSITION {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct TAPE_WMI_OPERATIONS {
     pub Method: u32,
     pub DataBufferSize: u32,
@@ -23599,6 +27613,7 @@ unsafe impl ::windows::runtime::Abi for TAPE_WMI_OPERATIONS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_Storage_FileSystem`*"]
 pub struct TAPE_WRITE_MARKS {
     pub Type: super::super::Storage::FileSystem::TAPEMARK_TYPE,
     pub Count: u32,
@@ -23631,32 +27646,53 @@ unsafe impl ::windows::runtime::Abi for TAPE_WRITE_MARKS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TC_PATHOBJ: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TC_RECTANGLES: u32 = 0u32;
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
 pub struct TEB(pub u8);
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const THREAD_BASE_PRIORITY_IDLE: i32 = -15i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const THREAD_BASE_PRIORITY_LOWRT: u32 = 15u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const THREAD_BASE_PRIORITY_MAX: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const THREAD_BASE_PRIORITY_MIN: i32 = -2i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const THREAD_DYNAMIC_CODE_ALLOW: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const THREAD_PROFILING_FLAG_DISPATCH: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TIMER_MODIFY_STATE: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TIMER_QUERY_STATE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TIME_CALLBACK_EVENT_PULSE: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TIME_CALLBACK_EVENT_SET: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TIME_CALLBACK_FUNCTION: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TIME_KILL_SYNCHRONOUS: u32 = 256u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TIME_ONESHOT: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TIME_PERIODIC: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TIME_ZONE_ID_DAYLIGHT: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TIME_ZONE_ID_STANDARD: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TIME_ZONE_ID_UNKNOWN: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TLS_MINIMUM_AVAILABLE: u32 = 64u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub struct TOKEN_BNO_ISOLATION_INFORMATION {
     pub IsolationPrefix: super::super::Foundation::PWSTR,
     pub IsolationEnabled: super::super::Foundation::BOOLEAN,
@@ -23691,6 +27727,7 @@ unsafe impl ::windows::runtime::Abi for TOKEN_BNO_ISOLATION_INFORMATION {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub struct TOKEN_SID_INFORMATION {
     pub Sid: super::super::Foundation::PSID,
 }
@@ -23721,6 +27758,7 @@ unsafe impl ::windows::runtime::Abi for TOKEN_SID_INFORMATION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TOKEN_SOURCE_LENGTH: u32 = 8u32;
 #[cfg(feature = "Win32_System_Threading")]
 impl ::std::clone::Clone for TP_CALLBACK_ENVIRON_V3 {
@@ -23730,6 +27768,7 @@ impl ::std::clone::Clone for TP_CALLBACK_ENVIRON_V3 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Threading")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_Threading`*"]
 pub struct TP_CALLBACK_ENVIRON_V3 {
     pub Version: u32,
     pub Pool: super::Threading::PTP_POOL,
@@ -23768,6 +27807,7 @@ unsafe impl ::windows::runtime::Abi for TP_CALLBACK_ENVIRON_V3 {
 pub struct TP_CALLBACK_ENVIRON_V3_0(pub u8);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union TP_CALLBACK_ENVIRON_V3_1 {
     pub Flags: u32,
     pub s: TP_CALLBACK_ENVIRON_V3_1_0,
@@ -23790,6 +27830,7 @@ unsafe impl ::windows::runtime::Abi for TP_CALLBACK_ENVIRON_V3_1 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct TP_CALLBACK_ENVIRON_V3_1_0 {
     pub _bitfield: u32,
 }
@@ -23817,6 +27858,7 @@ unsafe impl ::windows::runtime::Abi for TP_CALLBACK_ENVIRON_V3_1_0 {
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
 pub struct TP_CALLBACK_INSTANCE(pub u8);
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TP_CALLBACK_PRIORITY(pub i32);
@@ -23845,6 +27887,7 @@ pub struct TP_IO(pub u8);
 pub struct TP_POOL(pub u8);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct TP_POOL_STACK_INFORMATION {
     pub StackReserve: usize,
     pub StackCommit: usize,
@@ -23881,6 +27924,7 @@ pub struct TP_WAIT(pub u8);
 pub struct TP_WORK(pub u8);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct TRANSACTIONMANAGER_BASIC_INFORMATION {
     pub TmIdentity: ::windows::runtime::GUID,
     pub VirtualClock: i64,
@@ -23906,8 +27950,11 @@ unsafe impl ::windows::runtime::Abi for TRANSACTIONMANAGER_BASIC_INFORMATION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TRANSACTIONMANAGER_BIND_TRANSACTION: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TRANSACTIONMANAGER_CREATE_RM: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TRANSACTIONMANAGER_INFORMATION_CLASS(pub i32);
@@ -23928,6 +27975,7 @@ unsafe impl ::windows::runtime::Abi for TRANSACTIONMANAGER_INFORMATION_CLASS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct TRANSACTIONMANAGER_LOGPATH_INFORMATION {
     pub LogPathLength: u32,
     pub LogPath: [u16; 1],
@@ -23955,6 +28003,7 @@ unsafe impl ::windows::runtime::Abi for TRANSACTIONMANAGER_LOGPATH_INFORMATION {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct TRANSACTIONMANAGER_LOG_INFORMATION {
     pub LogIdentity: ::windows::runtime::GUID,
 }
@@ -23981,6 +28030,7 @@ unsafe impl ::windows::runtime::Abi for TRANSACTIONMANAGER_LOG_INFORMATION {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct TRANSACTIONMANAGER_OLDEST_INFORMATION {
     pub OldestTransactionGuid: ::windows::runtime::GUID,
 }
@@ -24005,10 +28055,13 @@ unsafe impl ::windows::runtime::Abi for TRANSACTIONMANAGER_OLDEST_INFORMATION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TRANSACTIONMANAGER_QUERY_INFORMATION: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TRANSACTIONMANAGER_RECOVER: u32 = 4u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct TRANSACTIONMANAGER_RECOVERY_INFORMATION {
     pub LastRecoveredLsn: u64,
 }
@@ -24033,10 +28086,13 @@ unsafe impl ::windows::runtime::Abi for TRANSACTIONMANAGER_RECOVERY_INFORMATION 
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TRANSACTIONMANAGER_RENAME: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TRANSACTIONMANAGER_SET_INFORMATION: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct TRANSACTION_BASIC_INFORMATION {
     pub TransactionId: ::windows::runtime::GUID,
     pub State: u32,
@@ -24066,6 +28122,7 @@ unsafe impl ::windows::runtime::Abi for TRANSACTION_BASIC_INFORMATION {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub struct TRANSACTION_BIND_INFORMATION {
     pub TmHandle: super::super::Foundation::HANDLE,
 }
@@ -24096,10 +28153,13 @@ unsafe impl ::windows::runtime::Abi for TRANSACTION_BIND_INFORMATION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TRANSACTION_COMMIT: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TRANSACTION_ENLIST: u32 = 4u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct TRANSACTION_ENLISTMENTS_INFORMATION {
     pub NumberOfEnlistments: u32,
     pub EnlistmentPair: [TRANSACTION_ENLISTMENT_PAIR; 1],
@@ -24127,6 +28187,7 @@ unsafe impl ::windows::runtime::Abi for TRANSACTION_ENLISTMENTS_INFORMATION {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct TRANSACTION_ENLISTMENT_PAIR {
     pub EnlistmentId: ::windows::runtime::GUID,
     pub ResourceManagerId: ::windows::runtime::GUID,
@@ -24152,6 +28213,7 @@ unsafe impl ::windows::runtime::Abi for TRANSACTION_ENLISTMENT_PAIR {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TRANSACTION_INFORMATION_CLASS(pub i32);
@@ -24172,6 +28234,7 @@ unsafe impl ::windows::runtime::Abi for TRANSACTION_INFORMATION_CLASS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct TRANSACTION_LIST_ENTRY {
     pub UOW: ::windows::runtime::GUID,
 }
@@ -24198,6 +28261,7 @@ unsafe impl ::windows::runtime::Abi for TRANSACTION_LIST_ENTRY {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct TRANSACTION_LIST_INFORMATION {
     pub NumberOfTransactions: u32,
     pub TransactionInformation: [TRANSACTION_LIST_ENTRY; 1],
@@ -24223,9 +28287,11 @@ unsafe impl ::windows::runtime::Abi for TRANSACTION_LIST_INFORMATION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TRANSACTION_PROPAGATE: u32 = 32u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct TRANSACTION_PROPERTIES_INFORMATION {
     pub IsolationLevel: u32,
     pub IsolationFlags: u32,
@@ -24262,10 +28328,15 @@ unsafe impl ::windows::runtime::Abi for TRANSACTION_PROPERTIES_INFORMATION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TRANSACTION_QUERY_INFORMATION: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TRANSACTION_RIGHT_RESERVED1: u32 = 64u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TRANSACTION_ROLLBACK: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TRANSACTION_SET_INFORMATION: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TRANSACTION_STATE(pub i32);
@@ -24283,6 +28354,7 @@ unsafe impl ::windows::runtime::Abi for TRANSACTION_STATE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct TRANSACTION_SUPERIOR_ENLISTMENT_INFORMATION {
     pub SuperiorEnlistmentPair: TRANSACTION_ENLISTMENT_PAIR,
 }
@@ -24307,17 +28379,27 @@ unsafe impl ::windows::runtime::Abi for TRANSACTION_SUPERIOR_ENLISTMENT_INFORMAT
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TREE_CONNECT_ATTRIBUTE_GLOBAL: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TREE_CONNECT_ATTRIBUTE_INTEGRITY: u32 = 32768u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TREE_CONNECT_ATTRIBUTE_PINNED: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TREE_CONNECT_ATTRIBUTE_PRIVACY: u32 = 16384u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TRUST_PROTECTED_FILTER_ACE_FLAG: u32 = 64u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TTO_METRICS_ONLY: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TTO_QUBICS: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const TTO_UNHINTED: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const UCSCHAR_INVALID_CHARACTER: u32 = 4294967295u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct UMS_CREATE_THREAD_ATTRIBUTES {
     pub UmsVersion: u32,
     pub UmsContext: *mut ::std::ffi::c_void,
@@ -24344,11 +28426,15 @@ unsafe impl ::windows::runtime::Abi for UMS_CREATE_THREAD_ATTRIBUTES {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const UNICODE_STRING_MAX_CHARS: u32 = 32767u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const UNIFIEDBUILDREVISION_MIN: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const UNWIND_CHAIN_LIMIT: u32 = 32u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct UNWIND_HISTORY_TABLE {
     pub Count: u32,
     pub LocalHint: u8,
@@ -24391,6 +28477,7 @@ unsafe impl ::windows::runtime::Abi for UNWIND_HISTORY_TABLE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct UNWIND_HISTORY_TABLE_ENTRY {
     pub ImageBase: usize,
     pub FunctionEntry: *mut IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY,
@@ -24416,8 +28503,11 @@ unsafe impl ::windows::runtime::Abi for UNWIND_HISTORY_TABLE_ENTRY {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const UNWIND_HISTORY_TABLE_SIZE: u32 = 12u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const UNW_FLAG_NO_EPILOGUE: u32 = 2147483648u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct USER_ACTIVITY_PRESENCE(pub i32);
@@ -24436,6 +28526,7 @@ unsafe impl ::windows::runtime::Abi for USER_ACTIVITY_PRESENCE {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn UnregisterDeviceNotification(handle: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -24449,54 +28540,98 @@ pub unsafe fn UnregisterDeviceNotification(handle: *const ::std::ffi::c_void) ->
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const VALID_INHERIT_FLAGS: u32 = 31u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const VBS_BASIC_PAGE_MEASURED_DATA: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const VBS_BASIC_PAGE_SYSTEM_CALL: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const VBS_BASIC_PAGE_THREAD_DESCRIPTOR: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const VBS_BASIC_PAGE_UNMEASURED_DATA: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const VBS_BASIC_PAGE_ZERO_FILL: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const VER_AND: u32 = 6u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const VER_CONDITION_MASK: u32 = 7u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const VER_EQUAL: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const VER_GREATER: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const VER_GREATER_EQUAL: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const VER_LESS: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const VER_LESS_EQUAL: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const VER_NT_DOMAIN_CONTROLLER: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const VER_NT_SERVER: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const VER_NT_WORKSTATION: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const VER_NUM_BITS_PER_CONDITION_MASK: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const VER_OR: u32 = 7u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const VER_SERVER_NT: u32 = 2147483648u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const VER_SUITE_BACKOFFICE: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const VER_SUITE_BLADE: u32 = 1024u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const VER_SUITE_COMMUNICATIONS: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const VER_SUITE_COMPUTE_SERVER: u32 = 16384u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const VER_SUITE_DATACENTER: u32 = 128u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const VER_SUITE_EMBEDDEDNT: u32 = 64u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const VER_SUITE_EMBEDDED_RESTRICTED: u32 = 2048u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const VER_SUITE_ENTERPRISE: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const VER_SUITE_MULTIUSERTS: u32 = 131072u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const VER_SUITE_PERSONAL: u32 = 512u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const VER_SUITE_SECURITY_APPLIANCE: u32 = 4096u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const VER_SUITE_SINGLEUSERTS: u32 = 256u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const VER_SUITE_SMALLBUSINESS: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const VER_SUITE_SMALLBUSINESS_RESTRICTED: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const VER_SUITE_STORAGE_SERVER: u32 = 8192u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const VER_SUITE_TERMINAL: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const VER_SUITE_WH_SERVER: u32 = 32768u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const VER_WORKSTATION_NT: u32 = 1073741824u32;
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const VOLMGR_KSR_BYPASS: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2143813629i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const VOLMGR_KSR_ERROR: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2143813631i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub const VOLMGR_KSR_READ_ERROR: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2143813630i32 as _);
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const VRL_CUSTOM_CLASS_BEGIN: u32 = 256u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const VRL_ENABLE_KERNEL_BREAKS: u32 = 2147483648u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const VRL_PREDEFINED_CLASS_BEGIN: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct VolLockBroadcast {
     pub vlb_dbh: DEV_BROADCAST_HDR,
     pub vlb_owner: u32,
@@ -24528,89 +28663,168 @@ unsafe impl ::windows::runtime::Abi for VolLockBroadcast {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type WAITORTIMERCALLBACK = unsafe extern "system" fn(param0: *mut ::std::ffi::c_void, param1: super::super::Foundation::BOOLEAN);
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const WDT_INPROC64_CALL: u32 = 1349805143u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const WDT_INPROC_CALL: u32 = 1215587415u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const WDT_REMOTE_CALL: u32 = 1383359575u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const WINDDI_MAXSETPALETTECOLORINDEX: u32 = 255u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const WINDDI_MAXSETPALETTECOLORS: u32 = 256u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const WINDDI_MAX_BROADCAST_CONTEXT: u32 = 64u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type WNDOBJCHANGEPROC = unsafe extern "system" fn(pwo: *mut super::super::UI::DisplayDevices::WNDOBJ, fl: u32);
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const WNDOBJ_SETUP: u32 = 4354u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const WOC_CHANGED: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const WOC_DELETE: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const WOC_DRAWN: u32 = 64u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const WOC_RGN_CLIENT: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const WOC_RGN_CLIENT_DELTA: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const WOC_RGN_SPRITE: u32 = 512u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const WOC_RGN_SURFACE: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const WOC_RGN_SURFACE_DELTA: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const WOC_SPRITE_NO_OVERLAP: u32 = 256u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const WOC_SPRITE_OVERLAP: u32 = 128u32;
 pub type WORKERCALLBACKFUNC = unsafe extern "system" fn(param0: *mut ::std::ffi::c_void);
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const WO_DRAW_NOTIFY: u32 = 64u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const WO_RGN_CLIENT: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const WO_RGN_CLIENT_DELTA: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const WO_RGN_DESKTOP_COORD: u32 = 256u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const WO_RGN_SPRITE: u32 = 512u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const WO_RGN_SURFACE: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const WO_RGN_SURFACE_DELTA: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const WO_RGN_UPDATE_ALL: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const WO_RGN_WINDOW: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const WO_SPRITE_NOTIFY: u32 = 128u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const WRITE_DAC: u32 = 262144u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const WRITE_NV_MEMORY_FLAG_FLUSH: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const WRITE_NV_MEMORY_FLAG_NON_TEMPORAL: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const WRITE_NV_MEMORY_FLAG_NO_DRAIN: u32 = 256u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const WRITE_OWNER: u32 = 524288u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const WRITE_WATCH_FLAG_RESET: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const WT_EXECUTEDELETEWAIT: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const WT_EXECUTEINLONGTHREAD: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const WT_EXECUTEINPERSISTENTIOTHREAD: u32 = 64u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const WT_EXECUTEINUITHREAD: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const X3_BTYPE_QP_INST_VAL_POS_X: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const X3_BTYPE_QP_INST_WORD_POS_X: u32 = 23u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const X3_BTYPE_QP_INST_WORD_X: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const X3_BTYPE_QP_SIZE_X: u32 = 9u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const X3_D_WH_INST_WORD_POS_X: u32 = 24u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const X3_D_WH_INST_WORD_X: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const X3_D_WH_SIGN_VAL_POS_X: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const X3_D_WH_SIZE_X: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const X3_EMPTY_INST_VAL_POS_X: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const X3_EMPTY_INST_WORD_POS_X: u32 = 14u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const X3_EMPTY_INST_WORD_X: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const X3_EMPTY_SIZE_X: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const X3_IMM20_INST_WORD_POS_X: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const X3_IMM20_INST_WORD_X: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const X3_IMM20_SIGN_VAL_POS_X: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const X3_IMM20_SIZE_X: u32 = 20u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const X3_IMM39_1_INST_WORD_POS_X: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const X3_IMM39_1_INST_WORD_X: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const X3_IMM39_1_SIGN_VAL_POS_X: u32 = 36u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const X3_IMM39_1_SIZE_X: u32 = 23u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const X3_IMM39_2_INST_WORD_POS_X: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const X3_IMM39_2_INST_WORD_X: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const X3_IMM39_2_SIGN_VAL_POS_X: u32 = 20u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const X3_IMM39_2_SIZE_X: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const X3_I_INST_WORD_POS_X: u32 = 27u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const X3_I_INST_WORD_X: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const X3_I_SIGN_VAL_POS_X: u32 = 59u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const X3_I_SIZE_X: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const X3_OPCODE_INST_WORD_POS_X: u32 = 28u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const X3_OPCODE_INST_WORD_X: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const X3_OPCODE_SIGN_VAL_POS_X: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const X3_OPCODE_SIZE_X: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const X3_P_INST_WORD_POS_X: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const X3_P_INST_WORD_X: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const X3_P_SIGN_VAL_POS_X: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const X3_P_SIZE_X: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const X3_TMPLT_INST_WORD_POS_X: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const X3_TMPLT_INST_WORD_X: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const X3_TMPLT_SIGN_VAL_POS_X: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const X3_TMPLT_SIZE_X: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const X86_CACHE_ALIGNMENT_SIZE: u32 = 64u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct XFORMOBJ {
     pub ulReserved: u32,
 }
@@ -24635,23 +28849,39 @@ unsafe impl ::windows::runtime::Abi for XFORMOBJ {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const XF_INV_FXTOL: i32 = 3i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const XF_INV_LTOL: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const XF_LTOFX: i32 = 2i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const XF_LTOL: i32 = 0i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const XO_DESTBITFIELDS: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const XO_DESTDCPALETTE: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const XO_DESTPALETTE: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const XO_DEVICE_ICM: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const XO_FROM_CMYK: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const XO_HOST_ICM: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const XO_SRCBITFIELDS: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const XO_SRCPALETTE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const XO_TABLE: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const XO_TO_MONO: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const XO_TRIVIAL: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct XSAVE_AREA {
     pub LegacyState: XSAVE_FORMAT,
     pub Header: XSAVE_AREA_HEADER,
@@ -24679,6 +28909,7 @@ unsafe impl ::windows::runtime::Abi for XSAVE_AREA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct XSAVE_AREA_HEADER {
     pub Mask: u64,
     pub CompactionMask: u64,
@@ -24707,6 +28938,7 @@ unsafe impl ::windows::runtime::Abi for XSAVE_AREA_HEADER {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct XSAVE_CET_U_FORMAT {
     pub Ia32CetUMsr: u64,
     pub Ia32Pl3SspMsr: u64,
@@ -24734,6 +28966,7 @@ unsafe impl ::windows::runtime::Abi for XSAVE_CET_U_FORMAT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct XSAVE_FORMAT {
     pub ControlWord: u16,
     pub StatusWord: u16,
@@ -24805,18 +29038,29 @@ unsafe impl ::windows::runtime::Abi for XSAVE_FORMAT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const XSTATE_ALIGN_BIT: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const XSTATE_AMX_TILE_CONFIG: u32 = 17u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const XSTATE_AMX_TILE_DATA: u32 = 18u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const XSTATE_AVX: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const XSTATE_AVX512_KMASK: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const XSTATE_AVX512_ZMM: u32 = 7u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const XSTATE_AVX512_ZMM_H: u32 = 6u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const XSTATE_CET_S: u32 = 12u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const XSTATE_CET_U: u32 = 11u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const XSTATE_COMPACTION_ENABLE: u32 = 63u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct XSTATE_CONFIGURATION {
     pub EnabledFeatures: u64,
     pub EnabledVolatileFeatures: u64,
@@ -24850,6 +29094,7 @@ unsafe impl ::windows::runtime::Abi for XSTATE_CONFIGURATION {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union XSTATE_CONFIGURATION_0 {
     pub ControlFlags: u32,
     pub Anonymous: XSTATE_CONFIGURATION_0_0,
@@ -24872,6 +29117,7 @@ unsafe impl ::windows::runtime::Abi for XSTATE_CONFIGURATION_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct XSTATE_CONFIGURATION_0_0 {
     pub _bitfield: u32,
 }
@@ -24898,6 +29144,7 @@ unsafe impl ::windows::runtime::Abi for XSTATE_CONFIGURATION_0_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct XSTATE_CONTEXT {
     pub Mask: u64,
     pub Length: u32,
@@ -24926,11 +29173,15 @@ unsafe impl ::windows::runtime::Abi for XSTATE_CONTEXT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const XSTATE_CONTROLFLAG_XFD_MASK: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const XSTATE_CONTROLFLAG_XSAVEC_MASK: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const XSTATE_CONTROLFLAG_XSAVEOPT_MASK: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct XSTATE_FEATURE {
     pub Offset: u32,
     pub Size: u32,
@@ -24956,18 +29207,28 @@ unsafe impl ::windows::runtime::Abi for XSTATE_FEATURE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const XSTATE_GSSE: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const XSTATE_IPT: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const XSTATE_LEGACY_FLOATING_POINT: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const XSTATE_LEGACY_SSE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const XSTATE_LWP: u32 = 62u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const XSTATE_MPX_BNDCSR: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const XSTATE_MPX_BNDREGS: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const XSTATE_PASID: u32 = 10u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const XSTATE_XFD_BIT: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub struct _D3DDeviceDesc {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -25101,6 +29362,7 @@ unsafe impl ::windows::runtime::Abi for _D3DDeviceDesc {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct _D3DDeviceDesc7 {
     pub dwDevCaps: u32,
     pub dpcLineCaps: _D3DPrimCaps,
@@ -25222,6 +29484,7 @@ unsafe impl ::windows::runtime::Abi for _D3DDeviceDesc7 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct _D3DExecuteBufferDesc {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -25253,6 +29516,7 @@ unsafe impl ::windows::runtime::Abi for _D3DExecuteBufferDesc {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub struct _D3DNTDeviceDesc_V3 {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -25387,6 +29651,7 @@ unsafe impl ::windows::runtime::Abi for _D3DNTDeviceDesc_V3 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub struct _D3DNTHALDeviceDesc_V1 {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -25458,6 +29723,7 @@ unsafe impl ::windows::runtime::Abi for _D3DNTHALDeviceDesc_V1 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub struct _D3DNTHALDeviceDesc_V2 {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -25552,6 +29818,7 @@ unsafe impl ::windows::runtime::Abi for _D3DNTHALDeviceDesc_V2 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct _D3DPrimCaps {
     pub dwSize: u32,
     pub dwMiscCaps: u32,
@@ -25619,6 +29886,7 @@ unsafe impl ::windows::runtime::Abi for _D3DPrimCaps {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct _DEV_BROADCAST_HEADER {
     pub dbcd_size: u32,
     pub dbcd_devicetype: u32,
@@ -25648,6 +29916,7 @@ unsafe impl ::windows::runtime::Abi for _DEV_BROADCAST_HEADER {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub struct _DEV_BROADCAST_USERDEFINED {
     pub dbud_dbh: DEV_BROADCAST_HDR,
     pub dbud_szName: [super::super::Foundation::CHAR; 1],
@@ -25679,132 +29948,256 @@ unsafe impl ::windows::runtime::Abi for _DEV_BROADCAST_USERDEFINED {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _MM_HINT_NTA: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _MM_HINT_T0: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _MM_HINT_T1: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _MM_HINT_T2: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DDEVCAPS_HWINDEXBUFFER: i32 = 67108864i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DDEVCAPS_HWVERTEXBUFFER: i32 = 33554432i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DDEVCAPS_SUBVOLUMELOCK: i32 = 134217728i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DFVF_FOG: i32 = 8192i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DGDI2_MAGIC: u32 = 4294967295u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DGDI2_TYPE_DEFERRED_AGP_AWARE: u32 = 24u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DGDI2_TYPE_DEFER_AGP_FREES: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DGDI2_TYPE_DXVERSION: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DGDI2_TYPE_FREE_DEFERRED_AGP: u32 = 25u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DGDI2_TYPE_GETADAPTERGROUP: u32 = 19u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DGDI2_TYPE_GETD3DCAPS8: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DGDI2_TYPE_GETD3DCAPS9: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DGDI2_TYPE_GETD3DQUERY: u32 = 34u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DGDI2_TYPE_GETD3DQUERYCOUNT: u32 = 33u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DGDI2_TYPE_GETDDIVERSION: u32 = 35u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DGDI2_TYPE_GETEXTENDEDMODE: u32 = 18u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DGDI2_TYPE_GETEXTENDEDMODECOUNT: u32 = 17u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DGDI2_TYPE_GETFORMAT: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DGDI2_TYPE_GETFORMATCOUNT: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DGDI2_TYPE_GETMULTISAMPLEQUALITYLEVELS: u32 = 22u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DPMISCCAPS_FOGINFVF: i32 = 8192i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DPS_COLOROUT_MAX_V2_0: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DPS_COLOROUT_MAX_V2_1: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DPS_COLOROUT_MAX_V3_0: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DPS_CONSTBOOLREG_MAX_SW_DX9: u32 = 2048u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DPS_CONSTBOOLREG_MAX_V2_1: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DPS_CONSTBOOLREG_MAX_V3_0: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DPS_CONSTINTREG_MAX_SW_DX9: u32 = 2048u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DPS_CONSTINTREG_MAX_V2_1: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DPS_CONSTINTREG_MAX_V3_0: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DPS_CONSTREG_MAX_DX8: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DPS_CONSTREG_MAX_SW_DX9: u32 = 8192u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DPS_CONSTREG_MAX_V1_1: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DPS_CONSTREG_MAX_V1_2: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DPS_CONSTREG_MAX_V1_3: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DPS_CONSTREG_MAX_V1_4: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DPS_CONSTREG_MAX_V2_0: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DPS_CONSTREG_MAX_V2_1: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DPS_CONSTREG_MAX_V3_0: u32 = 224u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DPS_INPUTREG_MAX_DX8: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DPS_INPUTREG_MAX_V1_1: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DPS_INPUTREG_MAX_V1_2: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DPS_INPUTREG_MAX_V1_3: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DPS_INPUTREG_MAX_V1_4: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DPS_INPUTREG_MAX_V2_0: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DPS_INPUTREG_MAX_V2_1: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DPS_INPUTREG_MAX_V3_0: u32 = 12u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DPS_MAXLOOPINITVALUE_V2_1: u32 = 255u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DPS_MAXLOOPINITVALUE_V3_0: u32 = 255u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DPS_MAXLOOPITERATIONCOUNT_V2_1: u32 = 255u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DPS_MAXLOOPITERATIONCOUNT_V3_0: u32 = 255u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DPS_MAXLOOPSTEP_V2_1: u32 = 128u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DPS_MAXLOOPSTEP_V3_0: u32 = 128u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DPS_PREDICATE_MAX_V2_1: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DPS_PREDICATE_MAX_V3_0: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DPS_TEMPREG_MAX_DX8: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DPS_TEMPREG_MAX_V1_1: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DPS_TEMPREG_MAX_V1_2: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DPS_TEMPREG_MAX_V1_3: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DPS_TEMPREG_MAX_V1_4: u32 = 6u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DPS_TEMPREG_MAX_V2_0: u32 = 12u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DPS_TEMPREG_MAX_V2_1: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DPS_TEMPREG_MAX_V3_0: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DPS_TEXTUREREG_MAX_DX8: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DPS_TEXTUREREG_MAX_V1_1: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DPS_TEXTUREREG_MAX_V1_2: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DPS_TEXTUREREG_MAX_V1_3: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DPS_TEXTUREREG_MAX_V1_4: u32 = 6u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DPS_TEXTUREREG_MAX_V2_0: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DPS_TEXTUREREG_MAX_V2_1: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DPS_TEXTUREREG_MAX_V3_0: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DRS_DELETERTPATCH: u32 = 169u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DVS_ADDRREG_MAX_V1_1: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DVS_ADDRREG_MAX_V2_0: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DVS_ADDRREG_MAX_V2_1: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DVS_ADDRREG_MAX_V3_0: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DVS_ATTROUTREG_MAX_V1_1: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DVS_ATTROUTREG_MAX_V2_0: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DVS_ATTROUTREG_MAX_V2_1: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DVS_CONSTBOOLREG_MAX_SW_DX9: u32 = 2048u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DVS_CONSTBOOLREG_MAX_V2_0: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DVS_CONSTBOOLREG_MAX_V2_1: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DVS_CONSTBOOLREG_MAX_V3_0: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DVS_CONSTINTREG_MAX_SW_DX9: u32 = 2048u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DVS_CONSTINTREG_MAX_V2_0: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DVS_CONSTINTREG_MAX_V2_1: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DVS_CONSTINTREG_MAX_V3_0: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DVS_CONSTREG_MAX_V1_1: u32 = 96u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DVS_CONSTREG_MAX_V2_0: u32 = 8192u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DVS_CONSTREG_MAX_V2_1: u32 = 8192u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DVS_CONSTREG_MAX_V3_0: u32 = 8192u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DVS_INPUTREG_MAX_V1_1: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DVS_INPUTREG_MAX_V2_0: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DVS_INPUTREG_MAX_V2_1: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DVS_INPUTREG_MAX_V3_0: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DVS_LABEL_MAX_V3_0: u32 = 2048u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DVS_MAXINSTRUCTIONCOUNT_V1_1: u32 = 128u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DVS_MAXLOOPINITVALUE_V2_0: u32 = 255u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DVS_MAXLOOPINITVALUE_V2_1: u32 = 255u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DVS_MAXLOOPINITVALUE_V3_0: u32 = 255u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DVS_MAXLOOPITERATIONCOUNT_V2_0: u32 = 255u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DVS_MAXLOOPITERATIONCOUNT_V2_1: u32 = 255u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DVS_MAXLOOPITERATIONCOUNT_V3_0: u32 = 255u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DVS_MAXLOOPSTEP_V2_0: u32 = 128u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DVS_MAXLOOPSTEP_V2_1: u32 = 128u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DVS_MAXLOOPSTEP_V3_0: u32 = 128u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DVS_OUTPUTREG_MAX_SW_DX9: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DVS_OUTPUTREG_MAX_V3_0: u32 = 12u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DVS_PREDICATE_MAX_V2_1: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DVS_PREDICATE_MAX_V3_0: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DVS_TCRDOUTREG_MAX_V1_1: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DVS_TCRDOUTREG_MAX_V2_0: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DVS_TCRDOUTREG_MAX_V2_1: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DVS_TEMPREG_MAX_V1_1: u32 = 12u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DVS_TEMPREG_MAX_V2_0: u32 = 12u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DVS_TEMPREG_MAX_V2_1: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_D3DVS_TEMPREG_MAX_V3_0: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_RTPATCHFLAG_HASINFO: i32 = 2i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const _NT_RTPATCHFLAG_HASSEGS: i32 = 1i32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_Com`*"]
 pub struct remoteMETAFILEPICT {
     pub mm: i32,
     pub xExt: i32,
@@ -25838,6 +30231,7 @@ unsafe impl ::windows::runtime::Abi for remoteMETAFILEPICT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[inline]
 pub unsafe fn timeKillEvent(utimerid: u32) -> u32 {
     #[cfg(windows)]
@@ -25851,6 +30245,7 @@ pub unsafe fn timeKillEvent(utimerid: u32) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[inline]
 pub unsafe fn timeSetEvent(udelay: u32, uresolution: u32, fptc: ::std::option::Option<LPTIMECALLBACK>, dwuser: usize, fuevent: u32) -> u32 {
     #[cfg(windows)]
@@ -25866,6 +30261,7 @@ pub unsafe fn timeSetEvent(udelay: u32, uresolution: u32, fptc: ::std::option::O
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct userBITMAP {
     pub bmType: i32,
     pub bmWidth: i32,
@@ -25909,6 +30305,7 @@ unsafe impl ::windows::runtime::Abi for userBITMAP {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub struct userCLIPFORMAT {
     pub fContext: i32,
     pub u: userCLIPFORMAT_0,
@@ -25937,6 +30334,7 @@ unsafe impl ::windows::runtime::Abi for userCLIPFORMAT {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub union userCLIPFORMAT_0 {
     pub dwValue: u32,
     pub pwszName: super::super::Foundation::PWSTR,
@@ -25964,6 +30362,7 @@ unsafe impl ::windows::runtime::Abi for userCLIPFORMAT_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct userHBITMAP {
     pub fContext: i32,
     pub u: userHBITMAP_0,
@@ -25986,6 +30385,7 @@ unsafe impl ::windows::runtime::Abi for userHBITMAP {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub union userHBITMAP_0 {
     pub hInproc: i32,
     pub hRemote: *mut userBITMAP,
@@ -26010,6 +30410,7 @@ unsafe impl ::windows::runtime::Abi for userHBITMAP_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_Com`*"]
 pub struct userHENHMETAFILE {
     pub fContext: i32,
     pub u: userHENHMETAFILE_0,
@@ -26038,6 +30439,7 @@ unsafe impl ::windows::runtime::Abi for userHENHMETAFILE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_Com`*"]
 pub union userHENHMETAFILE_0 {
     pub hInproc: i32,
     pub hRemote: *mut super::Com::BYTE_BLOB,
@@ -26067,6 +30469,7 @@ unsafe impl ::windows::runtime::Abi for userHENHMETAFILE_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_Com`*"]
 pub struct userHGLOBAL {
     pub fContext: i32,
     pub u: userHGLOBAL_0,
@@ -26095,6 +30498,7 @@ unsafe impl ::windows::runtime::Abi for userHGLOBAL {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_Com`*"]
 pub union userHGLOBAL_0 {
     pub hInproc: i32,
     pub hRemote: *mut super::Com::FLAGGED_BYTE_BLOB,
@@ -26124,6 +30528,7 @@ unsafe impl ::windows::runtime::Abi for userHGLOBAL_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_Com`*"]
 pub struct userHMETAFILE {
     pub fContext: i32,
     pub u: userHMETAFILE_0,
@@ -26152,6 +30557,7 @@ unsafe impl ::windows::runtime::Abi for userHMETAFILE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_Com`*"]
 pub union userHMETAFILE_0 {
     pub hInproc: i32,
     pub hRemote: *mut super::Com::BYTE_BLOB,
@@ -26181,6 +30587,7 @@ unsafe impl ::windows::runtime::Abi for userHMETAFILE_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_Com`*"]
 pub struct userHMETAFILEPICT {
     pub fContext: i32,
     pub u: userHMETAFILEPICT_0,
@@ -26209,6 +30616,7 @@ unsafe impl ::windows::runtime::Abi for userHMETAFILEPICT {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_Com`*"]
 pub union userHMETAFILEPICT_0 {
     pub hInproc: i32,
     pub hRemote: *mut remoteMETAFILEPICT,
@@ -26238,6 +30646,7 @@ unsafe impl ::windows::runtime::Abi for userHMETAFILEPICT_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Graphics_Gdi`*"]
 pub struct userHPALETTE {
     pub fContext: i32,
     pub u: userHPALETTE_0,
@@ -26266,6 +30675,7 @@ unsafe impl ::windows::runtime::Abi for userHPALETTE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Graphics_Gdi`*"]
 pub union userHPALETTE_0 {
     pub hInproc: i32,
     pub hRemote: *mut super::super::Graphics::Gdi::LOGPALETTE,

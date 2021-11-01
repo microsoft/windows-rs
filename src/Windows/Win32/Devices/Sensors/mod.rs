@@ -1,4 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Win32_Devices_Sensors`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ACTIVITY_STATE(pub i32);
@@ -21,6 +22,7 @@ unsafe impl ::windows::runtime::Abi for ACTIVITY_STATE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_Sensors`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ACTIVITY_STATE_COUNT(pub i32);
@@ -34,6 +36,7 @@ unsafe impl ::windows::runtime::Abi for ACTIVITY_STATE_COUNT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_Sensors`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AXIS(pub i32);
@@ -51,6 +54,7 @@ unsafe impl ::windows::runtime::Abi for AXIS {
     type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))]
+#[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`, `Win32_System_PropertiesSystem`*"]
 #[inline]
 pub unsafe fn CollectionsListAllocateBufferAndSerialize(sourcecollection: *const SENSOR_COLLECTION_LIST, ptargetbuffersizeinbytes: *mut u32, ptargetbuffer: *mut *mut u8) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -65,6 +69,7 @@ pub unsafe fn CollectionsListAllocateBufferAndSerialize(sourcecollection: *const
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))]
+#[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`, `Win32_System_PropertiesSystem`*"]
 #[inline]
 pub unsafe fn CollectionsListCopyAndMarshall(target: *mut SENSOR_COLLECTION_LIST, source: *const SENSOR_COLLECTION_LIST) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -79,6 +84,7 @@ pub unsafe fn CollectionsListCopyAndMarshall(target: *mut SENSOR_COLLECTION_LIST
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))]
+#[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`, `Win32_System_PropertiesSystem`*"]
 #[inline]
 pub unsafe fn CollectionsListDeserializeFromBuffer(sourcebuffersizeinbytes: u32, sourcebuffer: *const u8, targetcollection: *mut SENSOR_COLLECTION_LIST) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -92,6 +98,7 @@ pub unsafe fn CollectionsListDeserializeFromBuffer(sourcebuffersizeinbytes: u32,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_Sensors`*"]
 #[inline]
 pub unsafe fn CollectionsListGetFillableCount(buffersizebytes: u32) -> u32 {
     #[cfg(windows)]
@@ -106,6 +113,7 @@ pub unsafe fn CollectionsListGetFillableCount(buffersizebytes: u32) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))]
+#[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`, `Win32_System_PropertiesSystem`*"]
 #[inline]
 pub unsafe fn CollectionsListGetMarshalledSize(collection: *const SENSOR_COLLECTION_LIST) -> u32 {
     #[cfg(windows)]
@@ -120,6 +128,7 @@ pub unsafe fn CollectionsListGetMarshalledSize(collection: *const SENSOR_COLLECT
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))]
+#[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`, `Win32_System_PropertiesSystem`*"]
 #[inline]
 pub unsafe fn CollectionsListGetMarshalledSizeWithoutSerialization(collection: *const SENSOR_COLLECTION_LIST) -> u32 {
     #[cfg(windows)]
@@ -134,6 +143,7 @@ pub unsafe fn CollectionsListGetMarshalledSizeWithoutSerialization(collection: *
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))]
+#[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`, `Win32_System_PropertiesSystem`*"]
 #[inline]
 pub unsafe fn CollectionsListGetSerializedSize(collection: *const SENSOR_COLLECTION_LIST) -> u32 {
     #[cfg(windows)]
@@ -148,6 +158,7 @@ pub unsafe fn CollectionsListGetSerializedSize(collection: *const SENSOR_COLLECT
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))]
+#[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`, `Win32_System_PropertiesSystem`*"]
 #[inline]
 pub unsafe fn CollectionsListMarshall(target: *mut SENSOR_COLLECTION_LIST) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -162,6 +173,7 @@ pub unsafe fn CollectionsListMarshall(target: *mut SENSOR_COLLECTION_LIST) -> ::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))]
+#[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`, `Win32_System_PropertiesSystem`*"]
 #[inline]
 pub unsafe fn CollectionsListSerializeToBuffer(sourcecollection: *const SENSOR_COLLECTION_LIST, targetbuffersizeinbytes: u32, targetbuffer: *mut u8) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -176,6 +188,7 @@ pub unsafe fn CollectionsListSerializeToBuffer(sourcecollection: *const SENSOR_C
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))]
+#[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`, `Win32_System_PropertiesSystem`*"]
 #[inline]
 pub unsafe fn CollectionsListSortSubscribedActivitiesByConfidence(thresholds: *const SENSOR_COLLECTION_LIST, pcollection: *mut SENSOR_COLLECTION_LIST) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -190,6 +203,7 @@ pub unsafe fn CollectionsListSortSubscribedActivitiesByConfidence(thresholds: *c
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))]
+#[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`, `Win32_System_PropertiesSystem`*"]
 #[inline]
 pub unsafe fn CollectionsListUpdateMarshalledPointer(collection: *mut SENSOR_COLLECTION_LIST) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -203,6 +217,7 @@ pub unsafe fn CollectionsListUpdateMarshalledPointer(collection: *mut SENSOR_COL
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_Sensors`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ELEVATION_CHANGE_MODE(pub i32);
@@ -221,6 +236,7 @@ unsafe impl ::windows::runtime::Abi for ELEVATION_CHANGE_MODE {
     type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))]
+#[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`, `Win32_System_PropertiesSystem`*"]
 #[inline]
 pub unsafe fn EvaluateActivityThresholds(newsample: *const SENSOR_COLLECTION_LIST, oldsample: *const SENSOR_COLLECTION_LIST, thresholds: *const SENSOR_COLLECTION_LIST) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
@@ -234,6 +250,7 @@ pub unsafe fn EvaluateActivityThresholds(newsample: *const SENSOR_COLLECTION_LIS
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_Sensors`*"]
 pub const GNSS_CLEAR_ALL_ASSISTANCE_DATA: u32 = 1u32;
 pub const GUID_DEVINTERFACE_SENSOR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3122378386, 39802, 18483, [154, 30, 82, 94, 209, 52, 231, 226]);
 pub const GUID_SensorCategory_All: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3273114246, 50280, 17032, [153, 117, 212, 196, 88, 124, 68, 44]);
@@ -269,6 +286,7 @@ pub const GUID_SensorType_RelativeOrientation: ::windows::runtime::GUID = ::wind
 pub const GUID_SensorType_SimpleDeviceOrientation: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2258735761, 1154, 16428, [191, 76, 173, 218, 197, 43, 28, 57]);
 pub const GUID_SensorType_Temperature: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(83693252, 54746, 17914, [149, 169, 93, 179, 142, 225, 147, 6]);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetPerformanceTime(timems: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -282,6 +300,7 @@ pub unsafe fn GetPerformanceTime(timems: *mut u32) -> ::windows::runtime::Result
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_Sensors`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HUMAN_PRESENCE_DETECTION_TYPE(pub i32);
@@ -299,6 +318,7 @@ unsafe impl ::windows::runtime::Abi for HUMAN_PRESENCE_DETECTION_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_Sensors`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HUMAN_PRESENCE_DETECTION_TYPE_COUNT(pub i32);
@@ -312,15 +332,18 @@ unsafe impl ::windows::runtime::Abi for HUMAN_PRESENCE_DETECTION_TYPE_COUNT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_Sensors`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ILocationPermissions(::windows::runtime::IUnknown);
 impl ILocationPermissions {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_Foundation`*"]
     pub unsafe fn GetGlobalLocationPermission(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
+    #[doc = "*Required features: `Win32_Devices_Sensors`*"]
     pub unsafe fn CheckLocationCapability(&self, dwclientthreadid: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwclientthreadid)).ok()
     }
@@ -359,70 +382,86 @@ pub struct ILocationPermissions_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwclientthreadid: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Devices_Sensors`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISensor(::windows::runtime::IUnknown);
 impl ISensor {
+    #[doc = "*Required features: `Win32_Devices_Sensors`*"]
     pub unsafe fn GetID(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
+    #[doc = "*Required features: `Win32_Devices_Sensors`*"]
     pub unsafe fn GetCategory(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
+    #[doc = "*Required features: `Win32_Devices_Sensors`*"]
     pub unsafe fn GetType(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_Foundation`*"]
     pub unsafe fn GetFriendlyName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))]
+    #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`, `Win32_System_PropertiesSystem`*"]
     pub unsafe fn GetProperty(&self, key: *const super::super::System::PropertiesSystem::PROPERTYKEY) -> ::windows::runtime::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__: <super::super::System::Com::StructuredStorage::PROPVARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(key), &mut result__).from_abi::<super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
     }
     #[cfg(feature = "Win32_Devices_PortableDevices")]
+    #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_Devices_PortableDevices`*"]
     pub unsafe fn GetProperties<'a, Param0: ::windows::runtime::IntoParam<'a, super::PortableDevices::IPortableDeviceKeyCollection>>(&self, pkeys: Param0) -> ::windows::runtime::Result<super::PortableDevices::IPortableDeviceValues> {
         let mut result__: <super::PortableDevices::IPortableDeviceValues as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), pkeys.into_param().abi(), &mut result__).from_abi::<super::PortableDevices::IPortableDeviceValues>(result__)
     }
     #[cfg(feature = "Win32_Devices_PortableDevices")]
+    #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_Devices_PortableDevices`*"]
     pub unsafe fn GetSupportedDataFields(&self) -> ::windows::runtime::Result<super::PortableDevices::IPortableDeviceKeyCollection> {
         let mut result__: <super::PortableDevices::IPortableDeviceKeyCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::PortableDevices::IPortableDeviceKeyCollection>(result__)
     }
     #[cfg(feature = "Win32_Devices_PortableDevices")]
+    #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_Devices_PortableDevices`*"]
     pub unsafe fn SetProperties<'a, Param0: ::windows::runtime::IntoParam<'a, super::PortableDevices::IPortableDeviceValues>>(&self, pproperties: Param0) -> ::windows::runtime::Result<super::PortableDevices::IPortableDeviceValues> {
         let mut result__: <super::PortableDevices::IPortableDeviceValues as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), pproperties.into_param().abi(), &mut result__).from_abi::<super::PortableDevices::IPortableDeviceValues>(result__)
     }
     #[cfg(feature = "Win32_System_PropertiesSystem")]
+    #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_System_PropertiesSystem`*"]
     pub unsafe fn SupportsDataField(&self, key: *const super::super::System::PropertiesSystem::PROPERTYKEY) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(key), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_Devices_Sensors`*"]
     pub unsafe fn GetState(&self) -> ::windows::runtime::Result<SensorState> {
         let mut result__: <SensorState as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<SensorState>(result__)
     }
+    #[doc = "*Required features: `Win32_Devices_Sensors`*"]
     pub unsafe fn GetData(&self) -> ::windows::runtime::Result<ISensorDataReport> {
         let mut result__: <ISensorDataReport as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISensorDataReport>(result__)
     }
+    #[doc = "*Required features: `Win32_Devices_Sensors`*"]
     pub unsafe fn SupportsEvent(&self, eventguid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(eventguid), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_Devices_Sensors`*"]
     pub unsafe fn GetEventInterest(&self, ppvalues: *mut *mut ::windows::runtime::GUID, pcount: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppvalues), ::std::mem::transmute(pcount)).ok()
     }
+    #[doc = "*Required features: `Win32_Devices_Sensors`*"]
     pub unsafe fn SetEventInterest(&self, pvalues: *const ::windows::runtime::GUID, count: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(pvalues), ::std::mem::transmute(count)).ok()
     }
+    #[doc = "*Required features: `Win32_Devices_Sensors`*"]
     pub unsafe fn SetEventSink<'a, Param0: ::windows::runtime::IntoParam<'a, ISensorEvents>>(&self, pevents: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), pevents.into_param().abi()).ok()
     }
@@ -479,27 +518,34 @@ pub struct ISensor_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvalues: *const ::windows::runtime::GUID, count: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pevents: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Devices_Sensors`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISensorCollection(::windows::runtime::IUnknown);
 impl ISensorCollection {
+    #[doc = "*Required features: `Win32_Devices_Sensors`*"]
     pub unsafe fn GetAt(&self, ulindex: u32) -> ::windows::runtime::Result<ISensor> {
         let mut result__: <ISensor as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulindex), &mut result__).from_abi::<ISensor>(result__)
     }
+    #[doc = "*Required features: `Win32_Devices_Sensors`*"]
     pub unsafe fn GetCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Devices_Sensors`*"]
     pub unsafe fn Add<'a, Param0: ::windows::runtime::IntoParam<'a, ISensor>>(&self, psensor: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), psensor.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Devices_Sensors`*"]
     pub unsafe fn Remove<'a, Param0: ::windows::runtime::IntoParam<'a, ISensor>>(&self, psensor: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), psensor.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Devices_Sensors`*"]
     pub unsafe fn RemoveByID(&self, sensorid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(sensorid)).ok()
     }
+    #[doc = "*Required features: `Win32_Devices_Sensors`*"]
     pub unsafe fn Clear(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
     }
@@ -541,21 +587,25 @@ pub struct ISensorCollection_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, sensorid: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Devices_Sensors`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISensorDataReport(::windows::runtime::IUnknown);
 impl ISensorDataReport {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_Foundation`*"]
     pub unsafe fn GetTimestamp(&self) -> ::windows::runtime::Result<super::super::Foundation::SYSTEMTIME> {
         let mut result__: <super::super::Foundation::SYSTEMTIME as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::SYSTEMTIME>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))]
+    #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`, `Win32_System_PropertiesSystem`*"]
     pub unsafe fn GetSensorValue(&self, pkey: *const super::super::System::PropertiesSystem::PROPERTYKEY) -> ::windows::runtime::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__: <super::super::System::Com::StructuredStorage::PROPVARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pkey), &mut result__).from_abi::<super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
     }
     #[cfg(feature = "Win32_Devices_PortableDevices")]
+    #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_Devices_PortableDevices`*"]
     pub unsafe fn GetSensorValues<'a, Param0: ::windows::runtime::IntoParam<'a, super::PortableDevices::IPortableDeviceKeyCollection>>(&self, pkeys: Param0) -> ::windows::runtime::Result<super::PortableDevices::IPortableDeviceValues> {
         let mut result__: <super::PortableDevices::IPortableDeviceValues as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), pkeys.into_param().abi(), &mut result__).from_abi::<super::PortableDevices::IPortableDeviceValues>(result__)
@@ -598,20 +648,25 @@ pub struct ISensorDataReport_abi(
     #[cfg(feature = "Win32_Devices_PortableDevices")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pkeys: ::windows::runtime::RawPtr, ppvalues: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Devices_PortableDevices"))] usize,
 );
+#[doc = "*Required features: `Win32_Devices_Sensors`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISensorEvents(::windows::runtime::IUnknown);
 impl ISensorEvents {
+    #[doc = "*Required features: `Win32_Devices_Sensors`*"]
     pub unsafe fn OnStateChanged<'a, Param0: ::windows::runtime::IntoParam<'a, ISensor>>(&self, psensor: Param0, state: SensorState) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), psensor.into_param().abi(), ::std::mem::transmute(state)).ok()
     }
+    #[doc = "*Required features: `Win32_Devices_Sensors`*"]
     pub unsafe fn OnDataUpdated<'a, Param0: ::windows::runtime::IntoParam<'a, ISensor>, Param1: ::windows::runtime::IntoParam<'a, ISensorDataReport>>(&self, psensor: Param0, pnewdata: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), psensor.into_param().abi(), pnewdata.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Devices_PortableDevices")]
+    #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_Devices_PortableDevices`*"]
     pub unsafe fn OnEvent<'a, Param0: ::windows::runtime::IntoParam<'a, ISensor>, Param2: ::windows::runtime::IntoParam<'a, super::PortableDevices::IPortableDeviceValues>>(&self, psensor: Param0, eventid: *const ::windows::runtime::GUID, peventdata: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), psensor.into_param().abi(), ::std::mem::transmute(eventid), peventdata.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Devices_Sensors`*"]
     pub unsafe fn OnLeave(&self, id: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(id)).ok()
     }
@@ -652,26 +707,32 @@ pub struct ISensorEvents_abi(
     #[cfg(not(feature = "Win32_Devices_PortableDevices"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, id: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Devices_Sensors`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISensorManager(::windows::runtime::IUnknown);
 impl ISensorManager {
+    #[doc = "*Required features: `Win32_Devices_Sensors`*"]
     pub unsafe fn GetSensorsByCategory(&self, sensorcategory: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<ISensorCollection> {
         let mut result__: <ISensorCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(sensorcategory), &mut result__).from_abi::<ISensorCollection>(result__)
     }
+    #[doc = "*Required features: `Win32_Devices_Sensors`*"]
     pub unsafe fn GetSensorsByType(&self, sensortype: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<ISensorCollection> {
         let mut result__: <ISensorCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(sensortype), &mut result__).from_abi::<ISensorCollection>(result__)
     }
+    #[doc = "*Required features: `Win32_Devices_Sensors`*"]
     pub unsafe fn GetSensorByID(&self, sensorid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<ISensor> {
         let mut result__: <ISensor as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(sensorid), &mut result__).from_abi::<ISensor>(result__)
     }
+    #[doc = "*Required features: `Win32_Devices_Sensors`*"]
     pub unsafe fn SetEventSink<'a, Param0: ::windows::runtime::IntoParam<'a, ISensorManagerEvents>>(&self, pevents: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), pevents.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_Foundation`*"]
     pub unsafe fn RequestPermissions<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, ISensorCollection>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, hparent: Param0, psensors: Param1, fmodal: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), hparent.into_param().abi(), psensors.into_param().abi(), fmodal.into_param().abi()).ok()
     }
@@ -713,10 +774,12 @@ pub struct ISensorManager_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hparent: super::super::Foundation::HWND, psensors: ::windows::runtime::RawPtr, fmodal: super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Devices_Sensors`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISensorManagerEvents(::windows::runtime::IUnknown);
 impl ISensorManagerEvents {
+    #[doc = "*Required features: `Win32_Devices_Sensors`*"]
     pub unsafe fn OnSensorEnter<'a, Param0: ::windows::runtime::IntoParam<'a, ISensor>>(&self, psensor: Param0, state: SensorState) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), psensor.into_param().abi(), ::std::mem::transmute(state)).ok()
     }
@@ -754,6 +817,7 @@ pub struct ISensorManagerEvents_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, psensor: ::windows::runtime::RawPtr, state: SensorState) -> ::windows::runtime::HRESULT,
 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
+#[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn InitPropVariantFromCLSIDArray(members: *const ::windows::runtime::GUID, size: u32) -> ::windows::runtime::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
@@ -769,6 +833,7 @@ pub unsafe fn InitPropVariantFromCLSIDArray(members: *const ::windows::runtime::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
+#[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn InitPropVariantFromFloat(fltval: f32) -> ::windows::runtime::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
@@ -784,6 +849,7 @@ pub unsafe fn InitPropVariantFromFloat(fltval: f32) -> ::windows::runtime::Resul
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))]
+#[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`, `Win32_System_PropertiesSystem`*"]
 #[inline]
 pub unsafe fn IsCollectionListSame(lista: *const SENSOR_COLLECTION_LIST, listb: *const SENSOR_COLLECTION_LIST) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
@@ -798,6 +864,7 @@ pub unsafe fn IsCollectionListSame(lista: *const SENSOR_COLLECTION_LIST, listb: 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn IsGUIDPresentInList(guidarray: *const ::windows::runtime::GUID, arraylength: u32, guidelem: *const ::windows::runtime::GUID) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
@@ -812,6 +879,7 @@ pub unsafe fn IsGUIDPresentInList(guidarray: *const ::windows::runtime::GUID, ar
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))]
+#[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`, `Win32_System_PropertiesSystem`*"]
 #[inline]
 pub unsafe fn IsKeyPresentInCollectionList(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::System::PropertiesSystem::PROPERTYKEY) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
@@ -826,6 +894,7 @@ pub unsafe fn IsKeyPresentInCollectionList(plist: *const SENSOR_COLLECTION_LIST,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_PropertiesSystem"))]
+#[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_Foundation`, `Win32_System_PropertiesSystem`*"]
 #[inline]
 pub unsafe fn IsKeyPresentInPropertyList(plist: *const SENSOR_PROPERTY_LIST, pkey: *const super::super::System::PropertiesSystem::PROPERTYKEY) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
@@ -840,6 +909,7 @@ pub unsafe fn IsKeyPresentInPropertyList(plist: *const SENSOR_PROPERTY_LIST, pke
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))]
+#[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`, `Win32_System_PropertiesSystem`*"]
 #[inline]
 pub unsafe fn IsSensorSubscribed<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(subscriptionlist: *const SENSOR_COLLECTION_LIST, currenttype: Param1) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
@@ -853,6 +923,7 @@ pub unsafe fn IsSensorSubscribed<'a, Param1: ::windows::runtime::IntoParam<'a, :
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_Sensors`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct LOCATION_DESIRED_ACCURACY(pub i32);
@@ -867,6 +938,7 @@ unsafe impl ::windows::runtime::Abi for LOCATION_DESIRED_ACCURACY {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_Sensors`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct LOCATION_POSITION_SOURCE(pub i32);
@@ -884,6 +956,7 @@ unsafe impl ::windows::runtime::Abi for LOCATION_POSITION_SOURCE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_Sensors`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MAGNETOMETER_ACCURACY(pub i32);
@@ -902,6 +975,7 @@ unsafe impl ::windows::runtime::Abi for MAGNETOMETER_ACCURACY {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Sensors`*"]
 pub struct MATRIX3X3 {
     pub Anonymous: MATRIX3X3_0,
 }
@@ -923,6 +997,7 @@ unsafe impl ::windows::runtime::Abi for MATRIX3X3 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Sensors`*"]
 pub union MATRIX3X3_0 {
     pub Anonymous1: MATRIX3X3_0_0,
     pub Anonymous2: MATRIX3X3_0_1,
@@ -946,6 +1021,7 @@ unsafe impl ::windows::runtime::Abi for MATRIX3X3_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Sensors`*"]
 pub struct MATRIX3X3_0_0 {
     pub A11: f32,
     pub A12: f32,
@@ -980,6 +1056,7 @@ unsafe impl ::windows::runtime::Abi for MATRIX3X3_0_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Sensors`*"]
 pub struct MATRIX3X3_0_1 {
     pub V1: VEC3D,
     pub V2: VEC3D,
@@ -1006,6 +1083,7 @@ unsafe impl ::windows::runtime::Abi for MATRIX3X3_0_1 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_Sensors`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MagnetometerAccuracy(pub i32);
@@ -1022,6 +1100,7 @@ unsafe impl ::windows::runtime::Abi for MagnetometerAccuracy {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_Sensors`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PEDOMETER_STEP_TYPE(pub i32);
@@ -1039,6 +1118,7 @@ unsafe impl ::windows::runtime::Abi for PEDOMETER_STEP_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_Sensors`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PEDOMETER_STEP_TYPE_COUNT(pub i32);
@@ -1052,6 +1132,7 @@ unsafe impl ::windows::runtime::Abi for PEDOMETER_STEP_TYPE_COUNT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_Sensors`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PROXIMITY_TYPE(pub i32);
@@ -1068,6 +1149,7 @@ unsafe impl ::windows::runtime::Abi for PROXIMITY_TYPE {
     type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))]
+#[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`, `Win32_System_PropertiesSystem`*"]
 #[inline]
 pub unsafe fn PropKeyFindKeyGetBool(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::System::PropertiesSystem::PROPERTYKEY, pretvalue: *mut super::super::Foundation::BOOL) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1082,6 +1164,7 @@ pub unsafe fn PropKeyFindKeyGetBool(plist: *const SENSOR_COLLECTION_LIST, pkey: 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))]
+#[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`, `Win32_System_PropertiesSystem`*"]
 #[inline]
 pub unsafe fn PropKeyFindKeyGetDouble(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::System::PropertiesSystem::PROPERTYKEY, pretvalue: *mut f64) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1096,6 +1179,7 @@ pub unsafe fn PropKeyFindKeyGetDouble(plist: *const SENSOR_COLLECTION_LIST, pkey
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))]
+#[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`, `Win32_System_PropertiesSystem`*"]
 #[inline]
 pub unsafe fn PropKeyFindKeyGetFileTime(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::System::PropertiesSystem::PROPERTYKEY, pretvalue: *mut super::super::Foundation::FILETIME) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1110,6 +1194,7 @@ pub unsafe fn PropKeyFindKeyGetFileTime(plist: *const SENSOR_COLLECTION_LIST, pk
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))]
+#[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`, `Win32_System_PropertiesSystem`*"]
 #[inline]
 pub unsafe fn PropKeyFindKeyGetFloat(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::System::PropertiesSystem::PROPERTYKEY, pretvalue: *mut f32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1124,6 +1209,7 @@ pub unsafe fn PropKeyFindKeyGetFloat(plist: *const SENSOR_COLLECTION_LIST, pkey:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))]
+#[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`, `Win32_System_PropertiesSystem`*"]
 #[inline]
 pub unsafe fn PropKeyFindKeyGetGuid(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::System::PropertiesSystem::PROPERTYKEY, pretvalue: *mut ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1138,6 +1224,7 @@ pub unsafe fn PropKeyFindKeyGetGuid(plist: *const SENSOR_COLLECTION_LIST, pkey: 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))]
+#[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`, `Win32_System_PropertiesSystem`*"]
 #[inline]
 pub unsafe fn PropKeyFindKeyGetInt32(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::System::PropertiesSystem::PROPERTYKEY, pretvalue: *mut i32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1152,6 +1239,7 @@ pub unsafe fn PropKeyFindKeyGetInt32(plist: *const SENSOR_COLLECTION_LIST, pkey:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))]
+#[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`, `Win32_System_PropertiesSystem`*"]
 #[inline]
 pub unsafe fn PropKeyFindKeyGetInt64(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::System::PropertiesSystem::PROPERTYKEY, pretvalue: *mut i64) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1166,6 +1254,7 @@ pub unsafe fn PropKeyFindKeyGetInt64(plist: *const SENSOR_COLLECTION_LIST, pkey:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))]
+#[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`, `Win32_System_PropertiesSystem`*"]
 #[inline]
 pub unsafe fn PropKeyFindKeyGetNthInt64(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::System::PropertiesSystem::PROPERTYKEY, occurrence: u32, pretvalue: *mut i64) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1180,6 +1269,7 @@ pub unsafe fn PropKeyFindKeyGetNthInt64(plist: *const SENSOR_COLLECTION_LIST, pk
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))]
+#[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`, `Win32_System_PropertiesSystem`*"]
 #[inline]
 pub unsafe fn PropKeyFindKeyGetNthUlong(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::System::PropertiesSystem::PROPERTYKEY, occurrence: u32, pretvalue: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1194,6 +1284,7 @@ pub unsafe fn PropKeyFindKeyGetNthUlong(plist: *const SENSOR_COLLECTION_LIST, pk
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))]
+#[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`, `Win32_System_PropertiesSystem`*"]
 #[inline]
 pub unsafe fn PropKeyFindKeyGetNthUshort(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::System::PropertiesSystem::PROPERTYKEY, occurrence: u32, pretvalue: *mut u16) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1208,6 +1299,7 @@ pub unsafe fn PropKeyFindKeyGetNthUshort(plist: *const SENSOR_COLLECTION_LIST, p
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))]
+#[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`, `Win32_System_PropertiesSystem`*"]
 #[inline]
 pub unsafe fn PropKeyFindKeyGetPropVariant<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>>(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::System::PropertiesSystem::PROPERTYKEY, typecheck: Param2, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1222,6 +1314,7 @@ pub unsafe fn PropKeyFindKeyGetPropVariant<'a, Param2: ::windows::runtime::IntoP
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))]
+#[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`, `Win32_System_PropertiesSystem`*"]
 #[inline]
 pub unsafe fn PropKeyFindKeyGetUlong(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::System::PropertiesSystem::PROPERTYKEY, pretvalue: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1236,6 +1329,7 @@ pub unsafe fn PropKeyFindKeyGetUlong(plist: *const SENSOR_COLLECTION_LIST, pkey:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))]
+#[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`, `Win32_System_PropertiesSystem`*"]
 #[inline]
 pub unsafe fn PropKeyFindKeyGetUshort(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::System::PropertiesSystem::PROPERTYKEY, pretvalue: *mut u16) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1250,6 +1344,7 @@ pub unsafe fn PropKeyFindKeyGetUshort(plist: *const SENSOR_COLLECTION_LIST, pkey
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))]
+#[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`, `Win32_System_PropertiesSystem`*"]
 #[inline]
 pub unsafe fn PropKeyFindKeySetPropVariant<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>>(plist: *mut SENSOR_COLLECTION_LIST, pkey: *const super::super::System::PropertiesSystem::PROPERTYKEY, typecheck: Param2, pvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1264,6 +1359,7 @@ pub unsafe fn PropKeyFindKeySetPropVariant<'a, Param2: ::windows::runtime::IntoP
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
+#[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn PropVariantGetInformation(propvariantvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT, propvariantoffset: *mut u32, propvariantsize: *mut u32, propvariantpointer: *mut *mut ::std::ffi::c_void, remappedtype: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1278,6 +1374,7 @@ pub unsafe fn PropVariantGetInformation(propvariantvalue: *const super::super::S
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_PropertiesSystem"))]
+#[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_Foundation`, `Win32_System_PropertiesSystem`*"]
 #[inline]
 pub unsafe fn PropertiesListCopy(target: *mut SENSOR_PROPERTY_LIST, source: *const SENSOR_PROPERTY_LIST) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1291,6 +1388,7 @@ pub unsafe fn PropertiesListCopy(target: *mut SENSOR_PROPERTY_LIST, source: *con
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_Sensors`*"]
 #[inline]
 pub unsafe fn PropertiesListGetFillableCount(buffersizebytes: u32) -> u32 {
     #[cfg(windows)]
@@ -1306,6 +1404,7 @@ pub unsafe fn PropertiesListGetFillableCount(buffersizebytes: u32) -> u32 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Sensors`*"]
 pub struct QUATERNION {
     pub X: f32,
     pub Y: f32,
@@ -1353,6 +1452,7 @@ impl ::std::clone::Clone for SENSOR_COLLECTION_LIST {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))]
+#[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`, `Win32_System_PropertiesSystem`*"]
 pub struct SENSOR_COLLECTION_LIST {
     pub AllocatedSizeInBytes: u32,
     pub Count: u32,
@@ -1379,6 +1479,7 @@ unsafe impl ::windows::runtime::Abi for SENSOR_COLLECTION_LIST {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_Sensors`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SENSOR_CONNECTION_TYPES(pub i32);
@@ -1415,6 +1516,7 @@ pub const SENSOR_PROPERTY_COMMON_GUID: ::windows::runtime::GUID = ::windows::run
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_System_PropertiesSystem`*"]
 pub struct SENSOR_PROPERTY_LIST {
     pub AllocatedSizeInBytes: u32,
     pub Count: u32,
@@ -1447,8 +1549,10 @@ unsafe impl ::windows::runtime::Abi for SENSOR_PROPERTY_LIST {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_Sensors`*"]
 pub const SENSOR_PROPERTY_LIST_HEADER_SIZE: u32 = 8u32;
 pub const SENSOR_PROPERTY_TEST_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3790168820, 28261, 17911, [156, 54, 212, 135, 183, 177, 189, 52]);
+#[doc = "*Required features: `Win32_Devices_Sensors`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SENSOR_STATE(pub i32);
@@ -1528,6 +1632,7 @@ impl ::std::clone::Clone for SENSOR_VALUE_PAIR {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))]
+#[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`, `Win32_System_PropertiesSystem`*"]
 pub struct SENSOR_VALUE_PAIR {
     pub Key: super::super::System::PropertiesSystem::PROPERTYKEY,
     pub Value: super::super::System::Com::StructuredStorage::PROPVARIANT,
@@ -1553,6 +1658,7 @@ unsafe impl ::windows::runtime::Abi for SENSOR_VALUE_PAIR {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_Sensors`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SIMPLE_DEVICE_ORIENTATION(pub i32);
@@ -1574,6 +1680,7 @@ unsafe impl ::windows::runtime::Abi for SIMPLE_DEVICE_ORIENTATION {
 pub const Sensor: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3917278464, 21050, 16691, [191, 111, 211, 162, 218, 231, 246, 186]);
 pub const SensorCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2042903259, 42025, 18079, [170, 57, 47, 43, 116, 183, 89, 55]);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))]
+#[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`, `Win32_System_PropertiesSystem`*"]
 #[inline]
 pub unsafe fn SensorCollectionGetAt(index: u32, psensorslist: *const SENSOR_COLLECTION_LIST, pkey: *mut super::super::System::PropertiesSystem::PROPERTYKEY, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1587,6 +1694,7 @@ pub unsafe fn SensorCollectionGetAt(index: u32, psensorslist: *const SENSOR_COLL
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_Sensors`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SensorConnectionType(pub i32);
@@ -1604,6 +1712,7 @@ unsafe impl ::windows::runtime::Abi for SensorConnectionType {
 }
 pub const SensorDataReport: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1319753455, 26955, 16920, [136, 22, 204, 218, 141, 167, 75, 186]);
 pub const SensorManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2007091239, 64722, 18057, [137, 21, 157, 97, 60, 197, 250, 62]);
+#[doc = "*Required features: `Win32_Devices_Sensors`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SensorState(pub i32);
@@ -1625,6 +1734,7 @@ unsafe impl ::windows::runtime::Abi for SensorState {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SerializationBufferAllocate(sizeinbytes: u32, pbuffer: *mut *mut u8) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1638,6 +1748,7 @@ pub unsafe fn SerializationBufferAllocate(sizeinbytes: u32, pbuffer: *mut *mut u
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_Sensors`*"]
 #[inline]
 pub unsafe fn SerializationBufferFree(buffer: *const u8) {
     #[cfg(windows)]
@@ -1651,6 +1762,7 @@ pub unsafe fn SerializationBufferFree(buffer: *const u8) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_Sensors`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SimpleDeviceOrientation(pub i32);
@@ -1671,6 +1783,7 @@ unsafe impl ::windows::runtime::Abi for SimpleDeviceOrientation {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_Sensors`*"]
 pub struct VEC3D {
     pub X: f32,
     pub Y: f32,

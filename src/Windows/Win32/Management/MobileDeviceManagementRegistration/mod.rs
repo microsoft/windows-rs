@@ -1,5 +1,6 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn ApplyLocalManagementSyncML<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(syncmlrequest: Param0) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
@@ -14,12 +15,18 @@ pub unsafe fn ApplyLocalManagementSyncML<'a, Param0: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`*"]
 pub const DEVICEREGISTRATIONTYPE_MAM: u32 = 5u32;
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`*"]
 pub const DEVICEREGISTRATIONTYPE_MDM_DEVICEWIDE_WITH_AAD: u32 = 6u32;
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`*"]
 pub const DEVICEREGISTRATIONTYPE_MDM_ONLY: u32 = 0u32;
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`*"]
 pub const DEVICEREGISTRATIONTYPE_MDM_USERSPECIFIC_WITH_AAD: u32 = 13u32;
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`*"]
 pub const DEVICE_ENROLLER_FACILITY_CODE: u32 = 24u32;
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn DiscoverManagementService<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszupn: Param0) -> ::windows::runtime::Result<*mut MANAGEMENT_SERVICE_INFO> {
     #[cfg(windows)]
@@ -35,6 +42,7 @@ pub unsafe fn DiscoverManagementService<'a, Param0: ::windows::runtime::IntoPara
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn DiscoverManagementServiceEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszupn: Param0, pszdiscoveryservicecandidate: Param1) -> ::windows::runtime::Result<*mut MANAGEMENT_SERVICE_INFO> {
     #[cfg(windows)]
@@ -50,6 +58,7 @@ pub unsafe fn DiscoverManagementServiceEx<'a, Param0: ::windows::runtime::IntoPa
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetDeviceManagementConfigInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(providerid: Param0, configstringbufferlength: *mut u32, configstring: super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -63,6 +72,7 @@ pub unsafe fn GetDeviceManagementConfigInfo<'a, Param0: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`*"]
 #[inline]
 pub unsafe fn GetDeviceRegistrationInfo(deviceinformationclass: REGISTRATION_INFORMATION_CLASS, ppdeviceregistrationinfo: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -77,6 +87,7 @@ pub unsafe fn GetDeviceRegistrationInfo(deviceinformationclass: REGISTRATION_INF
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetManagementAppHyperlink(cchhyperlink: u32, pszhyperlink: super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -91,6 +102,7 @@ pub unsafe fn GetManagementAppHyperlink(cchhyperlink: u32, pszhyperlink: super::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn IsDeviceRegisteredWithManagement(pfisdeviceregisteredwithmanagement: *mut super::super::Foundation::BOOL, cchupn: u32, pszupn: super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -105,6 +117,7 @@ pub unsafe fn IsDeviceRegisteredWithManagement(pfisdeviceregisteredwithmanagemen
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn IsManagementRegistrationAllowed() -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
     #[cfg(windows)]
@@ -120,6 +133,7 @@ pub unsafe fn IsManagementRegistrationAllowed() -> ::windows::runtime::Result<su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn IsMdmUxWithoutAadAllowed() -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
     #[cfg(windows)]
@@ -137,6 +151,7 @@ pub unsafe fn IsMdmUxWithoutAadAllowed() -> ::windows::runtime::Result<super::su
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`, `Win32_Foundation`*"]
 pub struct MANAGEMENT_REGISTRATION_INFO {
     pub fDeviceRegisteredWithManagement: super::super::Foundation::BOOL,
     pub dwDeviceRegistionKind: u32,
@@ -173,6 +188,7 @@ unsafe impl ::windows::runtime::Abi for MANAGEMENT_REGISTRATION_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`, `Win32_Foundation`*"]
 pub struct MANAGEMENT_SERVICE_INFO {
     pub pszMDMServiceUri: super::super::Foundation::PWSTR,
     pub pszAuthenticationUri: super::super::Foundation::PWSTR,
@@ -204,67 +220,129 @@ unsafe impl ::windows::runtime::Abi for MANAGEMENT_SERVICE_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`*"]
 pub const MDM_REGISTRATION_FACILITY_CODE: u32 = 25u32;
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`*"]
 pub const MENROLL_E_CERTAUTH_FAILED_TO_FIND_CERT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145910744i32 as _);
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`*"]
 pub const MENROLL_E_CERTPOLICY_PRIVATEKEYCREATION_FAILED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145910745i32 as _);
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`*"]
 pub const MENROLL_E_CONNECTIVITY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145910768i32 as _);
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`*"]
 pub const MENROLL_E_DEVICEAPREACHED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145910765i32 as _);
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`*"]
 pub const MENROLL_E_DEVICECAPREACHED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145910765i32 as _);
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`*"]
 pub const MENROLL_E_DEVICENOTSUPPORTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145910764i32 as _);
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`*"]
 pub const MENROLL_E_DEVICE_ALREADY_ENROLLED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145910774i32 as _);
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`*"]
 pub const MENROLL_E_DEVICE_AUTHENTICATION_ERROR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145910782i32 as _);
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`*"]
 pub const MENROLL_E_DEVICE_AUTHORIZATION_ERROR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145910781i32 as _);
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`*"]
 pub const MENROLL_E_DEVICE_CERTIFCATEREQUEST_ERROR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145910780i32 as _);
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`*"]
 pub const MENROLL_E_DEVICE_CERTIFICATEREQUEST_ERROR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145910780i32 as _);
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`*"]
 pub const MENROLL_E_DEVICE_CONFIGMGRSERVER_ERROR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145910779i32 as _);
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`*"]
 pub const MENROLL_E_DEVICE_INTERNALSERVICE_ERROR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145910778i32 as _);
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`*"]
 pub const MENROLL_E_DEVICE_INVALIDSECURITY_ERROR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145910777i32 as _);
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`*"]
 pub const MENROLL_E_DEVICE_MANAGEMENT_BLOCKED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145910746i32 as _);
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`*"]
 pub const MENROLL_E_DEVICE_MESSAGE_FORMAT_ERROR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145910783i32 as _);
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`*"]
 pub const MENROLL_E_DEVICE_NOT_ENROLLED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145910773i32 as _);
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`*"]
 pub const MENROLL_E_DEVICE_UNKNOWN_ERROR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145910776i32 as _);
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`*"]
 pub const MENROLL_E_DISCOVERY_SEC_CERT_DATE_INVALID: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145910771i32 as _);
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`*"]
 pub const MENROLL_E_EMPTY_MESSAGE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145910743i32 as _);
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`*"]
 pub const MENROLL_E_ENROLLMENTDATAINVALID: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145910759i32 as _);
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`*"]
 pub const MENROLL_E_ENROLLMENT_IN_PROGRESS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145910775i32 as _);
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`*"]
 pub const MENROLL_E_INMAINTENANCE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145910761i32 as _);
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`*"]
 pub const MENROLL_E_INSECUREREDIRECT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145910758i32 as _);
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`*"]
 pub const MENROLL_E_INVALIDSSLCERT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145910766i32 as _);
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`*"]
 pub const MENROLL_E_MDM_NOT_CONFIGURED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145910735i32 as _);
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`*"]
 pub const MENROLL_E_NOTELIGIBLETORENEW: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145910762i32 as _);
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`*"]
 pub const MENROLL_E_NOTSUPPORTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145910763i32 as _);
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`*"]
 pub const MENROLL_E_NOT_SUPPORTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145910763i32 as _);
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`*"]
 pub const MENROLL_E_PASSWORD_NEEDED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145910770i32 as _);
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`*"]
 pub const MENROLL_E_PLATFORM_LICENSE_ERROR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145910756i32 as _);
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`*"]
 pub const MENROLL_E_PLATFORM_UNKNOWN_ERROR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145910755i32 as _);
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`*"]
 pub const MENROLL_E_PLATFORM_WRONG_STATE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145910757i32 as _);
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`*"]
 pub const MENROLL_E_PROV_CSP_APPMGMT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145910747i32 as _);
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`*"]
 pub const MENROLL_E_PROV_CSP_CERTSTORE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145910754i32 as _);
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`*"]
 pub const MENROLL_E_PROV_CSP_DMCLIENT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145910752i32 as _);
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`*"]
 pub const MENROLL_E_PROV_CSP_MISC: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145910750i32 as _);
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`*"]
 pub const MENROLL_E_PROV_CSP_PFW: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145910751i32 as _);
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`*"]
 pub const MENROLL_E_PROV_CSP_W7: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145910753i32 as _);
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`*"]
 pub const MENROLL_E_PROV_SSLCERTNOTFOUND: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145910748i32 as _);
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`*"]
 pub const MENROLL_E_PROV_UNKNOWN: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145910749i32 as _);
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`*"]
 pub const MENROLL_E_USERLICENSE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145910760i32 as _);
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`*"]
 pub const MENROLL_E_USER_CANCELED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145910742i32 as _);
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`*"]
 pub const MENROLL_E_USER_CANCELLED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145910736i32 as _);
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`*"]
 pub const MENROLL_E_USER_LICENSE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145910760i32 as _);
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`*"]
 pub const MENROLL_E_WAB_ERROR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145910769i32 as _);
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`*"]
 pub const MREGISTER_E_DEVICE_ALREADY_REGISTERED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145845238i32 as _);
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`*"]
 pub const MREGISTER_E_DEVICE_AUTHENTICATION_ERROR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145845246i32 as _);
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`*"]
 pub const MREGISTER_E_DEVICE_AUTHORIZATION_ERROR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145845245i32 as _);
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`*"]
 pub const MREGISTER_E_DEVICE_CERTIFCATEREQUEST_ERROR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145845244i32 as _);
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`*"]
 pub const MREGISTER_E_DEVICE_CONFIGMGRSERVER_ERROR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145845243i32 as _);
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`*"]
 pub const MREGISTER_E_DEVICE_INTERNALSERVICE_ERROR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145845242i32 as _);
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`*"]
 pub const MREGISTER_E_DEVICE_INVALIDSECURITY_ERROR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145845241i32 as _);
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`*"]
 pub const MREGISTER_E_DEVICE_MESSAGE_FORMAT_ERROR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145845247i32 as _);
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`*"]
 pub const MREGISTER_E_DEVICE_NOT_AD_REGISTERED_ERROR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145845235i32 as _);
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`*"]
 pub const MREGISTER_E_DEVICE_NOT_REGISTERED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145845237i32 as _);
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`*"]
 pub const MREGISTER_E_DEVICE_UNKNOWN_ERROR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145845240i32 as _);
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`*"]
 pub const MREGISTER_E_DISCOVERY_FAILED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145845234i32 as _);
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`*"]
 pub const MREGISTER_E_DISCOVERY_REDIRECTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145845236i32 as _);
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`*"]
 pub const MREGISTER_E_REGISTRATION_IN_PROGRESS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145845239i32 as _);
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct REGISTRATION_INFORMATION_CLASS(pub i32);
@@ -280,6 +358,7 @@ unsafe impl ::windows::runtime::Abi for REGISTRATION_INFORMATION_CLASS {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RegisterDeviceWithLocalManagement() -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
     #[cfg(windows)]
@@ -295,6 +374,7 @@ pub unsafe fn RegisterDeviceWithLocalManagement() -> ::windows::runtime::Result<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RegisterDeviceWithManagement<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszupn: Param0, ppszmdmserviceuri: Param1, ppzsaccesstoken: Param2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -309,6 +389,7 @@ pub unsafe fn RegisterDeviceWithManagement<'a, Param0: ::windows::runtime::IntoP
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RegisterDeviceWithManagementUsingAADCredentials<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(usertoken: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -322,6 +403,7 @@ pub unsafe fn RegisterDeviceWithManagementUsingAADCredentials<'a, Param0: ::wind
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`*"]
 #[inline]
 pub unsafe fn RegisterDeviceWithManagementUsingAADDeviceCredentials() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -336,6 +418,7 @@ pub unsafe fn RegisterDeviceWithManagementUsingAADDeviceCredentials() -> ::windo
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RegisterDeviceWithManagementUsingAADDeviceCredentials2<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(mdmapplicationid: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -350,6 +433,7 @@ pub unsafe fn RegisterDeviceWithManagementUsingAADDeviceCredentials2<'a, Param0:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SetDeviceManagementConfigInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(providerid: Param0, configstring: Param1) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -364,6 +448,7 @@ pub unsafe fn SetDeviceManagementConfigInfo<'a, Param0: ::windows::runtime::Into
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SetManagedExternally<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(ismanagedexternally: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -377,6 +462,7 @@ pub unsafe fn SetManagedExternally<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`*"]
 #[inline]
 pub unsafe fn UnregisterDeviceWithLocalManagement() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -391,6 +477,7 @@ pub unsafe fn UnregisterDeviceWithLocalManagement() -> ::windows::runtime::Resul
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn UnregisterDeviceWithManagement<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(enrollmentid: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]

@@ -1,7 +1,10 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub const APPCLASS_MASK: i32 = 15i32;
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub const APPCMD_MASK: i32 = 4080i32;
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn AddAtomA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpstring: Param0) -> u16 {
     #[cfg(windows)]
@@ -16,6 +19,7 @@ pub unsafe fn AddAtomA<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn AddAtomW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpstring: Param0) -> u16 {
     #[cfg(windows)]
@@ -30,6 +34,7 @@ pub unsafe fn AddAtomW<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn AddClipboardFormatListener<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -43,10 +48,12 @@ pub unsafe fn AddClipboardFormatListener<'a, Param0: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub const CADV_LATEACK: u32 = 65535u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`, `Win32_Security`*"]
 pub struct CONVCONTEXT {
     pub cb: u32,
     pub wFlags: u32,
@@ -86,6 +93,7 @@ unsafe impl ::windows::runtime::Abi for CONVCONTEXT {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`, `Win32_Security`*"]
 pub struct CONVINFO {
     pub cb: u32,
     pub hUser: usize,
@@ -163,6 +171,7 @@ unsafe impl ::windows::runtime::Abi for CONVINFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CONVINFO_CONVERSATION_STATE(pub u32);
@@ -220,6 +229,7 @@ impl ::std::ops::Not for CONVINFO_CONVERSATION_STATE {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CONVINFO_STATUS(pub u32);
@@ -271,6 +281,7 @@ impl ::std::ops::Not for CONVINFO_STATUS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub struct COPYDATASTRUCT {
     pub dwData: usize,
     pub cbData: u32,
@@ -297,10 +308,14 @@ unsafe impl ::windows::runtime::Abi for COPYDATASTRUCT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub const CP_WINANSI: i32 = 1004i32;
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub const CP_WINNEUTRAL: i32 = 1200i32;
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub const CP_WINUNICODE: i32 = 1200i32;
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn ChangeClipboardChain<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwndremove: Param0, hwndnewnext: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -315,6 +330,7 @@ pub unsafe fn ChangeClipboardChain<'a, Param0: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CloseClipboard() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -328,6 +344,7 @@ pub unsafe fn CloseClipboard() -> super::super::Foundation::BOOL {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 #[inline]
 pub unsafe fn CountClipboardFormats() -> i32 {
     #[cfg(windows)]
@@ -343,6 +360,7 @@ pub unsafe fn CountClipboardFormats() -> i32 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub struct DDEACK {
     pub _bitfield: u16,
 }
@@ -369,6 +387,7 @@ unsafe impl ::windows::runtime::Abi for DDEACK {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub struct DDEADVISE {
     pub _bitfield: u16,
     pub cfFormat: i16,
@@ -396,6 +415,7 @@ unsafe impl ::windows::runtime::Abi for DDEADVISE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub struct DDEDATA {
     pub _bitfield: u16,
     pub cfFormat: i16,
@@ -424,6 +444,7 @@ unsafe impl ::windows::runtime::Abi for DDEDATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub struct DDELN {
     pub _bitfield: u16,
     pub cfFormat: i16,
@@ -451,6 +472,7 @@ unsafe impl ::windows::runtime::Abi for DDELN {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub struct DDEML_MSG_HOOK_DATA {
     pub uiLo: usize,
     pub uiHi: usize,
@@ -480,6 +502,7 @@ unsafe impl ::windows::runtime::Abi for DDEML_MSG_HOOK_DATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub struct DDEPOKE {
     pub _bitfield: u16,
     pub cfFormat: i16,
@@ -508,6 +531,7 @@ unsafe impl ::windows::runtime::Abi for DDEPOKE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub struct DDEUP {
     pub _bitfield: u16,
     pub cfFormat: i16,
@@ -534,6 +558,7 @@ unsafe impl ::windows::runtime::Abi for DDEUP {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DDE_CLIENT_TRANSACTION_TYPE(pub u32);
@@ -589,6 +614,7 @@ impl ::std::ops::Not for DDE_CLIENT_TRANSACTION_TYPE {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DDE_ENABLE_CALLBACK_CMD(pub u32);
@@ -633,14 +659,23 @@ impl ::std::ops::Not for DDE_ENABLE_CALLBACK_CMD {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub const DDE_FACK: u32 = 32768u32;
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub const DDE_FACKREQ: u32 = 32768u32;
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub const DDE_FAPPSTATUS: u32 = 255u32;
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub const DDE_FBUSY: u32 = 16384u32;
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub const DDE_FDEFERUPD: u32 = 16384u32;
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub const DDE_FNOTPROCESSED: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub const DDE_FRELEASE: u32 = 8192u32;
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub const DDE_FREQUESTED: u32 = 4096u32;
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DDE_INITIALIZE_COMMAND(pub u32);
@@ -704,6 +739,7 @@ impl ::std::ops::Not for DDE_INITIALIZE_COMMAND {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DDE_NAME_SERVICE_CMD(pub u32);
@@ -748,28 +784,50 @@ impl ::std::ops::Not for DDE_NAME_SERVICE_CMD {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub const DMLERR_ADVACKTIMEOUT: u32 = 16384u32;
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub const DMLERR_BUSY: u32 = 16385u32;
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub const DMLERR_DATAACKTIMEOUT: u32 = 16386u32;
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub const DMLERR_DLL_NOT_INITIALIZED: u32 = 16387u32;
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub const DMLERR_DLL_USAGE: u32 = 16388u32;
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub const DMLERR_EXECACKTIMEOUT: u32 = 16389u32;
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub const DMLERR_FIRST: u32 = 16384u32;
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub const DMLERR_INVALIDPARAMETER: u32 = 16390u32;
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub const DMLERR_LAST: u32 = 16401u32;
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub const DMLERR_LOW_MEMORY: u32 = 16391u32;
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub const DMLERR_MEMORY_ERROR: u32 = 16392u32;
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub const DMLERR_NOTPROCESSED: u32 = 16393u32;
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub const DMLERR_NO_CONV_ESTABLISHED: u32 = 16394u32;
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub const DMLERR_NO_ERROR: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub const DMLERR_POKEACKTIMEOUT: u32 = 16395u32;
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub const DMLERR_POSTMSG_FAILED: u32 = 16396u32;
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub const DMLERR_REENTRANCY: u32 = 16397u32;
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub const DMLERR_SERVER_DIED: u32 = 16398u32;
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub const DMLERR_SYS_ERROR: u32 = 16399u32;
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub const DMLERR_UNADVACKTIMEOUT: u32 = 16400u32;
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub const DMLERR_UNFOUND_QUEUE_ID: u32 = 16401u32;
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn DdeAbandonTransaction<'a, Param1: ::windows::runtime::IntoParam<'a, HCONV>>(idinst: u32, hconv: Param1, idtransaction: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -783,6 +841,7 @@ pub unsafe fn DdeAbandonTransaction<'a, Param1: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 #[inline]
 pub unsafe fn DdeAccessData<'a, Param0: ::windows::runtime::IntoParam<'a, HDDEDATA>>(hdata: Param0, pcbdatasize: *mut u32) -> *mut u8 {
     #[cfg(windows)]
@@ -796,6 +855,7 @@ pub unsafe fn DdeAccessData<'a, Param0: ::windows::runtime::IntoParam<'a, HDDEDA
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 #[inline]
 pub unsafe fn DdeAddData<'a, Param0: ::windows::runtime::IntoParam<'a, HDDEDATA>>(hdata: Param0, psrc: *const u8, cb: u32, cboff: u32) -> HDDEDATA {
     #[cfg(windows)]
@@ -809,6 +869,7 @@ pub unsafe fn DdeAddData<'a, Param0: ::windows::runtime::IntoParam<'a, HDDEDATA>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 #[inline]
 pub unsafe fn DdeClientTransaction<'a, Param2: ::windows::runtime::IntoParam<'a, HCONV>, Param3: ::windows::runtime::IntoParam<'a, HSZ>>(pdata: *const u8, cbdata: u32, hconv: Param2, hszitem: Param3, wfmt: u32, wtype: DDE_CLIENT_TRANSACTION_TYPE, dwtimeout: u32, pdwresult: *mut u32) -> HDDEDATA {
     #[cfg(windows)]
@@ -822,6 +883,7 @@ pub unsafe fn DdeClientTransaction<'a, Param2: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 #[inline]
 pub unsafe fn DdeCmpStringHandles<'a, Param0: ::windows::runtime::IntoParam<'a, HSZ>, Param1: ::windows::runtime::IntoParam<'a, HSZ>>(hsz1: Param0, hsz2: Param1) -> i32 {
     #[cfg(windows)]
@@ -836,6 +898,7 @@ pub unsafe fn DdeCmpStringHandles<'a, Param0: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`, `Win32_Security`*"]
 #[inline]
 pub unsafe fn DdeConnect<'a, Param1: ::windows::runtime::IntoParam<'a, HSZ>, Param2: ::windows::runtime::IntoParam<'a, HSZ>>(idinst: u32, hszservice: Param1, hsztopic: Param2, pcc: *const CONVCONTEXT) -> HCONV {
     #[cfg(windows)]
@@ -850,6 +913,7 @@ pub unsafe fn DdeConnect<'a, Param1: ::windows::runtime::IntoParam<'a, HSZ>, Par
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`, `Win32_Security`*"]
 #[inline]
 pub unsafe fn DdeConnectList<'a, Param1: ::windows::runtime::IntoParam<'a, HSZ>, Param2: ::windows::runtime::IntoParam<'a, HSZ>, Param3: ::windows::runtime::IntoParam<'a, HCONVLIST>>(idinst: u32, hszservice: Param1, hsztopic: Param2, hconvlist: Param3, pcc: *const CONVCONTEXT) -> HCONVLIST {
     #[cfg(windows)]
@@ -863,6 +927,7 @@ pub unsafe fn DdeConnectList<'a, Param1: ::windows::runtime::IntoParam<'a, HSZ>,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 #[inline]
 pub unsafe fn DdeCreateDataHandle<'a, Param4: ::windows::runtime::IntoParam<'a, HSZ>>(idinst: u32, psrc: *const u8, cb: u32, cboff: u32, hszitem: Param4, wfmt: u32, afcmd: u32) -> HDDEDATA {
     #[cfg(windows)]
@@ -877,6 +942,7 @@ pub unsafe fn DdeCreateDataHandle<'a, Param4: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn DdeCreateStringHandleA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(idinst: u32, psz: Param1, icodepage: i32) -> HSZ {
     #[cfg(windows)]
@@ -891,6 +957,7 @@ pub unsafe fn DdeCreateStringHandleA<'a, Param1: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn DdeCreateStringHandleW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(idinst: u32, psz: Param1, icodepage: i32) -> HSZ {
     #[cfg(windows)]
@@ -905,6 +972,7 @@ pub unsafe fn DdeCreateStringHandleW<'a, Param1: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn DdeDisconnect<'a, Param0: ::windows::runtime::IntoParam<'a, HCONV>>(hconv: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -919,6 +987,7 @@ pub unsafe fn DdeDisconnect<'a, Param0: ::windows::runtime::IntoParam<'a, HCONV>
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn DdeDisconnectList<'a, Param0: ::windows::runtime::IntoParam<'a, HCONVLIST>>(hconvlist: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -933,6 +1002,7 @@ pub unsafe fn DdeDisconnectList<'a, Param0: ::windows::runtime::IntoParam<'a, HC
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn DdeEnableCallback<'a, Param1: ::windows::runtime::IntoParam<'a, HCONV>>(idinst: u32, hconv: Param1, wcmd: DDE_ENABLE_CALLBACK_CMD) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -947,6 +1017,7 @@ pub unsafe fn DdeEnableCallback<'a, Param1: ::windows::runtime::IntoParam<'a, HC
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn DdeFreeDataHandle<'a, Param0: ::windows::runtime::IntoParam<'a, HDDEDATA>>(hdata: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -961,6 +1032,7 @@ pub unsafe fn DdeFreeDataHandle<'a, Param0: ::windows::runtime::IntoParam<'a, HD
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn DdeFreeStringHandle<'a, Param1: ::windows::runtime::IntoParam<'a, HSZ>>(idinst: u32, hsz: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -974,6 +1046,7 @@ pub unsafe fn DdeFreeStringHandle<'a, Param1: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 #[inline]
 pub unsafe fn DdeGetData<'a, Param0: ::windows::runtime::IntoParam<'a, HDDEDATA>>(hdata: Param0, pdst: *mut u8, cbmax: u32, cboff: u32) -> u32 {
     #[cfg(windows)]
@@ -987,6 +1060,7 @@ pub unsafe fn DdeGetData<'a, Param0: ::windows::runtime::IntoParam<'a, HDDEDATA>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 #[inline]
 pub unsafe fn DdeGetLastError(idinst: u32) -> u32 {
     #[cfg(windows)]
@@ -1001,6 +1075,7 @@ pub unsafe fn DdeGetLastError(idinst: u32) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn DdeImpersonateClient<'a, Param0: ::windows::runtime::IntoParam<'a, HCONV>>(hconv: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1014,6 +1089,7 @@ pub unsafe fn DdeImpersonateClient<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 #[inline]
 pub unsafe fn DdeInitializeA(pidinst: *mut u32, pfncallback: ::std::option::Option<PFNCALLBACK>, afcmd: DDE_INITIALIZE_COMMAND, ulres: u32) -> u32 {
     #[cfg(windows)]
@@ -1027,6 +1103,7 @@ pub unsafe fn DdeInitializeA(pidinst: *mut u32, pfncallback: ::std::option::Opti
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 #[inline]
 pub unsafe fn DdeInitializeW(pidinst: *mut u32, pfncallback: ::std::option::Option<PFNCALLBACK>, afcmd: DDE_INITIALIZE_COMMAND, ulres: u32) -> u32 {
     #[cfg(windows)]
@@ -1041,6 +1118,7 @@ pub unsafe fn DdeInitializeW(pidinst: *mut u32, pfncallback: ::std::option::Opti
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn DdeKeepStringHandle<'a, Param1: ::windows::runtime::IntoParam<'a, HSZ>>(idinst: u32, hsz: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1054,6 +1132,7 @@ pub unsafe fn DdeKeepStringHandle<'a, Param1: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 #[inline]
 pub unsafe fn DdeNameService<'a, Param1: ::windows::runtime::IntoParam<'a, HSZ>, Param2: ::windows::runtime::IntoParam<'a, HSZ>>(idinst: u32, hsz1: Param1, hsz2: Param2, afcmd: DDE_NAME_SERVICE_CMD) -> HDDEDATA {
     #[cfg(windows)]
@@ -1068,6 +1147,7 @@ pub unsafe fn DdeNameService<'a, Param1: ::windows::runtime::IntoParam<'a, HSZ>,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn DdePostAdvise<'a, Param1: ::windows::runtime::IntoParam<'a, HSZ>, Param2: ::windows::runtime::IntoParam<'a, HSZ>>(idinst: u32, hsztopic: Param1, hszitem: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1082,6 +1162,7 @@ pub unsafe fn DdePostAdvise<'a, Param1: ::windows::runtime::IntoParam<'a, HSZ>, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`, `Win32_Security`*"]
 #[inline]
 pub unsafe fn DdeQueryConvInfo<'a, Param0: ::windows::runtime::IntoParam<'a, HCONV>>(hconv: Param0, idtransaction: u32, pconvinfo: *mut CONVINFO) -> u32 {
     #[cfg(windows)]
@@ -1095,6 +1176,7 @@ pub unsafe fn DdeQueryConvInfo<'a, Param0: ::windows::runtime::IntoParam<'a, HCO
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 #[inline]
 pub unsafe fn DdeQueryNextServer<'a, Param0: ::windows::runtime::IntoParam<'a, HCONVLIST>, Param1: ::windows::runtime::IntoParam<'a, HCONV>>(hconvlist: Param0, hconvprev: Param1) -> HCONV {
     #[cfg(windows)]
@@ -1109,6 +1191,7 @@ pub unsafe fn DdeQueryNextServer<'a, Param0: ::windows::runtime::IntoParam<'a, H
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn DdeQueryStringA<'a, Param1: ::windows::runtime::IntoParam<'a, HSZ>>(idinst: u32, hsz: Param1, psz: super::super::Foundation::PSTR, cchmax: u32, icodepage: i32) -> u32 {
     #[cfg(windows)]
@@ -1123,6 +1206,7 @@ pub unsafe fn DdeQueryStringA<'a, Param1: ::windows::runtime::IntoParam<'a, HSZ>
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn DdeQueryStringW<'a, Param1: ::windows::runtime::IntoParam<'a, HSZ>>(idinst: u32, hsz: Param1, psz: super::super::Foundation::PWSTR, cchmax: u32, icodepage: i32) -> u32 {
     #[cfg(windows)]
@@ -1136,6 +1220,7 @@ pub unsafe fn DdeQueryStringW<'a, Param1: ::windows::runtime::IntoParam<'a, HSZ>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 #[inline]
 pub unsafe fn DdeReconnect<'a, Param0: ::windows::runtime::IntoParam<'a, HCONV>>(hconv: Param0) -> HCONV {
     #[cfg(windows)]
@@ -1150,6 +1235,7 @@ pub unsafe fn DdeReconnect<'a, Param0: ::windows::runtime::IntoParam<'a, HCONV>>
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`, `Win32_Security`*"]
 #[inline]
 pub unsafe fn DdeSetQualityOfService<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwndclient: Param0, pqosnew: *const super::super::Security::SECURITY_QUALITY_OF_SERVICE, pqosprev: *mut super::super::Security::SECURITY_QUALITY_OF_SERVICE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1164,6 +1250,7 @@ pub unsafe fn DdeSetQualityOfService<'a, Param0: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn DdeSetUserHandle<'a, Param0: ::windows::runtime::IntoParam<'a, HCONV>>(hconv: Param0, id: u32, huser: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1178,6 +1265,7 @@ pub unsafe fn DdeSetUserHandle<'a, Param0: ::windows::runtime::IntoParam<'a, HCO
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn DdeUnaccessData<'a, Param0: ::windows::runtime::IntoParam<'a, HDDEDATA>>(hdata: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1192,6 +1280,7 @@ pub unsafe fn DdeUnaccessData<'a, Param0: ::windows::runtime::IntoParam<'a, HDDE
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn DdeUninitialize(idinst: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1205,6 +1294,7 @@ pub unsafe fn DdeUninitialize(idinst: u32) -> super::super::Foundation::BOOL {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 #[inline]
 pub unsafe fn DeleteAtom(natom: u16) -> u16 {
     #[cfg(windows)]
@@ -1219,6 +1309,7 @@ pub unsafe fn DeleteAtom(natom: u16) -> u16 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn EmptyClipboard() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1232,6 +1323,7 @@ pub unsafe fn EmptyClipboard() -> super::super::Foundation::BOOL {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 #[inline]
 pub unsafe fn EnumClipboardFormats(format: u32) -> u32 {
     #[cfg(windows)]
@@ -1246,6 +1338,7 @@ pub unsafe fn EnumClipboardFormats(format: u32) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn FindAtomA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpstring: Param0) -> u16 {
     #[cfg(windows)]
@@ -1260,6 +1353,7 @@ pub unsafe fn FindAtomA<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn FindAtomW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpstring: Param0) -> u16 {
     #[cfg(windows)]
@@ -1274,6 +1368,7 @@ pub unsafe fn FindAtomW<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn FreeDDElParam<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(msg: u32, lparam: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1288,6 +1383,7 @@ pub unsafe fn FreeDDElParam<'a, Param1: ::windows::runtime::IntoParam<'a, super:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetAtomNameA(natom: u16, lpbuffer: super::super::Foundation::PSTR, nsize: i32) -> u32 {
     #[cfg(windows)]
@@ -1302,6 +1398,7 @@ pub unsafe fn GetAtomNameA(natom: u16, lpbuffer: super::super::Foundation::PSTR,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetAtomNameW(natom: u16, lpbuffer: super::super::Foundation::PWSTR, nsize: i32) -> u32 {
     #[cfg(windows)]
@@ -1316,6 +1413,7 @@ pub unsafe fn GetAtomNameW(natom: u16, lpbuffer: super::super::Foundation::PWSTR
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetClipboardData(uformat: u32) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
@@ -1330,6 +1428,7 @@ pub unsafe fn GetClipboardData(uformat: u32) -> super::super::Foundation::HANDLE
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetClipboardFormatNameA(format: u32, lpszformatname: super::super::Foundation::PSTR, cchmaxcount: i32) -> i32 {
     #[cfg(windows)]
@@ -1344,6 +1443,7 @@ pub unsafe fn GetClipboardFormatNameA(format: u32, lpszformatname: super::super:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetClipboardFormatNameW(format: u32, lpszformatname: super::super::Foundation::PWSTR, cchmaxcount: i32) -> i32 {
     #[cfg(windows)]
@@ -1358,6 +1458,7 @@ pub unsafe fn GetClipboardFormatNameW(format: u32, lpszformatname: super::super:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetClipboardOwner() -> super::super::Foundation::HWND {
     #[cfg(windows)]
@@ -1371,6 +1472,7 @@ pub unsafe fn GetClipboardOwner() -> super::super::Foundation::HWND {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 #[inline]
 pub unsafe fn GetClipboardSequenceNumber() -> u32 {
     #[cfg(windows)]
@@ -1385,6 +1487,7 @@ pub unsafe fn GetClipboardSequenceNumber() -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetClipboardViewer() -> super::super::Foundation::HWND {
     #[cfg(windows)]
@@ -1399,6 +1502,7 @@ pub unsafe fn GetClipboardViewer() -> super::super::Foundation::HWND {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetOpenClipboardWindow() -> super::super::Foundation::HWND {
     #[cfg(windows)]
@@ -1412,6 +1516,7 @@ pub unsafe fn GetOpenClipboardWindow() -> super::super::Foundation::HWND {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 #[inline]
 pub unsafe fn GetPriorityClipboardFormat(paformatprioritylist: *const u32, cformats: i32) -> i32 {
     #[cfg(windows)]
@@ -1426,6 +1531,7 @@ pub unsafe fn GetPriorityClipboardFormat(paformatprioritylist: *const u32, cform
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetUpdatedClipboardFormats(lpuiformats: *mut u32, cformats: u32, pcformatsout: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1440,6 +1546,7 @@ pub unsafe fn GetUpdatedClipboardFormats(lpuiformats: *mut u32, cformats: u32, p
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GlobalAddAtomA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpstring: Param0) -> u16 {
     #[cfg(windows)]
@@ -1454,6 +1561,7 @@ pub unsafe fn GlobalAddAtomA<'a, Param0: ::windows::runtime::IntoParam<'a, super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GlobalAddAtomExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpstring: Param0, flags: u32) -> u16 {
     #[cfg(windows)]
@@ -1468,6 +1576,7 @@ pub unsafe fn GlobalAddAtomExA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GlobalAddAtomExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpstring: Param0, flags: u32) -> u16 {
     #[cfg(windows)]
@@ -1482,6 +1591,7 @@ pub unsafe fn GlobalAddAtomExW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GlobalAddAtomW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpstring: Param0) -> u16 {
     #[cfg(windows)]
@@ -1495,6 +1605,7 @@ pub unsafe fn GlobalAddAtomW<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 #[inline]
 pub unsafe fn GlobalDeleteAtom(natom: u16) -> u16 {
     #[cfg(windows)]
@@ -1509,6 +1620,7 @@ pub unsafe fn GlobalDeleteAtom(natom: u16) -> u16 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GlobalFindAtomA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpstring: Param0) -> u16 {
     #[cfg(windows)]
@@ -1523,6 +1635,7 @@ pub unsafe fn GlobalFindAtomA<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GlobalFindAtomW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpstring: Param0) -> u16 {
     #[cfg(windows)]
@@ -1537,6 +1650,7 @@ pub unsafe fn GlobalFindAtomW<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GlobalGetAtomNameA(natom: u16, lpbuffer: super::super::Foundation::PSTR, nsize: i32) -> u32 {
     #[cfg(windows)]
@@ -1551,6 +1665,7 @@ pub unsafe fn GlobalGetAtomNameA(natom: u16, lpbuffer: super::super::Foundation:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GlobalGetAtomNameW(natom: u16, lpbuffer: super::super::Foundation::PWSTR, nsize: i32) -> u32 {
     #[cfg(windows)]
@@ -1590,6 +1705,7 @@ unsafe impl ::windows::runtime::Abi for HCONVLIST {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub const HDATA_APPOWNED: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -1619,6 +1735,7 @@ unsafe impl ::windows::runtime::Abi for HSZ {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub struct HSZPAIR {
     pub hszSvc: HSZ,
     pub hszTopic: HSZ,
@@ -1645,6 +1762,7 @@ unsafe impl ::windows::runtime::Abi for HSZPAIR {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn ImpersonateDdeClientWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwndclient: Param0, hwndserver: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1659,6 +1777,7 @@ pub unsafe fn ImpersonateDdeClientWindow<'a, Param0: ::windows::runtime::IntoPar
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn InitAtomTable(nsize: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1673,6 +1792,7 @@ pub unsafe fn InitAtomTable(nsize: u32) -> super::super::Foundation::BOOL {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn IsClipboardFormatAvailable(format: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1686,10 +1806,12 @@ pub unsafe fn IsClipboardFormatAvailable(format: u32) -> super::super::Foundatio
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub const MAX_MONITORS: u32 = 4u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Graphics_Gdi`*"]
 pub struct METAFILEPICT {
     pub mm: i32,
     pub xExt: i32,
@@ -1723,14 +1845,20 @@ unsafe impl ::windows::runtime::Abi for METAFILEPICT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub const MF_MASK: u32 = 4278190080u32;
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub const MH_CLEANUP: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub const MH_CREATE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub const MH_DELETE: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub const MH_KEEP: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`, `Win32_Security`*"]
 pub struct MONCBSTRUCT {
     pub cb: u32,
     pub dwTime: u32,
@@ -1794,6 +1922,7 @@ unsafe impl ::windows::runtime::Abi for MONCBSTRUCT {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
 pub struct MONCONVSTRUCT {
     pub cb: u32,
     pub fConnect: super::super::Foundation::BOOL,
@@ -1834,6 +1963,7 @@ unsafe impl ::windows::runtime::Abi for MONCONVSTRUCT {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
 pub struct MONERRSTRUCT {
     pub cb: u32,
     pub wLastError: u32,
@@ -1870,6 +2000,7 @@ unsafe impl ::windows::runtime::Abi for MONERRSTRUCT {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
 pub struct MONHSZSTRUCTA {
     pub cb: u32,
     pub fsAction: super::super::Foundation::BOOL,
@@ -1908,6 +2039,7 @@ unsafe impl ::windows::runtime::Abi for MONHSZSTRUCTA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
 pub struct MONHSZSTRUCTW {
     pub cb: u32,
     pub fsAction: super::super::Foundation::BOOL,
@@ -1946,6 +2078,7 @@ unsafe impl ::windows::runtime::Abi for MONHSZSTRUCTW {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
 pub struct MONLINKSTRUCT {
     pub cb: u32,
     pub dwTime: u32,
@@ -2003,6 +2136,7 @@ unsafe impl ::windows::runtime::Abi for MONLINKSTRUCT {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
 pub struct MONMSGSTRUCT {
     pub cb: u32,
     pub hwndTo: super::super::Foundation::HWND,
@@ -2040,8 +2174,10 @@ unsafe impl ::windows::runtime::Abi for MONMSGSTRUCT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub const MSGF_DDEMGR: u32 = 32769u32;
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn OpenClipboard<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwndnewowner: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -2057,6 +2193,7 @@ pub unsafe fn OpenClipboard<'a, Param0: ::windows::runtime::IntoParam<'a, super:
 }
 pub type PFNCALLBACK = unsafe extern "system" fn(wtype: u32, wfmt: u32, hconv: HCONV, hsz1: HSZ, hsz2: HSZ, hdata: HDDEDATA, dwdata1: usize, dwdata2: usize) -> HDDEDATA;
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PackDDElParam(msg: u32, uilo: usize, uihi: usize) -> super::super::Foundation::LPARAM {
     #[cfg(windows)]
@@ -2070,8 +2207,10 @@ pub unsafe fn PackDDElParam(msg: u32, uilo: usize, uihi: usize) -> super::super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub const QID_SYNC: u32 = 4294967295u32;
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RegisterClipboardFormatA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpszformat: Param0) -> u32 {
     #[cfg(windows)]
@@ -2086,6 +2225,7 @@ pub unsafe fn RegisterClipboardFormatA<'a, Param0: ::windows::runtime::IntoParam
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RegisterClipboardFormatW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszformat: Param0) -> u32 {
     #[cfg(windows)]
@@ -2100,6 +2240,7 @@ pub unsafe fn RegisterClipboardFormatW<'a, Param0: ::windows::runtime::IntoParam
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RemoveClipboardFormatListener<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -2114,6 +2255,7 @@ pub unsafe fn RemoveClipboardFormatListener<'a, Param0: ::windows::runtime::Into
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn ReuseDDElParam<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(lparam: Param0, msgin: u32, msgout: u32, uilo: usize, uihi: usize) -> super::super::Foundation::LPARAM {
     #[cfg(windows)]
@@ -2128,6 +2270,7 @@ pub unsafe fn ReuseDDElParam<'a, Param0: ::windows::runtime::IntoParam<'a, super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SetClipboardData<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(uformat: u32, hmem: Param1) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
@@ -2142,6 +2285,7 @@ pub unsafe fn SetClipboardData<'a, Param1: ::windows::runtime::IntoParam<'a, sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SetClipboardViewer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwndnewviewer: Param0) -> super::super::Foundation::HWND {
     #[cfg(windows)]
@@ -2156,6 +2300,7 @@ pub unsafe fn SetClipboardViewer<'a, Param0: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Graphics_Gdi`*"]
 #[inline]
 pub unsafe fn SetWinMetaFileBits<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(nsize: u32, lpmeta16data: *const u8, hdcref: Param2, lpmfp: *const METAFILEPICT) -> super::super::Graphics::Gdi::HENHMETAFILE {
     #[cfg(windows)]
@@ -2169,8 +2314,10 @@ pub unsafe fn SetWinMetaFileBits<'a, Param2: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub const TIMEOUT_ASYNC: u32 = 4294967295u32;
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn UnpackDDElParam<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(msg: u32, lparam: Param1, puilo: *mut usize, puihi: *mut usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -2184,24 +2331,45 @@ pub unsafe fn UnpackDDElParam<'a, Param1: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub const WM_DDE_ACK: u32 = 996u32;
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub const WM_DDE_ADVISE: u32 = 994u32;
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub const WM_DDE_DATA: u32 = 997u32;
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub const WM_DDE_EXECUTE: u32 = 1000u32;
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub const WM_DDE_FIRST: u32 = 992u32;
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub const WM_DDE_INITIATE: u32 = 992u32;
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub const WM_DDE_LAST: u32 = 1000u32;
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub const WM_DDE_POKE: u32 = 999u32;
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub const WM_DDE_REQUEST: u32 = 998u32;
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub const WM_DDE_TERMINATE: u32 = 993u32;
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub const WM_DDE_UNADVISE: u32 = 995u32;
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub const XCLASS_BOOL: u32 = 4096u32;
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub const XCLASS_DATA: u32 = 8192u32;
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub const XCLASS_FLAGS: u32 = 16384u32;
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub const XCLASS_MASK: u32 = 64512u32;
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub const XCLASS_NOTIFICATION: u32 = 32768u32;
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub const XTYPF_ACKREQ: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub const XTYPF_NOBLOCK: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub const XTYPF_NODATA: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub const XTYP_MASK: u32 = 240u32;
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub const XTYP_SHIFT: u32 = 4u32;

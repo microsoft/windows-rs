@@ -99,6 +99,7 @@ pub struct ISystemUpdateManagerStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `System_Update`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SystemUpdateAttentionRequiredReason(pub i32);
@@ -121,10 +122,12 @@ unsafe impl ::windows::runtime::Abi for SystemUpdateAttentionRequiredReason {
 unsafe impl ::windows::runtime::RuntimeType for SystemUpdateAttentionRequiredReason {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.System.Update.SystemUpdateAttentionRequiredReason;i4)");
 }
+#[doc = "*Required features: `System_Update`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SystemUpdateItem(::windows::runtime::IInspectable);
 impl SystemUpdateItem {
+    #[doc = "*Required features: `System_Update`*"]
     pub fn State(&self) -> ::windows::runtime::Result<SystemUpdateItemState> {
         let this = self;
         unsafe {
@@ -132,6 +135,7 @@ impl SystemUpdateItem {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SystemUpdateItemState>(result__)
         }
     }
+    #[doc = "*Required features: `System_Update`*"]
     pub fn Title(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -139,6 +143,7 @@ impl SystemUpdateItem {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `System_Update`*"]
     pub fn Description(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -146,6 +151,7 @@ impl SystemUpdateItem {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `System_Update`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -153,6 +159,7 @@ impl SystemUpdateItem {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `System_Update`*"]
     pub fn Revision(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -160,6 +167,7 @@ impl SystemUpdateItem {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `System_Update`*"]
     pub fn DownloadProgress(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -167,6 +175,7 @@ impl SystemUpdateItem {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `System_Update`*"]
     pub fn InstallProgress(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -174,6 +183,7 @@ impl SystemUpdateItem {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `System_Update`*"]
     pub fn ExtendedError(&self) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
         let this = self;
         unsafe {
@@ -234,6 +244,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for SystemUpdateItem {}
 unsafe impl ::std::marker::Sync for SystemUpdateItem {}
+#[doc = "*Required features: `System_Update`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SystemUpdateItemState(pub i32);
@@ -260,10 +271,12 @@ unsafe impl ::windows::runtime::Abi for SystemUpdateItemState {
 unsafe impl ::windows::runtime::RuntimeType for SystemUpdateItemState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.System.Update.SystemUpdateItemState;i4)");
 }
+#[doc = "*Required features: `System_Update`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SystemUpdateLastErrorInfo(::windows::runtime::IInspectable);
 impl SystemUpdateLastErrorInfo {
+    #[doc = "*Required features: `System_Update`*"]
     pub fn State(&self) -> ::windows::runtime::Result<SystemUpdateManagerState> {
         let this = self;
         unsafe {
@@ -271,6 +284,7 @@ impl SystemUpdateLastErrorInfo {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SystemUpdateManagerState>(result__)
         }
     }
+    #[doc = "*Required features: `System_Update`*"]
     pub fn ExtendedError(&self) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
         let this = self;
         unsafe {
@@ -278,6 +292,7 @@ impl SystemUpdateLastErrorInfo {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HRESULT>(result__)
         }
     }
+    #[doc = "*Required features: `System_Update`*"]
     pub fn IsInteractive(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -338,14 +353,17 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for SystemUpdateLastErrorInfo {}
 unsafe impl ::std::marker::Sync for SystemUpdateLastErrorInfo {}
+#[doc = "*Required features: `System_Update`*"]
 pub struct SystemUpdateManager {}
 impl SystemUpdateManager {
+    #[doc = "*Required features: `System_Update`*"]
     pub fn IsSupported() -> ::windows::runtime::Result<bool> {
         Self::ISystemUpdateManagerStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: `System_Update`*"]
     pub fn State() -> ::windows::runtime::Result<SystemUpdateManagerState> {
         Self::ISystemUpdateManagerStatics(|this| unsafe {
             let mut result__: SystemUpdateManagerState = ::std::mem::zeroed();
@@ -353,6 +371,7 @@ impl SystemUpdateManager {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `System_Update`, `Foundation`*"]
     pub fn StateChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventHandler<::windows::runtime::IInspectable>>>(handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         Self::ISystemUpdateManagerStatics(|this| unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
@@ -360,15 +379,18 @@ impl SystemUpdateManager {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `System_Update`, `Foundation`*"]
     pub fn RemoveStateChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::runtime::Result<()> {
         Self::ISystemUpdateManagerStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() })
     }
+    #[doc = "*Required features: `System_Update`*"]
     pub fn DownloadProgress() -> ::windows::runtime::Result<f64> {
         Self::ISystemUpdateManagerStatics(|this| unsafe {
             let mut result__: f64 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         })
     }
+    #[doc = "*Required features: `System_Update`*"]
     pub fn InstallProgress() -> ::windows::runtime::Result<f64> {
         Self::ISystemUpdateManagerStatics(|this| unsafe {
             let mut result__: f64 = ::std::mem::zeroed();
@@ -376,6 +398,7 @@ impl SystemUpdateManager {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `System_Update`, `Foundation`*"]
     pub fn UserActiveHoursStart() -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         Self::ISystemUpdateManagerStatics(|this| unsafe {
             let mut result__: super::super::Foundation::TimeSpan = ::std::mem::zeroed();
@@ -383,12 +406,14 @@ impl SystemUpdateManager {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `System_Update`, `Foundation`*"]
     pub fn UserActiveHoursEnd() -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         Self::ISystemUpdateManagerStatics(|this| unsafe {
             let mut result__: super::super::Foundation::TimeSpan = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         })
     }
+    #[doc = "*Required features: `System_Update`*"]
     pub fn UserActiveHoursMax() -> ::windows::runtime::Result<i32> {
         Self::ISystemUpdateManagerStatics(|this| unsafe {
             let mut result__: i32 = ::std::mem::zeroed();
@@ -396,6 +421,7 @@ impl SystemUpdateManager {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `System_Update`, `Foundation`*"]
     pub fn TrySetUserActiveHours<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TimeSpan>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::TimeSpan>>(start: Param0, end: Param1) -> ::windows::runtime::Result<bool> {
         Self::ISystemUpdateManagerStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
@@ -403,6 +429,7 @@ impl SystemUpdateManager {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `System_Update`, `Foundation`*"]
     pub fn LastUpdateCheckTime() -> ::windows::runtime::Result<super::super::Foundation::DateTime> {
         Self::ISystemUpdateManagerStatics(|this| unsafe {
             let mut result__: super::super::Foundation::DateTime = ::std::mem::zeroed();
@@ -410,12 +437,14 @@ impl SystemUpdateManager {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `System_Update`, `Foundation`*"]
     pub fn LastUpdateInstallTime() -> ::windows::runtime::Result<super::super::Foundation::DateTime> {
         Self::ISystemUpdateManagerStatics(|this| unsafe {
             let mut result__: super::super::Foundation::DateTime = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
         })
     }
+    #[doc = "*Required features: `System_Update`*"]
     pub fn LastErrorInfo() -> ::windows::runtime::Result<SystemUpdateLastErrorInfo> {
         Self::ISystemUpdateManagerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -423,6 +452,7 @@ impl SystemUpdateManager {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `System_Update`, `Foundation_Collections`*"]
     pub fn GetAutomaticRebootBlockIds() -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>> {
         Self::ISystemUpdateManagerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -430,6 +460,7 @@ impl SystemUpdateManager {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `System_Update`, `Foundation`*"]
     pub fn BlockAutomaticRebootAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(lockid: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::ISystemUpdateManagerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -437,12 +468,14 @@ impl SystemUpdateManager {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `System_Update`, `Foundation`*"]
     pub fn UnblockAutomaticRebootAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(lockid: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::ISystemUpdateManagerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), lockid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         })
     }
+    #[doc = "*Required features: `System_Update`*"]
     pub fn ExtendedError() -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
         Self::ISystemUpdateManagerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::HRESULT = ::std::mem::zeroed();
@@ -450,36 +483,43 @@ impl SystemUpdateManager {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `System_Update`, `Foundation_Collections`*"]
     pub fn GetUpdateItems() -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<SystemUpdateItem>> {
         Self::ISystemUpdateManagerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<SystemUpdateItem>>(result__)
         })
     }
+    #[doc = "*Required features: `System_Update`*"]
     pub fn AttentionRequiredReason() -> ::windows::runtime::Result<SystemUpdateAttentionRequiredReason> {
         Self::ISystemUpdateManagerStatics(|this| unsafe {
             let mut result__: SystemUpdateAttentionRequiredReason = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SystemUpdateAttentionRequiredReason>(result__)
         })
     }
+    #[doc = "*Required features: `System_Update`*"]
     pub fn SetFlightRing<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(flightring: Param0) -> ::windows::runtime::Result<bool> {
         Self::ISystemUpdateManagerStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), flightring.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: `System_Update`*"]
     pub fn GetFlightRing() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ISystemUpdateManagerStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `System_Update`*"]
     pub fn StartInstall(action: SystemUpdateStartInstallAction) -> ::windows::runtime::Result<()> {
         Self::ISystemUpdateManagerStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this), action).ok() })
     }
+    #[doc = "*Required features: `System_Update`*"]
     pub fn RebootToCompleteInstall() -> ::windows::runtime::Result<()> {
         Self::ISystemUpdateManagerStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).28)(::std::mem::transmute_copy(this)).ok() })
     }
+    #[doc = "*Required features: `System_Update`*"]
     pub fn StartCancelUpdates() -> ::windows::runtime::Result<()> {
         Self::ISystemUpdateManagerStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).29)(::std::mem::transmute_copy(this)).ok() })
     }
@@ -491,6 +531,7 @@ impl SystemUpdateManager {
 impl ::windows::runtime::RuntimeName for SystemUpdateManager {
     const NAME: &'static str = "Windows.System.Update.SystemUpdateManager";
 }
+#[doc = "*Required features: `System_Update`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SystemUpdateManagerState(pub i32);
@@ -520,6 +561,7 @@ unsafe impl ::windows::runtime::Abi for SystemUpdateManagerState {
 unsafe impl ::windows::runtime::RuntimeType for SystemUpdateManagerState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.System.Update.SystemUpdateManagerState;i4)");
 }
+#[doc = "*Required features: `System_Update`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SystemUpdateStartInstallAction(pub i32);

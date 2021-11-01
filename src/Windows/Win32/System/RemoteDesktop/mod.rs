@@ -2,6 +2,7 @@
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 pub struct AAAccountingData {
     pub userName: super::super::Foundation::BSTR,
     pub clientName: super::super::Foundation::BSTR,
@@ -64,6 +65,7 @@ unsafe impl ::windows::runtime::Abi for AAAccountingData {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AAAccountingDataType(pub i32);
@@ -80,6 +82,7 @@ unsafe impl ::windows::runtime::Abi for AAAccountingDataType {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AAAuthSchemes(pub i32);
@@ -105,6 +108,7 @@ unsafe impl ::windows::runtime::Abi for AAAuthSchemes {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AATrustClassID(pub i32);
@@ -120,10 +124,12 @@ unsafe impl ::windows::runtime::Abi for AATrustClassID {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const ACQUIRE_TARGET_LOCK_TIMEOUT: u32 = 300000u32;
 pub const ADsTSUserEx: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3806972646, 7803, 19342, [186, 189, 233, 191, 98, 146, 172, 41]);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub struct AE_CURRENT_POSITION {
     pub u64DevicePosition: u64,
     pub u64StreamPosition: u64,
@@ -160,6 +166,7 @@ unsafe impl ::windows::runtime::Abi for AE_CURRENT_POSITION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AE_POSITION_FLAGS(pub i32);
@@ -176,6 +183,7 @@ unsafe impl ::windows::runtime::Abi for AE_POSITION_FLAGS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct APO_BUFFER_FLAGS(pub i32);
@@ -193,6 +201,7 @@ unsafe impl ::windows::runtime::Abi for APO_BUFFER_FLAGS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub struct APO_CONNECTION_PROPERTY {
     pub pBuffer: usize,
     pub u32ValidFrameCount: u32,
@@ -222,6 +231,7 @@ unsafe impl ::windows::runtime::Abi for APO_CONNECTION_PROPERTY {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub struct BITMAP_RENDERER_STATISTICS {
     pub dwFramesDelivered: u32,
     pub dwFramesDropped: u32,
@@ -247,11 +257,14 @@ unsafe impl ::windows::runtime::Abi for BITMAP_RENDERER_STATISTICS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const CHANNEL_BUFFER_SIZE: u32 = 65535u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const CHANNEL_CHUNK_LENGTH: u32 = 1600u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 pub struct CHANNEL_DEF {
     pub name: [super::super::Foundation::CHAR; 8],
     pub options: u32,
@@ -280,6 +293,7 @@ unsafe impl ::windows::runtime::Abi for CHANNEL_DEF {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 pub struct CHANNEL_ENTRY_POINTS {
     pub cbSize: u32,
     pub protocolVersion: u32,
@@ -315,33 +329,59 @@ unsafe impl ::windows::runtime::Abi for CHANNEL_ENTRY_POINTS {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const CHANNEL_EVENT_CONNECTED: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const CHANNEL_EVENT_DATA_RECEIVED: u32 = 10u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const CHANNEL_EVENT_DISCONNECTED: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const CHANNEL_EVENT_INITIALIZED: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const CHANNEL_EVENT_TERMINATED: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const CHANNEL_EVENT_V1_CONNECTED: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const CHANNEL_EVENT_WRITE_CANCELLED: u32 = 12u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const CHANNEL_EVENT_WRITE_COMPLETE: u32 = 11u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const CHANNEL_FLAG_FAIL: u32 = 256u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const CHANNEL_FLAG_FIRST: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const CHANNEL_FLAG_LAST: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const CHANNEL_FLAG_MIDDLE: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const CHANNEL_MAX_COUNT: u32 = 30u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const CHANNEL_NAME_LEN: u32 = 7u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const CHANNEL_OPTION_COMPRESS: u32 = 4194304u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const CHANNEL_OPTION_COMPRESS_RDP: u32 = 8388608u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const CHANNEL_OPTION_ENCRYPT_CS: u32 = 268435456u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const CHANNEL_OPTION_ENCRYPT_RDP: u32 = 1073741824u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const CHANNEL_OPTION_ENCRYPT_SC: u32 = 536870912u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const CHANNEL_OPTION_INITIALIZED: u32 = 2147483648u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const CHANNEL_OPTION_PRI_HIGH: u32 = 134217728u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const CHANNEL_OPTION_PRI_LOW: u32 = 33554432u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const CHANNEL_OPTION_PRI_MED: u32 = 67108864u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const CHANNEL_OPTION_REMOTE_CONTROL_PERSISTENT: u32 = 1048576u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const CHANNEL_OPTION_SHOW_PROTOCOL: u32 = 2097152u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub struct CHANNEL_PDU_HEADER {
     pub length: u32,
     pub flags: u32,
@@ -367,31 +407,55 @@ unsafe impl ::windows::runtime::Abi for CHANNEL_PDU_HEADER {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const CHANNEL_RC_ALREADY_CONNECTED: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const CHANNEL_RC_ALREADY_INITIALIZED: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const CHANNEL_RC_ALREADY_OPEN: u32 = 14u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const CHANNEL_RC_BAD_CHANNEL: u32 = 6u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const CHANNEL_RC_BAD_CHANNEL_HANDLE: u32 = 7u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const CHANNEL_RC_BAD_INIT_HANDLE: u32 = 9u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const CHANNEL_RC_BAD_PROC: u32 = 11u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const CHANNEL_RC_INITIALIZATION_ERROR: u32 = 20u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const CHANNEL_RC_INVALID_INSTANCE: u32 = 18u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const CHANNEL_RC_NOT_CONNECTED: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const CHANNEL_RC_NOT_INITIALIZED: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const CHANNEL_RC_NOT_IN_VIRTUALCHANNELENTRY: u32 = 15u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const CHANNEL_RC_NOT_OPEN: u32 = 10u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const CHANNEL_RC_NO_BUFFER: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const CHANNEL_RC_NO_MEMORY: u32 = 12u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const CHANNEL_RC_NULL_DATA: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const CHANNEL_RC_OK: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const CHANNEL_RC_TOO_MANY_CHANNELS: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const CHANNEL_RC_UNKNOWN_CHANNEL_NAME: u32 = 13u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const CHANNEL_RC_UNSUPPORTED_VERSION: u32 = 19u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const CHANNEL_RC_ZERO_LENGTH: u32 = 17u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const CLIENTADDRESS_LENGTH: u32 = 30u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const CLIENTNAME_LENGTH: u32 = 20u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub struct CLIENT_DISPLAY {
     pub HorizontalResolution: u32,
     pub VerticalResolution: u32,
@@ -418,6 +482,7 @@ unsafe impl ::windows::runtime::Abi for CLIENT_DISPLAY {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CLIENT_MESSAGE_TYPE(pub i32);
@@ -433,6 +498,7 @@ unsafe impl ::windows::runtime::Abi for CLIENT_MESSAGE_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CONNECTION_CHANGE_NOTIFICATION(pub i32);
@@ -456,43 +522,81 @@ unsafe impl ::windows::runtime::Abi for CONNECTION_CHANGE_NOTIFICATION {
 }
 pub const CONNECTION_PROPERTY_CURSOR_BLINK_DISABLED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1259668864, 65188, 19772, [157, 228, 116, 51, 166, 102, 24, 247]);
 pub const CONNECTION_PROPERTY_IDLE_TIME_WARNING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1765769205, 3150, 19735, [184, 224, 31, 112, 50, 94, 93, 88]);
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const DISPID_AX_ADMINMESSAGERECEIVED: u32 = 760u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const DISPID_AX_AUTORECONNECTED: u32 = 756u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const DISPID_AX_AUTORECONNECTING: u32 = 755u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const DISPID_AX_CONNECTED: u32 = 751u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const DISPID_AX_CONNECTING: u32 = 750u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const DISPID_AX_DIALOGDISMISSED: u32 = 758u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const DISPID_AX_DIALOGDISPLAYING: u32 = 757u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const DISPID_AX_DISCONNECTED: u32 = 753u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const DISPID_AX_KEYCOMBINATIONPRESSED: u32 = 761u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const DISPID_AX_LOGINCOMPLETED: u32 = 752u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const DISPID_AX_NETWORKSTATUSCHANGED: u32 = 759u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const DISPID_AX_REMOTEDESKTOPSIZECHANGED: u32 = 762u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const DISPID_AX_STATUSCHANGED: u32 = 754u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const DISPID_AX_TOUCHPOINTERCURSORMOVED: u32 = 800u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const DISPID_METHOD_REMOTEDESKTOPCLIENT_APPLY_SETTINGS: u32 = 722u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const DISPID_METHOD_REMOTEDESKTOPCLIENT_ATTACH_EVENT: u32 = 706u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const DISPID_METHOD_REMOTEDESKTOPCLIENT_CONNECT: u32 = 701u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const DISPID_METHOD_REMOTEDESKTOPCLIENT_DELETE_SAVED_CREDENTIALS: u32 = 704u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const DISPID_METHOD_REMOTEDESKTOPCLIENT_DETACH_EVENT: u32 = 707u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const DISPID_METHOD_REMOTEDESKTOPCLIENT_DISCONNECT: u32 = 702u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const DISPID_METHOD_REMOTEDESKTOPCLIENT_EXECUTE_REMOTE_ACTION: u32 = 732u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const DISPID_METHOD_REMOTEDESKTOPCLIENT_GET_RDPPROPERTY: u32 = 721u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const DISPID_METHOD_REMOTEDESKTOPCLIENT_GET_SNAPSHOT: u32 = 733u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const DISPID_METHOD_REMOTEDESKTOPCLIENT_RECONNECT: u32 = 703u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const DISPID_METHOD_REMOTEDESKTOPCLIENT_RESUME_SCREEN_UPDATES: u32 = 731u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const DISPID_METHOD_REMOTEDESKTOPCLIENT_RETRIEVE_SETTINGS: u32 = 723u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const DISPID_METHOD_REMOTEDESKTOPCLIENT_SET_RDPPROPERTY: u32 = 720u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const DISPID_METHOD_REMOTEDESKTOPCLIENT_SUSPEND_SCREEN_UPDATES: u32 = 730u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const DISPID_METHOD_REMOTEDESKTOPCLIENT_UPDATE_SESSION_DISPLAYSETTINGS: u32 = 705u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const DISPID_PROP_REMOTEDESKTOPCLIENT_ACTIONS: u32 = 711u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const DISPID_PROP_REMOTEDESKTOPCLIENT_SETTINGS: u32 = 710u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const DISPID_PROP_REMOTEDESKTOPCLIENT_TOUCHPOINTER_ENABLED: u32 = 740u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const DISPID_PROP_REMOTEDESKTOPCLIENT_TOUCHPOINTER_EVENTSENABLED: u32 = 741u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const DISPID_PROP_REMOTEDESKTOPCLIENT_TOUCHPOINTER_POINTERSPEED: u32 = 742u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const DISPID_PROP_REMOTEDESKTOPCLIENT_TOUCH_POINTER: u32 = 712u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const DOMAIN_LENGTH: u32 = 17u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const FORCE_REJOIN: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const FORCE_REJOIN_IN_CLUSTERMODE: u32 = 3u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -507,122 +611,153 @@ unsafe impl ::windows::runtime::Abi for HwtsVirtualChannelHandle {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IADsTSUserEx(::windows::runtime::IUnknown);
 impl IADsTSUserEx {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn TerminalServicesProfilePath(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn SetTerminalServicesProfilePath<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, pnewval: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), pnewval.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn TerminalServicesHomeDirectory(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn SetTerminalServicesHomeDirectory<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, pnewval: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), pnewval.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn TerminalServicesHomeDrive(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn SetTerminalServicesHomeDrive<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, pnewval: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), pnewval.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn AllowLogon(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn SetAllowLogon(&self, newval: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(newval)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn EnableRemoteControl(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn SetEnableRemoteControl(&self, newval: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(newval)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn MaxDisconnectionTime(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn SetMaxDisconnectionTime(&self, newval: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(newval)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn MaxConnectionTime(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn SetMaxConnectionTime(&self, newval: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(newval)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn MaxIdleTime(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn SetMaxIdleTime(&self, newval: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(newval)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn ReconnectionAction(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn SetReconnectionAction(&self, newval: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), ::std::mem::transmute(newval)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn BrokenConnectionAction(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn SetBrokenConnectionAction(&self, newval: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), ::std::mem::transmute(newval)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn ConnectClientDrivesAtLogon(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn SetConnectClientDrivesAtLogon(&self, newval: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), ::std::mem::transmute(newval)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn ConnectClientPrintersAtLogon(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn SetConnectClientPrintersAtLogon(&self, newval: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), ::std::mem::transmute(newval)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn DefaultToMainPrinter(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn SetDefaultToMainPrinter(&self, newval: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).32)(::std::mem::transmute_copy(self), ::std::mem::transmute(newval)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn TerminalServicesWorkDirectory(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).33)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn SetTerminalServicesWorkDirectory<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, pnewval: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).34)(::std::mem::transmute_copy(self), pnewval.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn TerminalServicesInitialProgram(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).35)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn SetTerminalServicesInitialProgram<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, pnewval: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).36)(::std::mem::transmute_copy(self), pnewval.into_param().abi()).ok()
     }
@@ -730,23 +865,28 @@ pub struct IADsTSUserEx_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pnewval: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IAudioDeviceEndpoint(::windows::runtime::IUnknown);
 impl IAudioDeviceEndpoint {
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn SetBuffer(&self, maxperiod: i64, u32latencycoefficient: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(maxperiod), ::std::mem::transmute(u32latencycoefficient)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn GetRTCaps(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn GetEventDrivenCapable(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn WriteExclusiveModeParametersToSharedMemory(&self, htargetprocess: usize, hnsperiod: i64, hnsbufferduration: i64, u32latencycoefficient: u32, pu32sharedmemorysize: *mut u32, phsharedmemory: *mut usize) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(htargetprocess), ::std::mem::transmute(hnsperiod), ::std::mem::transmute(hnsbufferduration), ::std::mem::transmute(u32latencycoefficient), ::std::mem::transmute(pu32sharedmemorysize), ::std::mem::transmute(phsharedmemory)).ok()
     }
@@ -788,27 +928,33 @@ pub struct IAudioDeviceEndpoint_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, htargetprocess: usize, hnsperiod: i64, hnsbufferduration: i64, u32latencycoefficient: u32, pu32sharedmemorysize: *mut u32, phsharedmemory: *mut usize) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IAudioEndpoint(::windows::runtime::IUnknown);
 impl IAudioEndpoint {
     #[cfg(feature = "Win32_Media_Multimedia")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Media_Multimedia`*"]
     pub unsafe fn GetFrameFormat(&self) -> ::windows::runtime::Result<*mut super::super::Media::Multimedia::WAVEFORMATEX> {
         let mut result__: <*mut super::super::Media::Multimedia::WAVEFORMATEX as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut super::super::Media::Multimedia::WAVEFORMATEX>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn GetFramesPerPacket(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn GetLatency(&self) -> ::windows::runtime::Result<i64> {
         let mut result__: <i64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i64>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn SetStreamFlags(&self, streamflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(streamflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn SetEventHandle<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, eventhandle: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), eventhandle.into_param().abi()).ok()
     }
@@ -851,16 +997,20 @@ pub struct IAudioEndpoint_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, eventhandle: super::super::Foundation::HANDLE) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IAudioEndpointControl(::windows::runtime::IUnknown);
 impl IAudioEndpointControl {
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn Start(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn Stop(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
@@ -899,19 +1049,24 @@ pub struct IAudioEndpointControl_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IAudioEndpointRT(::windows::runtime::IUnknown);
 impl IAudioEndpointRT {
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn GetCurrentPadding(&self, ppadding: *mut i64, paecurrentposition: *mut AE_CURRENT_POSITION) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppadding), ::std::mem::transmute(paecurrentposition)))
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn ProcessingComplete(&self) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn SetPinInactive(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn SetPinActive(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self)).ok()
     }
@@ -951,16 +1106,20 @@ pub struct IAudioEndpointRT_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IAudioInputEndpointRT(::windows::runtime::IUnknown);
 impl IAudioInputEndpointRT {
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn GetInputDataPointer(&self, pconnectionproperty: *mut APO_CONNECTION_PROPERTY, paetimestamp: *mut AE_CURRENT_POSITION) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pconnectionproperty), ::std::mem::transmute(paetimestamp)))
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn ReleaseInputDataPointer(&self, u32framecount: u32, pdatapointer: usize) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(u32framecount), ::std::mem::transmute(pdatapointer)))
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn PulseEndpoint(&self) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)))
     }
@@ -999,16 +1158,20 @@ pub struct IAudioInputEndpointRT_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, u32framecount: u32, pdatapointer: usize),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr),
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IAudioOutputEndpointRT(::windows::runtime::IUnknown);
 impl IAudioOutputEndpointRT {
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn GetOutputDataPointer(&self, u32framecount: u32, paetimestamp: *const AE_CURRENT_POSITION) -> usize {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(u32framecount), ::std::mem::transmute(paetimestamp)))
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn ReleaseOutputDataPointer(&self, pconnectionproperty: *const APO_CONNECTION_PROPERTY) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pconnectionproperty)))
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn PulseEndpoint(&self) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)))
     }
@@ -1047,43 +1210,54 @@ pub struct IAudioOutputEndpointRT_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pconnectionproperty: *const APO_CONNECTION_PROPERTY),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr),
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRemoteDesktopClient(::windows::runtime::IUnknown);
 impl IRemoteDesktopClient {
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn Connect(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn Disconnect(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn Reconnect(&self, width: u32, height: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(width), ::std::mem::transmute(height)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn Settings(&self) -> ::windows::runtime::Result<IRemoteDesktopClientSettings> {
         let mut result__: <IRemoteDesktopClientSettings as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRemoteDesktopClientSettings>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn Actions(&self) -> ::windows::runtime::Result<IRemoteDesktopClientActions> {
         let mut result__: <IRemoteDesktopClientActions as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRemoteDesktopClientActions>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn TouchPointer(&self) -> ::windows::runtime::Result<IRemoteDesktopClientTouchPointer> {
         let mut result__: <IRemoteDesktopClientTouchPointer as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRemoteDesktopClientTouchPointer>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn DeleteSavedCredentials<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, servername: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), servername.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn UpdateSessionDisplaySettings(&self, width: u32, height: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(width), ::std::mem::transmute(height)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn attachEvent<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(&self, eventname: Param0, callback: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), eventname.into_param().abi(), callback.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn detachEvent<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(&self, eventname: Param0, callback: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), eventname.into_param().abi(), callback.into_param().abi()).ok()
     }
@@ -1164,20 +1338,25 @@ pub struct IRemoteDesktopClient_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, eventname: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, callback: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation")))] usize,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRemoteDesktopClientActions(::windows::runtime::IUnknown);
 impl IRemoteDesktopClientActions {
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn SuspendScreenUpdates(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn ResumeScreenUpdates(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn ExecuteRemoteAction(&self, remoteaction: RemoteActionType) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(remoteaction)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn GetSnapshot(&self, snapshotencoding: SnapshotEncodingType, snapshotformat: SnapshotFormatType, snapshotwidth: u32, snapshotheight: u32) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(snapshotencoding), ::std::mem::transmute(snapshotformat), ::std::mem::transmute(snapshotwidth), ::std::mem::transmute(snapshotheight), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
@@ -1251,25 +1430,30 @@ pub struct IRemoteDesktopClientActions_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, snapshotencoding: SnapshotEncodingType, snapshotformat: SnapshotFormatType, snapshotwidth: u32, snapshotheight: u32, snapshotdata: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRemoteDesktopClientSettings(::windows::runtime::IUnknown);
 impl IRemoteDesktopClientSettings {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn ApplySettings<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, rdpfilecontents: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), rdpfilecontents.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn RetrieveSettings(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetRdpProperty<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, propertyname: Param0) -> ::windows::runtime::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), propertyname.into_param().abi(), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetRdpProperty<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::Com::VARIANT>>(&self, propertyname: Param0, value: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), propertyname.into_param().abi(), value.into_param().abi()).ok()
     }
@@ -1345,27 +1529,34 @@ pub struct IRemoteDesktopClientSettings_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, propertyname: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, value: ::std::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRemoteDesktopClientTouchPointer(::windows::runtime::IUnknown);
 impl IRemoteDesktopClientTouchPointer {
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn SetEnabled(&self, enabled: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(enabled)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn Enabled(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn SetEventsEnabled(&self, eventsenabled: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(eventsenabled)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn EventsEnabled(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn SetPointerSpeed(&self, pointerspeed: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(pointerspeed)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn PointerSpeed(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
@@ -1440,10 +1631,12 @@ pub struct IRemoteDesktopClientTouchPointer_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pointerspeed: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pointerspeed: *mut u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRemoteSystemAdditionalInfoProvider(::windows::runtime::IUnknown);
 impl IRemoteSystemAdditionalInfoProvider {
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn GetAdditionalInfo<T: ::windows::runtime::Interface>(&self, deduplicationid: *mut ::windows::runtime::HSTRING) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(deduplicationid), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
@@ -1481,11 +1674,13 @@ pub struct IRemoteSystemAdditionalInfoProvider_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, deduplicationid: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, riid: *const ::windows::runtime::GUID, mapview: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITSGAccountingEngine(::windows::runtime::IUnknown);
 impl ITSGAccountingEngine {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn DoAccounting<'a, Param1: ::windows::runtime::IntoParam<'a, AAAccountingData>>(&self, accountingdatatype: AAAccountingDataType, accountingdata: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(accountingdatatype), accountingdata.into_param().abi()).ok()
     }
@@ -1523,20 +1718,25 @@ pub struct ITSGAccountingEngine_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, accountingdatatype: AAAccountingDataType, accountingdata: ::std::mem::ManuallyDrop<AAAccountingData>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITSGAuthenticateUserSink(::windows::runtime::IUnknown);
 impl ITSGAuthenticateUserSink {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn OnUserAuthenticated<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE_PTR>>(&self, username: Param0, userdomain: Param1, context: usize, usertoken: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), username.into_param().abi(), userdomain.into_param().abi(), ::std::mem::transmute(context), usertoken.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn OnUserAuthenticationFailed(&self, context: usize, genericerrorcode: ::windows::runtime::HRESULT, specificerrorcode: ::windows::runtime::HRESULT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(context), ::std::mem::transmute(genericerrorcode), ::std::mem::transmute(specificerrorcode)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn ReauthenticateUser(&self, context: usize) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(context)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn DisconnectUser(&self, context: usize) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(context)).ok()
     }
@@ -1577,13 +1777,16 @@ pub struct ITSGAuthenticateUserSink_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, context: usize) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, context: usize) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITSGAuthenticationEngine(::windows::runtime::IUnknown);
 impl ITSGAuthenticationEngine {
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn AuthenticateUser<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>, Param4: ::windows::runtime::IntoParam<'a, ITSGAuthenticateUserSink>>(&self, mainsessionid: Param0, cookiedata: *const u8, numcookiebytes: u32, context: usize, psink: Param4) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), mainsessionid.into_param().abi(), ::std::mem::transmute(cookiedata), ::std::mem::transmute(numcookiebytes), ::std::mem::transmute(context), psink.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn CancelAuthentication<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, mainsessionid: Param0, context: usize) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), mainsessionid.into_param().abi(), ::std::mem::transmute(context)).ok()
     }
@@ -1621,10 +1824,12 @@ pub struct ITSGAuthenticationEngine_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, mainsessionid: ::windows::runtime::GUID, cookiedata: *const u8, numcookiebytes: u32, context: usize, psink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, mainsessionid: ::windows::runtime::GUID, context: usize) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITSGAuthorizeConnectionSink(::windows::runtime::IUnknown);
 impl ITSGAuthorizeConnectionSink {
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn OnConnectionAuthorized<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, hrin: ::windows::runtime::HRESULT, mainsessionid: Param1, cbsohresponse: u32, pbsohresponse: *const u8, idletimeout: u32, sessiontimeout: u32, sessiontimeoutaction: SESSION_TIMEOUT_ACTION_TYPE, trustclass: AATrustClassID, policyattributes: *const u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(
             ::std::mem::transmute_copy(self),
@@ -1673,11 +1878,13 @@ pub struct ITSGAuthorizeConnectionSink_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hrin: ::windows::runtime::HRESULT, mainsessionid: ::windows::runtime::GUID, cbsohresponse: u32, pbsohresponse: *const u8, idletimeout: u32, sessiontimeout: u32, sessiontimeoutaction: SESSION_TIMEOUT_ACTION_TYPE, trustclass: AATrustClassID, policyattributes: *const u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITSGAuthorizeResourceSink(::windows::runtime::IUnknown);
 impl ITSGAuthorizeResourceSink {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn OnChannelAuthorized<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, hrin: ::windows::runtime::HRESULT, mainsessionid: Param1, subsessionid: i32, allowedresourcenames: *const super::super::Foundation::BSTR, numallowedresourcenames: u32, failedresourcenames: *const super::super::Foundation::BSTR, numfailedresourcenames: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(
             ::std::mem::transmute_copy(self),
@@ -1725,11 +1932,13 @@ pub struct ITSGAuthorizeResourceSink_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hrin: ::windows::runtime::HRESULT, mainsessionid: ::windows::runtime::GUID, subsessionid: i32, allowedresourcenames: *const ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, numallowedresourcenames: u32, failedresourcenames: *const ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, numfailedresourcenames: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITSGPolicyEngine(::windows::runtime::IUnknown);
 impl ITSGPolicyEngine {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn AuthorizeConnection<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param9: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE_PTR>, Param10: ::windows::runtime::IntoParam<'a, ITSGAuthorizeConnectionSink>>(
         &self,
         mainsessionid: Param0,
@@ -1761,6 +1970,7 @@ impl ITSGPolicyEngine {
         .ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn AuthorizeResource<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param8: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param11: ::windows::runtime::IntoParam<'a, ITSGAuthorizeResourceSink>>(
         &self,
         mainsessionid: Param0,
@@ -1793,10 +2003,12 @@ impl ITSGPolicyEngine {
         )
         .ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn Refresh(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn IsQuarantineEnabled(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
@@ -1869,13 +2081,16 @@ pub struct ITSGPolicyEngine_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, quarantineenabled: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITsSbBaseNotifySink(::windows::runtime::IUnknown);
 impl ITsSbBaseNotifySink {
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn OnError(&self, hrerror: ::windows::runtime::HRESULT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(hrerror)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn OnReportStatus(&self, messagetype: CLIENT_MESSAGE_TYPE, messageid: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(messagetype), ::std::mem::transmute(messageid)).ok()
     }
@@ -1913,73 +2128,89 @@ pub struct ITsSbBaseNotifySink_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hrerror: ::windows::runtime::HRESULT) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, messagetype: CLIENT_MESSAGE_TYPE, messageid: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITsSbClientConnection(::windows::runtime::IUnknown);
 impl ITsSbClientConnection {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn UserName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn Domain(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn InitialProgram(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn LoadBalanceResult(&self) -> ::windows::runtime::Result<ITsSbLoadBalanceResult> {
         let mut result__: <ITsSbLoadBalanceResult as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ITsSbLoadBalanceResult>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn FarmName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn PutContext<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::Com::VARIANT>>(&self, contextid: Param0, context: Param1) -> ::windows::runtime::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), contextid.into_param().abi(), context.into_param().abi(), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetContext<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, contextid: Param0) -> ::windows::runtime::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), contextid.into_param().abi(), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn Environment(&self) -> ::windows::runtime::Result<ITsSbEnvironment> {
         let mut result__: <ITsSbEnvironment as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ITsSbEnvironment>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn ConnectionError(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn SamUserAccount(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn ClientConnectionPropertySet(&self) -> ::windows::runtime::Result<ITsSbClientConnectionPropertySet> {
         let mut result__: <ITsSbClientConnectionPropertySet as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ITsSbClientConnectionPropertySet>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn IsFirstAssignment(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn RdFarmType(&self) -> ::windows::runtime::Result<RD_FARM_TYPE> {
         let mut result__: <RD_FARM_TYPE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<RD_FARM_TYPE>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn UserSidString(&self) -> ::windows::runtime::Result<*mut i8> {
         let mut result__: <*mut i8 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut i8>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn GetDisconnectedSession(&self) -> ::windows::runtime::Result<ITsSbSession> {
         let mut result__: <ITsSbSession as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ITsSbSession>(result__)
@@ -2039,15 +2270,18 @@ pub struct ITsSbClientConnection_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pszusersidstring: *mut *mut i8) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppsession: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITsSbClientConnectionPropertySet(::windows::runtime::IUnknown);
 impl ITsSbClientConnectionPropertySet {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Read<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IErrorLog>>(&self, pszpropname: Param0, pvar: *mut super::Com::VARIANT, perrorlog: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pszpropname.into_param().abi(), ::std::mem::transmute(pvar), perrorlog.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Write<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszpropname: Param0, pvar: *const super::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pszpropname.into_param().abi(), ::std::mem::transmute(pvar)).ok()
     }
@@ -2131,23 +2365,28 @@ pub struct ITsSbClientConnectionPropertySet_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pszpropname: super::super::Foundation::PWSTR, pvar: *const ::std::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITsSbEnvironment(::windows::runtime::IUnknown);
 impl ITsSbEnvironment {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn Name(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn ServerWeight(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn EnvironmentPropertySet(&self) -> ::windows::runtime::Result<ITsSbEnvironmentPropertySet> {
         let mut result__: <ITsSbEnvironmentPropertySet as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ITsSbEnvironmentPropertySet>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn SetEnvironmentPropertySet<'a, Param0: ::windows::runtime::IntoParam<'a, ITsSbEnvironmentPropertySet>>(&self, pval: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), pval.into_param().abi()).ok()
     }
@@ -2188,15 +2427,18 @@ pub struct ITsSbEnvironment_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pppropertyset: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pval: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITsSbEnvironmentPropertySet(::windows::runtime::IUnknown);
 impl ITsSbEnvironmentPropertySet {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Read<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IErrorLog>>(&self, pszpropname: Param0, pvar: *mut super::Com::VARIANT, perrorlog: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pszpropname.into_param().abi(), ::std::mem::transmute(pvar), perrorlog.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Write<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszpropname: Param0, pvar: *const super::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pszpropname.into_param().abi(), ::std::mem::transmute(pvar)).ok()
     }
@@ -2280,18 +2522,22 @@ pub struct ITsSbEnvironmentPropertySet_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pszpropname: super::super::Foundation::PWSTR, pvar: *const ::std::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITsSbFilterPluginStore(::windows::runtime::IUnknown);
 impl ITsSbFilterPluginStore {
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn SaveProperties<'a, Param0: ::windows::runtime::IntoParam<'a, ITsSbPropertySet>>(&self, ppropertyset: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ppropertyset.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn EnumerateProperties(&self) -> ::windows::runtime::Result<ITsSbPropertySet> {
         let mut result__: <ITsSbPropertySet as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ITsSbPropertySet>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn DeleteProperties<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, propertyname: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), propertyname.into_param().abi()).ok()
     }
@@ -2331,14 +2577,17 @@ pub struct ITsSbFilterPluginStore_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, propertyname: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITsSbGenericNotifySink(::windows::runtime::IUnknown);
 impl ITsSbGenericNotifySink {
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn OnCompleted(&self, status: ::windows::runtime::HRESULT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(status)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn GetWaitTimeout(&self) -> ::windows::runtime::Result<super::super::Foundation::FILETIME> {
         let mut result__: <super::super::Foundation::FILETIME as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::FILETIME>(result__)
@@ -2378,33 +2627,40 @@ pub struct ITsSbGenericNotifySink_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pfttimeout: *mut super::super::Foundation::FILETIME) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITsSbGlobalStore(::windows::runtime::IUnknown);
 impl ITsSbGlobalStore {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn QueryTarget<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, providername: Param0, targetname: Param1, farmname: Param2) -> ::windows::runtime::Result<ITsSbTarget> {
         let mut result__: <ITsSbTarget as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), providername.into_param().abi(), targetname.into_param().abi(), farmname.into_param().abi(), &mut result__).from_abi::<ITsSbTarget>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn QuerySessionBySessionId<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, providername: Param0, dwsessionid: u32, targetname: Param2) -> ::windows::runtime::Result<ITsSbSession> {
         let mut result__: <ITsSbSession as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), providername.into_param().abi(), ::std::mem::transmute(dwsessionid), targetname.into_param().abi(), &mut result__).from_abi::<ITsSbSession>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn EnumerateFarms<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, providername: Param0, pdwcount: *mut u32, pval: *mut *mut super::Com::SAFEARRAY) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), providername.into_param().abi(), ::std::mem::transmute(pdwcount), ::std::mem::transmute(pval)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn EnumerateTargets<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, providername: Param0, farmname: Param1, envname: Param2, pdwcount: *mut u32, pval: *mut *mut ::std::option::Option<ITsSbTarget>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), providername.into_param().abi(), farmname.into_param().abi(), envname.into_param().abi(), ::std::mem::transmute(pdwcount), ::std::mem::transmute(pval)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn EnumerateEnvironmentsByProvider<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, providername: Param0, pdwcount: *mut u32, ppval: *mut *mut ::std::option::Option<ITsSbEnvironment>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), providername.into_param().abi(), ::std::mem::transmute(pdwcount), ::std::mem::transmute(ppval)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn EnumerateSessions<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(
         &self,
         providername: Param0,
@@ -2432,6 +2688,7 @@ impl ITsSbGlobalStore {
         .ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetFarmProperty<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, farmname: Param0, propertyname: Param1, pvarvalue: *const super::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), farmname.into_param().abi(), propertyname.into_param().abi(), ::std::mem::transmute(pvarvalue)).ok()
     }
@@ -2493,11 +2750,13 @@ pub struct ITsSbGlobalStore_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, farmname: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, propertyname: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, pvarvalue: *const ::std::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITsSbLoadBalanceResult(::windows::runtime::IUnknown);
 impl ITsSbLoadBalanceResult {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn TargetName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
@@ -2536,16 +2795,20 @@ pub struct ITsSbLoadBalanceResult_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pval: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITsSbLoadBalancing(::windows::runtime::IUnknown);
 impl ITsSbLoadBalancing {
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, ITsSbProvider>, Param1: ::windows::runtime::IntoParam<'a, ITsSbPluginNotifySink>, Param2: ::windows::runtime::IntoParam<'a, ITsSbPluginPropertySet>>(&self, pprovider: Param0, pnotifysink: Param1, ppropertyset: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pprovider.into_param().abi(), pnotifysink.into_param().abi(), ppropertyset.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn Terminate(&self, hr: ::windows::runtime::HRESULT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(hr)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn GetMostSuitableTarget<'a, Param0: ::windows::runtime::IntoParam<'a, ITsSbClientConnection>, Param1: ::windows::runtime::IntoParam<'a, ITsSbLoadBalancingNotifySink>>(&self, pconnection: Param0, plbsink: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), pconnection.into_param().abi(), plbsink.into_param().abi()).ok()
     }
@@ -2604,17 +2867,21 @@ pub struct ITsSbLoadBalancing_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hr: ::windows::runtime::HRESULT) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pconnection: ::windows::runtime::RawPtr, plbsink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITsSbLoadBalancingNotifySink(::windows::runtime::IUnknown);
 impl ITsSbLoadBalancingNotifySink {
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn OnError(&self, hrerror: ::windows::runtime::HRESULT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(hrerror)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn OnReportStatus(&self, messagetype: CLIENT_MESSAGE_TYPE, messageid: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(messagetype), ::std::mem::transmute(messageid)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn OnGetMostSuitableTarget<'a, Param0: ::windows::runtime::IntoParam<'a, ITsSbLoadBalanceResult>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, plbresult: Param0, fisnewconnection: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), plbresult.into_param().abi(), fisnewconnection.into_param().abi()).ok()
     }
@@ -2674,16 +2941,20 @@ pub struct ITsSbLoadBalancingNotifySink_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, plbresult: ::windows::runtime::RawPtr, fisnewconnection: super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITsSbOrchestration(::windows::runtime::IUnknown);
 impl ITsSbOrchestration {
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, ITsSbProvider>, Param1: ::windows::runtime::IntoParam<'a, ITsSbPluginNotifySink>, Param2: ::windows::runtime::IntoParam<'a, ITsSbPluginPropertySet>>(&self, pprovider: Param0, pnotifysink: Param1, ppropertyset: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pprovider.into_param().abi(), pnotifysink.into_param().abi(), ppropertyset.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn Terminate(&self, hr: ::windows::runtime::HRESULT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(hr)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn PrepareTargetForConnect<'a, Param0: ::windows::runtime::IntoParam<'a, ITsSbClientConnection>, Param1: ::windows::runtime::IntoParam<'a, ITsSbOrchestrationNotifySink>>(&self, pconnection: Param0, porchestrationnotifysink: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), pconnection.into_param().abi(), porchestrationnotifysink.into_param().abi()).ok()
     }
@@ -2742,16 +3013,20 @@ pub struct ITsSbOrchestration_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hr: ::windows::runtime::HRESULT) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pconnection: ::windows::runtime::RawPtr, porchestrationnotifysink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITsSbOrchestrationNotifySink(::windows::runtime::IUnknown);
 impl ITsSbOrchestrationNotifySink {
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn OnError(&self, hrerror: ::windows::runtime::HRESULT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(hrerror)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn OnReportStatus(&self, messagetype: CLIENT_MESSAGE_TYPE, messageid: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(messagetype), ::std::mem::transmute(messageid)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn OnReadyToConnect<'a, Param0: ::windows::runtime::IntoParam<'a, ITsSbTarget>>(&self, ptarget: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ptarget.into_param().abi()).ok()
     }
@@ -2810,16 +3085,20 @@ pub struct ITsSbOrchestrationNotifySink_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, messagetype: CLIENT_MESSAGE_TYPE, messageid: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ptarget: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITsSbPlacement(::windows::runtime::IUnknown);
 impl ITsSbPlacement {
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, ITsSbProvider>, Param1: ::windows::runtime::IntoParam<'a, ITsSbPluginNotifySink>, Param2: ::windows::runtime::IntoParam<'a, ITsSbPluginPropertySet>>(&self, pprovider: Param0, pnotifysink: Param1, ppropertyset: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pprovider.into_param().abi(), pnotifysink.into_param().abi(), ppropertyset.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn Terminate(&self, hr: ::windows::runtime::HRESULT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(hr)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn QueryEnvironmentForTarget<'a, Param0: ::windows::runtime::IntoParam<'a, ITsSbClientConnection>, Param1: ::windows::runtime::IntoParam<'a, ITsSbPlacementNotifySink>>(&self, pconnection: Param0, pplacementsink: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), pconnection.into_param().abi(), pplacementsink.into_param().abi()).ok()
     }
@@ -2878,16 +3157,20 @@ pub struct ITsSbPlacement_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hr: ::windows::runtime::HRESULT) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pconnection: ::windows::runtime::RawPtr, pplacementsink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITsSbPlacementNotifySink(::windows::runtime::IUnknown);
 impl ITsSbPlacementNotifySink {
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn OnError(&self, hrerror: ::windows::runtime::HRESULT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(hrerror)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn OnReportStatus(&self, messagetype: CLIENT_MESSAGE_TYPE, messageid: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(messagetype), ::std::mem::transmute(messageid)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn OnQueryEnvironmentCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, ITsSbEnvironment>>(&self, penvironment: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), penvironment.into_param().abi()).ok()
     }
@@ -2946,13 +3229,16 @@ pub struct ITsSbPlacementNotifySink_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, messagetype: CLIENT_MESSAGE_TYPE, messageid: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, penvironment: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITsSbPlugin(::windows::runtime::IUnknown);
 impl ITsSbPlugin {
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, ITsSbProvider>, Param1: ::windows::runtime::IntoParam<'a, ITsSbPluginNotifySink>, Param2: ::windows::runtime::IntoParam<'a, ITsSbPluginPropertySet>>(&self, pprovider: Param0, pnotifysink: Param1, ppropertyset: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pprovider.into_param().abi(), pnotifysink.into_param().abi(), ppropertyset.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn Terminate(&self, hr: ::windows::runtime::HRESULT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(hr)).ok()
     }
@@ -2990,19 +3276,24 @@ pub struct ITsSbPlugin_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pprovider: ::windows::runtime::RawPtr, pnotifysink: ::windows::runtime::RawPtr, ppropertyset: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hr: ::windows::runtime::HRESULT) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITsSbPluginNotifySink(::windows::runtime::IUnknown);
 impl ITsSbPluginNotifySink {
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn OnError(&self, hrerror: ::windows::runtime::HRESULT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(hrerror)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn OnReportStatus(&self, messagetype: CLIENT_MESSAGE_TYPE, messageid: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(messagetype), ::std::mem::transmute(messageid)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn OnInitialized(&self, hr: ::windows::runtime::HRESULT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(hr)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn OnTerminated(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self)).ok()
     }
@@ -3062,15 +3353,18 @@ pub struct ITsSbPluginNotifySink_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hr: ::windows::runtime::HRESULT) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITsSbPluginPropertySet(::windows::runtime::IUnknown);
 impl ITsSbPluginPropertySet {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Read<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IErrorLog>>(&self, pszpropname: Param0, pvar: *mut super::Com::VARIANT, perrorlog: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pszpropname.into_param().abi(), ::std::mem::transmute(pvar), perrorlog.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Write<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszpropname: Param0, pvar: *const super::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pszpropname.into_param().abi(), ::std::mem::transmute(pvar)).ok()
     }
@@ -3154,15 +3448,18 @@ pub struct ITsSbPluginPropertySet_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pszpropname: super::super::Foundation::PWSTR, pvar: *const ::std::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITsSbPropertySet(::windows::runtime::IUnknown);
 impl ITsSbPropertySet {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Read<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IErrorLog>>(&self, pszpropname: Param0, pvar: *mut super::Com::VARIANT, perrorlog: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pszpropname.into_param().abi(), ::std::mem::transmute(pvar), perrorlog.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Write<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszpropname: Param0, pvar: *const super::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pszpropname.into_param().abi(), ::std::mem::transmute(pvar)).ok()
     }
@@ -3226,58 +3523,71 @@ pub struct ITsSbPropertySet_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pszpropname: super::super::Foundation::PWSTR, pvar: *const ::std::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITsSbProvider(::windows::runtime::IUnknown);
 impl ITsSbProvider {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn CreateTargetObject<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, targetname: Param0, environmentname: Param1) -> ::windows::runtime::Result<ITsSbTarget> {
         let mut result__: <ITsSbTarget as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), targetname.into_param().abi(), environmentname.into_param().abi(), &mut result__).from_abi::<ITsSbTarget>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn CreateLoadBalanceResultObject<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, targetname: Param0) -> ::windows::runtime::Result<ITsSbLoadBalanceResult> {
         let mut result__: <ITsSbLoadBalanceResult as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), targetname.into_param().abi(), &mut result__).from_abi::<ITsSbLoadBalanceResult>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn CreateSessionObject<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, targetname: Param0, username: Param1, domain: Param2, sessionid: u32) -> ::windows::runtime::Result<ITsSbSession> {
         let mut result__: <ITsSbSession as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), targetname.into_param().abi(), username.into_param().abi(), domain.into_param().abi(), ::std::mem::transmute(sessionid), &mut result__).from_abi::<ITsSbSession>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn CreatePluginPropertySet(&self) -> ::windows::runtime::Result<ITsSbPluginPropertySet> {
         let mut result__: <ITsSbPluginPropertySet as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ITsSbPluginPropertySet>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn CreateTargetPropertySetObject(&self) -> ::windows::runtime::Result<ITsSbTargetPropertySet> {
         let mut result__: <ITsSbTargetPropertySet as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ITsSbTargetPropertySet>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn CreateEnvironmentObject<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0, serverweight: u32) -> ::windows::runtime::Result<ITsSbEnvironment> {
         let mut result__: <ITsSbEnvironment as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), name.into_param().abi(), ::std::mem::transmute(serverweight), &mut result__).from_abi::<ITsSbEnvironment>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn GetResourcePluginStore(&self) -> ::windows::runtime::Result<ITsSbResourcePluginStore> {
         let mut result__: <ITsSbResourcePluginStore as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ITsSbResourcePluginStore>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn GetFilterPluginStore(&self) -> ::windows::runtime::Result<ITsSbFilterPluginStore> {
         let mut result__: <ITsSbFilterPluginStore as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ITsSbFilterPluginStore>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn RegisterForNotification<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, ITsSbResourceNotification>>(&self, notificationtype: u32, resourcetomonitor: Param1, ppluginnotification: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(notificationtype), resourcetomonitor.into_param().abi(), ppluginnotification.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn UnRegisterForNotification<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, notificationtype: u32, resourcetomonitor: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(notificationtype), resourcetomonitor.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn GetInstanceOfGlobalStore(&self) -> ::windows::runtime::Result<ITsSbGlobalStore> {
         let mut result__: <ITsSbGlobalStore as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ITsSbGlobalStore>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn CreateEnvironmentPropertySetObject(&self) -> ::windows::runtime::Result<ITsSbEnvironmentPropertySet> {
         let mut result__: <ITsSbEnvironmentPropertySet as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ITsSbEnvironmentPropertySet>(result__)
@@ -3332,29 +3642,36 @@ pub struct ITsSbProvider_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppglobalstore: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pppropertyset: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITsSbProvisioning(::windows::runtime::IUnknown);
 impl ITsSbProvisioning {
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, ITsSbProvider>, Param1: ::windows::runtime::IntoParam<'a, ITsSbPluginNotifySink>, Param2: ::windows::runtime::IntoParam<'a, ITsSbPluginPropertySet>>(&self, pprovider: Param0, pnotifysink: Param1, ppropertyset: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pprovider.into_param().abi(), pnotifysink.into_param().abi(), ppropertyset.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn Terminate(&self, hr: ::windows::runtime::HRESULT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(hr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn CreateVirtualMachines<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, ITsSbProvisioningPluginNotifySink>>(&self, jobxmlstring: Param0, jobguid: Param1, psink: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), jobxmlstring.into_param().abi(), jobguid.into_param().abi(), psink.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn PatchVirtualMachines<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, ITsSbProvisioningPluginNotifySink>>(&self, jobxmlstring: Param0, jobguid: Param1, psink: Param2, pvmpatchinfo: *const VM_PATCH_INFO) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), jobxmlstring.into_param().abi(), jobguid.into_param().abi(), psink.into_param().abi(), ::std::mem::transmute(pvmpatchinfo)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn DeleteVirtualMachines<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, ITsSbProvisioningPluginNotifySink>>(&self, jobxmlstring: Param0, jobguid: Param1, psink: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), jobxmlstring.into_param().abi(), jobguid.into_param().abi(), psink.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn CancelJob<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, jobguid: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), jobguid.into_param().abi()).ok()
     }
@@ -3420,28 +3737,35 @@ pub struct ITsSbProvisioning_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, jobguid: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITsSbProvisioningPluginNotifySink(::windows::runtime::IUnknown);
 impl ITsSbProvisioningPluginNotifySink {
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn OnJobCreated(&self, pvmnotifyinfo: *const VM_NOTIFY_INFO) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pvmnotifyinfo)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn OnVirtualMachineStatusChanged<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, pvmnotifyentry: *const VM_NOTIFY_ENTRY, vmnotifystatus: VM_NOTIFY_STATUS, errorcode: ::windows::runtime::HRESULT, errordescr: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pvmnotifyentry), ::std::mem::transmute(vmnotifystatus), ::std::mem::transmute(errorcode), errordescr.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn OnJobCompleted<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, resultcode: ::windows::runtime::HRESULT, resultdescription: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(resultcode), resultdescription.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn OnJobCancelled(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn LockVirtualMachine(&self, pvmnotifyentry: *const VM_NOTIFY_ENTRY) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(pvmnotifyentry)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn OnVirtualMachineHostStatusChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, vmhost: Param0, vmhostnotifystatus: VM_HOST_NOTIFY_STATUS, errorcode: ::windows::runtime::HRESULT, errordescr: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), vmhost.into_param().abi(), ::std::mem::transmute(vmhostnotifystatus), ::std::mem::transmute(errorcode), errordescr.into_param().abi()).ok()
     }
@@ -3486,16 +3810,20 @@ pub struct ITsSbProvisioningPluginNotifySink_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, vmhost: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, vmhostnotifystatus: VM_HOST_NOTIFY_STATUS, errorcode: ::windows::runtime::HRESULT, errordescr: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITsSbResourceNotification(::windows::runtime::IUnknown);
 impl ITsSbResourceNotification {
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn NotifySessionChange<'a, Param1: ::windows::runtime::IntoParam<'a, ITsSbSession>>(&self, changetype: TSSESSION_STATE, psession: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(changetype), psession.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn NotifyTargetChange<'a, Param1: ::windows::runtime::IntoParam<'a, ITsSbTarget>>(&self, targetchangetype: u32, ptarget: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(targetchangetype), ptarget.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn NotifyClientConnectionStateChange<'a, Param1: ::windows::runtime::IntoParam<'a, ITsSbClientConnection>>(&self, changetype: CONNECTION_CHANGE_NOTIFICATION, pconnection: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(changetype), pconnection.into_param().abi()).ok()
     }
@@ -3534,19 +3862,23 @@ pub struct ITsSbResourceNotification_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, targetchangetype: u32, ptarget: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, changetype: CONNECTION_CHANGE_NOTIFICATION, pconnection: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITsSbResourceNotificationEx(::windows::runtime::IUnknown);
 impl ITsSbResourceNotificationEx {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn NotifySessionChangeEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, targetname: Param0, username: Param1, domain: Param2, sessionid: u32, sessionstate: TSSESSION_STATE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), targetname.into_param().abi(), username.into_param().abi(), domain.into_param().abi(), ::std::mem::transmute(sessionid), ::std::mem::transmute(sessionstate)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn NotifyTargetChangeEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, targetname: Param0, targetchangetype: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), targetname.into_param().abi(), ::std::mem::transmute(targetchangetype)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn NotifyClientConnectionStateChangeEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(
         &self,
         username: Param0,
@@ -3597,13 +3929,16 @@ pub struct ITsSbResourceNotificationEx_abi(
     pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, username: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, domain: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, initialprogram: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, poolname: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, targetname: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, connectionchangetype: CONNECTION_CHANGE_NOTIFICATION) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITsSbResourcePlugin(::windows::runtime::IUnknown);
 impl ITsSbResourcePlugin {
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, ITsSbProvider>, Param1: ::windows::runtime::IntoParam<'a, ITsSbPluginNotifySink>, Param2: ::windows::runtime::IntoParam<'a, ITsSbPluginPropertySet>>(&self, pprovider: Param0, pnotifysink: Param1, ppropertyset: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pprovider.into_param().abi(), pnotifysink.into_param().abi(), ppropertyset.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn Terminate(&self, hr: ::windows::runtime::HRESULT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(hr)).ok()
     }
@@ -3661,77 +3996,96 @@ pub struct ITsSbResourcePlugin_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pprovider: ::windows::runtime::RawPtr, pnotifysink: ::windows::runtime::RawPtr, ppropertyset: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hr: ::windows::runtime::HRESULT) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITsSbResourcePluginStore(::windows::runtime::IUnknown);
 impl ITsSbResourcePluginStore {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn QueryTarget<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, targetname: Param0, farmname: Param1) -> ::windows::runtime::Result<ITsSbTarget> {
         let mut result__: <ITsSbTarget as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), targetname.into_param().abi(), farmname.into_param().abi(), &mut result__).from_abi::<ITsSbTarget>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn QuerySessionBySessionId<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, dwsessionid: u32, targetname: Param1) -> ::windows::runtime::Result<ITsSbSession> {
         let mut result__: <ITsSbSession as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwsessionid), targetname.into_param().abi(), &mut result__).from_abi::<ITsSbSession>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn AddTargetToStore<'a, Param0: ::windows::runtime::IntoParam<'a, ITsSbTarget>>(&self, ptarget: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ptarget.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn AddSessionToStore<'a, Param0: ::windows::runtime::IntoParam<'a, ITsSbSession>>(&self, psession: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), psession.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn AddEnvironmentToStore<'a, Param0: ::windows::runtime::IntoParam<'a, ITsSbEnvironment>>(&self, penvironment: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), penvironment.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn RemoveEnvironmentFromStore<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, environmentname: Param0, bignoreowner: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), environmentname.into_param().abi(), bignoreowner.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_System_Com`*"]
     pub unsafe fn EnumerateFarms(&self, pdwcount: *mut u32, pval: *mut *mut super::Com::SAFEARRAY) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwcount), ::std::mem::transmute(pval)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn QueryEnvironment<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, environmentname: Param0) -> ::windows::runtime::Result<ITsSbEnvironment> {
         let mut result__: <ITsSbEnvironment as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), environmentname.into_param().abi(), &mut result__).from_abi::<ITsSbEnvironment>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn EnumerateEnvironments(&self, pdwcount: *mut u32, pval: *mut *mut ::std::option::Option<ITsSbEnvironment>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwcount), ::std::mem::transmute(pval)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn SaveTarget<'a, Param0: ::windows::runtime::IntoParam<'a, ITsSbTarget>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, ptarget: Param0, bforcewrite: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ptarget.into_param().abi(), bforcewrite.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn SaveEnvironment<'a, Param0: ::windows::runtime::IntoParam<'a, ITsSbEnvironment>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, penvironment: Param0, bforcewrite: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), penvironment.into_param().abi(), bforcewrite.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn SaveSession<'a, Param0: ::windows::runtime::IntoParam<'a, ITsSbSession>>(&self, psession: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), psession.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetTargetProperty<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, targetname: Param0, propertyname: Param1, pproperty: *const super::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), targetname.into_param().abi(), propertyname.into_param().abi(), ::std::mem::transmute(pproperty)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetEnvironmentProperty<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, environmentname: Param0, propertyname: Param1, pproperty: *const super::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), environmentname.into_param().abi(), propertyname.into_param().abi(), ::std::mem::transmute(pproperty)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn SetTargetState<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, targetname: Param0, newstate: TARGET_STATE) -> ::windows::runtime::Result<TARGET_STATE> {
         let mut result__: <TARGET_STATE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), targetname.into_param().abi(), ::std::mem::transmute(newstate), &mut result__).from_abi::<TARGET_STATE>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn SetSessionState<'a, Param0: ::windows::runtime::IntoParam<'a, ITsSbSession>>(&self, sbsession: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), sbsession.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn EnumerateTargets<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, farmname: Param0, envname: Param1, sortbyfieldid: TS_SB_SORT_BY, sortybypropname: Param3, pdwcount: *mut u32, pval: *mut *mut ::std::option::Option<ITsSbTarget>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), farmname.into_param().abi(), envname.into_param().abi(), ::std::mem::transmute(sortbyfieldid), sortybypropname.into_param().abi(), ::std::mem::transmute(pdwcount), ::std::mem::transmute(pval)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn EnumerateSessions<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(
         &self,
         targetname: Param0,
@@ -3746,44 +4100,54 @@ impl ITsSbResourcePluginStore {
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), targetname.into_param().abi(), username.into_param().abi(), userdomain.into_param().abi(), poolname.into_param().abi(), initialprogram.into_param().abi(), ::std::mem::transmute(psessionstate), ::std::mem::transmute(pdwcount), ::std::mem::transmute(ppval)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetFarmProperty<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, farmname: Param0, propertyname: Param1, pvarvalue: *const super::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), farmname.into_param().abi(), propertyname.into_param().abi(), ::std::mem::transmute(pvarvalue)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn DeleteTarget<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, targetname: Param0, hostname: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), targetname.into_param().abi(), hostname.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetTargetPropertyWithVersionCheck<'a, Param0: ::windows::runtime::IntoParam<'a, ITsSbTarget>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, ptarget: Param0, propertyname: Param1, pproperty: *const super::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), ptarget.into_param().abi(), propertyname.into_param().abi(), ::std::mem::transmute(pproperty)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetEnvironmentPropertyWithVersionCheck<'a, Param0: ::windows::runtime::IntoParam<'a, ITsSbEnvironment>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, penvironment: Param0, propertyname: Param1, pproperty: *const super::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), penvironment.into_param().abi(), propertyname.into_param().abi(), ::std::mem::transmute(pproperty)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn AcquireTargetLock<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, targetname: Param0, dwtimeout: u32) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
         let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), targetname.into_param().abi(), ::std::mem::transmute(dwtimeout), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn ReleaseTargetLock<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, pcontext: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), pcontext.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn TestAndSetServerState<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, poolname: Param0, serverfqdn: Param1, newstate: TARGET_STATE, teststate: TARGET_STATE) -> ::windows::runtime::Result<TARGET_STATE> {
         let mut result__: <TARGET_STATE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), poolname.into_param().abi(), serverfqdn.into_param().abi(), ::std::mem::transmute(newstate), ::std::mem::transmute(teststate), &mut result__).from_abi::<TARGET_STATE>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn SetServerWaitingToStart<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, poolname: Param0, servername: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), poolname.into_param().abi(), servername.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn GetServerState<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, poolname: Param0, serverfqdn: Param1) -> ::windows::runtime::Result<TARGET_STATE> {
         let mut result__: <TARGET_STATE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), poolname.into_param().abi(), serverfqdn.into_param().abi(), &mut result__).from_abi::<TARGET_STATE>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn SetServerDrainMode<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, serverfqdn: Param0, drainmode: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), serverfqdn.into_param().abi(), ::std::mem::transmute(drainmode)).ok()
     }
@@ -3879,13 +4243,16 @@ pub struct ITsSbResourcePluginStore_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, serverfqdn: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, drainmode: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITsSbServiceNotification(::windows::runtime::IUnknown);
 impl ITsSbServiceNotification {
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn NotifyServiceFailure(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn NotifyServiceSuccess(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
@@ -3923,78 +4290,96 @@ pub struct ITsSbServiceNotification_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITsSbSession(::windows::runtime::IUnknown);
 impl ITsSbSession {
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn SessionId(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn TargetName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn SetTargetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, targetname: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), targetname.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn Username(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn Domain(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn State(&self) -> ::windows::runtime::Result<TSSESSION_STATE> {
         let mut result__: <TSSESSION_STATE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<TSSESSION_STATE>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn SetState(&self, state: TSSESSION_STATE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(state)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn CreateTime(&self) -> ::windows::runtime::Result<super::super::Foundation::FILETIME> {
         let mut result__: <super::super::Foundation::FILETIME as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::FILETIME>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn SetCreateTime<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::FILETIME>>(&self, time: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), time.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn DisconnectTime(&self) -> ::windows::runtime::Result<super::super::Foundation::FILETIME> {
         let mut result__: <super::super::Foundation::FILETIME as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::FILETIME>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn SetDisconnectTime<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::FILETIME>>(&self, time: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), time.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn InitialProgram(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn SetInitialProgram<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, application: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), application.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn ClientDisplay(&self) -> ::windows::runtime::Result<CLIENT_DISPLAY> {
         let mut result__: <CLIENT_DISPLAY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<CLIENT_DISPLAY>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn SetClientDisplay<'a, Param0: ::windows::runtime::IntoParam<'a, CLIENT_DISPLAY>>(&self, pclientdisplay: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), pclientdisplay.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn ProtocolType(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn SetProtocolType(&self, val: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(val)).ok()
     }
@@ -4057,83 +4442,103 @@ pub struct ITsSbSession_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pval: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, val: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITsSbTarget(::windows::runtime::IUnknown);
 impl ITsSbTarget {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn TargetName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn SetTargetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, val: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), val.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn FarmName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn SetFarmName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, val: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), val.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn TargetFQDN(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn SetTargetFQDN<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, val: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), val.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn TargetNetbios(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn SetTargetNetbios<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, val: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), val.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn IpAddresses(&self, sockaddr: *mut TSSD_ConnectionPoint, numaddresses: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(sockaddr), ::std::mem::transmute(numaddresses)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn SetIpAddresses(&self, sockaddr: *const TSSD_ConnectionPoint, numaddresses: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(sockaddr), ::std::mem::transmute(numaddresses)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn TargetState(&self) -> ::windows::runtime::Result<TARGET_STATE> {
         let mut result__: <TARGET_STATE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<TARGET_STATE>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn SetTargetState(&self, state: TARGET_STATE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(state)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn TargetPropertySet(&self) -> ::windows::runtime::Result<ITsSbTargetPropertySet> {
         let mut result__: <ITsSbTargetPropertySet as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ITsSbTargetPropertySet>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn SetTargetPropertySet<'a, Param0: ::windows::runtime::IntoParam<'a, ITsSbTargetPropertySet>>(&self, pval: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), pval.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn EnvironmentName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn SetEnvironmentName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, val: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), val.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn NumSessions(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn NumPendingConnections(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn TargetLoad(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
@@ -4199,15 +4604,18 @@ pub struct ITsSbTarget_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pnumpendingconnections: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ptargetload: *mut u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITsSbTargetPropertySet(::windows::runtime::IUnknown);
 impl ITsSbTargetPropertySet {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Read<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IErrorLog>>(&self, pszpropname: Param0, pvar: *mut super::Com::VARIANT, perrorlog: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pszpropname.into_param().abi(), ::std::mem::transmute(pvar), perrorlog.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Write<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszpropname: Param0, pvar: *const super::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pszpropname.into_param().abi(), ::std::mem::transmute(pvar)).ok()
     }
@@ -4291,50 +4699,60 @@ pub struct ITsSbTargetPropertySet_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pszpropname: super::super::Foundation::PWSTR, pvar: *const ::std::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITsSbTaskInfo(::windows::runtime::IUnknown);
 impl ITsSbTaskInfo {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn TargetId(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn StartTime(&self) -> ::windows::runtime::Result<super::super::Foundation::FILETIME> {
         let mut result__: <super::super::Foundation::FILETIME as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::FILETIME>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn EndTime(&self) -> ::windows::runtime::Result<super::super::Foundation::FILETIME> {
         let mut result__: <super::super::Foundation::FILETIME as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::FILETIME>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn Deadline(&self) -> ::windows::runtime::Result<super::super::Foundation::FILETIME> {
         let mut result__: <super::super::Foundation::FILETIME as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::FILETIME>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn Identifier(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn Label(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_System_Com`*"]
     pub unsafe fn Context(&self) -> ::windows::runtime::Result<*mut super::Com::SAFEARRAY> {
         let mut result__: <*mut super::Com::SAFEARRAY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut super::Com::SAFEARRAY>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn Plugin(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn Status(&self) -> ::windows::runtime::Result<RDV_TASK_STATUS> {
         let mut result__: <RDV_TASK_STATUS as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<RDV_TASK_STATUS>(result__)
@@ -4388,20 +4806,25 @@ pub struct ITsSbTaskInfo_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pstatus: *mut RDV_TASK_STATUS) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITsSbTaskPlugin(::windows::runtime::IUnknown);
 impl ITsSbTaskPlugin {
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, ITsSbProvider>, Param1: ::windows::runtime::IntoParam<'a, ITsSbPluginNotifySink>, Param2: ::windows::runtime::IntoParam<'a, ITsSbPluginPropertySet>>(&self, pprovider: Param0, pnotifysink: Param1, ppropertyset: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pprovider.into_param().abi(), pnotifysink.into_param().abi(), ppropertyset.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn Terminate(&self, hr: ::windows::runtime::HRESULT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(hr)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn InitializeTaskPlugin<'a, Param0: ::windows::runtime::IntoParam<'a, ITsSbTaskPluginNotifySink>>(&self, pitssbtaskpluginnotifysink: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), pitssbtaskpluginnotifysink.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn SetTaskQueue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, pszhostname: Param0, sbtaskinfosize: u32, pitssbtaskinfo: *const ::std::option::Option<ITsSbTaskInfo>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), pszhostname.into_param().abi(), ::std::mem::transmute(sbtaskinfosize), ::std::mem::transmute(pitssbtaskinfo)).ok()
     }
@@ -4462,17 +4885,21 @@ pub struct ITsSbTaskPlugin_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pszhostname: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, sbtaskinfosize: u32, pitssbtaskinfo: *const ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITsSbTaskPluginNotifySink(::windows::runtime::IUnknown);
 impl ITsSbTaskPluginNotifySink {
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn OnError(&self, hrerror: ::windows::runtime::HRESULT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(hrerror)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn OnReportStatus(&self, messagetype: CLIENT_MESSAGE_TYPE, messageid: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(messagetype), ::std::mem::transmute(messageid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn OnSetTaskTime<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>,
@@ -4509,14 +4936,17 @@ impl ITsSbTaskPluginNotifySink {
         .ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn OnDeleteTaskTime<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, sztargetname: Param0, sztaskidentifier: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), sztargetname.into_param().abi(), sztaskidentifier.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn OnUpdateTaskStatus<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, sztargetname: Param0, taskidentifier: Param1, taskstatus: RDV_TASK_STATUS) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), sztargetname.into_param().abi(), taskidentifier.into_param().abi(), ::std::mem::transmute(taskstatus)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn OnReportTasks<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, szhostname: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), szhostname.into_param().abi()).ok()
     }
@@ -4594,10 +5024,12 @@ pub struct ITsSbTaskPluginNotifySink_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, szhostname: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWRdsEnhancedFastReconnectArbitrator(::windows::runtime::IUnknown);
 impl IWRdsEnhancedFastReconnectArbitrator {
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn GetSessionForEnhancedFastReconnect(&self, psessionidarray: *const i32, dwsessioncount: u32) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(psessionidarray), ::std::mem::transmute(dwsessioncount), &mut result__).from_abi::<i32>(result__)
@@ -4635,16 +5067,20 @@ pub struct IWRdsEnhancedFastReconnectArbitrator_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, psessionidarray: *const i32, dwsessioncount: u32, presultsessionid: *mut i32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWRdsGraphicsChannel(::windows::runtime::IUnknown);
 impl IWRdsGraphicsChannel {
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn Write<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, cbsize: u32, pbuffer: *const u8, pcontext: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(cbsize), ::std::mem::transmute(pbuffer), pcontext.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn Close(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn Open<'a, Param0: ::windows::runtime::IntoParam<'a, IWRdsGraphicsChannelEvents>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, pchannelevents: Param0, popencontext: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), pchannelevents.into_param().abi(), popencontext.into_param().abi()).ok()
     }
@@ -4683,23 +5119,29 @@ pub struct IWRdsGraphicsChannel_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pchannelevents: ::windows::runtime::RawPtr, popencontext: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWRdsGraphicsChannelEvents(::windows::runtime::IUnknown);
 impl IWRdsGraphicsChannelEvents {
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn OnDataReceived(&self, cbsize: u32, pbuffer: *const u8) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(cbsize), ::std::mem::transmute(pbuffer)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn OnClose(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn OnChannelOpened<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, openresult: ::windows::runtime::HRESULT, popencontext: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(openresult), popencontext.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn OnDataSent<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pwritecontext: Param0, bcancelled: Param1, pbuffer: *const u8, cbbuffer: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), pwritecontext.into_param().abi(), bcancelled.into_param().abi(), ::std::mem::transmute(pbuffer), ::std::mem::transmute(cbbuffer)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn OnMetricsUpdate(&self, bandwidth: u32, rtt: u32, lastsentbyteindex: u64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(bandwidth), ::std::mem::transmute(rtt), ::std::mem::transmute(lastsentbyteindex)).ok()
     }
@@ -4741,10 +5183,12 @@ pub struct IWRdsGraphicsChannelEvents_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bandwidth: u32, rtt: u32, lastsentbyteindex: u64) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWRdsGraphicsChannelManager(::windows::runtime::IUnknown);
 impl IWRdsGraphicsChannelManager {
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn CreateChannel(&self, pszchannelname: *const u8, channeltype: WRdsGraphicsChannelType) -> ::windows::runtime::Result<IWRdsGraphicsChannel> {
         let mut result__: <IWRdsGraphicsChannel as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pszchannelname), ::std::mem::transmute(channeltype), &mut result__).from_abi::<IWRdsGraphicsChannel>(result__)
@@ -4782,98 +5226,123 @@ pub struct IWRdsGraphicsChannelManager_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pszchannelname: *const u8, channeltype: WRdsGraphicsChannelType, ppvirtualchannel: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWRdsProtocolConnection(::windows::runtime::IUnknown);
 impl IWRdsProtocolConnection {
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn GetLogonErrorRedirector(&self) -> ::windows::runtime::Result<IWRdsProtocolLogonErrorRedirector> {
         let mut result__: <IWRdsProtocolLogonErrorRedirector as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWRdsProtocolLogonErrorRedirector>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn AcceptConnection(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn GetClientData(&self) -> ::windows::runtime::Result<WTS_CLIENT_DATA> {
         let mut result__: <WTS_CLIENT_DATA as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<WTS_CLIENT_DATA>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn GetClientMonitorData(&self, pnummonitors: *mut u32, pprimarymonitor: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(pnummonitors), ::std::mem::transmute(pprimarymonitor)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn GetUserCredentials(&self) -> ::windows::runtime::Result<WTS_USER_CREDENTIAL> {
         let mut result__: <WTS_USER_CREDENTIAL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<WTS_USER_CREDENTIAL>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn GetLicenseConnection(&self) -> ::windows::runtime::Result<IWRdsProtocolLicenseConnection> {
         let mut result__: <IWRdsProtocolLicenseConnection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWRdsProtocolLicenseConnection>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn AuthenticateClientToSession(&self) -> ::windows::runtime::Result<WTS_SESSION_ID> {
         let mut result__: <WTS_SESSION_ID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<WTS_SESSION_ID>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn NotifySessionId<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE_PTR>>(&self, sessionid: *const WTS_SESSION_ID, sessionhandle: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(sessionid), sessionhandle.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn GetInputHandles(&self, pkeyboardhandle: *mut super::super::Foundation::HANDLE_PTR, pmousehandle: *mut super::super::Foundation::HANDLE_PTR, pbeephandle: *mut super::super::Foundation::HANDLE_PTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(pkeyboardhandle), ::std::mem::transmute(pmousehandle), ::std::mem::transmute(pbeephandle)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn GetVideoHandle(&self) -> ::windows::runtime::Result<super::super::Foundation::HANDLE_PTR> {
         let mut result__: <super::super::Foundation::HANDLE_PTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::HANDLE_PTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn ConnectNotify(&self, sessionid: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(sessionid)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn IsUserAllowedToLogon<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE_PTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, sessionid: u32, usertoken: Param1, pdomainname: Param2, pusername: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(sessionid), usertoken.into_param().abi(), pdomainname.into_param().abi(), pusername.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn SessionArbitrationEnumeration<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE_PTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, husertoken: Param0, bsinglesessionperuserenabled: Param1, psessionidarray: *mut u32, pdwsessionidentifiercount: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), husertoken.into_param().abi(), bsinglesessionperuserenabled.into_param().abi(), ::std::mem::transmute(psessionidarray), ::std::mem::transmute(pdwsessionidentifiercount)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn LogonNotify<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE_PTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hclienttoken: Param0, wszusername: Param1, wszdomainname: Param2, sessionid: *const WTS_SESSION_ID, pwrdsconnectionsettings: *mut WRDS_CONNECTION_SETTINGS) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), hclienttoken.into_param().abi(), wszusername.into_param().abi(), wszdomainname.into_param().abi(), ::std::mem::transmute(sessionid), ::std::mem::transmute(pwrdsconnectionsettings)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn PreDisconnect(&self, disconnectreason: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(disconnectreason)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn DisconnectNotify(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn Close(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn GetProtocolStatus(&self) -> ::windows::runtime::Result<WTS_PROTOCOL_STATUS> {
         let mut result__: <WTS_PROTOCOL_STATUS as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), &mut result__).from_abi::<WTS_PROTOCOL_STATUS>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn GetLastInputTime(&self) -> ::windows::runtime::Result<u64> {
         let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u64>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn SetErrorInfo(&self, ulerror: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulerror)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn CreateVirtualChannel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, szendpointname: Param0, bstatic: Param1, requestedpriority: u32) -> ::windows::runtime::Result<usize> {
         let mut result__: <usize as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), szendpointname.into_param().abi(), bstatic.into_param().abi(), ::std::mem::transmute(requestedpriority), &mut result__).from_abi::<usize>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn QueryProperty<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, querytype: Param0, ulnumentriesin: u32, ulnumentriesout: u32, ppropertyentriesin: *const WTS_PROPERTY_VALUE, ppropertyentriesout: *mut WTS_PROPERTY_VALUE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), querytype.into_param().abi(), ::std::mem::transmute(ulnumentriesin), ::std::mem::transmute(ulnumentriesout), ::std::mem::transmute(ppropertyentriesin), ::std::mem::transmute(ppropertyentriesout)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn GetShadowConnection(&self) -> ::windows::runtime::Result<IWRdsProtocolShadowConnection> {
         let mut result__: <IWRdsProtocolShadowConnection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWRdsProtocolShadowConnection>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn NotifyCommandProcessCreated(&self, sessionid: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), ::std::mem::transmute(sessionid)).ok()
     }
@@ -4942,22 +5411,28 @@ pub struct IWRdsProtocolConnection_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppshadowconnection: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, sessionid: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWRdsProtocolConnectionCallback(::windows::runtime::IUnknown);
 impl IWRdsProtocolConnectionCallback {
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn OnReady(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn BrokenConnection(&self, reason: u32, source: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(reason), ::std::mem::transmute(source)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn StopScreenUpdates(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn RedrawWindow(&self, rect: *const WTS_SMALL_RECT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(rect)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn GetConnectionId(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
@@ -4999,15 +5474,18 @@ pub struct IWRdsProtocolConnectionCallback_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rect: *const WTS_SMALL_RECT) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pconnectionid: *mut u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWRdsProtocolConnectionSettings(::windows::runtime::IUnknown);
 impl IWRdsProtocolConnectionSettings {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn SetConnectionSetting<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, propertyid: Param0, ppropertyentriesin: *const WTS_PROPERTY_VALUE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), propertyid.into_param().abi(), ::std::mem::transmute(ppropertyentriesin)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn GetConnectionSetting<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, propertyid: Param0) -> ::windows::runtime::Result<WTS_PROPERTY_VALUE> {
         let mut result__: <WTS_PROPERTY_VALUE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), propertyid.into_param().abi(), &mut result__).from_abi::<WTS_PROPERTY_VALUE>(result__)
@@ -5048,20 +5526,25 @@ pub struct IWRdsProtocolConnectionSettings_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, propertyid: ::windows::runtime::GUID, ppropertyentriesout: *mut WTS_PROPERTY_VALUE) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWRdsProtocolLicenseConnection(::windows::runtime::IUnknown);
 impl IWRdsProtocolLicenseConnection {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn RequestLicensingCapabilities(&self, pplicensecapabilities: *mut WTS_LICENSE_CAPABILITIES, pcblicensecapabilities: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pplicensecapabilities), ::std::mem::transmute(pcblicensecapabilities)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn SendClientLicense(&self, pclientlicense: *const u8, cbclientlicense: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pclientlicense), ::std::mem::transmute(cbclientlicense)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn RequestClientLicense(&self, reserve1: *const u8, reserve2: u32, ppclientlicense: *mut u8, pcbclientlicense: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(reserve1), ::std::mem::transmute(reserve2), ::std::mem::transmute(ppclientlicense), ::std::mem::transmute(pcbclientlicense)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn ProtocolComplete(&self, ulcomplete: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulcomplete)).ok()
     }
@@ -5102,17 +5585,21 @@ pub struct IWRdsProtocolLicenseConnection_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, reserve1: *const u8, reserve2: u32, ppclientlicense: *mut u8, pcbclientlicense: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ulcomplete: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWRdsProtocolListener(::windows::runtime::IUnknown);
 impl IWRdsProtocolListener {
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn GetSettings(&self, wrdslistenersettinglevel: WRDS_LISTENER_SETTING_LEVEL) -> ::windows::runtime::Result<WRDS_LISTENER_SETTINGS> {
         let mut result__: <WRDS_LISTENER_SETTINGS as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(wrdslistenersettinglevel), &mut result__).from_abi::<WRDS_LISTENER_SETTINGS>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn StartListen<'a, Param0: ::windows::runtime::IntoParam<'a, IWRdsProtocolListenerCallback>>(&self, pcallback: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pcallback.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn StopListen(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
@@ -5151,11 +5638,13 @@ pub struct IWRdsProtocolListener_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcallback: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWRdsProtocolListenerCallback(::windows::runtime::IUnknown);
 impl IWRdsProtocolListenerCallback {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn OnConnected<'a, Param0: ::windows::runtime::IntoParam<'a, IWRdsProtocolConnection>>(&self, pconnection: Param0, pwrdsconnectionsettings: *const WRDS_CONNECTION_SETTINGS) -> ::windows::runtime::Result<IWRdsProtocolConnectionCallback> {
         let mut result__: <IWRdsProtocolConnectionCallback as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pconnection.into_param().abi(), ::std::mem::transmute(pwrdsconnectionsettings), &mut result__).from_abi::<IWRdsProtocolConnectionCallback>(result__)
@@ -5194,24 +5683,29 @@ pub struct IWRdsProtocolListenerCallback_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pconnection: ::windows::runtime::RawPtr, pwrdsconnectionsettings: *const WRDS_CONNECTION_SETTINGS, pcallback: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWRdsProtocolLogonErrorRedirector(::windows::runtime::IUnknown);
 impl IWRdsProtocolLogonErrorRedirector {
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn OnBeginPainting(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn RedirectStatus<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszmessage: Param0) -> ::windows::runtime::Result<WTS_LOGON_ERROR_REDIRECTOR_RESPONSE> {
         let mut result__: <WTS_LOGON_ERROR_REDIRECTOR_RESPONSE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pszmessage.into_param().abi(), &mut result__).from_abi::<WTS_LOGON_ERROR_REDIRECTOR_RESPONSE>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn RedirectMessage<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszcaption: Param0, pszmessage: Param1, utype: u32) -> ::windows::runtime::Result<WTS_LOGON_ERROR_REDIRECTOR_RESPONSE> {
         let mut result__: <WTS_LOGON_ERROR_REDIRECTOR_RESPONSE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), pszcaption.into_param().abi(), pszmessage.into_param().abi(), ::std::mem::transmute(utype), &mut result__).from_abi::<WTS_LOGON_ERROR_REDIRECTOR_RESPONSE>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn RedirectLogonError<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, ntsstatus: i32, ntssubstatus: i32, pszcaption: Param2, pszmessage: Param3, utype: u32) -> ::windows::runtime::Result<WTS_LOGON_ERROR_REDIRECTOR_RESPONSE> {
         let mut result__: <WTS_LOGON_ERROR_REDIRECTOR_RESPONSE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(ntsstatus), ::std::mem::transmute(ntssubstatus), pszcaption.into_param().abi(), pszmessage.into_param().abi(), ::std::mem::transmute(utype), &mut result__).from_abi::<WTS_LOGON_ERROR_REDIRECTOR_RESPONSE>(result__)
@@ -5255,35 +5749,44 @@ pub struct IWRdsProtocolLogonErrorRedirector_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ntsstatus: i32, ntssubstatus: i32, pszcaption: super::super::Foundation::PWSTR, pszmessage: super::super::Foundation::PWSTR, utype: u32, presponse: *mut WTS_LOGON_ERROR_REDIRECTOR_RESPONSE) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWRdsProtocolManager(::windows::runtime::IUnknown);
 impl IWRdsProtocolManager {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, IWRdsProtocolSettings>>(&self, piwrdssettings: Param0, pwrdssettings: *const WRDS_SETTINGS) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), piwrdssettings.into_param().abi(), ::std::mem::transmute(pwrdssettings)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn CreateListener<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszlistenername: Param0) -> ::windows::runtime::Result<IWRdsProtocolListener> {
         let mut result__: <IWRdsProtocolListener as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), wszlistenername.into_param().abi(), &mut result__).from_abi::<IWRdsProtocolListener>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn NotifyServiceStateChange(&self, ptsservicestatechange: *const WTS_SERVICE_STATE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(ptsservicestatechange)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn NotifySessionOfServiceStart(&self, sessionid: *const WTS_SESSION_ID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(sessionid)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn NotifySessionOfServiceStop(&self, sessionid: *const WTS_SESSION_ID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(sessionid)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn NotifySessionStateChange(&self, sessionid: *const WTS_SESSION_ID, eventid: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(sessionid), ::std::mem::transmute(eventid)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn NotifySettingsChange(&self, pwrdssettings: *const WRDS_SETTINGS) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwrdssettings)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn Uninitialize(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)).ok()
     }
@@ -5330,16 +5833,19 @@ pub struct IWRdsProtocolManager_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWRdsProtocolSettings(::windows::runtime::IUnknown);
 impl IWRdsProtocolSettings {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn GetSettings(&self, wrdssettingtype: WRDS_SETTING_TYPE, wrdssettinglevel: WRDS_SETTING_LEVEL) -> ::windows::runtime::Result<WRDS_SETTINGS> {
         let mut result__: <WRDS_SETTINGS as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(wrdssettingtype), ::std::mem::transmute(wrdssettinglevel), &mut result__).from_abi::<WRDS_SETTINGS>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn MergeSettings(&self, pwrdssettings: *const WRDS_SETTINGS, wrdsconnectionsettinglevel: WRDS_CONNECTION_SETTING_LEVEL, pwrdsconnectionsettings: *mut WRDS_CONNECTION_SETTINGS) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwrdssettings), ::std::mem::transmute(wrdsconnectionsettinglevel), ::std::mem::transmute(pwrdsconnectionsettings)).ok()
     }
@@ -5379,14 +5885,17 @@ pub struct IWRdsProtocolSettings_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwrdssettings: *const WRDS_SETTINGS, wrdsconnectionsettinglevel: WRDS_CONNECTION_SETTING_LEVEL, pwrdsconnectionsettings: *mut WRDS_CONNECTION_SETTINGS) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWRdsProtocolShadowCallback(::windows::runtime::IUnknown);
 impl IWRdsProtocolShadowCallback {
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn StopShadow(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn InvokeTargetShadow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param10: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, ptargetservername: Param0, targetsessionid: u32, pparam1: *const u8, param1size: u32, pparam2: *const u8, param2size: u32, pparam3: *const u8, param3size: u32, pparam4: *const u8, param4size: u32, pclientname: Param10) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(
             ::std::mem::transmute_copy(self),
@@ -5439,18 +5948,22 @@ pub struct IWRdsProtocolShadowCallback_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ptargetservername: super::super::Foundation::PWSTR, targetsessionid: u32, pparam1: *const u8, param1size: u32, pparam2: *const u8, param2size: u32, pparam3: *const u8, param3size: u32, pparam4: *const u8, param4size: u32, pclientname: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWRdsProtocolShadowConnection(::windows::runtime::IUnknown);
 impl IWRdsProtocolShadowConnection {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn Start<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, IWRdsProtocolShadowCallback>>(&self, ptargetservername: Param0, targetsessionid: u32, hotkeyvk: u8, hotkeymodifiers: u16, pshadowcallback: Param4) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ptargetservername.into_param().abi(), ::std::mem::transmute(targetsessionid), ::std::mem::transmute(hotkeyvk), ::std::mem::transmute(hotkeymodifiers), pshadowcallback.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn Stop(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn DoTarget<'a, Param8: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pparam1: *const u8, param1size: u32, pparam2: *const u8, param2size: u32, pparam3: *const u8, param3size: u32, pparam4: *const u8, param4size: u32, pclientname: Param8) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(
             ::std::mem::transmute_copy(self),
@@ -5503,22 +6016,27 @@ pub struct IWRdsProtocolShadowConnection_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pparam1: *const u8, param1size: u32, pparam2: *const u8, param2size: u32, pparam3: *const u8, param3size: u32, pparam4: *const u8, param4size: u32, pclientname: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWRdsWddmIddProps(::windows::runtime::IUnknown);
 impl IWRdsWddmIddProps {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn GetHardwareId<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pdisplaydriverhardwareid: Param0, count: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pdisplaydriverhardwareid.into_param().abi(), ::std::mem::transmute(count)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn OnDriverLoad<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE_PTR>>(&self, sessionid: u32, driverhandle: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(sessionid), driverhandle.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn OnDriverUnload(&self, sessionid: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(sessionid)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn EnableWddmIdd<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, enabled: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), enabled.into_param().abi()).ok()
     }
@@ -5561,10 +6079,12 @@ pub struct IWRdsWddmIddProps_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, enabled: super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWTSBitmapRenderService(::windows::runtime::IUnknown);
 impl IWTSBitmapRenderService {
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn GetMappedRenderer<'a, Param1: ::windows::runtime::IntoParam<'a, IWTSBitmapRendererCallback>>(&self, mappingid: u64, pmappedrenderercallback: Param1) -> ::windows::runtime::Result<IWTSBitmapRenderer> {
         let mut result__: <IWTSBitmapRenderer as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(mappingid), pmappedrenderercallback.into_param().abi(), &mut result__).from_abi::<IWTSBitmapRenderer>(result__)
@@ -5602,17 +6122,21 @@ pub struct IWTSBitmapRenderService_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, mappingid: u64, pmappedrenderercallback: ::windows::runtime::RawPtr, ppmappedrenderer: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWTSBitmapRenderer(::windows::runtime::IUnknown);
 impl IWTSBitmapRenderer {
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn Render<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, imageformat: Param0, dwwidth: u32, dwheight: u32, cbstride: i32, cbimagebuffer: u32, pimagebuffer: *const u8) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), imageformat.into_param().abi(), ::std::mem::transmute(dwwidth), ::std::mem::transmute(dwheight), ::std::mem::transmute(cbstride), ::std::mem::transmute(cbimagebuffer), ::std::mem::transmute(pimagebuffer)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn GetRendererStatistics(&self) -> ::windows::runtime::Result<BITMAP_RENDERER_STATISTICS> {
         let mut result__: <BITMAP_RENDERER_STATISTICS as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<BITMAP_RENDERER_STATISTICS>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn RemoveMapping(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
@@ -5651,11 +6175,13 @@ pub struct IWTSBitmapRenderer_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pstatistics: *mut BITMAP_RENDERER_STATISTICS) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWTSBitmapRendererCallback(::windows::runtime::IUnknown);
 impl IWTSBitmapRendererCallback {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn OnTargetSizeChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::RECT>>(&self, rcnewsize: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), rcnewsize.into_param().abi()).ok()
     }
@@ -5693,11 +6219,13 @@ pub struct IWTSBitmapRendererCallback_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rcnewsize: super::super::Foundation::RECT) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWTSListener(::windows::runtime::IUnknown);
 impl IWTSListener {
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetConfiguration(&self) -> ::windows::runtime::Result<super::Ole::Automation::IPropertyBag> {
         let mut result__: <super::Ole::Automation::IPropertyBag as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::Ole::Automation::IPropertyBag>(result__)
@@ -5736,11 +6264,13 @@ pub struct IWTSListener_abi(
     #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pppropertybag: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWTSListenerCallback(::windows::runtime::IUnknown);
 impl IWTSListenerCallback {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn OnNewChannelConnection<'a, Param0: ::windows::runtime::IntoParam<'a, IWTSVirtualChannel>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, pchannel: Param0, data: Param1, pbaccept: *mut super::super::Foundation::BOOL, ppcallback: *mut ::std::option::Option<IWTSVirtualChannelCallback>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pchannel.into_param().abi(), data.into_param().abi(), ::std::mem::transmute(pbaccept), ::std::mem::transmute(ppcallback)).ok()
     }
@@ -5778,19 +6308,24 @@ pub struct IWTSListenerCallback_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pchannel: ::windows::runtime::RawPtr, data: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbaccept: *mut super::super::Foundation::BOOL, ppcallback: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWTSPlugin(::windows::runtime::IUnknown);
 impl IWTSPlugin {
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, IWTSVirtualChannelManager>>(&self, pchannelmgr: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pchannelmgr.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn Connected(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn Disconnected(&self, dwdisconnectcode: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwdisconnectcode)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn Terminated(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self)).ok()
     }
@@ -5830,10 +6365,12 @@ pub struct IWTSPlugin_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwdisconnectcode: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWTSPluginServiceProvider(::windows::runtime::IUnknown);
 impl IWTSPluginServiceProvider {
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn GetService<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, serviceid: Param0) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
         let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), serviceid.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
@@ -5871,93 +6408,117 @@ pub struct IWTSPluginServiceProvider_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, serviceid: ::windows::runtime::GUID, ppunkobject: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWTSProtocolConnection(::windows::runtime::IUnknown);
 impl IWTSProtocolConnection {
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn GetLogonErrorRedirector(&self) -> ::windows::runtime::Result<IWTSProtocolLogonErrorRedirector> {
         let mut result__: <IWTSProtocolLogonErrorRedirector as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWTSProtocolLogonErrorRedirector>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn SendPolicyData(&self, ppolicydata: *const WTS_POLICY_DATA) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppolicydata)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn AcceptConnection(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn GetClientData(&self) -> ::windows::runtime::Result<WTS_CLIENT_DATA> {
         let mut result__: <WTS_CLIENT_DATA as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<WTS_CLIENT_DATA>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn GetUserCredentials(&self) -> ::windows::runtime::Result<WTS_USER_CREDENTIAL> {
         let mut result__: <WTS_USER_CREDENTIAL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<WTS_USER_CREDENTIAL>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn GetLicenseConnection(&self) -> ::windows::runtime::Result<IWTSProtocolLicenseConnection> {
         let mut result__: <IWTSProtocolLicenseConnection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWTSProtocolLicenseConnection>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn AuthenticateClientToSession(&self) -> ::windows::runtime::Result<WTS_SESSION_ID> {
         let mut result__: <WTS_SESSION_ID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<WTS_SESSION_ID>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn NotifySessionId(&self, sessionid: *const WTS_SESSION_ID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(sessionid)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn GetProtocolHandles(&self, pkeyboardhandle: *mut super::super::Foundation::HANDLE_PTR, pmousehandle: *mut super::super::Foundation::HANDLE_PTR, pbeephandle: *mut super::super::Foundation::HANDLE_PTR, pvideohandle: *mut super::super::Foundation::HANDLE_PTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(pkeyboardhandle), ::std::mem::transmute(pmousehandle), ::std::mem::transmute(pbeephandle), ::std::mem::transmute(pvideohandle)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn ConnectNotify(&self, sessionid: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(sessionid)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn IsUserAllowedToLogon<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE_PTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, sessionid: u32, usertoken: Param1, pdomainname: Param2, pusername: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(sessionid), usertoken.into_param().abi(), pdomainname.into_param().abi(), pusername.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn SessionArbitrationEnumeration<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE_PTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, husertoken: Param0, bsinglesessionperuserenabled: Param1, psessionidarray: *mut u32, pdwsessionidentifiercount: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), husertoken.into_param().abi(), bsinglesessionperuserenabled.into_param().abi(), ::std::mem::transmute(psessionidarray), ::std::mem::transmute(pdwsessionidentifiercount)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn LogonNotify<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE_PTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hclienttoken: Param0, wszusername: Param1, wszdomainname: Param2, sessionid: *const WTS_SESSION_ID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), hclienttoken.into_param().abi(), wszusername.into_param().abi(), wszdomainname.into_param().abi(), ::std::mem::transmute(sessionid)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn GetUserData(&self, ppolicydata: *const WTS_POLICY_DATA, pclientdata: *mut WTS_USER_DATA) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppolicydata), ::std::mem::transmute(pclientdata)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn DisconnectNotify(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn Close(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn GetProtocolStatus(&self) -> ::windows::runtime::Result<WTS_PROTOCOL_STATUS> {
         let mut result__: <WTS_PROTOCOL_STATUS as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), &mut result__).from_abi::<WTS_PROTOCOL_STATUS>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn GetLastInputTime(&self) -> ::windows::runtime::Result<u64> {
         let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u64>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn SetErrorInfo(&self, ulerror: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulerror)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn SendBeep(&self, frequency: u32, duration: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(frequency), ::std::mem::transmute(duration)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn CreateVirtualChannel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, szendpointname: Param0, bstatic: Param1, requestedpriority: u32) -> ::windows::runtime::Result<usize> {
         let mut result__: <usize as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), szendpointname.into_param().abi(), bstatic.into_param().abi(), ::std::mem::transmute(requestedpriority), &mut result__).from_abi::<usize>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn QueryProperty<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, querytype: Param0, ulnumentriesin: u32, ulnumentriesout: u32, ppropertyentriesin: *const WTS_PROPERTY_VALUE, ppropertyentriesout: *mut WTS_PROPERTY_VALUE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), querytype.into_param().abi(), ::std::mem::transmute(ulnumentriesin), ::std::mem::transmute(ulnumentriesout), ::std::mem::transmute(ppropertyentriesin), ::std::mem::transmute(ppropertyentriesout)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn GetShadowConnection(&self) -> ::windows::runtime::Result<IWTSProtocolShadowConnection> {
         let mut result__: <IWTSProtocolShadowConnection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWTSProtocolShadowConnection>(result__)
@@ -6026,22 +6587,28 @@ pub struct IWTSProtocolConnection_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppshadowconnection: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWTSProtocolConnectionCallback(::windows::runtime::IUnknown);
 impl IWTSProtocolConnectionCallback {
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn OnReady(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn BrokenConnection(&self, reason: u32, source: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(reason), ::std::mem::transmute(source)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn StopScreenUpdates(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn RedrawWindow(&self, rect: *const WTS_SMALL_RECT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(rect)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn DisplayIOCtl(&self, displayioctl: *const WTS_DISPLAY_IOCTL) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(displayioctl)).ok()
     }
@@ -6082,20 +6649,25 @@ pub struct IWTSProtocolConnectionCallback_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rect: *const WTS_SMALL_RECT) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, displayioctl: *const WTS_DISPLAY_IOCTL) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWTSProtocolLicenseConnection(::windows::runtime::IUnknown);
 impl IWTSProtocolLicenseConnection {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn RequestLicensingCapabilities(&self, pplicensecapabilities: *mut WTS_LICENSE_CAPABILITIES, pcblicensecapabilities: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pplicensecapabilities), ::std::mem::transmute(pcblicensecapabilities)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn SendClientLicense(&self, pclientlicense: *const u8, cbclientlicense: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pclientlicense), ::std::mem::transmute(cbclientlicense)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn RequestClientLicense(&self, reserve1: *const u8, reserve2: u32, ppclientlicense: *mut u8, pcbclientlicense: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(reserve1), ::std::mem::transmute(reserve2), ::std::mem::transmute(ppclientlicense), ::std::mem::transmute(pcbclientlicense)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn ProtocolComplete(&self, ulcomplete: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulcomplete)).ok()
     }
@@ -6136,13 +6708,16 @@ pub struct IWTSProtocolLicenseConnection_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, reserve1: *const u8, reserve2: u32, ppclientlicense: *mut u8, pcbclientlicense: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ulcomplete: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWTSProtocolListener(::windows::runtime::IUnknown);
 impl IWTSProtocolListener {
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn StartListen<'a, Param0: ::windows::runtime::IntoParam<'a, IWTSProtocolListenerCallback>>(&self, pcallback: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pcallback.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn StopListen(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
@@ -6180,10 +6755,12 @@ pub struct IWTSProtocolListener_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcallback: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWTSProtocolListenerCallback(::windows::runtime::IUnknown);
 impl IWTSProtocolListenerCallback {
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn OnConnected<'a, Param0: ::windows::runtime::IntoParam<'a, IWTSProtocolConnection>>(&self, pconnection: Param0) -> ::windows::runtime::Result<IWTSProtocolConnectionCallback> {
         let mut result__: <IWTSProtocolConnectionCallback as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pconnection.into_param().abi(), &mut result__).from_abi::<IWTSProtocolConnectionCallback>(result__)
@@ -6221,24 +6798,29 @@ pub struct IWTSProtocolListenerCallback_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pconnection: ::windows::runtime::RawPtr, pcallback: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWTSProtocolLogonErrorRedirector(::windows::runtime::IUnknown);
 impl IWTSProtocolLogonErrorRedirector {
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn OnBeginPainting(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn RedirectStatus<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszmessage: Param0) -> ::windows::runtime::Result<WTS_LOGON_ERROR_REDIRECTOR_RESPONSE> {
         let mut result__: <WTS_LOGON_ERROR_REDIRECTOR_RESPONSE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pszmessage.into_param().abi(), &mut result__).from_abi::<WTS_LOGON_ERROR_REDIRECTOR_RESPONSE>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn RedirectMessage<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszcaption: Param0, pszmessage: Param1, utype: u32) -> ::windows::runtime::Result<WTS_LOGON_ERROR_REDIRECTOR_RESPONSE> {
         let mut result__: <WTS_LOGON_ERROR_REDIRECTOR_RESPONSE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), pszcaption.into_param().abi(), pszmessage.into_param().abi(), ::std::mem::transmute(utype), &mut result__).from_abi::<WTS_LOGON_ERROR_REDIRECTOR_RESPONSE>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn RedirectLogonError<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, ntsstatus: i32, ntssubstatus: i32, pszcaption: Param2, pszmessage: Param3, utype: u32) -> ::windows::runtime::Result<WTS_LOGON_ERROR_REDIRECTOR_RESPONSE> {
         let mut result__: <WTS_LOGON_ERROR_REDIRECTOR_RESPONSE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(ntsstatus), ::std::mem::transmute(ntssubstatus), pszcaption.into_param().abi(), pszmessage.into_param().abi(), ::std::mem::transmute(utype), &mut result__).from_abi::<WTS_LOGON_ERROR_REDIRECTOR_RESPONSE>(result__)
@@ -6282,24 +6864,30 @@ pub struct IWTSProtocolLogonErrorRedirector_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ntsstatus: i32, ntssubstatus: i32, pszcaption: super::super::Foundation::PWSTR, pszmessage: super::super::Foundation::PWSTR, utype: u32, presponse: *mut WTS_LOGON_ERROR_REDIRECTOR_RESPONSE) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWTSProtocolManager(::windows::runtime::IUnknown);
 impl IWTSProtocolManager {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn CreateListener<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszlistenername: Param0) -> ::windows::runtime::Result<IWTSProtocolListener> {
         let mut result__: <IWTSProtocolListener as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), wszlistenername.into_param().abi(), &mut result__).from_abi::<IWTSProtocolListener>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn NotifyServiceStateChange(&self, ptsservicestatechange: *const WTS_SERVICE_STATE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(ptsservicestatechange)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn NotifySessionOfServiceStart(&self, sessionid: *const WTS_SESSION_ID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(sessionid)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn NotifySessionOfServiceStop(&self, sessionid: *const WTS_SESSION_ID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(sessionid)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn NotifySessionStateChange(&self, sessionid: *const WTS_SESSION_ID, eventid: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(sessionid), ::std::mem::transmute(eventid)).ok()
     }
@@ -6341,14 +6929,17 @@ pub struct IWTSProtocolManager_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, sessionid: *const WTS_SESSION_ID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, sessionid: *const WTS_SESSION_ID, eventid: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWTSProtocolShadowCallback(::windows::runtime::IUnknown);
 impl IWTSProtocolShadowCallback {
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn StopShadow(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn InvokeTargetShadow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param10: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, ptargetservername: Param0, targetsessionid: u32, pparam1: *const u8, param1size: u32, pparam2: *const u8, param2size: u32, pparam3: *const u8, param3size: u32, pparam4: *const u8, param4size: u32, pclientname: Param10) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(
             ::std::mem::transmute_copy(self),
@@ -6401,18 +6992,22 @@ pub struct IWTSProtocolShadowCallback_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ptargetservername: super::super::Foundation::PWSTR, targetsessionid: u32, pparam1: *const u8, param1size: u32, pparam2: *const u8, param2size: u32, pparam3: *const u8, param3size: u32, pparam4: *const u8, param4size: u32, pclientname: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWTSProtocolShadowConnection(::windows::runtime::IUnknown);
 impl IWTSProtocolShadowConnection {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn Start<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, IWTSProtocolShadowCallback>>(&self, ptargetservername: Param0, targetsessionid: u32, hotkeyvk: u8, hotkeymodifiers: u16, pshadowcallback: Param4) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ptargetservername.into_param().abi(), ::std::mem::transmute(targetsessionid), ::std::mem::transmute(hotkeyvk), ::std::mem::transmute(hotkeymodifiers), pshadowcallback.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn Stop(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn DoTarget<'a, Param8: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pparam1: *const u8, param1size: u32, pparam2: *const u8, param2size: u32, pparam3: *const u8, param3size: u32, pparam4: *const u8, param4size: u32, pclientname: Param8) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(
             ::std::mem::transmute_copy(self),
@@ -6465,29 +7060,36 @@ pub struct IWTSProtocolShadowConnection_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pparam1: *const u8, param1size: u32, pparam2: *const u8, param2size: u32, pparam3: *const u8, param3size: u32, pparam4: *const u8, param4size: u32, pclientname: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWTSSBPlugin(::windows::runtime::IUnknown);
 impl IWTSSBPlugin {
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn Initialize(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn WTSSBX_MachineChangeNotification(&self, notificationtype: WTSSBX_NOTIFICATION_TYPE, machineid: i32, pmachineinfo: *const WTSSBX_MACHINE_INFO) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(notificationtype), ::std::mem::transmute(machineid), ::std::mem::transmute(pmachineinfo)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn WTSSBX_SessionChangeNotification(&self, notificationtype: WTSSBX_NOTIFICATION_TYPE, machineid: i32, numofsessions: u32, sessioninfo: *const WTSSBX_SESSION_INFO) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(notificationtype), ::std::mem::transmute(machineid), ::std::mem::transmute(numofsessions), ::std::mem::transmute(sessioninfo)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn WTSSBX_GetMostSuitableServer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, username: Param0, domainname: Param1, applicationtype: Param2, farmname: Param3, pmachineid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), username.into_param().abi(), domainname.into_param().abi(), applicationtype.into_param().abi(), farmname.into_param().abi(), ::std::mem::transmute(pmachineid)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn Terminated(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn WTSSBX_GetUserExternalSession<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
         &self,
         username: Param0,
@@ -6540,13 +7142,16 @@ pub struct IWTSSBPlugin_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, username: super::super::Foundation::PWSTR, domainname: super::super::Foundation::PWSTR, applicationtype: super::super::Foundation::PWSTR, redirectorinternalip: *const WTSSBX_IP_ADDRESS, psessionid: *mut u32, pmachineconnectinfo: *mut WTSSBX_MACHINE_CONNECT_INFO) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWTSVirtualChannel(::windows::runtime::IUnknown);
 impl IWTSVirtualChannel {
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn Write<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, cbsize: u32, pbuffer: *const u8, preserved: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(cbsize), ::std::mem::transmute(pbuffer), preserved.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn Close(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
@@ -6584,13 +7189,16 @@ pub struct IWTSVirtualChannel_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, cbsize: u32, pbuffer: *const u8, preserved: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWTSVirtualChannelCallback(::windows::runtime::IUnknown);
 impl IWTSVirtualChannelCallback {
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn OnDataReceived(&self, cbsize: u32, pbuffer: *const u8) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(cbsize), ::std::mem::transmute(pbuffer)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn OnClose(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
@@ -6628,10 +7236,12 @@ pub struct IWTSVirtualChannelCallback_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, cbsize: u32, pbuffer: *const u8) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWTSVirtualChannelManager(::windows::runtime::IUnknown);
 impl IWTSVirtualChannelManager {
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn CreateListener<'a, Param2: ::windows::runtime::IntoParam<'a, IWTSListenerCallback>>(&self, pszchannelname: *const u8, uflags: u32, plistenercallback: Param2) -> ::windows::runtime::Result<IWTSListener> {
         let mut result__: <IWTSListener as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pszchannelname), ::std::mem::transmute(uflags), plistenercallback.into_param().abi(), &mut result__).from_abi::<IWTSListener>(result__)
@@ -6669,19 +7279,23 @@ pub struct IWTSVirtualChannelManager_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pszchannelname: *const u8, uflags: u32, plistenercallback: ::windows::runtime::RawPtr, pplistener: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWorkspace(::windows::runtime::IUnknown);
 impl IWorkspace {
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_System_Com`*"]
     pub unsafe fn GetWorkspaceNames(&self) -> ::windows::runtime::Result<*mut super::Com::SAFEARRAY> {
         let mut result__: <*mut super::Com::SAFEARRAY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut super::Com::SAFEARRAY>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn StartRemoteApplication<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrworkspaceid: Param0, psaparams: *const super::Com::SAFEARRAY) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), bstrworkspaceid.into_param().abi(), ::std::mem::transmute(psaparams)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn GetProcessId(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
@@ -6723,24 +7337,29 @@ pub struct IWorkspace_abi(
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pulprocessid: *mut u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWorkspace2(::windows::runtime::IUnknown);
 impl IWorkspace2 {
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_System_Com`*"]
     pub unsafe fn GetWorkspaceNames(&self) -> ::windows::runtime::Result<*mut super::Com::SAFEARRAY> {
         let mut result__: <*mut super::Com::SAFEARRAY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut super::Com::SAFEARRAY>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn StartRemoteApplication<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrworkspaceid: Param0, psaparams: *const super::Com::SAFEARRAY) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), bstrworkspaceid.into_param().abi(), ::std::mem::transmute(psaparams)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn GetProcessId(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn StartRemoteApplicationEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(
         &self,
         bstrworkspaceid: Param0,
@@ -6820,24 +7439,29 @@ pub struct IWorkspace2_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWorkspace3(::windows::runtime::IUnknown);
 impl IWorkspace3 {
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_System_Com`*"]
     pub unsafe fn GetWorkspaceNames(&self) -> ::windows::runtime::Result<*mut super::Com::SAFEARRAY> {
         let mut result__: <*mut super::Com::SAFEARRAY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut super::Com::SAFEARRAY>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn StartRemoteApplication<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrworkspaceid: Param0, psaparams: *const super::Com::SAFEARRAY) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), bstrworkspaceid.into_param().abi(), ::std::mem::transmute(psaparams)).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn GetProcessId(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn StartRemoteApplicationEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(
         &self,
         bstrworkspaceid: Param0,
@@ -6850,11 +7474,13 @@ impl IWorkspace3 {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), bstrworkspaceid.into_param().abi(), bstrrequestingappid.into_param().abi(), bstrrequestingappfamilyname.into_param().abi(), ::std::mem::transmute(blaunchintoimmersiveclient), bstrimmersiveclientactivationcontext.into_param().abi(), ::std::mem::transmute(psaparams)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn GetClaimsToken2<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::RECT>>(&self, bstrclaimshint: Param0, bstruserhint: Param1, claimcookie: u32, hwndcreduiparent: u32, rectcreduiparent: Param4) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), bstrclaimshint.into_param().abi(), bstruserhint.into_param().abi(), ::std::mem::transmute(claimcookie), ::std::mem::transmute(hwndcreduiparent), rectcreduiparent.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn SetClaimsToken<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstraccesstoken: Param0, ullaccesstokenexpiration: u64, bstrrefreshtoken: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), bstraccesstoken.into_param().abi(), ::std::mem::transmute(ullaccesstokenexpiration), bstrrefreshtoken.into_param().abi()).ok()
     }
@@ -6950,20 +7576,24 @@ pub struct IWorkspace3_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bstraccesstoken: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, ullaccesstokenexpiration: u64, bstrrefreshtoken: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWorkspaceClientExt(::windows::runtime::IUnknown);
 impl IWorkspaceClientExt {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn GetResourceId(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn GetResourceDisplayName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn IssueDisconnect(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
@@ -7004,14 +7634,17 @@ pub struct IWorkspaceClientExt_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWorkspaceRegistration(::windows::runtime::IUnknown);
 impl IWorkspaceRegistration {
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn AddResource<'a, Param0: ::windows::runtime::IntoParam<'a, IWorkspaceClientExt>>(&self, punk: Param0) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), punk.into_param().abi(), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn RemoveResource(&self, dwcookieconnection: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwcookieconnection)).ok()
     }
@@ -7049,21 +7682,26 @@ pub struct IWorkspaceRegistration_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, punk: ::windows::runtime::RawPtr, pdwcookie: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwcookieconnection: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWorkspaceRegistration2(::windows::runtime::IUnknown);
 impl IWorkspaceRegistration2 {
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn AddResource<'a, Param0: ::windows::runtime::IntoParam<'a, IWorkspaceClientExt>>(&self, punk: Param0) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), punk.into_param().abi(), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn RemoveResource(&self, dwcookieconnection: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwcookieconnection)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn AddResourceEx<'a, Param0: ::windows::runtime::IntoParam<'a, IWorkspaceClientExt>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, punk: Param0, bstreventloguploadaddress: Param1, pdwcookie: *mut u32, correlationid: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), punk.into_param().abi(), bstreventloguploadaddress.into_param().abi(), ::std::mem::transmute(pdwcookie), correlationid.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn RemoveResourceEx<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, dwcookieconnection: u32, correlationid: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwcookieconnection), correlationid.into_param().abi()).ok()
     }
@@ -7124,20 +7762,24 @@ pub struct IWorkspaceRegistration2_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwcookieconnection: u32, correlationid: ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWorkspaceReportMessage(::windows::runtime::IUnknown);
 impl IWorkspaceReportMessage {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn RegisterErrorLogMessage<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrmessage: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), bstrmessage.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn IsErrorMessageRegistered<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrwkspid: Param0, dwerrortype: u32, bstrerrormessagetype: Param2, dwerrorcode: u32) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), bstrwkspid.into_param().abi(), ::std::mem::transmute(dwerrortype), bstrerrormessagetype.into_param().abi(), ::std::mem::transmute(dwerrorcode), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn RegisterErrorEvent<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrwkspid: Param0, dwerrortype: u32, bstrerrormessagetype: Param2, dwerrorcode: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), bstrwkspid.into_param().abi(), ::std::mem::transmute(dwerrortype), bstrerrormessagetype.into_param().abi(), ::std::mem::transmute(dwerrorcode)).ok()
     }
@@ -7179,29 +7821,35 @@ pub struct IWorkspaceReportMessage_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bstrwkspid: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, dwerrortype: u32, bstrerrormessagetype: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, dwerrorcode: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWorkspaceResTypeRegistry(::windows::runtime::IUnknown);
 impl IWorkspaceResTypeRegistry {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn AddResourceType<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, fmachinewide: i16, bstrfileextension: Param1, bstrlauncher: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(fmachinewide), bstrfileextension.into_param().abi(), bstrlauncher.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn DeleteResourceType<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, fmachinewide: i16, bstrfileextension: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(fmachinewide), bstrfileextension.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_System_Com`*"]
     pub unsafe fn GetRegisteredFileExtensions(&self, fmachinewide: i16) -> ::windows::runtime::Result<*mut super::Com::SAFEARRAY> {
         let mut result__: <*mut super::Com::SAFEARRAY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(fmachinewide), &mut result__).from_abi::<*mut super::Com::SAFEARRAY>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn GetResourceTypeInfo<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, fmachinewide: i16, bstrfileextension: Param1) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(fmachinewide), bstrfileextension.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn ModifyResourceType<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, fmachinewide: i16, bstrfileextension: Param1, bstrlauncher: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(fmachinewide), bstrfileextension.into_param().abi(), bstrlauncher.into_param().abi()).ok()
     }
@@ -7279,15 +7927,18 @@ pub struct IWorkspaceResTypeRegistry_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fmachinewide: i16, bstrfileextension: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrlauncher: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWorkspaceScriptable(::windows::runtime::IUnknown);
 impl IWorkspaceScriptable {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn DisconnectWorkspace<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrworkspaceid: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), bstrworkspaceid.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn StartWorkspace<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(
         &self,
         bstrworkspaceid: Param0,
@@ -7300,23 +7951,28 @@ impl IWorkspaceScriptable {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), bstrworkspaceid.into_param().abi(), bstrusername.into_param().abi(), bstrpassword.into_param().abi(), bstrworkspaceparams.into_param().abi(), ::std::mem::transmute(ltimeout), ::std::mem::transmute(lflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn IsWorkspaceCredentialSpecified<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrworkspaceid: Param0, bcountunauthenticatedcredentials: i16) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), bstrworkspaceid.into_param().abi(), ::std::mem::transmute(bcountunauthenticatedcredentials), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn IsWorkspaceSSOEnabled(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn ClearWorkspaceCredential<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrworkspaceid: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), bstrworkspaceid.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn OnAuthenticated<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrworkspaceid: Param0, bstrusername: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), bstrworkspaceid.into_param().abi(), bstrusername.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn DisconnectWorkspaceByFriendlyName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrworkspacefriendlyname: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), bstrworkspacefriendlyname.into_param().abi()).ok()
     }
@@ -7397,32 +8053,39 @@ pub struct IWorkspaceScriptable_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bstrworkspacefriendlyname: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWorkspaceScriptable2(::windows::runtime::IUnknown);
 impl IWorkspaceScriptable2 {
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::Ole::Automation::ITypeInfo> {
         let mut result__: <super::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Ole::Automation::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn DisconnectWorkspace<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrworkspaceid: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), bstrworkspaceid.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn StartWorkspace<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(
         &self,
         bstrworkspaceid: Param0,
@@ -7435,27 +8098,33 @@ impl IWorkspaceScriptable2 {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), bstrworkspaceid.into_param().abi(), bstrusername.into_param().abi(), bstrpassword.into_param().abi(), bstrworkspaceparams.into_param().abi(), ::std::mem::transmute(ltimeout), ::std::mem::transmute(lflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn IsWorkspaceCredentialSpecified<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrworkspaceid: Param0, bcountunauthenticatedcredentials: i16) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), bstrworkspaceid.into_param().abi(), ::std::mem::transmute(bcountunauthenticatedcredentials), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn IsWorkspaceSSOEnabled(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn ClearWorkspaceCredential<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrworkspaceid: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), bstrworkspaceid.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn OnAuthenticated<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrworkspaceid: Param0, bstrusername: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), bstrworkspaceid.into_param().abi(), bstrusername.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn DisconnectWorkspaceByFriendlyName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrworkspacefriendlyname: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), bstrworkspacefriendlyname.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn StartWorkspaceEx<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>,
@@ -7492,6 +8161,7 @@ impl IWorkspaceScriptable2 {
         .ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn ResourceDismissed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrworkspaceid: Param0, bstrworkspacefriendlyname: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), bstrworkspaceid.into_param().abi(), bstrworkspacefriendlyname.into_param().abi()).ok()
     }
@@ -7608,32 +8278,39 @@ pub struct IWorkspaceScriptable2_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bstrworkspaceid: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrworkspacefriendlyname: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWorkspaceScriptable3(::windows::runtime::IUnknown);
 impl IWorkspaceScriptable3 {
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::Ole::Automation::ITypeInfo> {
         let mut result__: <super::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Ole::Automation::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn DisconnectWorkspace<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrworkspaceid: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), bstrworkspaceid.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn StartWorkspace<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(
         &self,
         bstrworkspaceid: Param0,
@@ -7646,27 +8323,33 @@ impl IWorkspaceScriptable3 {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), bstrworkspaceid.into_param().abi(), bstrusername.into_param().abi(), bstrpassword.into_param().abi(), bstrworkspaceparams.into_param().abi(), ::std::mem::transmute(ltimeout), ::std::mem::transmute(lflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn IsWorkspaceCredentialSpecified<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrworkspaceid: Param0, bcountunauthenticatedcredentials: i16) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), bstrworkspaceid.into_param().abi(), ::std::mem::transmute(bcountunauthenticatedcredentials), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn IsWorkspaceSSOEnabled(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn ClearWorkspaceCredential<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrworkspaceid: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), bstrworkspaceid.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn OnAuthenticated<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrworkspaceid: Param0, bstrusername: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), bstrworkspaceid.into_param().abi(), bstrusername.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn DisconnectWorkspaceByFriendlyName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrworkspacefriendlyname: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), bstrworkspacefriendlyname.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn StartWorkspaceEx<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>,
@@ -7703,10 +8386,12 @@ impl IWorkspaceScriptable3 {
         .ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn ResourceDismissed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrworkspaceid: Param0, bstrworkspacefriendlyname: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), bstrworkspaceid.into_param().abi(), bstrworkspacefriendlyname.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn StartWorkspaceEx2<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>,
@@ -7897,34 +8582,41 @@ pub struct IWorkspaceScriptable3_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ItsPubPlugin(::windows::runtime::IUnknown);
 impl ItsPubPlugin {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn GetResourceList<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, userid: Param0, pceapplistsize: *mut i32, resourcelist: *mut *mut pluginResource) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), userid.into_param().abi(), ::std::mem::transmute(pceapplistsize), ::std::mem::transmute(resourcelist)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn GetResource<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, alias: Param0, flags: i32) -> ::windows::runtime::Result<pluginResource> {
         let mut result__: <pluginResource as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), alias.into_param().abi(), ::std::mem::transmute(flags), &mut result__).from_abi::<pluginResource>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn GetCacheLastUpdateTime(&self) -> ::windows::runtime::Result<u64> {
         let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u64>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn pluginName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn pluginVersion(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn ResolveResource<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, resourcetype: *mut u32, resourcelocation: super::super::Foundation::PWSTR, endpointname: super::super::Foundation::PWSTR, userid: Param3, alias: Param4) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(resourcetype), ::std::mem::transmute(resourcelocation), ::std::mem::transmute(endpointname), userid.into_param().abi(), alias.into_param().abi()).ok()
     }
@@ -7971,51 +8663,62 @@ pub struct ItsPubPlugin_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, resourcetype: *mut u32, resourcelocation: super::super::Foundation::PWSTR, endpointname: super::super::Foundation::PWSTR, userid: super::super::Foundation::PWSTR, alias: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ItsPubPlugin2(::windows::runtime::IUnknown);
 impl ItsPubPlugin2 {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn GetResourceList<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, userid: Param0, pceapplistsize: *mut i32, resourcelist: *mut *mut pluginResource) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), userid.into_param().abi(), ::std::mem::transmute(pceapplistsize), ::std::mem::transmute(resourcelist)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn GetResource<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, alias: Param0, flags: i32) -> ::windows::runtime::Result<pluginResource> {
         let mut result__: <pluginResource as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), alias.into_param().abi(), ::std::mem::transmute(flags), &mut result__).from_abi::<pluginResource>(result__)
     }
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
     pub unsafe fn GetCacheLastUpdateTime(&self) -> ::windows::runtime::Result<u64> {
         let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u64>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn pluginName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn pluginVersion(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn ResolveResource<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, resourcetype: *mut u32, resourcelocation: super::super::Foundation::PWSTR, endpointname: super::super::Foundation::PWSTR, userid: Param3, alias: Param4) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(resourcetype), ::std::mem::transmute(resourcelocation), ::std::mem::transmute(endpointname), userid.into_param().abi(), alias.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn GetResource2List<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, userid: Param0, pceapplistsize: *mut i32, resourcelist: *mut *mut pluginResource2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), userid.into_param().abi(), ::std::mem::transmute(pceapplistsize), ::std::mem::transmute(resourcelist)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn GetResource2<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, alias: Param0, flags: i32) -> ::windows::runtime::Result<pluginResource2> {
         let mut result__: <pluginResource2 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), alias.into_param().abi(), ::std::mem::transmute(flags), &mut result__).from_abi::<pluginResource2>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn ResolvePersonalDesktop<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, userid: Param0, poolid: Param1, epdresolutiontype: TSPUB_PLUGIN_PD_RESOLUTION_TYPE, ppdassignmenttype: *mut TSPUB_PLUGIN_PD_ASSIGNMENT_TYPE, endpointname: super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), userid.into_param().abi(), poolid.into_param().abi(), ::std::mem::transmute(epdresolutiontype), ::std::mem::transmute(ppdassignmenttype), ::std::mem::transmute(endpointname)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
     pub unsafe fn DeletePersonalDesktopAssignment<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, userid: Param0, poolid: Param1, endpointname: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), userid.into_param().abi(), poolid.into_param().abi(), endpointname.into_param().abi()).ok()
     }
@@ -8090,7 +8793,9 @@ pub struct ItsPubPlugin2_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, userid: super::super::Foundation::PWSTR, poolid: super::super::Foundation::PWSTR, endpointname: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const KEEP_EXISTING_SESSIONS: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct KeyCombinationType(pub i32);
@@ -8109,21 +8814,35 @@ unsafe impl ::windows::runtime::Abi for KeyCombinationType {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const MAX_DATE_TIME_LENGTH: u32 = 56u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const MAX_ELAPSED_TIME_LENGTH: u32 = 15u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const MAX_POLICY_ATTRIBUTES: u32 = 20u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const MaxAppName_Len: u32 = 256u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const MaxDomainName_Len: u32 = 256u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const MaxFQDN_Len: u32 = 256u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const MaxFarm_Len: u32 = 256u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const MaxNetBiosName_Len: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const MaxNumOfExposed_IPs: u32 = 12u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const MaxUserName_Len: u32 = 104u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const NOTIFY_FOR_ALL_SESSIONS: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const NOTIFY_FOR_THIS_SESSION: u32 = 0u32;
 pub type PCHANNEL_INIT_EVENT_FN = unsafe extern "system" fn(pinithandle: *mut ::std::ffi::c_void, event: u32, pdata: *mut ::std::ffi::c_void, datalength: u32);
 pub type PCHANNEL_OPEN_EVENT_FN = unsafe extern "system" fn(openhandle: u32, event: u32, pdata: *mut ::std::ffi::c_void, datalength: u32, totallength: u32, dataflags: u32);
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const PLUGIN_CAPABILITY_EXTERNAL_REDIRECTION: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PLUGIN_TYPE(pub i32);
@@ -8144,7 +8863,9 @@ unsafe impl ::windows::runtime::Abi for PLUGIN_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const PRODUCTINFO_COMPANYNAME_LENGTH: u32 = 256u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const PRODUCTINFO_PRODUCTID_LENGTH: u32 = 4u32;
 pub const PROPERTY_DYNAMIC_TIME_ZONE_INFORMATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(215995022, 53433, 19487, [165, 235, 109, 31, 108, 101, 53, 185]);
 pub const PROPERTY_TYPE_ENABLE_UNIVERSAL_APPS_FOR_CUSTOM_SHELL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3979100122, 13197, 19775, [129, 163, 231, 103, 49, 13, 144, 142]);
@@ -8158,6 +8879,7 @@ pub type PVIRTUALCHANNELINIT = unsafe extern "system" fn(ppinithandle: *mut *mut
 #[cfg(feature = "Win32_Foundation")]
 pub type PVIRTUALCHANNELOPEN = unsafe extern "system" fn(pinithandle: *mut ::std::ffi::c_void, popenhandle: *mut u32, pchannelname: super::super::Foundation::PSTR, pchannelopeneventproc: ::windows::runtime::RawPtr) -> u32;
 pub type PVIRTUALCHANNELWRITE = unsafe extern "system" fn(openhandle: u32, pdata: *mut ::std::ffi::c_void, datalength: u32, puserdata: *mut ::std::ffi::c_void) -> u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PasswordEncodingType(pub i32);
@@ -8173,6 +8895,7 @@ unsafe impl ::windows::runtime::Abi for PasswordEncodingType {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PolicyAttributeType(pub i32);
@@ -8194,6 +8917,7 @@ unsafe impl ::windows::runtime::Abi for PolicyAttributeType {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn ProcessIdToSessionId(dwprocessid: u32, psessionid: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -8208,6 +8932,7 @@ pub unsafe fn ProcessIdToSessionId(dwprocessid: u32, psessionid: *mut u32) -> su
     unimplemented!("Unsupported target OS");
 }
 pub const RDCLIENT_BITMAP_RENDER_SERVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3838576843, 37934, 19225, [133, 4, 189, 90, 137, 167, 71, 245]);
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RDV_TASK_STATUS(pub i32);
@@ -8229,6 +8954,7 @@ unsafe impl ::windows::runtime::Abi for RDV_TASK_STATUS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RD_FARM_TYPE(pub i32);
@@ -8248,18 +8974,28 @@ unsafe impl ::windows::runtime::Abi for RD_FARM_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const REMOTECONTROL_KBDALT_HOTKEY: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const REMOTECONTROL_KBDCTRL_HOTKEY: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const REMOTECONTROL_KBDSHIFT_HOTKEY: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const RENDER_HINT_CLEAR: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const RENDER_HINT_MAPPEDWINDOW: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const RENDER_HINT_VIDEO: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const RESERVED_FOR_LEGACY: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const RFX_CLIENT_ID_LENGTH: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const RFX_GFX_MAX_SUPPORTED_MONITORS: u32 = 16u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 pub struct RFX_GFX_MONITOR_INFO {
     pub left: i32,
     pub top: i32,
@@ -8293,6 +9029,7 @@ unsafe impl ::windows::runtime::Abi for RFX_GFX_MONITOR_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub struct RFX_GFX_MSG_CLIENT_DESKTOP_INFO_REQUEST {
     pub channelHdr: RFX_GFX_MSG_HEADER,
 }
@@ -8315,6 +9052,7 @@ unsafe impl ::windows::runtime::Abi for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_REQUEST 
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 pub struct RFX_GFX_MSG_CLIENT_DESKTOP_INFO_RESPONSE {
     pub channelHdr: RFX_GFX_MSG_HEADER,
     pub reserved: u32,
@@ -8345,6 +9083,7 @@ unsafe impl ::windows::runtime::Abi for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_RESPONSE
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub struct RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_CONFIRM {
     pub channelHdr: RFX_GFX_MSG_HEADER,
 }
@@ -8366,6 +9105,7 @@ unsafe impl ::windows::runtime::Abi for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_CONFIR
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub struct RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_NOTIFY {
     pub channelHdr: RFX_GFX_MSG_HEADER,
     pub ulWidth: u32,
@@ -8391,6 +9131,7 @@ unsafe impl ::windows::runtime::Abi for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_NOTIFY
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub struct RFX_GFX_MSG_DESKTOP_INPUT_RESET {
     pub channelHdr: RFX_GFX_MSG_HEADER,
     pub ulWidth: u32,
@@ -8414,6 +9155,7 @@ unsafe impl ::windows::runtime::Abi for RFX_GFX_MSG_DESKTOP_INPUT_RESET {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub struct RFX_GFX_MSG_DESKTOP_RESEND_REQUEST {
     pub channelHdr: RFX_GFX_MSG_HEADER,
     pub RedrawRect: RFX_GFX_RECT,
@@ -8436,6 +9178,7 @@ unsafe impl ::windows::runtime::Abi for RFX_GFX_MSG_DESKTOP_RESEND_REQUEST {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub struct RFX_GFX_MSG_DISCONNECT_NOTIFY {
     pub channelHdr: RFX_GFX_MSG_HEADER,
     pub DisconnectReason: u32,
@@ -8458,6 +9201,7 @@ unsafe impl ::windows::runtime::Abi for RFX_GFX_MSG_DISCONNECT_NOTIFY {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub struct RFX_GFX_MSG_HEADER {
     pub uMSGType: u16,
     pub cbSize: u16,
@@ -8478,10 +9222,13 @@ unsafe impl ::windows::runtime::Abi for RFX_GFX_MSG_HEADER {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const RFX_GFX_MSG_PREFIX: u32 = 48u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const RFX_GFX_MSG_PREFIX_MASK: u32 = 48u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub struct RFX_GFX_MSG_RDP_DATA {
     pub channelHdr: RFX_GFX_MSG_HEADER,
     pub rdpData: [u8; 1],
@@ -8504,6 +9251,7 @@ unsafe impl ::windows::runtime::Abi for RFX_GFX_MSG_RDP_DATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub struct RFX_GFX_RECT {
     pub left: i32,
     pub top: i32,
@@ -8526,7 +9274,9 @@ unsafe impl ::windows::runtime::Abi for RFX_GFX_RECT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const RFX_RDP_MSG_PREFIX: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RemoteActionType(pub i32);
@@ -8544,7 +9294,9 @@ unsafe impl ::windows::runtime::Abi for RemoteActionType {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const SB_SYNCH_CONFLICT_MAX_WRITE_ATTEMPTS: u32 = 100u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SESSION_TIMEOUT_ACTION_TYPE(pub i32);
@@ -8559,7 +9311,9 @@ unsafe impl ::windows::runtime::Abi for SESSION_TIMEOUT_ACTION_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const SINGLE_SESSION: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SnapshotEncodingType(pub i32);
@@ -8573,6 +9327,7 @@ unsafe impl ::windows::runtime::Abi for SnapshotEncodingType {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SnapshotFormatType(pub i32);
@@ -8588,6 +9343,7 @@ unsafe impl ::windows::runtime::Abi for SnapshotFormatType {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TARGET_CHANGE_TYPE(pub i32);
@@ -8611,6 +9367,7 @@ unsafe impl ::windows::runtime::Abi for TARGET_CHANGE_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TARGET_OWNER(pub i32);
@@ -8626,6 +9383,7 @@ unsafe impl ::windows::runtime::Abi for TARGET_OWNER {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TARGET_PATCH_STATE(pub i32);
@@ -8643,6 +9401,7 @@ unsafe impl ::windows::runtime::Abi for TARGET_PATCH_STATE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TARGET_STATE(pub i32);
@@ -8666,6 +9425,7 @@ unsafe impl ::windows::runtime::Abi for TARGET_STATE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TARGET_TYPE(pub i32);
@@ -8681,6 +9441,7 @@ unsafe impl ::windows::runtime::Abi for TARGET_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TSPUB_PLUGIN_PD_ASSIGNMENT_TYPE(pub i32);
@@ -8695,6 +9456,7 @@ unsafe impl ::windows::runtime::Abi for TSPUB_PLUGIN_PD_ASSIGNMENT_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TSPUB_PLUGIN_PD_RESOLUTION_TYPE(pub i32);
@@ -8709,6 +9471,7 @@ unsafe impl ::windows::runtime::Abi for TSPUB_PLUGIN_PD_RESOLUTION_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TSSB_NOTIFICATION_TYPE(pub i32);
@@ -8725,6 +9488,7 @@ unsafe impl ::windows::runtime::Abi for TSSB_NOTIFICATION_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TSSD_AddrV46Type(pub i32);
@@ -8742,6 +9506,7 @@ unsafe impl ::windows::runtime::Abi for TSSD_AddrV46Type {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub struct TSSD_ConnectionPoint {
     pub ServerAddressB: [u8; 16],
     pub AddressType: TSSD_AddrV46Type,
@@ -8769,6 +9534,7 @@ unsafe impl ::windows::runtime::Abi for TSSD_ConnectionPoint {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TSSESSION_STATE(pub i32);
@@ -8794,6 +9560,7 @@ unsafe impl ::windows::runtime::Abi for TSSESSION_STATE {
     type DefaultType = Self;
 }
 pub const TSUserExInterfaces: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(152100097, 57228, 4561, [174, 39, 0, 192, 79, 163, 88, 19]);
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TS_SB_SORT_BY(pub i32);
@@ -8809,11 +9576,17 @@ unsafe impl ::windows::runtime::Abi for TS_SB_SORT_BY {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const TS_VC_LISTENER_STATIC_CHANNEL: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const USERNAME_LENGTH: u32 = 20u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const VALIDATIONINFORMATION_HARDWAREID_LENGTH: u32 = 20u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const VALIDATIONINFORMATION_LICENSE_LENGTH: u32 = 16384u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const VIRTUAL_CHANNEL_VERSION_WIN2000: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct VM_HOST_NOTIFY_STATUS(pub i32);
@@ -8832,6 +9605,7 @@ unsafe impl ::windows::runtime::Abi for VM_HOST_NOTIFY_STATUS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub struct VM_NOTIFY_ENTRY {
     pub VmName: [u16; 128],
     pub VmHost: [u16; 128],
@@ -8859,6 +9633,7 @@ unsafe impl ::windows::runtime::Abi for VM_NOTIFY_ENTRY {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub struct VM_NOTIFY_INFO {
     pub dwNumEntries: u32,
     pub ppVmEntries: *mut *mut VM_NOTIFY_ENTRY,
@@ -8884,6 +9659,7 @@ unsafe impl ::windows::runtime::Abi for VM_NOTIFY_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct VM_NOTIFY_STATUS(pub i32);
@@ -8904,6 +9680,7 @@ unsafe impl ::windows::runtime::Abi for VM_NOTIFY_STATUS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 pub struct VM_PATCH_INFO {
     pub dwNumEntries: u32,
     pub pVmNames: *mut super::super::Foundation::PWSTR,
@@ -8935,16 +9712,24 @@ unsafe impl ::windows::runtime::Abi for VM_PATCH_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WINSTATIONNAME_LENGTH: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WKS_FLAG_CLEAR_CREDS_ON_LAST_RESOURCE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WKS_FLAG_CREDS_AUTHENTICATED: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WKS_FLAG_PASSWORD_ENCRYPTED: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WRDS_CLIENTADDRESS_LENGTH: u32 = 30u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WRDS_CLIENTNAME_LENGTH: u32 = 20u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WRDS_CLIENT_PRODUCT_ID_LENGTH: u32 = 32u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 pub union WRDS_CONNECTION_SETTING {
     pub WRdsConnectionSettings1: WRDS_CONNECTION_SETTINGS_1,
 }
@@ -8972,6 +9757,7 @@ unsafe impl ::windows::runtime::Abi for WRDS_CONNECTION_SETTING {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 pub struct WRDS_CONNECTION_SETTINGS {
     pub WRdsConnectionSettingLevel: WRDS_CONNECTION_SETTING_LEVEL,
     pub WRdsConnectionSetting: WRDS_CONNECTION_SETTING,
@@ -9000,6 +9786,7 @@ unsafe impl ::windows::runtime::Abi for WRDS_CONNECTION_SETTINGS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 pub struct WRDS_CONNECTION_SETTINGS_1 {
     pub fInheritInitialProgram: super::super::Foundation::BOOLEAN,
     pub fInheritColorDepth: super::super::Foundation::BOOLEAN,
@@ -9088,6 +9875,7 @@ unsafe impl ::windows::runtime::Abi for WRDS_CONNECTION_SETTINGS_1 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WRDS_CONNECTION_SETTING_LEVEL(pub i32);
@@ -9102,12 +9890,17 @@ unsafe impl ::windows::runtime::Abi for WRDS_CONNECTION_SETTING_LEVEL {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WRDS_DEVICE_NAME_LENGTH: u32 = 19u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WRDS_DIRECTORY_LENGTH: u32 = 256u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WRDS_DOMAIN_LENGTH: u32 = 255u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WRDS_DRIVER_NAME_LENGTH: u32 = 8u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub struct WRDS_DYNAMIC_TIME_ZONE_INFORMATION {
     pub Bias: i32,
     pub StandardName: [u16; 32],
@@ -9150,14 +9943,21 @@ unsafe impl ::windows::runtime::Abi for WRDS_DYNAMIC_TIME_ZONE_INFORMATION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WRDS_IMEFILENAME_LENGTH: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WRDS_INITIALPROGRAM_LENGTH: u32 = 256u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WRDS_KEY_EXCHANGE_ALG_DH: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WRDS_KEY_EXCHANGE_ALG_RSA: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WRDS_LICENSE_PREAMBLE_VERSION: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WRDS_LICENSE_PROTOCOL_VERSION: u32 = 65536u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub union WRDS_LISTENER_SETTING {
     pub WRdsListenerSettings1: WRDS_LISTENER_SETTINGS_1,
 }
@@ -9179,6 +9979,7 @@ unsafe impl ::windows::runtime::Abi for WRDS_LISTENER_SETTING {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub struct WRDS_LISTENER_SETTINGS {
     pub WRdsListenerSettingLevel: WRDS_LISTENER_SETTING_LEVEL,
     pub WRdsListenerSetting: WRDS_LISTENER_SETTING,
@@ -9201,6 +10002,7 @@ unsafe impl ::windows::runtime::Abi for WRDS_LISTENER_SETTINGS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub struct WRDS_LISTENER_SETTINGS_1 {
     pub MaxProtocolListenerConnectionCount: u32,
     pub SecurityDescriptorSize: u32,
@@ -9227,6 +10029,7 @@ unsafe impl ::windows::runtime::Abi for WRDS_LISTENER_SETTINGS_1 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WRDS_LISTENER_SETTING_LEVEL(pub i32);
@@ -9241,27 +10044,45 @@ unsafe impl ::windows::runtime::Abi for WRDS_LISTENER_SETTING_LEVEL {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WRDS_MAX_CACHE_RESERVED: u32 = 20u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WRDS_MAX_COUNTERS: u32 = 100u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WRDS_MAX_DISPLAY_IOCTL_DATA: u32 = 256u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WRDS_MAX_PROTOCOL_CACHE: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WRDS_MAX_RESERVED: u32 = 100u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WRDS_PASSWORD_LENGTH: u32 = 255u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WRDS_PERF_DISABLE_CURSORSETTINGS: u32 = 64u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WRDS_PERF_DISABLE_CURSOR_SHADOW: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WRDS_PERF_DISABLE_FULLWINDOWDRAG: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WRDS_PERF_DISABLE_MENUANIMATIONS: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WRDS_PERF_DISABLE_NOTHING: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WRDS_PERF_DISABLE_THEMING: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WRDS_PERF_DISABLE_WALLPAPER: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WRDS_PERF_ENABLE_DESKTOP_COMPOSITION: u32 = 256u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WRDS_PERF_ENABLE_ENHANCED_GRAPHICS: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WRDS_PERF_ENABLE_FONT_SMOOTHING: u32 = 128u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WRDS_PROTOCOL_NAME_LENGTH: u32 = 8u32;
 pub const WRDS_SERVICE_ID_GRAPHICS_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3533258573, 719, 17024, [140, 72, 22, 36, 180, 79, 135, 6]);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 pub union WRDS_SETTING {
     pub WRdsSettings1: WRDS_SETTINGS_1,
 }
@@ -9289,6 +10110,7 @@ unsafe impl ::windows::runtime::Abi for WRDS_SETTING {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 pub struct WRDS_SETTINGS {
     pub WRdsSettingType: WRDS_SETTING_TYPE,
     pub WRdsSettingLevel: WRDS_SETTING_LEVEL,
@@ -9318,6 +10140,7 @@ unsafe impl ::windows::runtime::Abi for WRDS_SETTINGS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 pub struct WRDS_SETTINGS_1 {
     pub WRdsDisableClipStatus: WRDS_SETTING_STATUS,
     pub WRdsDisableClipValue: u32,
@@ -9440,6 +10263,7 @@ unsafe impl ::windows::runtime::Abi for WRDS_SETTINGS_1 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WRDS_SETTING_LEVEL(pub i32);
@@ -9454,6 +10278,7 @@ unsafe impl ::windows::runtime::Abi for WRDS_SETTING_LEVEL {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WRDS_SETTING_STATUS(pub i32);
@@ -9470,6 +10295,7 @@ unsafe impl ::windows::runtime::Abi for WRDS_SETTING_STATUS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WRDS_SETTING_TYPE(pub i32);
@@ -9486,11 +10312,17 @@ unsafe impl ::windows::runtime::Abi for WRDS_SETTING_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WRDS_USERNAME_LENGTH: u32 = 255u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WRDS_VALUE_TYPE_BINARY: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WRDS_VALUE_TYPE_GUID: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WRDS_VALUE_TYPE_STRING: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WRDS_VALUE_TYPE_ULONG: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WRdsGraphicsChannelType(pub i32);
@@ -9505,10 +10337,12 @@ unsafe impl ::windows::runtime::Abi for WRdsGraphicsChannelType {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WRdsGraphicsChannels_LossyChannelMaxMessageSize: u32 = 988u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 pub struct WTSCLIENTA {
     pub ClientName: [super::super::Foundation::CHAR; 21],
     pub Domain: [super::super::Foundation::CHAR; 18],
@@ -9597,6 +10431,7 @@ unsafe impl ::windows::runtime::Abi for WTSCLIENTA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub struct WTSCLIENTW {
     pub ClientName: [u16; 21],
     pub Domain: [u16; 18],
@@ -9680,6 +10515,7 @@ unsafe impl ::windows::runtime::Abi for WTSCLIENTW {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 pub struct WTSCONFIGINFOA {
     pub version: u32,
     pub fConnectClientDrivesAtLogon: u32,
@@ -9744,6 +10580,7 @@ unsafe impl ::windows::runtime::Abi for WTSCONFIGINFOA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub struct WTSCONFIGINFOW {
     pub version: u32,
     pub fConnectClientDrivesAtLogon: u32,
@@ -9801,6 +10638,7 @@ unsafe impl ::windows::runtime::Abi for WTSCONFIGINFOW {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WTSCloseServer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hserver: Param0) {
     #[cfg(windows)]
@@ -9815,6 +10653,7 @@ pub unsafe fn WTSCloseServer<'a, Param0: ::windows::runtime::IntoParam<'a, super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WTSConnectSessionA<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(logonid: u32, targetlogonid: u32, ppassword: Param2, bwait: Param3) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -9829,6 +10668,7 @@ pub unsafe fn WTSConnectSessionA<'a, Param2: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WTSConnectSessionW<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(logonid: u32, targetlogonid: u32, ppassword: Param2, bwait: Param3) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -9843,6 +10683,7 @@ pub unsafe fn WTSConnectSessionW<'a, Param2: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WTSCreateListenerA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hserver: Param0, preserved: *const ::std::ffi::c_void, reserved: u32, plistenername: Param3, pbuffer: *const WTSLISTENERCONFIGA, flag: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -9857,6 +10698,7 @@ pub unsafe fn WTSCreateListenerA<'a, Param0: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WTSCreateListenerW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hserver: Param0, preserved: *const ::std::ffi::c_void, reserved: u32, plistenername: Param3, pbuffer: *const WTSLISTENERCONFIGW, flag: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -9871,6 +10713,7 @@ pub unsafe fn WTSCreateListenerW<'a, Param0: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WTSDisconnectSession<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hserver: Param0, sessionid: u32, bwait: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -9885,6 +10728,7 @@ pub unsafe fn WTSDisconnectSession<'a, Param0: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WTSEnableChildSessions<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(benable: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -9899,6 +10743,7 @@ pub unsafe fn WTSEnableChildSessions<'a, Param0: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WTSEnumerateListenersA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hserver: Param0, preserved: *const ::std::ffi::c_void, reserved: u32, plisteners: *mut *mut i8, pcount: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -9913,6 +10758,7 @@ pub unsafe fn WTSEnumerateListenersA<'a, Param0: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WTSEnumerateListenersW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hserver: Param0, preserved: *const ::std::ffi::c_void, reserved: u32, plisteners: *mut *mut u16, pcount: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -9927,6 +10773,7 @@ pub unsafe fn WTSEnumerateListenersW<'a, Param0: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WTSEnumerateProcessesA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hserver: Param0, reserved: u32, version: u32, ppprocessinfo: *mut *mut WTS_PROCESS_INFOA, pcount: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -9941,6 +10788,7 @@ pub unsafe fn WTSEnumerateProcessesA<'a, Param0: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WTSEnumerateProcessesExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hserver: Param0, plevel: *mut u32, sessionid: u32, ppprocessinfo: *mut super::super::Foundation::PSTR, pcount: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -9955,6 +10803,7 @@ pub unsafe fn WTSEnumerateProcessesExA<'a, Param0: ::windows::runtime::IntoParam
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WTSEnumerateProcessesExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hserver: Param0, plevel: *mut u32, sessionid: u32, ppprocessinfo: *mut super::super::Foundation::PWSTR, pcount: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -9969,6 +10818,7 @@ pub unsafe fn WTSEnumerateProcessesExW<'a, Param0: ::windows::runtime::IntoParam
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WTSEnumerateProcessesW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hserver: Param0, reserved: u32, version: u32, ppprocessinfo: *mut *mut WTS_PROCESS_INFOW, pcount: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -9983,6 +10833,7 @@ pub unsafe fn WTSEnumerateProcessesW<'a, Param0: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WTSEnumerateServersA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pdomainname: Param0, reserved: u32, version: u32, ppserverinfo: *mut *mut WTS_SERVER_INFOA, pcount: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -9997,6 +10848,7 @@ pub unsafe fn WTSEnumerateServersA<'a, Param0: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WTSEnumerateServersW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pdomainname: Param0, reserved: u32, version: u32, ppserverinfo: *mut *mut WTS_SERVER_INFOW, pcount: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10011,6 +10863,7 @@ pub unsafe fn WTSEnumerateServersW<'a, Param0: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WTSEnumerateSessionsA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hserver: Param0, reserved: u32, version: u32, ppsessioninfo: *mut *mut WTS_SESSION_INFOA, pcount: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10025,6 +10878,7 @@ pub unsafe fn WTSEnumerateSessionsA<'a, Param0: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WTSEnumerateSessionsExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hserver: Param0, plevel: *mut u32, filter: u32, ppsessioninfo: *mut *mut WTS_SESSION_INFO_1A, pcount: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10039,6 +10893,7 @@ pub unsafe fn WTSEnumerateSessionsExA<'a, Param0: ::windows::runtime::IntoParam<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WTSEnumerateSessionsExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hserver: Param0, plevel: *mut u32, filter: u32, ppsessioninfo: *mut *mut WTS_SESSION_INFO_1W, pcount: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10053,6 +10908,7 @@ pub unsafe fn WTSEnumerateSessionsExW<'a, Param0: ::windows::runtime::IntoParam<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WTSEnumerateSessionsW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hserver: Param0, reserved: u32, version: u32, ppsessioninfo: *mut *mut WTS_SESSION_INFOW, pcount: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10066,6 +10922,7 @@ pub unsafe fn WTSEnumerateSessionsW<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[inline]
 pub unsafe fn WTSFreeMemory(pmemory: *mut ::std::ffi::c_void) {
     #[cfg(windows)]
@@ -10080,6 +10937,7 @@ pub unsafe fn WTSFreeMemory(pmemory: *mut ::std::ffi::c_void) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WTSFreeMemoryExA(wtstypeclass: WTS_TYPE_CLASS, pmemory: *const ::std::ffi::c_void, numberofentries: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10094,6 +10952,7 @@ pub unsafe fn WTSFreeMemoryExA(wtstypeclass: WTS_TYPE_CLASS, pmemory: *const ::s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WTSFreeMemoryExW(wtstypeclass: WTS_TYPE_CLASS, pmemory: *const ::std::ffi::c_void, numberofentries: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10107,6 +10966,7 @@ pub unsafe fn WTSFreeMemoryExW(wtstypeclass: WTS_TYPE_CLASS, pmemory: *const ::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[inline]
 pub unsafe fn WTSGetActiveConsoleSessionId() -> u32 {
     #[cfg(windows)]
@@ -10121,6 +10981,7 @@ pub unsafe fn WTSGetActiveConsoleSessionId() -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WTSGetChildSessionId(psessionid: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10135,6 +10996,7 @@ pub unsafe fn WTSGetChildSessionId(psessionid: *mut u32) -> super::super::Founda
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`, `Win32_Security`*"]
 #[inline]
 pub unsafe fn WTSGetListenerSecurityA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hserver: Param0, preserved: *const ::std::ffi::c_void, reserved: u32, plistenername: Param3, securityinformation: u32, psecuritydescriptor: *mut super::super::Security::SECURITY_DESCRIPTOR, nlength: u32, lpnlengthneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10158,6 +11020,7 @@ pub unsafe fn WTSGetListenerSecurityA<'a, Param0: ::windows::runtime::IntoParam<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`, `Win32_Security`*"]
 #[inline]
 pub unsafe fn WTSGetListenerSecurityW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hserver: Param0, preserved: *const ::std::ffi::c_void, reserved: u32, plistenername: Param3, securityinformation: u32, psecuritydescriptor: *mut super::super::Security::SECURITY_DESCRIPTOR, nlength: u32, lpnlengthneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10183,6 +11046,7 @@ pub unsafe fn WTSGetListenerSecurityW<'a, Param0: ::windows::runtime::IntoParam<
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 pub struct WTSINFOA {
     pub State: WTS_CONNECTSTATE_CLASS,
     pub SessionId: u32,
@@ -10263,6 +11127,7 @@ unsafe impl ::windows::runtime::Abi for WTSINFOA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 pub struct WTSINFOEXA {
     pub Level: u32,
     pub Data: WTSINFOEX_LEVEL_A,
@@ -10290,6 +11155,7 @@ unsafe impl ::windows::runtime::Abi for WTSINFOEXA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub struct WTSINFOEXW {
     pub Level: u32,
     pub Data: WTSINFOEX_LEVEL_W,
@@ -10313,6 +11179,7 @@ unsafe impl ::windows::runtime::Abi for WTSINFOEXW {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 pub struct WTSINFOEX_LEVEL1_A {
     pub SessionId: u32,
     pub SessionState: WTS_CONNECTSTATE_CLASS,
@@ -10395,6 +11262,7 @@ unsafe impl ::windows::runtime::Abi for WTSINFOEX_LEVEL1_A {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub struct WTSINFOEX_LEVEL1_W {
     pub SessionId: u32,
     pub SessionState: WTS_CONNECTSTATE_CLASS,
@@ -10472,6 +11340,7 @@ unsafe impl ::windows::runtime::Abi for WTSINFOEX_LEVEL1_W {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 pub union WTSINFOEX_LEVEL_A {
     pub WTSInfoExLevel1: WTSINFOEX_LEVEL1_A,
 }
@@ -10498,6 +11367,7 @@ unsafe impl ::windows::runtime::Abi for WTSINFOEX_LEVEL_A {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub union WTSINFOEX_LEVEL_W {
     pub WTSInfoExLevel1: WTSINFOEX_LEVEL1_W,
 }
@@ -10519,6 +11389,7 @@ unsafe impl ::windows::runtime::Abi for WTSINFOEX_LEVEL_W {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub struct WTSINFOW {
     pub State: WTS_CONNECTSTATE_CLASS,
     pub SessionId: u32,
@@ -10591,6 +11462,7 @@ unsafe impl ::windows::runtime::Abi for WTSINFOW {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WTSIsChildSessionsEnabled(pbenabled: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10607,6 +11479,7 @@ pub unsafe fn WTSIsChildSessionsEnabled(pbenabled: *mut super::super::Foundation
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 pub struct WTSLISTENERCONFIGA {
     pub version: u32,
     pub fEnableListener: u32,
@@ -10731,6 +11604,7 @@ unsafe impl ::windows::runtime::Abi for WTSLISTENERCONFIGA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub struct WTSLISTENERCONFIGW {
     pub version: u32,
     pub fEnableListener: u32,
@@ -10848,6 +11722,7 @@ unsafe impl ::windows::runtime::Abi for WTSLISTENERCONFIGW {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WTSLogoffSession<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hserver: Param0, sessionid: u32, bwait: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10862,6 +11737,7 @@ pub unsafe fn WTSLogoffSession<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WTSOpenServerA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pservername: Param0) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
@@ -10876,6 +11752,7 @@ pub unsafe fn WTSOpenServerA<'a, Param0: ::windows::runtime::IntoParam<'a, super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WTSOpenServerExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pservername: Param0) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
@@ -10890,6 +11767,7 @@ pub unsafe fn WTSOpenServerExA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WTSOpenServerExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pservername: Param0) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
@@ -10904,6 +11782,7 @@ pub unsafe fn WTSOpenServerExW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WTSOpenServerW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pservername: Param0) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
@@ -10918,6 +11797,7 @@ pub unsafe fn WTSOpenServerW<'a, Param0: ::windows::runtime::IntoParam<'a, super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WTSQueryListenerConfigA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hserver: Param0, preserved: *const ::std::ffi::c_void, reserved: u32, plistenername: Param3, pbuffer: *mut WTSLISTENERCONFIGA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10932,6 +11812,7 @@ pub unsafe fn WTSQueryListenerConfigA<'a, Param0: ::windows::runtime::IntoParam<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WTSQueryListenerConfigW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hserver: Param0, preserved: *const ::std::ffi::c_void, reserved: u32, plistenername: Param3, pbuffer: *mut WTSLISTENERCONFIGW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10946,6 +11827,7 @@ pub unsafe fn WTSQueryListenerConfigW<'a, Param0: ::windows::runtime::IntoParam<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WTSQuerySessionInformationA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hserver: Param0, sessionid: u32, wtsinfoclass: WTS_INFO_CLASS, ppbuffer: *mut super::super::Foundation::PSTR, pbytesreturned: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10960,6 +11842,7 @@ pub unsafe fn WTSQuerySessionInformationA<'a, Param0: ::windows::runtime::IntoPa
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WTSQuerySessionInformationW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hserver: Param0, sessionid: u32, wtsinfoclass: WTS_INFO_CLASS, ppbuffer: *mut super::super::Foundation::PWSTR, pbytesreturned: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10974,6 +11857,7 @@ pub unsafe fn WTSQuerySessionInformationW<'a, Param0: ::windows::runtime::IntoPa
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WTSQueryUserConfigA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pservername: Param0, pusername: Param1, wtsconfigclass: WTS_CONFIG_CLASS, ppbuffer: *mut super::super::Foundation::PSTR, pbytesreturned: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10988,6 +11872,7 @@ pub unsafe fn WTSQueryUserConfigA<'a, Param0: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WTSQueryUserConfigW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pservername: Param0, pusername: Param1, wtsconfigclass: WTS_CONFIG_CLASS, ppbuffer: *mut super::super::Foundation::PWSTR, pbytesreturned: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11002,6 +11887,7 @@ pub unsafe fn WTSQueryUserConfigW<'a, Param0: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WTSQueryUserToken(sessionid: u32, phtoken: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11016,6 +11902,7 @@ pub unsafe fn WTSQueryUserToken(sessionid: u32, phtoken: *mut super::super::Foun
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WTSRegisterSessionNotification<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, dwflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11030,6 +11917,7 @@ pub unsafe fn WTSRegisterSessionNotification<'a, Param0: ::windows::runtime::Int
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WTSRegisterSessionNotificationEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hserver: Param0, hwnd: Param1, dwflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11043,6 +11931,7 @@ pub unsafe fn WTSRegisterSessionNotificationEx<'a, Param0: ::windows::runtime::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WTSSBX_ADDRESS_FAMILY(pub i32);
@@ -11062,6 +11951,7 @@ unsafe impl ::windows::runtime::Abi for WTSSBX_ADDRESS_FAMILY {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub struct WTSSBX_IP_ADDRESS {
     pub AddressFamily: WTSSBX_ADDRESS_FAMILY,
     pub Address: [u8; 16],
@@ -11091,6 +11981,7 @@ unsafe impl ::windows::runtime::Abi for WTSSBX_IP_ADDRESS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub struct WTSSBX_MACHINE_CONNECT_INFO {
     pub wczMachineFQDN: [u16; 257],
     pub wczMachineNetBiosName: [u16; 17],
@@ -11118,6 +12009,7 @@ unsafe impl ::windows::runtime::Abi for WTSSBX_MACHINE_CONNECT_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WTSSBX_MACHINE_DRAIN(pub i32);
@@ -11135,6 +12027,7 @@ unsafe impl ::windows::runtime::Abi for WTSSBX_MACHINE_DRAIN {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub struct WTSSBX_MACHINE_INFO {
     pub ClientConnectInfo: WTSSBX_MACHINE_CONNECT_INFO,
     pub wczFarmName: [u16; 257],
@@ -11175,6 +12068,7 @@ unsafe impl ::windows::runtime::Abi for WTSSBX_MACHINE_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WTSSBX_MACHINE_SESSION_MODE(pub i32);
@@ -11190,6 +12084,7 @@ unsafe impl ::windows::runtime::Abi for WTSSBX_MACHINE_SESSION_MODE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WTSSBX_MACHINE_STATE(pub i32);
@@ -11205,6 +12100,7 @@ unsafe impl ::windows::runtime::Abi for WTSSBX_MACHINE_STATE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WTSSBX_NOTIFICATION_TYPE(pub i32);
@@ -11224,6 +12120,7 @@ unsafe impl ::windows::runtime::Abi for WTSSBX_NOTIFICATION_TYPE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 pub struct WTSSBX_SESSION_INFO {
     pub wszUserName: [u16; 105],
     pub wszDomainName: [u16; 257],
@@ -11268,6 +12165,7 @@ unsafe impl ::windows::runtime::Abi for WTSSBX_SESSION_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WTSSBX_SESSION_STATE(pub i32);
@@ -11285,6 +12183,7 @@ unsafe impl ::windows::runtime::Abi for WTSSBX_SESSION_STATE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub struct WTSSESSION_NOTIFICATION {
     pub cbSize: u32,
     pub dwSessionId: u32,
@@ -11311,6 +12210,7 @@ unsafe impl ::windows::runtime::Abi for WTSSESSION_NOTIFICATION {
     type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
 #[inline]
 pub unsafe fn WTSSendMessageA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param9: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(
     hserver: Param0,
@@ -11347,6 +12247,7 @@ pub unsafe fn WTSSendMessageA<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
 #[inline]
 pub unsafe fn WTSSendMessageW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param9: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(
     hserver: Param0,
@@ -11383,6 +12284,7 @@ pub unsafe fn WTSSendMessageW<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`, `Win32_Security`*"]
 #[inline]
 pub unsafe fn WTSSetListenerSecurityA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hserver: Param0, preserved: *const ::std::ffi::c_void, reserved: u32, plistenername: Param3, securityinformation: u32, psecuritydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11397,6 +12299,7 @@ pub unsafe fn WTSSetListenerSecurityA<'a, Param0: ::windows::runtime::IntoParam<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`, `Win32_Security`*"]
 #[inline]
 pub unsafe fn WTSSetListenerSecurityW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hserver: Param0, preserved: *const ::std::ffi::c_void, reserved: u32, plistenername: Param3, securityinformation: u32, psecuritydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11411,6 +12314,7 @@ pub unsafe fn WTSSetListenerSecurityW<'a, Param0: ::windows::runtime::IntoParam<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WTSSetRenderHint<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(prenderhintid: *mut u64, hwndowner: Param1, renderhinttype: u32, cbhintdatalength: u32, phintdata: *const u8) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -11425,6 +12329,7 @@ pub unsafe fn WTSSetRenderHint<'a, Param1: ::windows::runtime::IntoParam<'a, sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WTSSetUserConfigA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pservername: Param0, pusername: Param1, wtsconfigclass: WTS_CONFIG_CLASS, pbuffer: Param3, datalength: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11439,6 +12344,7 @@ pub unsafe fn WTSSetUserConfigA<'a, Param0: ::windows::runtime::IntoParam<'a, su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WTSSetUserConfigW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pservername: Param0, pusername: Param1, wtsconfigclass: WTS_CONFIG_CLASS, pbuffer: Param3, datalength: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11453,6 +12359,7 @@ pub unsafe fn WTSSetUserConfigW<'a, Param0: ::windows::runtime::IntoParam<'a, su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WTSShutdownSystem<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hserver: Param0, shutdownflag: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11467,6 +12374,7 @@ pub unsafe fn WTSShutdownSystem<'a, Param0: ::windows::runtime::IntoParam<'a, su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WTSStartRemoteControlSessionA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(ptargetservername: Param0, targetlogonid: u32, hotkeyvk: u8, hotkeymodifiers: u16) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11481,6 +12389,7 @@ pub unsafe fn WTSStartRemoteControlSessionA<'a, Param0: ::windows::runtime::Into
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WTSStartRemoteControlSessionW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(ptargetservername: Param0, targetlogonid: u32, hotkeyvk: u8, hotkeymodifiers: u16) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11495,6 +12404,7 @@ pub unsafe fn WTSStartRemoteControlSessionW<'a, Param0: ::windows::runtime::Into
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WTSStopRemoteControlSession(logonid: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11509,6 +12419,7 @@ pub unsafe fn WTSStopRemoteControlSession(logonid: u32) -> super::super::Foundat
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WTSTerminateProcess<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hserver: Param0, processid: u32, exitcode: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11525,6 +12436,7 @@ pub unsafe fn WTSTerminateProcess<'a, Param0: ::windows::runtime::IntoParam<'a, 
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 pub struct WTSUSERCONFIGA {
     pub Source: u32,
     pub InheritInitialProgram: u32,
@@ -11610,6 +12522,7 @@ unsafe impl ::windows::runtime::Abi for WTSUSERCONFIGA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub struct WTSUSERCONFIGW {
     pub Source: u32,
     pub InheritInitialProgram: u32,
@@ -11688,6 +12601,7 @@ unsafe impl ::windows::runtime::Abi for WTSUSERCONFIGW {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WTSUnRegisterSessionNotification<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11702,6 +12616,7 @@ pub unsafe fn WTSUnRegisterSessionNotification<'a, Param0: ::windows::runtime::I
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WTSUnRegisterSessionNotificationEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hserver: Param0, hwnd: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11716,6 +12631,7 @@ pub unsafe fn WTSUnRegisterSessionNotificationEx<'a, Param0: ::windows::runtime:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WTSVirtualChannelClose<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hchannelhandle: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11730,6 +12646,7 @@ pub unsafe fn WTSVirtualChannelClose<'a, Param0: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WTSVirtualChannelOpen<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hserver: Param0, sessionid: u32, pvirtualname: Param2) -> HwtsVirtualChannelHandle {
     #[cfg(windows)]
@@ -11744,6 +12661,7 @@ pub unsafe fn WTSVirtualChannelOpen<'a, Param0: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WTSVirtualChannelOpenEx<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(sessionid: u32, pvirtualname: Param1, flags: u32) -> HwtsVirtualChannelHandle {
     #[cfg(windows)]
@@ -11758,6 +12676,7 @@ pub unsafe fn WTSVirtualChannelOpenEx<'a, Param1: ::windows::runtime::IntoParam<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WTSVirtualChannelPurgeInput<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hchannelhandle: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11772,6 +12691,7 @@ pub unsafe fn WTSVirtualChannelPurgeInput<'a, Param0: ::windows::runtime::IntoPa
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WTSVirtualChannelPurgeOutput<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hchannelhandle: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11786,6 +12706,7 @@ pub unsafe fn WTSVirtualChannelPurgeOutput<'a, Param0: ::windows::runtime::IntoP
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WTSVirtualChannelQuery<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hchannelhandle: Param0, param1: WTS_VIRTUAL_CLASS, ppbuffer: *mut *mut ::std::ffi::c_void, pbytesreturned: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11800,6 +12721,7 @@ pub unsafe fn WTSVirtualChannelQuery<'a, Param0: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WTSVirtualChannelRead<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hchannelhandle: Param0, timeout: u32, buffer: super::super::Foundation::PSTR, buffersize: u32, pbytesread: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11814,6 +12736,7 @@ pub unsafe fn WTSVirtualChannelRead<'a, Param0: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WTSVirtualChannelWrite<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hchannelhandle: Param0, buffer: Param1, length: u32, pbyteswritten: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11828,6 +12751,7 @@ pub unsafe fn WTSVirtualChannelWrite<'a, Param0: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WTSWaitSystemEvent<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hserver: Param0, eventmask: u32, peventflags: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11843,6 +12767,7 @@ pub unsafe fn WTSWaitSystemEvent<'a, Param0: ::windows::runtime::IntoParam<'a, s
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub struct WTS_CACHE_STATS {
     pub Specific: u32,
     pub Data: WTS_CACHE_STATS_UN,
@@ -11867,6 +12792,7 @@ unsafe impl ::windows::runtime::Abi for WTS_CACHE_STATS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub union WTS_CACHE_STATS_UN {
     pub ProtocolCache: [WTS_PROTOCOL_CACHE; 4],
     pub TShareCacheStats: u32,
@@ -11888,6 +12814,7 @@ unsafe impl ::windows::runtime::Abi for WTS_CACHE_STATS_UN {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WTS_CERT_TYPE(pub i32);
@@ -11903,16 +12830,25 @@ unsafe impl ::windows::runtime::Abi for WTS_CERT_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_CHANNEL_OPTION_DYNAMIC: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_CHANNEL_OPTION_DYNAMIC_NO_COMPRESS: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_CHANNEL_OPTION_DYNAMIC_PRI_HIGH: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_CHANNEL_OPTION_DYNAMIC_PRI_LOW: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_CHANNEL_OPTION_DYNAMIC_PRI_MED: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_CHANNEL_OPTION_DYNAMIC_PRI_REAL: u32 = 6u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_CLIENTADDRESS_LENGTH: u32 = 30u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_CLIENTNAME_LENGTH: u32 = 20u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub struct WTS_CLIENT_ADDRESS {
     pub AddressFamily: u32,
     pub Address: [u8; 20],
@@ -11941,6 +12877,7 @@ unsafe impl ::windows::runtime::Abi for WTS_CLIENT_ADDRESS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 pub struct WTS_CLIENT_DATA {
     pub fDisableCtrlAltDel: super::super::Foundation::BOOLEAN,
     pub fDoubleClickDetect: super::super::Foundation::BOOLEAN,
@@ -12021,6 +12958,7 @@ unsafe impl ::windows::runtime::Abi for WTS_CLIENT_DATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub struct WTS_CLIENT_DISPLAY {
     pub HorizontalResolution: u32,
     pub VerticalResolution: u32,
@@ -12047,8 +12985,11 @@ unsafe impl ::windows::runtime::Abi for WTS_CLIENT_DISPLAY {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_CLIENT_PRODUCT_ID_LENGTH: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_COMMENT_LENGTH: u32 = 60u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WTS_CONFIG_CLASS(pub i32);
@@ -12081,6 +13022,7 @@ unsafe impl ::windows::runtime::Abi for WTS_CONFIG_CLASS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WTS_CONFIG_SOURCE(pub i32);
@@ -12094,6 +13036,7 @@ unsafe impl ::windows::runtime::Abi for WTS_CONFIG_SOURCE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WTS_CONNECTSTATE_CLASS(pub i32);
@@ -12116,11 +13059,15 @@ unsafe impl ::windows::runtime::Abi for WTS_CONNECTSTATE_CLASS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_CURRENT_SESSION: u32 = 4294967295u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_DEVICE_NAME_LENGTH: u32 = 19u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_DIRECTORY_LENGTH: u32 = 256u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub struct WTS_DISPLAY_IOCTL {
     pub pDisplayIOCtlData: [u8; 256],
     pub cbDisplayIOCtlData: u32,
@@ -12146,22 +13093,39 @@ unsafe impl ::windows::runtime::Abi for WTS_DISPLAY_IOCTL {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_DOMAIN_LENGTH: u32 = 255u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_DRIVER_NAME_LENGTH: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_DRIVE_LENGTH: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_EVENT_ALL: u32 = 2147483647u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_EVENT_CONNECT: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_EVENT_CREATE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_EVENT_DELETE: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_EVENT_DISCONNECT: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_EVENT_FLUSH: u32 = 2147483648u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_EVENT_LICENSE: u32 = 256u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_EVENT_LOGOFF: u32 = 64u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_EVENT_LOGON: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_EVENT_NONE: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_EVENT_RENAME: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_EVENT_STATECHANGE: u32 = 128u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_IMEFILENAME_LENGTH: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WTS_INFO_CLASS(pub i32);
@@ -12204,12 +13168,16 @@ unsafe impl ::windows::runtime::Abi for WTS_INFO_CLASS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_INITIALPROGRAM_LENGTH: u32 = 256u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_KEY_EXCHANGE_ALG_DH: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_KEY_EXCHANGE_ALG_RSA: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 pub struct WTS_LICENSE_CAPABILITIES {
     pub KeyExchangeAlg: u32,
     pub ProtocolVer: u32,
@@ -12252,11 +13220,17 @@ unsafe impl ::windows::runtime::Abi for WTS_LICENSE_CAPABILITIES {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_LICENSE_PREAMBLE_VERSION: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_LICENSE_PROTOCOL_VERSION: u32 = 65536u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_LISTENER_CREATE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_LISTENER_NAME_LENGTH: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_LISTENER_UPDATE: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WTS_LOGON_ERROR_REDIRECTOR_RESPONSE(pub i32);
@@ -12274,25 +13248,42 @@ unsafe impl ::windows::runtime::Abi for WTS_LOGON_ERROR_REDIRECTOR_RESPONSE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_MAX_CACHE_RESERVED: u32 = 20u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_MAX_COUNTERS: u32 = 100u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_MAX_DISPLAY_IOCTL_DATA: u32 = 256u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_MAX_PROTOCOL_CACHE: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_MAX_RESERVED: u32 = 100u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_PASSWORD_LENGTH: u32 = 255u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_PERF_DISABLE_CURSORSETTINGS: u32 = 64u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_PERF_DISABLE_CURSOR_SHADOW: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_PERF_DISABLE_FULLWINDOWDRAG: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_PERF_DISABLE_MENUANIMATIONS: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_PERF_DISABLE_NOTHING: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_PERF_DISABLE_THEMING: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_PERF_DISABLE_WALLPAPER: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_PERF_ENABLE_DESKTOP_COMPOSITION: u32 = 256u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_PERF_ENABLE_ENHANCED_GRAPHICS: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_PERF_ENABLE_FONT_SMOOTHING: u32 = 128u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 pub struct WTS_POLICY_DATA {
     pub fDisableEncryption: super::super::Foundation::BOOLEAN,
     pub fDisableAutoReconnect: super::super::Foundation::BOOLEAN,
@@ -12346,6 +13337,7 @@ unsafe impl ::windows::runtime::Abi for WTS_POLICY_DATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 pub struct WTS_PROCESS_INFOA {
     pub SessionId: u32,
     pub ProcessId: u32,
@@ -12382,6 +13374,7 @@ unsafe impl ::windows::runtime::Abi for WTS_PROCESS_INFOA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 pub struct WTS_PROCESS_INFOW {
     pub SessionId: u32,
     pub ProcessId: u32,
@@ -12418,6 +13411,7 @@ unsafe impl ::windows::runtime::Abi for WTS_PROCESS_INFOW {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 pub struct WTS_PROCESS_INFO_EXA {
     pub SessionId: u32,
     pub ProcessId: u32,
@@ -12486,6 +13480,7 @@ unsafe impl ::windows::runtime::Abi for WTS_PROCESS_INFO_EXA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 pub struct WTS_PROCESS_INFO_EXW {
     pub SessionId: u32,
     pub ProcessId: u32,
@@ -12551,11 +13546,14 @@ unsafe impl ::windows::runtime::Abi for WTS_PROCESS_INFO_EXW {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_PROCESS_INFO_LEVEL_0: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_PROCESS_INFO_LEVEL_1: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 pub struct WTS_PROPERTY_VALUE {
     pub Type: u16,
     pub u: WTS_PROPERTY_VALUE_0,
@@ -12584,6 +13582,7 @@ unsafe impl ::windows::runtime::Abi for WTS_PROPERTY_VALUE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 pub union WTS_PROPERTY_VALUE_0 {
     pub ulVal: u32,
     pub strVal: WTS_PROPERTY_VALUE_0_1,
@@ -12614,6 +13613,7 @@ unsafe impl ::windows::runtime::Abi for WTS_PROPERTY_VALUE_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 pub struct WTS_PROPERTY_VALUE_0_0 {
     pub size: u32,
     pub pbVal: super::super::Foundation::PSTR,
@@ -12648,6 +13648,7 @@ unsafe impl ::windows::runtime::Abi for WTS_PROPERTY_VALUE_0_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 pub struct WTS_PROPERTY_VALUE_0_1 {
     pub size: u32,
     pub pstrVal: super::super::Foundation::PWSTR,
@@ -12681,6 +13682,7 @@ unsafe impl ::windows::runtime::Abi for WTS_PROPERTY_VALUE_0_1 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub struct WTS_PROTOCOL_CACHE {
     pub CacheReads: u32,
     pub CacheHits: u32,
@@ -12708,6 +13710,7 @@ unsafe impl ::windows::runtime::Abi for WTS_PROTOCOL_CACHE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub struct WTS_PROTOCOL_COUNTERS {
     pub WdBytes: u32,
     pub WdFrames: u32,
@@ -12785,9 +13788,11 @@ unsafe impl ::windows::runtime::Abi for WTS_PROTOCOL_COUNTERS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_PROTOCOL_NAME_LENGTH: u32 = 8u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub struct WTS_PROTOCOL_STATUS {
     pub Output: WTS_PROTOCOL_COUNTERS,
     pub Input: WTS_PROTOCOL_COUNTERS,
@@ -12812,13 +13817,17 @@ unsafe impl ::windows::runtime::Abi for WTS_PROTOCOL_STATUS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_PROTOCOL_TYPE_CONSOLE: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_PROTOCOL_TYPE_ICA: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_PROTOCOL_TYPE_RDP: u32 = 2u32;
 pub const WTS_QUERY_ALLOWED_INITIAL_APP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3346864944, 23521, 19563, [160, 225, 189, 109, 46, 92, 159, 204]);
 pub const WTS_QUERY_AUDIOENUM_DLL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2616523415, 51331, 19498, [128, 171, 90, 57, 201, 175, 0, 219]);
 pub const WTS_QUERY_LOGON_SCREEN_SIZE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2341343207, 2052, 18958, [178, 121, 134, 96, 177, 223, 0, 73]);
 pub const WTS_QUERY_MF_FORMAT_SUPPORT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1099340496, 25394, 19912, [149, 213, 219, 116, 158, 47, 29, 148]);
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WTS_RCM_DRAIN_STATE(pub i32);
@@ -12834,6 +13843,7 @@ unsafe impl ::windows::runtime::Abi for WTS_RCM_DRAIN_STATE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WTS_RCM_SERVICE_STATE(pub i32);
@@ -12849,20 +13859,32 @@ unsafe impl ::windows::runtime::Abi for WTS_RCM_SERVICE_STATE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_SECURITY_CONNECT: u32 = 256u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_SECURITY_DISCONNECT: u32 = 512u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_SECURITY_GUEST_ACCESS: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_SECURITY_LOGOFF: u32 = 64u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_SECURITY_LOGON: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_SECURITY_MESSAGE: u32 = 128u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_SECURITY_QUERY_INFORMATION: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_SECURITY_REMOTE_CONTROL: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_SECURITY_RESET: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_SECURITY_SET_INFORMATION: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_SECURITY_VIRTUAL_CHANNELS: u32 = 8u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 pub struct WTS_SERVER_INFOA {
     pub pServerName: super::super::Foundation::PSTR,
 }
@@ -12896,6 +13918,7 @@ unsafe impl ::windows::runtime::Abi for WTS_SERVER_INFOA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 pub struct WTS_SERVER_INFOW {
     pub pServerName: super::super::Foundation::PWSTR,
 }
@@ -12928,6 +13951,7 @@ unsafe impl ::windows::runtime::Abi for WTS_SERVER_INFOW {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub struct WTS_SERVICE_STATE {
     pub RcmServiceState: WTS_RCM_SERVICE_STATE,
     pub RcmDrainState: WTS_RCM_DRAIN_STATE,
@@ -12953,11 +13977,15 @@ unsafe impl ::windows::runtime::Abi for WTS_SERVICE_STATE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_SESSIONSTATE_LOCK: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_SESSIONSTATE_UNKNOWN: u32 = 4294967295u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_SESSIONSTATE_UNLOCK: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub struct WTS_SESSION_ADDRESS {
     pub AddressFamily: u32,
     pub Address: [u8; 20],
@@ -12985,6 +14013,7 @@ unsafe impl ::windows::runtime::Abi for WTS_SESSION_ADDRESS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub struct WTS_SESSION_ID {
     pub SessionUniqueGuid: ::windows::runtime::GUID,
     pub SessionId: u32,
@@ -13013,6 +14042,7 @@ unsafe impl ::windows::runtime::Abi for WTS_SESSION_ID {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 pub struct WTS_SESSION_INFOA {
     pub SessionId: u32,
     pub pWinStationName: super::super::Foundation::PSTR,
@@ -13048,6 +14078,7 @@ unsafe impl ::windows::runtime::Abi for WTS_SESSION_INFOA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 pub struct WTS_SESSION_INFOW {
     pub SessionId: u32,
     pub pWinStationName: super::super::Foundation::PWSTR,
@@ -13083,6 +14114,7 @@ unsafe impl ::windows::runtime::Abi for WTS_SESSION_INFOW {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 pub struct WTS_SESSION_INFO_1A {
     pub ExecEnvId: u32,
     pub State: WTS_CONNECTSTATE_CLASS,
@@ -13132,6 +14164,7 @@ unsafe impl ::windows::runtime::Abi for WTS_SESSION_INFO_1A {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 pub struct WTS_SESSION_INFO_1W {
     pub ExecEnvId: u32,
     pub State: WTS_CONNECTSTATE_CLASS,
@@ -13180,6 +14213,7 @@ unsafe impl ::windows::runtime::Abi for WTS_SESSION_INFO_1W {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub struct WTS_SMALL_RECT {
     pub Left: i16,
     pub Top: i16,
@@ -13209,6 +14243,7 @@ unsafe impl ::windows::runtime::Abi for WTS_SMALL_RECT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub struct WTS_SOCKADDR {
     pub sin_family: u16,
     pub u: WTS_SOCKADDR_0,
@@ -13231,6 +14266,7 @@ unsafe impl ::windows::runtime::Abi for WTS_SOCKADDR {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub union WTS_SOCKADDR_0 {
     pub ipv4: WTS_SOCKADDR_0_0,
     pub ipv6: WTS_SOCKADDR_0_1,
@@ -13253,6 +14289,7 @@ unsafe impl ::windows::runtime::Abi for WTS_SOCKADDR_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub struct WTS_SOCKADDR_0_0 {
     pub sin_port: u16,
     pub IN_ADDR: u32,
@@ -13281,6 +14318,7 @@ unsafe impl ::windows::runtime::Abi for WTS_SOCKADDR_0_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub struct WTS_SOCKADDR_0_1 {
     pub sin6_port: u16,
     pub sin6_flowinfo: u32,
@@ -13310,6 +14348,7 @@ unsafe impl ::windows::runtime::Abi for WTS_SOCKADDR_0_1 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub struct WTS_SYSTEMTIME {
     pub wYear: u16,
     pub wMonth: u16,
@@ -13352,6 +14391,7 @@ unsafe impl ::windows::runtime::Abi for WTS_SYSTEMTIME {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub struct WTS_TIME_ZONE_INFORMATION {
     pub Bias: i32,
     pub StandardName: [u16; 32],
@@ -13390,6 +14430,7 @@ unsafe impl ::windows::runtime::Abi for WTS_TIME_ZONE_INFORMATION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WTS_TYPE_CLASS(pub i32);
@@ -13405,9 +14446,11 @@ unsafe impl ::windows::runtime::Abi for WTS_TYPE_CLASS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_USERNAME_LENGTH: u32 = 255u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub struct WTS_USER_CREDENTIAL {
     pub UserName: [u16; 256],
     pub Password: [u16; 256],
@@ -13436,6 +14479,7 @@ unsafe impl ::windows::runtime::Abi for WTS_USER_CREDENTIAL {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub struct WTS_USER_DATA {
     pub WorkDirectory: [u16; 257],
     pub InitialProgram: [u16; 257],
@@ -13465,6 +14509,7 @@ unsafe impl ::windows::runtime::Abi for WTS_USER_DATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 pub struct WTS_VALIDATION_INFORMATIONA {
     pub ProductInfo: _WTS_PRODUCT_INFOA,
     pub License: [u8; 16384],
@@ -13501,6 +14546,7 @@ unsafe impl ::windows::runtime::Abi for WTS_VALIDATION_INFORMATIONA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub struct WTS_VALIDATION_INFORMATIONW {
     pub ProductInfo: _WTS_PRODUCT_INFOW,
     pub License: [u8; 16384],
@@ -13529,10 +14575,15 @@ unsafe impl ::windows::runtime::Abi for WTS_VALIDATION_INFORMATIONW {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_VALUE_TYPE_BINARY: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_VALUE_TYPE_GUID: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_VALUE_TYPE_STRING: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_VALUE_TYPE_ULONG: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WTS_VIRTUAL_CLASS(pub i32);
@@ -13547,12 +14598,18 @@ unsafe impl ::windows::runtime::Abi for WTS_VIRTUAL_CLASS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_WSD_FASTREBOOT: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_WSD_LOGOFF: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_WSD_POWEROFF: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_WSD_REBOOT: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_WSD_SHUTDOWN: u32 = 2u32;
 pub const Workspace: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1327365286, 15021, 18657, [132, 6, 75, 194, 26, 80, 29, 124]);
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct _ITSWkspEvents(::windows::runtime::IUnknown);
@@ -13623,6 +14680,7 @@ pub struct _ITSWkspEvents_abi(
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 pub struct _WTS_PRODUCT_INFOA {
     pub CompanyName: [super::super::Foundation::CHAR; 256],
     pub ProductID: [super::super::Foundation::CHAR; 4],
@@ -13656,6 +14714,7 @@ unsafe impl ::windows::runtime::Abi for _WTS_PRODUCT_INFOA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub struct _WTS_PRODUCT_INFOW {
     pub CompanyName: [u16; 256],
     pub ProductID: [u16; 4],
@@ -13684,6 +14743,7 @@ unsafe impl ::windows::runtime::Abi for _WTS_PRODUCT_INFOW {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 pub struct pluginResource {
     pub alias: [u16; 256],
     pub name: [u16; 256],
@@ -13739,6 +14799,7 @@ unsafe impl ::windows::runtime::Abi for pluginResource {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 pub struct pluginResource2 {
     pub resourceV1: pluginResource,
     pub pceFileAssocListSize: u32,
@@ -13783,6 +14844,7 @@ unsafe impl ::windows::runtime::Abi for pluginResource2 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub struct pluginResource2FileAssociation {
     pub extName: [u16; 256],
     pub primaryHandler: u8,

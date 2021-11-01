@@ -1,6 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub struct ACCEL {
     pub fVirt: u8,
     pub key: u16,
@@ -30,6 +31,7 @@ unsafe impl ::windows::runtime::Abi for ACCEL {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub struct ALTTABINFO {
     pub cbSize: u32,
     pub cItems: i32,
@@ -78,6 +80,7 @@ unsafe impl ::windows::runtime::Abi for ALTTABINFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ANIMATE_WINDOW_FLAGS(pub u32);
@@ -129,6 +132,7 @@ impl ::std::ops::Not for ANIMATE_WINDOW_FLAGS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub struct ANIMATIONINFO {
     pub cbSize: u32,
     pub iMinAnimate: i32,
@@ -154,18 +158,28 @@ unsafe impl ::windows::runtime::Abi for ANIMATIONINFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const ARW_DOWN: i32 = 4i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const ARW_HIDE: i32 = 8i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const ARW_LEFT: i32 = 0i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const ARW_RIGHT: i32 = 0i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const ARW_STARTMASK: i32 = 3i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const ARW_STARTRIGHT: i32 = 1i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const ARW_STARTTOP: i32 = 2i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const ARW_UP: i32 = 4i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const ASFW_ANY: u32 = 4294967295u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub struct AUDIODESCRIPTION {
     pub cbSize: u32,
     pub Enabled: super::super::Foundation::BOOL,
@@ -199,6 +213,7 @@ unsafe impl ::windows::runtime::Abi for AUDIODESCRIPTION {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn AdjustWindowRect<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(lprect: *mut super::super::Foundation::RECT, dwstyle: WINDOW_STYLE, bmenu: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -213,6 +228,7 @@ pub unsafe fn AdjustWindowRect<'a, Param2: ::windows::runtime::IntoParam<'a, sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn AdjustWindowRectEx<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(lprect: *mut super::super::Foundation::RECT, dwstyle: WINDOW_STYLE, bmenu: Param2, dwexstyle: WINDOW_EX_STYLE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -227,6 +243,7 @@ pub unsafe fn AdjustWindowRectEx<'a, Param2: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn AllowSetForegroundWindow(dwprocessid: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -241,6 +258,7 @@ pub unsafe fn AllowSetForegroundWindow(dwprocessid: u32) -> super::super::Founda
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn AnimateWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, dwtime: u32, dwflags: ANIMATE_WINDOW_FLAGS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -255,6 +273,7 @@ pub unsafe fn AnimateWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn AnyPopup() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -269,6 +288,7 @@ pub unsafe fn AnyPopup() -> super::super::Foundation::BOOL {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn AppendMenuA<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hmenu: Param0, uflags: MENU_ITEM_FLAGS, uidnewitem: usize, lpnewitem: Param3) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -283,6 +303,7 @@ pub unsafe fn AppendMenuA<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn AppendMenuW<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hmenu: Param0, uflags: MENU_ITEM_FLAGS, uidnewitem: usize, lpnewitem: Param3) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -297,6 +318,7 @@ pub unsafe fn AppendMenuW<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn ArrangeIconicWindows<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> u32 {
     #[cfg(windows)]
@@ -310,60 +332,115 @@ pub unsafe fn ArrangeIconicWindows<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const BM_CLICK: u32 = 245u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const BM_GETCHECK: u32 = 240u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const BM_GETIMAGE: u32 = 246u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const BM_GETSTATE: u32 = 242u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const BM_SETCHECK: u32 = 241u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const BM_SETDONTCLICK: u32 = 248u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const BM_SETIMAGE: u32 = 247u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const BM_SETSTATE: u32 = 243u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const BM_SETSTYLE: u32 = 244u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const BN_CLICKED: u32 = 0u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const BN_DBLCLK: u32 = 5u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const BN_DISABLE: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const BN_DOUBLECLICKED: u32 = 5u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const BN_HILITE: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const BN_KILLFOCUS: u32 = 7u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const BN_PAINT: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const BN_PUSHED: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const BN_SETFOCUS: u32 = 6u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const BN_UNHILITE: u32 = 3u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const BN_UNPUSHED: u32 = 3u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const BROADCAST_QUERY_DENY: u32 = 1112363332u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const BSM_INSTALLABLEDRIVERS: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const BSM_NETDRIVER: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const BSM_VXDS: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const BST_FOCUS: u32 = 8u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const BST_PUSHED: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const BS_3STATE: i32 = 5i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const BS_AUTO3STATE: i32 = 6i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const BS_AUTOCHECKBOX: i32 = 3i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const BS_AUTORADIOBUTTON: i32 = 9i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const BS_BITMAP: i32 = 128i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const BS_BOTTOM: i32 = 2048i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const BS_CENTER: i32 = 768i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const BS_CHECKBOX: i32 = 2i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const BS_DEFPUSHBUTTON: i32 = 1i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const BS_FLAT: i32 = 32768i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const BS_GROUPBOX: i32 = 7i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const BS_ICON: i32 = 64i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const BS_LEFT: i32 = 256i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const BS_LEFTTEXT: i32 = 32i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const BS_MULTILINE: i32 = 8192i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const BS_NOTIFY: i32 = 16384i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const BS_OWNERDRAW: i32 = 11i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const BS_PUSHBOX: i32 = 10i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const BS_PUSHBUTTON: i32 = 0i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const BS_PUSHLIKE: i32 = 4096i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const BS_RADIOBUTTON: i32 = 4i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const BS_RIGHT: i32 = 512i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const BS_RIGHTBUTTON: i32 = 32i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const BS_TEXT: i32 = 0i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const BS_TOP: i32 = 1024i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const BS_TYPEMASK: i32 = 15i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const BS_USERBUTTON: i32 = 8i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const BS_VCENTER: i32 = 3072i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[inline]
 pub unsafe fn BeginDeferWindowPos(nnumwindows: i32) -> isize {
     #[cfg(windows)]
@@ -378,6 +455,7 @@ pub unsafe fn BeginDeferWindowPos(nnumwindows: i32) -> isize {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn BringWindowToTop<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -391,7 +469,9 @@ pub unsafe fn BringWindowToTop<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CALERT_SYSTEM: u32 = 6u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CASCADE_WINDOWS_HOW(pub u32);
@@ -434,33 +514,58 @@ impl ::std::ops::Not for CASCADE_WINDOWS_HOW {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CBN_CLOSEUP: u32 = 8u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CBN_DBLCLK: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CBN_DROPDOWN: u32 = 7u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CBN_EDITCHANGE: u32 = 5u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CBN_EDITUPDATE: u32 = 6u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CBN_ERRSPACE: i32 = -1i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CBN_KILLFOCUS: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CBN_SELCHANGE: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CBN_SELENDCANCEL: u32 = 10u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CBN_SELENDOK: u32 = 9u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CBN_SETFOCUS: u32 = 3u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CBS_AUTOHSCROLL: i32 = 64i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CBS_DISABLENOSCROLL: i32 = 2048i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CBS_DROPDOWN: i32 = 2i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CBS_DROPDOWNLIST: i32 = 3i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CBS_HASSTRINGS: i32 = 512i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CBS_LOWERCASE: i32 = 16384i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CBS_NOINTEGRALHEIGHT: i32 = 1024i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CBS_OEMCONVERT: i32 = 128i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CBS_OWNERDRAWFIXED: i32 = 16i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CBS_OWNERDRAWVARIABLE: i32 = 32i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CBS_SIMPLE: i32 = 1i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CBS_SORT: i32 = 256i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CBS_UPPERCASE: i32 = 8192i32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub struct CBTACTIVATESTRUCT {
     pub fMouse: super::super::Foundation::BOOL,
     pub hWndActive: super::super::Foundation::HWND,
@@ -495,6 +600,7 @@ unsafe impl ::windows::runtime::Abi for CBTACTIVATESTRUCT {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub struct CBT_CREATEWNDA {
     pub lpcs: *mut CREATESTRUCTA,
     pub hwndInsertAfter: super::super::Foundation::HWND,
@@ -529,6 +635,7 @@ unsafe impl ::windows::runtime::Abi for CBT_CREATEWNDA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub struct CBT_CREATEWNDW {
     pub lpcs: *mut CREATESTRUCTW,
     pub hwndInsertAfter: super::super::Foundation::HWND,
@@ -560,50 +667,93 @@ unsafe impl ::windows::runtime::Abi for CBT_CREATEWNDW {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CB_ADDSTRING: u32 = 323u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CB_DELETESTRING: u32 = 324u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CB_DIR: u32 = 325u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CB_ERR: i32 = -1i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CB_ERRSPACE: i32 = -2i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CB_FINDSTRING: u32 = 332u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CB_FINDSTRINGEXACT: u32 = 344u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CB_GETCOMBOBOXINFO: u32 = 356u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CB_GETCOUNT: u32 = 326u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CB_GETCURSEL: u32 = 327u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CB_GETDROPPEDCONTROLRECT: u32 = 338u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CB_GETDROPPEDSTATE: u32 = 343u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CB_GETDROPPEDWIDTH: u32 = 351u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CB_GETEDITSEL: u32 = 320u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CB_GETEXTENDEDUI: u32 = 342u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CB_GETHORIZONTALEXTENT: u32 = 349u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CB_GETITEMDATA: u32 = 336u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CB_GETITEMHEIGHT: u32 = 340u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CB_GETLBTEXT: u32 = 328u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CB_GETLBTEXTLEN: u32 = 329u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CB_GETLOCALE: u32 = 346u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CB_GETTOPINDEX: u32 = 347u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CB_INITSTORAGE: u32 = 353u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CB_INSERTSTRING: u32 = 330u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CB_LIMITTEXT: u32 = 321u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CB_MSGMAX: u32 = 357u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CB_MULTIPLEADDSTRING: u32 = 355u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CB_OKAY: u32 = 0u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CB_RESETCONTENT: u32 = 331u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CB_SELECTSTRING: u32 = 333u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CB_SETCURSEL: u32 = 334u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CB_SETDROPPEDWIDTH: u32 = 352u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CB_SETEDITSEL: u32 = 322u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CB_SETEXTENDEDUI: u32 = 341u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CB_SETHORIZONTALEXTENT: u32 = 350u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CB_SETITEMDATA: u32 = 337u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CB_SETITEMHEIGHT: u32 = 339u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CB_SETLOCALE: u32 = 345u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CB_SETTOPINDEX: u32 = 348u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CB_SHOWDROPDOWN: u32 = 335u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CCHILDREN_SCROLLBAR: u32 = 5u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CCHILDREN_TITLEBAR: u32 = 5u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub struct CHANGEFILTERSTRUCT {
     pub cbSize: u32,
     pub ExtStatus: MSGFLTINFO_STATUS,
@@ -629,6 +779,7 @@ unsafe impl ::windows::runtime::Abi for CHANGEFILTERSTRUCT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CHANGE_WINDOW_MESSAGE_FILTER_FLAGS(pub u32);
@@ -671,10 +822,12 @@ impl ::std::ops::Not for CHANGE_WINDOW_MESSAGE_FILTER_FLAGS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CHILDID_SELF: u32 = 0u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub struct CLIENTCREATESTRUCT {
     pub hWindowMenu: super::super::Foundation::HANDLE,
     pub idFirstChild: u32,
@@ -706,18 +859,28 @@ unsafe impl ::windows::runtime::Abi for CLIENTCREATESTRUCT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const COLOR_BTNHIGHLIGHT: u32 = 20u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const COLOR_BTNHILIGHT: u32 = 20u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CONSOLE_APPLICATION_16BIT: u32 = 0u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CONSOLE_CARET_SELECTION: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CONSOLE_CARET_VISIBLE: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CONTACTVISUALIZATION_OFF: u32 = 0u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CONTACTVISUALIZATION_ON: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CONTACTVISUALIZATION_PRESENTATIONMODE: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CREATEPROCESS_MANIFEST_RESOURCE_ID: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub struct CREATESTRUCTA {
     pub lpCreateParams: *mut ::std::ffi::c_void,
     pub hInstance: super::super::Foundation::HINSTANCE,
@@ -775,6 +938,7 @@ unsafe impl ::windows::runtime::Abi for CREATESTRUCTA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub struct CREATESTRUCTW {
     pub lpCreateParams: *mut ::std::ffi::c_void,
     pub hInstance: super::super::Foundation::HINSTANCE,
@@ -829,18 +993,28 @@ unsafe impl ::windows::runtime::Abi for CREATESTRUCTW {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CSOUND_SYSTEM: u32 = 16u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CTLCOLOR_BTN: u32 = 3u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CTLCOLOR_DLG: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CTLCOLOR_EDIT: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CTLCOLOR_LISTBOX: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CTLCOLOR_MAX: u32 = 7u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CTLCOLOR_MSGBOX: u32 = 0u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CTLCOLOR_SCROLLBAR: u32 = 5u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CTLCOLOR_STATIC: u32 = 6u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub struct CURSORINFO {
     pub cbSize: u32,
     pub flags: CURSORINFO_FLAGS,
@@ -874,6 +1048,7 @@ unsafe impl ::windows::runtime::Abi for CURSORINFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CURSORINFO_FLAGS(pub u32);
@@ -918,6 +1093,7 @@ impl ::std::ops::Not for CURSORINFO_FLAGS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub struct CURSORSHAPE {
     pub xHotSpot: i32,
     pub yHotSpot: i32,
@@ -948,12 +1124,16 @@ unsafe impl ::windows::runtime::Abi for CURSORSHAPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CURSOR_CREATION_SCALING_DEFAULT: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CURSOR_CREATION_SCALING_NONE: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CWF_CREATE_ONLY: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub struct CWPRETSTRUCT {
     pub lResult: super::super::Foundation::LRESULT,
     pub lParam: super::super::Foundation::LPARAM,
@@ -991,6 +1171,7 @@ unsafe impl ::windows::runtime::Abi for CWPRETSTRUCT {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub struct CWPSTRUCT {
     pub lParam: super::super::Foundation::LPARAM,
     pub wParam: super::super::Foundation::WPARAM,
@@ -1024,6 +1205,7 @@ unsafe impl ::windows::runtime::Abi for CWPSTRUCT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CWP_FLAGS(pub u32);
@@ -1068,8 +1250,10 @@ impl ::std::ops::Not for CWP_FLAGS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CW_USEDEFAULT: i32 = -2147483648i32;
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CalculatePopupWindowPosition(anchorpoint: *const super::super::Foundation::POINT, windowsize: *const super::super::Foundation::SIZE, flags: u32, excluderect: *const super::super::Foundation::RECT, popupwindowposition: *mut super::super::Foundation::RECT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1084,6 +1268,7 @@ pub unsafe fn CalculatePopupWindowPosition(anchorpoint: *const super::super::Fou
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CallMsgFilterA(lpmsg: *const MSG, ncode: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1098,6 +1283,7 @@ pub unsafe fn CallMsgFilterA(lpmsg: *const MSG, ncode: i32) -> super::super::Fou
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CallMsgFilterW(lpmsg: *const MSG, ncode: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1112,6 +1298,7 @@ pub unsafe fn CallMsgFilterW(lpmsg: *const MSG, ncode: i32) -> super::super::Fou
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CallNextHookEx<'a, Param0: ::windows::runtime::IntoParam<'a, HHOOK>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::WPARAM>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hhk: Param0, ncode: i32, wparam: Param2, lparam: Param3) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
@@ -1126,6 +1313,7 @@ pub unsafe fn CallNextHookEx<'a, Param0: ::windows::runtime::IntoParam<'a, HHOOK
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CallWindowProcA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::WPARAM>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(lpprevwndfunc: ::std::option::Option<WNDPROC>, hwnd: Param1, msg: u32, wparam: Param3, lparam: Param4) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
@@ -1140,6 +1328,7 @@ pub unsafe fn CallWindowProcA<'a, Param1: ::windows::runtime::IntoParam<'a, supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CallWindowProcW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::WPARAM>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(lpprevwndfunc: ::std::option::Option<WNDPROC>, hwnd: Param1, msg: u32, wparam: Param3, lparam: Param4) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
@@ -1154,6 +1343,7 @@ pub unsafe fn CallWindowProcW<'a, Param1: ::windows::runtime::IntoParam<'a, supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CancelShutdown() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1168,6 +1358,7 @@ pub unsafe fn CancelShutdown() -> super::super::Foundation::BOOL {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CascadeWindows<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwndparent: Param0, whow: CASCADE_WINDOWS_HOW, lprect: *const super::super::Foundation::RECT, ckids: u32, lpkids: *const super::super::Foundation::HWND) -> u16 {
     #[cfg(windows)]
@@ -1182,6 +1373,7 @@ pub unsafe fn CascadeWindows<'a, Param0: ::windows::runtime::IntoParam<'a, super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn ChangeMenuA<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hmenu: Param0, cmd: u32, lpsznewitem: Param2, cmdinsert: u32, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1196,6 +1388,7 @@ pub unsafe fn ChangeMenuA<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn ChangeMenuW<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hmenu: Param0, cmd: u32, lpsznewitem: Param2, cmdinsert: u32, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1210,6 +1403,7 @@ pub unsafe fn ChangeMenuW<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn ChangeWindowMessageFilter(message: u32, dwflag: CHANGE_WINDOW_MESSAGE_FILTER_FLAGS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1224,6 +1418,7 @@ pub unsafe fn ChangeWindowMessageFilter(message: u32, dwflag: CHANGE_WINDOW_MESS
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn ChangeWindowMessageFilterEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, message: u32, action: WINDOW_MESSAGE_FILTER_ACTION, pchangefilterstruct: *mut CHANGEFILTERSTRUCT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1238,6 +1433,7 @@ pub unsafe fn ChangeWindowMessageFilterEx<'a, Param0: ::windows::runtime::IntoPa
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CharLowerA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpsz: Param0) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
@@ -1252,6 +1448,7 @@ pub unsafe fn CharLowerA<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CharLowerBuffA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpsz: Param0, cchlength: u32) -> u32 {
     #[cfg(windows)]
@@ -1266,6 +1463,7 @@ pub unsafe fn CharLowerBuffA<'a, Param0: ::windows::runtime::IntoParam<'a, super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CharLowerBuffW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpsz: Param0, cchlength: u32) -> u32 {
     #[cfg(windows)]
@@ -1280,6 +1478,7 @@ pub unsafe fn CharLowerBuffW<'a, Param0: ::windows::runtime::IntoParam<'a, super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CharLowerW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpsz: Param0) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
@@ -1294,6 +1493,7 @@ pub unsafe fn CharLowerW<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CharNextA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpsz: Param0) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
@@ -1308,6 +1508,7 @@ pub unsafe fn CharNextA<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CharNextExA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(codepage: u16, lpcurrentchar: Param1, dwflags: u32) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
@@ -1322,6 +1523,7 @@ pub unsafe fn CharNextExA<'a, Param1: ::windows::runtime::IntoParam<'a, super::s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CharNextW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpsz: Param0) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
@@ -1336,6 +1538,7 @@ pub unsafe fn CharNextW<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CharPrevA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpszstart: Param0, lpszcurrent: Param1) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
@@ -1350,6 +1553,7 @@ pub unsafe fn CharPrevA<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CharPrevExA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(codepage: u16, lpstart: Param1, lpcurrentchar: Param2, dwflags: u32) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
@@ -1364,6 +1568,7 @@ pub unsafe fn CharPrevExA<'a, Param1: ::windows::runtime::IntoParam<'a, super::s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CharPrevW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszstart: Param0, lpszcurrent: Param1) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
@@ -1378,6 +1583,7 @@ pub unsafe fn CharPrevW<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CharToOemA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(psrc: Param0, pdst: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1392,6 +1598,7 @@ pub unsafe fn CharToOemA<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CharToOemBuffA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpszsrc: Param0, lpszdst: super::super::Foundation::PSTR, cchdstlength: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1406,6 +1613,7 @@ pub unsafe fn CharToOemBuffA<'a, Param0: ::windows::runtime::IntoParam<'a, super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CharToOemBuffW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszsrc: Param0, lpszdst: super::super::Foundation::PSTR, cchdstlength: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1420,6 +1628,7 @@ pub unsafe fn CharToOemBuffW<'a, Param0: ::windows::runtime::IntoParam<'a, super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CharToOemW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(psrc: Param0, pdst: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1434,6 +1643,7 @@ pub unsafe fn CharToOemW<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CharUpperA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpsz: Param0) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
@@ -1448,6 +1658,7 @@ pub unsafe fn CharUpperA<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CharUpperBuffA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpsz: Param0, cchlength: u32) -> u32 {
     #[cfg(windows)]
@@ -1462,6 +1673,7 @@ pub unsafe fn CharUpperBuffA<'a, Param0: ::windows::runtime::IntoParam<'a, super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CharUpperBuffW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpsz: Param0, cchlength: u32) -> u32 {
     #[cfg(windows)]
@@ -1476,6 +1688,7 @@ pub unsafe fn CharUpperBuffW<'a, Param0: ::windows::runtime::IntoParam<'a, super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CharUpperW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpsz: Param0) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
@@ -1489,6 +1702,7 @@ pub unsafe fn CharUpperW<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[inline]
 pub unsafe fn CheckMenuItem<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>>(hmenu: Param0, uidcheckitem: u32, ucheck: u32) -> u32 {
     #[cfg(windows)]
@@ -1503,6 +1717,7 @@ pub unsafe fn CheckMenuItem<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CheckMenuRadioItem<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>>(hmenu: Param0, first: u32, last: u32, check: u32, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1517,6 +1732,7 @@ pub unsafe fn CheckMenuRadioItem<'a, Param0: ::windows::runtime::IntoParam<'a, H
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn ChildWindowFromPoint<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::POINT>>(hwndparent: Param0, point: Param1) -> super::super::Foundation::HWND {
     #[cfg(windows)]
@@ -1531,6 +1747,7 @@ pub unsafe fn ChildWindowFromPoint<'a, Param0: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn ChildWindowFromPointEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::POINT>>(hwnd: Param0, pt: Param1, flags: CWP_FLAGS) -> super::super::Foundation::HWND {
     #[cfg(windows)]
@@ -1545,6 +1762,7 @@ pub unsafe fn ChildWindowFromPointEx<'a, Param0: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn ClipCursor(lprect: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1559,6 +1777,7 @@ pub unsafe fn ClipCursor(lprect: *const super::super::Foundation::RECT) -> super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CloseWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1572,6 +1791,7 @@ pub unsafe fn CloseWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[inline]
 pub unsafe fn CopyAcceleratorTableA<'a, Param0: ::windows::runtime::IntoParam<'a, HACCEL>>(haccelsrc: Param0, lpacceldst: *mut ACCEL, caccelentries: i32) -> i32 {
     #[cfg(windows)]
@@ -1585,6 +1805,7 @@ pub unsafe fn CopyAcceleratorTableA<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[inline]
 pub unsafe fn CopyAcceleratorTableW<'a, Param0: ::windows::runtime::IntoParam<'a, HACCEL>>(haccelsrc: Param0, lpacceldst: *mut ACCEL, caccelentries: i32) -> i32 {
     #[cfg(windows)]
@@ -1598,6 +1819,7 @@ pub unsafe fn CopyAcceleratorTableW<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[inline]
 pub unsafe fn CopyIcon<'a, Param0: ::windows::runtime::IntoParam<'a, HICON>>(hicon: Param0) -> HICON {
     #[cfg(windows)]
@@ -1612,6 +1834,7 @@ pub unsafe fn CopyIcon<'a, Param0: ::windows::runtime::IntoParam<'a, HICON>>(hic
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CopyImage<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(h: Param0, r#type: GDI_IMAGE_TYPE, cx: i32, cy: i32, flags: IMAGE_FLAGS) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
@@ -1625,6 +1848,7 @@ pub unsafe fn CopyImage<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[inline]
 pub unsafe fn CreateAcceleratorTableA(paccel: *const ACCEL, caccel: i32) -> HACCEL {
     #[cfg(windows)]
@@ -1638,6 +1862,7 @@ pub unsafe fn CreateAcceleratorTableA(paccel: *const ACCEL, caccel: i32) -> HACC
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[inline]
 pub unsafe fn CreateAcceleratorTableW(paccel: *const ACCEL, caccel: i32) -> HACCEL {
     #[cfg(windows)]
@@ -1652,6 +1877,7 @@ pub unsafe fn CreateAcceleratorTableW(paccel: *const ACCEL, caccel: i32) -> HACC
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[inline]
 pub unsafe fn CreateCaret<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HBITMAP>>(hwnd: Param0, hbitmap: Param1, nwidth: i32, nheight: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1666,6 +1892,7 @@ pub unsafe fn CreateCaret<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CreateCursor<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>>(hinst: Param0, xhotspot: i32, yhotspot: i32, nwidth: i32, nheight: i32, pvandplane: *const ::std::ffi::c_void, pvxorplane: *const ::std::ffi::c_void) -> HCURSOR {
     #[cfg(windows)]
@@ -1680,6 +1907,7 @@ pub unsafe fn CreateCursor<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CreateDialogIndirectParamA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hinstance: Param0, lptemplate: *const DLGTEMPLATE, hwndparent: Param2, lpdialogfunc: ::std::option::Option<DLGPROC>, dwinitparam: Param4) -> super::super::Foundation::HWND {
     #[cfg(windows)]
@@ -1694,6 +1922,7 @@ pub unsafe fn CreateDialogIndirectParamA<'a, Param0: ::windows::runtime::IntoPar
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CreateDialogIndirectParamW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hinstance: Param0, lptemplate: *const DLGTEMPLATE, hwndparent: Param2, lpdialogfunc: ::std::option::Option<DLGPROC>, dwinitparam: Param4) -> super::super::Foundation::HWND {
     #[cfg(windows)]
@@ -1708,6 +1937,7 @@ pub unsafe fn CreateDialogIndirectParamW<'a, Param0: ::windows::runtime::IntoPar
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CreateDialogParamA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(
     hinstance: Param0,
@@ -1728,6 +1958,7 @@ pub unsafe fn CreateDialogParamA<'a, Param0: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CreateDialogParamW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(
     hinstance: Param0,
@@ -1748,6 +1979,7 @@ pub unsafe fn CreateDialogParamW<'a, Param0: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CreateIcon<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>>(hinstance: Param0, nwidth: i32, nheight: i32, cplanes: u8, cbitspixel: u8, lpbandbits: *const u8, lpbxorbits: *const u8) -> HICON {
     #[cfg(windows)]
@@ -1762,6 +1994,7 @@ pub unsafe fn CreateIcon<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CreateIconFromResource<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(presbits: *const u8, dwressize: u32, ficon: Param2, dwver: u32) -> HICON {
     #[cfg(windows)]
@@ -1776,6 +2009,7 @@ pub unsafe fn CreateIconFromResource<'a, Param2: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CreateIconFromResourceEx<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(presbits: *const u8, dwressize: u32, ficon: Param2, dwver: u32, cxdesired: i32, cydesired: i32, flags: IMAGE_FLAGS) -> HICON {
     #[cfg(windows)]
@@ -1790,6 +2024,7 @@ pub unsafe fn CreateIconFromResourceEx<'a, Param2: ::windows::runtime::IntoParam
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[inline]
 pub unsafe fn CreateIconIndirect(piconinfo: *const ICONINFO) -> HICON {
     #[cfg(windows)]
@@ -1804,6 +2039,7 @@ pub unsafe fn CreateIconIndirect(piconinfo: *const ICONINFO) -> HICON {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CreateMDIWindowA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param7: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param8: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param9: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(
     lpclassname: Param0,
@@ -1840,6 +2076,7 @@ pub unsafe fn CreateMDIWindowA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CreateMDIWindowW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param7: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param8: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param9: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(
     lpclassname: Param0,
@@ -1875,6 +2112,7 @@ pub unsafe fn CreateMDIWindowW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[inline]
 pub unsafe fn CreateMenu() -> HMENU {
     #[cfg(windows)]
@@ -1888,6 +2126,7 @@ pub unsafe fn CreateMenu() -> HMENU {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[inline]
 pub unsafe fn CreatePopupMenu() -> HMENU {
     #[cfg(windows)]
@@ -1902,6 +2141,7 @@ pub unsafe fn CreatePopupMenu() -> HMENU {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CreateResourceIndexer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(projectroot: Param0, extensiondllpath: Param1, ppresourceindexer: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1916,6 +2156,7 @@ pub unsafe fn CreateResourceIndexer<'a, Param0: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CreateWindowExA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param8: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param9: ::windows::runtime::IntoParam<'a, HMENU>, Param10: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>>(
     dwexstyle: WINDOW_EX_STYLE,
@@ -1956,6 +2197,7 @@ pub unsafe fn CreateWindowExA<'a, Param1: ::windows::runtime::IntoParam<'a, supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CreateWindowExW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param8: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param9: ::windows::runtime::IntoParam<'a, HMENU>, Param10: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>>(
     dwexstyle: WINDOW_EX_STYLE,
@@ -1995,11 +2237,14 @@ pub unsafe fn CreateWindowExW<'a, Param1: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const DCX_EXCLUDEUPDATE: i32 = 256i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const DC_HASDEFID: u32 = 21323u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub struct DEBUGHOOKINFO {
     pub idThread: u32,
     pub idThreadInstaller: u32,
@@ -2034,18 +2279,31 @@ unsafe impl ::windows::runtime::Abi for DEBUGHOOKINFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const DESKTOP_CREATEMENU: i32 = 4i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const DESKTOP_CREATEWINDOW: i32 = 2i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const DESKTOP_ENUMERATE: i32 = 64i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const DESKTOP_HOOKCONTROL: i32 = 8i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const DESKTOP_JOURNALPLAYBACK: i32 = 32i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const DESKTOP_JOURNALRECORD: i32 = 16i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const DESKTOP_READOBJECTS: i32 = 1i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const DESKTOP_SWITCHDESKTOP: i32 = 256i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const DESKTOP_WRITEOBJECTS: i32 = 128i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const DEVICE_NOTIFY_ALL_INTERFACE_CLASSES: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const DF_ALLOWOTHERACCOUNTHOOK: i32 = 1i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const DIFFERENCE: u32 = 11u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DI_FLAGS(pub u32);
@@ -2092,19 +2350,31 @@ impl ::std::ops::Not for DI_FLAGS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const DLGC_BUTTON: u32 = 8192u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const DLGC_DEFPUSHBUTTON: u32 = 16u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const DLGC_HASSETSEL: u32 = 8u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const DLGC_RADIOBUTTON: u32 = 64u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const DLGC_STATIC: u32 = 256u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const DLGC_UNDEFPUSHBUTTON: u32 = 32u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const DLGC_WANTALLKEYS: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const DLGC_WANTARROWS: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const DLGC_WANTCHARS: u32 = 128u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const DLGC_WANTMESSAGE: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const DLGC_WANTTAB: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(2))]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub struct DLGITEMTEMPLATE {
     pub style: u32,
     pub dwExtendedStyle: u32,
@@ -2134,6 +2404,7 @@ unsafe impl ::windows::runtime::Abi for DLGITEMTEMPLATE {
 pub type DLGPROC = unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: super::super::Foundation::WPARAM, param3: super::super::Foundation::LPARAM) -> isize;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(2))]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub struct DLGTEMPLATE {
     pub style: u32,
     pub dwExtendedStyle: u32,
@@ -2159,22 +2430,36 @@ unsafe impl ::windows::runtime::Abi for DLGTEMPLATE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const DLGWINDOWEXTRA: u32 = 30u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const DM_GETDEFID: u32 = 1024u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const DM_POINTERHITTEST: u32 = 592u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const DM_REPOSITION: u32 = 1026u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const DM_SETDEFID: u32 = 1025u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const DOF_DIRECTORY: u32 = 32771u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const DOF_DOCUMENT: u32 = 32770u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const DOF_EXECUTABLE: u32 = 32769u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const DOF_MULTIPLE: u32 = 32772u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const DOF_PROGMAN: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const DOF_SHELLDATA: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const DO_DROPFILE: i32 = 1162627398i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const DO_PRINTFILE: i32 = 1414419024i32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub struct DROPSTRUCT {
     pub hwndSource: super::super::Foundation::HWND,
     pub hwndSink: super::super::Foundation::HWND,
@@ -2210,26 +2495,46 @@ unsafe impl ::windows::runtime::Abi for DROPSTRUCT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const DS_3DLOOK: i32 = 4i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const DS_ABSALIGN: i32 = 1i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const DS_CENTER: i32 = 2048i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const DS_CENTERMOUSE: i32 = 4096i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const DS_CONTEXTHELP: i32 = 8192i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const DS_CONTROL: i32 = 1024i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const DS_FIXEDSYS: i32 = 8i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const DS_LOCALEDIT: i32 = 32i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const DS_MODALFRAME: i32 = 128i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const DS_NOFAILCREATE: i32 = 16i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const DS_NOIDLEMSG: i32 = 256i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const DS_SETFONT: i32 = 64i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const DS_SETFOREGROUND: i32 = 512i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const DS_SYSMODAL: i32 = 2i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const DS_USEPIXELS: i32 = 32768i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const DWLP_MSGRESULT: u32 = 0u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const DWL_DLGPROC: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const DWL_MSGRESULT: u32 = 0u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const DWL_USER: u32 = 8u32;
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn DefDlgProcA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::WPARAM>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hdlg: Param0, msg: u32, wparam: Param2, lparam: Param3) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
@@ -2244,6 +2549,7 @@ pub unsafe fn DefDlgProcA<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn DefDlgProcW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::WPARAM>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hdlg: Param0, msg: u32, wparam: Param2, lparam: Param3) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
@@ -2258,6 +2564,7 @@ pub unsafe fn DefDlgProcW<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn DefFrameProcA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::WPARAM>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hwnd: Param0, hwndmdiclient: Param1, umsg: u32, wparam: Param3, lparam: Param4) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
@@ -2272,6 +2579,7 @@ pub unsafe fn DefFrameProcA<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn DefFrameProcW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::WPARAM>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hwnd: Param0, hwndmdiclient: Param1, umsg: u32, wparam: Param3, lparam: Param4) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
@@ -2286,6 +2594,7 @@ pub unsafe fn DefFrameProcW<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn DefMDIChildProcA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::WPARAM>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hwnd: Param0, umsg: u32, wparam: Param2, lparam: Param3) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
@@ -2300,6 +2609,7 @@ pub unsafe fn DefMDIChildProcA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn DefMDIChildProcW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::WPARAM>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hwnd: Param0, umsg: u32, wparam: Param2, lparam: Param3) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
@@ -2314,6 +2624,7 @@ pub unsafe fn DefMDIChildProcW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn DefWindowProcA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::WPARAM>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hwnd: Param0, msg: u32, wparam: Param2, lparam: Param3) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
@@ -2328,6 +2639,7 @@ pub unsafe fn DefWindowProcA<'a, Param0: ::windows::runtime::IntoParam<'a, super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn DefWindowProcW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::WPARAM>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hwnd: Param0, msg: u32, wparam: Param2, lparam: Param3) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
@@ -2342,6 +2654,7 @@ pub unsafe fn DefWindowProcW<'a, Param0: ::windows::runtime::IntoParam<'a, super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn DeferWindowPos<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwinposinfo: isize, hwnd: Param1, hwndinsertafter: Param2, x: i32, y: i32, cx: i32, cy: i32, uflags: SET_WINDOW_POS_FLAGS) -> isize {
     #[cfg(windows)]
@@ -2356,6 +2669,7 @@ pub unsafe fn DeferWindowPos<'a, Param1: ::windows::runtime::IntoParam<'a, super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn DeleteMenu<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>>(hmenu: Param0, uposition: u32, uflags: MENU_ITEM_FLAGS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -2370,6 +2684,7 @@ pub unsafe fn DeleteMenu<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>>(h
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn DeregisterShellHookWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -2384,6 +2699,7 @@ pub unsafe fn DeregisterShellHookWindow<'a, Param0: ::windows::runtime::IntoPara
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn DestroyAcceleratorTable<'a, Param0: ::windows::runtime::IntoParam<'a, HACCEL>>(haccel: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -2398,6 +2714,7 @@ pub unsafe fn DestroyAcceleratorTable<'a, Param0: ::windows::runtime::IntoParam<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn DestroyCaret() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -2412,6 +2729,7 @@ pub unsafe fn DestroyCaret() -> super::super::Foundation::BOOL {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn DestroyCursor<'a, Param0: ::windows::runtime::IntoParam<'a, HCURSOR>>(hcursor: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -2426,6 +2744,7 @@ pub unsafe fn DestroyCursor<'a, Param0: ::windows::runtime::IntoParam<'a, HCURSO
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn DestroyIcon<'a, Param0: ::windows::runtime::IntoParam<'a, HICON>>(hicon: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -2440,6 +2759,7 @@ pub unsafe fn DestroyIcon<'a, Param0: ::windows::runtime::IntoParam<'a, HICON>>(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn DestroyIndexedResults<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(resourceuri: Param0, qualifiercount: u32, qualifiers: *const IndexedResourceQualifier) {
     #[cfg(windows)]
@@ -2454,6 +2774,7 @@ pub unsafe fn DestroyIndexedResults<'a, Param0: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn DestroyMenu<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>>(hmenu: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -2467,6 +2788,7 @@ pub unsafe fn DestroyMenu<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>>(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[inline]
 pub unsafe fn DestroyResourceIndexer(resourceindexer: *const ::std::ffi::c_void) {
     #[cfg(windows)]
@@ -2481,6 +2803,7 @@ pub unsafe fn DestroyResourceIndexer(resourceindexer: *const ::std::ffi::c_void)
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn DestroyWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -2495,6 +2818,7 @@ pub unsafe fn DestroyWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn DialogBoxIndirectParamA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hinstance: Param0, hdialogtemplate: *const DLGTEMPLATE, hwndparent: Param2, lpdialogfunc: ::std::option::Option<DLGPROC>, dwinitparam: Param4) -> isize {
     #[cfg(windows)]
@@ -2509,6 +2833,7 @@ pub unsafe fn DialogBoxIndirectParamA<'a, Param0: ::windows::runtime::IntoParam<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn DialogBoxIndirectParamW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hinstance: Param0, hdialogtemplate: *const DLGTEMPLATE, hwndparent: Param2, lpdialogfunc: ::std::option::Option<DLGPROC>, dwinitparam: Param4) -> isize {
     #[cfg(windows)]
@@ -2523,6 +2848,7 @@ pub unsafe fn DialogBoxIndirectParamW<'a, Param0: ::windows::runtime::IntoParam<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn DialogBoxParamA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hinstance: Param0, lptemplatename: Param1, hwndparent: Param2, lpdialogfunc: ::std::option::Option<DLGPROC>, dwinitparam: Param4) -> isize {
     #[cfg(windows)]
@@ -2537,6 +2863,7 @@ pub unsafe fn DialogBoxParamA<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn DialogBoxParamW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hinstance: Param0, lptemplatename: Param1, hwndparent: Param2, lpdialogfunc: ::std::option::Option<DLGPROC>, dwinitparam: Param4) -> isize {
     #[cfg(windows)]
@@ -2550,6 +2877,7 @@ pub unsafe fn DialogBoxParamW<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[inline]
 pub unsafe fn DisableProcessWindowsGhosting() {
     #[cfg(windows)]
@@ -2564,6 +2892,7 @@ pub unsafe fn DisableProcessWindowsGhosting() {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn DispatchMessageA(lpmsg: *const MSG) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
@@ -2578,6 +2907,7 @@ pub unsafe fn DispatchMessageA(lpmsg: *const MSG) -> super::super::Foundation::L
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn DispatchMessageW(lpmsg: *const MSG) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
@@ -2592,6 +2922,7 @@ pub unsafe fn DispatchMessageW(lpmsg: *const MSG) -> super::super::Foundation::L
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn DragObject<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::runtime::IntoParam<'a, HCURSOR>>(hwndparent: Param0, hwndfrom: Param1, fmt: u32, data: usize, hcur: Param4) -> u32 {
     #[cfg(windows)]
@@ -2606,6 +2937,7 @@ pub unsafe fn DragObject<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[inline]
 pub unsafe fn DrawIcon<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>, Param3: ::windows::runtime::IntoParam<'a, HICON>>(hdc: Param0, x: i32, y: i32, hicon: Param3) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -2620,6 +2952,7 @@ pub unsafe fn DrawIcon<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[inline]
 pub unsafe fn DrawIconEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>, Param3: ::windows::runtime::IntoParam<'a, HICON>, Param7: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HBRUSH>>(hdc: Param0, xleft: i32, ytop: i32, hicon: Param3, cxwidth: i32, cywidth: i32, istepifanicur: u32, hbrflickerfreedraw: Param7, diflags: DI_FLAGS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -2634,6 +2967,7 @@ pub unsafe fn DrawIconEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn DrawMenuBar<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -2647,10 +2981,15 @@ pub unsafe fn DrawMenuBar<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EC_LEFTMARGIN: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EC_RIGHTMARGIN: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EC_USEFONTINFO: u32 = 65535u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EDD_GET_DEVICE_INTERFACE_NAME: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EDIT_CONTROL_FEATURE(pub i32);
@@ -2665,44 +3004,80 @@ unsafe impl ::windows::runtime::Abi for EDIT_CONTROL_FEATURE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EDS_RAWMODE: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EDS_ROTATEDMODE: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EIMES_CANCELCOMPSTRINFOCUS: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EIMES_COMPLETECOMPSTRKILLFOCUS: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EIMES_GETCOMPSTRATONCE: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EMSIS_COMPOSITIONSTRING: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const ENDSESSION_CLOSEAPP: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const ENDSESSION_CRITICAL: u32 = 1073741824u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const ENDSESSION_LOGOFF: u32 = 2147483648u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EN_AFTER_PASTE: u32 = 2049u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EN_ALIGN_LTR_EC: u32 = 1792u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EN_ALIGN_RTL_EC: u32 = 1793u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EN_BEFORE_PASTE: u32 = 2048u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EN_CHANGE: u32 = 768u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EN_ERRSPACE: u32 = 1280u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EN_HSCROLL: u32 = 1537u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EN_KILLFOCUS: u32 = 512u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EN_MAXTEXT: u32 = 1281u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EN_SETFOCUS: u32 = 256u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EN_UPDATE: u32 = 1024u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EN_VSCROLL: u32 = 1538u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const ES_AUTOHSCROLL: i32 = 128i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const ES_AUTOVSCROLL: i32 = 64i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const ES_CENTER: i32 = 1i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const ES_LEFT: i32 = 0i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const ES_LOWERCASE: i32 = 16i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const ES_MULTILINE: i32 = 4i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const ES_NOHIDESEL: i32 = 256i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const ES_NUMBER: i32 = 8192i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const ES_OEMCONVERT: i32 = 1024i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const ES_PASSWORD: i32 = 32i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const ES_READONLY: i32 = 2048i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const ES_RIGHT: i32 = 2i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const ES_UPPERCASE: i32 = 8i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const ES_WANTRETURN: i32 = 4096i32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub struct EVENTMSG {
     pub message: u32,
     pub paramL: u32,
@@ -2737,100 +3112,194 @@ unsafe impl ::windows::runtime::Abi for EVENTMSG {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_AIA_END: u32 = 45055u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_AIA_START: u32 = 40960u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_CONSOLE_CARET: u32 = 16385u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_CONSOLE_END: u32 = 16639u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_CONSOLE_END_APPLICATION: u32 = 16391u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_CONSOLE_LAYOUT: u32 = 16389u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_CONSOLE_START_APPLICATION: u32 = 16390u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_CONSOLE_UPDATE_REGION: u32 = 16386u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_CONSOLE_UPDATE_SCROLL: u32 = 16388u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_CONSOLE_UPDATE_SIMPLE: u32 = 16387u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_MAX: u32 = 2147483647u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_MIN: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_OBJECT_ACCELERATORCHANGE: u32 = 32786u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_OBJECT_CLOAKED: u32 = 32791u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_OBJECT_CONTENTSCROLLED: u32 = 32789u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_OBJECT_CREATE: u32 = 32768u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_OBJECT_DEFACTIONCHANGE: u32 = 32785u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_OBJECT_DESCRIPTIONCHANGE: u32 = 32781u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_OBJECT_DESTROY: u32 = 32769u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_OBJECT_DRAGCANCEL: u32 = 32802u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_OBJECT_DRAGCOMPLETE: u32 = 32803u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_OBJECT_DRAGDROPPED: u32 = 32806u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_OBJECT_DRAGENTER: u32 = 32804u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_OBJECT_DRAGLEAVE: u32 = 32805u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_OBJECT_DRAGSTART: u32 = 32801u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_OBJECT_END: u32 = 33023u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_OBJECT_FOCUS: u32 = 32773u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_OBJECT_HELPCHANGE: u32 = 32784u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_OBJECT_HIDE: u32 = 32771u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_OBJECT_HOSTEDOBJECTSINVALIDATED: u32 = 32800u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_OBJECT_IME_CHANGE: u32 = 32809u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_OBJECT_IME_HIDE: u32 = 32808u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_OBJECT_IME_SHOW: u32 = 32807u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_OBJECT_INVOKED: u32 = 32787u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_OBJECT_LIVEREGIONCHANGED: u32 = 32793u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_OBJECT_LOCATIONCHANGE: u32 = 32779u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_OBJECT_NAMECHANGE: u32 = 32780u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_OBJECT_PARENTCHANGE: u32 = 32783u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_OBJECT_REORDER: u32 = 32772u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_OBJECT_SELECTION: u32 = 32774u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_OBJECT_SELECTIONADD: u32 = 32775u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_OBJECT_SELECTIONREMOVE: u32 = 32776u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_OBJECT_SELECTIONWITHIN: u32 = 32777u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_OBJECT_SHOW: u32 = 32770u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_OBJECT_STATECHANGE: u32 = 32778u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_OBJECT_TEXTEDIT_CONVERSIONTARGETCHANGED: u32 = 32816u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_OBJECT_TEXTSELECTIONCHANGED: u32 = 32788u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_OBJECT_UNCLOAKED: u32 = 32792u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_OBJECT_VALUECHANGE: u32 = 32782u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_OEM_DEFINED_END: u32 = 511u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_OEM_DEFINED_START: u32 = 257u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_SYSTEM_ALERT: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_SYSTEM_ARRANGMENTPREVIEW: u32 = 32790u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_SYSTEM_CAPTUREEND: u32 = 9u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_SYSTEM_CAPTURESTART: u32 = 8u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_SYSTEM_CONTEXTHELPEND: u32 = 13u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_SYSTEM_CONTEXTHELPSTART: u32 = 12u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_SYSTEM_DESKTOPSWITCH: u32 = 32u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_SYSTEM_DIALOGEND: u32 = 17u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_SYSTEM_DIALOGSTART: u32 = 16u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_SYSTEM_DRAGDROPEND: u32 = 15u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_SYSTEM_DRAGDROPSTART: u32 = 14u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_SYSTEM_END: u32 = 255u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_SYSTEM_FOREGROUND: u32 = 3u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_SYSTEM_IME_KEY_NOTIFICATION: u32 = 41u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_SYSTEM_MENUEND: u32 = 5u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_SYSTEM_MENUPOPUPEND: u32 = 7u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_SYSTEM_MENUPOPUPSTART: u32 = 6u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_SYSTEM_MENUSTART: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_SYSTEM_MINIMIZEEND: u32 = 23u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_SYSTEM_MINIMIZESTART: u32 = 22u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_SYSTEM_MOVESIZEEND: u32 = 11u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_SYSTEM_MOVESIZESTART: u32 = 10u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_SYSTEM_SCROLLINGEND: u32 = 19u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_SYSTEM_SCROLLINGSTART: u32 = 18u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_SYSTEM_SOUND: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_SYSTEM_SWITCHEND: u32 = 21u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_SYSTEM_SWITCHER_APPDROPPED: u32 = 38u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_SYSTEM_SWITCHER_APPGRABBED: u32 = 36u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_SYSTEM_SWITCHER_APPOVERTARGET: u32 = 37u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_SYSTEM_SWITCHER_CANCELLED: u32 = 39u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_SYSTEM_SWITCHSTART: u32 = 20u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_UIA_EVENTID_END: u32 = 20223u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_UIA_EVENTID_START: u32 = 19968u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_UIA_PROPID_END: u32 = 30207u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_UIA_PROPID_START: u32 = 29952u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EWX_ARSO: u32 = 67108864u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EWX_BOOTOPTIONS: u32 = 16777216u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EWX_CHECK_SAFE_FOR_SERVER: u32 = 134217728u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EWX_FORCE: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EWX_FORCEIFHUNG: u32 = 16u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EWX_QUICKRESOLVE: u32 = 32u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EWX_SYSTEM_INITIATED: u32 = 268435456u32;
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn EnableMenuItem<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>>(hmenu: Param0, uidenableitem: u32, uenable: MENU_ITEM_FLAGS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -2845,6 +3314,7 @@ pub unsafe fn EnableMenuItem<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn EndDeferWindowPos(hwinposinfo: isize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -2859,6 +3329,7 @@ pub unsafe fn EndDeferWindowPos(hwinposinfo: isize) -> super::super::Foundation:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn EndDialog<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hdlg: Param0, nresult: isize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -2873,6 +3344,7 @@ pub unsafe fn EndDialog<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn EndMenu() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -2887,6 +3359,7 @@ pub unsafe fn EndMenu() -> super::super::Foundation::BOOL {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn EnumChildWindows<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hwndparent: Param0, lpenumfunc: ::std::option::Option<WNDENUMPROC>, lparam: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -2901,6 +3374,7 @@ pub unsafe fn EnumChildWindows<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn EnumPropsA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, lpenumfunc: ::std::option::Option<PROPENUMPROCA>) -> i32 {
     #[cfg(windows)]
@@ -2915,6 +3389,7 @@ pub unsafe fn EnumPropsA<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn EnumPropsExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hwnd: Param0, lpenumfunc: ::std::option::Option<PROPENUMPROCEXA>, lparam: Param2) -> i32 {
     #[cfg(windows)]
@@ -2929,6 +3404,7 @@ pub unsafe fn EnumPropsExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn EnumPropsExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hwnd: Param0, lpenumfunc: ::std::option::Option<PROPENUMPROCEXW>, lparam: Param2) -> i32 {
     #[cfg(windows)]
@@ -2943,6 +3419,7 @@ pub unsafe fn EnumPropsExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn EnumPropsW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, lpenumfunc: ::std::option::Option<PROPENUMPROCW>) -> i32 {
     #[cfg(windows)]
@@ -2957,6 +3434,7 @@ pub unsafe fn EnumPropsW<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn EnumThreadWindows<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(dwthreadid: u32, lpfn: ::std::option::Option<WNDENUMPROC>, lparam: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -2971,6 +3449,7 @@ pub unsafe fn EnumThreadWindows<'a, Param2: ::windows::runtime::IntoParam<'a, su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn EnumWindows<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(lpenumfunc: ::std::option::Option<WNDENUMPROC>, lparam: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -2984,26 +3463,44 @@ pub unsafe fn EnumWindows<'a, Param1: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const FALT: u32 = 16u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const FAPPCOMMAND_KEY: u32 = 0u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const FAPPCOMMAND_MASK: u32 = 61440u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const FAPPCOMMAND_MOUSE: u32 = 32768u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const FAPPCOMMAND_OEM: u32 = 4096u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const FCONTROL: u32 = 8u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const FE_FONTSMOOTHINGCLEARTYPE: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const FE_FONTSMOOTHINGORIENTATIONBGR: u32 = 0u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const FE_FONTSMOOTHINGORIENTATIONRGB: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const FE_FONTSMOOTHINGSTANDARD: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const FKF_AVAILABLE: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const FKF_CLICKON: u32 = 64u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const FKF_CONFIRMHOTKEY: u32 = 8u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const FKF_FILTERKEYSON: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const FKF_HOTKEYACTIVE: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const FKF_HOTKEYSOUND: u32 = 16u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const FKF_INDICATOR: u32 = 32u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub struct FLASHWINFO {
     pub cbSize: u32,
     pub hwnd: super::super::Foundation::HWND,
@@ -3038,6 +3535,7 @@ unsafe impl ::windows::runtime::Abi for FLASHWINFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FLASHWINFO_FLAGS(pub u32);
@@ -3084,7 +3582,9 @@ impl ::std::ops::Not for FLASHWINFO_FLAGS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const FNOINVERT: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FOREGROUND_WINDOW_LOCK_CODE(pub u32);
@@ -3127,9 +3627,12 @@ impl ::std::ops::Not for FOREGROUND_WINDOW_LOCK_CODE {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const FSHIFT: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const FVIRTKEY: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn FindWindowA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpclassname: Param0, lpwindowname: Param1) -> super::super::Foundation::HWND {
     #[cfg(windows)]
@@ -3144,6 +3647,7 @@ pub unsafe fn FindWindowA<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn FindWindowExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hwndparent: Param0, hwndchildafter: Param1, lpszclass: Param2, lpszwindow: Param3) -> super::super::Foundation::HWND {
     #[cfg(windows)]
@@ -3158,6 +3662,7 @@ pub unsafe fn FindWindowExA<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn FindWindowExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hwndparent: Param0, hwndchildafter: Param1, lpszclass: Param2, lpszwindow: Param3) -> super::super::Foundation::HWND {
     #[cfg(windows)]
@@ -3172,6 +3677,7 @@ pub unsafe fn FindWindowExW<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn FindWindowW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpclassname: Param0, lpwindowname: Param1) -> super::super::Foundation::HWND {
     #[cfg(windows)]
@@ -3186,6 +3692,7 @@ pub unsafe fn FindWindowW<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn FlashWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hwnd: Param0, binvert: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -3200,6 +3707,7 @@ pub unsafe fn FlashWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn FlashWindowEx(pfwi: *const FLASHWINFO) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -3213,7 +3721,9 @@ pub unsafe fn FlashWindowEx(pfwi: *const FLASHWINFO) -> super::super::Foundation
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const GCF_INCLUDE_ANCESTORS: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GDI_IMAGE_TYPE(pub u32);
@@ -3257,14 +3767,23 @@ impl ::std::ops::Not for GDI_IMAGE_TYPE {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const GESTURECONFIGMAXCOUNT: u32 = 256u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const GESTUREVISUALIZATION_DOUBLETAP: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const GESTUREVISUALIZATION_OFF: u32 = 0u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const GESTUREVISUALIZATION_ON: u32 = 31u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const GESTUREVISUALIZATION_PRESSANDHOLD: u32 = 8u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const GESTUREVISUALIZATION_PRESSANDTAP: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const GESTUREVISUALIZATION_RIGHTTAP: u32 = 16u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const GESTUREVISUALIZATION_TAP: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GET_ANCESTOR_FLAGS(pub u32);
@@ -3308,6 +3827,7 @@ impl ::std::ops::Not for GET_ANCESTOR_FLAGS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GET_CLASS_LONG_INDEX(pub i32);
@@ -3338,6 +3858,7 @@ unsafe impl ::windows::runtime::Abi for GET_CLASS_LONG_INDEX {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GET_MENU_DEFAULT_ITEM_FLAGS(pub u32);
@@ -3380,6 +3901,7 @@ impl ::std::ops::Not for GET_MENU_DEFAULT_ITEM_FLAGS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GET_WINDOW_CMD(pub u32);
@@ -3427,14 +3949,20 @@ impl ::std::ops::Not for GET_WINDOW_CMD {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const GF_BEGIN: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const GF_END: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const GF_INERTIA: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const GIDC_ARRIVAL: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const GIDC_REMOVAL: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub struct GUITHREADINFO {
     pub cbSize: u32,
     pub flags: GUITHREADINFO_FLAGS,
@@ -3483,6 +4011,7 @@ unsafe impl ::windows::runtime::Abi for GUITHREADINFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GUITHREADINFO_FLAGS(pub u32);
@@ -3528,10 +4057,14 @@ impl ::std::ops::Not for GUITHREADINFO_FLAGS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const GUI_16BITTASK: u32 = 0u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const GWFS_INCLUDE_ANCESTORS: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const GW_MAX: u32 = 5u32;
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetAltTabInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, iitem: i32, pati: *mut ALTTABINFO, pszitemtext: super::super::Foundation::PSTR, cchitemtext: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -3546,6 +4079,7 @@ pub unsafe fn GetAltTabInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetAltTabInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, iitem: i32, pati: *mut ALTTABINFO, pszitemtext: super::super::Foundation::PWSTR, cchitemtext: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -3560,6 +4094,7 @@ pub unsafe fn GetAltTabInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetAncestor<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, gaflags: GET_ANCESTOR_FLAGS) -> super::super::Foundation::HWND {
     #[cfg(windows)]
@@ -3573,6 +4108,7 @@ pub unsafe fn GetAncestor<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[inline]
 pub unsafe fn GetCaretBlinkTime() -> u32 {
     #[cfg(windows)]
@@ -3587,6 +4123,7 @@ pub unsafe fn GetCaretBlinkTime() -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetCaretPos(lppoint: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -3601,6 +4138,7 @@ pub unsafe fn GetCaretPos(lppoint: *mut super::super::Foundation::POINT) -> supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[inline]
 pub unsafe fn GetClassInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hinstance: Param0, lpclassname: Param1, lpwndclass: *mut WNDCLASSA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -3615,6 +4153,7 @@ pub unsafe fn GetClassInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[inline]
 pub unsafe fn GetClassInfoExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hinstance: Param0, lpszclass: Param1, lpwcx: *mut WNDCLASSEXA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -3629,6 +4168,7 @@ pub unsafe fn GetClassInfoExA<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[inline]
 pub unsafe fn GetClassInfoExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hinstance: Param0, lpszclass: Param1, lpwcx: *mut WNDCLASSEXW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -3643,6 +4183,7 @@ pub unsafe fn GetClassInfoExW<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[inline]
 pub unsafe fn GetClassInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hinstance: Param0, lpclassname: Param1, lpwndclass: *mut WNDCLASSW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -3657,6 +4198,7 @@ pub unsafe fn GetClassInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetClassLongA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, nindex: GET_CLASS_LONG_INDEX) -> u32 {
     #[cfg(windows)]
@@ -3671,6 +4213,7 @@ pub unsafe fn GetClassLongA<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetClassLongPtrA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, nindex: GET_CLASS_LONG_INDEX) -> usize {
     #[cfg(windows)]
@@ -3685,6 +4228,7 @@ pub unsafe fn GetClassLongPtrA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetClassLongPtrW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, nindex: GET_CLASS_LONG_INDEX) -> usize {
     #[cfg(windows)]
@@ -3699,6 +4243,7 @@ pub unsafe fn GetClassLongPtrW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetClassLongW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, nindex: GET_CLASS_LONG_INDEX) -> u32 {
     #[cfg(windows)]
@@ -3713,6 +4258,7 @@ pub unsafe fn GetClassLongW<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetClassNameA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, lpclassname: super::super::Foundation::PSTR, nmaxcount: i32) -> i32 {
     #[cfg(windows)]
@@ -3727,6 +4273,7 @@ pub unsafe fn GetClassNameA<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetClassNameW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, lpclassname: super::super::Foundation::PWSTR, nmaxcount: i32) -> i32 {
     #[cfg(windows)]
@@ -3741,6 +4288,7 @@ pub unsafe fn GetClassNameW<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetClassWord<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, nindex: i32) -> u16 {
     #[cfg(windows)]
@@ -3755,6 +4303,7 @@ pub unsafe fn GetClassWord<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetClientRect<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, lprect: *mut super::super::Foundation::RECT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -3769,6 +4318,7 @@ pub unsafe fn GetClientRect<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetClipCursor(lprect: *mut super::super::Foundation::RECT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -3782,6 +4332,7 @@ pub unsafe fn GetClipCursor(lprect: *mut super::super::Foundation::RECT) -> supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[inline]
 pub unsafe fn GetCursor() -> HCURSOR {
     #[cfg(windows)]
@@ -3796,6 +4347,7 @@ pub unsafe fn GetCursor() -> HCURSOR {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetCursorInfo(pci: *mut CURSORINFO) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -3810,6 +4362,7 @@ pub unsafe fn GetCursorInfo(pci: *mut CURSORINFO) -> super::super::Foundation::B
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetCursorPos(lppoint: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -3824,6 +4377,7 @@ pub unsafe fn GetCursorPos(lppoint: *mut super::super::Foundation::POINT) -> sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetDesktopWindow() -> super::super::Foundation::HWND {
     #[cfg(windows)]
@@ -3837,6 +4391,7 @@ pub unsafe fn GetDesktopWindow() -> super::super::Foundation::HWND {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[inline]
 pub unsafe fn GetDialogBaseUnits() -> i32 {
     #[cfg(windows)]
@@ -3851,6 +4406,7 @@ pub unsafe fn GetDialogBaseUnits() -> i32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetDlgCtrlID<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> i32 {
     #[cfg(windows)]
@@ -3865,6 +4421,7 @@ pub unsafe fn GetDlgCtrlID<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetDlgItem<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hdlg: Param0, niddlgitem: i32) -> super::super::Foundation::HWND {
     #[cfg(windows)]
@@ -3879,6 +4436,7 @@ pub unsafe fn GetDlgItem<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetDlgItemInt<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hdlg: Param0, niddlgitem: i32, lptranslated: *mut super::super::Foundation::BOOL, bsigned: Param3) -> u32 {
     #[cfg(windows)]
@@ -3893,6 +4451,7 @@ pub unsafe fn GetDlgItemInt<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetDlgItemTextA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hdlg: Param0, niddlgitem: i32, lpstring: super::super::Foundation::PSTR, cchmax: i32) -> u32 {
     #[cfg(windows)]
@@ -3907,6 +4466,7 @@ pub unsafe fn GetDlgItemTextA<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetDlgItemTextW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hdlg: Param0, niddlgitem: i32, lpstring: super::super::Foundation::PWSTR, cchmax: i32) -> u32 {
     #[cfg(windows)]
@@ -3921,6 +4481,7 @@ pub unsafe fn GetDlgItemTextW<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetForegroundWindow() -> super::super::Foundation::HWND {
     #[cfg(windows)]
@@ -3935,6 +4496,7 @@ pub unsafe fn GetForegroundWindow() -> super::super::Foundation::HWND {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetGUIThreadInfo(idthread: u32, pgui: *mut GUITHREADINFO) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -3949,6 +4511,7 @@ pub unsafe fn GetGUIThreadInfo(idthread: u32, pgui: *mut GUITHREADINFO) -> super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[inline]
 pub unsafe fn GetIconInfo<'a, Param0: ::windows::runtime::IntoParam<'a, HICON>>(hicon: Param0, piconinfo: *mut ICONINFO) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -3963,6 +4526,7 @@ pub unsafe fn GetIconInfo<'a, Param0: ::windows::runtime::IntoParam<'a, HICON>>(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[inline]
 pub unsafe fn GetIconInfoExA<'a, Param0: ::windows::runtime::IntoParam<'a, HICON>>(hicon: Param0, piconinfo: *mut ICONINFOEXA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -3977,6 +4541,7 @@ pub unsafe fn GetIconInfoExA<'a, Param0: ::windows::runtime::IntoParam<'a, HICON
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[inline]
 pub unsafe fn GetIconInfoExW<'a, Param0: ::windows::runtime::IntoParam<'a, HICON>>(hicon: Param0, piconinfo: *mut ICONINFOEXW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -3991,6 +4556,7 @@ pub unsafe fn GetIconInfoExW<'a, Param0: ::windows::runtime::IntoParam<'a, HICON
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetInputState() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -4005,6 +4571,7 @@ pub unsafe fn GetInputState() -> super::super::Foundation::BOOL {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetLastActivePopup<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> super::super::Foundation::HWND {
     #[cfg(windows)]
@@ -4019,6 +4586,7 @@ pub unsafe fn GetLastActivePopup<'a, Param0: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetLayeredWindowAttributes<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, pcrkey: *mut u32, pbalpha: *mut u8, pdwflags: *mut LAYERED_WINDOW_ATTRIBUTES_FLAGS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -4033,6 +4601,7 @@ pub unsafe fn GetLayeredWindowAttributes<'a, Param0: ::windows::runtime::IntoPar
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetMenu<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> HMENU {
     #[cfg(windows)]
@@ -4047,6 +4616,7 @@ pub unsafe fn GetMenu<'a, Param0: ::windows::runtime::IntoParam<'a, super::super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetMenuBarInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, idobject: OBJECT_IDENTIFIER, iditem: i32, pmbi: *mut MENUBARINFO) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -4060,6 +4630,7 @@ pub unsafe fn GetMenuBarInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[inline]
 pub unsafe fn GetMenuCheckMarkDimensions() -> i32 {
     #[cfg(windows)]
@@ -4073,6 +4644,7 @@ pub unsafe fn GetMenuCheckMarkDimensions() -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[inline]
 pub unsafe fn GetMenuDefaultItem<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>>(hmenu: Param0, fbypos: u32, gmdiflags: GET_MENU_DEFAULT_ITEM_FLAGS) -> u32 {
     #[cfg(windows)]
@@ -4087,6 +4659,7 @@ pub unsafe fn GetMenuDefaultItem<'a, Param0: ::windows::runtime::IntoParam<'a, H
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[inline]
 pub unsafe fn GetMenuInfo<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>>(param0: Param0, param1: *mut MENUINFO) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -4100,6 +4673,7 @@ pub unsafe fn GetMenuInfo<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>>(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[inline]
 pub unsafe fn GetMenuItemCount<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>>(hmenu: Param0) -> i32 {
     #[cfg(windows)]
@@ -4113,6 +4687,7 @@ pub unsafe fn GetMenuItemCount<'a, Param0: ::windows::runtime::IntoParam<'a, HME
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[inline]
 pub unsafe fn GetMenuItemID<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>>(hmenu: Param0, npos: i32) -> u32 {
     #[cfg(windows)]
@@ -4127,6 +4702,7 @@ pub unsafe fn GetMenuItemID<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[inline]
 pub unsafe fn GetMenuItemInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hmenu: Param0, item: u32, fbyposition: Param2, lpmii: *mut MENUITEMINFOA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -4141,6 +4717,7 @@ pub unsafe fn GetMenuItemInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, HME
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[inline]
 pub unsafe fn GetMenuItemInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hmenu: Param0, item: u32, fbyposition: Param2, lpmii: *mut MENUITEMINFOW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -4155,6 +4732,7 @@ pub unsafe fn GetMenuItemInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, HME
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetMenuItemRect<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, HMENU>>(hwnd: Param0, hmenu: Param1, uitem: u32, lprcitem: *mut super::super::Foundation::RECT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -4168,6 +4746,7 @@ pub unsafe fn GetMenuItemRect<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[inline]
 pub unsafe fn GetMenuState<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>>(hmenu: Param0, uid: u32, uflags: MENU_ITEM_FLAGS) -> u32 {
     #[cfg(windows)]
@@ -4182,6 +4761,7 @@ pub unsafe fn GetMenuState<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>>
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetMenuStringA<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>>(hmenu: Param0, uiditem: u32, lpstring: super::super::Foundation::PSTR, cchmax: i32, flags: MENU_ITEM_FLAGS) -> i32 {
     #[cfg(windows)]
@@ -4196,6 +4776,7 @@ pub unsafe fn GetMenuStringA<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetMenuStringW<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>>(hmenu: Param0, uiditem: u32, lpstring: super::super::Foundation::PWSTR, cchmax: i32, flags: MENU_ITEM_FLAGS) -> i32 {
     #[cfg(windows)]
@@ -4210,6 +4791,7 @@ pub unsafe fn GetMenuStringW<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetMessageA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(lpmsg: *mut MSG, hwnd: Param1, wmsgfiltermin: u32, wmsgfiltermax: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -4224,6 +4806,7 @@ pub unsafe fn GetMessageA<'a, Param1: ::windows::runtime::IntoParam<'a, super::s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetMessageExtraInfo() -> super::super::Foundation::LPARAM {
     #[cfg(windows)]
@@ -4237,6 +4820,7 @@ pub unsafe fn GetMessageExtraInfo() -> super::super::Foundation::LPARAM {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[inline]
 pub unsafe fn GetMessagePos() -> u32 {
     #[cfg(windows)]
@@ -4250,6 +4834,7 @@ pub unsafe fn GetMessagePos() -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[inline]
 pub unsafe fn GetMessageTime() -> i32 {
     #[cfg(windows)]
@@ -4264,6 +4849,7 @@ pub unsafe fn GetMessageTime() -> i32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetMessageW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(lpmsg: *mut MSG, hwnd: Param1, wmsgfiltermin: u32, wmsgfiltermax: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -4278,6 +4864,7 @@ pub unsafe fn GetMessageW<'a, Param1: ::windows::runtime::IntoParam<'a, super::s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetNextDlgGroupItem<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hdlg: Param0, hctl: Param1, bprevious: Param2) -> super::super::Foundation::HWND {
     #[cfg(windows)]
@@ -4292,6 +4879,7 @@ pub unsafe fn GetNextDlgGroupItem<'a, Param0: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetNextDlgTabItem<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hdlg: Param0, hctl: Param1, bprevious: Param2) -> super::super::Foundation::HWND {
     #[cfg(windows)]
@@ -4306,6 +4894,7 @@ pub unsafe fn GetNextDlgTabItem<'a, Param0: ::windows::runtime::IntoParam<'a, su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetParent<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> super::super::Foundation::HWND {
     #[cfg(windows)]
@@ -4320,6 +4909,7 @@ pub unsafe fn GetParent<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetPhysicalCursorPos(lppoint: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -4334,6 +4924,7 @@ pub unsafe fn GetPhysicalCursorPos(lppoint: *mut super::super::Foundation::POINT
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetProcessDefaultLayout(pdwdefaultlayout: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -4348,6 +4939,7 @@ pub unsafe fn GetProcessDefaultLayout(pdwdefaultlayout: *mut u32) -> super::supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetPropA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hwnd: Param0, lpstring: Param1) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
@@ -4362,6 +4954,7 @@ pub unsafe fn GetPropA<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetPropW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hwnd: Param0, lpstring: Param1) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
@@ -4375,6 +4968,7 @@ pub unsafe fn GetPropW<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[inline]
 pub unsafe fn GetQueueStatus(flags: QUEUE_STATUS_FLAGS) -> u32 {
     #[cfg(windows)]
@@ -4389,6 +4983,7 @@ pub unsafe fn GetQueueStatus(flags: QUEUE_STATUS_FLAGS) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetScrollBarInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, idobject: OBJECT_IDENTIFIER, psbi: *mut SCROLLBARINFO) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -4403,6 +4998,7 @@ pub unsafe fn GetScrollBarInfo<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetScrollInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, nbar: SCROLLBAR_CONSTANTS, lpsi: *mut SCROLLINFO) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -4417,6 +5013,7 @@ pub unsafe fn GetScrollInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetScrollPos<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, nbar: SCROLLBAR_CONSTANTS) -> i32 {
     #[cfg(windows)]
@@ -4431,6 +5028,7 @@ pub unsafe fn GetScrollPos<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetScrollRange<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, nbar: SCROLLBAR_CONSTANTS, lpminpos: *mut i32, lpmaxpos: *mut i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -4445,6 +5043,7 @@ pub unsafe fn GetScrollRange<'a, Param0: ::windows::runtime::IntoParam<'a, super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetShellWindow() -> super::super::Foundation::HWND {
     #[cfg(windows)]
@@ -4458,6 +5057,7 @@ pub unsafe fn GetShellWindow() -> super::super::Foundation::HWND {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[inline]
 pub unsafe fn GetSubMenu<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>>(hmenu: Param0, npos: i32) -> HMENU {
     #[cfg(windows)]
@@ -4471,6 +5071,7 @@ pub unsafe fn GetSubMenu<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>>(h
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[inline]
 pub unsafe fn GetSysColor(nindex: SYS_COLOR_INDEX) -> u32 {
     #[cfg(windows)]
@@ -4485,6 +5086,7 @@ pub unsafe fn GetSysColor(nindex: SYS_COLOR_INDEX) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetSystemMenu<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hwnd: Param0, brevert: Param1) -> HMENU {
     #[cfg(windows)]
@@ -4498,6 +5100,7 @@ pub unsafe fn GetSystemMenu<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[inline]
 pub unsafe fn GetSystemMetrics(nindex: SYSTEM_METRICS_INDEX) -> i32 {
     #[cfg(windows)]
@@ -4512,6 +5115,7 @@ pub unsafe fn GetSystemMetrics(nindex: SYSTEM_METRICS_INDEX) -> i32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetTitleBarInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, pti: *mut TITLEBARINFO) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -4526,6 +5130,7 @@ pub unsafe fn GetTitleBarInfo<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetTopWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> super::super::Foundation::HWND {
     #[cfg(windows)]
@@ -4540,6 +5145,7 @@ pub unsafe fn GetTopWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, ucmd: GET_WINDOW_CMD) -> super::super::Foundation::HWND {
     #[cfg(windows)]
@@ -4554,6 +5160,7 @@ pub unsafe fn GetWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetWindowDisplayAffinity<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, pdwaffinity: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -4568,6 +5175,7 @@ pub unsafe fn GetWindowDisplayAffinity<'a, Param0: ::windows::runtime::IntoParam
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetWindowInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, pwi: *mut WINDOWINFO) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -4582,6 +5190,7 @@ pub unsafe fn GetWindowInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetWindowLongA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, nindex: WINDOW_LONG_PTR_INDEX) -> i32 {
     #[cfg(windows)]
@@ -4596,6 +5205,7 @@ pub unsafe fn GetWindowLongA<'a, Param0: ::windows::runtime::IntoParam<'a, super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetWindowLongPtrA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, nindex: WINDOW_LONG_PTR_INDEX) -> isize {
     #[cfg(windows)]
@@ -4610,6 +5220,7 @@ pub unsafe fn GetWindowLongPtrA<'a, Param0: ::windows::runtime::IntoParam<'a, su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetWindowLongPtrW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, nindex: WINDOW_LONG_PTR_INDEX) -> isize {
     #[cfg(windows)]
@@ -4624,6 +5235,7 @@ pub unsafe fn GetWindowLongPtrW<'a, Param0: ::windows::runtime::IntoParam<'a, su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetWindowLongW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, nindex: WINDOW_LONG_PTR_INDEX) -> i32 {
     #[cfg(windows)]
@@ -4638,6 +5250,7 @@ pub unsafe fn GetWindowLongW<'a, Param0: ::windows::runtime::IntoParam<'a, super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetWindowModuleFileNameA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, pszfilename: super::super::Foundation::PSTR, cchfilenamemax: u32) -> u32 {
     #[cfg(windows)]
@@ -4652,6 +5265,7 @@ pub unsafe fn GetWindowModuleFileNameA<'a, Param0: ::windows::runtime::IntoParam
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetWindowModuleFileNameW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, pszfilename: super::super::Foundation::PWSTR, cchfilenamemax: u32) -> u32 {
     #[cfg(windows)]
@@ -4666,6 +5280,7 @@ pub unsafe fn GetWindowModuleFileNameW<'a, Param0: ::windows::runtime::IntoParam
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetWindowPlacement<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, lpwndpl: *mut WINDOWPLACEMENT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -4680,6 +5295,7 @@ pub unsafe fn GetWindowPlacement<'a, Param0: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetWindowRect<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, lprect: *mut super::super::Foundation::RECT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -4694,6 +5310,7 @@ pub unsafe fn GetWindowRect<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetWindowTextA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, lpstring: super::super::Foundation::PSTR, nmaxcount: i32) -> i32 {
     #[cfg(windows)]
@@ -4708,6 +5325,7 @@ pub unsafe fn GetWindowTextA<'a, Param0: ::windows::runtime::IntoParam<'a, super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetWindowTextLengthA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> i32 {
     #[cfg(windows)]
@@ -4722,6 +5340,7 @@ pub unsafe fn GetWindowTextLengthA<'a, Param0: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetWindowTextLengthW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> i32 {
     #[cfg(windows)]
@@ -4736,6 +5355,7 @@ pub unsafe fn GetWindowTextLengthW<'a, Param0: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetWindowTextW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, lpstring: super::super::Foundation::PWSTR, nmaxcount: i32) -> i32 {
     #[cfg(windows)]
@@ -4750,6 +5370,7 @@ pub unsafe fn GetWindowTextW<'a, Param0: ::windows::runtime::IntoParam<'a, super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetWindowThreadProcessId<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, lpdwprocessid: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -4764,6 +5385,7 @@ pub unsafe fn GetWindowThreadProcessId<'a, Param0: ::windows::runtime::IntoParam
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetWindowWord<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, nindex: i32) -> u16 {
     #[cfg(windows)]
@@ -4790,6 +5412,7 @@ unsafe impl ::windows::runtime::Abi for HACCEL {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HANDEDNESS(pub i32);
@@ -4807,6 +5430,7 @@ unsafe impl ::windows::runtime::Abi for HANDEDNESS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub struct HARDWAREHOOKSTRUCT {
     pub hwnd: super::super::Foundation::HWND,
     pub message: u32,
@@ -4841,38 +5465,61 @@ unsafe impl ::windows::runtime::Abi for HARDWAREHOOKSTRUCT {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Graphics_Gdi`*"]
 pub const HBMMENU_CALLBACK: super::super::Graphics::Gdi::HBITMAP = super::super::Graphics::Gdi::HBITMAP(-1i32 as _);
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Graphics_Gdi`*"]
 pub const HBMMENU_MBAR_CLOSE: super::super::Graphics::Gdi::HBITMAP = super::super::Graphics::Gdi::HBITMAP(5i32 as _);
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Graphics_Gdi`*"]
 pub const HBMMENU_MBAR_CLOSE_D: super::super::Graphics::Gdi::HBITMAP = super::super::Graphics::Gdi::HBITMAP(6i32 as _);
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Graphics_Gdi`*"]
 pub const HBMMENU_MBAR_MINIMIZE: super::super::Graphics::Gdi::HBITMAP = super::super::Graphics::Gdi::HBITMAP(3i32 as _);
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Graphics_Gdi`*"]
 pub const HBMMENU_MBAR_MINIMIZE_D: super::super::Graphics::Gdi::HBITMAP = super::super::Graphics::Gdi::HBITMAP(7i32 as _);
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Graphics_Gdi`*"]
 pub const HBMMENU_MBAR_RESTORE: super::super::Graphics::Gdi::HBITMAP = super::super::Graphics::Gdi::HBITMAP(2i32 as _);
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Graphics_Gdi`*"]
 pub const HBMMENU_POPUP_CLOSE: super::super::Graphics::Gdi::HBITMAP = super::super::Graphics::Gdi::HBITMAP(8i32 as _);
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Graphics_Gdi`*"]
 pub const HBMMENU_POPUP_MAXIMIZE: super::super::Graphics::Gdi::HBITMAP = super::super::Graphics::Gdi::HBITMAP(10i32 as _);
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Graphics_Gdi`*"]
 pub const HBMMENU_POPUP_MINIMIZE: super::super::Graphics::Gdi::HBITMAP = super::super::Graphics::Gdi::HBITMAP(11i32 as _);
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Graphics_Gdi`*"]
 pub const HBMMENU_POPUP_RESTORE: super::super::Graphics::Gdi::HBITMAP = super::super::Graphics::Gdi::HBITMAP(9i32 as _);
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Graphics_Gdi`*"]
 pub const HBMMENU_SYSTEM: super::super::Graphics::Gdi::HBITMAP = super::super::Graphics::Gdi::HBITMAP(1i32 as _);
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HCBT_ACTIVATE: u32 = 5u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HCBT_CLICKSKIPPED: u32 = 6u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HCBT_CREATEWND: u32 = 3u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HCBT_DESTROYWND: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HCBT_KEYSKIPPED: u32 = 7u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HCBT_MINMAX: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HCBT_MOVESIZE: u32 = 0u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HCBT_QS: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HCBT_SETFOCUS: u32 = 9u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HCBT_SYSCOMMAND: u32 = 8u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HCF_DEFAULTDESKTOP: u32 = 512u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HCF_LOGONDESKTOP: u32 = 256u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -4892,35 +5539,65 @@ impl<'a> ::windows::runtime::IntoParam<'a, HICON> for HCURSOR {
         ::windows::runtime::Param::Owned(HICON(self.0))
     }
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HC_ACTION: u32 = 0u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HC_GETNEXT: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HC_NOREM: u32 = 3u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HC_NOREMOVE: u32 = 3u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HC_SKIP: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HC_SYSMODALOFF: u32 = 5u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HC_SYSMODALON: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HELPINFO_MENUITEM: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HELPINFO_WINDOW: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HELP_COMMAND: i32 = 258i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HELP_CONTENTS: i32 = 3i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HELP_CONTEXT: i32 = 1i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HELP_CONTEXTMENU: u32 = 10u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HELP_CONTEXTPOPUP: i32 = 8i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HELP_FINDER: u32 = 11u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HELP_FORCEFILE: i32 = 9i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HELP_HELPONHELP: i32 = 4i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HELP_INDEX: i32 = 3i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HELP_KEY: i32 = 257i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HELP_MULTIKEY: i32 = 513i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HELP_PARTIALKEY: i32 = 261i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HELP_QUIT: i32 = 2i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HELP_SETCONTENTS: i32 = 5i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HELP_SETINDEX: i32 = 5i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HELP_SETPOPUP_POS: u32 = 13u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HELP_SETWINPOS: i32 = 515i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HELP_TCARD: u32 = 32768u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HELP_TCARD_DATA: u32 = 16u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HELP_TCARD_OTHER_CALLER: u32 = 17u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HELP_WM_HELP: u32 = 12u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -4948,8 +5625,11 @@ unsafe impl ::windows::runtime::Abi for HICON {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HIDE_WINDOW: u32 = 0u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HKL_NEXT: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HKL_PREV: u32 = 0u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -4966,64 +5646,116 @@ unsafe impl ::windows::runtime::Abi for HMENU {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type HOOKPROC = unsafe extern "system" fn(code: i32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HSHELL_ACCESSIBILITYSTATE: u32 = 11u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HSHELL_ACTIVATESHELLWINDOW: u32 = 3u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HSHELL_APPCOMMAND: u32 = 12u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HSHELL_ENDTASK: u32 = 10u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HSHELL_GETMINRECT: u32 = 5u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HSHELL_HIGHBIT: u32 = 32768u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HSHELL_LANGUAGE: u32 = 8u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HSHELL_MONITORCHANGED: u32 = 16u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HSHELL_REDRAW: u32 = 6u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HSHELL_SYSMENU: u32 = 9u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HSHELL_TASKMAN: u32 = 7u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HSHELL_WINDOWACTIVATED: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HSHELL_WINDOWCREATED: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HSHELL_WINDOWDESTROYED: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HSHELL_WINDOWREPLACED: u32 = 13u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HSHELL_WINDOWREPLACING: u32 = 14u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HTBORDER: u32 = 18u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HTBOTTOM: u32 = 15u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HTBOTTOMLEFT: u32 = 16u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HTBOTTOMRIGHT: u32 = 17u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HTCAPTION: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HTCLIENT: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HTCLOSE: u32 = 20u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HTERROR: i32 = -2i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HTGROWBOX: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HTHELP: u32 = 21u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HTHSCROLL: u32 = 6u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HTLEFT: u32 = 10u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HTMAXBUTTON: u32 = 9u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HTMENU: u32 = 5u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HTMINBUTTON: u32 = 8u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HTNOWHERE: u32 = 0u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HTOBJECT: u32 = 19u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HTREDUCE: u32 = 8u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HTRIGHT: u32 = 11u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HTSIZE: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HTSIZEFIRST: u32 = 10u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HTSIZELAST: u32 = 17u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HTSYSMENU: u32 = 3u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HTTOP: u32 = 12u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HTTOPLEFT: u32 = 13u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HTTOPRIGHT: u32 = 14u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HTTRANSPARENT: i32 = -1i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HTVSCROLL: u32 = 7u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HTZOOM: u32 = 9u32;
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub const HWND_BOTTOM: super::super::Foundation::HWND = super::super::Foundation::HWND(1i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub const HWND_DESKTOP: super::super::Foundation::HWND = super::super::Foundation::HWND(0i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub const HWND_MESSAGE: super::super::Foundation::HWND = super::super::Foundation::HWND(-3i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub const HWND_NOTOPMOST: super::super::Foundation::HWND = super::super::Foundation::HWND(-2i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub const HWND_TOP: super::super::Foundation::HWND = super::super::Foundation::HWND(0i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub const HWND_TOPMOST: super::super::Foundation::HWND = super::super::Foundation::HWND(-1i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn HideCaret<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5038,6 +5770,7 @@ pub unsafe fn HideCaret<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn HiliteMenuItem<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, HMENU>>(hwnd: Param0, hmenu: Param1, uidhiliteitem: u32, uhilite: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5054,6 +5787,7 @@ pub unsafe fn HiliteMenuItem<'a, Param0: ::windows::runtime::IntoParam<'a, super
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 pub struct ICONINFO {
     pub fIcon: super::super::Foundation::BOOL,
     pub xHotspot: u32,
@@ -5091,6 +5825,7 @@ unsafe impl ::windows::runtime::Abi for ICONINFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 pub struct ICONINFOEXA {
     pub cbSize: u32,
     pub fIcon: super::super::Foundation::BOOL,
@@ -5142,6 +5877,7 @@ unsafe impl ::windows::runtime::Abi for ICONINFOEXA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 pub struct ICONINFOEXW {
     pub cbSize: u32,
     pub fIcon: super::super::Foundation::BOOL,
@@ -5193,6 +5929,7 @@ unsafe impl ::windows::runtime::Abi for ICONINFOEXW {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 pub struct ICONMETRICSA {
     pub cbSize: u32,
     pub iHorzSpacing: i32,
@@ -5230,6 +5967,7 @@ unsafe impl ::windows::runtime::Abi for ICONMETRICSA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Graphics_Gdi`*"]
 pub struct ICONMETRICSW {
     pub cbSize: u32,
     pub iHorzSpacing: i32,
@@ -5264,73 +6002,116 @@ unsafe impl ::windows::runtime::Abi for ICONMETRICSW {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const ICON_BIG: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const ICON_SMALL: u32 = 0u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const ICON_SMALL2: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const IDANI_CAPTION: u32 = 3u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const IDANI_OPEN: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub const IDC_APPSTARTING: super::super::Foundation::PWSTR = super::super::Foundation::PWSTR(32650i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub const IDC_ARROW: super::super::Foundation::PWSTR = super::super::Foundation::PWSTR(32512i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub const IDC_CROSS: super::super::Foundation::PWSTR = super::super::Foundation::PWSTR(32515i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub const IDC_HAND: super::super::Foundation::PWSTR = super::super::Foundation::PWSTR(32649i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub const IDC_HELP: super::super::Foundation::PWSTR = super::super::Foundation::PWSTR(32651i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub const IDC_IBEAM: super::super::Foundation::PWSTR = super::super::Foundation::PWSTR(32513i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub const IDC_ICON: super::super::Foundation::PWSTR = super::super::Foundation::PWSTR(32641i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub const IDC_NO: super::super::Foundation::PWSTR = super::super::Foundation::PWSTR(32648i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub const IDC_PERSON: super::super::Foundation::PWSTR = super::super::Foundation::PWSTR(32672i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub const IDC_PIN: super::super::Foundation::PWSTR = super::super::Foundation::PWSTR(32671i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub const IDC_SIZE: super::super::Foundation::PWSTR = super::super::Foundation::PWSTR(32640i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub const IDC_SIZEALL: super::super::Foundation::PWSTR = super::super::Foundation::PWSTR(32646i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub const IDC_SIZENESW: super::super::Foundation::PWSTR = super::super::Foundation::PWSTR(32643i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub const IDC_SIZENS: super::super::Foundation::PWSTR = super::super::Foundation::PWSTR(32645i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub const IDC_SIZENWSE: super::super::Foundation::PWSTR = super::super::Foundation::PWSTR(32642i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub const IDC_SIZEWE: super::super::Foundation::PWSTR = super::super::Foundation::PWSTR(32644i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub const IDC_UPARROW: super::super::Foundation::PWSTR = super::super::Foundation::PWSTR(32516i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub const IDC_WAIT: super::super::Foundation::PWSTR = super::super::Foundation::PWSTR(32514i32 as _);
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const IDHOT_SNAPDESKTOP: i32 = -2i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const IDHOT_SNAPWINDOW: i32 = -1i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const IDH_CANCEL: u32 = 28444u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const IDH_GENERIC_HELP_BUTTON: u32 = 28442u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const IDH_HELP: u32 = 28445u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const IDH_MISSING_CONTEXT: u32 = 28441u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const IDH_NO_HELP: u32 = 28440u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const IDH_OK: u32 = 28443u32;
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub const IDI_APPLICATION: super::super::Foundation::PWSTR = super::super::Foundation::PWSTR(32512u32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub const IDI_ASTERISK: super::super::Foundation::PWSTR = super::super::Foundation::PWSTR(32516u32 as _);
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const IDI_ERROR: u32 = 32513u32;
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub const IDI_EXCLAMATION: super::super::Foundation::PWSTR = super::super::Foundation::PWSTR(32515u32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub const IDI_HAND: super::super::Foundation::PWSTR = super::super::Foundation::PWSTR(32513u32 as _);
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const IDI_INFORMATION: u32 = 32516u32;
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub const IDI_QUESTION: super::super::Foundation::PWSTR = super::super::Foundation::PWSTR(32514u32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub const IDI_SHIELD: super::super::Foundation::PWSTR = super::super::Foundation::PWSTR(32518u32 as _);
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const IDI_WARNING: u32 = 32515u32;
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub const IDI_WINLOGO: super::super::Foundation::PWSTR = super::super::Foundation::PWSTR(32517u32 as _);
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const IMAGE_ENHMETAFILE: u32 = 3u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IMAGE_FLAGS(pub u32);
@@ -5383,21 +6164,36 @@ impl ::std::ops::Not for IMAGE_FLAGS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const INDEXID_CONTAINER: u32 = 0u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const INDEXID_OBJECT: u32 = 0u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const INPUTLANGCHANGE_BACKWARD: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const INPUTLANGCHANGE_FORWARD: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const INPUTLANGCHANGE_SYSCHARSET: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const ISMEX_CALLBACK: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const ISMEX_NOSEND: u32 = 0u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const ISMEX_NOTIFY: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const ISMEX_REPLIED: u32 = 8u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const ISMEX_SEND: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const ISOLATIONAWARE_MANIFEST_RESOURCE_ID: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const ISOLATIONAWARE_NOSTATICIMPORT_MANIFEST_RESOURCE_ID: u32 = 3u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const ISOLATIONPOLICY_BROWSER_MANIFEST_RESOURCE_ID: u32 = 5u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const ISOLATIONPOLICY_MANIFEST_RESOURCE_ID: u32 = 4u32;
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn InSendMessage() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5411,6 +6207,7 @@ pub unsafe fn InSendMessage() -> super::super::Foundation::BOOL {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[inline]
 pub unsafe fn InSendMessageEx(lpreserved: *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -5425,6 +6222,7 @@ pub unsafe fn InSendMessageEx(lpreserved: *mut ::std::ffi::c_void) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn IndexFilePath<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(resourceindexer: *const ::std::ffi::c_void, filepath: Param1, ppresourceuri: *mut super::super::Foundation::PWSTR, pqualifiercount: *mut u32, ppqualifiers: *mut *mut IndexedResourceQualifier) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5441,6 +6239,7 @@ pub unsafe fn IndexFilePath<'a, Param1: ::windows::runtime::IntoParam<'a, super:
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub struct IndexedResourceQualifier {
     pub name: super::super::Foundation::PWSTR,
     pub value: super::super::Foundation::PWSTR,
@@ -5473,6 +6272,7 @@ unsafe impl ::windows::runtime::Abi for IndexedResourceQualifier {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn InheritWindowMonitor<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, hwndinherit: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5487,6 +6287,7 @@ pub unsafe fn InheritWindowMonitor<'a, Param0: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn InsertMenuA<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hmenu: Param0, uposition: u32, uflags: MENU_ITEM_FLAGS, uidnewitem: usize, lpnewitem: Param4) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5501,6 +6302,7 @@ pub unsafe fn InsertMenuA<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[inline]
 pub unsafe fn InsertMenuItemA<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hmenu: Param0, item: u32, fbyposition: Param2, lpmi: *const MENUITEMINFOA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5515,6 +6317,7 @@ pub unsafe fn InsertMenuItemA<'a, Param0: ::windows::runtime::IntoParam<'a, HMEN
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[inline]
 pub unsafe fn InsertMenuItemW<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hmenu: Param0, item: u32, fbyposition: Param2, lpmi: *const MENUITEMINFOW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5529,6 +6332,7 @@ pub unsafe fn InsertMenuItemW<'a, Param0: ::windows::runtime::IntoParam<'a, HMEN
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn InsertMenuW<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hmenu: Param0, uposition: u32, uflags: MENU_ITEM_FLAGS, uidnewitem: usize, lpnewitem: Param4) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5543,6 +6347,7 @@ pub unsafe fn InsertMenuW<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn InternalGetWindowText<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, pstring: super::super::Foundation::PWSTR, cchmaxcount: i32) -> i32 {
     #[cfg(windows)]
@@ -5557,6 +6362,7 @@ pub unsafe fn InternalGetWindowText<'a, Param0: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn IsCharAlphaA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::CHAR>>(ch: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5571,6 +6377,7 @@ pub unsafe fn IsCharAlphaA<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn IsCharAlphaNumericA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::CHAR>>(ch: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5585,6 +6392,7 @@ pub unsafe fn IsCharAlphaNumericA<'a, Param0: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn IsCharAlphaNumericW(ch: u16) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5599,6 +6407,7 @@ pub unsafe fn IsCharAlphaNumericW(ch: u16) -> super::super::Foundation::BOOL {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn IsCharAlphaW(ch: u16) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5613,6 +6422,7 @@ pub unsafe fn IsCharAlphaW(ch: u16) -> super::super::Foundation::BOOL {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn IsCharLowerA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::CHAR>>(ch: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5627,6 +6437,7 @@ pub unsafe fn IsCharLowerA<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn IsCharUpperA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::CHAR>>(ch: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5641,6 +6452,7 @@ pub unsafe fn IsCharUpperA<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn IsCharUpperW(ch: u16) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5655,6 +6467,7 @@ pub unsafe fn IsCharUpperW(ch: u16) -> super::super::Foundation::BOOL {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn IsChild<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwndparent: Param0, hwnd: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5669,6 +6482,7 @@ pub unsafe fn IsChild<'a, Param0: ::windows::runtime::IntoParam<'a, super::super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn IsDialogMessageA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hdlg: Param0, lpmsg: *const MSG) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5683,6 +6497,7 @@ pub unsafe fn IsDialogMessageA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn IsDialogMessageW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hdlg: Param0, lpmsg: *const MSG) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5697,6 +6512,7 @@ pub unsafe fn IsDialogMessageW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn IsGUIThread<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(bconvert: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5711,6 +6527,7 @@ pub unsafe fn IsGUIThread<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn IsHungAppWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5725,6 +6542,7 @@ pub unsafe fn IsHungAppWindow<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn IsIconic<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5739,6 +6557,7 @@ pub unsafe fn IsIconic<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn IsMenu<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>>(hmenu: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5753,6 +6572,7 @@ pub unsafe fn IsMenu<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>>(hmenu
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn IsProcessDPIAware() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5767,6 +6587,7 @@ pub unsafe fn IsProcessDPIAware() -> super::super::Foundation::BOOL {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn IsWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5781,6 +6602,7 @@ pub unsafe fn IsWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn IsWindowUnicode<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5795,6 +6617,7 @@ pub unsafe fn IsWindowUnicode<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn IsWindowVisible<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5809,6 +6632,7 @@ pub unsafe fn IsWindowVisible<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn IsWow64Message() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5823,6 +6647,7 @@ pub unsafe fn IsWow64Message() -> super::super::Foundation::BOOL {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn IsZoomed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5838,6 +6663,7 @@ pub unsafe fn IsZoomed<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub struct KBDLLHOOKSTRUCT {
     pub vkCode: u32,
     pub scanCode: u32,
@@ -5866,6 +6692,7 @@ unsafe impl ::windows::runtime::Abi for KBDLLHOOKSTRUCT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct KBDLLHOOKSTRUCT_FLAGS(pub u32);
@@ -5911,14 +6738,22 @@ impl ::std::ops::Not for KBDLLHOOKSTRUCT_FLAGS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const KF_ALTDOWN: u32 = 8192u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const KF_DLGMODE: u32 = 2048u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const KF_EXTENDED: u32 = 256u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const KF_MENUMODE: u32 = 4096u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const KF_REPEAT: u32 = 16384u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const KF_UP: u32 = 32768u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const KL_NAMELENGTH: u32 = 9u32;
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn KillTimer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, uidevent: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5932,6 +6767,7 @@ pub unsafe fn KillTimer<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct LAYERED_WINDOW_ATTRIBUTES_FLAGS(pub u32);
@@ -5974,80 +6810,154 @@ impl ::std::ops::Not for LAYERED_WINDOW_ATTRIBUTES_FLAGS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const LBN_DBLCLK: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const LBN_ERRSPACE: i32 = -2i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const LBN_KILLFOCUS: u32 = 5u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const LBN_SELCANCEL: u32 = 3u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const LBN_SELCHANGE: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const LBN_SETFOCUS: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const LBS_COMBOBOX: i32 = 32768i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const LBS_DISABLENOSCROLL: i32 = 4096i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const LBS_EXTENDEDSEL: i32 = 2048i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const LBS_HASSTRINGS: i32 = 64i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const LBS_MULTICOLUMN: i32 = 512i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const LBS_MULTIPLESEL: i32 = 8i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const LBS_NODATA: i32 = 8192i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const LBS_NOINTEGRALHEIGHT: i32 = 256i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const LBS_NOREDRAW: i32 = 4i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const LBS_NOSEL: i32 = 16384i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const LBS_NOTIFY: i32 = 1i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const LBS_OWNERDRAWFIXED: i32 = 16i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const LBS_OWNERDRAWVARIABLE: i32 = 32i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const LBS_SORT: i32 = 2i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const LBS_STANDARD: i32 = 10485763i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const LBS_USETABSTOPS: i32 = 128i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const LBS_WANTKEYBOARDINPUT: i32 = 1024i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const LB_ADDFILE: u32 = 406u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const LB_ADDSTRING: u32 = 384u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const LB_CTLCODE: i32 = 0i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const LB_DELETESTRING: u32 = 386u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const LB_DIR: u32 = 397u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const LB_ERR: i32 = -1i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const LB_ERRSPACE: i32 = -2i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const LB_FINDSTRING: u32 = 399u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const LB_FINDSTRINGEXACT: u32 = 418u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const LB_GETANCHORINDEX: u32 = 413u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const LB_GETCARETINDEX: u32 = 415u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const LB_GETCOUNT: u32 = 395u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const LB_GETCURSEL: u32 = 392u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const LB_GETHORIZONTALEXTENT: u32 = 403u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const LB_GETITEMDATA: u32 = 409u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const LB_GETITEMHEIGHT: u32 = 417u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const LB_GETITEMRECT: u32 = 408u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const LB_GETLISTBOXINFO: u32 = 434u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const LB_GETLOCALE: u32 = 422u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const LB_GETSEL: u32 = 391u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const LB_GETSELCOUNT: u32 = 400u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const LB_GETSELITEMS: u32 = 401u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const LB_GETTEXT: u32 = 393u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const LB_GETTEXTLEN: u32 = 394u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const LB_GETTOPINDEX: u32 = 398u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const LB_INITSTORAGE: u32 = 424u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const LB_INSERTSTRING: u32 = 385u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const LB_ITEMFROMPOINT: u32 = 425u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const LB_MSGMAX: u32 = 435u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const LB_MULTIPLEADDSTRING: u32 = 433u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const LB_OKAY: u32 = 0u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const LB_RESETCONTENT: u32 = 388u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const LB_SELECTSTRING: u32 = 396u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const LB_SELITEMRANGE: u32 = 411u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const LB_SELITEMRANGEEX: u32 = 387u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const LB_SETANCHORINDEX: u32 = 412u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const LB_SETCARETINDEX: u32 = 414u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const LB_SETCOLUMNWIDTH: u32 = 405u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const LB_SETCOUNT: u32 = 423u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const LB_SETCURSEL: u32 = 390u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const LB_SETHORIZONTALEXTENT: u32 = 404u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const LB_SETITEMDATA: u32 = 410u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const LB_SETITEMHEIGHT: u32 = 416u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const LB_SETLOCALE: u32 = 421u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const LB_SETSEL: u32 = 389u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const LB_SETTABSTOPS: u32 = 402u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const LB_SETTOPINDEX: u32 = 407u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const LLMHF_INJECTED: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const LLMHF_LOWER_IL_INJECTED: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const LR_COLOR: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn LoadAcceleratorsA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hinstance: Param0, lptablename: Param1) -> HACCEL {
     #[cfg(windows)]
@@ -6062,6 +6972,7 @@ pub unsafe fn LoadAcceleratorsA<'a, Param0: ::windows::runtime::IntoParam<'a, su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn LoadAcceleratorsW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hinstance: Param0, lptablename: Param1) -> HACCEL {
     #[cfg(windows)]
@@ -6076,6 +6987,7 @@ pub unsafe fn LoadAcceleratorsW<'a, Param0: ::windows::runtime::IntoParam<'a, su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn LoadCursorA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hinstance: Param0, lpcursorname: Param1) -> HCURSOR {
     #[cfg(windows)]
@@ -6090,6 +7002,7 @@ pub unsafe fn LoadCursorA<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn LoadCursorFromFileA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpfilename: Param0) -> HCURSOR {
     #[cfg(windows)]
@@ -6104,6 +7017,7 @@ pub unsafe fn LoadCursorFromFileA<'a, Param0: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn LoadCursorFromFileW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0) -> HCURSOR {
     #[cfg(windows)]
@@ -6118,6 +7032,7 @@ pub unsafe fn LoadCursorFromFileW<'a, Param0: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn LoadCursorW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hinstance: Param0, lpcursorname: Param1) -> HCURSOR {
     #[cfg(windows)]
@@ -6132,6 +7047,7 @@ pub unsafe fn LoadCursorW<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn LoadIconA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hinstance: Param0, lpiconname: Param1) -> HICON {
     #[cfg(windows)]
@@ -6146,6 +7062,7 @@ pub unsafe fn LoadIconA<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn LoadIconW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hinstance: Param0, lpiconname: Param1) -> HICON {
     #[cfg(windows)]
@@ -6160,6 +7077,7 @@ pub unsafe fn LoadIconW<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn LoadImageA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hinst: Param0, name: Param1, r#type: GDI_IMAGE_TYPE, cx: i32, cy: i32, fuload: IMAGE_FLAGS) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
@@ -6174,6 +7092,7 @@ pub unsafe fn LoadImageA<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn LoadImageW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hinst: Param0, name: Param1, r#type: GDI_IMAGE_TYPE, cx: i32, cy: i32, fuload: IMAGE_FLAGS) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
@@ -6188,6 +7107,7 @@ pub unsafe fn LoadImageW<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn LoadMenuA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hinstance: Param0, lpmenuname: Param1) -> HMENU {
     #[cfg(windows)]
@@ -6201,6 +7121,7 @@ pub unsafe fn LoadMenuA<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[inline]
 pub unsafe fn LoadMenuIndirectA(lpmenutemplate: *const ::std::ffi::c_void) -> HMENU {
     #[cfg(windows)]
@@ -6214,6 +7135,7 @@ pub unsafe fn LoadMenuIndirectA(lpmenutemplate: *const ::std::ffi::c_void) -> HM
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[inline]
 pub unsafe fn LoadMenuIndirectW(lpmenutemplate: *const ::std::ffi::c_void) -> HMENU {
     #[cfg(windows)]
@@ -6228,6 +7150,7 @@ pub unsafe fn LoadMenuIndirectW(lpmenutemplate: *const ::std::ffi::c_void) -> HM
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn LoadMenuW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hinstance: Param0, lpmenuname: Param1) -> HMENU {
     #[cfg(windows)]
@@ -6242,6 +7165,7 @@ pub unsafe fn LoadMenuW<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn LoadStringA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>>(hinstance: Param0, uid: u32, lpbuffer: super::super::Foundation::PSTR, cchbuffermax: i32) -> i32 {
     #[cfg(windows)]
@@ -6256,6 +7180,7 @@ pub unsafe fn LoadStringA<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn LoadStringW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>>(hinstance: Param0, uid: u32, lpbuffer: super::super::Foundation::PWSTR, cchbuffermax: i32) -> i32 {
     #[cfg(windows)]
@@ -6270,6 +7195,7 @@ pub unsafe fn LoadStringW<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn LockSetForegroundWindow(ulockcode: FOREGROUND_WINDOW_LOCK_CODE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -6284,6 +7210,7 @@ pub unsafe fn LockSetForegroundWindow(ulockcode: FOREGROUND_WINDOW_LOCK_CODE) ->
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn LogicalToPhysicalPoint<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, lppoint: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -6298,6 +7225,7 @@ pub unsafe fn LogicalToPhysicalPoint<'a, Param0: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn LookupIconIdFromDirectory<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(presbits: *const u8, ficon: Param1) -> i32 {
     #[cfg(windows)]
@@ -6312,6 +7240,7 @@ pub unsafe fn LookupIconIdFromDirectory<'a, Param1: ::windows::runtime::IntoPara
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn LookupIconIdFromDirectoryEx<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(presbits: *const u8, ficon: Param1, cxdesired: i32, cydesired: i32, flags: IMAGE_FLAGS) -> i32 {
     #[cfg(windows)]
@@ -6325,23 +7254,38 @@ pub unsafe fn LookupIconIdFromDirectoryEx<'a, Param1: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const MAPVK_VK_TO_CHAR: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const MAPVK_VK_TO_VSC: u32 = 0u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const MAPVK_VK_TO_VSC_EX: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const MAPVK_VSC_TO_VK: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const MAPVK_VSC_TO_VK_EX: u32 = 3u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const MAXIMUM_RESERVED_MANIFEST_RESOURCE_ID: u32 = 16u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const MAX_LOGICALDPIOVERRIDE: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const MAX_STR_BLOCKREASON: u32 = 256u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const MAX_TOUCH_COUNT: u32 = 256u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const MAX_TOUCH_PREDICTION_FILTER_TAPS: u32 = 3u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const MA_ACTIVATE: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const MA_ACTIVATEANDEAT: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const MA_NOACTIVATE: u32 = 3u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const MA_NOACTIVATEANDEAT: u32 = 4u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub struct MDICREATESTRUCTA {
     pub szClass: super::super::Foundation::PSTR,
     pub szTitle: super::super::Foundation::PSTR,
@@ -6383,6 +7327,7 @@ unsafe impl ::windows::runtime::Abi for MDICREATESTRUCTA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub struct MDICREATESTRUCTW {
     pub szClass: super::super::Foundation::PWSTR,
     pub szTitle: super::super::Foundation::PWSTR,
@@ -6424,6 +7369,7 @@ unsafe impl ::windows::runtime::Abi for MDICREATESTRUCTW {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub struct MDINEXTMENU {
     pub hmenuIn: HMENU,
     pub hmenuNext: HMENU,
@@ -6456,10 +7402,12 @@ unsafe impl ::windows::runtime::Abi for MDINEXTMENU {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const MDIS_ALLCHILDSTYLES: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub struct MENUBARINFO {
     pub cbSize: u32,
     pub rcBar: super::super::Foundation::RECT,
@@ -6496,6 +7444,7 @@ unsafe impl ::windows::runtime::Abi for MENUBARINFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub struct MENUGETOBJECTINFO {
     pub dwFlags: MENUGETOBJECTINFO_FLAGS,
     pub uPos: u32,
@@ -6524,6 +7473,7 @@ unsafe impl ::windows::runtime::Abi for MENUGETOBJECTINFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MENUGETOBJECTINFO_FLAGS(pub u32);
@@ -6569,6 +7519,7 @@ impl ::std::ops::Not for MENUGETOBJECTINFO_FLAGS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Graphics_Gdi`*"]
 pub struct MENUINFO {
     pub cbSize: u32,
     pub fMask: MENUINFO_MASK,
@@ -6605,6 +7556,7 @@ unsafe impl ::windows::runtime::Abi for MENUINFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MENUINFO_MASK(pub u32);
@@ -6651,6 +7603,7 @@ impl ::std::ops::Not for MENUINFO_MASK {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MENUINFO_STYLE(pub u32);
@@ -6700,6 +7653,7 @@ impl ::std::ops::Not for MENUINFO_STYLE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 pub struct MENUITEMINFOA {
     pub cbSize: u32,
     pub fMask: MENU_ITEM_MASK,
@@ -6757,6 +7711,7 @@ unsafe impl ::windows::runtime::Abi for MENUITEMINFOA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 pub struct MENUITEMINFOW {
     pub cbSize: u32,
     pub fMask: MENU_ITEM_MASK,
@@ -6813,6 +7768,7 @@ unsafe impl ::windows::runtime::Abi for MENUITEMINFOW {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub struct MENUITEMTEMPLATE {
     pub mtOption: u16,
     pub mtID: u16,
@@ -6841,6 +7797,7 @@ unsafe impl ::windows::runtime::Abi for MENUITEMTEMPLATE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub struct MENUITEMTEMPLATEHEADER {
     pub versionNumber: u16,
     pub offset: u16,
@@ -6866,6 +7823,7 @@ unsafe impl ::windows::runtime::Abi for MENUITEMTEMPLATEHEADER {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MENU_ITEM_FLAGS(pub u32);
@@ -6934,6 +7892,7 @@ impl ::std::ops::Not for MENU_ITEM_FLAGS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MENU_ITEM_MASK(pub u32);
@@ -6983,6 +7942,7 @@ impl ::std::ops::Not for MENU_ITEM_MASK {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MENU_ITEM_STATE(pub u32);
@@ -7031,6 +7991,7 @@ impl ::std::ops::Not for MENU_ITEM_STATE {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MENU_ITEM_TYPE(pub u32);
@@ -7080,6 +8041,7 @@ impl ::std::ops::Not for MENU_ITEM_TYPE {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MESSAGEBOX_RESULT(pub i32);
@@ -7105,6 +8067,7 @@ unsafe impl ::windows::runtime::Abi for MESSAGEBOX_RESULT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MESSAGEBOX_STYLE(pub u32);
@@ -7184,6 +8147,7 @@ impl ::std::ops::Not for MESSAGEBOX_STYLE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub struct MESSAGE_RESOURCE_BLOCK {
     pub LowId: u32,
     pub HighId: u32,
@@ -7212,6 +8176,7 @@ unsafe impl ::windows::runtime::Abi for MESSAGE_RESOURCE_BLOCK {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub struct MESSAGE_RESOURCE_DATA {
     pub NumberOfBlocks: u32,
     pub Blocks: [MESSAGE_RESOURCE_BLOCK; 1],
@@ -7239,6 +8204,7 @@ unsafe impl ::windows::runtime::Abi for MESSAGE_RESOURCE_DATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub struct MESSAGE_RESOURCE_ENTRY {
     pub Length: u16,
     pub Flags: u16,
@@ -7265,9 +8231,11 @@ unsafe impl ::windows::runtime::Abi for MESSAGE_RESOURCE_ENTRY {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const METRICS_USEDEFAULT: i32 = -1i32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub struct MINIMIZEDMETRICS {
     pub cbSize: u32,
     pub iWidth: i32,
@@ -7296,6 +8264,7 @@ unsafe impl ::windows::runtime::Abi for MINIMIZEDMETRICS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MINIMIZEDMETRICS_ARRANGE(pub i32);
@@ -7312,10 +8281,12 @@ unsafe impl ::windows::runtime::Abi for MINIMIZEDMETRICS_ARRANGE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const MINIMUM_RESERVED_MANIFEST_RESOURCE_ID: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub struct MINMAXINFO {
     pub ptReserved: super::super::Foundation::POINT,
     pub ptMaxSize: super::super::Foundation::POINT,
@@ -7350,40 +8321,72 @@ unsafe impl ::windows::runtime::Abi for MINMAXINFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const MIN_LOGICALDPIOVERRIDE: i32 = -2i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const MKF_AVAILABLE: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const MKF_CONFIRMHOTKEY: u32 = 8u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const MKF_HOTKEYACTIVE: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const MKF_HOTKEYSOUND: u32 = 16u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const MKF_INDICATOR: u32 = 32u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const MKF_LEFTBUTTONDOWN: u32 = 16777216u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const MKF_LEFTBUTTONSEL: u32 = 268435456u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const MKF_MODIFIERS: u32 = 64u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const MKF_MOUSEKEYSON: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const MKF_MOUSEMODE: u32 = 2147483648u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const MKF_REPLACENUMBERS: u32 = 128u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const MKF_RIGHTBUTTONDOWN: u32 = 33554432u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const MKF_RIGHTBUTTONSEL: u32 = 536870912u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const MK_CONTROL: u32 = 8u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const MK_LBUTTON: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const MK_MBUTTON: u32 = 16u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const MK_RBUTTON: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const MK_SHIFT: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const MK_XBUTTON1: u32 = 32u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const MK_XBUTTON2: u32 = 64u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const MNC_CLOSE: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const MNC_EXECUTE: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const MNC_IGNORE: u32 = 0u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const MNC_SELECT: u32 = 3u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const MND_CONTINUE: u32 = 0u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const MND_ENDMENU: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const MNGO_NOERROR: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const MNGO_NOINTERFACE: u32 = 0u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const MN_GETHMENU: u32 = 481u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const MONITORINFOF_PRIMARY: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub struct MOUSEHOOKSTRUCT {
     pub pt: super::super::Foundation::POINT,
     pub hwnd: super::super::Foundation::HWND,
@@ -7420,6 +8423,7 @@ unsafe impl ::windows::runtime::Abi for MOUSEHOOKSTRUCT {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub struct MOUSEHOOKSTRUCTEX {
     pub __AnonymousBase_winuser_L1166_C46: MOUSEHOOKSTRUCT,
     pub mouseData: MOUSEHOOKSTRUCTEX_MOUSE_DATA,
@@ -7451,6 +8455,7 @@ unsafe impl ::windows::runtime::Abi for MOUSEHOOKSTRUCTEX {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MOUSEHOOKSTRUCTEX_MOUSE_DATA(pub u32);
@@ -7493,12 +8498,16 @@ impl ::std::ops::Not for MOUSEHOOKSTRUCTEX_MOUSE_DATA {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const MOUSEWHEEL_ROUTING_FOCUS: u32 = 0u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const MOUSEWHEEL_ROUTING_HYBRID: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const MOUSEWHEEL_ROUTING_MOUSE_POS: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub struct MSG {
     pub hwnd: super::super::Foundation::HWND,
     pub message: u32,
@@ -7539,6 +8548,7 @@ pub type MSGBOXCALLBACK = unsafe extern "system" fn(lphelpinfo: *mut super::Shel
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_UI_Shell`*"]
 pub struct MSGBOXPARAMSA {
     pub cbSize: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -7591,6 +8601,7 @@ unsafe impl ::windows::runtime::Abi for MSGBOXPARAMSA {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_UI_Shell`*"]
 pub struct MSGBOXPARAMSW {
     pub cbSize: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -7640,6 +8651,7 @@ unsafe impl ::windows::runtime::Abi for MSGBOXPARAMSW {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MSGFLTINFO_STATUS(pub u32);
@@ -7684,16 +8696,24 @@ impl ::std::ops::Not for MSGFLTINFO_STATUS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const MSGF_DIALOGBOX: u32 = 0u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const MSGF_MAX: u32 = 8u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const MSGF_MENU: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const MSGF_MESSAGEBOX: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const MSGF_NEXTWINDOW: u32 = 6u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const MSGF_SCROLLBAR: u32 = 5u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const MSGF_USER: u32 = 4096u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub struct MSLLHOOKSTRUCT {
     pub pt: super::super::Foundation::POINT,
     pub mouseData: MOUSEHOOKSTRUCTEX_MOUSE_DATA,
@@ -7729,6 +8749,7 @@ unsafe impl ::windows::runtime::Abi for MSLLHOOKSTRUCT {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MapDialogRect<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hdlg: Param0, lprect: *mut super::super::Foundation::RECT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -7743,6 +8764,7 @@ pub unsafe fn MapDialogRect<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MenuItemFromPoint<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, HMENU>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::POINT>>(hwnd: Param0, hmenu: Param1, ptscreen: Param2) -> i32 {
     #[cfg(windows)]
@@ -7757,6 +8779,7 @@ pub unsafe fn MenuItemFromPoint<'a, Param0: ::windows::runtime::IntoParam<'a, su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MessageBoxA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hwnd: Param0, lptext: Param1, lpcaption: Param2, utype: MESSAGEBOX_STYLE) -> MESSAGEBOX_RESULT {
     #[cfg(windows)]
@@ -7771,6 +8794,7 @@ pub unsafe fn MessageBoxA<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MessageBoxExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hwnd: Param0, lptext: Param1, lpcaption: Param2, utype: MESSAGEBOX_STYLE, wlanguageid: u16) -> MESSAGEBOX_RESULT {
     #[cfg(windows)]
@@ -7785,6 +8809,7 @@ pub unsafe fn MessageBoxExA<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MessageBoxExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hwnd: Param0, lptext: Param1, lpcaption: Param2, utype: MESSAGEBOX_STYLE, wlanguageid: u16) -> MESSAGEBOX_RESULT {
     #[cfg(windows)]
@@ -7799,6 +8824,7 @@ pub unsafe fn MessageBoxExW<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_UI_Shell`*"]
 #[inline]
 pub unsafe fn MessageBoxIndirectA(lpmbp: *const MSGBOXPARAMSA) -> MESSAGEBOX_RESULT {
     #[cfg(windows)]
@@ -7813,6 +8839,7 @@ pub unsafe fn MessageBoxIndirectA(lpmbp: *const MSGBOXPARAMSA) -> MESSAGEBOX_RES
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_UI_Shell`*"]
 #[inline]
 pub unsafe fn MessageBoxIndirectW(lpmbp: *const MSGBOXPARAMSW) -> MESSAGEBOX_RESULT {
     #[cfg(windows)]
@@ -7827,6 +8854,7 @@ pub unsafe fn MessageBoxIndirectW(lpmbp: *const MSGBOXPARAMSW) -> MESSAGEBOX_RES
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MessageBoxW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hwnd: Param0, lptext: Param1, lpcaption: Param2, utype: MESSAGEBOX_STYLE) -> MESSAGEBOX_RESULT {
     #[cfg(windows)]
@@ -7841,6 +8869,7 @@ pub unsafe fn MessageBoxW<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn ModifyMenuA<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hmnu: Param0, uposition: u32, uflags: MENU_ITEM_FLAGS, uidnewitem: usize, lpnewitem: Param4) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -7855,6 +8884,7 @@ pub unsafe fn ModifyMenuA<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn ModifyMenuW<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hmnu: Param0, uposition: u32, uflags: MENU_ITEM_FLAGS, uidnewitem: usize, lpnewitem: Param4) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -7869,6 +8899,7 @@ pub unsafe fn ModifyMenuW<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MoveWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hwnd: Param0, x: i32, y: i32, nwidth: i32, nheight: i32, brepaint: Param5) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -7883,6 +8914,7 @@ pub unsafe fn MoveWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MrmCreateConfig<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(platformversion: MrmPlatformVersion, defaultqualifiers: Param1, outputxmlfile: Param2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -7897,6 +8929,7 @@ pub unsafe fn MrmCreateConfig<'a, Param1: ::windows::runtime::IntoParam<'a, supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MrmCreateConfigInMemory<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(platformversion: MrmPlatformVersion, defaultqualifiers: Param1, outputxmldata: *mut *mut u8, outputxmlsize: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -7911,6 +8944,7 @@ pub unsafe fn MrmCreateConfigInMemory<'a, Param1: ::windows::runtime::IntoParam<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MrmCreateResourceFile<'a, Param0: ::windows::runtime::IntoParam<'a, MrmResourceIndexerHandle>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(indexer: Param0, packagingmode: MrmPackagingMode, packagingoptions: MrmPackagingOptions, outputdirectory: Param3) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -7924,6 +8958,7 @@ pub unsafe fn MrmCreateResourceFile<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[inline]
 pub unsafe fn MrmCreateResourceFileInMemory<'a, Param0: ::windows::runtime::IntoParam<'a, MrmResourceIndexerHandle>>(indexer: Param0, packagingmode: MrmPackagingMode, packagingoptions: MrmPackagingOptions, outputpridata: *mut *mut u8, outputprisize: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -7938,6 +8973,7 @@ pub unsafe fn MrmCreateResourceFileInMemory<'a, Param0: ::windows::runtime::Into
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MrmCreateResourceFileWithChecksum<'a, Param0: ::windows::runtime::IntoParam<'a, MrmResourceIndexerHandle>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(indexer: Param0, packagingmode: MrmPackagingMode, packagingoptions: MrmPackagingOptions, checksum: u32, outputdirectory: Param4) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -7952,6 +8988,7 @@ pub unsafe fn MrmCreateResourceFileWithChecksum<'a, Param0: ::windows::runtime::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MrmCreateResourceIndexer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(packagefamilyname: Param0, projectroot: Param1, platformversion: MrmPlatformVersion, defaultqualifiers: Param3, indexer: *mut MrmResourceIndexerHandle) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -7966,6 +9003,7 @@ pub unsafe fn MrmCreateResourceIndexer<'a, Param0: ::windows::runtime::IntoParam
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MrmCreateResourceIndexerFromPreviousPriData<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(projectroot: Param0, platformversion: MrmPlatformVersion, defaultqualifiers: Param2, pridata: *const u8, prisize: u32, indexer: *mut MrmResourceIndexerHandle) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -7980,6 +9018,7 @@ pub unsafe fn MrmCreateResourceIndexerFromPreviousPriData<'a, Param0: ::windows:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MrmCreateResourceIndexerFromPreviousPriFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(projectroot: Param0, platformversion: MrmPlatformVersion, defaultqualifiers: Param2, prifile: Param3, indexer: *mut MrmResourceIndexerHandle) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -7994,6 +9033,7 @@ pub unsafe fn MrmCreateResourceIndexerFromPreviousPriFile<'a, Param0: ::windows:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MrmCreateResourceIndexerFromPreviousSchemaData<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(projectroot: Param0, platformversion: MrmPlatformVersion, defaultqualifiers: Param2, schemaxmldata: *const u8, schemaxmlsize: u32, indexer: *mut MrmResourceIndexerHandle) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -8008,6 +9048,7 @@ pub unsafe fn MrmCreateResourceIndexerFromPreviousSchemaData<'a, Param0: ::windo
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MrmCreateResourceIndexerFromPreviousSchemaFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(projectroot: Param0, platformversion: MrmPlatformVersion, defaultqualifiers: Param2, schemafile: Param3, indexer: *mut MrmResourceIndexerHandle) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -8022,6 +9063,7 @@ pub unsafe fn MrmCreateResourceIndexerFromPreviousSchemaFile<'a, Param0: ::windo
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MrmCreateResourceIndexerWithFlags<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(packagefamilyname: Param0, projectroot: Param1, platformversion: MrmPlatformVersion, defaultqualifiers: Param3, flags: MrmIndexerFlags, indexer: *mut MrmResourceIndexerHandle) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -8035,6 +9077,7 @@ pub unsafe fn MrmCreateResourceIndexerWithFlags<'a, Param0: ::windows::runtime::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[inline]
 pub unsafe fn MrmDestroyIndexerAndMessages<'a, Param0: ::windows::runtime::IntoParam<'a, MrmResourceIndexerHandle>>(indexer: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -8048,6 +9091,7 @@ pub unsafe fn MrmDestroyIndexerAndMessages<'a, Param0: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[inline]
 pub unsafe fn MrmDumpPriDataInMemory(inputpridata: *const u8, inputprisize: u32, schemapridata: *const u8, schemaprisize: u32, dumptype: MrmDumpType, outputxmldata: *mut *mut u8, outputxmlsize: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -8062,6 +9106,7 @@ pub unsafe fn MrmDumpPriDataInMemory(inputpridata: *const u8, inputprisize: u32,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MrmDumpPriFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(indexfilename: Param0, schemaprifile: Param1, dumptype: MrmDumpType, outputxmlfile: Param3) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -8076,6 +9121,7 @@ pub unsafe fn MrmDumpPriFile<'a, Param0: ::windows::runtime::IntoParam<'a, super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MrmDumpPriFileInMemory<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(indexfilename: Param0, schemaprifile: Param1, dumptype: MrmDumpType, outputxmldata: *mut *mut u8, outputxmlsize: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -8089,6 +9135,7 @@ pub unsafe fn MrmDumpPriFileInMemory<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MrmDumpType(pub i32);
@@ -8104,6 +9151,7 @@ unsafe impl ::windows::runtime::Abi for MrmDumpType {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[inline]
 pub unsafe fn MrmFreeMemory(data: *const u8) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -8118,6 +9166,7 @@ pub unsafe fn MrmFreeMemory(data: *const u8) -> ::windows::runtime::Result<()> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MrmGetPriFileContentChecksum<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(prifile: Param0) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
@@ -8133,6 +9182,7 @@ pub unsafe fn MrmGetPriFileContentChecksum<'a, Param0: ::windows::runtime::IntoP
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MrmIndexEmbeddedData<'a, Param0: ::windows::runtime::IntoParam<'a, MrmResourceIndexerHandle>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(indexer: Param0, resourceuri: Param1, embeddeddata: *const u8, embeddeddatasize: u32, qualifiers: Param4) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -8147,6 +9197,7 @@ pub unsafe fn MrmIndexEmbeddedData<'a, Param0: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MrmIndexFile<'a, Param0: ::windows::runtime::IntoParam<'a, MrmResourceIndexerHandle>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(indexer: Param0, resourceuri: Param1, filepath: Param2, qualifiers: Param3) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -8161,6 +9212,7 @@ pub unsafe fn MrmIndexFile<'a, Param0: ::windows::runtime::IntoParam<'a, MrmReso
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MrmIndexFileAutoQualifiers<'a, Param0: ::windows::runtime::IntoParam<'a, MrmResourceIndexerHandle>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(indexer: Param0, filepath: Param1) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -8175,6 +9227,7 @@ pub unsafe fn MrmIndexFileAutoQualifiers<'a, Param0: ::windows::runtime::IntoPar
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MrmIndexResourceContainerAutoQualifiers<'a, Param0: ::windows::runtime::IntoParam<'a, MrmResourceIndexerHandle>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(indexer: Param0, containerpath: Param1) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -8189,6 +9242,7 @@ pub unsafe fn MrmIndexResourceContainerAutoQualifiers<'a, Param0: ::windows::run
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MrmIndexString<'a, Param0: ::windows::runtime::IntoParam<'a, MrmResourceIndexerHandle>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(indexer: Param0, resourceuri: Param1, resourcestring: Param2, qualifiers: Param3) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -8202,6 +9256,7 @@ pub unsafe fn MrmIndexString<'a, Param0: ::windows::runtime::IntoParam<'a, MrmRe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MrmIndexerFlags(pub i32);
@@ -8217,6 +9272,7 @@ unsafe impl ::windows::runtime::Abi for MrmIndexerFlags {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MrmPackagingMode(pub i32);
@@ -8232,6 +9288,7 @@ unsafe impl ::windows::runtime::Abi for MrmPackagingMode {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MrmPackagingOptions(pub i32);
@@ -8248,6 +9305,7 @@ unsafe impl ::windows::runtime::Abi for MrmPackagingOptions {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MrmPeekResourceIndexerMessages<'a, Param0: ::windows::runtime::IntoParam<'a, MrmResourceIndexerHandle>>(handle: Param0, messages: *mut *mut MrmResourceIndexerMessage, nummsgs: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -8261,6 +9319,7 @@ pub unsafe fn MrmPeekResourceIndexerMessages<'a, Param0: ::windows::runtime::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MrmPlatformVersion(pub i32);
@@ -8278,6 +9337,7 @@ unsafe impl ::windows::runtime::Abi for MrmPlatformVersion {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub struct MrmResourceIndexerHandle {
     pub handle: *mut ::std::ffi::c_void,
 }
@@ -8305,6 +9365,7 @@ unsafe impl ::windows::runtime::Abi for MrmResourceIndexerHandle {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub struct MrmResourceIndexerMessage {
     pub severity: MrmResourceIndexerMessageSeverity,
     pub id: u32,
@@ -8337,6 +9398,7 @@ unsafe impl ::windows::runtime::Abi for MrmResourceIndexerMessage {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MrmResourceIndexerMessageSeverity(pub i32);
@@ -8360,6 +9422,7 @@ pub type NAMEENUMPROCW = unsafe extern "system" fn(param0: super::super::Foundat
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub struct NCCALCSIZE_PARAMS {
     pub rgrc: [super::super::Foundation::RECT; 3],
     pub lppos: *mut WINDOWPOS,
@@ -8391,19 +9454,30 @@ unsafe impl ::windows::runtime::Abi for NCCALCSIZE_PARAMS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const NFR_ANSI: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const NFR_UNICODE: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const NF_QUERY: u32 = 3u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const NF_REQUERY: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const NID_EXTERNAL_PEN: u32 = 8u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const NID_EXTERNAL_TOUCH: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const NID_INTEGRATED_PEN: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const NID_INTEGRATED_TOUCH: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const NID_MULTI_INPUT: u32 = 64u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const NID_READY: u32 = 128u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 pub struct NONCLIENTMETRICSA {
     pub cbSize: u32,
     pub iBorderWidth: i32,
@@ -8484,6 +9558,7 @@ unsafe impl ::windows::runtime::Abi for NONCLIENTMETRICSA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Graphics_Gdi`*"]
 pub struct NONCLIENTMETRICSW {
     pub cbSize: u32,
     pub iBorderWidth: i32,
@@ -8561,6 +9636,7 @@ unsafe impl ::windows::runtime::Abi for NONCLIENTMETRICSW {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct OBJECT_IDENTIFIER(pub i32);
@@ -8587,69 +9663,132 @@ unsafe impl ::windows::runtime::Abi for OBJECT_IDENTIFIER {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const OBM_BTNCORNERS: u32 = 32758u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const OBM_BTSIZE: u32 = 32761u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const OBM_CHECK: u32 = 32760u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const OBM_CHECKBOXES: u32 = 32759u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const OBM_CLOSE: u32 = 32754u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const OBM_COMBO: u32 = 32738u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const OBM_DNARROW: u32 = 32752u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const OBM_DNARROWD: u32 = 32742u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const OBM_DNARROWI: u32 = 32736u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const OBM_LFARROW: u32 = 32750u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const OBM_LFARROWD: u32 = 32740u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const OBM_LFARROWI: u32 = 32734u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const OBM_MNARROW: u32 = 32739u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const OBM_OLD_CLOSE: u32 = 32767u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const OBM_OLD_DNARROW: u32 = 32764u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const OBM_OLD_LFARROW: u32 = 32762u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const OBM_OLD_REDUCE: u32 = 32757u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const OBM_OLD_RESTORE: u32 = 32755u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const OBM_OLD_RGARROW: u32 = 32763u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const OBM_OLD_UPARROW: u32 = 32765u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const OBM_OLD_ZOOM: u32 = 32756u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const OBM_REDUCE: u32 = 32749u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const OBM_REDUCED: u32 = 32746u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const OBM_RESTORE: u32 = 32747u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const OBM_RESTORED: u32 = 32744u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const OBM_RGARROW: u32 = 32751u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const OBM_RGARROWD: u32 = 32741u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const OBM_RGARROWI: u32 = 32735u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const OBM_SIZE: u32 = 32766u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const OBM_UPARROW: u32 = 32753u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const OBM_UPARROWD: u32 = 32743u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const OBM_UPARROWI: u32 = 32737u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const OBM_ZOOM: u32 = 32748u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const OBM_ZOOMD: u32 = 32745u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const OCR_ICOCUR: u32 = 32647u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const OCR_ICON: u32 = 32641u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const OCR_SIZE: u32 = 32640u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const ODA_DRAWENTIRE: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const ODA_FOCUS: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const ODA_SELECT: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const ODS_CHECKED: u32 = 8u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const ODS_COMBOBOXEDIT: u32 = 4096u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const ODS_DEFAULT: u32 = 32u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const ODS_DISABLED: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const ODS_FOCUS: u32 = 16u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const ODS_GRAYED: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const ODS_HOTLIGHT: u32 = 64u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const ODS_INACTIVE: u32 = 128u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const ODS_NOACCEL: u32 = 256u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const ODS_NOFOCUSRECT: u32 = 512u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const ODS_SELECTED: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const OIC_BANG: u32 = 32515u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const OIC_ERROR: u32 = 32513u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const OIC_HAND: u32 = 32513u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const OIC_INFORMATION: u32 = 32516u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const OIC_NOTE: u32 = 32516u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const OIC_QUES: u32 = 32514u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const OIC_SAMPLE: u32 = 32512u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const OIC_SHIELD: u32 = 32518u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const OIC_WARNING: u32 = 32515u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const OIC_WINLOGO: u32 = 32517u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const ORD_LANGDRIVER: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn OemToCharA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(psrc: Param0, pdst: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -8664,6 +9803,7 @@ pub unsafe fn OemToCharA<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn OemToCharBuffA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpszsrc: Param0, lpszdst: super::super::Foundation::PSTR, cchdstlength: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -8678,6 +9818,7 @@ pub unsafe fn OemToCharBuffA<'a, Param0: ::windows::runtime::IntoParam<'a, super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn OemToCharBuffW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpszsrc: Param0, lpszdst: super::super::Foundation::PWSTR, cchdstlength: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -8692,6 +9833,7 @@ pub unsafe fn OemToCharBuffW<'a, Param0: ::windows::runtime::IntoParam<'a, super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn OemToCharW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(psrc: Param0, pdst: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -8706,6 +9848,7 @@ pub unsafe fn OemToCharW<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn OpenIcon<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -8719,35 +9862,65 @@ pub unsafe fn OpenIcon<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const PA_ACTIVATE: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const PA_NOACTIVATE: u32 = 3u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const PBTF_APMRESUMEFROMFAILURE: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const PBT_APMBATTERYLOW: u32 = 9u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const PBT_APMOEMEVENT: u32 = 11u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const PBT_APMPOWERSTATUSCHANGE: u32 = 10u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const PBT_APMQUERYSTANDBY: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const PBT_APMQUERYSTANDBYFAILED: u32 = 3u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const PBT_APMQUERYSUSPEND: u32 = 0u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const PBT_APMQUERYSUSPENDFAILED: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const PBT_APMRESUMEAUTOMATIC: u32 = 18u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const PBT_APMRESUMECRITICAL: u32 = 6u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const PBT_APMRESUMESTANDBY: u32 = 8u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const PBT_APMRESUMESUSPEND: u32 = 7u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const PBT_APMSTANDBY: u32 = 5u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const PBT_APMSUSPEND: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const PBT_POWERSETTINGCHANGE: u32 = 32787u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const PDC_ARRIVAL: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const PDC_MAPPING_CHANGE: u32 = 256u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const PDC_MODE_ASPECTRATIOPRESERVED: u32 = 2048u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const PDC_MODE_CENTERED: u32 = 128u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const PDC_MODE_DEFAULT: u32 = 64u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const PDC_ORIENTATION_0: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const PDC_ORIENTATION_180: u32 = 16u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const PDC_ORIENTATION_270: u32 = 32u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const PDC_ORIENTATION_90: u32 = 8u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const PDC_ORIGIN: u32 = 1024u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const PDC_REMOVAL: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const PDC_RESOLUTION: u32 = 512u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PEEK_MESSAGE_REMOVE_TYPE(pub u32);
@@ -8795,27 +9968,49 @@ impl ::std::ops::Not for PEEK_MESSAGE_REMOVE_TYPE {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const PENARBITRATIONTYPE_FIS: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const PENARBITRATIONTYPE_MAX: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const PENARBITRATIONTYPE_NONE: u32 = 0u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const PENARBITRATIONTYPE_SPT: u32 = 3u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const PENARBITRATIONTYPE_WIN8: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const PENVISUALIZATION_CURSOR: u32 = 32u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const PENVISUALIZATION_DOUBLETAP: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const PENVISUALIZATION_OFF: u32 = 0u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const PENVISUALIZATION_ON: u32 = 35u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const PENVISUALIZATION_TAP: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const PEN_FLAG_BARREL: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const PEN_FLAG_ERASER: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const PEN_FLAG_INVERTED: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const PEN_FLAG_NONE: u32 = 0u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const PEN_MASK_NONE: u32 = 0u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const PEN_MASK_PRESSURE: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const PEN_MASK_ROTATION: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const PEN_MASK_TILT_X: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const PEN_MASK_TILT_Y: u32 = 8u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const PMB_ACTIVE: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const POINTER_DEVICE_PRODUCT_STRING_MAX: u32 = 520u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct POINTER_INPUT_TYPE(pub i32);
@@ -8833,26 +10028,45 @@ unsafe impl ::windows::runtime::Abi for POINTER_INPUT_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const POINTER_MESSAGE_FLAG_CANCELED: u32 = 32768u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const POINTER_MESSAGE_FLAG_CONFIDENCE: u32 = 16384u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const POINTER_MESSAGE_FLAG_FIFTHBUTTON: u32 = 256u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const POINTER_MESSAGE_FLAG_FIRSTBUTTON: u32 = 16u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const POINTER_MESSAGE_FLAG_FOURTHBUTTON: u32 = 128u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const POINTER_MESSAGE_FLAG_INCONTACT: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const POINTER_MESSAGE_FLAG_INRANGE: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const POINTER_MESSAGE_FLAG_NEW: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const POINTER_MESSAGE_FLAG_PRIMARY: u32 = 8192u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const POINTER_MESSAGE_FLAG_SECONDBUTTON: u32 = 32u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const POINTER_MESSAGE_FLAG_THIRDBUTTON: u32 = 64u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const POINTER_MOD_CTRL: u32 = 8u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const POINTER_MOD_SHIFT: u32 = 4u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type PREGISTERCLASSNAMEW = unsafe extern "system" fn(param0: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOLEAN;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const PRF_CHECKVISIBLE: i32 = 1i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const PRF_CHILDREN: i32 = 16i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const PRF_CLIENT: i32 = 4i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const PRF_ERASEBKGND: i32 = 8i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const PRF_NONCLIENT: i32 = 2i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const PRF_OWNED: i32 = 32i32;
 #[cfg(feature = "Win32_Foundation")]
 pub type PROPENUMPROCA = unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: super::super::Foundation::PSTR, param2: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
@@ -8862,13 +10076,20 @@ pub type PROPENUMPROCEXA = unsafe extern "system" fn(param0: super::super::Found
 pub type PROPENUMPROCEXW = unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: super::super::Foundation::PWSTR, param2: super::super::Foundation::HANDLE, param3: usize) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
 pub type PROPENUMPROCW = unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: super::super::Foundation::PWSTR, param2: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const PWR_CRITICALRESUME: u32 = 3u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const PWR_FAIL: i32 = -1i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const PWR_OK: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const PWR_SUSPENDREQUEST: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const PWR_SUSPENDRESUME: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const PW_RENDERFULLCONTENT: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeekMessageA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(lpmsg: *mut MSG, hwnd: Param1, wmsgfiltermin: u32, wmsgfiltermax: u32, wremovemsg: PEEK_MESSAGE_REMOVE_TYPE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -8883,6 +10104,7 @@ pub unsafe fn PeekMessageA<'a, Param1: ::windows::runtime::IntoParam<'a, super::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PeekMessageW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(lpmsg: *mut MSG, hwnd: Param1, wmsgfiltermin: u32, wmsgfiltermax: u32, wremovemsg: PEEK_MESSAGE_REMOVE_TYPE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -8897,6 +10119,7 @@ pub unsafe fn PeekMessageW<'a, Param1: ::windows::runtime::IntoParam<'a, super::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PhysicalToLogicalPoint<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, lppoint: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -8911,6 +10134,7 @@ pub unsafe fn PhysicalToLogicalPoint<'a, Param0: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PostMessageA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::WPARAM>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hwnd: Param0, msg: u32, wparam: Param2, lparam: Param3) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -8925,6 +10149,7 @@ pub unsafe fn PostMessageA<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PostMessageW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::WPARAM>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hwnd: Param0, msg: u32, wparam: Param2, lparam: Param3) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -8938,6 +10163,7 @@ pub unsafe fn PostMessageW<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[inline]
 pub unsafe fn PostQuitMessage(nexitcode: i32) {
     #[cfg(windows)]
@@ -8952,6 +10178,7 @@ pub unsafe fn PostQuitMessage(nexitcode: i32) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PostThreadMessageA<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::WPARAM>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(idthread: u32, msg: u32, wparam: Param2, lparam: Param3) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -8966,6 +10193,7 @@ pub unsafe fn PostThreadMessageA<'a, Param2: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PostThreadMessageW<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::WPARAM>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(idthread: u32, msg: u32, wparam: Param2, lparam: Param3) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -8980,6 +10208,7 @@ pub unsafe fn PostThreadMessageW<'a, Param2: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PrivateExtractIconsA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(szfilename: Param0, niconindex: i32, cxicon: i32, cyicon: i32, phicon: *mut HICON, piconid: *mut u32, nicons: u32, flags: u32) -> u32 {
     #[cfg(windows)]
@@ -8994,6 +10223,7 @@ pub unsafe fn PrivateExtractIconsA<'a, Param0: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PrivateExtractIconsW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(szfilename: Param0, niconindex: i32, cxicon: i32, cyicon: i32, phicon: *mut HICON, piconid: *mut u32, nicons: u32, flags: u32) -> u32 {
     #[cfg(windows)]
@@ -9007,8 +10237,11 @@ pub unsafe fn PrivateExtractIconsW<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const QS_POINTER: u32 = 4096u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const QS_TOUCH: u32 = 2048u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct QUEUE_STATUS_FLAGS(pub u32);
@@ -9063,70 +10296,118 @@ impl ::std::ops::Not for QUEUE_STATUS_FLAGS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const RES_CURSOR: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const RES_ICON: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const RIDEV_EXMODEMASK: u32 = 240u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const RIM_INPUT: u32 = 0u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const RIM_INPUTSINK: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const RIM_TYPEMAX: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const RI_KEY_BREAK: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const RI_KEY_E0: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const RI_KEY_E1: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const RI_KEY_MAKE: u32 = 0u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const RI_KEY_TERMSRV_SET_LED: u32 = 8u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const RI_KEY_TERMSRV_SHADOW: u32 = 16u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const RI_MOUSE_BUTTON_1_DOWN: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const RI_MOUSE_BUTTON_1_UP: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const RI_MOUSE_BUTTON_2_DOWN: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const RI_MOUSE_BUTTON_2_UP: u32 = 8u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const RI_MOUSE_BUTTON_3_DOWN: u32 = 16u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const RI_MOUSE_BUTTON_3_UP: u32 = 32u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const RI_MOUSE_BUTTON_4_DOWN: u32 = 64u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const RI_MOUSE_BUTTON_4_UP: u32 = 128u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const RI_MOUSE_BUTTON_5_DOWN: u32 = 256u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const RI_MOUSE_BUTTON_5_UP: u32 = 512u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const RI_MOUSE_HWHEEL: u32 = 2048u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const RI_MOUSE_LEFT_BUTTON_DOWN: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const RI_MOUSE_LEFT_BUTTON_UP: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const RI_MOUSE_MIDDLE_BUTTON_DOWN: u32 = 16u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const RI_MOUSE_MIDDLE_BUTTON_UP: u32 = 32u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const RI_MOUSE_RIGHT_BUTTON_DOWN: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const RI_MOUSE_RIGHT_BUTTON_UP: u32 = 8u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const RI_MOUSE_WHEEL: u32 = 1024u32;
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub const RT_ACCELERATOR: super::super::Foundation::PWSTR = super::super::Foundation::PWSTR(9i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub const RT_ANICURSOR: super::super::Foundation::PWSTR = super::super::Foundation::PWSTR(21i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub const RT_ANIICON: super::super::Foundation::PWSTR = super::super::Foundation::PWSTR(22i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub const RT_BITMAP: super::super::Foundation::PWSTR = super::super::Foundation::PWSTR(2i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub const RT_CURSOR: super::super::Foundation::PWSTR = super::super::Foundation::PWSTR(1i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub const RT_DIALOG: super::super::Foundation::PWSTR = super::super::Foundation::PWSTR(5i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub const RT_DLGINCLUDE: super::super::Foundation::PWSTR = super::super::Foundation::PWSTR(17i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub const RT_FONT: super::super::Foundation::PWSTR = super::super::Foundation::PWSTR(8i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub const RT_FONTDIR: super::super::Foundation::PWSTR = super::super::Foundation::PWSTR(7i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub const RT_HTML: super::super::Foundation::PWSTR = super::super::Foundation::PWSTR(23i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub const RT_ICON: super::super::Foundation::PWSTR = super::super::Foundation::PWSTR(3i32 as _);
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const RT_MANIFEST: u32 = 24u32;
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub const RT_MENU: super::super::Foundation::PWSTR = super::super::Foundation::PWSTR(4i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub const RT_MESSAGETABLE: super::super::Foundation::PWSTR = super::super::Foundation::PWSTR(11i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub const RT_PLUGPLAY: super::super::Foundation::PWSTR = super::super::Foundation::PWSTR(19i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub const RT_VERSION: super::super::Foundation::PWSTR = super::super::Foundation::PWSTR(16i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub const RT_VXD: super::super::Foundation::PWSTR = super::super::Foundation::PWSTR(20i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RealChildWindowFromPoint<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::POINT>>(hwndparent: Param0, ptparentclientcoords: Param1) -> super::super::Foundation::HWND {
     #[cfg(windows)]
@@ -9141,6 +10422,7 @@ pub unsafe fn RealChildWindowFromPoint<'a, Param0: ::windows::runtime::IntoParam
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RealGetWindowClassA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, ptszclassname: super::super::Foundation::PSTR, cchclassnamemax: u32) -> u32 {
     #[cfg(windows)]
@@ -9155,6 +10437,7 @@ pub unsafe fn RealGetWindowClassA<'a, Param0: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RealGetWindowClassW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, ptszclassname: super::super::Foundation::PWSTR, cchclassnamemax: u32) -> u32 {
     #[cfg(windows)]
@@ -9169,6 +10452,7 @@ pub unsafe fn RealGetWindowClassW<'a, Param0: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[inline]
 pub unsafe fn RegisterClassA(lpwndclass: *const WNDCLASSA) -> u16 {
     #[cfg(windows)]
@@ -9183,6 +10467,7 @@ pub unsafe fn RegisterClassA(lpwndclass: *const WNDCLASSA) -> u16 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[inline]
 pub unsafe fn RegisterClassExA(param0: *const WNDCLASSEXA) -> u16 {
     #[cfg(windows)]
@@ -9197,6 +10482,7 @@ pub unsafe fn RegisterClassExA(param0: *const WNDCLASSEXA) -> u16 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[inline]
 pub unsafe fn RegisterClassExW(param0: *const WNDCLASSEXW) -> u16 {
     #[cfg(windows)]
@@ -9211,6 +10497,7 @@ pub unsafe fn RegisterClassExW(param0: *const WNDCLASSEXW) -> u16 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[inline]
 pub unsafe fn RegisterClassW(lpwndclass: *const WNDCLASSW) -> u16 {
     #[cfg(windows)]
@@ -9225,6 +10512,7 @@ pub unsafe fn RegisterClassW(lpwndclass: *const WNDCLASSW) -> u16 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RegisterShellHookWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -9239,6 +10527,7 @@ pub unsafe fn RegisterShellHookWindow<'a, Param0: ::windows::runtime::IntoParam<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RegisterWindowMessageA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpstring: Param0) -> u32 {
     #[cfg(windows)]
@@ -9253,6 +10542,7 @@ pub unsafe fn RegisterWindowMessageA<'a, Param0: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RegisterWindowMessageW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpstring: Param0) -> u32 {
     #[cfg(windows)]
@@ -9267,6 +10557,7 @@ pub unsafe fn RegisterWindowMessageW<'a, Param0: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RemoveMenu<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>>(hmenu: Param0, uposition: u32, uflags: MENU_ITEM_FLAGS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -9281,6 +10572,7 @@ pub unsafe fn RemoveMenu<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>>(h
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RemovePropA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hwnd: Param0, lpstring: Param1) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
@@ -9295,6 +10587,7 @@ pub unsafe fn RemovePropA<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RemovePropW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hwnd: Param0, lpstring: Param1) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
@@ -9309,6 +10602,7 @@ pub unsafe fn RemovePropW<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn ReplyMessage<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::LRESULT>>(lresult: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -9322,44 +10616,80 @@ pub unsafe fn ReplyMessage<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SBM_ENABLE_ARROWS: u32 = 228u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SBM_GETPOS: u32 = 225u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SBM_GETRANGE: u32 = 227u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SBM_GETSCROLLBARINFO: u32 = 235u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SBM_GETSCROLLINFO: u32 = 234u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SBM_SETPOS: u32 = 224u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SBM_SETRANGE: u32 = 226u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SBM_SETRANGEREDRAW: u32 = 230u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SBM_SETSCROLLINFO: u32 = 233u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SBS_BOTTOMALIGN: i32 = 4i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SBS_HORZ: i32 = 0i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SBS_LEFTALIGN: i32 = 2i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SBS_RIGHTALIGN: i32 = 4i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SBS_SIZEBOX: i32 = 8i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SBS_SIZEBOXBOTTOMRIGHTALIGN: i32 = 4i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SBS_SIZEBOXTOPLEFTALIGN: i32 = 2i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SBS_SIZEGRIP: i32 = 16i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SBS_TOPALIGN: i32 = 2i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SBS_VERT: i32 = 1i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SB_BOTTOM: u32 = 7u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SB_ENDSCROLL: u32 = 8u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SB_LEFT: u32 = 6u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SB_LINEDOWN: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SB_LINELEFT: u32 = 0u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SB_LINERIGHT: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SB_LINEUP: u32 = 0u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SB_PAGEDOWN: u32 = 3u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SB_PAGELEFT: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SB_PAGERIGHT: u32 = 3u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SB_PAGEUP: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SB_RIGHT: u32 = 7u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SB_THUMBPOSITION: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SB_THUMBTRACK: u32 = 5u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SB_TOP: u32 = 6u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SCF_ISSECURE: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub struct SCROLLBARINFO {
     pub cbSize: u32,
     pub rcScrollBar: super::super::Foundation::RECT,
@@ -9404,6 +10734,7 @@ unsafe impl ::windows::runtime::Abi for SCROLLBARINFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SCROLLBAR_CONSTANTS(pub u32);
@@ -9450,6 +10781,7 @@ impl ::std::ops::Not for SCROLLBAR_CONSTANTS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub struct SCROLLINFO {
     pub cbSize: u32,
     pub fMask: SCROLLINFO_MASK,
@@ -9480,6 +10812,7 @@ unsafe impl ::windows::runtime::Abi for SCROLLINFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SCROLLINFO_MASK(pub u32);
@@ -9526,29 +10859,51 @@ impl ::std::ops::Not for SCROLLINFO_MASK {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SC_ARRANGE: u32 = 61712u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SC_CLOSE: u32 = 61536u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SC_CONTEXTHELP: u32 = 61824u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SC_DEFAULT: u32 = 61792u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SC_HOTKEY: u32 = 61776u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SC_HSCROLL: u32 = 61568u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SC_ICON: u32 = 61472u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SC_KEYMENU: u32 = 61696u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SC_MAXIMIZE: u32 = 61488u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SC_MINIMIZE: u32 = 61472u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SC_MONITORPOWER: u32 = 61808u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SC_MOUSEMENU: u32 = 61584u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SC_MOVE: u32 = 61456u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SC_NEXTWINDOW: u32 = 61504u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SC_PREVWINDOW: u32 = 61520u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SC_RESTORE: u32 = 61728u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SC_SEPARATOR: u32 = 61455u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SC_SIZE: u32 = 61440u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SC_TASKLIST: u32 = 61744u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SC_VSCROLL: u32 = 61552u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SC_ZOOM: u32 = 61488u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type SENDASYNCPROC = unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: usize, param3: super::super::Foundation::LRESULT);
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SEND_MESSAGE_TIMEOUT_FLAGS(pub u32);
@@ -9594,6 +10949,7 @@ impl ::std::ops::Not for SEND_MESSAGE_TIMEOUT_FLAGS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SET_WINDOW_POS_FLAGS(pub u32);
@@ -9653,6 +11009,7 @@ impl ::std::ops::Not for SET_WINDOW_POS_FLAGS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub struct SHELLHOOKINFO {
     pub hwnd: super::super::Foundation::HWND,
     pub rc: super::super::Foundation::RECT,
@@ -9684,10 +11041,15 @@ unsafe impl ::windows::runtime::Abi for SHELLHOOKINFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SHOW_FULLSCREEN: u32 = 3u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SHOW_ICONWINDOW: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SHOW_OPENNOACTIVATE: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SHOW_OPENWINDOW: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SHOW_WINDOW_CMD(pub u32);
@@ -9751,119 +11113,231 @@ impl ::std::ops::Not for SHOW_WINDOW_CMD {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SIZEFULLSCREEN: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SIZEICONIC: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SIZENORMAL: u32 = 0u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SIZEZOOMHIDE: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SIZEZOOMSHOW: u32 = 3u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SIZE_MAXHIDE: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SIZE_MAXIMIZED: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SIZE_MAXSHOW: u32 = 3u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SIZE_MINIMIZED: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SIZE_RESTORED: u32 = 0u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SM_CARETBLINKINGENABLED: u32 = 8194u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SM_CMETRICS: u32 = 76u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SM_RESERVED1: u32 = 24u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SM_RESERVED2: u32 = 25u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SM_RESERVED3: u32 = 26u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SM_RESERVED4: u32 = 27u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SM_SYSTEMDOCKED: u32 = 8196u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SOUND_SYSTEM_APPEND: u32 = 14u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SOUND_SYSTEM_APPSTART: u32 = 12u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SOUND_SYSTEM_BEEP: u32 = 3u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SOUND_SYSTEM_ERROR: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SOUND_SYSTEM_FAULT: u32 = 13u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SOUND_SYSTEM_INFORMATION: u32 = 7u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SOUND_SYSTEM_MAXIMIZE: u32 = 8u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SOUND_SYSTEM_MENUCOMMAND: u32 = 15u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SOUND_SYSTEM_MENUPOPUP: u32 = 16u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SOUND_SYSTEM_MINIMIZE: u32 = 9u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SOUND_SYSTEM_QUESTION: u32 = 5u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SOUND_SYSTEM_RESTOREDOWN: u32 = 11u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SOUND_SYSTEM_RESTOREUP: u32 = 10u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SOUND_SYSTEM_SHUTDOWN: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SOUND_SYSTEM_STARTUP: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SOUND_SYSTEM_WARNING: u32 = 6u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SS_BITMAP: i32 = 14i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SS_BLACKFRAME: i32 = 7i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SS_BLACKRECT: i32 = 4i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SS_CENTER: i32 = 1i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SS_CENTERIMAGE: i32 = 512i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SS_EDITCONTROL: i32 = 8192i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SS_ELLIPSISMASK: i32 = 49152i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SS_ENDELLIPSIS: i32 = 16384i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SS_ENHMETAFILE: i32 = 15i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SS_ETCHEDFRAME: i32 = 18i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SS_ETCHEDHORZ: i32 = 16i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SS_ETCHEDVERT: i32 = 17i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SS_GRAYFRAME: i32 = 8i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SS_GRAYRECT: i32 = 5i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SS_ICON: i32 = 3i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SS_LEFT: i32 = 0i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SS_LEFTNOWORDWRAP: i32 = 12i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SS_NOPREFIX: i32 = 128i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SS_NOTIFY: i32 = 256i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SS_OWNERDRAW: i32 = 13i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SS_PATHELLIPSIS: i32 = 32768i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SS_REALSIZECONTROL: i32 = 64i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SS_REALSIZEIMAGE: i32 = 2048i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SS_RIGHT: i32 = 2i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SS_RIGHTJUST: i32 = 1024i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SS_SIMPLE: i32 = 11i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SS_SUNKEN: i32 = 4096i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SS_TYPEMASK: i32 = 31i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SS_USERITEM: i32 = 10i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SS_WHITEFRAME: i32 = 9i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SS_WHITERECT: i32 = 6i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SS_WORDELLIPSIS: i32 = 49152i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const STATE_SYSTEM_ALERT_HIGH: u32 = 268435456u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const STATE_SYSTEM_ALERT_LOW: u32 = 67108864u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const STATE_SYSTEM_ALERT_MEDIUM: u32 = 134217728u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const STATE_SYSTEM_ANIMATED: u32 = 16384u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const STATE_SYSTEM_BUSY: u32 = 2048u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const STATE_SYSTEM_CHECKED: u32 = 16u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const STATE_SYSTEM_COLLAPSED: u32 = 1024u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const STATE_SYSTEM_DEFAULT: u32 = 256u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const STATE_SYSTEM_EXPANDED: u32 = 512u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const STATE_SYSTEM_EXTSELECTABLE: u32 = 33554432u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const STATE_SYSTEM_FLOATING: u32 = 4096u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const STATE_SYSTEM_FOCUSED: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const STATE_SYSTEM_HOTTRACKED: u32 = 128u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const STATE_SYSTEM_INDETERMINATE: u32 = 32u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const STATE_SYSTEM_LINKED: u32 = 4194304u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const STATE_SYSTEM_MARQUEED: u32 = 8192u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const STATE_SYSTEM_MIXED: u32 = 32u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const STATE_SYSTEM_MOVEABLE: u32 = 262144u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const STATE_SYSTEM_MULTISELECTABLE: u32 = 16777216u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const STATE_SYSTEM_PROTECTED: u32 = 536870912u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const STATE_SYSTEM_READONLY: u32 = 64u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const STATE_SYSTEM_SELECTABLE: u32 = 2097152u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const STATE_SYSTEM_SELECTED: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const STATE_SYSTEM_SELFVOICING: u32 = 524288u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const STATE_SYSTEM_SIZEABLE: u32 = 131072u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const STATE_SYSTEM_TRAVERSED: u32 = 8388608u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const STATE_SYSTEM_VALID: u32 = 1073741823u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const STM_GETICON: u32 = 369u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const STM_GETIMAGE: u32 = 371u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const STM_MSGMAX: u32 = 372u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const STM_SETICON: u32 = 368u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const STM_SETIMAGE: u32 = 370u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const STN_CLICKED: u32 = 0u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const STN_DBLCLK: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const STN_DISABLE: u32 = 3u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const STN_ENABLE: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const STRSAFE_E_END_OF_FILE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147024858i32 as _);
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const STRSAFE_E_INSUFFICIENT_BUFFER: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147024774i32 as _);
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const STRSAFE_E_INVALID_PARAMETER: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147024809i32 as _);
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const STRSAFE_FILL_BEHIND_NULL: u32 = 512u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const STRSAFE_FILL_ON_FAILURE: u32 = 1024u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const STRSAFE_IGNORE_NULLS: u32 = 256u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const STRSAFE_MAX_CCH: u32 = 2147483647u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const STRSAFE_NO_TRUNCATION: u32 = 4096u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const STRSAFE_NULL_ON_FAILURE: u32 = 2048u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const STRSAFE_USE_SECURE_CRT: u32 = 0u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub struct STYLESTRUCT {
     pub styleOld: u32,
     pub styleNew: u32,
@@ -9889,6 +11363,7 @@ unsafe impl ::windows::runtime::Abi for STYLESTRUCT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SYSTEM_CURSOR_ID(pub u32);
@@ -9943,6 +11418,7 @@ impl ::std::ops::Not for SYSTEM_CURSOR_ID {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SYSTEM_METRICS_INDEX(pub u32);
@@ -10078,6 +11554,7 @@ impl ::std::ops::Not for SYSTEM_METRICS_INDEX {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SYSTEM_PARAMETERS_INFO_ACTION(pub u32);
@@ -10359,6 +11836,7 @@ impl ::std::ops::Not for SYSTEM_PARAMETERS_INFO_ACTION {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS(pub u32);
@@ -10402,6 +11880,7 @@ impl ::std::ops::Not for SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SYS_COLOR_INDEX(pub u32);
@@ -10479,6 +11958,7 @@ impl ::std::ops::Not for SYS_COLOR_INDEX {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[inline]
 pub unsafe fn ScrollDC<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>, Param5: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HRGN>>(hdc: Param0, dx: i32, dy: i32, lprcscroll: *const super::super::Foundation::RECT, lprcclip: *const super::super::Foundation::RECT, hrgnupdate: Param5, lprcupdate: *mut super::super::Foundation::RECT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10493,6 +11973,7 @@ pub unsafe fn ScrollDC<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn ScrollWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, xamount: i32, yamount: i32, lprect: *const super::super::Foundation::RECT, lpcliprect: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10507,6 +11988,7 @@ pub unsafe fn ScrollWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[inline]
 pub unsafe fn ScrollWindowEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param5: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HRGN>>(hwnd: Param0, dx: i32, dy: i32, prcscroll: *const super::super::Foundation::RECT, prcclip: *const super::super::Foundation::RECT, hrgnupdate: Param5, prcupdate: *mut super::super::Foundation::RECT, flags: SHOW_WINDOW_CMD) -> i32 {
     #[cfg(windows)]
@@ -10521,6 +12003,7 @@ pub unsafe fn ScrollWindowEx<'a, Param0: ::windows::runtime::IntoParam<'a, super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SendDlgItemMessageA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::WPARAM>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hdlg: Param0, niddlgitem: i32, msg: u32, wparam: Param3, lparam: Param4) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
@@ -10535,6 +12018,7 @@ pub unsafe fn SendDlgItemMessageA<'a, Param0: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SendDlgItemMessageW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::WPARAM>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hdlg: Param0, niddlgitem: i32, msg: u32, wparam: Param3, lparam: Param4) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
@@ -10549,6 +12033,7 @@ pub unsafe fn SendDlgItemMessageW<'a, Param0: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SendMessageA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
@@ -10563,6 +12048,7 @@ pub unsafe fn SendMessageA<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SendMessageCallbackA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::WPARAM>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hwnd: Param0, msg: u32, wparam: Param2, lparam: Param3, lpresultcallback: ::std::option::Option<SENDASYNCPROC>, dwdata: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10577,6 +12063,7 @@ pub unsafe fn SendMessageCallbackA<'a, Param0: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SendMessageCallbackW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::WPARAM>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hwnd: Param0, msg: u32, wparam: Param2, lparam: Param3, lpresultcallback: ::std::option::Option<SENDASYNCPROC>, dwdata: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10591,6 +12078,7 @@ pub unsafe fn SendMessageCallbackW<'a, Param0: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SendMessageTimeoutA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::WPARAM>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hwnd: Param0, msg: u32, wparam: Param2, lparam: Param3, fuflags: SEND_MESSAGE_TIMEOUT_FLAGS, utimeout: u32, lpdwresult: *mut usize) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
@@ -10605,6 +12093,7 @@ pub unsafe fn SendMessageTimeoutA<'a, Param0: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SendMessageTimeoutW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::WPARAM>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hwnd: Param0, msg: u32, wparam: Param2, lparam: Param3, fuflags: SEND_MESSAGE_TIMEOUT_FLAGS, utimeout: u32, lpdwresult: *mut usize) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
@@ -10619,6 +12108,7 @@ pub unsafe fn SendMessageTimeoutW<'a, Param0: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SendMessageW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
@@ -10633,6 +12123,7 @@ pub unsafe fn SendMessageW<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SendNotifyMessageA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::WPARAM>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hwnd: Param0, msg: u32, wparam: Param2, lparam: Param3) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10647,6 +12138,7 @@ pub unsafe fn SendNotifyMessageA<'a, Param0: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SendNotifyMessageW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::WPARAM>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hwnd: Param0, msg: u32, wparam: Param2, lparam: Param3) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10661,6 +12153,7 @@ pub unsafe fn SendNotifyMessageW<'a, Param0: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SetCaretBlinkTime(umseconds: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10675,6 +12168,7 @@ pub unsafe fn SetCaretBlinkTime(umseconds: u32) -> super::super::Foundation::BOO
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SetCaretPos(x: i32, y: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10689,6 +12183,7 @@ pub unsafe fn SetCaretPos(x: i32, y: i32) -> super::super::Foundation::BOOL {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SetClassLongA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, nindex: GET_CLASS_LONG_INDEX, dwnewlong: i32) -> u32 {
     #[cfg(windows)]
@@ -10703,6 +12198,7 @@ pub unsafe fn SetClassLongA<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SetClassLongPtrA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, nindex: GET_CLASS_LONG_INDEX, dwnewlong: isize) -> usize {
     #[cfg(windows)]
@@ -10717,6 +12213,7 @@ pub unsafe fn SetClassLongPtrA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SetClassLongPtrW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, nindex: GET_CLASS_LONG_INDEX, dwnewlong: isize) -> usize {
     #[cfg(windows)]
@@ -10731,6 +12228,7 @@ pub unsafe fn SetClassLongPtrW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SetClassLongW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, nindex: GET_CLASS_LONG_INDEX, dwnewlong: i32) -> u32 {
     #[cfg(windows)]
@@ -10745,6 +12243,7 @@ pub unsafe fn SetClassLongW<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SetClassWord<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, nindex: i32, wnewword: u16) -> u16 {
     #[cfg(windows)]
@@ -10759,6 +12258,7 @@ pub unsafe fn SetClassWord<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SetCoalescableTimer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, nidevent: usize, uelapse: u32, lptimerfunc: ::std::option::Option<TIMERPROC>, utolerancedelay: u32) -> usize {
     #[cfg(windows)]
@@ -10772,6 +12272,7 @@ pub unsafe fn SetCoalescableTimer<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[inline]
 pub unsafe fn SetCursor<'a, Param0: ::windows::runtime::IntoParam<'a, HCURSOR>>(hcursor: Param0) -> HCURSOR {
     #[cfg(windows)]
@@ -10786,6 +12287,7 @@ pub unsafe fn SetCursor<'a, Param0: ::windows::runtime::IntoParam<'a, HCURSOR>>(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SetCursorPos(x: i32, y: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10799,6 +12301,7 @@ pub unsafe fn SetCursorPos(x: i32, y: i32) -> super::super::Foundation::BOOL {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[inline]
 pub unsafe fn SetDebugErrorLevel(dwlevel: u32) {
     #[cfg(windows)]
@@ -10813,6 +12316,7 @@ pub unsafe fn SetDebugErrorLevel(dwlevel: u32) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SetDlgItemInt<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hdlg: Param0, niddlgitem: i32, uvalue: u32, bsigned: Param3) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10827,6 +12331,7 @@ pub unsafe fn SetDlgItemInt<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SetDlgItemTextA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hdlg: Param0, niddlgitem: i32, lpstring: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10841,6 +12346,7 @@ pub unsafe fn SetDlgItemTextA<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SetDlgItemTextW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hdlg: Param0, niddlgitem: i32, lpstring: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10855,6 +12361,7 @@ pub unsafe fn SetDlgItemTextW<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SetForegroundWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10869,6 +12376,7 @@ pub unsafe fn SetForegroundWindow<'a, Param0: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SetLayeredWindowAttributes<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, crkey: u32, balpha: u8, dwflags: LAYERED_WINDOW_ATTRIBUTES_FLAGS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10883,6 +12391,7 @@ pub unsafe fn SetLayeredWindowAttributes<'a, Param0: ::windows::runtime::IntoPar
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SetMenu<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, HMENU>>(hwnd: Param0, hmenu: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10897,6 +12406,7 @@ pub unsafe fn SetMenu<'a, Param0: ::windows::runtime::IntoParam<'a, super::super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SetMenuDefaultItem<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>>(hmenu: Param0, uitem: u32, fbypos: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10911,6 +12421,7 @@ pub unsafe fn SetMenuDefaultItem<'a, Param0: ::windows::runtime::IntoParam<'a, H
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[inline]
 pub unsafe fn SetMenuInfo<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>>(param0: Param0, param1: *const MENUINFO) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10925,6 +12436,7 @@ pub unsafe fn SetMenuInfo<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>>(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[inline]
 pub unsafe fn SetMenuItemBitmaps<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>, Param3: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HBITMAP>, Param4: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HBITMAP>>(hmenu: Param0, uposition: u32, uflags: MENU_ITEM_FLAGS, hbitmapunchecked: Param3, hbitmapchecked: Param4) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10939,6 +12451,7 @@ pub unsafe fn SetMenuItemBitmaps<'a, Param0: ::windows::runtime::IntoParam<'a, H
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[inline]
 pub unsafe fn SetMenuItemInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hmenu: Param0, item: u32, fbypositon: Param2, lpmii: *const MENUITEMINFOA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10953,6 +12466,7 @@ pub unsafe fn SetMenuItemInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, HME
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[inline]
 pub unsafe fn SetMenuItemInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hmenu: Param0, item: u32, fbypositon: Param2, lpmii: *const MENUITEMINFOW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10967,6 +12481,7 @@ pub unsafe fn SetMenuItemInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, HME
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SetMessageExtraInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(lparam: Param0) -> super::super::Foundation::LPARAM {
     #[cfg(windows)]
@@ -10981,6 +12496,7 @@ pub unsafe fn SetMessageExtraInfo<'a, Param0: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SetMessageQueue(cmessagesmax: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10995,6 +12511,7 @@ pub unsafe fn SetMessageQueue(cmessagesmax: i32) -> super::super::Foundation::BO
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SetParent<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwndchild: Param0, hwndnewparent: Param1) -> super::super::Foundation::HWND {
     #[cfg(windows)]
@@ -11009,6 +12526,7 @@ pub unsafe fn SetParent<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SetPhysicalCursorPos(x: i32, y: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11023,6 +12541,7 @@ pub unsafe fn SetPhysicalCursorPos(x: i32, y: i32) -> super::super::Foundation::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SetProcessDPIAware() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11037,6 +12556,7 @@ pub unsafe fn SetProcessDPIAware() -> super::super::Foundation::BOOL {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SetProcessDefaultLayout(dwdefaultlayout: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11051,6 +12571,7 @@ pub unsafe fn SetProcessDefaultLayout(dwdefaultlayout: u32) -> super::super::Fou
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SetPropA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hwnd: Param0, lpstring: Param1, hdata: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11065,6 +12586,7 @@ pub unsafe fn SetPropA<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SetPropW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hwnd: Param0, lpstring: Param1, hdata: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11079,6 +12601,7 @@ pub unsafe fn SetPropW<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SetSysColors(celements: i32, lpaelements: *const i32, lpargbvalues: *const u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11093,6 +12616,7 @@ pub unsafe fn SetSysColors(celements: i32, lpaelements: *const i32, lpargbvalues
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SetSystemCursor<'a, Param0: ::windows::runtime::IntoParam<'a, HCURSOR>>(hcur: Param0, id: SYSTEM_CURSOR_ID) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11107,6 +12631,7 @@ pub unsafe fn SetSystemCursor<'a, Param0: ::windows::runtime::IntoParam<'a, HCUR
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SetTimer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, nidevent: usize, uelapse: u32, lptimerfunc: ::std::option::Option<TIMERPROC>) -> usize {
     #[cfg(windows)]
@@ -11121,6 +12646,7 @@ pub unsafe fn SetTimer<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SetWindowDisplayAffinity<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, dwaffinity: WINDOW_DISPLAY_AFFINITY) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11135,6 +12661,7 @@ pub unsafe fn SetWindowDisplayAffinity<'a, Param0: ::windows::runtime::IntoParam
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SetWindowLongA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, nindex: WINDOW_LONG_PTR_INDEX, dwnewlong: i32) -> i32 {
     #[cfg(windows)]
@@ -11149,6 +12676,7 @@ pub unsafe fn SetWindowLongA<'a, Param0: ::windows::runtime::IntoParam<'a, super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SetWindowLongPtrA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, nindex: WINDOW_LONG_PTR_INDEX, dwnewlong: isize) -> isize {
     #[cfg(windows)]
@@ -11163,6 +12691,7 @@ pub unsafe fn SetWindowLongPtrA<'a, Param0: ::windows::runtime::IntoParam<'a, su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SetWindowLongPtrW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, nindex: WINDOW_LONG_PTR_INDEX, dwnewlong: isize) -> isize {
     #[cfg(windows)]
@@ -11177,6 +12706,7 @@ pub unsafe fn SetWindowLongPtrW<'a, Param0: ::windows::runtime::IntoParam<'a, su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SetWindowLongW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, nindex: WINDOW_LONG_PTR_INDEX, dwnewlong: i32) -> i32 {
     #[cfg(windows)]
@@ -11191,6 +12721,7 @@ pub unsafe fn SetWindowLongW<'a, Param0: ::windows::runtime::IntoParam<'a, super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SetWindowPlacement<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, lpwndpl: *const WINDOWPLACEMENT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11205,6 +12736,7 @@ pub unsafe fn SetWindowPlacement<'a, Param0: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SetWindowPos<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, hwndinsertafter: Param1, x: i32, y: i32, cx: i32, cy: i32, uflags: SET_WINDOW_POS_FLAGS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11219,6 +12751,7 @@ pub unsafe fn SetWindowPos<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SetWindowTextA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hwnd: Param0, lpstring: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11233,6 +12766,7 @@ pub unsafe fn SetWindowTextA<'a, Param0: ::windows::runtime::IntoParam<'a, super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SetWindowTextW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hwnd: Param0, lpstring: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11247,6 +12781,7 @@ pub unsafe fn SetWindowTextW<'a, Param0: ::windows::runtime::IntoParam<'a, super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SetWindowWord<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, nindex: i32, wnewword: u16) -> u16 {
     #[cfg(windows)]
@@ -11261,6 +12796,7 @@ pub unsafe fn SetWindowWord<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SetWindowsHookA(nfiltertype: i32, pfnfilterproc: ::std::option::Option<HOOKPROC>) -> HHOOK {
     #[cfg(windows)]
@@ -11275,6 +12811,7 @@ pub unsafe fn SetWindowsHookA(nfiltertype: i32, pfnfilterproc: ::std::option::Op
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SetWindowsHookExA<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>>(idhook: WINDOWS_HOOK_ID, lpfn: ::std::option::Option<HOOKPROC>, hmod: Param2, dwthreadid: u32) -> HHOOK {
     #[cfg(windows)]
@@ -11289,6 +12826,7 @@ pub unsafe fn SetWindowsHookExA<'a, Param2: ::windows::runtime::IntoParam<'a, su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SetWindowsHookExW<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>>(idhook: WINDOWS_HOOK_ID, lpfn: ::std::option::Option<HOOKPROC>, hmod: Param2, dwthreadid: u32) -> HHOOK {
     #[cfg(windows)]
@@ -11303,6 +12841,7 @@ pub unsafe fn SetWindowsHookExW<'a, Param2: ::windows::runtime::IntoParam<'a, su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SetWindowsHookW(nfiltertype: i32, pfnfilterproc: ::std::option::Option<HOOKPROC>) -> HHOOK {
     #[cfg(windows)]
@@ -11317,6 +12856,7 @@ pub unsafe fn SetWindowsHookW(nfiltertype: i32, pfnfilterproc: ::std::option::Op
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn ShowCaret<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11331,6 +12871,7 @@ pub unsafe fn ShowCaret<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn ShowCursor<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(bshow: Param0) -> i32 {
     #[cfg(windows)]
@@ -11345,6 +12886,7 @@ pub unsafe fn ShowCursor<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn ShowOwnedPopups<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hwnd: Param0, fshow: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11359,6 +12901,7 @@ pub unsafe fn ShowOwnedPopups<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn ShowWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, ncmdshow: SHOW_WINDOW_CMD) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11373,6 +12916,7 @@ pub unsafe fn ShowWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn ShowWindowAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, ncmdshow: SHOW_WINDOW_CMD) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11387,6 +12931,7 @@ pub unsafe fn ShowWindowAsync<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SoundSentry() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11401,6 +12946,7 @@ pub unsafe fn SoundSentry() -> super::super::Foundation::BOOL {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SwitchToThisWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hwnd: Param0, funknown: Param1) {
     #[cfg(windows)]
@@ -11415,6 +12961,7 @@ pub unsafe fn SwitchToThisWindow<'a, Param0: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SystemParametersInfoA(uiaction: SYSTEM_PARAMETERS_INFO_ACTION, uiparam: u32, pvparam: *mut ::std::ffi::c_void, fwinini: SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11429,6 +12976,7 @@ pub unsafe fn SystemParametersInfoA(uiaction: SYSTEM_PARAMETERS_INFO_ACTION, uip
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SystemParametersInfoW(uiaction: SYSTEM_PARAMETERS_INFO_ACTION, uiparam: u32, pvparam: *mut ::std::ffi::c_void, fwinini: SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11442,6 +12990,7 @@ pub unsafe fn SystemParametersInfoW(uiaction: SYSTEM_PARAMETERS_INFO_ACTION, uip
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TILE_WINDOWS_HOW(pub u32);
@@ -11486,13 +13035,18 @@ impl ::std::ops::Not for TILE_WINDOWS_HOW {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type TIMERPROC = unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: usize, param3: u32);
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const TIMERV_COALESCING_MAX: u32 = 2147483637u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const TIMERV_COALESCING_MIN: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const TIMERV_DEFAULT_COALESCING: u32 = 0u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const TIMERV_NO_COALESCING: u32 = 4294967295u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub struct TITLEBARINFO {
     pub cbSize: u32,
     pub rcTitleBar: super::super::Foundation::RECT,
@@ -11528,6 +13082,7 @@ unsafe impl ::windows::runtime::Abi for TITLEBARINFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub struct TITLEBARINFOEX {
     pub cbSize: u32,
     pub rcTitleBar: super::super::Foundation::RECT,
@@ -11561,33 +13116,58 @@ unsafe impl ::windows::runtime::Abi for TITLEBARINFOEX {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const TKF_AVAILABLE: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const TKF_CONFIRMHOTKEY: u32 = 8u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const TKF_HOTKEYACTIVE: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const TKF_HOTKEYSOUND: u32 = 16u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const TKF_INDICATOR: u32 = 32u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const TKF_TOGGLEKEYSON: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const TOUCHPREDICTIONPARAMETERS_DEFAULT_LATENCY: u32 = 8u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const TOUCHPREDICTIONPARAMETERS_DEFAULT_RLS_DELTA: f32 = 0.001f32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const TOUCHPREDICTIONPARAMETERS_DEFAULT_RLS_EXPO_SMOOTH_ALPHA: f32 = 0.99f32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const TOUCHPREDICTIONPARAMETERS_DEFAULT_RLS_LAMBDA_LEARNING_RATE: f32 = 0.001f32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const TOUCHPREDICTIONPARAMETERS_DEFAULT_RLS_LAMBDA_MAX: f32 = 0.999f32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const TOUCHPREDICTIONPARAMETERS_DEFAULT_RLS_LAMBDA_MIN: f32 = 0.9f32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const TOUCHPREDICTIONPARAMETERS_DEFAULT_SAMPLETIME: u32 = 8u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const TOUCHPREDICTIONPARAMETERS_DEFAULT_USE_HW_TIMESTAMP: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const TOUCH_FLAG_NONE: u32 = 0u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const TOUCH_HIT_TESTING_CLIENT: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const TOUCH_HIT_TESTING_DEFAULT: u32 = 0u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const TOUCH_HIT_TESTING_NONE: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const TOUCH_HIT_TESTING_PROXIMITY_CLOSEST: u32 = 0u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const TOUCH_HIT_TESTING_PROXIMITY_FARTHEST: u32 = 4095u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const TOUCH_MASK_CONTACTAREA: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const TOUCH_MASK_NONE: u32 = 0u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const TOUCH_MASK_ORIENTATION: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const TOUCH_MASK_PRESSURE: u32 = 4u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub struct TPMPARAMS {
     pub cbSize: u32,
     pub rcExclude: super::super::Foundation::RECT,
@@ -11619,6 +13199,7 @@ unsafe impl ::windows::runtime::Abi for TPMPARAMS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TRACK_POPUP_MENU_FLAGS(pub u32);
@@ -11680,6 +13261,7 @@ impl ::std::ops::Not for TRACK_POPUP_MENU_FLAGS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn TileWindows<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwndparent: Param0, whow: TILE_WINDOWS_HOW, lprect: *const super::super::Foundation::RECT, ckids: u32, lpkids: *const super::super::Foundation::HWND) -> u16 {
     #[cfg(windows)]
@@ -11695,6 +13277,7 @@ pub unsafe fn TileWindows<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub struct TouchPredictionParameters {
     pub cbSize: u32,
     pub dwLatency: u32,
@@ -11723,6 +13306,7 @@ unsafe impl ::windows::runtime::Abi for TouchPredictionParameters {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn TrackPopupMenu<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hmenu: Param0, uflags: TRACK_POPUP_MENU_FLAGS, x: i32, y: i32, nreserved: i32, hwnd: Param5, prcrect: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11737,6 +13321,7 @@ pub unsafe fn TrackPopupMenu<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn TrackPopupMenuEx<'a, Param0: ::windows::runtime::IntoParam<'a, HMENU>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hmenu: Param0, uflags: u32, x: i32, y: i32, hwnd: Param4, lptpm: *const TPMPARAMS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11751,6 +13336,7 @@ pub unsafe fn TrackPopupMenuEx<'a, Param0: ::windows::runtime::IntoParam<'a, HME
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn TranslateAcceleratorA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, HACCEL>>(hwnd: Param0, hacctable: Param1, lpmsg: *const MSG) -> i32 {
     #[cfg(windows)]
@@ -11765,6 +13351,7 @@ pub unsafe fn TranslateAcceleratorA<'a, Param0: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn TranslateAcceleratorW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, HACCEL>>(hwnd: Param0, hacctable: Param1, lpmsg: *const MSG) -> i32 {
     #[cfg(windows)]
@@ -11779,6 +13366,7 @@ pub unsafe fn TranslateAcceleratorW<'a, Param0: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn TranslateMDISysAccel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwndclient: Param0, lpmsg: *const MSG) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11793,6 +13381,7 @@ pub unsafe fn TranslateMDISysAccel<'a, Param0: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn TranslateMessage(lpmsg: *const MSG) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11806,17 +13395,26 @@ pub unsafe fn TranslateMessage(lpmsg: *const MSG) -> super::super::Foundation::B
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const UISF_ACTIVE: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const UISF_HIDEACCEL: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const UISF_HIDEFOCUS: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const UIS_CLEAR: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const UIS_INITIALIZE: u32 = 3u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const UIS_SET: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const UNICODE_NOCHAR: u32 = 65535u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const UOI_TIMERPROC_EXCEPTION_SUPPRESSION: u32 = 7u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 pub struct UPDATELAYEREDWINDOWINFO {
     pub cbSize: u32,
     pub hdcDst: super::super::Graphics::Gdi::HDC,
@@ -11867,6 +13465,7 @@ unsafe impl ::windows::runtime::Abi for UPDATELAYEREDWINDOWINFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct UPDATE_LAYERED_WINDOW_FLAGS(pub u32);
@@ -11911,10 +13510,14 @@ impl ::std::ops::Not for UPDATE_LAYERED_WINDOW_FLAGS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const USER_DEFAULT_SCREEN_DPI: u32 = 96u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const USER_TIMER_MAXIMUM: u32 = 2147483647u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const USER_TIMER_MINIMUM: u32 = 10u32;
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn UnhookWindowsHook(ncode: i32, pfnfilterproc: ::std::option::Option<HOOKPROC>) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11929,6 +13532,7 @@ pub unsafe fn UnhookWindowsHook(ncode: i32, pfnfilterproc: ::std::option::Option
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn UnhookWindowsHookEx<'a, Param0: ::windows::runtime::IntoParam<'a, HHOOK>>(hhk: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11943,6 +13547,7 @@ pub unsafe fn UnhookWindowsHookEx<'a, Param0: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn UnregisterClassA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>>(lpclassname: Param0, hinstance: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11957,6 +13562,7 @@ pub unsafe fn UnregisterClassA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn UnregisterClassW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>>(lpclassname: Param0, hinstance: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11971,6 +13577,7 @@ pub unsafe fn UnregisterClassW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[inline]
 pub unsafe fn UpdateLayeredWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>, Param4: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(
     hwnd: Param0,
@@ -11995,6 +13602,7 @@ pub unsafe fn UpdateLayeredWindow<'a, Param0: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[inline]
 pub unsafe fn UpdateLayeredWindowIndirect<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, pulwinfo: *const UPDATELAYEREDWINDOWINFO) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -12008,18 +13616,28 @@ pub unsafe fn UpdateLayeredWindowIndirect<'a, Param0: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WA_ACTIVE: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WA_CLICKACTIVE: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WA_INACTIVE: u32 = 0u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WHEEL_DELTA: u32 = 120u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WH_HARDWARE: u32 = 8u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WH_MAX: u32 = 14u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WH_MAXHOOK: u32 = 14u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WH_MIN: i32 = -1i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WH_MINHOOK: i32 = -1i32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub struct WINDOWINFO {
     pub cbSize: u32,
     pub rcWindow: super::super::Foundation::RECT,
@@ -12073,6 +13691,7 @@ unsafe impl ::windows::runtime::Abi for WINDOWINFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub struct WINDOWPLACEMENT {
     pub length: u32,
     pub flags: WINDOWPLACEMENT_FLAGS,
@@ -12108,6 +13727,7 @@ unsafe impl ::windows::runtime::Abi for WINDOWPLACEMENT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WINDOWPLACEMENT_FLAGS(pub u32);
@@ -12154,6 +13774,7 @@ impl ::std::ops::Not for WINDOWPLACEMENT_FLAGS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 pub struct WINDOWPOS {
     pub hwnd: super::super::Foundation::HWND,
     pub hwndInsertAfter: super::super::Foundation::HWND,
@@ -12190,6 +13811,7 @@ unsafe impl ::windows::runtime::Abi for WINDOWPOS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WINDOWS_HOOK_ID(pub i32);
@@ -12217,6 +13839,7 @@ unsafe impl ::windows::runtime::Abi for WINDOWS_HOOK_ID {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WINDOW_DISPLAY_AFFINITY(pub u32);
@@ -12260,6 +13883,7 @@ impl ::std::ops::Not for WINDOW_DISPLAY_AFFINITY {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WINDOW_EX_STYLE(pub u32);
@@ -12327,6 +13951,7 @@ impl ::std::ops::Not for WINDOW_EX_STYLE {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WINDOW_LONG_PTR_INDEX(pub i32);
@@ -12351,6 +13976,7 @@ unsafe impl ::windows::runtime::Abi for WINDOW_LONG_PTR_INDEX {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WINDOW_MESSAGE_FILTER_ACTION(pub u32);
@@ -12394,6 +14020,7 @@ impl ::std::ops::Not for WINDOW_MESSAGE_FILTER_ACTION {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WINDOW_STYLE(pub u32);
@@ -12462,280 +14089,552 @@ impl ::std::ops::Not for WINDOW_STYLE {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WINEVENT_INCONTEXT: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WINEVENT_OUTOFCONTEXT: u32 = 0u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WINEVENT_SKIPOWNPROCESS: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WINEVENT_SKIPOWNTHREAD: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WINSTA_ACCESSCLIPBOARD: i32 = 4i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WINSTA_ACCESSGLOBALATOMS: i32 = 32i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WINSTA_CREATEDESKTOP: i32 = 8i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WINSTA_ENUMDESKTOPS: i32 = 1i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WINSTA_ENUMERATE: i32 = 256i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WINSTA_EXITWINDOWS: i32 = 64i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WINSTA_READATTRIBUTES: i32 = 2i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WINSTA_READSCREEN: i32 = 512i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WINSTA_WRITEATTRIBUTES: i32 = 16i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WMSZ_BOTTOM: u32 = 6u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WMSZ_BOTTOMLEFT: u32 = 7u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WMSZ_BOTTOMRIGHT: u32 = 8u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WMSZ_LEFT: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WMSZ_RIGHT: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WMSZ_TOP: u32 = 3u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WMSZ_TOPLEFT: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WMSZ_TOPRIGHT: u32 = 5u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_ACTIVATE: u32 = 6u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_ACTIVATEAPP: u32 = 28u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_AFXFIRST: u32 = 864u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_AFXLAST: u32 = 895u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_APP: u32 = 32768u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_APPCOMMAND: u32 = 793u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_ASKCBFORMATNAME: u32 = 780u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_CANCELJOURNAL: u32 = 75u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_CANCELMODE: u32 = 31u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_CAPTURECHANGED: u32 = 533u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_CHANGECBCHAIN: u32 = 781u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_CHANGEUISTATE: u32 = 295u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_CHAR: u32 = 258u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_CHARTOITEM: u32 = 47u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_CHILDACTIVATE: u32 = 34u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_CLEAR: u32 = 771u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_CLIPBOARDUPDATE: u32 = 797u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_CLOSE: u32 = 16u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_COMMAND: u32 = 273u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_COMMNOTIFY: u32 = 68u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_COMPACTING: u32 = 65u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_COMPAREITEM: u32 = 57u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_COPY: u32 = 769u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_COPYDATA: u32 = 74u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_CREATE: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_CTLCOLORBTN: u32 = 309u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_CTLCOLORDLG: u32 = 310u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_CTLCOLOREDIT: u32 = 307u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_CTLCOLORLISTBOX: u32 = 308u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_CTLCOLORMSGBOX: u32 = 306u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_CTLCOLORSCROLLBAR: u32 = 311u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_CTLCOLORSTATIC: u32 = 312u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_CUT: u32 = 768u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_DEADCHAR: u32 = 259u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_DELETEITEM: u32 = 45u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_DESTROY: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_DESTROYCLIPBOARD: u32 = 775u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_DEVICECHANGE: u32 = 537u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_DEVMODECHANGE: u32 = 27u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_DISPLAYCHANGE: u32 = 126u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_DPICHANGED: u32 = 736u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_DPICHANGED_AFTERPARENT: u32 = 739u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_DPICHANGED_BEFOREPARENT: u32 = 738u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_DRAWCLIPBOARD: u32 = 776u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_DRAWITEM: u32 = 43u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_DROPFILES: u32 = 563u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_DWMCOLORIZATIONCOLORCHANGED: u32 = 800u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_DWMCOMPOSITIONCHANGED: u32 = 798u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_DWMNCRENDERINGCHANGED: u32 = 799u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_DWMSENDICONICLIVEPREVIEWBITMAP: u32 = 806u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_DWMSENDICONICTHUMBNAIL: u32 = 803u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_DWMWINDOWMAXIMIZEDCHANGE: u32 = 801u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_ENABLE: u32 = 10u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_ENDSESSION: u32 = 22u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_ENTERIDLE: u32 = 289u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_ENTERMENULOOP: u32 = 529u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_ENTERSIZEMOVE: u32 = 561u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_ERASEBKGND: u32 = 20u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_EXITMENULOOP: u32 = 530u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_EXITSIZEMOVE: u32 = 562u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_FONTCHANGE: u32 = 29u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_GESTURE: u32 = 281u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_GESTURENOTIFY: u32 = 282u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_GETDLGCODE: u32 = 135u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_GETDPISCALEDSIZE: u32 = 740u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_GETFONT: u32 = 49u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_GETHOTKEY: u32 = 51u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_GETICON: u32 = 127u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_GETMINMAXINFO: u32 = 36u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_GETOBJECT: u32 = 61u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_GETTEXT: u32 = 13u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_GETTEXTLENGTH: u32 = 14u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_GETTITLEBARINFOEX: u32 = 831u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_HANDHELDFIRST: u32 = 856u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_HANDHELDLAST: u32 = 863u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_HELP: u32 = 83u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_HOTKEY: u32 = 786u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_HSCROLL: u32 = 276u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_HSCROLLCLIPBOARD: u32 = 782u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_ICONERASEBKGND: u32 = 39u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_IME_CHAR: u32 = 646u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_IME_COMPOSITION: u32 = 271u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_IME_COMPOSITIONFULL: u32 = 644u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_IME_CONTROL: u32 = 643u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_IME_ENDCOMPOSITION: u32 = 270u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_IME_KEYDOWN: u32 = 656u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_IME_KEYLAST: u32 = 271u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_IME_KEYUP: u32 = 657u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_IME_NOTIFY: u32 = 642u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_IME_REQUEST: u32 = 648u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_IME_SELECT: u32 = 645u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_IME_SETCONTEXT: u32 = 641u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_IME_STARTCOMPOSITION: u32 = 269u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_INITDIALOG: u32 = 272u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_INITMENU: u32 = 278u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_INITMENUPOPUP: u32 = 279u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_INPUT: u32 = 255u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_INPUTLANGCHANGE: u32 = 81u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_INPUTLANGCHANGEREQUEST: u32 = 80u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_INPUT_DEVICE_CHANGE: u32 = 254u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_KEYDOWN: u32 = 256u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_KEYFIRST: u32 = 256u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_KEYLAST: u32 = 265u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_KEYUP: u32 = 257u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_KILLFOCUS: u32 = 8u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_LBUTTONDBLCLK: u32 = 515u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_LBUTTONDOWN: u32 = 513u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_LBUTTONUP: u32 = 514u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_MBUTTONDBLCLK: u32 = 521u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_MBUTTONDOWN: u32 = 519u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_MBUTTONUP: u32 = 520u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_MDIACTIVATE: u32 = 546u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_MDICASCADE: u32 = 551u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_MDICREATE: u32 = 544u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_MDIDESTROY: u32 = 545u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_MDIGETACTIVE: u32 = 553u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_MDIICONARRANGE: u32 = 552u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_MDIMAXIMIZE: u32 = 549u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_MDINEXT: u32 = 548u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_MDIREFRESHMENU: u32 = 564u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_MDIRESTORE: u32 = 547u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_MDISETMENU: u32 = 560u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_MDITILE: u32 = 550u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_MEASUREITEM: u32 = 44u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_MENUCHAR: u32 = 288u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_MENUCOMMAND: u32 = 294u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_MENUDRAG: u32 = 291u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_MENUGETOBJECT: u32 = 292u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_MENURBUTTONUP: u32 = 290u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_MENUSELECT: u32 = 287u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_MOUSEACTIVATE: u32 = 33u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_MOUSEFIRST: u32 = 512u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_MOUSEHWHEEL: u32 = 526u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_MOUSELAST: u32 = 526u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_MOUSEMOVE: u32 = 512u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_MOUSEWHEEL: u32 = 522u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_MOVE: u32 = 3u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_MOVING: u32 = 534u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_NCACTIVATE: u32 = 134u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_NCCALCSIZE: u32 = 131u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_NCCREATE: u32 = 129u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_NCDESTROY: u32 = 130u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_NCHITTEST: u32 = 132u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_NCLBUTTONDBLCLK: u32 = 163u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_NCLBUTTONDOWN: u32 = 161u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_NCLBUTTONUP: u32 = 162u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_NCMBUTTONDBLCLK: u32 = 169u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_NCMBUTTONDOWN: u32 = 167u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_NCMBUTTONUP: u32 = 168u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_NCMOUSEHOVER: u32 = 672u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_NCMOUSELEAVE: u32 = 674u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_NCMOUSEMOVE: u32 = 160u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_NCPAINT: u32 = 133u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_NCPOINTERDOWN: u32 = 578u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_NCPOINTERUP: u32 = 579u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_NCPOINTERUPDATE: u32 = 577u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_NCRBUTTONDBLCLK: u32 = 166u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_NCRBUTTONDOWN: u32 = 164u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_NCRBUTTONUP: u32 = 165u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_NCXBUTTONDBLCLK: u32 = 173u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_NCXBUTTONDOWN: u32 = 171u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_NCXBUTTONUP: u32 = 172u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_NEXTDLGCTL: u32 = 40u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_NEXTMENU: u32 = 531u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_NOTIFYFORMAT: u32 = 85u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_NULL: u32 = 0u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_PAINT: u32 = 15u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_PAINTCLIPBOARD: u32 = 777u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_PAINTICON: u32 = 38u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_PALETTECHANGED: u32 = 785u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_PALETTEISCHANGING: u32 = 784u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_PARENTNOTIFY: u32 = 528u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_PASTE: u32 = 770u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_PENWINFIRST: u32 = 896u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_PENWINLAST: u32 = 911u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_POINTERACTIVATE: u32 = 587u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_POINTERCAPTURECHANGED: u32 = 588u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_POINTERDEVICECHANGE: u32 = 568u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_POINTERDEVICEINRANGE: u32 = 569u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_POINTERDEVICEOUTOFRANGE: u32 = 570u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_POINTERDOWN: u32 = 582u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_POINTERENTER: u32 = 585u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_POINTERHWHEEL: u32 = 591u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_POINTERLEAVE: u32 = 586u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_POINTERROUTEDAWAY: u32 = 594u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_POINTERROUTEDRELEASED: u32 = 595u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_POINTERROUTEDTO: u32 = 593u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_POINTERUP: u32 = 583u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_POINTERUPDATE: u32 = 581u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_POINTERWHEEL: u32 = 590u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_POWER: u32 = 72u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_POWERBROADCAST: u32 = 536u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_PRINT: u32 = 791u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_QUERYDRAGICON: u32 = 55u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_QUERYENDSESSION: u32 = 17u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_QUERYNEWPALETTE: u32 = 783u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_QUERYOPEN: u32 = 19u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_QUERYUISTATE: u32 = 297u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_QUEUESYNC: u32 = 35u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_QUIT: u32 = 18u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_RBUTTONDBLCLK: u32 = 518u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_RBUTTONDOWN: u32 = 516u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_RBUTTONUP: u32 = 517u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_RENDERALLFORMATS: u32 = 774u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_RENDERFORMAT: u32 = 773u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_SETCURSOR: u32 = 32u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_SETFOCUS: u32 = 7u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_SETFONT: u32 = 48u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_SETHOTKEY: u32 = 50u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_SETICON: u32 = 128u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_SETREDRAW: u32 = 11u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_SETTEXT: u32 = 12u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_SETTINGCHANGE: u32 = 26u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_SHOWWINDOW: u32 = 24u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_SIZE: u32 = 5u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_SIZECLIPBOARD: u32 = 779u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_SIZING: u32 = 532u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_SPOOLERSTATUS: u32 = 42u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_STYLECHANGED: u32 = 125u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_STYLECHANGING: u32 = 124u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_SYNCPAINT: u32 = 136u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_SYSCHAR: u32 = 262u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_SYSCOLORCHANGE: u32 = 21u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_SYSCOMMAND: u32 = 274u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_SYSDEADCHAR: u32 = 263u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_SYSKEYDOWN: u32 = 260u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_SYSKEYUP: u32 = 261u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_TABLET_FIRST: u32 = 704u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_TABLET_LAST: u32 = 735u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_TCARD: u32 = 82u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_THEMECHANGED: u32 = 794u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_TIMECHANGE: u32 = 30u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_TIMER: u32 = 275u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_TOUCH: u32 = 576u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_TOUCHHITTESTING: u32 = 589u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_UNDO: u32 = 772u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_UNINITMENUPOPUP: u32 = 293u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_UPDATEUISTATE: u32 = 296u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_USER: u32 = 1024u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_USERCHANGED: u32 = 84u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_VKEYTOITEM: u32 = 46u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_VSCROLL: u32 = 277u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_VSCROLLCLIPBOARD: u32 = 778u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_WINDOWPOSCHANGED: u32 = 71u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_WINDOWPOSCHANGING: u32 = 70u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_WININICHANGE: u32 = 26u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_WTSSESSION_CHANGE: u32 = 689u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_XBUTTONDBLCLK: u32 = 525u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_XBUTTONDOWN: u32 = 523u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WM_XBUTTONUP: u32 = 524u32;
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 pub struct WNDCLASSA {
     pub style: WNDCLASS_STYLES,
     pub lpfnWndProc: ::std::option::Option<WNDPROC>,
@@ -12788,6 +14687,7 @@ unsafe impl ::windows::runtime::Abi for WNDCLASSA {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 pub struct WNDCLASSEXA {
     pub cbSize: u32,
     pub style: WNDCLASS_STYLES,
@@ -12844,6 +14744,7 @@ unsafe impl ::windows::runtime::Abi for WNDCLASSEXA {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 pub struct WNDCLASSEXW {
     pub cbSize: u32,
     pub style: WNDCLASS_STYLES,
@@ -12900,6 +14801,7 @@ unsafe impl ::windows::runtime::Abi for WNDCLASSEXW {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 pub struct WNDCLASSW {
     pub style: WNDCLASS_STYLES,
     pub lpfnWndProc: ::std::option::Option<WNDPROC>,
@@ -12949,6 +14851,7 @@ unsafe impl ::windows::runtime::Abi for WNDCLASSW {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WNDCLASS_STYLES(pub u32);
@@ -13006,26 +14909,46 @@ impl ::std::ops::Not for WNDCLASS_STYLES {
 pub type WNDENUMPROC = unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
 pub type WNDPROC = unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: super::super::Foundation::WPARAM, param3: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WSF_VISIBLE: i32 = 1i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WTS_CONSOLE_CONNECT: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WTS_CONSOLE_DISCONNECT: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WTS_REMOTE_CONNECT: u32 = 3u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WTS_REMOTE_DISCONNECT: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WTS_SESSION_CREATE: u32 = 10u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WTS_SESSION_LOCK: u32 = 7u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WTS_SESSION_LOGOFF: u32 = 6u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WTS_SESSION_LOGON: u32 = 5u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WTS_SESSION_REMOTE_CONTROL: u32 = 9u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WTS_SESSION_TERMINATE: u32 = 11u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WTS_SESSION_UNLOCK: u32 = 8u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WVR_ALIGNBOTTOM: u32 = 64u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WVR_ALIGNLEFT: u32 = 32u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WVR_ALIGNRIGHT: u32 = 128u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WVR_ALIGNTOP: u32 = 16u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WVR_HREDRAW: u32 = 256u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WVR_VALIDRECTS: u32 = 1024u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const WVR_VREDRAW: u32 = 512u32;
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WaitMessage() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -13040,6 +14963,7 @@ pub unsafe fn WaitMessage() -> super::super::Foundation::BOOL {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WindowFromPhysicalPoint<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::POINT>>(point: Param0) -> super::super::Foundation::HWND {
     #[cfg(windows)]
@@ -13054,6 +14978,7 @@ pub unsafe fn WindowFromPhysicalPoint<'a, Param0: ::windows::runtime::IntoParam<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WindowFromPoint<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::POINT>>(point: Param0) -> super::super::Foundation::HWND {
     #[cfg(windows)]
@@ -13067,24 +14992,42 @@ pub unsafe fn WindowFromPoint<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const __WARNING_BANNED_API_USAGE: u32 = 28719u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const __WARNING_CYCLOMATIC_COMPLEXITY: u32 = 28734u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const __WARNING_DEREF_NULL_PTR: u32 = 6011u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const __WARNING_HIGH_PRIORITY_OVERFLOW_POSTCONDITION: u32 = 26045u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const __WARNING_INCORRECT_ANNOTATION: u32 = 26007u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const __WARNING_INVALID_PARAM_VALUE_1: u32 = 6387u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const __WARNING_INVALID_PARAM_VALUE_3: u32 = 28183u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const __WARNING_MISSING_ZERO_TERMINATION2: u32 = 6054u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const __WARNING_POSTCONDITION_NULLTERMINATION_VIOLATION: u32 = 26036u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const __WARNING_POST_EXPECTED: u32 = 28210u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const __WARNING_POTENTIAL_BUFFER_OVERFLOW_HIGH_PRIORITY: u32 = 26015u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const __WARNING_POTENTIAL_RANGE_POSTCONDITION_VIOLATION: u32 = 26071u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const __WARNING_PRECONDITION_NULLTERMINATION_VIOLATION: u32 = 26035u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const __WARNING_RANGE_POSTCONDITION_VIOLATION: u32 = 26061u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const __WARNING_RETURNING_BAD_RESULT: u32 = 28196u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const __WARNING_RETURN_UNINIT_VAR: u32 = 6101u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const __WARNING_USING_UNINIT_VAR: u32 = 6001u32;
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn wsprintfA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(param0: super::super::Foundation::PSTR, param1: Param1) -> i32 {
     #[cfg(windows)]
@@ -13099,6 +15042,7 @@ pub unsafe fn wsprintfA<'a, Param1: ::windows::runtime::IntoParam<'a, super::sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn wsprintfW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(param0: super::super::Foundation::PWSTR, param1: Param1) -> i32 {
     #[cfg(windows)]
@@ -13113,6 +15057,7 @@ pub unsafe fn wsprintfW<'a, Param1: ::windows::runtime::IntoParam<'a, super::sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn wvsprintfA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(param0: super::super::Foundation::PSTR, param1: Param1, arglist: *const i8) -> i32 {
     #[cfg(windows)]
@@ -13127,6 +15072,7 @@ pub unsafe fn wvsprintfA<'a, Param1: ::windows::runtime::IntoParam<'a, super::su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn wvsprintfW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(param0: super::super::Foundation::PWSTR, param1: Param1, arglist: *const i8) -> i32 {
     #[cfg(windows)]

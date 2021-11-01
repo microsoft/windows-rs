@@ -180,50 +180,59 @@ pub struct IPlaceInfoHelperStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, location: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Services_Maps_LocalSearch`*"]
 pub struct LocalCategories {}
 impl LocalCategories {
+    #[doc = "*Required features: `Services_Maps_LocalSearch`*"]
     pub fn BankAndCreditUnions() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ILocalCategoriesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Services_Maps_LocalSearch`*"]
     pub fn EatDrink() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ILocalCategoriesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Services_Maps_LocalSearch`*"]
     pub fn Hospitals() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ILocalCategoriesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Services_Maps_LocalSearch`*"]
     pub fn HotelsAndMotels() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ILocalCategoriesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Services_Maps_LocalSearch`*"]
     pub fn All() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ILocalCategoriesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Services_Maps_LocalSearch`*"]
     pub fn Parking() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ILocalCategoriesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Services_Maps_LocalSearch`*"]
     pub fn SeeDo() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ILocalCategoriesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Services_Maps_LocalSearch`*"]
     pub fn Shop() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ILocalCategoriesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
@@ -238,10 +247,12 @@ impl LocalCategories {
 impl ::windows::runtime::RuntimeName for LocalCategories {
     const NAME: &'static str = "Windows.Services.Maps.LocalSearch.LocalCategories";
 }
+#[doc = "*Required features: `Services_Maps_LocalSearch`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct LocalLocation(::windows::runtime::IInspectable);
 impl LocalLocation {
+    #[doc = "*Required features: `Services_Maps_LocalSearch`*"]
     pub fn Address(&self) -> ::windows::runtime::Result<super::MapAddress> {
         let this = self;
         unsafe {
@@ -249,6 +260,7 @@ impl LocalLocation {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::MapAddress>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Maps_LocalSearch`*"]
     pub fn Identifier(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -256,6 +268,7 @@ impl LocalLocation {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Maps_LocalSearch`*"]
     pub fn Description(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -263,6 +276,7 @@ impl LocalLocation {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Maps_LocalSearch`*"]
     pub fn DisplayName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -271,6 +285,7 @@ impl LocalLocation {
         }
     }
     #[cfg(feature = "Devices_Geolocation")]
+    #[doc = "*Required features: `Services_Maps_LocalSearch`, `Devices_Geolocation`*"]
     pub fn Point(&self) -> ::windows::runtime::Result<super::super::super::Devices::Geolocation::Geopoint> {
         let this = self;
         unsafe {
@@ -278,6 +293,7 @@ impl LocalLocation {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Devices::Geolocation::Geopoint>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Maps_LocalSearch`*"]
     pub fn PhoneNumber(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -285,6 +301,7 @@ impl LocalLocation {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Maps_LocalSearch`*"]
     pub fn DataAttribution(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -292,6 +309,7 @@ impl LocalLocation {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Maps_LocalSearch`*"]
     pub fn Category(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<ILocalLocation2>(self)?;
         unsafe {
@@ -299,6 +317,7 @@ impl LocalLocation {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Maps_LocalSearch`*"]
     pub fn RatingInfo(&self) -> ::windows::runtime::Result<LocalLocationRatingInfo> {
         let this = &::windows::runtime::Interface::cast::<ILocalLocation2>(self)?;
         unsafe {
@@ -307,6 +326,7 @@ impl LocalLocation {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Services_Maps_LocalSearch`, `Foundation_Collections`*"]
     pub fn HoursOfOperation(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<LocalLocationHoursOfOperationItem>> {
         let this = &::windows::runtime::Interface::cast::<ILocalLocation2>(self)?;
         unsafe {
@@ -367,9 +387,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for LocalLocation {}
 unsafe impl ::std::marker::Sync for LocalLocation {}
+#[doc = "*Required features: `Services_Maps_LocalSearch`*"]
 pub struct LocalLocationFinder {}
 impl LocalLocationFinder {
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
+    #[doc = "*Required features: `Services_Maps_LocalSearch`, `Devices_Geolocation`, `Foundation`*"]
     pub fn FindLocalLocationsAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Devices::Geolocation::Geocircle>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(searchterm: Param0, searcharea: Param1, localcategory: Param2, maxresults: u32) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<LocalLocationFinderResult>> {
         Self::ILocalLocationFinderStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -384,11 +406,13 @@ impl LocalLocationFinder {
 impl ::windows::runtime::RuntimeName for LocalLocationFinder {
     const NAME: &'static str = "Windows.Services.Maps.LocalSearch.LocalLocationFinder";
 }
+#[doc = "*Required features: `Services_Maps_LocalSearch`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct LocalLocationFinderResult(::windows::runtime::IInspectable);
 impl LocalLocationFinderResult {
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Services_Maps_LocalSearch`, `Foundation_Collections`*"]
     pub fn LocalLocations(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<LocalLocation>> {
         let this = self;
         unsafe {
@@ -396,6 +420,7 @@ impl LocalLocationFinderResult {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<LocalLocation>>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Maps_LocalSearch`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<LocalLocationFinderStatus> {
         let this = self;
         unsafe {
@@ -456,6 +481,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for LocalLocationFinderResult {}
 unsafe impl ::std::marker::Sync for LocalLocationFinderResult {}
+#[doc = "*Required features: `Services_Maps_LocalSearch`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct LocalLocationFinderStatus(pub i32);
@@ -481,11 +507,13 @@ unsafe impl ::windows::runtime::Abi for LocalLocationFinderStatus {
 unsafe impl ::windows::runtime::RuntimeType for LocalLocationFinderStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.LocalSearch.LocalLocationFinderStatus;i4)");
 }
+#[doc = "*Required features: `Services_Maps_LocalSearch`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct LocalLocationHoursOfOperationItem(::windows::runtime::IInspectable);
 impl LocalLocationHoursOfOperationItem {
     #[cfg(feature = "Globalization")]
+    #[doc = "*Required features: `Services_Maps_LocalSearch`, `Globalization`*"]
     pub fn Day(&self) -> ::windows::runtime::Result<super::super::super::Globalization::DayOfWeek> {
         let this = self;
         unsafe {
@@ -494,6 +522,7 @@ impl LocalLocationHoursOfOperationItem {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Services_Maps_LocalSearch`, `Foundation`*"]
     pub fn Start(&self) -> ::windows::runtime::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -502,6 +531,7 @@ impl LocalLocationHoursOfOperationItem {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Services_Maps_LocalSearch`, `Foundation`*"]
     pub fn Span(&self) -> ::windows::runtime::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -562,11 +592,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for LocalLocationHoursOfOperationItem {}
 unsafe impl ::std::marker::Sync for LocalLocationHoursOfOperationItem {}
+#[doc = "*Required features: `Services_Maps_LocalSearch`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct LocalLocationRatingInfo(::windows::runtime::IInspectable);
 impl LocalLocationRatingInfo {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Services_Maps_LocalSearch`, `Foundation`*"]
     pub fn AggregateRating(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IReference<f64>> {
         let this = self;
         unsafe {
@@ -575,6 +607,7 @@ impl LocalLocationRatingInfo {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Services_Maps_LocalSearch`, `Foundation`*"]
     pub fn RatingCount(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
@@ -582,6 +615,7 @@ impl LocalLocationRatingInfo {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<i32>>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Maps_LocalSearch`*"]
     pub fn ProviderIdentifier(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -642,8 +676,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for LocalLocationRatingInfo {}
 unsafe impl ::std::marker::Sync for LocalLocationRatingInfo {}
+#[doc = "*Required features: `Services_Maps_LocalSearch`*"]
 pub struct PlaceInfoHelper {}
 impl PlaceInfoHelper {
+    #[doc = "*Required features: `Services_Maps_LocalSearch`*"]
     pub fn CreateFromLocalLocation<'a, Param0: ::windows::runtime::IntoParam<'a, LocalLocation>>(location: Param0) -> ::windows::runtime::Result<super::PlaceInfo> {
         Self::IPlaceInfoHelperStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();

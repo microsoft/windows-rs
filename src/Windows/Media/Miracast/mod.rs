@@ -469,6 +469,7 @@ pub struct IMiracastTransmitter_abi(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut super::super::Foundation::DateTime) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: `Media_Miracast`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MiracastReceiver(::windows::runtime::IInspectable);
@@ -480,6 +481,7 @@ impl MiracastReceiver {
         static mut SHARED: ::windows::runtime::FactoryCache<MiracastReceiver, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `Media_Miracast`*"]
     pub fn GetDefaultSettings(&self) -> ::windows::runtime::Result<MiracastReceiverSettings> {
         let this = self;
         unsafe {
@@ -487,6 +489,7 @@ impl MiracastReceiver {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MiracastReceiverSettings>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Miracast`*"]
     pub fn GetCurrentSettings(&self) -> ::windows::runtime::Result<MiracastReceiverSettings> {
         let this = self;
         unsafe {
@@ -495,6 +498,7 @@ impl MiracastReceiver {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Miracast`, `Foundation`*"]
     pub fn GetCurrentSettingsAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<MiracastReceiverSettings>> {
         let this = self;
         unsafe {
@@ -502,6 +506,7 @@ impl MiracastReceiver {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<MiracastReceiverSettings>>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Miracast`*"]
     pub fn DisconnectAllAndApplySettings<'a, Param0: ::windows::runtime::IntoParam<'a, MiracastReceiverSettings>>(&self, settings: Param0) -> ::windows::runtime::Result<MiracastReceiverApplySettingsResult> {
         let this = self;
         unsafe {
@@ -510,6 +515,7 @@ impl MiracastReceiver {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Miracast`, `Foundation`*"]
     pub fn DisconnectAllAndApplySettingsAsync<'a, Param0: ::windows::runtime::IntoParam<'a, MiracastReceiverSettings>>(&self, settings: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<MiracastReceiverApplySettingsResult>> {
         let this = self;
         unsafe {
@@ -517,6 +523,7 @@ impl MiracastReceiver {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), settings.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<MiracastReceiverApplySettingsResult>>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Miracast`*"]
     pub fn GetStatus(&self) -> ::windows::runtime::Result<MiracastReceiverStatus> {
         let this = self;
         unsafe {
@@ -525,6 +532,7 @@ impl MiracastReceiver {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Miracast`, `Foundation`*"]
     pub fn GetStatusAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<MiracastReceiverStatus>> {
         let this = self;
         unsafe {
@@ -533,6 +541,7 @@ impl MiracastReceiver {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Miracast`, `Foundation`*"]
     pub fn StatusChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<MiracastReceiver, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -541,11 +550,13 @@ impl MiracastReceiver {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Miracast`, `Foundation`*"]
     pub fn RemoveStatusChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "ApplicationModel_Core")]
+    #[doc = "*Required features: `Media_Miracast`, `ApplicationModel_Core`*"]
     pub fn CreateSession<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Core::CoreApplicationView>>(&self, view: Param0) -> ::windows::runtime::Result<MiracastReceiverSession> {
         let this = self;
         unsafe {
@@ -554,6 +565,7 @@ impl MiracastReceiver {
         }
     }
     #[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation"))]
+    #[doc = "*Required features: `Media_Miracast`, `ApplicationModel_Core`, `Foundation`*"]
     pub fn CreateSessionAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Core::CoreApplicationView>>(&self, view: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<MiracastReceiverSession>> {
         let this = self;
         unsafe {
@@ -561,10 +573,12 @@ impl MiracastReceiver {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), view.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<MiracastReceiverSession>>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Miracast`*"]
     pub fn ClearKnownTransmitters(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Media_Miracast`*"]
     pub fn RemoveKnownTransmitter<'a, Param0: ::windows::runtime::IntoParam<'a, MiracastTransmitter>>(&self, transmitter: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), transmitter.into_param().abi()).ok() }
@@ -622,10 +636,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for MiracastReceiver {}
 unsafe impl ::std::marker::Sync for MiracastReceiver {}
+#[doc = "*Required features: `Media_Miracast`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MiracastReceiverApplySettingsResult(::windows::runtime::IInspectable);
 impl MiracastReceiverApplySettingsResult {
+    #[doc = "*Required features: `Media_Miracast`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<MiracastReceiverApplySettingsStatus> {
         let this = self;
         unsafe {
@@ -633,6 +649,7 @@ impl MiracastReceiverApplySettingsResult {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MiracastReceiverApplySettingsStatus>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Miracast`*"]
     pub fn ExtendedError(&self) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
         let this = self;
         unsafe {
@@ -693,6 +710,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for MiracastReceiverApplySettingsResult {}
 unsafe impl ::std::marker::Sync for MiracastReceiverApplySettingsResult {}
+#[doc = "*Required features: `Media_Miracast`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MiracastReceiverApplySettingsStatus(pub i32);
@@ -718,6 +736,7 @@ unsafe impl ::windows::runtime::Abi for MiracastReceiverApplySettingsStatus {
 unsafe impl ::windows::runtime::RuntimeType for MiracastReceiverApplySettingsStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverApplySettingsStatus;i4)");
 }
+#[doc = "*Required features: `Media_Miracast`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MiracastReceiverAuthorizationMethod(pub i32);
@@ -739,28 +758,34 @@ unsafe impl ::windows::runtime::Abi for MiracastReceiverAuthorizationMethod {
 unsafe impl ::windows::runtime::RuntimeType for MiracastReceiverAuthorizationMethod {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverAuthorizationMethod;i4)");
 }
+#[doc = "*Required features: `Media_Miracast`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MiracastReceiverConnection(::windows::runtime::IInspectable);
 impl MiracastReceiverConnection {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Miracast`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Media_Miracast`*"]
     pub fn Disconnect(&self, reason: MiracastReceiverDisconnectReason) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), reason).ok() }
     }
+    #[doc = "*Required features: `Media_Miracast`*"]
     pub fn DisconnectWithMessage<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, reason: MiracastReceiverDisconnectReason, message: Param1) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), reason, message.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Media_Miracast`*"]
     pub fn Pause(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Miracast`, `Foundation`*"]
     pub fn PauseAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -768,11 +793,13 @@ impl MiracastReceiverConnection {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Miracast`*"]
     pub fn Resume(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Miracast`, `Foundation`*"]
     pub fn ResumeAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -780,6 +807,7 @@ impl MiracastReceiverConnection {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Miracast`*"]
     pub fn Transmitter(&self) -> ::windows::runtime::Result<MiracastTransmitter> {
         let this = self;
         unsafe {
@@ -787,6 +815,7 @@ impl MiracastReceiverConnection {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MiracastTransmitter>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Miracast`*"]
     pub fn InputDevices(&self) -> ::windows::runtime::Result<MiracastReceiverInputDevices> {
         let this = self;
         unsafe {
@@ -794,6 +823,7 @@ impl MiracastReceiverConnection {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MiracastReceiverInputDevices>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Miracast`*"]
     pub fn CursorImageChannel(&self) -> ::windows::runtime::Result<MiracastReceiverCursorImageChannel> {
         let this = self;
         unsafe {
@@ -801,6 +831,7 @@ impl MiracastReceiverConnection {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MiracastReceiverCursorImageChannel>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Miracast`*"]
     pub fn StreamControl(&self) -> ::windows::runtime::Result<MiracastReceiverStreamControl> {
         let this = self;
         unsafe {
@@ -887,10 +918,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> 
 }
 unsafe impl ::std::marker::Send for MiracastReceiverConnection {}
 unsafe impl ::std::marker::Sync for MiracastReceiverConnection {}
+#[doc = "*Required features: `Media_Miracast`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MiracastReceiverConnectionCreatedEventArgs(::windows::runtime::IInspectable);
 impl MiracastReceiverConnectionCreatedEventArgs {
+    #[doc = "*Required features: `Media_Miracast`*"]
     pub fn Connection(&self) -> ::windows::runtime::Result<MiracastReceiverConnection> {
         let this = self;
         unsafe {
@@ -898,6 +931,7 @@ impl MiracastReceiverConnectionCreatedEventArgs {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MiracastReceiverConnection>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Miracast`*"]
     pub fn Pin(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -906,6 +940,7 @@ impl MiracastReceiverConnectionCreatedEventArgs {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Miracast`, `Foundation`*"]
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
@@ -966,10 +1001,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for MiracastReceiverConnectionCreatedEventArgs {}
 unsafe impl ::std::marker::Sync for MiracastReceiverConnectionCreatedEventArgs {}
+#[doc = "*Required features: `Media_Miracast`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MiracastReceiverCursorImageChannel(::windows::runtime::IInspectable);
 impl MiracastReceiverCursorImageChannel {
+    #[doc = "*Required features: `Media_Miracast`*"]
     pub fn IsEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -978,6 +1015,7 @@ impl MiracastReceiverCursorImageChannel {
         }
     }
     #[cfg(feature = "Graphics")]
+    #[doc = "*Required features: `Media_Miracast`, `Graphics`*"]
     pub fn MaxImageSize(&self) -> ::windows::runtime::Result<super::super::Graphics::SizeInt32> {
         let this = self;
         unsafe {
@@ -986,6 +1024,7 @@ impl MiracastReceiverCursorImageChannel {
         }
     }
     #[cfg(feature = "Graphics")]
+    #[doc = "*Required features: `Media_Miracast`, `Graphics`*"]
     pub fn Position(&self) -> ::windows::runtime::Result<super::super::Graphics::PointInt32> {
         let this = self;
         unsafe {
@@ -994,6 +1033,7 @@ impl MiracastReceiverCursorImageChannel {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Media_Miracast`, `Storage_Streams`*"]
     pub fn ImageStream(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IRandomAccessStreamWithContentType> {
         let this = self;
         unsafe {
@@ -1002,6 +1042,7 @@ impl MiracastReceiverCursorImageChannel {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Miracast`, `Foundation`*"]
     pub fn ImageStreamChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<MiracastReceiverCursorImageChannel, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1010,11 +1051,13 @@ impl MiracastReceiverCursorImageChannel {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Miracast`, `Foundation`*"]
     pub fn RemoveImageStreamChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Miracast`, `Foundation`*"]
     pub fn PositionChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<MiracastReceiverCursorImageChannel, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1023,6 +1066,7 @@ impl MiracastReceiverCursorImageChannel {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Miracast`, `Foundation`*"]
     pub fn RemovePositionChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
@@ -1080,10 +1124,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for MiracastReceiverCursorImageChannel {}
 unsafe impl ::std::marker::Sync for MiracastReceiverCursorImageChannel {}
+#[doc = "*Required features: `Media_Miracast`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MiracastReceiverCursorImageChannelSettings(::windows::runtime::IInspectable);
 impl MiracastReceiverCursorImageChannelSettings {
+    #[doc = "*Required features: `Media_Miracast`*"]
     pub fn IsEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1091,11 +1137,13 @@ impl MiracastReceiverCursorImageChannelSettings {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Miracast`*"]
     pub fn SetIsEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Graphics")]
+    #[doc = "*Required features: `Media_Miracast`, `Graphics`*"]
     pub fn MaxImageSize(&self) -> ::windows::runtime::Result<super::super::Graphics::SizeInt32> {
         let this = self;
         unsafe {
@@ -1104,6 +1152,7 @@ impl MiracastReceiverCursorImageChannelSettings {
         }
     }
     #[cfg(feature = "Graphics")]
+    #[doc = "*Required features: `Media_Miracast`, `Graphics`*"]
     pub fn SetMaxImageSize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::SizeInt32>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -1161,6 +1210,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for MiracastReceiverCursorImageChannelSettings {}
 unsafe impl ::std::marker::Sync for MiracastReceiverCursorImageChannelSettings {}
+#[doc = "*Required features: `Media_Miracast`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MiracastReceiverDisconnectReason(pub i32);
@@ -1186,10 +1236,12 @@ unsafe impl ::windows::runtime::Abi for MiracastReceiverDisconnectReason {
 unsafe impl ::windows::runtime::RuntimeType for MiracastReceiverDisconnectReason {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverDisconnectReason;i4)");
 }
+#[doc = "*Required features: `Media_Miracast`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MiracastReceiverDisconnectedEventArgs(::windows::runtime::IInspectable);
 impl MiracastReceiverDisconnectedEventArgs {
+    #[doc = "*Required features: `Media_Miracast`*"]
     pub fn Connection(&self) -> ::windows::runtime::Result<MiracastReceiverConnection> {
         let this = self;
         unsafe {
@@ -1250,10 +1302,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for MiracastReceiverDisconnectedEventArgs {}
 unsafe impl ::std::marker::Sync for MiracastReceiverDisconnectedEventArgs {}
+#[doc = "*Required features: `Media_Miracast`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MiracastReceiverGameControllerDevice(::windows::runtime::IInspectable);
 impl MiracastReceiverGameControllerDevice {
+    #[doc = "*Required features: `Media_Miracast`*"]
     pub fn TransmitInput(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1261,10 +1315,12 @@ impl MiracastReceiverGameControllerDevice {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Miracast`*"]
     pub fn SetTransmitInput(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Miracast`*"]
     pub fn IsRequestedByTransmitter(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1272,6 +1328,7 @@ impl MiracastReceiverGameControllerDevice {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Miracast`*"]
     pub fn IsTransmittingInput(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1279,6 +1336,7 @@ impl MiracastReceiverGameControllerDevice {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Miracast`*"]
     pub fn Mode(&self) -> ::windows::runtime::Result<MiracastReceiverGameControllerDeviceUsageMode> {
         let this = self;
         unsafe {
@@ -1286,11 +1344,13 @@ impl MiracastReceiverGameControllerDevice {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MiracastReceiverGameControllerDeviceUsageMode>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Miracast`*"]
     pub fn SetMode(&self, value: MiracastReceiverGameControllerDeviceUsageMode) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Miracast`, `Foundation`*"]
     pub fn Changed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<MiracastReceiverGameControllerDevice, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1299,6 +1359,7 @@ impl MiracastReceiverGameControllerDevice {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Miracast`, `Foundation`*"]
     pub fn RemoveChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
@@ -1356,6 +1417,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for MiracastReceiverGameControllerDevice {}
 unsafe impl ::std::marker::Sync for MiracastReceiverGameControllerDevice {}
+#[doc = "*Required features: `Media_Miracast`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MiracastReceiverGameControllerDeviceUsageMode(pub i32);
@@ -1375,10 +1437,12 @@ unsafe impl ::windows::runtime::Abi for MiracastReceiverGameControllerDeviceUsag
 unsafe impl ::windows::runtime::RuntimeType for MiracastReceiverGameControllerDeviceUsageMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverGameControllerDeviceUsageMode;i4)");
 }
+#[doc = "*Required features: `Media_Miracast`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MiracastReceiverInputDevices(::windows::runtime::IInspectable);
 impl MiracastReceiverInputDevices {
+    #[doc = "*Required features: `Media_Miracast`*"]
     pub fn Keyboard(&self) -> ::windows::runtime::Result<MiracastReceiverKeyboardDevice> {
         let this = self;
         unsafe {
@@ -1386,6 +1450,7 @@ impl MiracastReceiverInputDevices {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MiracastReceiverKeyboardDevice>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Miracast`*"]
     pub fn GameController(&self) -> ::windows::runtime::Result<MiracastReceiverGameControllerDevice> {
         let this = self;
         unsafe {
@@ -1446,10 +1511,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for MiracastReceiverInputDevices {}
 unsafe impl ::std::marker::Sync for MiracastReceiverInputDevices {}
+#[doc = "*Required features: `Media_Miracast`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MiracastReceiverKeyboardDevice(::windows::runtime::IInspectable);
 impl MiracastReceiverKeyboardDevice {
+    #[doc = "*Required features: `Media_Miracast`*"]
     pub fn TransmitInput(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1457,10 +1524,12 @@ impl MiracastReceiverKeyboardDevice {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Miracast`*"]
     pub fn SetTransmitInput(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Miracast`*"]
     pub fn IsRequestedByTransmitter(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1468,6 +1537,7 @@ impl MiracastReceiverKeyboardDevice {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Miracast`*"]
     pub fn IsTransmittingInput(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1476,6 +1546,7 @@ impl MiracastReceiverKeyboardDevice {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Miracast`, `Foundation`*"]
     pub fn Changed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<MiracastReceiverKeyboardDevice, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1484,6 +1555,7 @@ impl MiracastReceiverKeyboardDevice {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Miracast`, `Foundation`*"]
     pub fn RemoveChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
@@ -1541,6 +1613,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for MiracastReceiverKeyboardDevice {}
 unsafe impl ::std::marker::Sync for MiracastReceiverKeyboardDevice {}
+#[doc = "*Required features: `Media_Miracast`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MiracastReceiverListeningStatus(pub i32);
@@ -1564,10 +1637,12 @@ unsafe impl ::windows::runtime::Abi for MiracastReceiverListeningStatus {
 unsafe impl ::windows::runtime::RuntimeType for MiracastReceiverListeningStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverListeningStatus;i4)");
 }
+#[doc = "*Required features: `Media_Miracast`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MiracastReceiverMediaSourceCreatedEventArgs(::windows::runtime::IInspectable);
 impl MiracastReceiverMediaSourceCreatedEventArgs {
+    #[doc = "*Required features: `Media_Miracast`*"]
     pub fn Connection(&self) -> ::windows::runtime::Result<MiracastReceiverConnection> {
         let this = self;
         unsafe {
@@ -1576,6 +1651,7 @@ impl MiracastReceiverMediaSourceCreatedEventArgs {
         }
     }
     #[cfg(feature = "Media_Core")]
+    #[doc = "*Required features: `Media_Miracast`, `Media_Core`*"]
     pub fn MediaSource(&self) -> ::windows::runtime::Result<super::Core::MediaSource> {
         let this = self;
         unsafe {
@@ -1583,6 +1659,7 @@ impl MiracastReceiverMediaSourceCreatedEventArgs {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Core::MediaSource>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Miracast`*"]
     pub fn CursorImageChannelSettings(&self) -> ::windows::runtime::Result<MiracastReceiverCursorImageChannelSettings> {
         let this = self;
         unsafe {
@@ -1591,6 +1668,7 @@ impl MiracastReceiverMediaSourceCreatedEventArgs {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Miracast`, `Foundation`*"]
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
@@ -1651,16 +1729,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for MiracastReceiverMediaSourceCreatedEventArgs {}
 unsafe impl ::std::marker::Sync for MiracastReceiverMediaSourceCreatedEventArgs {}
+#[doc = "*Required features: `Media_Miracast`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MiracastReceiverSession(::windows::runtime::IInspectable);
 impl MiracastReceiverSession {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Miracast`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Miracast`, `Foundation`*"]
     pub fn ConnectionCreated<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<MiracastReceiverSession, MiracastReceiverConnectionCreatedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1669,11 +1750,13 @@ impl MiracastReceiverSession {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Miracast`, `Foundation`*"]
     pub fn RemoveConnectionCreated<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Miracast`, `Foundation`*"]
     pub fn MediaSourceCreated<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<MiracastReceiverSession, MiracastReceiverMediaSourceCreatedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1682,11 +1765,13 @@ impl MiracastReceiverSession {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Miracast`, `Foundation`*"]
     pub fn RemoveMediaSourceCreated<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Miracast`, `Foundation`*"]
     pub fn Disconnected<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<MiracastReceiverSession, MiracastReceiverDisconnectedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1695,10 +1780,12 @@ impl MiracastReceiverSession {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Miracast`, `Foundation`*"]
     pub fn RemoveDisconnected<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Media_Miracast`*"]
     pub fn AllowConnectionTakeover(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1706,10 +1793,12 @@ impl MiracastReceiverSession {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Miracast`*"]
     pub fn SetAllowConnectionTakeover(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Miracast`*"]
     pub fn MaxSimultaneousConnections(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -1717,10 +1806,12 @@ impl MiracastReceiverSession {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Miracast`*"]
     pub fn SetMaxSimultaneousConnections(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Miracast`*"]
     pub fn Start(&self) -> ::windows::runtime::Result<MiracastReceiverSessionStartResult> {
         let this = self;
         unsafe {
@@ -1729,6 +1820,7 @@ impl MiracastReceiverSession {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Miracast`, `Foundation`*"]
     pub fn StartAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<MiracastReceiverSessionStartResult>> {
         let this = self;
         unsafe {
@@ -1815,10 +1907,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> 
 }
 unsafe impl ::std::marker::Send for MiracastReceiverSession {}
 unsafe impl ::std::marker::Sync for MiracastReceiverSession {}
+#[doc = "*Required features: `Media_Miracast`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MiracastReceiverSessionStartResult(::windows::runtime::IInspectable);
 impl MiracastReceiverSessionStartResult {
+    #[doc = "*Required features: `Media_Miracast`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<MiracastReceiverSessionStartStatus> {
         let this = self;
         unsafe {
@@ -1826,6 +1920,7 @@ impl MiracastReceiverSessionStartResult {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MiracastReceiverSessionStartStatus>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Miracast`*"]
     pub fn ExtendedError(&self) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
         let this = self;
         unsafe {
@@ -1886,6 +1981,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for MiracastReceiverSessionStartResult {}
 unsafe impl ::std::marker::Sync for MiracastReceiverSessionStartResult {}
+#[doc = "*Required features: `Media_Miracast`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MiracastReceiverSessionStartStatus(pub i32);
@@ -1907,10 +2003,12 @@ unsafe impl ::windows::runtime::Abi for MiracastReceiverSessionStartStatus {
 unsafe impl ::windows::runtime::RuntimeType for MiracastReceiverSessionStartStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverSessionStartStatus;i4)");
 }
+#[doc = "*Required features: `Media_Miracast`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MiracastReceiverSettings(::windows::runtime::IInspectable);
 impl MiracastReceiverSettings {
+    #[doc = "*Required features: `Media_Miracast`*"]
     pub fn FriendlyName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1918,10 +2016,12 @@ impl MiracastReceiverSettings {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Miracast`*"]
     pub fn SetFriendlyName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Media_Miracast`*"]
     pub fn ModelName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1929,10 +2029,12 @@ impl MiracastReceiverSettings {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Miracast`*"]
     pub fn SetModelName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Media_Miracast`*"]
     pub fn ModelNumber(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1940,10 +2042,12 @@ impl MiracastReceiverSettings {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Miracast`*"]
     pub fn SetModelNumber<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Media_Miracast`*"]
     pub fn AuthorizationMethod(&self) -> ::windows::runtime::Result<MiracastReceiverAuthorizationMethod> {
         let this = self;
         unsafe {
@@ -1951,10 +2055,12 @@ impl MiracastReceiverSettings {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MiracastReceiverAuthorizationMethod>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Miracast`*"]
     pub fn SetAuthorizationMethod(&self, value: MiracastReceiverAuthorizationMethod) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Miracast`*"]
     pub fn RequireAuthorizationFromKnownTransmitters(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1962,6 +2068,7 @@ impl MiracastReceiverSettings {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Miracast`*"]
     pub fn SetRequireAuthorizationFromKnownTransmitters(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value).ok() }
@@ -2019,10 +2126,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for MiracastReceiverSettings {}
 unsafe impl ::std::marker::Sync for MiracastReceiverSettings {}
+#[doc = "*Required features: `Media_Miracast`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MiracastReceiverStatus(::windows::runtime::IInspectable);
 impl MiracastReceiverStatus {
+    #[doc = "*Required features: `Media_Miracast`*"]
     pub fn ListeningStatus(&self) -> ::windows::runtime::Result<MiracastReceiverListeningStatus> {
         let this = self;
         unsafe {
@@ -2030,6 +2139,7 @@ impl MiracastReceiverStatus {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MiracastReceiverListeningStatus>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Miracast`*"]
     pub fn WiFiStatus(&self) -> ::windows::runtime::Result<MiracastReceiverWiFiStatus> {
         let this = self;
         unsafe {
@@ -2037,6 +2147,7 @@ impl MiracastReceiverStatus {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MiracastReceiverWiFiStatus>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Miracast`*"]
     pub fn IsConnectionTakeoverSupported(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -2044,6 +2155,7 @@ impl MiracastReceiverStatus {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Miracast`*"]
     pub fn MaxSimultaneousConnections(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -2052,6 +2164,7 @@ impl MiracastReceiverStatus {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Media_Miracast`, `Foundation_Collections`*"]
     pub fn KnownTransmitters(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<MiracastTransmitter>> {
         let this = self;
         unsafe {
@@ -2112,10 +2225,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for MiracastReceiverStatus {}
 unsafe impl ::std::marker::Sync for MiracastReceiverStatus {}
+#[doc = "*Required features: `Media_Miracast`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MiracastReceiverStreamControl(::windows::runtime::IInspectable);
 impl MiracastReceiverStreamControl {
+    #[doc = "*Required features: `Media_Miracast`*"]
     pub fn GetVideoStreamSettings(&self) -> ::windows::runtime::Result<MiracastReceiverVideoStreamSettings> {
         let this = self;
         unsafe {
@@ -2124,6 +2239,7 @@ impl MiracastReceiverStreamControl {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Miracast`, `Foundation`*"]
     pub fn GetVideoStreamSettingsAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<MiracastReceiverVideoStreamSettings>> {
         let this = self;
         unsafe {
@@ -2131,11 +2247,13 @@ impl MiracastReceiverStreamControl {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<MiracastReceiverVideoStreamSettings>>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Miracast`*"]
     pub fn SuggestVideoStreamSettings<'a, Param0: ::windows::runtime::IntoParam<'a, MiracastReceiverVideoStreamSettings>>(&self, settings: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), settings.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Miracast`, `Foundation`*"]
     pub fn SuggestVideoStreamSettingsAsync<'a, Param0: ::windows::runtime::IntoParam<'a, MiracastReceiverVideoStreamSettings>>(&self, settings: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -2143,6 +2261,7 @@ impl MiracastReceiverStreamControl {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), settings.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Miracast`*"]
     pub fn MuteAudio(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -2150,6 +2269,7 @@ impl MiracastReceiverStreamControl {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Miracast`*"]
     pub fn SetMuteAudio(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
@@ -2207,11 +2327,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for MiracastReceiverStreamControl {}
 unsafe impl ::std::marker::Sync for MiracastReceiverStreamControl {}
+#[doc = "*Required features: `Media_Miracast`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MiracastReceiverVideoStreamSettings(::windows::runtime::IInspectable);
 impl MiracastReceiverVideoStreamSettings {
     #[cfg(feature = "Graphics")]
+    #[doc = "*Required features: `Media_Miracast`, `Graphics`*"]
     pub fn Size(&self) -> ::windows::runtime::Result<super::super::Graphics::SizeInt32> {
         let this = self;
         unsafe {
@@ -2220,10 +2342,12 @@ impl MiracastReceiverVideoStreamSettings {
         }
     }
     #[cfg(feature = "Graphics")]
+    #[doc = "*Required features: `Media_Miracast`, `Graphics`*"]
     pub fn SetSize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::SizeInt32>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Media_Miracast`*"]
     pub fn Bitrate(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -2231,6 +2355,7 @@ impl MiracastReceiverVideoStreamSettings {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Miracast`*"]
     pub fn SetBitrate(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
@@ -2288,6 +2413,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for MiracastReceiverVideoStreamSettings {}
 unsafe impl ::std::marker::Sync for MiracastReceiverVideoStreamSettings {}
+#[doc = "*Required features: `Media_Miracast`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MiracastReceiverWiFiStatus(pub i32);
@@ -2309,10 +2435,12 @@ unsafe impl ::windows::runtime::Abi for MiracastReceiverWiFiStatus {
 unsafe impl ::windows::runtime::RuntimeType for MiracastReceiverWiFiStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverWiFiStatus;i4)");
 }
+#[doc = "*Required features: `Media_Miracast`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MiracastTransmitter(::windows::runtime::IInspectable);
 impl MiracastTransmitter {
+    #[doc = "*Required features: `Media_Miracast`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2320,10 +2448,12 @@ impl MiracastTransmitter {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Miracast`*"]
     pub fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Media_Miracast`*"]
     pub fn AuthorizationStatus(&self) -> ::windows::runtime::Result<MiracastTransmitterAuthorizationStatus> {
         let this = self;
         unsafe {
@@ -2331,11 +2461,13 @@ impl MiracastTransmitter {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MiracastTransmitterAuthorizationStatus>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Miracast`*"]
     pub fn SetAuthorizationStatus(&self, value: MiracastTransmitterAuthorizationStatus) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Media_Miracast`, `Foundation_Collections`*"]
     pub fn GetConnections(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<MiracastReceiverConnection>> {
         let this = self;
         unsafe {
@@ -2343,6 +2475,7 @@ impl MiracastTransmitter {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<MiracastReceiverConnection>>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Miracast`*"]
     pub fn MacAddress(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2351,6 +2484,7 @@ impl MiracastTransmitter {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Miracast`, `Foundation`*"]
     pub fn LastConnectionTime(&self) -> ::windows::runtime::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -2411,6 +2545,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for MiracastTransmitter {}
 unsafe impl ::std::marker::Sync for MiracastTransmitter {}
+#[doc = "*Required features: `Media_Miracast`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MiracastTransmitterAuthorizationStatus(pub i32);

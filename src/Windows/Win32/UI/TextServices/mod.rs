@@ -1,4 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ANCHOR_CHANGE_HISTORY_FLAGS(pub u32);
@@ -54,10 +55,14 @@ pub const CLSID_TF_LangBarMgr: ::windows::runtime::GUID = ::windows::runtime::GU
 pub const CLSID_TF_ThreadMgr: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1385864811, 25991, 20259, [171, 158, 156, 125, 104, 62, 60, 80]);
 pub const CLSID_TF_TransitoryExtensionUIEntry: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2926305288, 2043, 16397, [139, 235, 51, 122, 100, 247, 5, 31]);
 pub const CLSID_TsfServices: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(967760896, 27488, 18139, [141, 49, 54, 66, 190, 14, 67, 115]);
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const DCM_FLAGS_CTFMON: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const DCM_FLAGS_LOCALTHREADTSF: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const DCM_FLAGS_TASKENG: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn DoMsCtfMonitor<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(dwflags: u32, heventforservicestop: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -72,6 +77,7 @@ pub unsafe fn DoMsCtfMonitor<'a, Param1: ::windows::runtime::IntoParam<'a, super
     unimplemented!("Unsupported target OS");
 }
 pub const DocWrap: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3208802174, 31326, 17622, [131, 12, 163, 144, 234, 148, 98, 163]);
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GET_TEXT_AND_PROPERTY_UPDATES_FLAGS(pub u32);
@@ -185,7 +191,9 @@ pub const GUID_TFCAT_TRANSITORYEXTENSIONUI: ::windows::runtime::GUID = ::windows
 pub const GUID_TS_SERVICE_ACCESSIBLE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4185416192, 42431, 18959, [140, 36, 251, 22, 245, 209, 170, 187]);
 pub const GUID_TS_SERVICE_ACTIVEX: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3935533648, 51622, 19325, [137, 74, 73, 217, 155, 120, 72, 52]);
 pub const GUID_TS_SERVICE_DATAOBJECT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1619458997, 57893, 18126, [167, 112, 193, 187, 211, 224, 93, 123]);
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const GXFPF_NEAREST: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const GXFPF_ROUND_NEAREST: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -200,25 +208,30 @@ unsafe impl ::windows::runtime::Abi for HKL {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IAccClientDocMgr(::windows::runtime::IUnknown);
 impl IAccClientDocMgr {
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_System_Com`*"]
     pub unsafe fn GetDocuments(&self) -> ::windows::runtime::Result<super::super::System::Com::IEnumUnknown> {
         let mut result__: <super::super::System::Com::IEnumUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::IEnumUnknown>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn LookupByHWND<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, hwnd: Param0, riid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
         let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), hwnd.into_param().abi(), ::std::mem::transmute(riid), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn LookupByPoint<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::POINT>>(&self, pt: Param0, riid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
         let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), pt.into_param().abi(), ::std::mem::transmute(riid), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetFocused(&self, riid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
         let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
@@ -262,29 +275,35 @@ pub struct IAccClientDocMgr_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppunk: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IAccDictionary(::windows::runtime::IUnknown);
 impl IAccDictionary {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetLocalizedString(&self, term: *const ::windows::runtime::GUID, lcid: u32, presult: *mut super::super::Foundation::BSTR, plcid: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(term), ::std::mem::transmute(lcid), ::std::mem::transmute(presult), ::std::mem::transmute(plcid)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetParentTerm(&self, term: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(term), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetMnemonicString(&self, term: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(term), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn LookupMnemonicTerm<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrmnemonic: Param0) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), bstrmnemonic.into_param().abi(), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn ConvertValueToString<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, term: *const ::windows::runtime::GUID, lcid: u32, varvalue: Param2, pbstrresult: *mut super::super::Foundation::BSTR, plcid: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(term), ::std::mem::transmute(lcid), varvalue.into_param().abi(), ::std::mem::transmute(pbstrresult), ::std::mem::transmute(plcid)).ok()
     }
@@ -329,16 +348,20 @@ pub struct IAccDictionary_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, term: *const ::windows::runtime::GUID, lcid: u32, varvalue: ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pbstrresult: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, plcid: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IAccServerDocMgr(::windows::runtime::IUnknown);
 impl IAccServerDocMgr {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn NewDocument<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, riid: *const ::windows::runtime::GUID, punk: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), punk.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn RevokeDocument<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, punk: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), punk.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn OnDocumentFocus<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, punk: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), punk.into_param().abi()).ok()
     }
@@ -377,34 +400,42 @@ pub struct IAccServerDocMgr_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, punk: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, punk: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IAccStore(::windows::runtime::IUnknown);
 impl IAccStore {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Register<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, riid: *const ::windows::runtime::GUID, punk: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), punk.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Unregister<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, punk: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), punk.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_System_Com`*"]
     pub unsafe fn GetDocuments(&self) -> ::windows::runtime::Result<super::super::System::Com::IEnumUnknown> {
         let mut result__: <super::super::System::Com::IEnumUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::IEnumUnknown>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn LookupByHWND<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, hwnd: Param0, riid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
         let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), hwnd.into_param().abi(), ::std::mem::transmute(riid), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn LookupByPoint<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::POINT>>(&self, pt: Param0, riid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
         let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), pt.into_param().abi(), ::std::mem::transmute(riid), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn OnDocumentFocus<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, punk: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), punk.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetFocused(&self, riid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
         let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
@@ -451,47 +482,59 @@ pub struct IAccStore_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, punk: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppunk: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IAnchor(::windows::runtime::IUnknown);
 impl IAnchor {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn SetGravity(&self, gravity: TsGravity) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(gravity)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetGravity(&self) -> ::windows::runtime::Result<TsGravity> {
         let mut result__: <TsGravity as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<TsGravity>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn IsEqual<'a, Param0: ::windows::runtime::IntoParam<'a, IAnchor>>(&self, pawith: Param0) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), pawith.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Compare<'a, Param0: ::windows::runtime::IntoParam<'a, IAnchor>>(&self, pawith: Param0) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), pawith.into_param().abi(), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Shift<'a, Param3: ::windows::runtime::IntoParam<'a, IAnchor>>(&self, dwflags: u32, cchreq: i32, pcch: *mut i32, pahaltanchor: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwflags), ::std::mem::transmute(cchreq), ::std::mem::transmute(pcch), pahaltanchor.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn ShiftTo<'a, Param0: ::windows::runtime::IntoParam<'a, IAnchor>>(&self, pasite: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), pasite.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn ShiftRegion(&self, dwflags: u32, dir: TsShiftDir) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwflags), ::std::mem::transmute(dir), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn SetChangeHistoryMask(&self, dwmask: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwmask)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetChangeHistory(&self) -> ::windows::runtime::Result<ANCHOR_CHANGE_HISTORY_FLAGS> {
         let mut result__: <ANCHOR_CHANGE_HISTORY_FLAGS as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ANCHOR_CHANGE_HISTORY_FLAGS>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn ClearChangeHistory(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Clone(&self) -> ::windows::runtime::Result<IAnchor> {
         let mut result__: <IAnchor as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IAnchor>(result__)
@@ -541,10 +584,12 @@ pub struct IAnchor_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppaclone: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IClonableWrapper(::windows::runtime::IUnknown);
 impl IClonableWrapper {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn CloneNewWrapper<T: ::windows::runtime::Interface>(&self) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
@@ -582,11 +627,13 @@ pub struct IClonableWrapper_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ICoCreateLocally(::windows::runtime::IUnknown);
 impl ICoCreateLocally {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn CoCreateLocally<'a, Param5: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param6: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, rclsid: *const ::windows::runtime::GUID, dwclscontext: u32, riid: *const ::windows::runtime::GUID, punk: *mut ::std::option::Option<::windows::runtime::IUnknown>, riidparam: *const ::windows::runtime::GUID, punkparam: Param5, varparam: Param6) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(rclsid), ::std::mem::transmute(dwclscontext), ::std::mem::transmute(riid), ::std::mem::transmute(punk), ::std::mem::transmute(riidparam), punkparam.into_param().abi(), varparam.into_param().abi()).ok()
     }
@@ -625,11 +672,13 @@ pub struct ICoCreateLocally_abi(
     pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rclsid: *const ::windows::runtime::GUID, dwclscontext: u32, riid: *const ::windows::runtime::GUID, punk: *mut ::windows::runtime::RawPtr, riidparam: *const ::windows::runtime::GUID, punkparam: ::windows::runtime::RawPtr, varparam: ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ICoCreatedLocally(::windows::runtime::IUnknown);
 impl ICoCreatedLocally {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn LocalInit<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param3: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, punklocalobject: Param0, riidparam: *const ::windows::runtime::GUID, punkparam: Param2, varparam: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), punklocalobject.into_param().abi(), ::std::mem::transmute(riidparam), punkparam.into_param().abi(), varparam.into_param().abi()).ok()
     }
@@ -667,13 +716,16 @@ pub struct ICoCreatedLocally_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, punklocalobject: ::windows::runtime::RawPtr, riidparam: *const ::windows::runtime::GUID, punkparam: ::windows::runtime::RawPtr, varparam: ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDocWrap(::windows::runtime::IUnknown);
 impl IDocWrap {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn SetDoc<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, riid: *const ::windows::runtime::GUID, punk: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), punk.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetWrappedDoc(&self, riid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
         let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
@@ -712,20 +764,25 @@ pub struct IDocWrap_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, punk: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppunk: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IEnumITfCompositionView(::windows::runtime::IUnknown);
 impl IEnumITfCompositionView {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Clone(&self) -> ::windows::runtime::Result<IEnumITfCompositionView> {
         let mut result__: <IEnumITfCompositionView as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IEnumITfCompositionView>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Next(&self, ulcount: u32, rgcompositionview: *mut ::std::option::Option<ITfCompositionView>, pcfetched: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulcount), ::std::mem::transmute(rgcompositionview), ::std::mem::transmute(pcfetched)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Skip(&self, ulcount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulcount)).ok()
     }
@@ -765,20 +822,25 @@ pub struct IEnumITfCompositionView_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ulcount: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IEnumSpeechCommands(::windows::runtime::IUnknown);
 impl IEnumSpeechCommands {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Clone(&self) -> ::windows::runtime::Result<IEnumSpeechCommands> {
         let mut result__: <IEnumSpeechCommands as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IEnumSpeechCommands>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Next(&self, ulcount: u32, pspcmds: *mut *mut u16, pcfetched: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulcount), ::std::mem::transmute(pspcmds), ::std::mem::transmute(pcfetched)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Skip(&self, ulcount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulcount)).ok()
     }
@@ -818,20 +880,25 @@ pub struct IEnumSpeechCommands_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ulcount: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IEnumTfCandidates(::windows::runtime::IUnknown);
 impl IEnumTfCandidates {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Clone(&self) -> ::windows::runtime::Result<IEnumTfCandidates> {
         let mut result__: <IEnumTfCandidates as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IEnumTfCandidates>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Next(&self, ulcount: u32, ppcand: *mut ::std::option::Option<ITfCandidateString>, pcfetched: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulcount), ::std::mem::transmute(ppcand), ::std::mem::transmute(pcfetched)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Skip(&self, ulcount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulcount)).ok()
     }
@@ -871,20 +938,25 @@ pub struct IEnumTfCandidates_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ulcount: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IEnumTfContextViews(::windows::runtime::IUnknown);
 impl IEnumTfContextViews {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Clone(&self) -> ::windows::runtime::Result<IEnumTfContextViews> {
         let mut result__: <IEnumTfContextViews as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IEnumTfContextViews>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Next(&self, ulcount: u32, rgviews: *mut ::std::option::Option<ITfContextView>, pcfetched: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulcount), ::std::mem::transmute(rgviews), ::std::mem::transmute(pcfetched)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Skip(&self, ulcount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulcount)).ok()
     }
@@ -924,20 +996,25 @@ pub struct IEnumTfContextViews_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ulcount: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IEnumTfContexts(::windows::runtime::IUnknown);
 impl IEnumTfContexts {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Clone(&self) -> ::windows::runtime::Result<IEnumTfContexts> {
         let mut result__: <IEnumTfContexts as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IEnumTfContexts>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Next(&self, ulcount: u32, rgcontext: *mut ::std::option::Option<ITfContext>, pcfetched: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulcount), ::std::mem::transmute(rgcontext), ::std::mem::transmute(pcfetched)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Skip(&self, ulcount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulcount)).ok()
     }
@@ -977,20 +1054,25 @@ pub struct IEnumTfContexts_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ulcount: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IEnumTfDisplayAttributeInfo(::windows::runtime::IUnknown);
 impl IEnumTfDisplayAttributeInfo {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Clone(&self) -> ::windows::runtime::Result<IEnumTfDisplayAttributeInfo> {
         let mut result__: <IEnumTfDisplayAttributeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IEnumTfDisplayAttributeInfo>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Next(&self, ulcount: u32, rginfo: *mut ::std::option::Option<ITfDisplayAttributeInfo>, pcfetched: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulcount), ::std::mem::transmute(rginfo), ::std::mem::transmute(pcfetched)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Skip(&self, ulcount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulcount)).ok()
     }
@@ -1030,20 +1112,25 @@ pub struct IEnumTfDisplayAttributeInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ulcount: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IEnumTfDocumentMgrs(::windows::runtime::IUnknown);
 impl IEnumTfDocumentMgrs {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Clone(&self) -> ::windows::runtime::Result<IEnumTfDocumentMgrs> {
         let mut result__: <IEnumTfDocumentMgrs as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IEnumTfDocumentMgrs>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Next(&self, ulcount: u32, rgdocumentmgr: *mut ::std::option::Option<ITfDocumentMgr>, pcfetched: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulcount), ::std::mem::transmute(rgdocumentmgr), ::std::mem::transmute(pcfetched)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Skip(&self, ulcount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulcount)).ok()
     }
@@ -1083,20 +1170,25 @@ pub struct IEnumTfDocumentMgrs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ulcount: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IEnumTfFunctionProviders(::windows::runtime::IUnknown);
 impl IEnumTfFunctionProviders {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Clone(&self) -> ::windows::runtime::Result<IEnumTfFunctionProviders> {
         let mut result__: <IEnumTfFunctionProviders as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IEnumTfFunctionProviders>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Next(&self, ulcount: u32, ppcmdobj: *mut ::std::option::Option<ITfFunctionProvider>, pcfetch: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulcount), ::std::mem::transmute(ppcmdobj), ::std::mem::transmute(pcfetch)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Skip(&self, ulcount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulcount)).ok()
     }
@@ -1136,20 +1228,25 @@ pub struct IEnumTfFunctionProviders_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ulcount: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IEnumTfInputProcessorProfiles(::windows::runtime::IUnknown);
 impl IEnumTfInputProcessorProfiles {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Clone(&self) -> ::windows::runtime::Result<IEnumTfInputProcessorProfiles> {
         let mut result__: <IEnumTfInputProcessorProfiles as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IEnumTfInputProcessorProfiles>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Next(&self, ulcount: u32, pprofile: *mut TF_INPUTPROCESSORPROFILE, pcfetch: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulcount), ::std::mem::transmute(pprofile), ::std::mem::transmute(pcfetch)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Skip(&self, ulcount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulcount)).ok()
     }
@@ -1189,20 +1286,25 @@ pub struct IEnumTfInputProcessorProfiles_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ulcount: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IEnumTfLangBarItems(::windows::runtime::IUnknown);
 impl IEnumTfLangBarItems {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Clone(&self) -> ::windows::runtime::Result<IEnumTfLangBarItems> {
         let mut result__: <IEnumTfLangBarItems as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IEnumTfLangBarItems>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Next(&self, ulcount: u32, ppitem: *mut ::std::option::Option<ITfLangBarItem>, pcfetched: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulcount), ::std::mem::transmute(ppitem), ::std::mem::transmute(pcfetched)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Skip(&self, ulcount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulcount)).ok()
     }
@@ -1242,21 +1344,26 @@ pub struct IEnumTfLangBarItems_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ulcount: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IEnumTfLanguageProfiles(::windows::runtime::IUnknown);
 impl IEnumTfLanguageProfiles {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Clone(&self) -> ::windows::runtime::Result<IEnumTfLanguageProfiles> {
         let mut result__: <IEnumTfLanguageProfiles as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IEnumTfLanguageProfiles>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn Next(&self, ulcount: u32, pprofile: *mut TF_LANGUAGEPROFILE, pcfetch: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulcount), ::std::mem::transmute(pprofile), ::std::mem::transmute(pcfetch)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Skip(&self, ulcount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulcount)).ok()
     }
@@ -1297,21 +1404,26 @@ pub struct IEnumTfLanguageProfiles_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ulcount: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IEnumTfLatticeElements(::windows::runtime::IUnknown);
 impl IEnumTfLatticeElements {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Clone(&self) -> ::windows::runtime::Result<IEnumTfLatticeElements> {
         let mut result__: <IEnumTfLatticeElements as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IEnumTfLatticeElements>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn Next(&self, ulcount: u32, rgselements: *mut TF_LMLATTELEMENT, pcfetched: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulcount), ::std::mem::transmute(rgselements), ::std::mem::transmute(pcfetched)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Skip(&self, ulcount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulcount)).ok()
     }
@@ -1352,20 +1464,25 @@ pub struct IEnumTfLatticeElements_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ulcount: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IEnumTfProperties(::windows::runtime::IUnknown);
 impl IEnumTfProperties {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Clone(&self) -> ::windows::runtime::Result<IEnumTfProperties> {
         let mut result__: <IEnumTfProperties as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IEnumTfProperties>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Next(&self, ulcount: u32, ppprop: *mut ::std::option::Option<ITfProperty>, pcfetched: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulcount), ::std::mem::transmute(ppprop), ::std::mem::transmute(pcfetched)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Skip(&self, ulcount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulcount)).ok()
     }
@@ -1405,21 +1522,26 @@ pub struct IEnumTfProperties_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ulcount: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IEnumTfPropertyValue(::windows::runtime::IUnknown);
 impl IEnumTfPropertyValue {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Clone(&self) -> ::windows::runtime::Result<IEnumTfPropertyValue> {
         let mut result__: <IEnumTfPropertyValue as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IEnumTfPropertyValue>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Next(&self, ulcount: u32, rgvalues: *mut TF_PROPERTYVAL, pcfetched: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulcount), ::std::mem::transmute(rgvalues), ::std::mem::transmute(pcfetched)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Skip(&self, ulcount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulcount)).ok()
     }
@@ -1460,20 +1582,25 @@ pub struct IEnumTfPropertyValue_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ulcount: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IEnumTfRanges(::windows::runtime::IUnknown);
 impl IEnumTfRanges {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Clone(&self) -> ::windows::runtime::Result<IEnumTfRanges> {
         let mut result__: <IEnumTfRanges as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IEnumTfRanges>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Next(&self, ulcount: u32, pprange: *mut ::std::option::Option<ITfRange>, pcfetched: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulcount), ::std::mem::transmute(pprange), ::std::mem::transmute(pcfetched)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Skip(&self, ulcount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulcount)).ok()
     }
@@ -1513,20 +1640,25 @@ pub struct IEnumTfRanges_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ulcount: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IEnumTfUIElements(::windows::runtime::IUnknown);
 impl IEnumTfUIElements {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Clone(&self) -> ::windows::runtime::Result<IEnumTfUIElements> {
         let mut result__: <IEnumTfUIElements as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IEnumTfUIElements>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Next(&self, ulcount: u32, ppelement: *mut ::std::option::Option<ITfUIElement>, pcfetched: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulcount), ::std::mem::transmute(ppelement), ::std::mem::transmute(pcfetched)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Skip(&self, ulcount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulcount)).ok()
     }
@@ -1566,10 +1698,12 @@ pub struct IEnumTfUIElements_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ulcount: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IInternalDocWrap(::windows::runtime::IUnknown);
 impl IInternalDocWrap {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn NotifyRevoke(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)).ok()
     }
@@ -1606,8 +1740,11 @@ pub struct IInternalDocWrap_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const ILMCM_CHECKLAYOUTANDTIPENABLED: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const ILMCM_LANGUAGEBAROFF: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct INSERT_TEXT_AT_SELECTION_FLAGS(pub u32);
@@ -1651,15 +1788,18 @@ impl ::std::ops::Not for INSERT_TEXT_AT_SELECTION_FLAGS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISpeechCommandProvider(::windows::runtime::IUnknown);
 impl ISpeechCommandProvider {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn EnumSpeechCommands(&self, langid: u16) -> ::windows::runtime::Result<IEnumSpeechCommands> {
         let mut result__: <IEnumSpeechCommands as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(langid), &mut result__).from_abi::<IEnumSpeechCommands>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn ProcessCommand<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszcommand: Param0, cch: u32, langid: u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pszcommand.into_param().abi(), ::std::mem::transmute(cch), ::std::mem::transmute(langid)).ok()
     }
@@ -1698,36 +1838,45 @@ pub struct ISpeechCommandProvider_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pszcommand: super::super::Foundation::PWSTR, cch: u32, langid: u16) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITextStoreACP(::windows::runtime::IUnknown);
 impl ITextStoreACP {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn AdviseSink<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, riid: *const ::windows::runtime::GUID, punk: Param1, dwmask: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), punk.into_param().abi(), ::std::mem::transmute(dwmask)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn UnadviseSink<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, punk: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), punk.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn RequestLock(&self, dwlockflags: u32) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
         let mut result__: <::windows::runtime::HRESULT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwlockflags), &mut result__).from_abi::<::windows::runtime::HRESULT>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetStatus(&self) -> ::windows::runtime::Result<TS_STATUS> {
         let mut result__: <TS_STATUS as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<TS_STATUS>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn QueryInsert(&self, acpteststart: i32, acptestend: i32, cch: u32, pacpresultstart: *mut i32, pacpresultend: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(acpteststart), ::std::mem::transmute(acptestend), ::std::mem::transmute(cch), ::std::mem::transmute(pacpresultstart), ::std::mem::transmute(pacpresultend)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetSelection(&self, ulindex: u32, ulcount: u32, pselection: *mut TS_SELECTION_ACP, pcfetched: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulindex), ::std::mem::transmute(ulcount), ::std::mem::transmute(pselection), ::std::mem::transmute(pcfetched)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn SetSelection(&self, ulcount: u32, pselection: *const TS_SELECTION_ACP) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulcount), ::std::mem::transmute(pselection)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetText(&self, acpstart: i32, acpend: i32, pchplain: super::super::Foundation::PWSTR, cchplainreq: u32, pcchplainret: *mut u32, prgruninfo: *mut TS_RUNINFO, cruninforeq: u32, pcruninforet: *mut u32, pacpnext: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(
             ::std::mem::transmute_copy(self),
@@ -1744,47 +1893,58 @@ impl ITextStoreACP {
         .ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn SetText<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, dwflags: u32, acpstart: i32, acpend: i32, pchtext: Param3, cch: u32) -> ::windows::runtime::Result<TS_TEXTCHANGE> {
         let mut result__: <TS_TEXTCHANGE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwflags), ::std::mem::transmute(acpstart), ::std::mem::transmute(acpend), pchtext.into_param().abi(), ::std::mem::transmute(cch), &mut result__).from_abi::<TS_TEXTCHANGE>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_System_Com`*"]
     pub unsafe fn GetFormattedText(&self, acpstart: i32, acpend: i32) -> ::windows::runtime::Result<super::super::System::Com::IDataObject> {
         let mut result__: <super::super::System::Com::IDataObject as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(acpstart), ::std::mem::transmute(acpend), &mut result__).from_abi::<super::super::System::Com::IDataObject>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetEmbedded(&self, acppos: i32, rguidservice: *const ::windows::runtime::GUID, riid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
         let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(acppos), ::std::mem::transmute(rguidservice), ::std::mem::transmute(riid), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn QueryInsertEmbedded(&self, pguidservice: *const ::windows::runtime::GUID, pformatetc: *const super::super::System::Com::FORMATETC) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(pguidservice), ::std::mem::transmute(pformatetc), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_System_Com`*"]
     pub unsafe fn InsertEmbedded<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::System::Com::IDataObject>>(&self, dwflags: u32, acpstart: i32, acpend: i32, pdataobject: Param3) -> ::windows::runtime::Result<TS_TEXTCHANGE> {
         let mut result__: <TS_TEXTCHANGE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwflags), ::std::mem::transmute(acpstart), ::std::mem::transmute(acpend), pdataobject.into_param().abi(), &mut result__).from_abi::<TS_TEXTCHANGE>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn InsertTextAtSelection<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, dwflags: u32, pchtext: Param1, cch: u32, pacpstart: *mut i32, pacpend: *mut i32, pchange: *mut TS_TEXTCHANGE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwflags), pchtext.into_param().abi(), ::std::mem::transmute(cch), ::std::mem::transmute(pacpstart), ::std::mem::transmute(pacpend), ::std::mem::transmute(pchange)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_System_Com`*"]
     pub unsafe fn InsertEmbeddedAtSelection<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::System::Com::IDataObject>>(&self, dwflags: u32, pdataobject: Param1, pacpstart: *mut i32, pacpend: *mut i32, pchange: *mut TS_TEXTCHANGE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwflags), pdataobject.into_param().abi(), ::std::mem::transmute(pacpstart), ::std::mem::transmute(pacpend), ::std::mem::transmute(pchange)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn RequestSupportedAttrs(&self, dwflags: u32, cfilterattrs: u32, pafilterattrs: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwflags), ::std::mem::transmute(cfilterattrs), ::std::mem::transmute(pafilterattrs)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn RequestAttrsAtPosition(&self, acppos: i32, cfilterattrs: u32, pafilterattrs: *const ::windows::runtime::GUID, dwflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(acppos), ::std::mem::transmute(cfilterattrs), ::std::mem::transmute(pafilterattrs), ::std::mem::transmute(dwflags)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn RequestAttrsTransitioningAtPosition(&self, acppos: i32, cfilterattrs: u32, pafilterattrs: *const ::windows::runtime::GUID, dwflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(acppos), ::std::mem::transmute(cfilterattrs), ::std::mem::transmute(pafilterattrs), ::std::mem::transmute(dwflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn FindNextAttrTransition(&self, acpstart: i32, acphalt: i32, cfilterattrs: u32, pafilterattrs: *const ::windows::runtime::GUID, dwflags: u32, pacpnext: *mut i32, pffound: *mut super::super::Foundation::BOOL, plfoundoffset: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).21)(
             ::std::mem::transmute_copy(self),
@@ -1800,32 +1960,39 @@ impl ITextStoreACP {
         .ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn RetrieveRequestedAttrs(&self, ulcount: u32, paattrvals: *mut TS_ATTRVAL, pcfetched: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulcount), ::std::mem::transmute(paattrvals), ::std::mem::transmute(pcfetched)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetEndACP(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetActiveView(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetACPFromPoint(&self, vcview: u32, ptscreen: *const super::super::Foundation::POINT, dwflags: u32) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), ::std::mem::transmute(vcview), ::std::mem::transmute(ptscreen), ::std::mem::transmute(dwflags), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetTextExt(&self, vcview: u32, acpstart: i32, acpend: i32, prc: *mut super::super::Foundation::RECT, pfclipped: *mut super::super::Foundation::BOOL) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), ::std::mem::transmute(vcview), ::std::mem::transmute(acpstart), ::std::mem::transmute(acpend), ::std::mem::transmute(prc), ::std::mem::transmute(pfclipped)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetScreenExt(&self, vcview: u32) -> ::windows::runtime::Result<super::super::Foundation::RECT> {
         let mut result__: <super::super::Foundation::RECT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), ::std::mem::transmute(vcview), &mut result__).from_abi::<super::super::Foundation::RECT>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetWnd(&self, vcview: u32) -> ::windows::runtime::Result<super::super::Foundation::HWND> {
         let mut result__: <super::super::Foundation::HWND as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), ::std::mem::transmute(vcview), &mut result__).from_abi::<super::super::Foundation::HWND>(result__)
@@ -1903,36 +2070,45 @@ pub struct ITextStoreACP_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, vcview: u32, phwnd: *mut super::super::Foundation::HWND) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITextStoreACP2(::windows::runtime::IUnknown);
 impl ITextStoreACP2 {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn AdviseSink<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, riid: *const ::windows::runtime::GUID, punk: Param1, dwmask: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), punk.into_param().abi(), ::std::mem::transmute(dwmask)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn UnadviseSink<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, punk: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), punk.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn RequestLock(&self, dwlockflags: u32) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
         let mut result__: <::windows::runtime::HRESULT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwlockflags), &mut result__).from_abi::<::windows::runtime::HRESULT>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetStatus(&self) -> ::windows::runtime::Result<TS_STATUS> {
         let mut result__: <TS_STATUS as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<TS_STATUS>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn QueryInsert(&self, acpteststart: i32, acptestend: i32, cch: u32, pacpresultstart: *mut i32, pacpresultend: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(acpteststart), ::std::mem::transmute(acptestend), ::std::mem::transmute(cch), ::std::mem::transmute(pacpresultstart), ::std::mem::transmute(pacpresultend)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetSelection(&self, ulindex: u32, ulcount: u32, pselection: *mut TS_SELECTION_ACP, pcfetched: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulindex), ::std::mem::transmute(ulcount), ::std::mem::transmute(pselection), ::std::mem::transmute(pcfetched)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn SetSelection(&self, ulcount: u32, pselection: *const TS_SELECTION_ACP) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulcount), ::std::mem::transmute(pselection)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetText(&self, acpstart: i32, acpend: i32, pchplain: super::super::Foundation::PWSTR, cchplainreq: u32, pcchplainret: *mut u32, prgruninfo: *mut TS_RUNINFO, cruninforeq: u32, pcruninforet: *mut u32, pacpnext: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(
             ::std::mem::transmute_copy(self),
@@ -1949,47 +2125,58 @@ impl ITextStoreACP2 {
         .ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn SetText<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, dwflags: u32, acpstart: i32, acpend: i32, pchtext: Param3, cch: u32) -> ::windows::runtime::Result<TS_TEXTCHANGE> {
         let mut result__: <TS_TEXTCHANGE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwflags), ::std::mem::transmute(acpstart), ::std::mem::transmute(acpend), pchtext.into_param().abi(), ::std::mem::transmute(cch), &mut result__).from_abi::<TS_TEXTCHANGE>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_System_Com`*"]
     pub unsafe fn GetFormattedText(&self, acpstart: i32, acpend: i32) -> ::windows::runtime::Result<super::super::System::Com::IDataObject> {
         let mut result__: <super::super::System::Com::IDataObject as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(acpstart), ::std::mem::transmute(acpend), &mut result__).from_abi::<super::super::System::Com::IDataObject>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetEmbedded(&self, acppos: i32, rguidservice: *const ::windows::runtime::GUID, riid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
         let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(acppos), ::std::mem::transmute(rguidservice), ::std::mem::transmute(riid), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn QueryInsertEmbedded(&self, pguidservice: *const ::windows::runtime::GUID, pformatetc: *const super::super::System::Com::FORMATETC) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(pguidservice), ::std::mem::transmute(pformatetc), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_System_Com`*"]
     pub unsafe fn InsertEmbedded<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::System::Com::IDataObject>>(&self, dwflags: u32, acpstart: i32, acpend: i32, pdataobject: Param3) -> ::windows::runtime::Result<TS_TEXTCHANGE> {
         let mut result__: <TS_TEXTCHANGE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwflags), ::std::mem::transmute(acpstart), ::std::mem::transmute(acpend), pdataobject.into_param().abi(), &mut result__).from_abi::<TS_TEXTCHANGE>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn InsertTextAtSelection<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, dwflags: u32, pchtext: Param1, cch: u32, pacpstart: *mut i32, pacpend: *mut i32, pchange: *mut TS_TEXTCHANGE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwflags), pchtext.into_param().abi(), ::std::mem::transmute(cch), ::std::mem::transmute(pacpstart), ::std::mem::transmute(pacpend), ::std::mem::transmute(pchange)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_System_Com`*"]
     pub unsafe fn InsertEmbeddedAtSelection<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::System::Com::IDataObject>>(&self, dwflags: u32, pdataobject: Param1, pacpstart: *mut i32, pacpend: *mut i32, pchange: *mut TS_TEXTCHANGE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwflags), pdataobject.into_param().abi(), ::std::mem::transmute(pacpstart), ::std::mem::transmute(pacpend), ::std::mem::transmute(pchange)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn RequestSupportedAttrs(&self, dwflags: u32, cfilterattrs: u32, pafilterattrs: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwflags), ::std::mem::transmute(cfilterattrs), ::std::mem::transmute(pafilterattrs)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn RequestAttrsAtPosition(&self, acppos: i32, cfilterattrs: u32, pafilterattrs: *const ::windows::runtime::GUID, dwflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(acppos), ::std::mem::transmute(cfilterattrs), ::std::mem::transmute(pafilterattrs), ::std::mem::transmute(dwflags)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn RequestAttrsTransitioningAtPosition(&self, acppos: i32, cfilterattrs: u32, pafilterattrs: *const ::windows::runtime::GUID, dwflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(acppos), ::std::mem::transmute(cfilterattrs), ::std::mem::transmute(pafilterattrs), ::std::mem::transmute(dwflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn FindNextAttrTransition(&self, acpstart: i32, acphalt: i32, cfilterattrs: u32, pafilterattrs: *const ::windows::runtime::GUID, dwflags: u32, pacpnext: *mut i32, pffound: *mut super::super::Foundation::BOOL, plfoundoffset: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).21)(
             ::std::mem::transmute_copy(self),
@@ -2005,27 +2192,33 @@ impl ITextStoreACP2 {
         .ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn RetrieveRequestedAttrs(&self, ulcount: u32, paattrvals: *mut TS_ATTRVAL, pcfetched: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulcount), ::std::mem::transmute(paattrvals), ::std::mem::transmute(pcfetched)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetEndACP(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetActiveView(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetACPFromPoint(&self, vcview: u32, ptscreen: *const super::super::Foundation::POINT, dwflags: u32) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), ::std::mem::transmute(vcview), ::std::mem::transmute(ptscreen), ::std::mem::transmute(dwflags), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetTextExt(&self, vcview: u32, acpstart: i32, acpend: i32, prc: *mut super::super::Foundation::RECT, pfclipped: *mut super::super::Foundation::BOOL) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), ::std::mem::transmute(vcview), ::std::mem::transmute(acpstart), ::std::mem::transmute(acpend), ::std::mem::transmute(prc), ::std::mem::transmute(pfclipped)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetScreenExt(&self, vcview: u32) -> ::windows::runtime::Result<super::super::Foundation::RECT> {
         let mut result__: <super::super::Foundation::RECT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), ::std::mem::transmute(vcview), &mut result__).from_abi::<super::super::Foundation::RECT>(result__)
@@ -2101,11 +2294,13 @@ pub struct ITextStoreACP2_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, vcview: u32, prc: *mut super::super::Foundation::RECT) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITextStoreACPEx(::windows::runtime::IUnknown);
 impl ITextStoreACPEx {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn ScrollToRect<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::RECT>>(&self, acpstart: i32, acpend: i32, rc: Param2, dwposition: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(acpstart), ::std::mem::transmute(acpend), rc.into_param().abi(), ::std::mem::transmute(dwposition)).ok()
     }
@@ -2143,21 +2338,26 @@ pub struct ITextStoreACPEx_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, acpstart: i32, acpend: i32, rc: super::super::Foundation::RECT, dwposition: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITextStoreACPServices(::windows::runtime::IUnknown);
 impl ITextStoreACPServices {
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_System_Com`*"]
     pub unsafe fn Serialize<'a, Param0: ::windows::runtime::IntoParam<'a, ITfProperty>, Param1: ::windows::runtime::IntoParam<'a, ITfRange>, Param3: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>>(&self, pprop: Param0, prange: Param1, phdr: *mut TF_PERSISTENT_PROPERTY_HEADER_ACP, pstream: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pprop.into_param().abi(), prange.into_param().abi(), ::std::mem::transmute(phdr), pstream.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_System_Com`*"]
     pub unsafe fn Unserialize<'a, Param0: ::windows::runtime::IntoParam<'a, ITfProperty>, Param2: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>, Param3: ::windows::runtime::IntoParam<'a, ITfPersistentPropertyLoaderACP>>(&self, pprop: Param0, phdr: *const TF_PERSISTENT_PROPERTY_HEADER_ACP, pstream: Param2, ploader: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pprop.into_param().abi(), ::std::mem::transmute(phdr), pstream.into_param().abi(), ploader.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn ForceLoadProperty<'a, Param0: ::windows::runtime::IntoParam<'a, ITfProperty>>(&self, pprop: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), pprop.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn CreateRange(&self, acpstart: i32, acpend: i32) -> ::windows::runtime::Result<ITfRangeACP> {
         let mut result__: <ITfRangeACP as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(acpstart), ::std::mem::transmute(acpend), &mut result__).from_abi::<ITfRangeACP>(result__)
@@ -2200,31 +2400,40 @@ pub struct ITextStoreACPServices_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pprop: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, acpstart: i32, acpend: i32, pprange: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITextStoreACPSink(::windows::runtime::IUnknown);
 impl ITextStoreACPSink {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn OnTextChange(&self, dwflags: TEXT_STORE_TEXT_CHANGE_FLAGS, pchange: *const TS_TEXTCHANGE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwflags), ::std::mem::transmute(pchange)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn OnSelectionChange(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn OnLayoutChange(&self, lcode: TsLayoutCode, vcview: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(lcode), ::std::mem::transmute(vcview)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn OnStatusChange(&self, dwflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwflags)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn OnAttrsChange(&self, acpstart: i32, acpend: i32, cattrs: u32, paattrs: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(acpstart), ::std::mem::transmute(acpend), ::std::mem::transmute(cattrs), ::std::mem::transmute(paattrs)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn OnLockGranted(&self, dwlockflags: TEXT_STORE_LOCK_FLAGS) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwlockflags)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn OnStartEditTransaction(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn OnEndEditTransaction(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)).ok()
     }
@@ -2268,34 +2477,44 @@ pub struct ITextStoreACPSink_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITextStoreACPSinkEx(::windows::runtime::IUnknown);
 impl ITextStoreACPSinkEx {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn OnTextChange(&self, dwflags: TEXT_STORE_TEXT_CHANGE_FLAGS, pchange: *const TS_TEXTCHANGE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwflags), ::std::mem::transmute(pchange)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn OnSelectionChange(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn OnLayoutChange(&self, lcode: TsLayoutCode, vcview: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(lcode), ::std::mem::transmute(vcview)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn OnStatusChange(&self, dwflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwflags)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn OnAttrsChange(&self, acpstart: i32, acpend: i32, cattrs: u32, paattrs: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(acpstart), ::std::mem::transmute(acpend), ::std::mem::transmute(cattrs), ::std::mem::transmute(paattrs)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn OnLockGranted(&self, dwlockflags: TEXT_STORE_LOCK_FLAGS) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwlockflags)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn OnStartEditTransaction(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn OnEndEditTransaction(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn OnDisconnect(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self)).ok()
     }
@@ -2360,114 +2579,142 @@ pub struct ITextStoreACPSinkEx_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITextStoreAnchor(::windows::runtime::IUnknown);
 impl ITextStoreAnchor {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn AdviseSink<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, riid: *const ::windows::runtime::GUID, punk: Param1, dwmask: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), punk.into_param().abi(), ::std::mem::transmute(dwmask)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn UnadviseSink<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, punk: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), punk.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn RequestLock(&self, dwlockflags: u32) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
         let mut result__: <::windows::runtime::HRESULT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwlockflags), &mut result__).from_abi::<::windows::runtime::HRESULT>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetStatus(&self) -> ::windows::runtime::Result<TS_STATUS> {
         let mut result__: <TS_STATUS as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<TS_STATUS>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn QueryInsert<'a, Param0: ::windows::runtime::IntoParam<'a, IAnchor>, Param1: ::windows::runtime::IntoParam<'a, IAnchor>>(&self, pateststart: Param0, patestend: Param1, cch: u32, pparesultstart: *mut ::std::option::Option<IAnchor>, pparesultend: *mut ::std::option::Option<IAnchor>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), pateststart.into_param().abi(), patestend.into_param().abi(), ::std::mem::transmute(cch), ::std::mem::transmute(pparesultstart), ::std::mem::transmute(pparesultend)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetSelection(&self, ulindex: u32, ulcount: u32, pselection: *mut TS_SELECTION_ANCHOR, pcfetched: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulindex), ::std::mem::transmute(ulcount), ::std::mem::transmute(pselection), ::std::mem::transmute(pcfetched)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn SetSelection(&self, ulcount: u32, pselection: *const TS_SELECTION_ANCHOR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulcount), ::std::mem::transmute(pselection)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetText<'a, Param1: ::windows::runtime::IntoParam<'a, IAnchor>, Param2: ::windows::runtime::IntoParam<'a, IAnchor>, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, dwflags: u32, pastart: Param1, paend: Param2, pchtext: super::super::Foundation::PWSTR, cchreq: u32, pcch: *mut u32, fupdateanchor: Param6) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwflags), pastart.into_param().abi(), paend.into_param().abi(), ::std::mem::transmute(pchtext), ::std::mem::transmute(cchreq), ::std::mem::transmute(pcch), fupdateanchor.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn SetText<'a, Param1: ::windows::runtime::IntoParam<'a, IAnchor>, Param2: ::windows::runtime::IntoParam<'a, IAnchor>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, dwflags: u32, pastart: Param1, paend: Param2, pchtext: Param3, cch: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwflags), pastart.into_param().abi(), paend.into_param().abi(), pchtext.into_param().abi(), ::std::mem::transmute(cch)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_System_Com`*"]
     pub unsafe fn GetFormattedText<'a, Param0: ::windows::runtime::IntoParam<'a, IAnchor>, Param1: ::windows::runtime::IntoParam<'a, IAnchor>>(&self, pastart: Param0, paend: Param1) -> ::windows::runtime::Result<super::super::System::Com::IDataObject> {
         let mut result__: <super::super::System::Com::IDataObject as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), pastart.into_param().abi(), paend.into_param().abi(), &mut result__).from_abi::<super::super::System::Com::IDataObject>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetEmbedded<'a, Param1: ::windows::runtime::IntoParam<'a, IAnchor>>(&self, dwflags: u32, papos: Param1, rguidservice: *const ::windows::runtime::GUID, riid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
         let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwflags), papos.into_param().abi(), ::std::mem::transmute(rguidservice), ::std::mem::transmute(riid), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_System_Com`*"]
     pub unsafe fn InsertEmbedded<'a, Param1: ::windows::runtime::IntoParam<'a, IAnchor>, Param2: ::windows::runtime::IntoParam<'a, IAnchor>, Param3: ::windows::runtime::IntoParam<'a, super::super::System::Com::IDataObject>>(&self, dwflags: u32, pastart: Param1, paend: Param2, pdataobject: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwflags), pastart.into_param().abi(), paend.into_param().abi(), pdataobject.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn RequestSupportedAttrs(&self, dwflags: u32, cfilterattrs: u32, pafilterattrs: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwflags), ::std::mem::transmute(cfilterattrs), ::std::mem::transmute(pafilterattrs)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn RequestAttrsAtPosition<'a, Param0: ::windows::runtime::IntoParam<'a, IAnchor>>(&self, papos: Param0, cfilterattrs: u32, pafilterattrs: *const ::windows::runtime::GUID, dwflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), papos.into_param().abi(), ::std::mem::transmute(cfilterattrs), ::std::mem::transmute(pafilterattrs), ::std::mem::transmute(dwflags)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn RequestAttrsTransitioningAtPosition<'a, Param0: ::windows::runtime::IntoParam<'a, IAnchor>>(&self, papos: Param0, cfilterattrs: u32, pafilterattrs: *const ::windows::runtime::GUID, dwflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), papos.into_param().abi(), ::std::mem::transmute(cfilterattrs), ::std::mem::transmute(pafilterattrs), ::std::mem::transmute(dwflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn FindNextAttrTransition<'a, Param0: ::windows::runtime::IntoParam<'a, IAnchor>, Param1: ::windows::runtime::IntoParam<'a, IAnchor>>(&self, pastart: Param0, pahalt: Param1, cfilterattrs: u32, pafilterattrs: *const ::windows::runtime::GUID, dwflags: u32, pffound: *mut super::super::Foundation::BOOL, plfoundoffset: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), pastart.into_param().abi(), pahalt.into_param().abi(), ::std::mem::transmute(cfilterattrs), ::std::mem::transmute(pafilterattrs), ::std::mem::transmute(dwflags), ::std::mem::transmute(pffound), ::std::mem::transmute(plfoundoffset)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn RetrieveRequestedAttrs(&self, ulcount: u32, paattrvals: *mut TS_ATTRVAL, pcfetched: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulcount), ::std::mem::transmute(paattrvals), ::std::mem::transmute(pcfetched)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetStart(&self) -> ::windows::runtime::Result<IAnchor> {
         let mut result__: <IAnchor as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IAnchor>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetEnd(&self) -> ::windows::runtime::Result<IAnchor> {
         let mut result__: <IAnchor as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IAnchor>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetActiveView(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetAnchorFromPoint(&self, vcview: u32, ptscreen: *const super::super::Foundation::POINT, dwflags: u32) -> ::windows::runtime::Result<IAnchor> {
         let mut result__: <IAnchor as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), ::std::mem::transmute(vcview), ::std::mem::transmute(ptscreen), ::std::mem::transmute(dwflags), &mut result__).from_abi::<IAnchor>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetTextExt<'a, Param1: ::windows::runtime::IntoParam<'a, IAnchor>, Param2: ::windows::runtime::IntoParam<'a, IAnchor>>(&self, vcview: u32, pastart: Param1, paend: Param2, prc: *mut super::super::Foundation::RECT, pfclipped: *mut super::super::Foundation::BOOL) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), ::std::mem::transmute(vcview), pastart.into_param().abi(), paend.into_param().abi(), ::std::mem::transmute(prc), ::std::mem::transmute(pfclipped)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetScreenExt(&self, vcview: u32) -> ::windows::runtime::Result<super::super::Foundation::RECT> {
         let mut result__: <super::super::Foundation::RECT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), ::std::mem::transmute(vcview), &mut result__).from_abi::<super::super::Foundation::RECT>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetWnd(&self, vcview: u32) -> ::windows::runtime::Result<super::super::Foundation::HWND> {
         let mut result__: <super::super::Foundation::HWND as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), ::std::mem::transmute(vcview), &mut result__).from_abi::<super::super::Foundation::HWND>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn QueryInsertEmbedded(&self, pguidservice: *const ::windows::runtime::GUID, pformatetc: *const super::super::System::Com::FORMATETC) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), ::std::mem::transmute(pguidservice), ::std::mem::transmute(pformatetc), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn InsertTextAtSelection<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, dwflags: u32, pchtext: Param1, cch: u32, ppastart: *mut ::std::option::Option<IAnchor>, ppaend: *mut ::std::option::Option<IAnchor>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwflags), pchtext.into_param().abi(), ::std::mem::transmute(cch), ::std::mem::transmute(ppastart), ::std::mem::transmute(ppaend)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_System_Com`*"]
     pub unsafe fn InsertEmbeddedAtSelection<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::System::Com::IDataObject>>(&self, dwflags: u32, pdataobject: Param1, ppastart: *mut ::std::option::Option<IAnchor>, ppaend: *mut ::std::option::Option<IAnchor>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwflags), pdataobject.into_param().abi(), ::std::mem::transmute(ppastart), ::std::mem::transmute(ppaend)).ok()
     }
@@ -2545,11 +2792,13 @@ pub struct ITextStoreAnchor_abi(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwflags: u32, pdataobject: ::windows::runtime::RawPtr, ppastart: *mut ::windows::runtime::RawPtr, ppaend: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITextStoreAnchorEx(::windows::runtime::IUnknown);
 impl ITextStoreAnchorEx {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn ScrollToRect<'a, Param0: ::windows::runtime::IntoParam<'a, IAnchor>, Param1: ::windows::runtime::IntoParam<'a, IAnchor>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::RECT>>(&self, pstart: Param0, pend: Param1, rc: Param2, dwposition: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pstart.into_param().abi(), pend.into_param().abi(), rc.into_param().abi(), ::std::mem::transmute(dwposition)).ok()
     }
@@ -2587,31 +2836,40 @@ pub struct ITextStoreAnchorEx_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pstart: ::windows::runtime::RawPtr, pend: ::windows::runtime::RawPtr, rc: super::super::Foundation::RECT, dwposition: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITextStoreAnchorSink(::windows::runtime::IUnknown);
 impl ITextStoreAnchorSink {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn OnTextChange<'a, Param1: ::windows::runtime::IntoParam<'a, IAnchor>, Param2: ::windows::runtime::IntoParam<'a, IAnchor>>(&self, dwflags: TEXT_STORE_CHANGE_FLAGS, pastart: Param1, paend: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwflags), pastart.into_param().abi(), paend.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn OnSelectionChange(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn OnLayoutChange(&self, lcode: TsLayoutCode, vcview: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(lcode), ::std::mem::transmute(vcview)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn OnStatusChange(&self, dwflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwflags)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn OnAttrsChange<'a, Param0: ::windows::runtime::IntoParam<'a, IAnchor>, Param1: ::windows::runtime::IntoParam<'a, IAnchor>>(&self, pastart: Param0, paend: Param1, cattrs: u32, paattrs: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), pastart.into_param().abi(), paend.into_param().abi(), ::std::mem::transmute(cattrs), ::std::mem::transmute(paattrs)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn OnLockGranted(&self, dwlockflags: TEXT_STORE_LOCK_FLAGS) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwlockflags)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn OnStartEditTransaction(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn OnEndEditTransaction(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)).ok()
     }
@@ -2655,34 +2913,44 @@ pub struct ITextStoreAnchorSink_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITextStoreSinkAnchorEx(::windows::runtime::IUnknown);
 impl ITextStoreSinkAnchorEx {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn OnTextChange<'a, Param1: ::windows::runtime::IntoParam<'a, IAnchor>, Param2: ::windows::runtime::IntoParam<'a, IAnchor>>(&self, dwflags: TEXT_STORE_CHANGE_FLAGS, pastart: Param1, paend: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwflags), pastart.into_param().abi(), paend.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn OnSelectionChange(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn OnLayoutChange(&self, lcode: TsLayoutCode, vcview: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(lcode), ::std::mem::transmute(vcview)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn OnStatusChange(&self, dwflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwflags)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn OnAttrsChange<'a, Param0: ::windows::runtime::IntoParam<'a, IAnchor>, Param1: ::windows::runtime::IntoParam<'a, IAnchor>>(&self, pastart: Param0, paend: Param1, cattrs: u32, paattrs: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), pastart.into_param().abi(), paend.into_param().abi(), ::std::mem::transmute(cattrs), ::std::mem::transmute(paattrs)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn OnLockGranted(&self, dwlockflags: TEXT_STORE_LOCK_FLAGS) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwlockflags)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn OnStartEditTransaction(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn OnEndEditTransaction(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn OnDisconnect(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self)).ok()
     }
@@ -2747,11 +3015,13 @@ pub struct ITextStoreSinkAnchorEx_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfActiveLanguageProfileNotifySink(::windows::runtime::IUnknown);
 impl ITfActiveLanguageProfileNotifySink {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn OnActivated<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, clsid: *const ::windows::runtime::GUID, guidprofile: *const ::windows::runtime::GUID, factivated: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(clsid), ::std::mem::transmute(guidprofile), factivated.into_param().abi()).ok()
     }
@@ -2789,22 +3059,27 @@ pub struct ITfActiveLanguageProfileNotifySink_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, clsid: *const ::windows::runtime::GUID, guidprofile: *const ::windows::runtime::GUID, factivated: super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfCandidateList(::windows::runtime::IUnknown);
 impl ITfCandidateList {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn EnumCandidates(&self) -> ::windows::runtime::Result<IEnumTfCandidates> {
         let mut result__: <IEnumTfCandidates as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IEnumTfCandidates>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetCandidate(&self, nindex: u32) -> ::windows::runtime::Result<ITfCandidateString> {
         let mut result__: <ITfCandidateString as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(nindex), &mut result__).from_abi::<ITfCandidateString>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetCandidateNum(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn SetResult(&self, nindex: u32, imcr: TfCandidateResult) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(nindex), ::std::mem::transmute(imcr)).ok()
     }
@@ -2844,55 +3119,68 @@ pub struct ITfCandidateList_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pncnt: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, nindex: u32, imcr: TfCandidateResult) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfCandidateListUIElement(::windows::runtime::IUnknown);
 impl ITfCandidateListUIElement {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetDescription(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetGUID(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn Show<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bshow: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), bshow.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn IsShown(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetUpdatedFlags(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetDocumentMgr(&self) -> ::windows::runtime::Result<ITfDocumentMgr> {
         let mut result__: <ITfDocumentMgr as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ITfDocumentMgr>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetSelection(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetString(&self, uindex: u32) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(uindex), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetPageIndex(&self, pindex: *mut u32, usize: u32, pupagecnt: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(pindex), ::std::mem::transmute(usize), ::std::mem::transmute(pupagecnt)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn SetPageIndex(&self, pindex: *const u32, upagecnt: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(pindex), ::std::mem::transmute(upagecnt)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetCurrentPage(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
@@ -2965,65 +3253,81 @@ pub struct ITfCandidateListUIElement_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pindex: *const u32, upagecnt: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pupage: *mut u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfCandidateListUIElementBehavior(::windows::runtime::IUnknown);
 impl ITfCandidateListUIElementBehavior {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetDescription(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetGUID(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn Show<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bshow: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), bshow.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn IsShown(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetUpdatedFlags(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetDocumentMgr(&self) -> ::windows::runtime::Result<ITfDocumentMgr> {
         let mut result__: <ITfDocumentMgr as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ITfDocumentMgr>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetSelection(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetString(&self, uindex: u32) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(uindex), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetPageIndex(&self, pindex: *mut u32, usize: u32, pupagecnt: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(pindex), ::std::mem::transmute(usize), ::std::mem::transmute(pupagecnt)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn SetPageIndex(&self, pindex: *const u32, upagecnt: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(pindex), ::std::mem::transmute(upagecnt)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetCurrentPage(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn SetSelection(&self, nindex: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(nindex)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Finalize(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Abort(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self)).ok()
     }
@@ -3118,15 +3422,18 @@ pub struct ITfCandidateListUIElementBehavior_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfCandidateString(::windows::runtime::IUnknown);
 impl ITfCandidateString {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetString(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetIndex(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
@@ -3166,60 +3473,75 @@ pub struct ITfCandidateString_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pnindex: *mut u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfCategoryMgr(::windows::runtime::IUnknown);
 impl ITfCategoryMgr {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn RegisterCategory(&self, rclsid: *const ::windows::runtime::GUID, rcatid: *const ::windows::runtime::GUID, rguid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(rclsid), ::std::mem::transmute(rcatid), ::std::mem::transmute(rguid)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn UnregisterCategory(&self, rclsid: *const ::windows::runtime::GUID, rcatid: *const ::windows::runtime::GUID, rguid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(rclsid), ::std::mem::transmute(rcatid), ::std::mem::transmute(rguid)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_System_Com`*"]
     pub unsafe fn EnumCategoriesInItem(&self, rguid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<super::super::System::Com::IEnumGUID> {
         let mut result__: <super::super::System::Com::IEnumGUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(rguid), &mut result__).from_abi::<super::super::System::Com::IEnumGUID>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_System_Com`*"]
     pub unsafe fn EnumItemsInCategory(&self, rcatid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<super::super::System::Com::IEnumGUID> {
         let mut result__: <super::super::System::Com::IEnumGUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(rcatid), &mut result__).from_abi::<super::super::System::Com::IEnumGUID>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn FindClosestCategory(&self, rguid: *const ::windows::runtime::GUID, pcatid: *mut ::windows::runtime::GUID, ppcatidlist: *const *const ::windows::runtime::GUID, ulcount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(rguid), ::std::mem::transmute(pcatid), ::std::mem::transmute(ppcatidlist), ::std::mem::transmute(ulcount)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn RegisterGUIDDescription<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, rclsid: *const ::windows::runtime::GUID, rguid: *const ::windows::runtime::GUID, pchdesc: Param2, cch: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(rclsid), ::std::mem::transmute(rguid), pchdesc.into_param().abi(), ::std::mem::transmute(cch)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn UnregisterGUIDDescription(&self, rclsid: *const ::windows::runtime::GUID, rguid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(rclsid), ::std::mem::transmute(rguid)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetGUIDDescription(&self, rguid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(rguid), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn RegisterGUIDDWORD(&self, rclsid: *const ::windows::runtime::GUID, rguid: *const ::windows::runtime::GUID, dw: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(rclsid), ::std::mem::transmute(rguid), ::std::mem::transmute(dw)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn UnregisterGUIDDWORD(&self, rclsid: *const ::windows::runtime::GUID, rguid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(rclsid), ::std::mem::transmute(rguid)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetGUIDDWORD(&self, rguid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(rguid), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn RegisterGUID(&self, rguid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(rguid), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetGUID(&self, guidatom: u32) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(guidatom), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn IsEqualTfGuidAtom(&self, guidatom: u32, rguid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(guidatom), ::std::mem::transmute(rguid), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
@@ -3275,13 +3597,16 @@ pub struct ITfCategoryMgr_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guidatom: u32, rguid: *const ::windows::runtime::GUID, pfequal: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfCleanupContextDurationSink(::windows::runtime::IUnknown);
 impl ITfCleanupContextDurationSink {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn OnStartCleanupContext(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn OnEndCleanupContext(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
@@ -3319,10 +3644,12 @@ pub struct ITfCleanupContextDurationSink_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfCleanupContextSink(::windows::runtime::IUnknown);
 impl ITfCleanupContextSink {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn OnCleanupContext<'a, Param1: ::windows::runtime::IntoParam<'a, ITfContext>>(&self, ecwrite: u32, pic: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(ecwrite), pic.into_param().abi()).ok()
     }
@@ -3359,10 +3686,12 @@ pub struct ITfCleanupContextSink_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ecwrite: u32, pic: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfClientId(::windows::runtime::IUnknown);
 impl ITfClientId {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetClientId(&self, rclsid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(rclsid), &mut result__).from_abi::<u32>(result__)
@@ -3400,15 +3729,18 @@ pub struct ITfClientId_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rclsid: *const ::windows::runtime::GUID, ptid: *mut u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfCompartment(::windows::runtime::IUnknown);
 impl ITfCompartment {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetValue(&self, tid: u32, pvarvalue: *const super::super::System::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(tid), ::std::mem::transmute(pvarvalue)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetValue(&self) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
@@ -3449,10 +3781,12 @@ pub struct ITfCompartment_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvarvalue: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfCompartmentEventSink(::windows::runtime::IUnknown);
 impl ITfCompartmentEventSink {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn OnChange(&self, rguid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(rguid)).ok()
     }
@@ -3489,18 +3823,22 @@ pub struct ITfCompartmentEventSink_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rguid: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfCompartmentMgr(::windows::runtime::IUnknown);
 impl ITfCompartmentMgr {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetCompartment(&self, rguid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<ITfCompartment> {
         let mut result__: <ITfCompartment as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(rguid), &mut result__).from_abi::<ITfCompartment>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn ClearCompartment(&self, tid: u32, rguid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(tid), ::std::mem::transmute(rguid)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_System_Com`*"]
     pub unsafe fn EnumCompartments(&self) -> ::windows::runtime::Result<super::super::System::Com::IEnumGUID> {
         let mut result__: <super::super::System::Com::IEnumGUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::IEnumGUID>(result__)
@@ -3541,20 +3879,25 @@ pub struct ITfCompartmentMgr_abi(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenum: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfComposition(::windows::runtime::IUnknown);
 impl ITfComposition {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetRange(&self) -> ::windows::runtime::Result<ITfRange> {
         let mut result__: <ITfRange as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ITfRange>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn ShiftStart<'a, Param1: ::windows::runtime::IntoParam<'a, ITfRange>>(&self, ecwrite: u32, pnewstart: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(ecwrite), pnewstart.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn ShiftEnd<'a, Param1: ::windows::runtime::IntoParam<'a, ITfRange>>(&self, ecwrite: u32, pnewend: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(ecwrite), pnewend.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn EndComposition(&self, ecwrite: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(ecwrite)).ok()
     }
@@ -3594,10 +3937,12 @@ pub struct ITfComposition_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ecwrite: u32, pnewend: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ecwrite: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfCompositionSink(::windows::runtime::IUnknown);
 impl ITfCompositionSink {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn OnCompositionTerminated<'a, Param1: ::windows::runtime::IntoParam<'a, ITfComposition>>(&self, ecwrite: u32, pcomposition: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(ecwrite), pcomposition.into_param().abi()).ok()
     }
@@ -3634,14 +3979,17 @@ pub struct ITfCompositionSink_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ecwrite: u32, pcomposition: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfCompositionView(::windows::runtime::IUnknown);
 impl ITfCompositionView {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetOwnerClsid(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetRange(&self) -> ::windows::runtime::Result<ITfRange> {
         let mut result__: <ITfRange as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ITfRange>(result__)
@@ -3680,13 +4028,16 @@ pub struct ITfCompositionView_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pclsid: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pprange: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfConfigureSystemKeystrokeFeed(::windows::runtime::IUnknown);
 impl ITfConfigureSystemKeystrokeFeed {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn DisableSystemKeystrokeFeed(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn EnableSystemKeystrokeFeed(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
@@ -3724,67 +4075,83 @@ pub struct ITfConfigureSystemKeystrokeFeed_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfContext(::windows::runtime::IUnknown);
 impl ITfContext {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn RequestEditSession<'a, Param1: ::windows::runtime::IntoParam<'a, ITfEditSession>>(&self, tid: u32, pes: Param1, dwflags: TF_CONTEXT_EDIT_CONTEXT_FLAGS) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
         let mut result__: <::windows::runtime::HRESULT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(tid), pes.into_param().abi(), ::std::mem::transmute(dwflags), &mut result__).from_abi::<::windows::runtime::HRESULT>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn InWriteSession(&self, tid: u32) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(tid), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetSelection(&self, ec: u32, ulindex: u32, ulcount: u32, pselection: *mut TF_SELECTION, pcfetched: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(ec), ::std::mem::transmute(ulindex), ::std::mem::transmute(ulcount), ::std::mem::transmute(pselection), ::std::mem::transmute(pcfetched)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn SetSelection(&self, ec: u32, ulcount: u32, pselection: *const TF_SELECTION) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(ec), ::std::mem::transmute(ulcount), ::std::mem::transmute(pselection)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetStart(&self, ec: u32) -> ::windows::runtime::Result<ITfRange> {
         let mut result__: <ITfRange as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(ec), &mut result__).from_abi::<ITfRange>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetEnd(&self, ec: u32) -> ::windows::runtime::Result<ITfRange> {
         let mut result__: <ITfRange as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(ec), &mut result__).from_abi::<ITfRange>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetActiveView(&self) -> ::windows::runtime::Result<ITfContextView> {
         let mut result__: <ITfContextView as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ITfContextView>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn EnumViews(&self) -> ::windows::runtime::Result<IEnumTfContextViews> {
         let mut result__: <IEnumTfContextViews as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IEnumTfContextViews>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetStatus(&self) -> ::windows::runtime::Result<TS_STATUS> {
         let mut result__: <TS_STATUS as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<TS_STATUS>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetProperty(&self, guidprop: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<ITfProperty> {
         let mut result__: <ITfProperty as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(guidprop), &mut result__).from_abi::<ITfProperty>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetAppProperty(&self, guidprop: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<ITfReadOnlyProperty> {
         let mut result__: <ITfReadOnlyProperty as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(guidprop), &mut result__).from_abi::<ITfReadOnlyProperty>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn TrackProperties(&self, prgprop: *const *const ::windows::runtime::GUID, cprop: u32, prgappprop: *const *const ::windows::runtime::GUID, cappprop: u32) -> ::windows::runtime::Result<ITfReadOnlyProperty> {
         let mut result__: <ITfReadOnlyProperty as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(prgprop), ::std::mem::transmute(cprop), ::std::mem::transmute(prgappprop), ::std::mem::transmute(cappprop), &mut result__).from_abi::<ITfReadOnlyProperty>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn EnumProperties(&self) -> ::windows::runtime::Result<IEnumTfProperties> {
         let mut result__: <IEnumTfProperties as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IEnumTfProperties>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetDocumentMgr(&self) -> ::windows::runtime::Result<ITfDocumentMgr> {
         let mut result__: <ITfDocumentMgr as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ITfDocumentMgr>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn CreateRangeBackup<'a, Param1: ::windows::runtime::IntoParam<'a, ITfRange>>(&self, ec: u32, prange: Param1) -> ::windows::runtime::Result<ITfRangeBackup> {
         let mut result__: <ITfRangeBackup as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(ec), prange.into_param().abi(), &mut result__).from_abi::<ITfRangeBackup>(result__)
@@ -3839,22 +4206,27 @@ pub struct ITfContext_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppdm: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ec: u32, prange: ::windows::runtime::RawPtr, ppbackup: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfContextComposition(::windows::runtime::IUnknown);
 impl ITfContextComposition {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn StartComposition<'a, Param1: ::windows::runtime::IntoParam<'a, ITfRange>, Param2: ::windows::runtime::IntoParam<'a, ITfCompositionSink>>(&self, ecwrite: u32, pcompositionrange: Param1, psink: Param2) -> ::windows::runtime::Result<ITfComposition> {
         let mut result__: <ITfComposition as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(ecwrite), pcompositionrange.into_param().abi(), psink.into_param().abi(), &mut result__).from_abi::<ITfComposition>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn EnumCompositions(&self) -> ::windows::runtime::Result<IEnumITfCompositionView> {
         let mut result__: <IEnumITfCompositionView as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IEnumITfCompositionView>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn FindComposition<'a, Param1: ::windows::runtime::IntoParam<'a, ITfRange>>(&self, ecread: u32, ptestrange: Param1) -> ::windows::runtime::Result<IEnumITfCompositionView> {
         let mut result__: <IEnumITfCompositionView as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(ecread), ptestrange.into_param().abi(), &mut result__).from_abi::<IEnumITfCompositionView>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn TakeOwnership<'a, Param1: ::windows::runtime::IntoParam<'a, ITfCompositionView>, Param2: ::windows::runtime::IntoParam<'a, ITfCompositionSink>>(&self, ecwrite: u32, pcomposition: Param1, psink: Param2) -> ::windows::runtime::Result<ITfComposition> {
         let mut result__: <ITfComposition as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(ecwrite), pcomposition.into_param().abi(), psink.into_param().abi(), &mut result__).from_abi::<ITfComposition>(result__)
@@ -3895,26 +4267,31 @@ pub struct ITfContextComposition_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ecread: u32, ptestrange: ::windows::runtime::RawPtr, ppenum: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ecwrite: u32, pcomposition: ::windows::runtime::RawPtr, psink: ::windows::runtime::RawPtr, ppcomposition: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfContextKeyEventSink(::windows::runtime::IUnknown);
 impl ITfContextKeyEventSink {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn OnKeyDown<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::WPARAM>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, wparam: Param0, lparam: Param1) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), wparam.into_param().abi(), lparam.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn OnKeyUp<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::WPARAM>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, wparam: Param0, lparam: Param1) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), wparam.into_param().abi(), lparam.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn OnTestKeyDown<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::WPARAM>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, wparam: Param0, lparam: Param1) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), wparam.into_param().abi(), lparam.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn OnTestKeyUp<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::WPARAM>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, wparam: Param0, lparam: Param1) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), wparam.into_param().abi(), lparam.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
@@ -3959,34 +4336,41 @@ pub struct ITfContextKeyEventSink_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, pfeaten: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfContextOwner(::windows::runtime::IUnknown);
 impl ITfContextOwner {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetACPFromPoint(&self, ptscreen: *const super::super::Foundation::POINT, dwflags: u32) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(ptscreen), ::std::mem::transmute(dwflags), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetTextExt(&self, acpstart: i32, acpend: i32, prc: *mut super::super::Foundation::RECT, pfclipped: *mut super::super::Foundation::BOOL) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(acpstart), ::std::mem::transmute(acpend), ::std::mem::transmute(prc), ::std::mem::transmute(pfclipped)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetScreenExt(&self) -> ::windows::runtime::Result<super::super::Foundation::RECT> {
         let mut result__: <super::super::Foundation::RECT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::RECT>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetStatus(&self) -> ::windows::runtime::Result<TS_STATUS> {
         let mut result__: <TS_STATUS as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<TS_STATUS>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetWnd(&self) -> ::windows::runtime::Result<super::super::Foundation::HWND> {
         let mut result__: <super::super::Foundation::HWND as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::HWND>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetAttribute(&self, rguidattribute: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(rguidattribute), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
@@ -4034,26 +4418,32 @@ pub struct ITfContextOwner_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rguidattribute: *const ::windows::runtime::GUID, pvarvalue: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfContextOwnerCompositionServices(::windows::runtime::IUnknown);
 impl ITfContextOwnerCompositionServices {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn StartComposition<'a, Param1: ::windows::runtime::IntoParam<'a, ITfRange>, Param2: ::windows::runtime::IntoParam<'a, ITfCompositionSink>>(&self, ecwrite: u32, pcompositionrange: Param1, psink: Param2) -> ::windows::runtime::Result<ITfComposition> {
         let mut result__: <ITfComposition as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(ecwrite), pcompositionrange.into_param().abi(), psink.into_param().abi(), &mut result__).from_abi::<ITfComposition>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn EnumCompositions(&self) -> ::windows::runtime::Result<IEnumITfCompositionView> {
         let mut result__: <IEnumITfCompositionView as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IEnumITfCompositionView>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn FindComposition<'a, Param1: ::windows::runtime::IntoParam<'a, ITfRange>>(&self, ecread: u32, ptestrange: Param1) -> ::windows::runtime::Result<IEnumITfCompositionView> {
         let mut result__: <IEnumITfCompositionView as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(ecread), ptestrange.into_param().abi(), &mut result__).from_abi::<IEnumITfCompositionView>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn TakeOwnership<'a, Param1: ::windows::runtime::IntoParam<'a, ITfCompositionView>, Param2: ::windows::runtime::IntoParam<'a, ITfCompositionSink>>(&self, ecwrite: u32, pcomposition: Param1, psink: Param2) -> ::windows::runtime::Result<ITfComposition> {
         let mut result__: <ITfComposition as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(ecwrite), pcomposition.into_param().abi(), psink.into_param().abi(), &mut result__).from_abi::<ITfComposition>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn TerminateComposition<'a, Param0: ::windows::runtime::IntoParam<'a, ITfCompositionView>>(&self, pcomposition: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), pcomposition.into_param().abi()).ok()
     }
@@ -4114,18 +4504,22 @@ pub struct ITfContextOwnerCompositionServices_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ecwrite: u32, pcomposition: ::windows::runtime::RawPtr, psink: ::windows::runtime::RawPtr, ppcomposition: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcomposition: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfContextOwnerCompositionSink(::windows::runtime::IUnknown);
 impl ITfContextOwnerCompositionSink {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn OnStartComposition<'a, Param0: ::windows::runtime::IntoParam<'a, ITfCompositionView>>(&self, pcomposition: Param0) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pcomposition.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn OnUpdateComposition<'a, Param0: ::windows::runtime::IntoParam<'a, ITfCompositionView>, Param1: ::windows::runtime::IntoParam<'a, ITfRange>>(&self, pcomposition: Param0, prangenew: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pcomposition.into_param().abi(), prangenew.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn OnEndComposition<'a, Param0: ::windows::runtime::IntoParam<'a, ITfCompositionView>>(&self, pcomposition: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), pcomposition.into_param().abi()).ok()
     }
@@ -4165,30 +4559,38 @@ pub struct ITfContextOwnerCompositionSink_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcomposition: ::windows::runtime::RawPtr, prangenew: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcomposition: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfContextOwnerServices(::windows::runtime::IUnknown);
 impl ITfContextOwnerServices {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn OnLayoutChange(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn OnStatusChange(&self, dwflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwflags)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn OnAttributeChange(&self, rguidattribute: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(rguidattribute)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_System_Com`*"]
     pub unsafe fn Serialize<'a, Param0: ::windows::runtime::IntoParam<'a, ITfProperty>, Param1: ::windows::runtime::IntoParam<'a, ITfRange>, Param3: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>>(&self, pprop: Param0, prange: Param1, phdr: *mut TF_PERSISTENT_PROPERTY_HEADER_ACP, pstream: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), pprop.into_param().abi(), prange.into_param().abi(), ::std::mem::transmute(phdr), pstream.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_System_Com`*"]
     pub unsafe fn Unserialize<'a, Param0: ::windows::runtime::IntoParam<'a, ITfProperty>, Param2: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>, Param3: ::windows::runtime::IntoParam<'a, ITfPersistentPropertyLoaderACP>>(&self, pprop: Param0, phdr: *const TF_PERSISTENT_PROPERTY_HEADER_ACP, pstream: Param2, ploader: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), pprop.into_param().abi(), ::std::mem::transmute(phdr), pstream.into_param().abi(), ploader.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn ForceLoadProperty<'a, Param0: ::windows::runtime::IntoParam<'a, ITfProperty>>(&self, pprop: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), pprop.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn CreateRange(&self, acpstart: i32, acpend: i32) -> ::windows::runtime::Result<ITfRangeACP> {
         let mut result__: <ITfRangeACP as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(acpstart), ::std::mem::transmute(acpend), &mut result__).from_abi::<ITfRangeACP>(result__)
@@ -4234,25 +4636,30 @@ pub struct ITfContextOwnerServices_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pprop: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, acpstart: i32, acpend: i32, pprange: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfContextView(::windows::runtime::IUnknown);
 impl ITfContextView {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetRangeFromPoint(&self, ec: u32, ppt: *const super::super::Foundation::POINT, dwflags: u32) -> ::windows::runtime::Result<ITfRange> {
         let mut result__: <ITfRange as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(ec), ::std::mem::transmute(ppt), ::std::mem::transmute(dwflags), &mut result__).from_abi::<ITfRange>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetTextExt<'a, Param1: ::windows::runtime::IntoParam<'a, ITfRange>>(&self, ec: u32, prange: Param1, prc: *mut super::super::Foundation::RECT, pfclipped: *mut super::super::Foundation::BOOL) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(ec), prange.into_param().abi(), ::std::mem::transmute(prc), ::std::mem::transmute(pfclipped)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetScreenExt(&self) -> ::windows::runtime::Result<super::super::Foundation::RECT> {
         let mut result__: <super::super::Foundation::RECT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::RECT>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetWnd(&self) -> ::windows::runtime::Result<super::super::Foundation::HWND> {
         let mut result__: <super::super::Foundation::HWND as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::HWND>(result__)
@@ -4297,16 +4704,19 @@ pub struct ITfContextView_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, phwnd: *mut super::super::Foundation::HWND) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfCreatePropertyStore(::windows::runtime::IUnknown);
 impl ITfCreatePropertyStore {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn IsStoreSerializable<'a, Param1: ::windows::runtime::IntoParam<'a, ITfRange>, Param2: ::windows::runtime::IntoParam<'a, ITfPropertyStore>>(&self, guidprop: *const ::windows::runtime::GUID, prange: Param1, ppropstore: Param2) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(guidprop), prange.into_param().abi(), ppropstore.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_System_Com`*"]
     pub unsafe fn CreatePropertyStore<'a, Param1: ::windows::runtime::IntoParam<'a, ITfRange>, Param3: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>>(&self, guidprop: *const ::windows::runtime::GUID, prange: Param1, cb: u32, pstream: Param3) -> ::windows::runtime::Result<ITfPropertyStore> {
         let mut result__: <ITfPropertyStore as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(guidprop), prange.into_param().abi(), ::std::mem::transmute(cb), pstream.into_param().abi(), &mut result__).from_abi::<ITfPropertyStore>(result__)
@@ -4347,28 +4757,34 @@ pub struct ITfCreatePropertyStore_abi(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guidprop: *const ::windows::runtime::GUID, prange: ::windows::runtime::RawPtr, cb: u32, pstream: ::windows::runtime::RawPtr, ppstore: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfDisplayAttributeInfo(::windows::runtime::IUnknown);
 impl ITfDisplayAttributeInfo {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetGUID(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetDescription(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetAttributeInfo(&self) -> ::windows::runtime::Result<TF_DISPLAYATTRIBUTE> {
         let mut result__: <TF_DISPLAYATTRIBUTE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<TF_DISPLAYATTRIBUTE>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn SetAttributeInfo(&self, pda: *const TF_DISPLAYATTRIBUTE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(pda)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)).ok()
     }
@@ -4412,17 +4828,21 @@ pub struct ITfDisplayAttributeInfo_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfDisplayAttributeMgr(::windows::runtime::IUnknown);
 impl ITfDisplayAttributeMgr {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn OnUpdateInfo(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn EnumDisplayAttributeInfo(&self) -> ::windows::runtime::Result<IEnumTfDisplayAttributeInfo> {
         let mut result__: <IEnumTfDisplayAttributeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IEnumTfDisplayAttributeInfo>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetDisplayAttributeInfo(&self, guid: *const ::windows::runtime::GUID, ppinfo: *mut ::std::option::Option<ITfDisplayAttributeInfo>, pclsidowner: *mut ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(ppinfo), ::std::mem::transmute(pclsidowner)).ok()
     }
@@ -4461,10 +4881,12 @@ pub struct ITfDisplayAttributeMgr_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenum: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, ppinfo: *mut ::windows::runtime::RawPtr, pclsidowner: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfDisplayAttributeNotifySink(::windows::runtime::IUnknown);
 impl ITfDisplayAttributeNotifySink {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn OnUpdateInfo(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)).ok()
     }
@@ -4501,14 +4923,17 @@ pub struct ITfDisplayAttributeNotifySink_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfDisplayAttributeProvider(::windows::runtime::IUnknown);
 impl ITfDisplayAttributeProvider {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn EnumDisplayAttributeInfo(&self) -> ::windows::runtime::Result<IEnumTfDisplayAttributeInfo> {
         let mut result__: <IEnumTfDisplayAttributeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IEnumTfDisplayAttributeInfo>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetDisplayAttributeInfo(&self, guid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<ITfDisplayAttributeInfo> {
         let mut result__: <ITfDisplayAttributeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), &mut result__).from_abi::<ITfDisplayAttributeInfo>(result__)
@@ -4547,27 +4972,34 @@ pub struct ITfDisplayAttributeProvider_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenum: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, ppinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfDocumentMgr(::windows::runtime::IUnknown);
 impl ITfDocumentMgr {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn CreateContext<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, tidowner: u32, dwflags: u32, punk: Param2, ppic: *mut ::std::option::Option<ITfContext>, pectextstore: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(tidowner), ::std::mem::transmute(dwflags), punk.into_param().abi(), ::std::mem::transmute(ppic), ::std::mem::transmute(pectextstore)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Push<'a, Param0: ::windows::runtime::IntoParam<'a, ITfContext>>(&self, pic: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pic.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Pop(&self, dwflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwflags)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetTop(&self) -> ::windows::runtime::Result<ITfContext> {
         let mut result__: <ITfContext as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ITfContext>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetBase(&self) -> ::windows::runtime::Result<ITfContext> {
         let mut result__: <ITfContext as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ITfContext>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn EnumContexts(&self) -> ::windows::runtime::Result<IEnumTfContexts> {
         let mut result__: <IEnumTfContexts as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IEnumTfContexts>(result__)
@@ -4610,15 +5042,18 @@ pub struct ITfDocumentMgr_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppic: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenum: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfEditRecord(::windows::runtime::IUnknown);
 impl ITfEditRecord {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetSelectionStatus(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetTextAndPropertyUpdates(&self, dwflags: GET_TEXT_AND_PROPERTY_UPDATES_FLAGS, prgproperties: *const *const ::windows::runtime::GUID, cproperties: u32) -> ::windows::runtime::Result<IEnumTfRanges> {
         let mut result__: <IEnumTfRanges as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwflags), ::std::mem::transmute(prgproperties), ::std::mem::transmute(cproperties), &mut result__).from_abi::<IEnumTfRanges>(result__)
@@ -4658,10 +5093,12 @@ pub struct ITfEditRecord_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwflags: GET_TEXT_AND_PROPERTY_UPDATES_FLAGS, prgproperties: *const *const ::windows::runtime::GUID, cproperties: u32, ppenum: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfEditSession(::windows::runtime::IUnknown);
 impl ITfEditSession {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn DoEditSession(&self, ec: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(ec)).ok()
     }
@@ -4698,13 +5135,16 @@ pub struct ITfEditSession_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ec: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfEditTransactionSink(::windows::runtime::IUnknown);
 impl ITfEditTransactionSink {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn OnStartEditTransaction<'a, Param0: ::windows::runtime::IntoParam<'a, ITfContext>>(&self, pic: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pic.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn OnEndEditTransaction<'a, Param0: ::windows::runtime::IntoParam<'a, ITfContext>>(&self, pic: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pic.into_param().abi()).ok()
     }
@@ -4742,19 +5182,23 @@ pub struct ITfEditTransactionSink_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pic: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pic: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfFnAdviseText(::windows::runtime::IUnknown);
 impl ITfFnAdviseText {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetDisplayName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn OnTextUpdate<'a, Param0: ::windows::runtime::IntoParam<'a, ITfRange>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, prange: Param0, pchtext: Param1, cch: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), prange.into_param().abi(), pchtext.into_param().abi(), ::std::mem::transmute(cch)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn OnLatticeUpdate<'a, Param0: ::windows::runtime::IntoParam<'a, ITfRange>, Param1: ::windows::runtime::IntoParam<'a, ITfLMLattice>>(&self, prange: Param0, plattice: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), prange.into_param().abi(), plattice.into_param().abi()).ok()
     }
@@ -4815,11 +5259,13 @@ pub struct ITfFnAdviseText_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, prange: ::windows::runtime::RawPtr, plattice: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfFnBalloon(::windows::runtime::IUnknown);
 impl ITfFnBalloon {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn UpdateBalloon<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, style: TfLBBalloonStyle, pch: Param1, cch: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(style), pch.into_param().abi(), ::std::mem::transmute(cch)).ok()
     }
@@ -4857,16 +5303,19 @@ pub struct ITfFnBalloon_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, style: TfLBBalloonStyle, pch: super::super::Foundation::PWSTR, cch: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfFnConfigure(::windows::runtime::IUnknown);
 impl ITfFnConfigure {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetDisplayName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn Show<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, hwndparent: Param0, langid: u16, rguidprofile: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), hwndparent.into_param().abi(), ::std::mem::transmute(langid), ::std::mem::transmute(rguidprofile)).ok()
     }
@@ -4926,16 +5375,19 @@ pub struct ITfFnConfigure_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hwndparent: super::super::Foundation::HWND, langid: u16, rguidprofile: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfFnConfigureRegisterEudc(::windows::runtime::IUnknown);
 impl ITfFnConfigureRegisterEudc {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetDisplayName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn Show<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, hwndparent: Param0, langid: u16, rguidprofile: *const ::windows::runtime::GUID, bstrregistered: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), hwndparent.into_param().abi(), ::std::mem::transmute(langid), ::std::mem::transmute(rguidprofile), bstrregistered.into_param().abi()).ok()
     }
@@ -4995,16 +5447,19 @@ pub struct ITfFnConfigureRegisterEudc_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hwndparent: super::super::Foundation::HWND, langid: u16, rguidprofile: *const ::windows::runtime::GUID, bstrregistered: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfFnConfigureRegisterWord(::windows::runtime::IUnknown);
 impl ITfFnConfigureRegisterWord {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetDisplayName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn Show<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, hwndparent: Param0, langid: u16, rguidprofile: *const ::windows::runtime::GUID, bstrregistered: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), hwndparent.into_param().abi(), ::std::mem::transmute(langid), ::std::mem::transmute(rguidprofile), bstrregistered.into_param().abi()).ok()
     }
@@ -5064,15 +5519,18 @@ pub struct ITfFnConfigureRegisterWord_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hwndparent: super::super::Foundation::HWND, langid: u16, rguidprofile: *const ::windows::runtime::GUID, bstrregistered: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfFnCustomSpeechCommand(::windows::runtime::IUnknown);
 impl ITfFnCustomSpeechCommand {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetDisplayName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn SetSpeechCommandProvider<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, pspcmdprovider: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pspcmdprovider.into_param().abi()).ok()
     }
@@ -5131,15 +5589,18 @@ pub struct ITfFnCustomSpeechCommand_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pspcmdprovider: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfFnGetLinguisticAlternates(::windows::runtime::IUnknown);
 impl ITfFnGetLinguisticAlternates {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetDisplayName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetAlternates<'a, Param0: ::windows::runtime::IntoParam<'a, ITfRange>>(&self, prange: Param0) -> ::windows::runtime::Result<ITfCandidateList> {
         let mut result__: <ITfCandidateList as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), prange.into_param().abi(), &mut result__).from_abi::<ITfCandidateList>(result__)
@@ -5199,15 +5660,18 @@ pub struct ITfFnGetLinguisticAlternates_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, prange: ::windows::runtime::RawPtr, ppcandidatelist: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfFnGetPreferredTouchKeyboardLayout(::windows::runtime::IUnknown);
 impl ITfFnGetPreferredTouchKeyboardLayout {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetDisplayName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetLayout(&self, ptkblayouttype: *mut TKBLayoutType, pwpreferredlayoutid: *const u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(ptkblayouttype), ::std::mem::transmute(pwpreferredlayoutid)).ok()
     }
@@ -5266,15 +5730,18 @@ pub struct ITfFnGetPreferredTouchKeyboardLayout_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ptkblayouttype: *mut TKBLayoutType, pwpreferredlayoutid: *const u16) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfFnGetSAPIObject(::windows::runtime::IUnknown);
 impl ITfFnGetSAPIObject {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetDisplayName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Get(&self, sobj: TfSapiObject) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
         let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(sobj), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
@@ -5334,43 +5801,53 @@ pub struct ITfFnGetSAPIObject_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, sobj: TfSapiObject, ppunk: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfFnLMInternal(::windows::runtime::IUnknown);
 impl ITfFnLMInternal {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetDisplayName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn QueryRange<'a, Param0: ::windows::runtime::IntoParam<'a, ITfRange>>(&self, prange: Param0, ppnewrange: *mut ::std::option::Option<ITfRange>, pfaccepted: *mut super::super::Foundation::BOOL) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), prange.into_param().abi(), ::std::mem::transmute(ppnewrange), ::std::mem::transmute(pfaccepted)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn QueryLangID(&self, langid: u16) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(langid), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetReconversion<'a, Param0: ::windows::runtime::IntoParam<'a, ITfRange>>(&self, prange: Param0) -> ::windows::runtime::Result<ITfCandidateList> {
         let mut result__: <ITfCandidateList as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), prange.into_param().abi(), &mut result__).from_abi::<ITfCandidateList>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Reconvert<'a, Param0: ::windows::runtime::IntoParam<'a, ITfRange>>(&self, prange: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), prange.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn QueryKey<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::WPARAM>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, fup: Param0, vkey: Param1, lparamkeydata: Param2) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), fup.into_param().abi(), vkey.into_param().abi(), lparamkeydata.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn InvokeKey<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::WPARAM>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, fup: Param0, vkey: Param1, lparamkeydata: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), fup.into_param().abi(), vkey.into_param().abi(), lparamkeydata.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn InvokeFunc<'a, Param0: ::windows::runtime::IntoParam<'a, ITfContext>>(&self, pic: Param0, refguidfunc: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), pic.into_param().abi(), ::std::mem::transmute(refguidfunc)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn ProcessLattice<'a, Param0: ::windows::runtime::IntoParam<'a, ITfRange>>(&self, prange: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), prange.into_param().abi()).ok()
     }
@@ -5460,40 +5937,49 @@ pub struct ITfFnLMInternal_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pic: ::windows::runtime::RawPtr, refguidfunc: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, prange: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfFnLMProcessor(::windows::runtime::IUnknown);
 impl ITfFnLMProcessor {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetDisplayName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn QueryRange<'a, Param0: ::windows::runtime::IntoParam<'a, ITfRange>>(&self, prange: Param0, ppnewrange: *mut ::std::option::Option<ITfRange>, pfaccepted: *mut super::super::Foundation::BOOL) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), prange.into_param().abi(), ::std::mem::transmute(ppnewrange), ::std::mem::transmute(pfaccepted)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn QueryLangID(&self, langid: u16) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(langid), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetReconversion<'a, Param0: ::windows::runtime::IntoParam<'a, ITfRange>>(&self, prange: Param0) -> ::windows::runtime::Result<ITfCandidateList> {
         let mut result__: <ITfCandidateList as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), prange.into_param().abi(), &mut result__).from_abi::<ITfCandidateList>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Reconvert<'a, Param0: ::windows::runtime::IntoParam<'a, ITfRange>>(&self, prange: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), prange.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn QueryKey<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::WPARAM>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, fup: Param0, vkey: Param1, lparamkeydata: Param2) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), fup.into_param().abi(), vkey.into_param().abi(), lparamkeydata.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn InvokeKey<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::WPARAM>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, fup: Param0, vkey: Param1, lparamkeydata: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), fup.into_param().abi(), vkey.into_param().abi(), lparamkeydata.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn InvokeFunc<'a, Param0: ::windows::runtime::IntoParam<'a, ITfContext>>(&self, pic: Param0, refguidfunc: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), pic.into_param().abi(), ::std::mem::transmute(refguidfunc)).ok()
     }
@@ -5562,19 +6048,23 @@ pub struct ITfFnLMProcessor_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pic: ::windows::runtime::RawPtr, refguidfunc: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfFnLangProfileUtil(::windows::runtime::IUnknown);
 impl ITfFnLangProfileUtil {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetDisplayName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn RegisterActiveProfiles(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn IsProfileAvailableForLang(&self, langid: u16) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(langid), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
@@ -5636,19 +6126,23 @@ pub struct ITfFnLangProfileUtil_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, langid: u16, pfavailable: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfFnPlayBack(::windows::runtime::IUnknown);
 impl ITfFnPlayBack {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetDisplayName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn QueryRange<'a, Param0: ::windows::runtime::IntoParam<'a, ITfRange>>(&self, prange: Param0, ppnewrange: *mut ::std::option::Option<ITfRange>, pfplayable: *mut super::super::Foundation::BOOL) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), prange.into_param().abi(), ::std::mem::transmute(ppnewrange), ::std::mem::transmute(pfplayable)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Play<'a, Param0: ::windows::runtime::IntoParam<'a, ITfRange>>(&self, prange: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), prange.into_param().abi()).ok()
     }
@@ -5709,19 +6203,23 @@ pub struct ITfFnPlayBack_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, prange: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfFnPropertyUIStatus(::windows::runtime::IUnknown);
 impl ITfFnPropertyUIStatus {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetDisplayName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetStatus(&self, refguidprop: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(refguidprop), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn SetStatus(&self, refguidprop: *const ::windows::runtime::GUID, dw: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(refguidprop), ::std::mem::transmute(dw)).ok()
     }
@@ -5781,23 +6279,28 @@ pub struct ITfFnPropertyUIStatus_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, refguidprop: *const ::windows::runtime::GUID, pdw: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, refguidprop: *const ::windows::runtime::GUID, dw: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfFnReconversion(::windows::runtime::IUnknown);
 impl ITfFnReconversion {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetDisplayName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn QueryRange<'a, Param0: ::windows::runtime::IntoParam<'a, ITfRange>>(&self, prange: Param0, ppnewrange: *mut ::std::option::Option<ITfRange>, pfconvertable: *mut super::super::Foundation::BOOL) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), prange.into_param().abi(), ::std::mem::transmute(ppnewrange), ::std::mem::transmute(pfconvertable)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetReconversion<'a, Param0: ::windows::runtime::IntoParam<'a, ITfRange>>(&self, prange: Param0) -> ::windows::runtime::Result<ITfCandidateList> {
         let mut result__: <ITfCandidateList as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), prange.into_param().abi(), &mut result__).from_abi::<ITfCandidateList>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Reconvert<'a, Param0: ::windows::runtime::IntoParam<'a, ITfRange>>(&self, prange: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), prange.into_param().abi()).ok()
     }
@@ -5859,21 +6362,25 @@ pub struct ITfFnReconversion_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, prange: ::windows::runtime::RawPtr, ppcandlist: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, prange: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfFnSearchCandidateProvider(::windows::runtime::IUnknown);
 impl ITfFnSearchCandidateProvider {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetDisplayName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetSearchCandidates<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrquery: Param0, bstrapplicationid: Param1) -> ::windows::runtime::Result<ITfCandidateList> {
         let mut result__: <ITfCandidateList as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), bstrquery.into_param().abi(), bstrapplicationid.into_param().abi(), &mut result__).from_abi::<ITfCandidateList>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn SetResult<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrquery: Param0, bstrapplicationid: Param1, bstrresult: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), bstrquery.into_param().abi(), bstrapplicationid.into_param().abi(), bstrresult.into_param().abi()).ok()
     }
@@ -5935,16 +6442,19 @@ pub struct ITfFnSearchCandidateProvider_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bstrquery: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrapplicationid: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrresult: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfFnShowHelp(::windows::runtime::IUnknown);
 impl ITfFnShowHelp {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetDisplayName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn Show<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, hwndparent: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), hwndparent.into_param().abi()).ok()
     }
@@ -6004,11 +6514,13 @@ pub struct ITfFnShowHelp_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hwndparent: super::super::Foundation::HWND) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfFunction(::windows::runtime::IUnknown);
 impl ITfFunction {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetDisplayName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
@@ -6047,19 +6559,23 @@ pub struct ITfFunction_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbstrname: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfFunctionProvider(::windows::runtime::IUnknown);
 impl ITfFunctionProvider {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetType(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetDescription(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetFunction(&self, rguid: *const ::windows::runtime::GUID, riid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
         let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(rguid), ::std::mem::transmute(riid), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
@@ -6100,10 +6616,12 @@ pub struct ITfFunctionProvider_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rguid: *const ::windows::runtime::GUID, riid: *const ::windows::runtime::GUID, ppunk: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfInputProcessorProfileActivationSink(::windows::runtime::IUnknown);
 impl ITfInputProcessorProfileActivationSink {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn OnActivated<'a, Param5: ::windows::runtime::IntoParam<'a, HKL>>(&self, dwprofiletype: u32, langid: u16, clsid: *const ::windows::runtime::GUID, catid: *const ::windows::runtime::GUID, guidprofile: *const ::windows::runtime::GUID, hkl: Param5, dwflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwprofiletype), ::std::mem::transmute(langid), ::std::mem::transmute(clsid), ::std::mem::transmute(catid), ::std::mem::transmute(guidprofile), hkl.into_param().abi(), ::std::mem::transmute(dwflags)).ok()
     }
@@ -6140,28 +6658,35 @@ pub struct ITfInputProcessorProfileActivationSink_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwprofiletype: u32, langid: u16, clsid: *const ::windows::runtime::GUID, catid: *const ::windows::runtime::GUID, guidprofile: *const ::windows::runtime::GUID, hkl: HKL, dwflags: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfInputProcessorProfileMgr(::windows::runtime::IUnknown);
 impl ITfInputProcessorProfileMgr {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn ActivateProfile<'a, Param4: ::windows::runtime::IntoParam<'a, HKL>>(&self, dwprofiletype: u32, langid: u16, clsid: *const ::windows::runtime::GUID, guidprofile: *const ::windows::runtime::GUID, hkl: Param4, dwflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwprofiletype), ::std::mem::transmute(langid), ::std::mem::transmute(clsid), ::std::mem::transmute(guidprofile), hkl.into_param().abi(), ::std::mem::transmute(dwflags)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn DeactivateProfile<'a, Param4: ::windows::runtime::IntoParam<'a, HKL>>(&self, dwprofiletype: u32, langid: u16, clsid: *const ::windows::runtime::GUID, guidprofile: *const ::windows::runtime::GUID, hkl: Param4, dwflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwprofiletype), ::std::mem::transmute(langid), ::std::mem::transmute(clsid), ::std::mem::transmute(guidprofile), hkl.into_param().abi(), ::std::mem::transmute(dwflags)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetProfile<'a, Param4: ::windows::runtime::IntoParam<'a, HKL>>(&self, dwprofiletype: u32, langid: u16, clsid: *const ::windows::runtime::GUID, guidprofile: *const ::windows::runtime::GUID, hkl: Param4) -> ::windows::runtime::Result<TF_INPUTPROCESSORPROFILE> {
         let mut result__: <TF_INPUTPROCESSORPROFILE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwprofiletype), ::std::mem::transmute(langid), ::std::mem::transmute(clsid), ::std::mem::transmute(guidprofile), hkl.into_param().abi(), &mut result__).from_abi::<TF_INPUTPROCESSORPROFILE>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn EnumProfiles(&self, langid: u16) -> ::windows::runtime::Result<IEnumTfInputProcessorProfiles> {
         let mut result__: <IEnumTfInputProcessorProfiles as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(langid), &mut result__).from_abi::<IEnumTfInputProcessorProfiles>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn ReleaseInputProcessor(&self, rclsid: *const ::windows::runtime::GUID, dwflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(rclsid), ::std::mem::transmute(dwflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn RegisterProfile<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param8: ::windows::runtime::IntoParam<'a, HKL>, Param10: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(
         &self,
         rclsid: *const ::windows::runtime::GUID,
@@ -6194,9 +6719,11 @@ impl ITfInputProcessorProfileMgr {
         )
         .ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn UnregisterProfile(&self, rclsid: *const ::windows::runtime::GUID, langid: u16, guidprofile: *const ::windows::runtime::GUID, dwflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(rclsid), ::std::mem::transmute(langid), ::std::mem::transmute(guidprofile), ::std::mem::transmute(dwflags)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetActiveProfile(&self, catid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<TF_INPUTPROCESSORPROFILE> {
         let mut result__: <TF_INPUTPROCESSORPROFILE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(catid), &mut result__).from_abi::<TF_INPUTPROCESSORPROFILE>(result__)
@@ -6242,10 +6769,12 @@ pub struct ITfInputProcessorProfileMgr_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rclsid: *const ::windows::runtime::GUID, langid: u16, guidprofile: *const ::windows::runtime::GUID, dwflags: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, catid: *const ::windows::runtime::GUID, pprofile: *mut TF_INPUTPROCESSORPROFILE) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfInputProcessorProfileSubstituteLayout(::windows::runtime::IUnknown);
 impl ITfInputProcessorProfileSubstituteLayout {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetSubstituteKeyboardLayout(&self, rclsid: *const ::windows::runtime::GUID, langid: u16, guidprofile: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<HKL> {
         let mut result__: <HKL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(rclsid), ::std::mem::transmute(langid), ::std::mem::transmute(guidprofile), &mut result__).from_abi::<HKL>(result__)
@@ -6283,72 +6812,91 @@ pub struct ITfInputProcessorProfileSubstituteLayout_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rclsid: *const ::windows::runtime::GUID, langid: u16, guidprofile: *const ::windows::runtime::GUID, phkl: *mut HKL) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfInputProcessorProfiles(::windows::runtime::IUnknown);
 impl ITfInputProcessorProfiles {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Register(&self, rclsid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(rclsid)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Unregister(&self, rclsid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(rclsid)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn AddLanguageProfile<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, rclsid: *const ::windows::runtime::GUID, langid: u16, guidprofile: *const ::windows::runtime::GUID, pchdesc: Param3, cchdesc: u32, pchiconfile: Param5, cchfile: u32, uiconindex: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(rclsid), ::std::mem::transmute(langid), ::std::mem::transmute(guidprofile), pchdesc.into_param().abi(), ::std::mem::transmute(cchdesc), pchiconfile.into_param().abi(), ::std::mem::transmute(cchfile), ::std::mem::transmute(uiconindex)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn RemoveLanguageProfile(&self, rclsid: *const ::windows::runtime::GUID, langid: u16, guidprofile: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(rclsid), ::std::mem::transmute(langid), ::std::mem::transmute(guidprofile)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_System_Com`*"]
     pub unsafe fn EnumInputProcessorInfo(&self) -> ::windows::runtime::Result<super::super::System::Com::IEnumGUID> {
         let mut result__: <super::super::System::Com::IEnumGUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::IEnumGUID>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetDefaultLanguageProfile(&self, langid: u16, catid: *const ::windows::runtime::GUID, pclsid: *mut ::windows::runtime::GUID, pguidprofile: *mut ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(langid), ::std::mem::transmute(catid), ::std::mem::transmute(pclsid), ::std::mem::transmute(pguidprofile)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn SetDefaultLanguageProfile(&self, langid: u16, rclsid: *const ::windows::runtime::GUID, guidprofiles: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(langid), ::std::mem::transmute(rclsid), ::std::mem::transmute(guidprofiles)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn ActivateLanguageProfile(&self, rclsid: *const ::windows::runtime::GUID, langid: u16, guidprofiles: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(rclsid), ::std::mem::transmute(langid), ::std::mem::transmute(guidprofiles)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetActiveLanguageProfile(&self, rclsid: *const ::windows::runtime::GUID, plangid: *mut u16, pguidprofile: *mut ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(rclsid), ::std::mem::transmute(plangid), ::std::mem::transmute(pguidprofile)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetLanguageProfileDescription(&self, rclsid: *const ::windows::runtime::GUID, langid: u16, guidprofile: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(rclsid), ::std::mem::transmute(langid), ::std::mem::transmute(guidprofile), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetCurrentLanguage(&self) -> ::windows::runtime::Result<u16> {
         let mut result__: <u16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u16>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn ChangeCurrentLanguage(&self, langid: u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(langid)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetLanguageList(&self, pplangid: *mut *mut u16, pulcount: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(pplangid), ::std::mem::transmute(pulcount)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn EnumLanguageProfiles(&self, langid: u16) -> ::windows::runtime::Result<IEnumTfLanguageProfiles> {
         let mut result__: <IEnumTfLanguageProfiles as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(langid), &mut result__).from_abi::<IEnumTfLanguageProfiles>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn EnableLanguageProfile<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, rclsid: *const ::windows::runtime::GUID, langid: u16, guidprofile: *const ::windows::runtime::GUID, fenable: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(rclsid), ::std::mem::transmute(langid), ::std::mem::transmute(guidprofile), fenable.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn IsEnabledLanguageProfile(&self, rclsid: *const ::windows::runtime::GUID, langid: u16, guidprofile: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(rclsid), ::std::mem::transmute(langid), ::std::mem::transmute(guidprofile), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn EnableLanguageProfileByDefault<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, rclsid: *const ::windows::runtime::GUID, langid: u16, guidprofile: *const ::windows::runtime::GUID, fenable: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(rclsid), ::std::mem::transmute(langid), ::std::mem::transmute(guidprofile), fenable.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn SubstituteKeyboardLayout<'a, Param3: ::windows::runtime::IntoParam<'a, HKL>>(&self, rclsid: *const ::windows::runtime::GUID, langid: u16, guidprofile: *const ::windows::runtime::GUID, hkl: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(rclsid), ::std::mem::transmute(langid), ::std::mem::transmute(guidprofile), hkl.into_param().abi()).ok()
     }
@@ -6408,76 +6956,96 @@ pub struct ITfInputProcessorProfiles_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rclsid: *const ::windows::runtime::GUID, langid: u16, guidprofile: *const ::windows::runtime::GUID, hkl: HKL) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfInputProcessorProfilesEx(::windows::runtime::IUnknown);
 impl ITfInputProcessorProfilesEx {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Register(&self, rclsid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(rclsid)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Unregister(&self, rclsid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(rclsid)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn AddLanguageProfile<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, rclsid: *const ::windows::runtime::GUID, langid: u16, guidprofile: *const ::windows::runtime::GUID, pchdesc: Param3, cchdesc: u32, pchiconfile: Param5, cchfile: u32, uiconindex: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(rclsid), ::std::mem::transmute(langid), ::std::mem::transmute(guidprofile), pchdesc.into_param().abi(), ::std::mem::transmute(cchdesc), pchiconfile.into_param().abi(), ::std::mem::transmute(cchfile), ::std::mem::transmute(uiconindex)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn RemoveLanguageProfile(&self, rclsid: *const ::windows::runtime::GUID, langid: u16, guidprofile: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(rclsid), ::std::mem::transmute(langid), ::std::mem::transmute(guidprofile)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_System_Com`*"]
     pub unsafe fn EnumInputProcessorInfo(&self) -> ::windows::runtime::Result<super::super::System::Com::IEnumGUID> {
         let mut result__: <super::super::System::Com::IEnumGUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::IEnumGUID>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetDefaultLanguageProfile(&self, langid: u16, catid: *const ::windows::runtime::GUID, pclsid: *mut ::windows::runtime::GUID, pguidprofile: *mut ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(langid), ::std::mem::transmute(catid), ::std::mem::transmute(pclsid), ::std::mem::transmute(pguidprofile)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn SetDefaultLanguageProfile(&self, langid: u16, rclsid: *const ::windows::runtime::GUID, guidprofiles: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(langid), ::std::mem::transmute(rclsid), ::std::mem::transmute(guidprofiles)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn ActivateLanguageProfile(&self, rclsid: *const ::windows::runtime::GUID, langid: u16, guidprofiles: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(rclsid), ::std::mem::transmute(langid), ::std::mem::transmute(guidprofiles)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetActiveLanguageProfile(&self, rclsid: *const ::windows::runtime::GUID, plangid: *mut u16, pguidprofile: *mut ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(rclsid), ::std::mem::transmute(plangid), ::std::mem::transmute(pguidprofile)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetLanguageProfileDescription(&self, rclsid: *const ::windows::runtime::GUID, langid: u16, guidprofile: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(rclsid), ::std::mem::transmute(langid), ::std::mem::transmute(guidprofile), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetCurrentLanguage(&self) -> ::windows::runtime::Result<u16> {
         let mut result__: <u16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u16>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn ChangeCurrentLanguage(&self, langid: u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(langid)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetLanguageList(&self, pplangid: *mut *mut u16, pulcount: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(pplangid), ::std::mem::transmute(pulcount)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn EnumLanguageProfiles(&self, langid: u16) -> ::windows::runtime::Result<IEnumTfLanguageProfiles> {
         let mut result__: <IEnumTfLanguageProfiles as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(langid), &mut result__).from_abi::<IEnumTfLanguageProfiles>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn EnableLanguageProfile<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, rclsid: *const ::windows::runtime::GUID, langid: u16, guidprofile: *const ::windows::runtime::GUID, fenable: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(rclsid), ::std::mem::transmute(langid), ::std::mem::transmute(guidprofile), fenable.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn IsEnabledLanguageProfile(&self, rclsid: *const ::windows::runtime::GUID, langid: u16, guidprofile: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(rclsid), ::std::mem::transmute(langid), ::std::mem::transmute(guidprofile), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn EnableLanguageProfileByDefault<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, rclsid: *const ::windows::runtime::GUID, langid: u16, guidprofile: *const ::windows::runtime::GUID, fenable: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(rclsid), ::std::mem::transmute(langid), ::std::mem::transmute(guidprofile), fenable.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn SubstituteKeyboardLayout<'a, Param3: ::windows::runtime::IntoParam<'a, HKL>>(&self, rclsid: *const ::windows::runtime::GUID, langid: u16, guidprofile: *const ::windows::runtime::GUID, hkl: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(rclsid), ::std::mem::transmute(langid), ::std::mem::transmute(guidprofile), hkl.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn SetLanguageProfileDisplayName<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, rclsid: *const ::windows::runtime::GUID, langid: u16, guidprofile: *const ::windows::runtime::GUID, pchfile: Param3, cchfile: u32, uresid: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(rclsid), ::std::mem::transmute(langid), ::std::mem::transmute(guidprofile), pchfile.into_param().abi(), ::std::mem::transmute(cchfile), ::std::mem::transmute(uresid)).ok()
     }
@@ -6559,28 +7127,34 @@ pub struct ITfInputProcessorProfilesEx_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rclsid: *const ::windows::runtime::GUID, langid: u16, guidprofile: *const ::windows::runtime::GUID, pchfile: super::super::Foundation::PWSTR, cchfile: u32, uresid: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfInputScope(::windows::runtime::IUnknown);
 impl ITfInputScope {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetInputScopes(&self, pprginputscopes: *mut *mut InputScope, pccount: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pprginputscopes), ::std::mem::transmute(pccount)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetPhrase(&self, ppbstrphrases: *mut *mut super::super::Foundation::BSTR, pccount: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppbstrphrases), ::std::mem::transmute(pccount)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetRegularExpression(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetSRGS(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetXML(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
@@ -6626,33 +7200,40 @@ pub struct ITfInputScope_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbstrxml: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfInputScope2(::windows::runtime::IUnknown);
 impl ITfInputScope2 {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetInputScopes(&self, pprginputscopes: *mut *mut InputScope, pccount: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pprginputscopes), ::std::mem::transmute(pccount)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetPhrase(&self, ppbstrphrases: *mut *mut super::super::Foundation::BSTR, pccount: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppbstrphrases), ::std::mem::transmute(pccount)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetRegularExpression(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetSRGS(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetXML(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_System_Com`*"]
     pub unsafe fn EnumWordList(&self) -> ::windows::runtime::Result<super::super::System::Com::IEnumString> {
         let mut result__: <super::super::System::Com::IEnumString as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::IEnumString>(result__)
@@ -6720,16 +7301,19 @@ pub struct ITfInputScope2_abi(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenumstring: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfInsertAtSelection(::windows::runtime::IUnknown);
 impl ITfInsertAtSelection {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn InsertTextAtSelection<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, ec: u32, dwflags: INSERT_TEXT_AT_SELECTION_FLAGS, pchtext: Param2, cch: i32) -> ::windows::runtime::Result<ITfRange> {
         let mut result__: <ITfRange as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(ec), ::std::mem::transmute(dwflags), pchtext.into_param().abi(), ::std::mem::transmute(cch), &mut result__).from_abi::<ITfRange>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_System_Com`*"]
     pub unsafe fn InsertEmbeddedAtSelection<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::System::Com::IDataObject>>(&self, ec: u32, dwflags: u32, pdataobject: Param2) -> ::windows::runtime::Result<ITfRange> {
         let mut result__: <ITfRange as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(ec), ::std::mem::transmute(dwflags), pdataobject.into_param().abi(), &mut result__).from_abi::<ITfRange>(result__)
@@ -6770,27 +7354,33 @@ pub struct ITfInsertAtSelection_abi(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ec: u32, dwflags: u32, pdataobject: ::windows::runtime::RawPtr, pprange: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfIntegratableCandidateListUIElement(::windows::runtime::IUnknown);
 impl ITfIntegratableCandidateListUIElement {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn SetIntegrationStyle<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, guidintegrationstyle: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), guidintegrationstyle.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetSelectionStyle(&self) -> ::windows::runtime::Result<TfIntegratableCandidateListSelectionStyle> {
         let mut result__: <TfIntegratableCandidateListSelectionStyle as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<TfIntegratableCandidateListSelectionStyle>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn OnKeyDown<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::WPARAM>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, wparam: Param0, lparam: Param1) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), wparam.into_param().abi(), lparam.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn ShowCandidateNumbers(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn FinalizeExactCompositionString(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)).ok()
     }
@@ -6833,35 +7423,42 @@ pub struct ITfIntegratableCandidateListUIElement_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfKeyEventSink(::windows::runtime::IUnknown);
 impl ITfKeyEventSink {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn OnSetFocus<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fforeground: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), fforeground.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn OnTestKeyDown<'a, Param0: ::windows::runtime::IntoParam<'a, ITfContext>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::WPARAM>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, pic: Param0, wparam: Param1, lparam: Param2) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pic.into_param().abi(), wparam.into_param().abi(), lparam.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn OnTestKeyUp<'a, Param0: ::windows::runtime::IntoParam<'a, ITfContext>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::WPARAM>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, pic: Param0, wparam: Param1, lparam: Param2) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), pic.into_param().abi(), wparam.into_param().abi(), lparam.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn OnKeyDown<'a, Param0: ::windows::runtime::IntoParam<'a, ITfContext>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::WPARAM>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, pic: Param0, wparam: Param1, lparam: Param2) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), pic.into_param().abi(), wparam.into_param().abi(), lparam.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn OnKeyUp<'a, Param0: ::windows::runtime::IntoParam<'a, ITfContext>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::WPARAM>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, pic: Param0, wparam: Param1, lparam: Param2) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), pic.into_param().abi(), wparam.into_param().abi(), lparam.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn OnPreservedKey<'a, Param0: ::windows::runtime::IntoParam<'a, ITfContext>>(&self, pic: Param0, rguid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), pic.into_param().abi(), ::std::mem::transmute(rguid), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
@@ -6910,15 +7507,18 @@ pub struct ITfKeyEventSink_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pic: ::windows::runtime::RawPtr, rguid: *const ::windows::runtime::GUID, pfeaten: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfKeyTraceEventSink(::windows::runtime::IUnknown);
 impl ITfKeyTraceEventSink {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn OnKeyTraceDown<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::WPARAM>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, wparam: Param0, lparam: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), wparam.into_param().abi(), lparam.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn OnKeyTraceUp<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::WPARAM>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, wparam: Param0, lparam: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), wparam.into_param().abi(), lparam.into_param().abi()).ok()
     }
@@ -6958,67 +7558,82 @@ pub struct ITfKeyTraceEventSink_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfKeystrokeMgr(::windows::runtime::IUnknown);
 impl ITfKeystrokeMgr {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn AdviseKeyEventSink<'a, Param1: ::windows::runtime::IntoParam<'a, ITfKeyEventSink>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, tid: u32, psink: Param1, fforeground: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(tid), psink.into_param().abi(), fforeground.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn UnadviseKeyEventSink(&self, tid: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(tid)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetForeground(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn TestKeyDown<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::WPARAM>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, wparam: Param0, lparam: Param1) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), wparam.into_param().abi(), lparam.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn TestKeyUp<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::WPARAM>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, wparam: Param0, lparam: Param1) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), wparam.into_param().abi(), lparam.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn KeyDown<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::WPARAM>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, wparam: Param0, lparam: Param1) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), wparam.into_param().abi(), lparam.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn KeyUp<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::WPARAM>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, wparam: Param0, lparam: Param1) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), wparam.into_param().abi(), lparam.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetPreservedKey<'a, Param0: ::windows::runtime::IntoParam<'a, ITfContext>>(&self, pic: Param0, pprekey: *const TF_PRESERVEDKEY) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), pic.into_param().abi(), ::std::mem::transmute(pprekey), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn IsPreservedKey(&self, rguid: *const ::windows::runtime::GUID, pprekey: *const TF_PRESERVEDKEY) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(rguid), ::std::mem::transmute(pprekey), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn PreserveKey<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, tid: u32, rguid: *const ::windows::runtime::GUID, prekey: *const TF_PRESERVEDKEY, pchdesc: Param3, cchdesc: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(tid), ::std::mem::transmute(rguid), ::std::mem::transmute(prekey), pchdesc.into_param().abi(), ::std::mem::transmute(cchdesc)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn UnpreserveKey(&self, rguid: *const ::windows::runtime::GUID, pprekey: *const TF_PRESERVEDKEY) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(rguid), ::std::mem::transmute(pprekey)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn SetPreservedKeyDescription<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, rguid: *const ::windows::runtime::GUID, pchdesc: Param1, cchdesc: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(rguid), pchdesc.into_param().abi(), ::std::mem::transmute(cchdesc)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetPreservedKeyDescription(&self, rguid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(rguid), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn SimulatePreservedKey<'a, Param0: ::windows::runtime::IntoParam<'a, ITfContext>>(&self, pic: Param0, rguid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), pic.into_param().abi(), ::std::mem::transmute(rguid), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
@@ -7079,15 +7694,18 @@ pub struct ITfKeystrokeMgr_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pic: ::windows::runtime::RawPtr, rguid: *const ::windows::runtime::GUID, pfeaten: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfLMLattice(::windows::runtime::IUnknown);
 impl ITfLMLattice {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn QueryType(&self, rguidtype: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(rguidtype), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn EnumLatticeElements(&self, dwframestart: u32, rguidtype: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<IEnumTfLatticeElements> {
         let mut result__: <IEnumTfLatticeElements as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwframestart), ::std::mem::transmute(rguidtype), &mut result__).from_abi::<IEnumTfLatticeElements>(result__)
@@ -7127,27 +7745,34 @@ pub struct ITfLMLattice_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwframestart: u32, rguidtype: *const ::windows::runtime::GUID, ppenum: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfLangBarEventSink(::windows::runtime::IUnknown);
 impl ITfLangBarEventSink {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn OnSetFocus(&self, dwthreadid: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwthreadid)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn OnThreadTerminate(&self, dwthreadid: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwthreadid)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn OnThreadItemChange(&self, dwthreadid: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwthreadid)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn OnModalInput<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::WPARAM>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, dwthreadid: u32, umsg: u32, wparam: Param2, lparam: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwthreadid), ::std::mem::transmute(umsg), wparam.into_param().abi(), lparam.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn ShowFloating(&self, dwflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetItemFloatingRect(&self, dwthreadid: u32, rguid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<super::super::Foundation::RECT> {
         let mut result__: <super::super::Foundation::RECT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwthreadid), ::std::mem::transmute(rguid), &mut result__).from_abi::<super::super::Foundation::RECT>(result__)
@@ -7192,23 +7817,28 @@ pub struct ITfLangBarEventSink_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwthreadid: u32, rguid: *const ::windows::runtime::GUID, prc: *mut super::super::Foundation::RECT) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfLangBarItem(::windows::runtime::IUnknown);
 impl ITfLangBarItem {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetInfo(&self) -> ::windows::runtime::Result<TF_LANGBARITEMINFO> {
         let mut result__: <TF_LANGBARITEMINFO as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<TF_LANGBARITEMINFO>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetStatus(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn Show<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fshow: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), fshow.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetTooltipString(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
@@ -7251,37 +7881,45 @@ pub struct ITfLangBarItem_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbstrtooltip: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfLangBarItemBalloon(::windows::runtime::IUnknown);
 impl ITfLangBarItemBalloon {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetInfo(&self) -> ::windows::runtime::Result<TF_LANGBARITEMINFO> {
         let mut result__: <TF_LANGBARITEMINFO as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<TF_LANGBARITEMINFO>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetStatus(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn Show<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fshow: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), fshow.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetTooltipString(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn OnClick<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::POINT>>(&self, click: TfLBIClick, pt: Param1, prcarea: *const super::super::Foundation::RECT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(click), pt.into_param().abi(), ::std::mem::transmute(prcarea)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetPreferredSize(&self, pszdefault: *const super::super::Foundation::SIZE) -> ::windows::runtime::Result<super::super::Foundation::SIZE> {
         let mut result__: <super::super::Foundation::SIZE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(pszdefault), &mut result__).from_abi::<super::super::Foundation::SIZE>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetBalloonInfo(&self) -> ::windows::runtime::Result<TF_LBBALLOONINFO> {
         let mut result__: <TF_LBBALLOONINFO as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<TF_LBBALLOONINFO>(result__)
@@ -7350,37 +7988,45 @@ pub struct ITfLangBarItemBalloon_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pinfo: *mut ::std::mem::ManuallyDrop<TF_LBBALLOONINFO>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfLangBarItemBitmap(::windows::runtime::IUnknown);
 impl ITfLangBarItemBitmap {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetInfo(&self) -> ::windows::runtime::Result<TF_LANGBARITEMINFO> {
         let mut result__: <TF_LANGBARITEMINFO as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<TF_LANGBARITEMINFO>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetStatus(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn Show<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fshow: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), fshow.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetTooltipString(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn OnClick<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::POINT>>(&self, click: TfLBIClick, pt: Param1, prcarea: *const super::super::Foundation::RECT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(click), pt.into_param().abi(), ::std::mem::transmute(prcarea)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetPreferredSize(&self, pszdefault: *const super::super::Foundation::SIZE) -> ::windows::runtime::Result<super::super::Foundation::SIZE> {
         let mut result__: <super::super::Foundation::SIZE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(pszdefault), &mut result__).from_abi::<super::super::Foundation::SIZE>(result__)
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Graphics_Gdi`*"]
     pub unsafe fn DrawBitmap(&self, bmwidth: i32, bmheight: i32, dwflags: u32, phbmp: *mut super::super::Graphics::Gdi::HBITMAP, phbmpmask: *mut super::super::Graphics::Gdi::HBITMAP) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(bmwidth), ::std::mem::transmute(bmheight), ::std::mem::transmute(dwflags), ::std::mem::transmute(phbmp), ::std::mem::transmute(phbmpmask)).ok()
     }
@@ -7448,47 +8094,58 @@ pub struct ITfLangBarItemBitmap_abi(
     #[cfg(feature = "Win32_Graphics_Gdi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bmwidth: i32, bmheight: i32, dwflags: u32, phbmp: *mut super::super::Graphics::Gdi::HBITMAP, phbmpmask: *mut super::super::Graphics::Gdi::HBITMAP) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))] usize,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfLangBarItemBitmapButton(::windows::runtime::IUnknown);
 impl ITfLangBarItemBitmapButton {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetInfo(&self) -> ::windows::runtime::Result<TF_LANGBARITEMINFO> {
         let mut result__: <TF_LANGBARITEMINFO as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<TF_LANGBARITEMINFO>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetStatus(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn Show<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fshow: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), fshow.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetTooltipString(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn OnClick<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::POINT>>(&self, click: TfLBIClick, pt: Param1, prcarea: *const super::super::Foundation::RECT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(click), pt.into_param().abi(), ::std::mem::transmute(prcarea)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn InitMenu<'a, Param0: ::windows::runtime::IntoParam<'a, ITfMenu>>(&self, pmenu: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), pmenu.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn OnMenuSelect(&self, wid: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(wid)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetPreferredSize(&self, pszdefault: *const super::super::Foundation::SIZE) -> ::windows::runtime::Result<super::super::Foundation::SIZE> {
         let mut result__: <super::super::Foundation::SIZE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(pszdefault), &mut result__).from_abi::<super::super::Foundation::SIZE>(result__)
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Graphics_Gdi`*"]
     pub unsafe fn DrawBitmap(&self, bmwidth: i32, bmheight: i32, dwflags: u32, phbmp: *mut super::super::Graphics::Gdi::HBITMAP, phbmpmask: *mut super::super::Graphics::Gdi::HBITMAP) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(bmwidth), ::std::mem::transmute(bmheight), ::std::mem::transmute(dwflags), ::std::mem::transmute(phbmp), ::std::mem::transmute(phbmpmask)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetText(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
@@ -7561,43 +8218,53 @@ pub struct ITfLangBarItemBitmapButton_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbstrtext: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfLangBarItemButton(::windows::runtime::IUnknown);
 impl ITfLangBarItemButton {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetInfo(&self) -> ::windows::runtime::Result<TF_LANGBARITEMINFO> {
         let mut result__: <TF_LANGBARITEMINFO as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<TF_LANGBARITEMINFO>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetStatus(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn Show<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fshow: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), fshow.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetTooltipString(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn OnClick<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::POINT>>(&self, click: TfLBIClick, pt: Param1, prcarea: *const super::super::Foundation::RECT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(click), pt.into_param().abi(), ::std::mem::transmute(prcarea)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn InitMenu<'a, Param0: ::windows::runtime::IntoParam<'a, ITfMenu>>(&self, pmenu: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), pmenu.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn OnMenuSelect(&self, wid: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(wid)).ok()
     }
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_UI_WindowsAndMessaging`*"]
     pub unsafe fn GetIcon(&self) -> ::windows::runtime::Result<super::WindowsAndMessaging::HICON> {
         let mut result__: <super::WindowsAndMessaging::HICON as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::WindowsAndMessaging::HICON>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetText(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
@@ -7668,48 +8335,61 @@ pub struct ITfLangBarItemButton_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbstrtext: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfLangBarItemMgr(::windows::runtime::IUnknown);
 impl ITfLangBarItemMgr {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn EnumItems(&self) -> ::windows::runtime::Result<IEnumTfLangBarItems> {
         let mut result__: <IEnumTfLangBarItems as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IEnumTfLangBarItems>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetItem(&self, rguid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<ITfLangBarItem> {
         let mut result__: <ITfLangBarItem as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(rguid), &mut result__).from_abi::<ITfLangBarItem>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn AddItem<'a, Param0: ::windows::runtime::IntoParam<'a, ITfLangBarItem>>(&self, punk: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), punk.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn RemoveItem<'a, Param0: ::windows::runtime::IntoParam<'a, ITfLangBarItem>>(&self, punk: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), punk.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn AdviseItemSink<'a, Param0: ::windows::runtime::IntoParam<'a, ITfLangBarItemSink>>(&self, punk: Param0, pdwcookie: *mut u32, rguiditem: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), punk.into_param().abi(), ::std::mem::transmute(pdwcookie), ::std::mem::transmute(rguiditem)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn UnadviseItemSink(&self, dwcookie: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwcookie)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetItemFloatingRect(&self, dwthreadid: u32, rguid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<super::super::Foundation::RECT> {
         let mut result__: <super::super::Foundation::RECT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwthreadid), ::std::mem::transmute(rguid), &mut result__).from_abi::<super::super::Foundation::RECT>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetItemsStatus(&self, ulcount: u32, prgguid: *const ::windows::runtime::GUID, pdwstatus: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulcount), ::std::mem::transmute(prgguid), ::std::mem::transmute(pdwstatus)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetItemNum(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetItems(&self, ulcount: u32, ppitem: *mut ::std::option::Option<ITfLangBarItem>, pinfo: *mut TF_LANGBARITEMINFO, pdwstatus: *mut u32, pcfetched: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulcount), ::std::mem::transmute(ppitem), ::std::mem::transmute(pinfo), ::std::mem::transmute(pdwstatus), ::std::mem::transmute(pcfetched)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn AdviseItemsSink(&self, ulcount: u32, ppunk: *const ::std::option::Option<ITfLangBarItemSink>, pguiditem: *const ::windows::runtime::GUID, pdwcookie: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulcount), ::std::mem::transmute(ppunk), ::std::mem::transmute(pguiditem), ::std::mem::transmute(pdwcookie)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn UnadviseItemsSink(&self, ulcount: u32, pdwcookie: *const u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulcount), ::std::mem::transmute(pdwcookie)).ok()
     }
@@ -7758,10 +8438,12 @@ pub struct ITfLangBarItemMgr_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ulcount: u32, ppunk: *const ::windows::runtime::RawPtr, pguiditem: *const ::windows::runtime::GUID, pdwcookie: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ulcount: u32, pdwcookie: *const u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfLangBarItemSink(::windows::runtime::IUnknown);
 impl ITfLangBarItemSink {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn OnUpdate(&self, dwflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwflags)).ok()
     }
@@ -7798,37 +8480,47 @@ pub struct ITfLangBarItemSink_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwflags: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfLangBarMgr(::windows::runtime::IUnknown);
 impl ITfLangBarMgr {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn AdviseEventSink<'a, Param0: ::windows::runtime::IntoParam<'a, ITfLangBarEventSink>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, psink: Param0, hwnd: Param1, dwflags: u32, pdwcookie: *const u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), psink.into_param().abi(), hwnd.into_param().abi(), ::std::mem::transmute(dwflags), ::std::mem::transmute(pdwcookie)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn UnadviseEventSink(&self, dwcookie: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwcookie)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetThreadMarshalInterface(&self, dwthreadid: u32, dwtype: u32, riid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
         let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwthreadid), ::std::mem::transmute(dwtype), ::std::mem::transmute(riid), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetThreadLangBarItemMgr(&self, dwthreadid: u32, pplbi: *mut ::std::option::Option<ITfLangBarItemMgr>, pdwthreadid: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwthreadid), ::std::mem::transmute(pplbi), ::std::mem::transmute(pdwthreadid)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetInputProcessorProfiles(&self, dwthreadid: u32, ppaip: *mut ::std::option::Option<ITfInputProcessorProfiles>, pdwthreadid: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwthreadid), ::std::mem::transmute(ppaip), ::std::mem::transmute(pdwthreadid)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn RestoreLastFocus<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pdwthreadid: *mut u32, fprev: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwthreadid), fprev.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn SetModalInput<'a, Param0: ::windows::runtime::IntoParam<'a, ITfLangBarEventSink>>(&self, psink: Param0, dwthreadid: u32, dwflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), psink.into_param().abi(), ::std::mem::transmute(dwthreadid), ::std::mem::transmute(dwflags)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn ShowFloating(&self, dwflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwflags)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetShowFloatingStatus(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
@@ -7876,15 +8568,18 @@ pub struct ITfLangBarMgr_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwflags: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwflags: *mut u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfLanguageProfileNotifySink(::windows::runtime::IUnknown);
 impl ITfLanguageProfileNotifySink {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn OnLanguageChange(&self, langid: u16) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(langid), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn OnLanguageChanged(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
@@ -7923,13 +8618,16 @@ pub struct ITfLanguageProfileNotifySink_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfMSAAControl(::windows::runtime::IUnknown);
 impl ITfMSAAControl {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn SystemEnableMSAA(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn SystemDisableMSAA(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
@@ -7967,11 +8665,13 @@ pub struct ITfMSAAControl_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfMenu(::windows::runtime::IUnknown);
 impl ITfMenu {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
     pub unsafe fn AddMenuItem<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HBITMAP>, Param3: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HBITMAP>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, uid: u32, dwflags: u32, hbmp: Param2, hbmpmask: Param3, pch: Param4, cch: u32, ppmenu: *mut ::std::option::Option<ITfMenu>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(uid), ::std::mem::transmute(dwflags), hbmp.into_param().abi(), hbmpmask.into_param().abi(), pch.into_param().abi(), ::std::mem::transmute(cch), ::std::mem::transmute(ppmenu)).ok()
     }
@@ -8009,23 +8709,28 @@ pub struct ITfMenu_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, uid: u32, dwflags: u32, hbmp: super::super::Graphics::Gdi::HBITMAP, hbmpmask: super::super::Graphics::Gdi::HBITMAP, pch: super::super::Foundation::PWSTR, cch: u32, ppmenu: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi")))] usize,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfMessagePump(::windows::runtime::IUnknown);
 impl ITfMessagePump {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
     pub unsafe fn PeekMessageA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, pmsg: *mut super::WindowsAndMessaging::MSG, hwnd: Param1, wmsgfiltermin: u32, wmsgfiltermax: u32, wremovemsg: u32, pfresult: *mut super::super::Foundation::BOOL) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pmsg), hwnd.into_param().abi(), ::std::mem::transmute(wmsgfiltermin), ::std::mem::transmute(wmsgfiltermax), ::std::mem::transmute(wremovemsg), ::std::mem::transmute(pfresult)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
     pub unsafe fn GetMessageA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, pmsg: *mut super::WindowsAndMessaging::MSG, hwnd: Param1, wmsgfiltermin: u32, wmsgfiltermax: u32, pfresult: *mut super::super::Foundation::BOOL) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pmsg), hwnd.into_param().abi(), ::std::mem::transmute(wmsgfiltermin), ::std::mem::transmute(wmsgfiltermax), ::std::mem::transmute(pfresult)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
     pub unsafe fn PeekMessageW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, pmsg: *mut super::WindowsAndMessaging::MSG, hwnd: Param1, wmsgfiltermin: u32, wmsgfiltermax: u32, wremovemsg: u32, pfresult: *mut super::super::Foundation::BOOL) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(pmsg), hwnd.into_param().abi(), ::std::mem::transmute(wmsgfiltermin), ::std::mem::transmute(wmsgfiltermax), ::std::mem::transmute(wremovemsg), ::std::mem::transmute(pfresult)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
     pub unsafe fn GetMessageW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, pmsg: *mut super::WindowsAndMessaging::MSG, hwnd: Param1, wmsgfiltermin: u32, wmsgfiltermax: u32, pfresult: *mut super::super::Foundation::BOOL) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(pmsg), hwnd.into_param().abi(), ::std::mem::transmute(wmsgfiltermin), ::std::mem::transmute(wmsgfiltermax), ::std::mem::transmute(pfresult)).ok()
     }
@@ -8069,11 +8774,13 @@ pub struct ITfMessagePump_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pmsg: *mut super::WindowsAndMessaging::MSG, hwnd: super::super::Foundation::HWND, wmsgfiltermin: u32, wmsgfiltermax: u32, pfresult: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging")))] usize,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfMouseSink(::windows::runtime::IUnknown);
 impl ITfMouseSink {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn OnMouseEvent(&self, uedge: u32, uquadrant: u32, dwbtnstatus: u32) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(uedge), ::std::mem::transmute(uquadrant), ::std::mem::transmute(dwbtnstatus), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
@@ -8112,14 +8819,17 @@ pub struct ITfMouseSink_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, uedge: u32, uquadrant: u32, dwbtnstatus: u32, pfeaten: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfMouseTracker(::windows::runtime::IUnknown);
 impl ITfMouseTracker {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn AdviseMouseSink<'a, Param0: ::windows::runtime::IntoParam<'a, ITfRange>, Param1: ::windows::runtime::IntoParam<'a, ITfMouseSink>>(&self, range: Param0, psink: Param1) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), range.into_param().abi(), psink.into_param().abi(), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn UnadviseMouseSink(&self, dwcookie: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwcookie)).ok()
     }
@@ -8157,14 +8867,17 @@ pub struct ITfMouseTracker_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, range: ::windows::runtime::RawPtr, psink: ::windows::runtime::RawPtr, pdwcookie: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwcookie: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfMouseTrackerACP(::windows::runtime::IUnknown);
 impl ITfMouseTrackerACP {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn AdviseMouseSink<'a, Param0: ::windows::runtime::IntoParam<'a, ITfRangeACP>, Param1: ::windows::runtime::IntoParam<'a, ITfMouseSink>>(&self, range: Param0, psink: Param1) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), range.into_param().abi(), psink.into_param().abi(), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn UnadviseMouseSink(&self, dwcookie: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwcookie)).ok()
     }
@@ -8202,11 +8915,13 @@ pub struct ITfMouseTrackerACP_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, range: ::windows::runtime::RawPtr, psink: ::windows::runtime::RawPtr, pdwcookie: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwcookie: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfPersistentPropertyLoaderACP(::windows::runtime::IUnknown);
 impl ITfPersistentPropertyLoaderACP {
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_System_Com`*"]
     pub unsafe fn LoadProperty(&self, phdr: *const TF_PERSISTENT_PROPERTY_HEADER_ACP) -> ::windows::runtime::Result<super::super::System::Com::IStream> {
         let mut result__: <super::super::System::Com::IStream as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(phdr), &mut result__).from_abi::<super::super::System::Com::IStream>(result__)
@@ -8245,10 +8960,12 @@ pub struct ITfPersistentPropertyLoaderACP_abi(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, phdr: *const TF_PERSISTENT_PROPERTY_HEADER_ACP, ppstream: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfPreservedKeyNotifySink(::windows::runtime::IUnknown);
 impl ITfPreservedKeyNotifySink {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn OnUpdated(&self, pprekey: *const TF_PRESERVEDKEY) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pprekey)).ok()
     }
@@ -8285,36 +9002,45 @@ pub struct ITfPreservedKeyNotifySink_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pprekey: *const TF_PRESERVEDKEY) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfProperty(::windows::runtime::IUnknown);
 impl ITfProperty {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetType(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn EnumRanges<'a, Param2: ::windows::runtime::IntoParam<'a, ITfRange>>(&self, ec: u32, ppenum: *mut ::std::option::Option<IEnumTfRanges>, ptargetrange: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(ec), ::std::mem::transmute(ppenum), ptargetrange.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetValue<'a, Param1: ::windows::runtime::IntoParam<'a, ITfRange>>(&self, ec: u32, prange: Param1) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(ec), prange.into_param().abi(), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetContext(&self) -> ::windows::runtime::Result<ITfContext> {
         let mut result__: <ITfContext as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ITfContext>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn FindRange<'a, Param1: ::windows::runtime::IntoParam<'a, ITfRange>>(&self, ec: u32, prange: Param1, pprange: *mut ::std::option::Option<ITfRange>, apos: TfAnchor) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(ec), prange.into_param().abi(), ::std::mem::transmute(pprange), ::std::mem::transmute(apos)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn SetValueStore<'a, Param1: ::windows::runtime::IntoParam<'a, ITfRange>, Param2: ::windows::runtime::IntoParam<'a, ITfPropertyStore>>(&self, ec: u32, prange: Param1, ppropstore: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(ec), prange.into_param().abi(), ppropstore.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetValue<'a, Param1: ::windows::runtime::IntoParam<'a, ITfRange>>(&self, ec: u32, prange: Param1, pvarvalue: *const super::super::System::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(ec), prange.into_param().abi(), ::std::mem::transmute(pvarvalue)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Clear<'a, Param1: ::windows::runtime::IntoParam<'a, ITfRange>>(&self, ec: u32, prange: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(ec), prange.into_param().abi()).ok()
     }
@@ -8380,46 +9106,56 @@ pub struct ITfProperty_abi(
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ec: u32, prange: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfPropertyStore(::windows::runtime::IUnknown);
 impl ITfPropertyStore {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetType(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetDataType(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetData(&self) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn OnTextUpdated<'a, Param1: ::windows::runtime::IntoParam<'a, ITfRange>>(&self, dwflags: u32, prangenew: Param1) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwflags), prangenew.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn Shrink<'a, Param0: ::windows::runtime::IntoParam<'a, ITfRange>>(&self, prangenew: Param0) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), prangenew.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Divide<'a, Param0: ::windows::runtime::IntoParam<'a, ITfRange>, Param1: ::windows::runtime::IntoParam<'a, ITfRange>>(&self, prangethis: Param0, prangenew: Param1) -> ::windows::runtime::Result<ITfPropertyStore> {
         let mut result__: <ITfPropertyStore as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), prangethis.into_param().abi(), prangenew.into_param().abi(), &mut result__).from_abi::<ITfPropertyStore>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Clone(&self) -> ::windows::runtime::Result<ITfPropertyStore> {
         let mut result__: <ITfPropertyStore as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ITfPropertyStore>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetPropertyRangeCreator(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_System_Com`*"]
     pub unsafe fn Serialize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>>(&self, pstream: Param0) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), pstream.into_param().abi(), &mut result__).from_abi::<u32>(result__)
@@ -8469,11 +9205,13 @@ pub struct ITfPropertyStore_abi(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pstream: ::windows::runtime::RawPtr, pcb: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfQueryEmbedded(::windows::runtime::IUnknown);
 impl ITfQueryEmbedded {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn QueryInsertEmbedded(&self, pguidservice: *const ::windows::runtime::GUID, pformatetc: *const super::super::System::Com::FORMATETC) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pguidservice), ::std::mem::transmute(pformatetc), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
@@ -8512,94 +9250,117 @@ pub struct ITfQueryEmbedded_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pguidservice: *const ::windows::runtime::GUID, pformatetc: *const super::super::System::Com::FORMATETC, pfinsertable: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfRange(::windows::runtime::IUnknown);
 impl ITfRange {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetText(&self, ec: u32, dwflags: u32, pchtext: super::super::Foundation::PWSTR, cchmax: u32, pcch: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(ec), ::std::mem::transmute(dwflags), ::std::mem::transmute(pchtext), ::std::mem::transmute(cchmax), ::std::mem::transmute(pcch)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn SetText<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, ec: u32, dwflags: u32, pchtext: Param2, cch: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(ec), ::std::mem::transmute(dwflags), pchtext.into_param().abi(), ::std::mem::transmute(cch)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_System_Com`*"]
     pub unsafe fn GetFormattedText(&self, ec: u32) -> ::windows::runtime::Result<super::super::System::Com::IDataObject> {
         let mut result__: <super::super::System::Com::IDataObject as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(ec), &mut result__).from_abi::<super::super::System::Com::IDataObject>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetEmbedded(&self, ec: u32, rguidservice: *const ::windows::runtime::GUID, riid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
         let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(ec), ::std::mem::transmute(rguidservice), ::std::mem::transmute(riid), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_System_Com`*"]
     pub unsafe fn InsertEmbedded<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::System::Com::IDataObject>>(&self, ec: u32, dwflags: u32, pdataobject: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(ec), ::std::mem::transmute(dwflags), pdataobject.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn ShiftStart(&self, ec: u32, cchreq: i32, pcch: *mut i32, phalt: *const TF_HALTCOND) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(ec), ::std::mem::transmute(cchreq), ::std::mem::transmute(pcch), ::std::mem::transmute(phalt)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn ShiftEnd(&self, ec: u32, cchreq: i32, pcch: *mut i32, phalt: *const TF_HALTCOND) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(ec), ::std::mem::transmute(cchreq), ::std::mem::transmute(pcch), ::std::mem::transmute(phalt)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn ShiftStartToRange<'a, Param1: ::windows::runtime::IntoParam<'a, ITfRange>>(&self, ec: u32, prange: Param1, apos: TfAnchor) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(ec), prange.into_param().abi(), ::std::mem::transmute(apos)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn ShiftEndToRange<'a, Param1: ::windows::runtime::IntoParam<'a, ITfRange>>(&self, ec: u32, prange: Param1, apos: TfAnchor) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(ec), prange.into_param().abi(), ::std::mem::transmute(apos)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn ShiftStartRegion(&self, ec: u32, dir: TfShiftDir) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(ec), ::std::mem::transmute(dir), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn ShiftEndRegion(&self, ec: u32, dir: TfShiftDir) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(ec), ::std::mem::transmute(dir), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn IsEmpty(&self, ec: u32) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(ec), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Collapse(&self, ec: u32, apos: TfAnchor) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(ec), ::std::mem::transmute(apos)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn IsEqualStart<'a, Param1: ::windows::runtime::IntoParam<'a, ITfRange>>(&self, ec: u32, pwith: Param1, apos: TfAnchor) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(ec), pwith.into_param().abi(), ::std::mem::transmute(apos), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn IsEqualEnd<'a, Param1: ::windows::runtime::IntoParam<'a, ITfRange>>(&self, ec: u32, pwith: Param1, apos: TfAnchor) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(ec), pwith.into_param().abi(), ::std::mem::transmute(apos), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn CompareStart<'a, Param1: ::windows::runtime::IntoParam<'a, ITfRange>>(&self, ec: u32, pwith: Param1, apos: TfAnchor) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(ec), pwith.into_param().abi(), ::std::mem::transmute(apos), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn CompareEnd<'a, Param1: ::windows::runtime::IntoParam<'a, ITfRange>>(&self, ec: u32, pwith: Param1, apos: TfAnchor) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(ec), pwith.into_param().abi(), ::std::mem::transmute(apos), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn AdjustForInsert(&self, ec: u32, cchinsert: u32) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(ec), ::std::mem::transmute(cchinsert), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetGravity(&self, pgstart: *mut TfGravity, pgend: *mut TfGravity) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(pgstart), ::std::mem::transmute(pgend)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn SetGravity(&self, ec: u32, gstart: TfGravity, gend: TfGravity) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(ec), ::std::mem::transmute(gstart), ::std::mem::transmute(gend)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Clone(&self) -> ::windows::runtime::Result<ITfRange> {
         let mut result__: <ITfRange as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ITfRange>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetContext(&self) -> ::windows::runtime::Result<ITfContext> {
         let mut result__: <ITfContext as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ITfContext>(result__)
@@ -8668,101 +9429,126 @@ pub struct ITfRange_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppclone: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppcontext: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfRangeACP(::windows::runtime::IUnknown);
 impl ITfRangeACP {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetText(&self, ec: u32, dwflags: u32, pchtext: super::super::Foundation::PWSTR, cchmax: u32, pcch: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(ec), ::std::mem::transmute(dwflags), ::std::mem::transmute(pchtext), ::std::mem::transmute(cchmax), ::std::mem::transmute(pcch)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn SetText<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, ec: u32, dwflags: u32, pchtext: Param2, cch: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(ec), ::std::mem::transmute(dwflags), pchtext.into_param().abi(), ::std::mem::transmute(cch)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_System_Com`*"]
     pub unsafe fn GetFormattedText(&self, ec: u32) -> ::windows::runtime::Result<super::super::System::Com::IDataObject> {
         let mut result__: <super::super::System::Com::IDataObject as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(ec), &mut result__).from_abi::<super::super::System::Com::IDataObject>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetEmbedded(&self, ec: u32, rguidservice: *const ::windows::runtime::GUID, riid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
         let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(ec), ::std::mem::transmute(rguidservice), ::std::mem::transmute(riid), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_System_Com`*"]
     pub unsafe fn InsertEmbedded<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::System::Com::IDataObject>>(&self, ec: u32, dwflags: u32, pdataobject: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(ec), ::std::mem::transmute(dwflags), pdataobject.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn ShiftStart(&self, ec: u32, cchreq: i32, pcch: *mut i32, phalt: *const TF_HALTCOND) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(ec), ::std::mem::transmute(cchreq), ::std::mem::transmute(pcch), ::std::mem::transmute(phalt)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn ShiftEnd(&self, ec: u32, cchreq: i32, pcch: *mut i32, phalt: *const TF_HALTCOND) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(ec), ::std::mem::transmute(cchreq), ::std::mem::transmute(pcch), ::std::mem::transmute(phalt)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn ShiftStartToRange<'a, Param1: ::windows::runtime::IntoParam<'a, ITfRange>>(&self, ec: u32, prange: Param1, apos: TfAnchor) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(ec), prange.into_param().abi(), ::std::mem::transmute(apos)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn ShiftEndToRange<'a, Param1: ::windows::runtime::IntoParam<'a, ITfRange>>(&self, ec: u32, prange: Param1, apos: TfAnchor) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(ec), prange.into_param().abi(), ::std::mem::transmute(apos)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn ShiftStartRegion(&self, ec: u32, dir: TfShiftDir) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(ec), ::std::mem::transmute(dir), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn ShiftEndRegion(&self, ec: u32, dir: TfShiftDir) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(ec), ::std::mem::transmute(dir), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn IsEmpty(&self, ec: u32) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(ec), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Collapse(&self, ec: u32, apos: TfAnchor) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(ec), ::std::mem::transmute(apos)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn IsEqualStart<'a, Param1: ::windows::runtime::IntoParam<'a, ITfRange>>(&self, ec: u32, pwith: Param1, apos: TfAnchor) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(ec), pwith.into_param().abi(), ::std::mem::transmute(apos), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn IsEqualEnd<'a, Param1: ::windows::runtime::IntoParam<'a, ITfRange>>(&self, ec: u32, pwith: Param1, apos: TfAnchor) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(ec), pwith.into_param().abi(), ::std::mem::transmute(apos), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn CompareStart<'a, Param1: ::windows::runtime::IntoParam<'a, ITfRange>>(&self, ec: u32, pwith: Param1, apos: TfAnchor) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(ec), pwith.into_param().abi(), ::std::mem::transmute(apos), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn CompareEnd<'a, Param1: ::windows::runtime::IntoParam<'a, ITfRange>>(&self, ec: u32, pwith: Param1, apos: TfAnchor) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(ec), pwith.into_param().abi(), ::std::mem::transmute(apos), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn AdjustForInsert(&self, ec: u32, cchinsert: u32) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(ec), ::std::mem::transmute(cchinsert), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetGravity(&self, pgstart: *mut TfGravity, pgend: *mut TfGravity) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(pgstart), ::std::mem::transmute(pgend)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn SetGravity(&self, ec: u32, gstart: TfGravity, gend: TfGravity) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(ec), ::std::mem::transmute(gstart), ::std::mem::transmute(gend)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Clone(&self) -> ::windows::runtime::Result<ITfRange> {
         let mut result__: <ITfRange as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ITfRange>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetContext(&self) -> ::windows::runtime::Result<ITfContext> {
         let mut result__: <ITfContext as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ITfContext>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetExtent(&self, pacpanchor: *mut i32, pcch: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), ::std::mem::transmute(pacpanchor), ::std::mem::transmute(pcch)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn SetExtent(&self, acpanchor: i32, cch: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), ::std::mem::transmute(acpanchor), ::std::mem::transmute(cch)).ok()
     }
@@ -8852,10 +9638,12 @@ pub struct ITfRangeACP_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pacpanchor: *mut i32, pcch: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, acpanchor: i32, cch: i32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfRangeBackup(::windows::runtime::IUnknown);
 impl ITfRangeBackup {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Restore<'a, Param1: ::windows::runtime::IntoParam<'a, ITfRange>>(&self, ec: u32, prange: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(ec), prange.into_param().abi()).ok()
     }
@@ -8892,22 +9680,27 @@ pub struct ITfRangeBackup_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ec: u32, prange: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfReadOnlyProperty(::windows::runtime::IUnknown);
 impl ITfReadOnlyProperty {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetType(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn EnumRanges<'a, Param2: ::windows::runtime::IntoParam<'a, ITfRange>>(&self, ec: u32, ppenum: *mut ::std::option::Option<IEnumTfRanges>, ptargetrange: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(ec), ::std::mem::transmute(ppenum), ptargetrange.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetValue<'a, Param1: ::windows::runtime::IntoParam<'a, ITfRange>>(&self, ec: u32, prange: Param1) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(ec), prange.into_param().abi(), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetContext(&self) -> ::windows::runtime::Result<ITfContext> {
         let mut result__: <ITfContext as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ITfContext>(result__)
@@ -8949,50 +9742,61 @@ pub struct ITfReadOnlyProperty_abi(
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppcontext: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfReadingInformationUIElement(::windows::runtime::IUnknown);
 impl ITfReadingInformationUIElement {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetDescription(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetGUID(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn Show<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bshow: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), bshow.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn IsShown(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetUpdatedFlags(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetContext(&self) -> ::windows::runtime::Result<ITfContext> {
         let mut result__: <ITfContext as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ITfContext>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetString(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetMaxReadingStringLength(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetErrorIndex(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn IsVerticalOrderPreferred(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
@@ -9064,11 +9868,13 @@ pub struct ITfReadingInformationUIElement_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pfvertical: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfReverseConversion(::windows::runtime::IUnknown);
 impl ITfReverseConversion {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn DoReverseConversion<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, lpstr: Param0) -> ::windows::runtime::Result<ITfReverseConversionList> {
         let mut result__: <ITfReverseConversionList as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), lpstr.into_param().abi(), &mut result__).from_abi::<ITfReverseConversionList>(result__)
@@ -9107,15 +9913,18 @@ pub struct ITfReverseConversion_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lpstr: super::super::Foundation::PWSTR, pplist: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfReverseConversionList(::windows::runtime::IUnknown);
 impl ITfReverseConversionList {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetLength(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetString(&self, uindex: u32) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(uindex), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
@@ -9155,10 +9964,12 @@ pub struct ITfReverseConversionList_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, uindex: u32, pbstr: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfReverseConversionMgr(::windows::runtime::IUnknown);
 impl ITfReverseConversionMgr {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetReverseConversion(&self, langid: u16, guidprofile: *const ::windows::runtime::GUID, dwflag: u32) -> ::windows::runtime::Result<ITfReverseConversion> {
         let mut result__: <ITfReverseConversion as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(langid), ::std::mem::transmute(guidprofile), ::std::mem::transmute(dwflag), &mut result__).from_abi::<ITfReverseConversion>(result__)
@@ -9196,14 +10007,17 @@ pub struct ITfReverseConversionMgr_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, langid: u16, guidprofile: *const ::windows::runtime::GUID, dwflag: u32, ppreverseconversion: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfSource(::windows::runtime::IUnknown);
 impl ITfSource {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn AdviseSink<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, riid: *const ::windows::runtime::GUID, punk: Param1) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), punk.into_param().abi(), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn UnadviseSink(&self, dwcookie: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwcookie)).ok()
     }
@@ -9241,13 +10055,16 @@ pub struct ITfSource_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, punk: ::windows::runtime::RawPtr, pdwcookie: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwcookie: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfSourceSingle(::windows::runtime::IUnknown);
 impl ITfSourceSingle {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn AdviseSingleSink<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, tid: u32, riid: *const ::windows::runtime::GUID, punk: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(tid), ::std::mem::transmute(riid), punk.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn UnadviseSingleSink(&self, tid: u32, riid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(tid), ::std::mem::transmute(riid)).ok()
     }
@@ -9285,18 +10102,22 @@ pub struct ITfSourceSingle_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, tid: u32, riid: *const ::windows::runtime::GUID, punk: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, tid: u32, riid: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfSpeechUIServer(::windows::runtime::IUnknown);
 impl ITfSpeechUIServer {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Initialize(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn ShowUI<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fshow: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), fshow.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn UpdateBalloon<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, style: TfLBBalloonStyle, pch: Param1, cch: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(style), pch.into_param().abi(), ::std::mem::transmute(cch)).ok()
     }
@@ -9337,10 +10158,12 @@ pub struct ITfSpeechUIServer_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, style: TfLBBalloonStyle, pch: super::super::Foundation::PWSTR, cch: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfStatusSink(::windows::runtime::IUnknown);
 impl ITfStatusSink {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn OnStatusChange<'a, Param0: ::windows::runtime::IntoParam<'a, ITfContext>>(&self, pic: Param0, dwflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pic.into_param().abi(), ::std::mem::transmute(dwflags)).ok()
     }
@@ -9377,13 +10200,16 @@ pub struct ITfStatusSink_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pic: ::windows::runtime::RawPtr, dwflags: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfSystemDeviceTypeLangBarItem(::windows::runtime::IUnknown);
 impl ITfSystemDeviceTypeLangBarItem {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn SetIconMode(&self, dwflags: LANG_BAR_ITEM_ICON_MODE_FLAGS) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwflags)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetIconMode(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
@@ -9422,15 +10248,18 @@ pub struct ITfSystemDeviceTypeLangBarItem_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwflags: LANG_BAR_ITEM_ICON_MODE_FLAGS) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwflags: *mut u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfSystemLangBarItem(::windows::runtime::IUnknown);
 impl ITfSystemLangBarItem {
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_UI_WindowsAndMessaging`*"]
     pub unsafe fn SetIcon<'a, Param0: ::windows::runtime::IntoParam<'a, super::WindowsAndMessaging::HICON>>(&self, hicon: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), hicon.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn SetTooltipString<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pchtooltip: Param0, cch: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pchtooltip.into_param().abi(), ::std::mem::transmute(cch)).ok()
     }
@@ -9470,13 +10299,16 @@ pub struct ITfSystemLangBarItem_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pchtooltip: super::super::Foundation::PWSTR, cch: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfSystemLangBarItemSink(::windows::runtime::IUnknown);
 impl ITfSystemLangBarItemSink {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn InitMenu<'a, Param0: ::windows::runtime::IntoParam<'a, ITfMenu>>(&self, pmenu: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pmenu.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn OnMenuSelect(&self, wid: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(wid)).ok()
     }
@@ -9514,15 +10346,18 @@ pub struct ITfSystemLangBarItemSink_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pmenu: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, wid: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfSystemLangBarItemText(::windows::runtime::IUnknown);
 impl ITfSystemLangBarItemText {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn SetItemText<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pch: Param0, cch: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pch.into_param().abi(), ::std::mem::transmute(cch)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetItemText(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
@@ -9563,10 +10398,12 @@ pub struct ITfSystemLangBarItemText_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbstrtext: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfTextEditSink(::windows::runtime::IUnknown);
 impl ITfTextEditSink {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn OnEndEdit<'a, Param0: ::windows::runtime::IntoParam<'a, ITfContext>, Param2: ::windows::runtime::IntoParam<'a, ITfEditRecord>>(&self, pic: Param0, ecreadonly: u32, peditrecord: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pic.into_param().abi(), ::std::mem::transmute(ecreadonly), peditrecord.into_param().abi()).ok()
     }
@@ -9603,13 +10440,16 @@ pub struct ITfTextEditSink_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pic: ::windows::runtime::RawPtr, ecreadonly: u32, peditrecord: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfTextInputProcessor(::windows::runtime::IUnknown);
 impl ITfTextInputProcessor {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Activate<'a, Param0: ::windows::runtime::IntoParam<'a, ITfThreadMgr>>(&self, ptim: Param0, tid: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ptim.into_param().abi(), ::std::mem::transmute(tid)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Deactivate(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
@@ -9647,16 +10487,20 @@ pub struct ITfTextInputProcessor_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ptim: ::windows::runtime::RawPtr, tid: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfTextInputProcessorEx(::windows::runtime::IUnknown);
 impl ITfTextInputProcessorEx {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Activate<'a, Param0: ::windows::runtime::IntoParam<'a, ITfThreadMgr>>(&self, ptim: Param0, tid: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ptim.into_param().abi(), ::std::mem::transmute(tid)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Deactivate(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn ActivateEx<'a, Param0: ::windows::runtime::IntoParam<'a, ITfThreadMgr>>(&self, ptim: Param0, tid: u32, dwflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ptim.into_param().abi(), ::std::mem::transmute(tid), ::std::mem::transmute(dwflags)).ok()
     }
@@ -9715,10 +10559,12 @@ pub struct ITfTextInputProcessorEx_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ptim: ::windows::runtime::RawPtr, tid: u32, dwflags: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfTextLayoutSink(::windows::runtime::IUnknown);
 impl ITfTextLayoutSink {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn OnLayoutChange<'a, Param0: ::windows::runtime::IntoParam<'a, ITfContext>, Param2: ::windows::runtime::IntoParam<'a, ITfContextView>>(&self, pic: Param0, lcode: TfLayoutCode, pview: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pic.into_param().abi(), ::std::mem::transmute(lcode), pview.into_param().abi()).ok()
     }
@@ -9755,13 +10601,16 @@ pub struct ITfTextLayoutSink_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pic: ::windows::runtime::RawPtr, lcode: TfLayoutCode, pview: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfThreadFocusSink(::windows::runtime::IUnknown);
 impl ITfThreadFocusSink {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn OnSetThreadFocus(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn OnKillThreadFocus(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
@@ -9799,50 +10648,62 @@ pub struct ITfThreadFocusSink_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfThreadMgr(::windows::runtime::IUnknown);
 impl ITfThreadMgr {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Activate(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Deactivate(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn CreateDocumentMgr(&self) -> ::windows::runtime::Result<ITfDocumentMgr> {
         let mut result__: <ITfDocumentMgr as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ITfDocumentMgr>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn EnumDocumentMgrs(&self) -> ::windows::runtime::Result<IEnumTfDocumentMgrs> {
         let mut result__: <IEnumTfDocumentMgrs as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IEnumTfDocumentMgrs>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetFocus(&self) -> ::windows::runtime::Result<ITfDocumentMgr> {
         let mut result__: <ITfDocumentMgr as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ITfDocumentMgr>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn SetFocus<'a, Param0: ::windows::runtime::IntoParam<'a, ITfDocumentMgr>>(&self, pdimfocus: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), pdimfocus.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn AssociateFocus<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, ITfDocumentMgr>>(&self, hwnd: Param0, pdimnew: Param1) -> ::windows::runtime::Result<ITfDocumentMgr> {
         let mut result__: <ITfDocumentMgr as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), hwnd.into_param().abi(), pdimnew.into_param().abi(), &mut result__).from_abi::<ITfDocumentMgr>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn IsThreadFocus(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetFunctionProvider(&self, clsid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<ITfFunctionProvider> {
         let mut result__: <ITfFunctionProvider as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(clsid), &mut result__).from_abi::<ITfFunctionProvider>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn EnumFunctionProviders(&self) -> ::windows::runtime::Result<IEnumTfFunctionProviders> {
         let mut result__: <IEnumTfFunctionProviders as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IEnumTfFunctionProviders>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetGlobalCompartment(&self) -> ::windows::runtime::Result<ITfCompartmentMgr> {
         let mut result__: <ITfCompartmentMgr as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ITfCompartmentMgr>(result__)
@@ -9892,59 +10753,74 @@ pub struct ITfThreadMgr_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenum: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppcompmgr: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfThreadMgr2(::windows::runtime::IUnknown);
 impl ITfThreadMgr2 {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Activate(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Deactivate(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn CreateDocumentMgr(&self) -> ::windows::runtime::Result<ITfDocumentMgr> {
         let mut result__: <ITfDocumentMgr as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ITfDocumentMgr>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn EnumDocumentMgrs(&self) -> ::windows::runtime::Result<IEnumTfDocumentMgrs> {
         let mut result__: <IEnumTfDocumentMgrs as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IEnumTfDocumentMgrs>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetFocus(&self) -> ::windows::runtime::Result<ITfDocumentMgr> {
         let mut result__: <ITfDocumentMgr as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ITfDocumentMgr>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn SetFocus<'a, Param0: ::windows::runtime::IntoParam<'a, ITfDocumentMgr>>(&self, pdimfocus: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), pdimfocus.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn IsThreadFocus(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetFunctionProvider(&self, clsid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<ITfFunctionProvider> {
         let mut result__: <ITfFunctionProvider as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(clsid), &mut result__).from_abi::<ITfFunctionProvider>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn EnumFunctionProviders(&self) -> ::windows::runtime::Result<IEnumTfFunctionProviders> {
         let mut result__: <IEnumTfFunctionProviders as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IEnumTfFunctionProviders>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetGlobalCompartment(&self) -> ::windows::runtime::Result<ITfCompartmentMgr> {
         let mut result__: <ITfCompartmentMgr as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ITfCompartmentMgr>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn ActivateEx(&self, ptid: *mut u32, dwflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(ptid), ::std::mem::transmute(dwflags)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetActiveFlags(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn SuspendKeystrokeHandling(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn ResumeKeystrokeHandling(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self)).ok()
     }
@@ -9995,22 +10871,28 @@ pub struct ITfThreadMgr2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfThreadMgrEventSink(::windows::runtime::IUnknown);
 impl ITfThreadMgrEventSink {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn OnInitDocumentMgr<'a, Param0: ::windows::runtime::IntoParam<'a, ITfDocumentMgr>>(&self, pdim: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pdim.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn OnUninitDocumentMgr<'a, Param0: ::windows::runtime::IntoParam<'a, ITfDocumentMgr>>(&self, pdim: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pdim.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn OnSetFocus<'a, Param0: ::windows::runtime::IntoParam<'a, ITfDocumentMgr>, Param1: ::windows::runtime::IntoParam<'a, ITfDocumentMgr>>(&self, pdimfocus: Param0, pdimprevfocus: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), pdimfocus.into_param().abi(), pdimprevfocus.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn OnPushContext<'a, Param0: ::windows::runtime::IntoParam<'a, ITfContext>>(&self, pic: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), pic.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn OnPopContext<'a, Param0: ::windows::runtime::IntoParam<'a, ITfContext>>(&self, pic: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), pic.into_param().abi()).ok()
     }
@@ -10051,57 +10933,71 @@ pub struct ITfThreadMgrEventSink_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pic: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pic: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfThreadMgrEx(::windows::runtime::IUnknown);
 impl ITfThreadMgrEx {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Activate(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn Deactivate(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn CreateDocumentMgr(&self) -> ::windows::runtime::Result<ITfDocumentMgr> {
         let mut result__: <ITfDocumentMgr as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ITfDocumentMgr>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn EnumDocumentMgrs(&self) -> ::windows::runtime::Result<IEnumTfDocumentMgrs> {
         let mut result__: <IEnumTfDocumentMgrs as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IEnumTfDocumentMgrs>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetFocus(&self) -> ::windows::runtime::Result<ITfDocumentMgr> {
         let mut result__: <ITfDocumentMgr as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ITfDocumentMgr>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn SetFocus<'a, Param0: ::windows::runtime::IntoParam<'a, ITfDocumentMgr>>(&self, pdimfocus: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), pdimfocus.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn AssociateFocus<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, ITfDocumentMgr>>(&self, hwnd: Param0, pdimnew: Param1) -> ::windows::runtime::Result<ITfDocumentMgr> {
         let mut result__: <ITfDocumentMgr as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), hwnd.into_param().abi(), pdimnew.into_param().abi(), &mut result__).from_abi::<ITfDocumentMgr>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn IsThreadFocus(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetFunctionProvider(&self, clsid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<ITfFunctionProvider> {
         let mut result__: <ITfFunctionProvider as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(clsid), &mut result__).from_abi::<ITfFunctionProvider>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn EnumFunctionProviders(&self) -> ::windows::runtime::Result<IEnumTfFunctionProviders> {
         let mut result__: <IEnumTfFunctionProviders as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IEnumTfFunctionProviders>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetGlobalCompartment(&self) -> ::windows::runtime::Result<ITfCompartmentMgr> {
         let mut result__: <ITfCompartmentMgr as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ITfCompartmentMgr>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn ActivateEx(&self, ptid: *mut u32, dwflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(ptid), ::std::mem::transmute(dwflags)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetActiveFlags(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
@@ -10173,29 +11069,35 @@ pub struct ITfThreadMgrEx_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ptid: *mut u32, dwflags: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lpdwflags: *mut u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfToolTipUIElement(::windows::runtime::IUnknown);
 impl ITfToolTipUIElement {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetDescription(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetGUID(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn Show<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bshow: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), bshow.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn IsShown(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetString(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
@@ -10261,11 +11163,13 @@ pub struct ITfToolTipUIElement_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pstr: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfTransitoryExtensionSink(::windows::runtime::IUnknown);
 impl ITfTransitoryExtensionSink {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn OnTransitoryExtensionUpdated<'a, Param0: ::windows::runtime::IntoParam<'a, ITfContext>, Param2: ::windows::runtime::IntoParam<'a, ITfRange>, Param3: ::windows::runtime::IntoParam<'a, ITfRange>>(&self, pic: Param0, ecreadonly: u32, presultrange: Param2, pcompositionrange: Param3) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pic.into_param().abi(), ::std::mem::transmute(ecreadonly), presultrange.into_param().abi(), pcompositionrange.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
@@ -10304,28 +11208,34 @@ pub struct ITfTransitoryExtensionSink_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pic: ::windows::runtime::RawPtr, ecreadonly: u32, presultrange: ::windows::runtime::RawPtr, pcompositionrange: ::windows::runtime::RawPtr, pfdeleteresultrange: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfTransitoryExtensionUIElement(::windows::runtime::IUnknown);
 impl ITfTransitoryExtensionUIElement {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetDescription(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetGUID(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn Show<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bshow: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), bshow.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn IsShown(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetDocumentMgr(&self) -> ::windows::runtime::Result<ITfDocumentMgr> {
         let mut result__: <ITfDocumentMgr as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ITfDocumentMgr>(result__)
@@ -10390,24 +11300,29 @@ pub struct ITfTransitoryExtensionUIElement_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppdim: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfUIElement(::windows::runtime::IUnknown);
 impl ITfUIElement {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetDescription(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetGUID(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn Show<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bshow: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), bshow.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn IsShown(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
@@ -10451,24 +11366,30 @@ pub struct ITfUIElement_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbshow: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfUIElementMgr(::windows::runtime::IUnknown);
 impl ITfUIElementMgr {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn BeginUIElement<'a, Param0: ::windows::runtime::IntoParam<'a, ITfUIElement>>(&self, pelement: Param0, pbshow: *mut super::super::Foundation::BOOL, pdwuielementid: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pelement.into_param().abi(), ::std::mem::transmute(pbshow), ::std::mem::transmute(pdwuielementid)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn UpdateUIElement(&self, dwuielementid: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwuielementid)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn EndUIElement(&self, dwuielementid: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwuielementid)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetUIElement(&self, dwuielementid: u32) -> ::windows::runtime::Result<ITfUIElement> {
         let mut result__: <ITfUIElement as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwuielementid), &mut result__).from_abi::<ITfUIElement>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn EnumUIElements(&self) -> ::windows::runtime::Result<IEnumTfUIElements> {
         let mut result__: <IEnumTfUIElements as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IEnumTfUIElements>(result__)
@@ -10511,17 +11432,21 @@ pub struct ITfUIElementMgr_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwuielementid: u32, ppelement: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenum: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITfUIElementSink(::windows::runtime::IUnknown);
 impl ITfUIElementSink {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn BeginUIElement(&self, dwuielementid: u32, pbshow: *mut super::super::Foundation::BOOL) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwuielementid), ::std::mem::transmute(pbshow)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn UpdateUIElement(&self, dwuielementid: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwuielementid)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn EndUIElement(&self, dwuielementid: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwuielementid)).ok()
     }
@@ -10561,29 +11486,36 @@ pub struct ITfUIElementSink_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwuielementid: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwuielementid: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIManagerEventSink(::windows::runtime::IUnknown);
 impl IUIManagerEventSink {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn OnWindowOpening(&self, prcbounds: *const super::super::Foundation::RECT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(prcbounds)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn OnWindowOpened(&self, prcbounds: *const super::super::Foundation::RECT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(prcbounds)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn OnWindowUpdating(&self, prcupdatedbounds: *const super::super::Foundation::RECT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(prcupdatedbounds)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn OnWindowUpdated(&self, prcupdatedbounds: *const super::super::Foundation::RECT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(prcupdatedbounds)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn OnWindowClosing(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn OnWindowClosed(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
     }
@@ -10629,27 +11561,33 @@ pub struct IUIManagerEventSink_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IVersionInfo(::windows::runtime::IUnknown);
 impl IVersionInfo {
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetSubcomponentCount(&self, ulsub: u32) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulsub), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetImplementationID(&self, ulsub: u32) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulsub), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_TextServices`*"]
     pub unsafe fn GetBuildVersion(&self, ulsub: u32, pdwmajor: *mut u32, pdwminor: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulsub), ::std::mem::transmute(pdwmajor), ::std::mem::transmute(pdwminor)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetComponentDescription(&self, ulsub: u32) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulsub), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
     pub unsafe fn GetInstanceDescription(&self, ulsub: u32) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulsub), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
@@ -10693,6 +11631,7 @@ pub struct IVersionInfo_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ulsub: u32, pimplstr: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[inline]
 pub unsafe fn InitLocalMsCtfMonitor(dwflags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -10706,6 +11645,7 @@ pub unsafe fn InitLocalMsCtfMonitor(dwflags: u32) -> ::windows::runtime::Result<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct InputScope(pub i32);
@@ -10792,6 +11732,7 @@ unsafe impl ::windows::runtime::Abi for InputScope {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct LANG_BAR_ITEM_ICON_MODE_FLAGS(pub u32);
@@ -10836,6 +11777,7 @@ impl ::std::ops::Not for LANG_BAR_ITEM_ICON_MODE_FLAGS {
 }
 pub const LIBID_MSAATEXTLib: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(353250682, 56001, 17794, [148, 125, 42, 143, 215, 139, 130, 205]);
 pub const MSAAControl: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(147691071, 31294, 20316, [155, 216, 214, 146, 187, 4, 60, 91]);
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TEXT_STORE_CHANGE_FLAGS(pub u32);
@@ -10878,6 +11820,7 @@ impl ::std::ops::Not for TEXT_STORE_CHANGE_FLAGS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TEXT_STORE_LOCK_FLAGS(pub u32);
@@ -10920,6 +11863,7 @@ impl ::std::ops::Not for TEXT_STORE_LOCK_FLAGS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TEXT_STORE_TEXT_CHANGE_FLAGS(pub u32);
@@ -10962,15 +11906,25 @@ impl ::std::ops::Not for TEXT_STORE_TEXT_CHANGE_FLAGS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_CHAR_EMBEDDED: u32 = 65532u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_CLUIE_COUNT: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_CLUIE_CURRENTPAGE: u32 = 32u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_CLUIE_DOCUMENTMGR: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_CLUIE_PAGEINDEX: u32 = 16u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_CLUIE_SELECTION: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_CLUIE_STRING: u32 = 8u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_COMMANDING_ENABLED: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_COMMANDING_ON: u32 = 8u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TF_CONTEXT_EDIT_CONTEXT_FLAGS(pub u32);
@@ -11016,17 +11970,29 @@ impl ::std::ops::Not for TF_CONTEXT_EDIT_CONTEXT_FLAGS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_CONVERSIONMODE_ALPHANUMERIC: u32 = 0u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_CONVERSIONMODE_CHARCODE: u32 = 32u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_CONVERSIONMODE_EUDC: u32 = 512u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_CONVERSIONMODE_FIXED: u32 = 2048u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_CONVERSIONMODE_FULLSHAPE: u32 = 8u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_CONVERSIONMODE_KATAKANA: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_CONVERSIONMODE_NATIVE: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_CONVERSIONMODE_NOCONVERSION: u32 = 256u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_CONVERSIONMODE_ROMAN: u32 = 16u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_CONVERSIONMODE_SOFTKEYBOARD: u32 = 128u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_CONVERSIONMODE_SYMBOL: u32 = 1024u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TF_DA_ATTR_INFO(pub i32);
@@ -11048,6 +12014,7 @@ unsafe impl ::windows::runtime::Abi for TF_DA_ATTR_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub struct TF_DA_COLOR {
     pub r#type: TF_DA_COLORTYPE,
     pub Anonymous: TF_DA_COLOR_0,
@@ -11070,6 +12037,7 @@ unsafe impl ::windows::runtime::Abi for TF_DA_COLOR {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub union TF_DA_COLOR_0 {
     pub nIndex: i32,
     pub cr: u32,
@@ -11090,6 +12058,7 @@ unsafe impl ::windows::runtime::Abi for TF_DA_COLOR_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TF_DA_COLORTYPE(pub i32);
@@ -11105,6 +12074,7 @@ unsafe impl ::windows::runtime::Abi for TF_DA_COLORTYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TF_DA_LINESTYLE(pub i32);
@@ -11122,15 +12092,22 @@ unsafe impl ::windows::runtime::Abi for TF_DA_LINESTYLE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_DICTATION_ENABLED: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_DICTATION_ON: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_DISABLE_BALLOON: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_DISABLE_COMMANDING: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_DISABLE_DICTATION: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_DISABLE_SPEECH: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
 pub struct TF_DISPLAYATTRIBUTE {
     pub crText: TF_DA_COLOR,
     pub crBk: TF_DA_COLOR,
@@ -11160,30 +12137,53 @@ unsafe impl ::windows::runtime::Abi for TF_DISPLAYATTRIBUTE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_E_ALREADY_EXISTS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147220218i32 as _);
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_E_COMPOSITION_REJECTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147220216i32 as _);
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_E_DISCONNECTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147220220i32 as _);
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_E_EMPTYCONTEXT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147220215i32 as _);
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_E_FORMAT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147220982i32 as _);
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_E_INVALIDPOINT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147220985i32 as _);
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_E_INVALIDPOS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147220992i32 as _);
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_E_INVALIDVIEW: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147220219i32 as _);
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_E_LOCKED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147220224i32 as _);
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_E_NOCONVERSION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147219968i32 as _);
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_E_NOINTERFACE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147220988i32 as _);
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_E_NOLAYOUT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147220986i32 as _);
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_E_NOLOCK: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147220991i32 as _);
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_E_NOOBJECT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147220990i32 as _);
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_E_NOPROVIDER: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147220221i32 as _);
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_E_NOSELECTION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147220987i32 as _);
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_E_NOSERVICE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147220989i32 as _);
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_E_NOTOWNEDRANGE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147220222i32 as _);
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_E_RANGE_NOT_COVERED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147220217i32 as _);
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_E_READONLY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147220983i32 as _);
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_E_STACKFULL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147220223i32 as _);
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_E_SYNCHRONOUS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147220984i32 as _);
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub struct TF_HALTCOND {
     pub pHaltRange: ::std::option::Option<ITfRange>,
     pub aHaltPos: TfAnchor,
@@ -11210,10 +12210,13 @@ unsafe impl ::windows::runtime::Abi for TF_HALTCOND {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_HF_OBJECT: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_IE_CORRECTION: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub struct TF_INPUTPROCESSORPROFILE {
     pub dwProfileType: u32,
     pub langid: u16,
@@ -11256,27 +12259,47 @@ unsafe impl ::windows::runtime::Abi for TF_INPUTPROCESSORPROFILE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_INVALID_COOKIE: u32 = 4294967295u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_INVALID_EDIT_COOKIE: u32 = 0u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_IPPMF_DISABLEPROFILE: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_IPPMF_DONTCARECURRENTINPUTLANGUAGE: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_IPPMF_ENABLEPROFILE: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_IPPMF_FORPROCESS: u32 = 268435456u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_IPPMF_FORSESSION: u32 = 536870912u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_IPPMF_FORSYSTEMALL: u32 = 1073741824u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_IPP_CAPS_COMLESSSUPPORT: u32 = 8u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_IPP_CAPS_DISABLEONTRANSITORY: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_IPP_CAPS_IMMERSIVESUPPORT: u32 = 65536u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_IPP_CAPS_SECUREMODESUPPORT: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_IPP_CAPS_SYSTRAYSUPPORT: u32 = 131072u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_IPP_CAPS_UIELEMENTENABLED: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_IPP_CAPS_WOW16SUPPORT: u32 = 16u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_IPP_FLAG_ACTIVE: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_IPP_FLAG_ENABLED: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_IPP_FLAG_SUBSTITUTEDBYINPUTPROCESSOR: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_IPSINK_FLAG_ACTIVE: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub struct TF_LANGBARITEMINFO {
     pub clsidService: ::windows::runtime::GUID,
     pub guidItem: ::windows::runtime::GUID,
@@ -11308,6 +12331,7 @@ unsafe impl ::windows::runtime::Abi for TF_LANGBARITEMINFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
 pub struct TF_LANGUAGEPROFILE {
     pub clsid: ::windows::runtime::GUID,
     pub langid: u16,
@@ -11345,6 +12369,7 @@ unsafe impl ::windows::runtime::Abi for TF_LANGUAGEPROFILE {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
 pub struct TF_LBBALLOONINFO {
     pub style: TfLBBalloonStyle,
     pub bstrText: super::super::Foundation::BSTR,
@@ -11376,31 +12401,57 @@ unsafe impl ::windows::runtime::Abi for TF_LBBALLOONINFO {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_LBI_BALLOON: u32 = 16u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_LBI_BITMAP: u32 = 8u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_LBI_BMPF_VERTICAL: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_LBI_CUSTOMUI: u32 = 32u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_LBI_DESC_MAXLEN: u32 = 32u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_LBI_ICON: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_LBI_STATUS: u32 = 65536u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_LBI_STATUS_BTN_TOGGLED: u32 = 65536u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_LBI_STATUS_DISABLED: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_LBI_STATUS_HIDDEN: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_LBI_STYLE_BTN_BUTTON: u32 = 65536u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_LBI_STYLE_BTN_MENU: u32 = 131072u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_LBI_STYLE_BTN_TOGGLE: u32 = 262144u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_LBI_STYLE_HIDDENBYDEFAULT: u32 = 16u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_LBI_STYLE_HIDDENSTATUSCONTROL: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_LBI_STYLE_HIDEONNOOTHERITEMS: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_LBI_STYLE_SHOWNINTRAY: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_LBI_STYLE_SHOWNINTRAYONLY: u32 = 8u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_LBI_STYLE_TEXTCOLORICON: u32 = 32u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_LBI_TEXT: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_LBI_TOOLTIP: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_LBMENUF_CHECKED: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_LBMENUF_GRAYED: u32 = 16u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_LBMENUF_RADIOCHECKED: u32 = 8u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_LBMENUF_SEPARATOR: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_LBMENUF_SUBMENU: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::clone::Clone for TF_LMLATTELEMENT {
@@ -11410,6 +12461,7 @@ impl ::std::clone::Clone for TF_LMLATTELEMENT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
 pub struct TF_LMLATTELEMENT {
     pub dwFrameStart: u32,
     pub dwFrameLen: u32,
@@ -11440,6 +12492,7 @@ unsafe impl ::windows::runtime::Abi for TF_LMLATTELEMENT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub union TF_LMLATTELEMENT_0 {
     pub iCost: i32,
 }
@@ -11459,20 +12512,33 @@ unsafe impl ::windows::runtime::Abi for TF_LMLATTELEMENT_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_MENUREADY: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_MOD_ALT: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_MOD_CONTROL: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_MOD_IGNORE_ALL_MODIFIER: u32 = 1024u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_MOD_LALT: u32 = 64u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_MOD_LCONTROL: u32 = 128u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_MOD_LSHIFT: u32 = 256u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_MOD_ON_KEYUP: u32 = 512u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_MOD_RALT: u32 = 8u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_MOD_RCONTROL: u32 = 16u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_MOD_RSHIFT: u32 = 32u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_MOD_SHIFT: u32 = 4u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub struct TF_PERSISTENT_PROPERTY_HEADER_ACP {
     pub guidType: ::windows::runtime::GUID,
     pub ichStart: i32,
@@ -11502,9 +12568,11 @@ unsafe impl ::windows::runtime::Abi for TF_PERSISTENT_PROPERTY_HEADER_ACP {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_POPF_ALL: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub struct TF_PRESERVEDKEY {
     pub uVKey: u32,
     pub uModifiers: u32,
@@ -11530,7 +12598,9 @@ unsafe impl ::windows::runtime::Abi for TF_PRESERVEDKEY {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_PROFILETYPE_INPUTPROCESSOR: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_PROFILETYPE_KEYBOARDLAYOUT: u32 = 2u32;
 pub const TF_PROFILE_ARRAY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3549364069, 43590, 20437, [145, 167, 103, 132, 95, 176, 47, 91]);
 pub const TF_PROFILE_CANTONESE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(183242908, 32406, 4564, [178, 239, 0, 128, 200, 130, 104, 126]);
@@ -11554,6 +12624,7 @@ impl ::std::clone::Clone for TF_PROPERTYVAL {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+#[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
 pub struct TF_PROPERTYVAL {
     pub guidId: ::windows::runtime::GUID,
     pub varValue: super::super::System::Com::VARIANT,
@@ -11579,26 +12650,44 @@ unsafe impl ::windows::runtime::Abi for TF_PROPERTYVAL {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_PROPUI_STATUS_SAVETOFILE: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_RCM_COMLESS: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_RCM_HINT_COLLISION: u32 = 8u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_RCM_HINT_READING_LENGTH: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_RCM_VKEY: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_RIP_FLAG_FREEUNUSEDLIBRARIES: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_RIUIE_CONTEXT: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_RIUIE_ERRORINDEX: u32 = 8u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_RIUIE_MAXREADINGSTRINGLENGTH: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_RIUIE_STRING: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_RIUIE_VERTICALORDER: u32 = 16u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_RP_HIDDENINSETTINGUI: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_RP_LOCALPROCESS: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_RP_LOCALTHREAD: u32 = 8u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_RP_SUBITEMINSETTINGUI: u32 = 16u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_SD_LOADING: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_SD_READONLY: u32 = 1u32;
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
 pub struct TF_SELECTION {
     pub range: ::std::option::Option<ITfRange>,
     pub style: TF_SELECTIONSTYLE,
@@ -11633,6 +12722,7 @@ unsafe impl ::windows::runtime::Abi for TF_SELECTION {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
 pub struct TF_SELECTIONSTYLE {
     pub ase: TfActiveSelEnd,
     pub fInterimChar: super::super::Foundation::BOOL,
@@ -11664,66 +12754,127 @@ unsafe impl ::windows::runtime::Abi for TF_SELECTIONSTYLE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_SENTENCEMODE_AUTOMATIC: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_SENTENCEMODE_CONVERSATION: u32 = 16u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_SENTENCEMODE_NONE: u32 = 0u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_SENTENCEMODE_PHRASEPREDICT: u32 = 8u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_SENTENCEMODE_PLAURALCLAUSE: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_SENTENCEMODE_SINGLECONVERT: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_SFT_DESKBAND: u32 = 2048u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_SFT_DOCK: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_SFT_EXTRAICONSONMINIMIZED: u32 = 512u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_SFT_HIDDEN: u32 = 8u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_SFT_HIGHTRANSPARENCY: u32 = 64u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_SFT_LABELS: u32 = 128u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_SFT_LOWTRANSPARENCY: u32 = 32u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_SFT_MINIMIZED: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_SFT_NOEXTRAICONSONMINIMIZED: u32 = 1024u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_SFT_NOLABELS: u32 = 256u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_SFT_NOTRANSPARENCY: u32 = 16u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_SFT_SHOWNORMAL: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_SHOW_BALLOON: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_SPEECHUI_SHOWN: u32 = 16u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_SS_DISJOINTSEL: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_SS_REGIONS: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_SS_TKBAUTOCORRECTENABLE: u32 = 16u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_SS_TKBPREDICTIONENABLE: u32 = 32u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_SS_TRANSITORY: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_ST_CORRECTION: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_S_ASYNC: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(262912i32 as _);
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_TF_IGNOREEND: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_TF_MOVESTART: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_TMAE_COMLESS: u32 = 8u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_TMAE_CONSOLE: u32 = 64u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_TMAE_NOACTIVATEKEYBOARDLAYOUT: u32 = 32u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_TMAE_NOACTIVATETIP: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_TMAE_SECUREMODE: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_TMAE_UIELEMENTENABLEDONLY: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_TMAE_WOW16: u32 = 16u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_TMF_ACTIVATED: u32 = 2147483648u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_TMF_COMLESS: u32 = 8u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_TMF_CONSOLE: u32 = 64u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_TMF_IMMERSIVEMODE: u32 = 1073741824u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_TMF_NOACTIVATETIP: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_TMF_SECUREMODE: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_TMF_UIELEMENTENABLEDONLY: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_TMF_WOW16: u32 = 16u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_TRANSITORYEXTENSION_ATSELECTION: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_TRANSITORYEXTENSION_FLOATING: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_TRANSITORYEXTENSION_NONE: u32 = 0u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_TU_CORRECTION: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_URP_ALLPROFILES: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_URP_LOCALPROCESS: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_URP_LOCALTHREAD: u32 = 8u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_US_HIDETIPUI: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TKBL_CLASSIC_TRADITIONAL_CHINESE_CHANGJIE: u32 = 61506u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TKBL_CLASSIC_TRADITIONAL_CHINESE_DAYI: u32 = 61507u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TKBL_CLASSIC_TRADITIONAL_CHINESE_PHONETIC: u32 = 1028u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TKBL_OPT_JAPANESE_ABC: u32 = 1041u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TKBL_OPT_KOREAN_HANGUL_2_BULSIK: u32 = 1042u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TKBL_OPT_SIMPLIFIED_CHINESE_PINYIN: u32 = 2052u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TKBL_OPT_TRADITIONAL_CHINESE_PHONETIC: u32 = 1028u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TKBL_UNDEFINED: u32 = 0u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TKBLayoutType(pub i32);
@@ -11739,9 +12890,13 @@ unsafe impl ::windows::runtime::Abi for TKBLayoutType {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TKB_ALTERNATES_AUTOCORRECTION_APPLIED: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TKB_ALTERNATES_FOR_AUTOCORRECTION: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TKB_ALTERNATES_FOR_PREDICTION: u32 = 3u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TKB_ALTERNATES_STANDARD: u32 = 1u32;
 pub const TSATTRID_App: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2819586015, 16951, 16613, [132, 156, 181, 250, 81, 193, 58, 199]);
 pub const TSATTRID_App_IncorrectGrammar: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3176457112, 44291, 19316, [182, 179, 94, 219, 25, 153, 99, 136]);
@@ -11827,10 +12982,15 @@ pub const TSATTRID_Text_Para_SpaceBefore: ::windows::runtime::GUID = ::windows::
 pub const TSATTRID_Text_ReadOnly: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2239981079, 56882, 19197, [165, 15, 162, 219, 17, 14, 110, 77]);
 pub const TSATTRID_Text_RightToLeft: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3395710577, 6920, 17725, [191, 221, 40, 224, 140, 138, 175, 122]);
 pub const TSATTRID_Text_VerticalWriting: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1807384981, 1135, 20137, [179, 17, 151, 253, 102, 196, 39, 75]);
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_AS_ATTR_CHANGE: u32 = 8u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_AS_LAYOUT_CHANGE: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_AS_SEL_CHANGE: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_AS_STATUS_CHANGE: u32 = 16u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_AS_TEXT_CHANGE: u32 = 1u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 impl ::std::clone::Clone for TS_ATTRVAL {
@@ -11840,6 +13000,7 @@ impl ::std::clone::Clone for TS_ATTRVAL {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+#[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
 pub struct TS_ATTRVAL {
     pub idAttr: ::windows::runtime::GUID,
     pub dwOverlapId: u32,
@@ -11866,35 +13027,63 @@ unsafe impl ::windows::runtime::Abi for TS_ATTRVAL {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_ATTR_FIND_BACKWARDS: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_ATTR_FIND_HIDDEN: u32 = 32u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_ATTR_FIND_UPDATESTART: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_ATTR_FIND_WANT_END: u32 = 16u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_ATTR_FIND_WANT_OFFSET: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_ATTR_FIND_WANT_VALUE: u32 = 8u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_CHAR_EMBEDDED: u32 = 65532u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_CHAR_REGION: u32 = 0u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_CHAR_REPLACEMENT: u32 = 65533u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_E_FORMAT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147220982i32 as _);
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_E_INVALIDPOINT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147220985i32 as _);
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_E_INVALIDPOS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147220992i32 as _);
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_E_NOINTERFACE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147220988i32 as _);
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_E_NOLAYOUT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147220986i32 as _);
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_E_NOLOCK: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147220991i32 as _);
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_E_NOOBJECT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147220990i32 as _);
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_E_NOSELECTION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147220987i32 as _);
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_E_NOSERVICE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147220989i32 as _);
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_E_READONLY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147220983i32 as _);
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_E_SYNCHRONOUS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147220984i32 as _);
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_GEA_HIDDEN: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_GTA_HIDDEN: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_IAS_NOQUERY: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_IAS_QUERYONLY: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_IE_COMPOSITION: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_IE_CORRECTION: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_LF_SYNC: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub struct TS_RUNINFO {
     pub uCount: u32,
     pub r#type: TsRunType,
@@ -11920,18 +13109,28 @@ unsafe impl ::windows::runtime::Abi for TS_RUNINFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_SD_EMBEDDEDHANDWRITINGVIEW_ENABLED: u32 = 128u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_SD_EMBEDDEDHANDWRITINGVIEW_VISIBLE: u32 = 256u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_SD_INPUTPANEMANUALDISPLAYENABLE: u32 = 64u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_SD_LOADING: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_SD_READONLY: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_SD_RESERVED: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_SD_TKBAUTOCORRECTENABLE: u32 = 8u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_SD_TKBPREDICTIONENABLE: u32 = 16u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_SD_UIINTEGRATIONENABLE: u32 = 32u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
 pub struct TS_SELECTIONSTYLE {
     pub ase: TsActiveSelEnd,
     pub fInterimChar: super::super::Foundation::BOOL,
@@ -11966,6 +13165,7 @@ unsafe impl ::windows::runtime::Abi for TS_SELECTIONSTYLE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
 pub struct TS_SELECTION_ACP {
     pub acpStart: i32,
     pub acpEnd: i32,
@@ -12001,6 +13201,7 @@ unsafe impl ::windows::runtime::Abi for TS_SELECTION_ACP {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
 pub struct TS_SELECTION_ANCHOR {
     pub paStart: ::std::option::Option<IAnchor>,
     pub paEnd: ::std::option::Option<IAnchor>,
@@ -12033,19 +13234,31 @@ unsafe impl ::windows::runtime::Abi for TS_SELECTION_ANCHOR {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_SHIFT_COUNT_HIDDEN: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_SHIFT_COUNT_ONLY: u32 = 8u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_SHIFT_HALT_HIDDEN: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_SHIFT_HALT_VISIBLE: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_SS_DISJOINTSEL: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_SS_NOHIDDENTEXT: u32 = 8u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_SS_REGIONS: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_SS_TKBAUTOCORRECTENABLE: u32 = 16u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_SS_TKBPREDICTIONENABLE: u32 = 32u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_SS_TRANSITORY: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_SS_UWPCONTROL: u32 = 64u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub struct TS_STATUS {
     pub dwDynamicFlags: u32,
     pub dwStaticFlags: u32,
@@ -12071,12 +13284,17 @@ unsafe impl ::windows::runtime::Abi for TS_STATUS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_STRF_END: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_STRF_MID: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_STRF_START: u32 = 0u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_S_ASYNC: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(262912i32 as _);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub struct TS_TEXTCHANGE {
     pub acpStart: i32,
     pub acpOldEnd: i32,
@@ -12103,7 +13321,9 @@ unsafe impl ::windows::runtime::Abi for TS_TEXTCHANGE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_VCOOKIE_NUL: u32 = 4294967295u32;
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TfActiveSelEnd(pub i32);
@@ -12119,6 +13339,7 @@ unsafe impl ::windows::runtime::Abi for TfActiveSelEnd {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TfAnchor(pub i32);
@@ -12133,6 +13354,7 @@ unsafe impl ::windows::runtime::Abi for TfAnchor {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TfCandidateResult(pub i32);
@@ -12148,6 +13370,7 @@ unsafe impl ::windows::runtime::Abi for TfCandidateResult {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TfGravity(pub i32);
@@ -12162,6 +13385,7 @@ unsafe impl ::windows::runtime::Abi for TfGravity {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TfIntegratableCandidateListSelectionStyle(pub i32);
@@ -12176,6 +13400,7 @@ unsafe impl ::windows::runtime::Abi for TfIntegratableCandidateListSelectionStyl
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TfLBBalloonStyle(pub i32);
@@ -12191,6 +13416,7 @@ unsafe impl ::windows::runtime::Abi for TfLBBalloonStyle {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TfLBIClick(pub i32);
@@ -12205,6 +13431,7 @@ unsafe impl ::windows::runtime::Abi for TfLBIClick {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TfLayoutCode(pub i32);
@@ -12220,6 +13447,7 @@ unsafe impl ::windows::runtime::Abi for TfLayoutCode {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TfSapiObject(pub i32);
@@ -12238,6 +13466,7 @@ unsafe impl ::windows::runtime::Abi for TfSapiObject {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TfShiftDir(pub i32);
@@ -12252,6 +13481,7 @@ unsafe impl ::windows::runtime::Abi for TfShiftDir {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TsActiveSelEnd(pub i32);
@@ -12267,6 +13497,7 @@ unsafe impl ::windows::runtime::Abi for TsActiveSelEnd {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TsGravity(pub i32);
@@ -12281,6 +13512,7 @@ unsafe impl ::windows::runtime::Abi for TsGravity {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TsLayoutCode(pub i32);
@@ -12296,6 +13528,7 @@ unsafe impl ::windows::runtime::Abi for TsLayoutCode {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TsRunType(pub i32);
@@ -12311,6 +13544,7 @@ unsafe impl ::windows::runtime::Abi for TsRunType {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TsShiftDir(pub i32);
@@ -12325,6 +13559,7 @@ unsafe impl ::windows::runtime::Abi for TsShiftDir {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[inline]
 pub unsafe fn UninitLocalMsCtfMonitor() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]

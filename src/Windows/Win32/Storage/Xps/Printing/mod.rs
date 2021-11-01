@@ -2,10 +2,12 @@
 pub const ID_DOCUMENTPACKAGETARGET_MSXPS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2628665512, 57041, 16841, [169, 253, 215, 53, 239, 51, 174, 218]);
 pub const ID_DOCUMENTPACKAGETARGET_OPENXPS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(5684082, 35996, 17938, [189, 15, 147, 1, 42, 135, 9, 157]);
 pub const ID_DOCUMENTPACKAGETARGET_OPENXPS_WITH_3D: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1675351840, 35604, 17783, [176, 116, 123, 177, 27, 89, 109, 40]);
+#[doc = "*Required features: `Win32_Storage_Xps_Printing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPrintDocumentPackageStatusEvent(::windows::runtime::IUnknown);
 impl IPrintDocumentPackageStatusEvent {
+    #[doc = "*Required features: `Win32_Storage_Xps_Printing`*"]
     pub unsafe fn PackageStatusUpdated(&self, packagestatus: *const PrintDocumentPackageStatus) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(packagestatus)).ok()
     }
@@ -74,17 +76,21 @@ pub struct IPrintDocumentPackageStatusEvent_abi(
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, packagestatus: *const PrintDocumentPackageStatus) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Storage_Xps_Printing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPrintDocumentPackageTarget(::windows::runtime::IUnknown);
 impl IPrintDocumentPackageTarget {
+    #[doc = "*Required features: `Win32_Storage_Xps_Printing`*"]
     pub unsafe fn GetPackageTargetTypes(&self, targetcount: *mut u32, targettypes: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(targetcount), ::std::mem::transmute(targettypes)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_Xps_Printing`*"]
     pub unsafe fn GetPackageTarget<T: ::windows::runtime::Interface>(&self, guidtargettype: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(guidtargettype), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_Xps_Printing`*"]
     pub unsafe fn Cancel(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
@@ -123,11 +129,13 @@ pub struct IPrintDocumentPackageTarget_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guidtargettype: *const ::windows::runtime::GUID, riid: *const ::windows::runtime::GUID, ppvtarget: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Storage_Xps_Printing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPrintDocumentPackageTargetFactory(::windows::runtime::IUnknown);
 impl IPrintDocumentPackageTargetFactory {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_Storage_Xps_Printing`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn CreateDocumentPackageTargetForPrintJob<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>, Param3: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>>(
         &self,
         printername: Param0,
@@ -172,13 +180,16 @@ pub struct IPrintDocumentPackageTargetFactory_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, printername: super::super::super::Foundation::PWSTR, jobname: super::super::super::Foundation::PWSTR, joboutputstream: ::windows::runtime::RawPtr, jobprintticketstream: ::windows::runtime::RawPtr, docpackagetarget: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
+#[doc = "*Required features: `Win32_Storage_Xps_Printing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXpsPrintJob(::windows::runtime::IUnknown);
 impl IXpsPrintJob {
+    #[doc = "*Required features: `Win32_Storage_Xps_Printing`*"]
     pub unsafe fn Cancel(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_Xps_Printing`*"]
     pub unsafe fn GetJobStatus(&self) -> ::windows::runtime::Result<XPS_JOB_STATUS> {
         let mut result__: <XPS_JOB_STATUS as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<XPS_JOB_STATUS>(result__)
@@ -217,17 +228,21 @@ pub struct IXpsPrintJob_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, jobstatus: *mut XPS_JOB_STATUS) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Storage_Xps_Printing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXpsPrintJobStream(::windows::runtime::IUnknown);
 impl IXpsPrintJobStream {
+    #[doc = "*Required features: `Win32_Storage_Xps_Printing`*"]
     pub unsafe fn Read(&self, pv: *mut ::std::ffi::c_void, cb: u32, pcbread: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pv), ::std::mem::transmute(cb), ::std::mem::transmute(pcbread)).ok()
     }
+    #[doc = "*Required features: `Win32_Storage_Xps_Printing`*"]
     pub unsafe fn Write(&self, pv: *const ::std::ffi::c_void, cb: u32) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pv), ::std::mem::transmute(cb), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Storage_Xps_Printing`*"]
     pub unsafe fn Close(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
@@ -290,6 +305,7 @@ pub struct IXpsPrintJobStream_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pv: *const ::std::ffi::c_void, cb: u32, pcbwritten: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Storage_Xps_Printing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PrintDocumentPackageCompletion(pub i32);
@@ -308,6 +324,7 @@ unsafe impl ::windows::runtime::Abi for PrintDocumentPackageCompletion {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Storage_Xps_Printing`*"]
 pub struct PrintDocumentPackageStatus {
     pub JobId: u32,
     pub CurrentDocument: i32,
@@ -347,6 +364,7 @@ unsafe impl ::windows::runtime::Abi for PrintDocumentPackageStatus {
 pub const PrintDocumentPackageTarget: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1212311198, 39239, 18154, [139, 162, 216, 204, 228, 50, 194, 202]);
 pub const PrintDocumentPackageTargetFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(881783165, 27777, 18818, [146, 180, 238, 24, 138, 67, 134, 122]);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_Xps_Printing`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn StartXpsPrintJob<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param4: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(
     printername: Param0,
@@ -395,6 +413,7 @@ pub unsafe fn StartXpsPrintJob<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_Xps_Printing`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn StartXpsPrintJob1<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param4: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(
     printername: Param0,
@@ -416,6 +435,7 @@ pub unsafe fn StartXpsPrintJob1<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Storage_Xps_Printing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct XPS_JOB_COMPLETION(pub i32);
@@ -434,6 +454,7 @@ unsafe impl ::windows::runtime::Abi for XPS_JOB_COMPLETION {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Storage_Xps_Printing`*"]
 pub struct XPS_JOB_STATUS {
     pub jobId: u32,
     pub currentDocument: i32,

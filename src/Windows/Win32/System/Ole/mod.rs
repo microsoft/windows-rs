@@ -1,6 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[cfg(feature = "Win32_System_Ole_Automation")]
 pub mod Automation;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ACTIVATEFLAGS(pub i32);
@@ -16,6 +17,7 @@ unsafe impl ::windows::runtime::Abi for ACTIVATEFLAGS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub struct AspectInfo {
     pub cb: u32,
     pub dwFlags: u32,
@@ -41,6 +43,7 @@ unsafe impl ::windows::runtime::Abi for AspectInfo {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AspectInfoFlag(pub i32);
@@ -54,6 +57,7 @@ unsafe impl ::windows::runtime::Abi for AspectInfoFlag {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct BINDSPEED(pub i32);
@@ -69,12 +73,17 @@ unsafe impl ::windows::runtime::Abi for BINDSPEED {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const BZ_DISABLECANCELBUTTON: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const BZ_DISABLERETRYBUTTON: i32 = 4i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const BZ_DISABLESWITCHTOBUTTON: i32 = 2i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const BZ_NOTRESPONDINGDIALOG: i32 = 8i32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub struct CADWORD {
     pub cElems: u32,
     pub pElems: *mut u32,
@@ -103,6 +112,7 @@ unsafe impl ::windows::runtime::Abi for CADWORD {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
 pub struct CALPOLESTR {
     pub cElems: u32,
     pub pElems: *mut super::super::Foundation::PWSTR,
@@ -136,6 +146,7 @@ unsafe impl ::windows::runtime::Abi for CALPOLESTR {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub struct CAUUID {
     pub cElems: u32,
     pub pElems: *mut ::windows::runtime::GUID,
@@ -161,19 +172,33 @@ unsafe impl ::windows::runtime::Abi for CAUUID {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const CF_CONVERTONLY: i32 = 256i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const CF_DISABLEACTIVATEAS: i32 = 64i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const CF_DISABLEDISPLAYASICON: i32 = 32i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const CF_HIDECHANGEICON: i32 = 128i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const CF_SELECTACTIVATEAS: i32 = 16i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const CF_SELECTCONVERTTO: i32 = 8i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const CF_SETACTIVATEDEFAULT: i32 = 4i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const CF_SETCONVERTDEFAULT: i32 = 2i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const CF_SHOWHELPBUTTON: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const CIF_SELECTCURRENT: i32 = 2i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const CIF_SELECTDEFAULT: i32 = 4i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const CIF_SELECTFROMFILE: i32 = 8i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const CIF_SHOWHELP: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const CIF_USEICONEXE: i32 = 16i32;
 pub const CLSID_CColorPropPage: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(199447041, 36753, 4558, [157, 227, 0, 170, 0, 75, 184, 81]);
 pub const CLSID_CFontPropPage: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(199447040, 36753, 4558, [157, 227, 0, 170, 0, 75, 184, 81]);
@@ -182,17 +207,26 @@ pub const CLSID_ConvertVBX: ::windows::runtime::GUID = ::windows::runtime::GUID:
 pub const CLSID_PersistPropset: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4220454945, 356, 4123, [132, 237, 8, 0, 43, 46, 199, 19]);
 pub const CLSID_StdFont: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(199447043, 36753, 4558, [157, 227, 0, 170, 0, 75, 184, 81]);
 pub const CLSID_StdPicture: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(199447044, 36753, 4558, [157, 227, 0, 170, 0, 75, 184, 81]);
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const CONNECT_E_ADVISELIMIT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147220991i32 as _);
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const CONNECT_E_CANNOTCONNECT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147220990i32 as _);
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const CONNECT_E_FIRST: i32 = -2147220992i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const CONNECT_E_LAST: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147220977i32 as _);
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const CONNECT_E_NOCONNECTION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147220992i32 as _);
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const CONNECT_E_OVERRIDDEN: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147220989i32 as _);
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const CONNECT_S_FIRST: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(262656i32 as _);
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const CONNECT_S_LAST: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(262671i32 as _);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_UI_WindowsAndMessaging`*"]
 pub struct CONTROLINFO {
     pub cb: u32,
     pub hAccel: super::super::UI::WindowsAndMessaging::HACCEL,
@@ -226,11 +260,17 @@ unsafe impl ::windows::runtime::Abi for CONTROLINFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const CSF_EXPLORER: i32 = 8i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const CSF_ONLYGETSOURCE: i32 = 4i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const CSF_SHOWHELP: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const CSF_VALIDSOURCE: i32 = 2i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const CTL_E_ILLEGALFUNCTIONCALL: i32 = -2146828283i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CTRLINFO(pub i32);
@@ -245,6 +285,7 @@ unsafe impl ::windows::runtime::Abi for CTRLINFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[inline]
 pub unsafe fn CreateOleAdviseHolder() -> ::windows::runtime::Result<IOleAdviseHolder> {
     #[cfg(windows)]
@@ -259,11 +300,17 @@ pub unsafe fn CreateOleAdviseHolder() -> ::windows::runtime::Result<IOleAdviseHo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DD_DEFDRAGDELAY: u32 = 200u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DD_DEFDRAGMINDIST: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DD_DEFSCROLLDELAY: u32 = 50u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DD_DEFSCROLLINSET: u32 = 11u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DD_DEFSCROLLINTERVAL: u32 = 50u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DISCARDCACHE(pub i32);
@@ -278,113 +325,221 @@ unsafe impl ::windows::runtime::Abi for DISCARDCACHE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_ABOUTBOX: i32 = -552i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_ACCELERATOR: i32 = -543i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_ADDITEM: i32 = -553i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_AMBIENT_APPEARANCE: i32 = -716i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_AMBIENT_AUTOCLIP: i32 = -715i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_AMBIENT_BACKCOLOR: i32 = -701i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_AMBIENT_CHARSET: i32 = -727i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_AMBIENT_CODEPAGE: i32 = -725i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_AMBIENT_DISPLAYASDEFAULT: i32 = -713i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_AMBIENT_DISPLAYNAME: i32 = -702i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_AMBIENT_FONT: i32 = -703i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_AMBIENT_FORECOLOR: i32 = -704i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_AMBIENT_LOCALEID: i32 = -705i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_AMBIENT_MESSAGEREFLECT: i32 = -706i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_AMBIENT_PALETTE: i32 = -726i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_AMBIENT_RIGHTTOLEFT: i32 = -732i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_AMBIENT_SCALEUNITS: i32 = -707i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_AMBIENT_SHOWGRABHANDLES: i32 = -711i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_AMBIENT_SHOWHATCHING: i32 = -712i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_AMBIENT_SUPPORTSMNEMONICS: i32 = -714i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_AMBIENT_TEXTALIGN: i32 = -708i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_AMBIENT_TOPTOBOTTOM: i32 = -733i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_AMBIENT_TRANSFERPRIORITY: i32 = -728i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_AMBIENT_UIDEAD: i32 = -710i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_AMBIENT_USERMODE: i32 = -709i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_APPEARANCE: i32 = -520i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_AUTOSIZE: i32 = -500i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_BACKCOLOR: i32 = -501i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_BACKSTYLE: i32 = -502i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_BORDERCOLOR: i32 = -503i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_BORDERSTYLE: i32 = -504i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_BORDERVISIBLE: i32 = -519i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_BORDERWIDTH: i32 = -505i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_CAPTION: i32 = -518i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_CLEAR: i32 = -554i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_CLICK: i32 = -600i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_CLICK_VALUE: i32 = -610i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_COLUMN: i32 = -529i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_DBLCLICK: i32 = -601i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_DISPLAYSTYLE: i32 = -540i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_DOCLICK: i32 = -551i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_DRAWMODE: i32 = -507i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_DRAWSTYLE: i32 = -508i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_DRAWWIDTH: i32 = -509i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_Delete: i32 = -801i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_ENABLED: i32 = -514i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_ENTERKEYBEHAVIOR: i32 = -544i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_ERROREVENT: i32 = -608i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_FILLCOLOR: i32 = -510i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_FILLSTYLE: i32 = -511i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_FONT: i32 = -512i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_FONT_BOLD: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_FONT_CHANGED: u32 = 9u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_FONT_CHARSET: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_FONT_ITALIC: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_FONT_NAME: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_FONT_SIZE: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_FONT_STRIKE: u32 = 6u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_FONT_UNDER: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_FONT_WEIGHT: u32 = 7u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_FORECOLOR: i32 = -513i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_GROUPNAME: i32 = -541i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_HWND: i32 = -515i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_IMEMODE: i32 = -542i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_KEYDOWN: i32 = -602i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_KEYPRESS: i32 = -603i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_KEYUP: i32 = -604i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_LIST: i32 = -528i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_LISTCOUNT: i32 = -531i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_LISTINDEX: i32 = -526i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_MAXLENGTH: i32 = -533i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_MOUSEDOWN: i32 = -605i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_MOUSEICON: i32 = -522i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_MOUSEMOVE: i32 = -606i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_MOUSEPOINTER: i32 = -521i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_MOUSEUP: i32 = -607i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_MULTILINE: i32 = -537i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_MULTISELECT: i32 = -532i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_NUMBEROFCOLUMNS: i32 = -539i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_NUMBEROFROWS: i32 = -538i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_Name: i32 = -800i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_Object: i32 = -802i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_PASSWORDCHAR: i32 = -534i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_PICTURE: i32 = -523i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_PICT_HANDLE: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_PICT_HEIGHT: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_PICT_HPAL: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_PICT_RENDER: u32 = 6u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_PICT_TYPE: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_PICT_WIDTH: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_Parent: i32 = -803i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_READYSTATE: i32 = -525i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_READYSTATECHANGE: i32 = -609i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_REFRESH: i32 = -550i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_REMOVEITEM: i32 = -555i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_RIGHTTOLEFT: i32 = -611i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_SCROLLBARS: i32 = -535i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_SELECTED: i32 = -527i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_SELLENGTH: i32 = -548i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_SELSTART: i32 = -547i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_SELTEXT: i32 = -546i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_TABKEYBEHAVIOR: i32 = -545i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_TABSTOP: i32 = -516i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_TEXT: i32 = -517i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_TOPTOBOTTOM: i32 = -612i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_VALID: i32 = -524i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_WORDWRAP: i32 = -536i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DOCMISC(pub i32);
@@ -401,11 +556,17 @@ unsafe impl ::windows::runtime::Abi for DOCMISC {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DROPEFFECT_COPY: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DROPEFFECT_LINK: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DROPEFFECT_MOVE: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DROPEFFECT_NONE: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DROPEFFECT_SCROLL: u32 = 2147483648u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DVASPECT2(pub i32);
@@ -421,6 +582,7 @@ unsafe impl ::windows::runtime::Abi for DVASPECT2 {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn DoDragDrop<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::IDataObject>, Param1: ::windows::runtime::IntoParam<'a, IDropSource>>(pdataobj: Param0, pdropsource: Param1, dwokeffects: u32, pdweffect: *mut u32) -> ::windows::runtime::HRESULT {
     #[cfg(windows)]
@@ -434,15 +596,25 @@ pub unsafe fn DoDragDrop<'a, Param0: ::windows::runtime::IntoParam<'a, super::Co
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const ELF_DISABLECANCELLINK: i32 = 16i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const ELF_DISABLECHANGESOURCE: i32 = 8i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const ELF_DISABLEOPENSOURCE: i32 = 4i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const ELF_DISABLEUPDATENOW: i32 = 2i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const ELF_SHOWHELP: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const EMBDHLP_CREATENOW: i32 = 0i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const EMBDHLP_DELAYCREATE: i32 = 65536i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const EMBDHLP_INPROC_HANDLER: i32 = 0i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const EMBDHLP_INPROC_SERVER: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ENUM_CONTROLS_WHICH_FLAGS(pub u32);
@@ -494,6 +666,7 @@ impl ::std::ops::Not for ENUM_CONTROLS_WHICH_FLAGS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
 pub struct ExtentInfo {
     pub cb: u32,
     pub dwExtentMode: u32,
@@ -526,6 +699,7 @@ unsafe impl ::windows::runtime::Abi for ExtentInfo {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ExtentMode(pub i32);
@@ -543,6 +717,7 @@ unsafe impl ::windows::runtime::Abi for ExtentMode {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_Com`*"]
 pub struct FONTDESC {
     pub cbSizeofstruct: u32,
     pub lpstrName: super::super::Foundation::PWSTR,
@@ -574,7 +749,9 @@ unsafe impl ::windows::runtime::Abi for FONTDESC {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const GC_WCH_SIBLING: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GUIDKIND(pub i32);
@@ -608,6 +785,7 @@ pub const GUID_YPOS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_v
 pub const GUID_YPOSPIXEL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1716536067, 48655, 4122, [139, 187, 0, 170, 0, 48, 12, 171]);
 pub const GUID_YSIZE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1716536073, 48655, 4122, [139, 187, 0, 170, 0, 48, 12, 171]);
 pub const GUID_YSIZEPIXEL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1716536069, 48655, 4122, [139, 187, 0, 170, 0, 48, 12, 171]);
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HITRESULT(pub i32);
@@ -625,6 +803,7 @@ unsafe impl ::windows::runtime::Abi for HITRESULT {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Graphics_Gdi`*"]
 #[inline]
 pub unsafe fn HRGN_UserFree(param0: *const u32, param1: *const super::super::Graphics::Gdi::HRGN) {
     #[cfg(windows)]
@@ -639,6 +818,7 @@ pub unsafe fn HRGN_UserFree(param0: *const u32, param1: *const super::super::Gra
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Graphics_Gdi`*"]
 #[inline]
 pub unsafe fn HRGN_UserFree64(param0: *const u32, param1: *const super::super::Graphics::Gdi::HRGN) {
     #[cfg(windows)]
@@ -653,6 +833,7 @@ pub unsafe fn HRGN_UserFree64(param0: *const u32, param1: *const super::super::G
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Graphics_Gdi`*"]
 #[inline]
 pub unsafe fn HRGN_UserMarshal(param0: *const u32, param1: *mut u8, param2: *const super::super::Graphics::Gdi::HRGN) -> *mut u8 {
     #[cfg(windows)]
@@ -667,6 +848,7 @@ pub unsafe fn HRGN_UserMarshal(param0: *const u32, param1: *mut u8, param2: *con
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Graphics_Gdi`*"]
 #[inline]
 pub unsafe fn HRGN_UserMarshal64(param0: *const u32, param1: *mut u8, param2: *const super::super::Graphics::Gdi::HRGN) -> *mut u8 {
     #[cfg(windows)]
@@ -681,6 +863,7 @@ pub unsafe fn HRGN_UserMarshal64(param0: *const u32, param1: *mut u8, param2: *c
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Graphics_Gdi`*"]
 #[inline]
 pub unsafe fn HRGN_UserSize(param0: *const u32, param1: u32, param2: *const super::super::Graphics::Gdi::HRGN) -> u32 {
     #[cfg(windows)]
@@ -695,6 +878,7 @@ pub unsafe fn HRGN_UserSize(param0: *const u32, param1: u32, param2: *const supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Graphics_Gdi`*"]
 #[inline]
 pub unsafe fn HRGN_UserSize64(param0: *const u32, param1: u32, param2: *const super::super::Graphics::Gdi::HRGN) -> u32 {
     #[cfg(windows)]
@@ -709,6 +893,7 @@ pub unsafe fn HRGN_UserSize64(param0: *const u32, param1: u32, param2: *const su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Graphics_Gdi`*"]
 #[inline]
 pub unsafe fn HRGN_UserUnmarshal(param0: *const u32, param1: *const u8, param2: *mut super::super::Graphics::Gdi::HRGN) -> *mut u8 {
     #[cfg(windows)]
@@ -723,6 +908,7 @@ pub unsafe fn HRGN_UserUnmarshal(param0: *const u32, param1: *const u8, param2: 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Graphics_Gdi`*"]
 #[inline]
 pub unsafe fn HRGN_UserUnmarshal64(param0: *const u32, param1: *const u8, param2: *mut super::super::Graphics::Gdi::HRGN) -> *mut u8 {
     #[cfg(windows)]
@@ -736,27 +922,34 @@ pub unsafe fn HRGN_UserUnmarshal64(param0: *const u32, param1: *const u8, param2
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IAdviseSinkEx(::windows::runtime::IUnknown);
 impl IAdviseSinkEx {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`*"]
     pub unsafe fn OnDataChange(&self, pformatetc: *const super::Com::FORMATETC, pstgmed: *const super::Com::STGMEDIUM) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pformatetc), ::std::mem::transmute(pstgmed)))
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn OnViewChange(&self, dwaspect: u32, lindex: i32) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwaspect), ::std::mem::transmute(lindex)))
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com`*"]
     pub unsafe fn OnRename<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::IMoniker>>(&self, pmk: Param0) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), pmk.into_param().abi()))
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn OnSave(&self) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn OnClose(&self) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn OnViewStatusChange(&self, dwviewstatus: u32) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwviewstatus)))
     }
@@ -824,28 +1017,34 @@ pub struct IAdviseSinkEx_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwviewstatus: u32),
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IClassFactory2(::windows::runtime::IUnknown);
 impl IClassFactory2 {
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn CreateInstance<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, T: ::windows::runtime::Interface>(&self, punkouter: Param0) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), punkouter.into_param().abi(), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn LockServer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, flock: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), flock.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn GetLicInfo(&self, plicinfo: *mut LICINFO) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(plicinfo)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn RequestLicKey(&self, dwreserved: u32) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwreserved), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn CreateInstanceLic<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, punkouter: Param0, punkreserved: Param1, riid: *const ::windows::runtime::GUID, bstrkey: Param3, ppvobj: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), punkouter.into_param().abi(), punkreserved.into_param().abi(), ::std::mem::transmute(riid), bstrkey.into_param().abi(), ::std::mem::transmute(ppvobj)).ok()
     }
@@ -914,10 +1113,12 @@ pub struct IClassFactory2_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, punkouter: ::windows::runtime::RawPtr, punkreserved: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, bstrkey: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppvobj: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IContinue(::windows::runtime::IUnknown);
 impl IContinue {
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn FContinue(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)).ok()
     }
@@ -954,14 +1155,17 @@ pub struct IContinue_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IContinueCallback(::windows::runtime::IUnknown);
 impl IContinueCallback {
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn FContinue(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn FContinuePrinting<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, ncntprinted: i32, ncurpage: i32, pwszprintstatus: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(ncntprinted), ::std::mem::transmute(ncurpage), pwszprintstatus.into_param().abi()).ok()
     }
@@ -1000,147 +1204,283 @@ pub struct IContinueCallback_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ncntprinted: i32, ncurpage: i32, pwszprintstatus: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_BZ_ICON: u32 = 601u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_BZ_MESSAGE1: u32 = 602u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_BZ_RETRY: u32 = 600u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_BZ_SWITCHTO: u32 = 604u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_CI_BROWSE: u32 = 130u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_CI_CURRENT: u32 = 121u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_CI_CURRENTICON: u32 = 122u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_CI_DEFAULT: u32 = 123u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_CI_DEFAULTICON: u32 = 124u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_CI_FROMFILE: u32 = 125u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_CI_FROMFILEEDIT: u32 = 126u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_CI_GROUP: u32 = 120u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_CI_ICONDISPLAY: u32 = 131u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_CI_ICONLIST: u32 = 127u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_CI_LABEL: u32 = 128u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_CI_LABELEDIT: u32 = 129u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_CV_ACTIVATEAS: u32 = 156u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_CV_ACTIVATELIST: u32 = 154u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_CV_CHANGEICON: u32 = 153u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_CV_CONVERTLIST: u32 = 158u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_CV_CONVERTTO: u32 = 155u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_CV_DISPLAYASICON: u32 = 152u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_CV_ICONDISPLAY: u32 = 165u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_CV_OBJECTTYPE: u32 = 150u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_CV_RESULTTEXT: u32 = 157u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_EL_AUTOMATIC: u32 = 202u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_EL_CANCELLINK: u32 = 209u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_EL_CHANGESOURCE: u32 = 201u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_EL_COL1: u32 = 220u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_EL_COL2: u32 = 221u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_EL_COL3: u32 = 222u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_EL_LINKSLISTBOX: u32 = 206u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_EL_LINKSOURCE: u32 = 216u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_EL_LINKTYPE: u32 = 217u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_EL_MANUAL: u32 = 212u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_EL_OPENSOURCE: u32 = 211u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_EL_UPDATENOW: u32 = 210u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_GP_CONVERT: u32 = 1013u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_GP_OBJECTICON: u32 = 1014u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_GP_OBJECTLOCATION: u32 = 1022u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_GP_OBJECTNAME: u32 = 1009u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_GP_OBJECTSIZE: u32 = 1011u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_GP_OBJECTTYPE: u32 = 1010u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_IO_ADDCONTROL: u32 = 2115u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_IO_CHANGEICON: u32 = 2105u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_IO_CONTROLTYPELIST: u32 = 2116u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_IO_CREATEFROMFILE: u32 = 2101u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_IO_CREATENEW: u32 = 2100u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_IO_DISPLAYASICON: u32 = 2104u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_IO_FILE: u32 = 2106u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_IO_FILEDISPLAY: u32 = 2107u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_IO_FILETEXT: u32 = 2112u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_IO_FILETYPE: u32 = 2113u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_IO_ICONDISPLAY: u32 = 2110u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_IO_INSERTCONTROL: u32 = 2114u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_IO_LINKFILE: u32 = 2102u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_IO_OBJECTTYPELIST: u32 = 2103u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_IO_OBJECTTYPETEXT: u32 = 2111u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_IO_RESULTIMAGE: u32 = 2108u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_IO_RESULTTEXT: u32 = 2109u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_LP_AUTOMATIC: u32 = 1016u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_LP_BREAKLINK: u32 = 1008u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_LP_CHANGESOURCE: u32 = 1015u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_LP_DATE: u32 = 1018u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_LP_LINKSOURCE: u32 = 1012u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_LP_MANUAL: u32 = 1017u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_LP_OPENSOURCE: u32 = 1006u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_LP_TIME: u32 = 1019u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_LP_UPDATENOW: u32 = 1007u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_OLEUIHELP: u32 = 99u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_PS_CHANGEICON: u32 = 508u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_PS_DISPLAYASICON: u32 = 506u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_PS_DISPLAYLIST: u32 = 505u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_PS_ICONDISPLAY: u32 = 507u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_PS_PASTE: u32 = 500u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_PS_PASTELINK: u32 = 501u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_PS_PASTELINKLIST: u32 = 504u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_PS_PASTELIST: u32 = 503u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_PS_RESULTIMAGE: u32 = 509u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_PS_RESULTTEXT: u32 = 510u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_PS_SOURCETEXT: u32 = 502u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_PU_CONVERT: u32 = 902u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_PU_ICON: u32 = 908u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_PU_LINKS: u32 = 900u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_PU_TEXT: u32 = 901u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_UL_METER: u32 = 1029u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_UL_PERCENT: u32 = 1031u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_UL_PROGRESS: u32 = 1032u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_UL_STOP: u32 = 1030u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_VP_ASICON: u32 = 1003u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_VP_CHANGEICON: u32 = 1001u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_VP_EDITABLE: u32 = 1002u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_VP_ICONDISPLAY: u32 = 1021u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_VP_PERCENT: u32 = 1000u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_VP_RELATIVE: u32 = 1005u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_VP_RESULTIMAGE: u32 = 1033u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_VP_SCALETXT: u32 = 1034u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDC_VP_SPIN: u32 = 1006u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDD_BUSY: u32 = 1006u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDD_CANNOTUPDATELINK: u32 = 1008u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDD_CHANGEICON: u32 = 1001u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDD_CHANGEICONBROWSE: u32 = 1011u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDD_CHANGESOURCE: u32 = 1009u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDD_CHANGESOURCE4: u32 = 1013u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDD_CONVERT: u32 = 1002u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDD_CONVERT4: u32 = 1103u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDD_CONVERTONLY: u32 = 1012u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDD_CONVERTONLY4: u32 = 1104u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDD_EDITLINKS: u32 = 1004u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDD_EDITLINKS4: u32 = 1105u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDD_GNRLPROPS: u32 = 1100u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDD_GNRLPROPS4: u32 = 1106u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDD_INSERTFILEBROWSE: u32 = 1010u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDD_INSERTOBJECT: u32 = 1000u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDD_LINKPROPS: u32 = 1102u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDD_LINKPROPS4: u32 = 1107u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDD_LINKSOURCEUNAVAILABLE: u32 = 1020u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDD_LINKTYPECHANGED: u32 = 1022u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDD_LINKTYPECHANGEDA: u32 = 1026u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDD_LINKTYPECHANGEDW: u32 = 1022u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDD_OUTOFMEMORY: u32 = 1024u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDD_PASTESPECIAL: u32 = 1003u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDD_PASTESPECIAL4: u32 = 1108u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDD_SERVERNOTFOUND: u32 = 1023u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDD_SERVERNOTREG: u32 = 1021u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDD_SERVERNOTREGA: u32 = 1025u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDD_SERVERNOTREGW: u32 = 1021u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDD_UPDATELINKS: u32 = 1007u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IDD_VIEWPROPS: u32 = 1101u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const ID_BROWSE_ADDCONTROL: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const ID_BROWSE_CHANGEICON: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const ID_BROWSE_CHANGESOURCE: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const ID_BROWSE_INSERTFILE: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDropSource(::windows::runtime::IUnknown);
 impl IDropSource {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn QueryContinueDrag<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fescapepressed: Param0, grfkeystate: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), fescapepressed.into_param().abi(), ::std::mem::transmute(grfkeystate)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn GiveFeedback(&self, dweffect: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(dweffect)).ok()
     }
@@ -1179,14 +1519,17 @@ pub struct IDropSource_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dweffect: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDropSourceNotify(::windows::runtime::IUnknown);
 impl IDropSourceNotify {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn DragEnterTarget<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, hwndtarget: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), hwndtarget.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn DragLeaveTarget(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
@@ -1225,22 +1568,27 @@ pub struct IDropSourceNotify_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDropTarget(::windows::runtime::IUnknown);
 impl IDropTarget {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn DragEnter<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::IDataObject>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::POINTL>>(&self, pdataobj: Param0, grfkeystate: u32, pt: Param2, pdweffect: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pdataobj.into_param().abi(), ::std::mem::transmute(grfkeystate), pt.into_param().abi(), ::std::mem::transmute(pdweffect)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn DragOver<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::POINTL>>(&self, grfkeystate: u32, pt: Param1, pdweffect: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(grfkeystate), pt.into_param().abi(), ::std::mem::transmute(pdweffect)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn DragLeave(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn Drop<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::IDataObject>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::POINTL>>(&self, pdataobj: Param0, grfkeystate: u32, pt: Param2, pdweffect: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), pdataobj.into_param().abi(), ::std::mem::transmute(grfkeystate), pt.into_param().abi(), ::std::mem::transmute(pdweffect)).ok()
     }
@@ -1283,15 +1631,18 @@ pub struct IDropTarget_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdataobj: ::windows::runtime::RawPtr, grfkeystate: u32, pt: super::super::Foundation::POINTL, pdweffect: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IEnterpriseDropTarget(::windows::runtime::IUnknown);
 impl IEnterpriseDropTarget {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn SetDropSourceEnterpriseId<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, identity: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), identity.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn IsEvaluatingEdpPolicy(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
@@ -1332,20 +1683,25 @@ pub struct IEnterpriseDropTarget_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IEnumOLEVERB(::windows::runtime::IUnknown);
 impl IEnumOLEVERB {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn Next(&self, celt: u32, rgelt: *mut OLEVERB, pceltfetched: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(celt), ::std::mem::transmute(rgelt), ::std::mem::transmute(pceltfetched)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(celt)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn Clone(&self) -> ::windows::runtime::Result<IEnumOLEVERB> {
         let mut result__: <IEnumOLEVERB as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IEnumOLEVERB>(result__)
@@ -1387,19 +1743,24 @@ pub struct IEnumOLEVERB_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenum: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IEnumOleDocumentViews(::windows::runtime::IUnknown);
 impl IEnumOleDocumentViews {
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn Next(&self, cviews: u32, rgpview: *mut ::std::option::Option<IOleDocumentView>, pcfetched: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(cviews), ::std::mem::transmute(rgpview), ::std::mem::transmute(pcfetched)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn Skip(&self, cviews: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(cviews)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn Clone(&self) -> ::windows::runtime::Result<IEnumOleDocumentViews> {
         let mut result__: <IEnumOleDocumentViews as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IEnumOleDocumentViews>(result__)
@@ -1440,19 +1801,24 @@ pub struct IEnumOleDocumentViews_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenum: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IEnumOleUndoUnits(::windows::runtime::IUnknown);
 impl IEnumOleUndoUnits {
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn Next(&self, celt: u32, rgelt: *mut ::std::option::Option<IOleUndoUnit>, pceltfetched: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(celt), ::std::mem::transmute(rgelt), ::std::mem::transmute(pceltfetched)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(celt)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn Clone(&self) -> ::windows::runtime::Result<IEnumOleUndoUnits> {
         let mut result__: <IEnumOleUndoUnits as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IEnumOleUndoUnits>(result__)
@@ -1493,107 +1859,132 @@ pub struct IEnumOleUndoUnits_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenum: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFont(::windows::runtime::IUnknown);
 impl IFont {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn Name(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com`*"]
     pub unsafe fn Size(&self) -> ::windows::runtime::Result<super::Com::CY> {
         let mut result__: <super::Com::CY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::CY>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com`*"]
     pub unsafe fn SetSize<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::CY>>(&self, size: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), size.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn Bold(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn SetBold<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bold: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), bold.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn Italic(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn SetItalic<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, italic: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), italic.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn Underline(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn SetUnderline<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, underline: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), underline.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn Strikethrough(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn SetStrikethrough<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, strikethrough: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), strikethrough.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn Weight(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn SetWeight(&self, weight: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(weight)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn Charset(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn SetCharset(&self, charset: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(charset)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Graphics_Gdi`*"]
     pub unsafe fn hFont(&self) -> ::windows::runtime::Result<super::super::Graphics::Gdi::HFONT> {
         let mut result__: <super::super::Graphics::Gdi::HFONT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Graphics::Gdi::HFONT>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn Clone(&self) -> ::windows::runtime::Result<IFont> {
         let mut result__: <IFont as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IFont>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn IsEqual<'a, Param0: ::windows::runtime::IntoParam<'a, IFont>>(&self, pfontother: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), pfontother.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn SetRatio(&self, cylogical: i32, cyhimetric: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(cylogical), ::std::mem::transmute(cyhimetric)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Graphics_Gdi`*"]
     pub unsafe fn QueryTextMetrics(&self) -> ::windows::runtime::Result<super::super::Graphics::Gdi::TEXTMETRICW> {
         let mut result__: <super::super::Graphics::Gdi::TEXTMETRICW as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Graphics::Gdi::TEXTMETRICW>(result__)
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Graphics_Gdi`*"]
     pub unsafe fn AddRefHfont<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HFONT>>(&self, hfont: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), hfont.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Graphics_Gdi`*"]
     pub unsafe fn ReleaseHfont<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HFONT>>(&self, hfont: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), hfont.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Graphics_Gdi`*"]
     pub unsafe fn SetHdc<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(&self, hdc: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), hdc.into_param().abi()).ok()
     }
@@ -1670,6 +2061,7 @@ pub struct IFont_abi(
     #[cfg(feature = "Win32_Graphics_Gdi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hdc: super::super::Graphics::Gdi::HDC) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))] usize,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFontDisp(::windows::runtime::IUnknown);
@@ -1736,6 +2128,7 @@ pub struct IFontDisp_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const Automation::DISPPARAMS, pvarresult: *mut ::std::mem::ManuallyDrop<super::Com::VARIANT>, pexcepinfo: *mut ::std::mem::ManuallyDrop<Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFontEventsDisp(::windows::runtime::IUnknown);
@@ -1802,6 +2195,7 @@ pub struct IFontEventsDisp_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const Automation::DISPPARAMS, pvarresult: *mut ::std::mem::ManuallyDrop<super::Com::VARIANT>, pexcepinfo: *mut ::std::mem::ManuallyDrop<Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IGNOREMIME(pub i32);
@@ -1816,10 +2210,12 @@ unsafe impl ::windows::runtime::Abi for IGNOREMIME {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IGetOleObject(::windows::runtime::IUnknown);
 impl IGetOleObject {
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn GetOleObject(&self, riid: *const ::windows::runtime::GUID, ppvobj: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(ppvobj)).ok()
     }
@@ -1856,10 +2252,12 @@ pub struct IGetOleObject_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppvobj: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IGetVBAObject(::windows::runtime::IUnknown);
 impl IGetVBAObject {
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn GetObject(&self, riid: *const ::windows::runtime::GUID, ppvobj: *mut *mut ::std::ffi::c_void, dwreserved: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(ppvobj), ::std::mem::transmute(dwreserved)).ok()
     }
@@ -1896,30 +2294,50 @@ pub struct IGetVBAObject_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppvobj: *mut *mut ::std::ffi::c_void, dwreserved: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const INSTALL_SCOPE_INVALID: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const INSTALL_SCOPE_MACHINE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const INSTALL_SCOPE_USER: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IOF_CHECKDISPLAYASICON: i32 = 16i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IOF_CHECKLINK: i32 = 8i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IOF_CREATEFILEOBJECT: i32 = 64i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IOF_CREATELINKOBJECT: i32 = 128i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IOF_CREATENEWOBJECT: i32 = 32i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IOF_DISABLEDISPLAYASICON: i32 = 1024i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IOF_DISABLELINK: i32 = 256i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IOF_HIDECHANGEICON: i32 = 2048i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IOF_SELECTCREATECONTROL: i32 = 8192i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IOF_SELECTCREATEFROMFILE: i32 = 4i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IOF_SELECTCREATENEW: i32 = 2i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IOF_SHOWHELP: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IOF_SHOWINSERTCONTROL: i32 = 4096i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const IOF_VERIFYSERVERSEXIST: i32 = 512i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IObjectWithSite(::windows::runtime::IUnknown);
 impl IObjectWithSite {
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn SetSite<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, punksite: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), punksite.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn GetSite<T: ::windows::runtime::Interface>(&self) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
@@ -1958,30 +2376,37 @@ pub struct IObjectWithSite_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, punksite: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppvsite: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IOleAdviseHolder(::windows::runtime::IUnknown);
 impl IOleAdviseHolder {
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com`*"]
     pub unsafe fn Advise<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::IAdviseSink>>(&self, padvise: Param0) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), padvise.into_param().abi(), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn Unadvise(&self, dwconnection: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwconnection)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com`*"]
     pub unsafe fn EnumAdvise(&self) -> ::windows::runtime::Result<super::Com::IEnumSTATDATA> {
         let mut result__: <super::Com::IEnumSTATDATA as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::IEnumSTATDATA>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com`*"]
     pub unsafe fn SendOnRename<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::IMoniker>>(&self, pmk: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), pmk.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn SendOnSave(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn SendOnClose(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
     }
@@ -2026,28 +2451,34 @@ pub struct IOleAdviseHolder_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IOleCache(::windows::runtime::IUnknown);
 impl IOleCache {
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com`*"]
     pub unsafe fn Cache(&self, pformatetc: *const super::Com::FORMATETC, advf: u32) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pformatetc), ::std::mem::transmute(advf), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn Uncache(&self, dwconnection: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwconnection)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com`*"]
     pub unsafe fn EnumCache(&self) -> ::windows::runtime::Result<super::Com::IEnumSTATDATA> {
         let mut result__: <super::Com::IEnumSTATDATA as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::IEnumSTATDATA>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com`*"]
     pub unsafe fn InitCache<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::IDataObject>>(&self, pdataobject: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), pdataobject.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`*"]
     pub unsafe fn SetData<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pformatetc: *const super::Com::FORMATETC, pmedium: *const super::Com::STGMEDIUM, frelease: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(pformatetc), ::std::mem::transmute(pmedium), frelease.into_param().abi()).ok()
     }
@@ -2092,35 +2523,43 @@ pub struct IOleCache_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pformatetc: *const super::Com::FORMATETC, pmedium: *const ::std::mem::ManuallyDrop<super::Com::STGMEDIUM>, frelease: super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IOleCache2(::windows::runtime::IUnknown);
 impl IOleCache2 {
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com`*"]
     pub unsafe fn Cache(&self, pformatetc: *const super::Com::FORMATETC, advf: u32) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pformatetc), ::std::mem::transmute(advf), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn Uncache(&self, dwconnection: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwconnection)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com`*"]
     pub unsafe fn EnumCache(&self) -> ::windows::runtime::Result<super::Com::IEnumSTATDATA> {
         let mut result__: <super::Com::IEnumSTATDATA as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::IEnumSTATDATA>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com`*"]
     pub unsafe fn InitCache<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::IDataObject>>(&self, pdataobject: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), pdataobject.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`*"]
     pub unsafe fn SetData<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pformatetc: *const super::Com::FORMATETC, pmedium: *const super::Com::STGMEDIUM, frelease: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(pformatetc), ::std::mem::transmute(pmedium), frelease.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com`*"]
     pub unsafe fn UpdateCache<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::IDataObject>>(&self, pdataobject: Param0, grfupdf: UPDFCACHE_FLAGS, preserved: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), pdataobject.into_param().abi(), ::std::mem::transmute(grfupdf), ::std::mem::transmute(preserved)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn DiscardCache(&self, dwdiscardoptions: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwdiscardoptions)).ok()
     }
@@ -2188,14 +2627,17 @@ pub struct IOleCache2_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwdiscardoptions: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IOleCacheControl(::windows::runtime::IUnknown);
 impl IOleCacheControl {
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com`*"]
     pub unsafe fn OnRun<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::IDataObject>>(&self, pdataobject: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pdataobject.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn OnStop(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
@@ -2234,29 +2676,36 @@ pub struct IOleCacheControl_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IOleClientSite(::windows::runtime::IUnknown);
 impl IOleClientSite {
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn SaveObject(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com`*"]
     pub unsafe fn GetMoniker(&self, dwassign: u32, dwwhichmoniker: u32) -> ::windows::runtime::Result<super::Com::IMoniker> {
         let mut result__: <super::Com::IMoniker as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwassign), ::std::mem::transmute(dwwhichmoniker), &mut result__).from_abi::<super::Com::IMoniker>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn GetContainer(&self) -> ::windows::runtime::Result<IOleContainer> {
         let mut result__: <IOleContainer as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IOleContainer>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn ShowObject(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn OnShowWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fshow: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), fshow.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn RequestNewObjectLayout(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
     }
@@ -2300,14 +2749,17 @@ pub struct IOleClientSite_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IOleCommandTarget(::windows::runtime::IUnknown);
 impl IOleCommandTarget {
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn QueryStatus(&self, pguidcmdgroup: *const ::windows::runtime::GUID, ccmds: u32, prgcmds: *mut OLECMD, pcmdtext: *mut OLECMDTEXT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pguidcmdgroup), ::std::mem::transmute(ccmds), ::std::mem::transmute(prgcmds), ::std::mem::transmute(pcmdtext)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Exec(&self, pguidcmdgroup: *const ::windows::runtime::GUID, ncmdid: u32, ncmdexecopt: u32, pvain: *const super::Com::VARIANT, pvaout: *mut super::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pguidcmdgroup), ::std::mem::transmute(ncmdid), ::std::mem::transmute(ncmdexecopt), ::std::mem::transmute(pvain), ::std::mem::transmute(pvaout)).ok()
     }
@@ -2346,20 +2798,24 @@ pub struct IOleCommandTarget_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pguidcmdgroup: *const ::windows::runtime::GUID, ncmdid: u32, ncmdexecopt: u32, pvain: *const ::std::mem::ManuallyDrop<super::Com::VARIANT>, pvaout: *mut ::std::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IOleContainer(::windows::runtime::IUnknown);
 impl IOleContainer {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn ParseDisplayName<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::IBindCtx>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pbc: Param0, pszdisplayname: Param1, pcheaten: *mut u32, ppmkout: *mut ::std::option::Option<super::Com::IMoniker>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pbc.into_param().abi(), pszdisplayname.into_param().abi(), ::std::mem::transmute(pcheaten), ::std::mem::transmute(ppmkout)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com`*"]
     pub unsafe fn EnumObjects(&self, grfflags: u32) -> ::windows::runtime::Result<super::Com::IEnumUnknown> {
         let mut result__: <super::Com::IEnumUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(grfflags), &mut result__).from_abi::<super::Com::IEnumUnknown>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn LockContainer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, flock: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), flock.into_param().abi()).ok()
     }
@@ -2421,22 +2877,27 @@ pub struct IOleContainer_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, flock: super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IOleControl(::windows::runtime::IUnknown);
 impl IOleControl {
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_UI_WindowsAndMessaging`*"]
     pub unsafe fn GetControlInfo(&self, pci: *mut CONTROLINFO) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pci)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
     pub unsafe fn OnMnemonic(&self, pmsg: *const super::super::UI::WindowsAndMessaging::MSG) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pmsg)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn OnAmbientPropertyChange(&self, dispid: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispid)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn FreezeEvents<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bfreeze: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), bfreeze.into_param().abi()).ok()
     }
@@ -2479,34 +2940,42 @@ pub struct IOleControl_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bfreeze: super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IOleControlSite(::windows::runtime::IUnknown);
 impl IOleControlSite {
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn OnControlInfoChanged(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn LockInPlaceActive<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, flock: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), flock.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetExtendedControl(&self) -> ::windows::runtime::Result<Automation::IDispatch> {
         let mut result__: <Automation::IDispatch as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<Automation::IDispatch>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn TransformCoords(&self, pptlhimetric: *mut super::super::Foundation::POINTL, pptfcontainer: *mut POINTF, dwflags: XFORMCOORDS) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(pptlhimetric), ::std::mem::transmute(pptfcontainer), ::std::mem::transmute(dwflags)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
     pub unsafe fn TranslateAccelerator(&self, pmsg: *const super::super::UI::WindowsAndMessaging::MSG, grfmodifiers: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(pmsg), ::std::mem::transmute(grfmodifiers)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn OnFocus<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fgotfocus: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), fgotfocus.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn ShowPropertyFrame(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self)).ok()
     }
@@ -2554,19 +3023,23 @@ pub struct IOleControlSite_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IOleDocument(::windows::runtime::IUnknown);
 impl IOleDocument {
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com`*"]
     pub unsafe fn CreateView<'a, Param0: ::windows::runtime::IntoParam<'a, IOleInPlaceSite>, Param1: ::windows::runtime::IntoParam<'a, super::Com::IStream>>(&self, pipsite: Param0, pstm: Param1, dwreserved: u32) -> ::windows::runtime::Result<IOleDocumentView> {
         let mut result__: <IOleDocumentView as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pipsite.into_param().abi(), pstm.into_param().abi(), ::std::mem::transmute(dwreserved), &mut result__).from_abi::<IOleDocumentView>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn GetDocMiscStatus(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn EnumViews(&self, ppenum: *mut ::std::option::Option<IEnumOleDocumentViews>, ppview: *mut ::std::option::Option<IOleDocumentView>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppenum), ::std::mem::transmute(ppview)).ok()
     }
@@ -2606,10 +3079,12 @@ pub struct IOleDocument_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwstatus: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenum: *mut ::windows::runtime::RawPtr, ppview: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IOleDocumentSite(::windows::runtime::IUnknown);
 impl IOleDocumentSite {
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn ActivateMe<'a, Param0: ::windows::runtime::IntoParam<'a, IOleDocumentView>>(&self, pviewtoactivate: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pviewtoactivate.into_param().abi()).ok()
     }
@@ -2646,56 +3121,70 @@ pub struct IOleDocumentSite_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pviewtoactivate: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IOleDocumentView(::windows::runtime::IUnknown);
 impl IOleDocumentView {
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn SetInPlaceSite<'a, Param0: ::windows::runtime::IntoParam<'a, IOleInPlaceSite>>(&self, pipsite: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pipsite.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn GetInPlaceSite(&self) -> ::windows::runtime::Result<IOleInPlaceSite> {
         let mut result__: <IOleInPlaceSite as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IOleInPlaceSite>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn GetDocument(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
         let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn SetRect(&self, prcview: *const super::super::Foundation::RECT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(prcview)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn GetRect(&self) -> ::windows::runtime::Result<super::super::Foundation::RECT> {
         let mut result__: <super::super::Foundation::RECT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::RECT>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn SetRectComplex(&self, prcview: *const super::super::Foundation::RECT, prchscroll: *const super::super::Foundation::RECT, prcvscroll: *const super::super::Foundation::RECT, prcsizebox: *const super::super::Foundation::RECT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(prcview), ::std::mem::transmute(prchscroll), ::std::mem::transmute(prcvscroll), ::std::mem::transmute(prcsizebox)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn Show<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fshow: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), fshow.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn UIActivate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fuiactivate: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), fuiactivate.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn Open(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn CloseView(&self, dwreserved: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwreserved)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com`*"]
     pub unsafe fn SaveViewState<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::IStream>>(&self, pstm: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), pstm.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com`*"]
     pub unsafe fn ApplyViewState<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::IStream>>(&self, pstm: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), pstm.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn Clone<'a, Param0: ::windows::runtime::IntoParam<'a, IOleInPlaceSite>>(&self, pipsitenew: Param0) -> ::windows::runtime::Result<IOleDocumentView> {
         let mut result__: <IOleDocumentView as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), pipsitenew.into_param().abi(), &mut result__).from_abi::<IOleDocumentView>(result__)
@@ -2752,36 +3241,44 @@ pub struct IOleDocumentView_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pipsitenew: ::windows::runtime::RawPtr, ppviewnew: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IOleInPlaceActiveObject(::windows::runtime::IUnknown);
 impl IOleInPlaceActiveObject {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn GetWindow(&self) -> ::windows::runtime::Result<super::super::Foundation::HWND> {
         let mut result__: <super::super::Foundation::HWND as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::HWND>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn ContextSensitiveHelp<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fentermode: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), fentermode.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
     pub unsafe fn TranslateAccelerator(&self, lpmsg: *const super::super::UI::WindowsAndMessaging::MSG) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(lpmsg)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn OnFrameWindowActivate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, factivate: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), factivate.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn OnDocWindowActivate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, factivate: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), factivate.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn ResizeBorder<'a, Param1: ::windows::runtime::IntoParam<'a, IOleInPlaceUIWindow>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, prcborder: *const super::super::Foundation::RECT, puiwindow: Param1, fframewindow: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(prcborder), puiwindow.into_param().abi(), fframewindow.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn EnableModeless<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fenable: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), fenable.into_param().abi()).ok()
     }
@@ -2851,57 +3348,70 @@ pub struct IOleInPlaceActiveObject_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fenable: super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IOleInPlaceFrame(::windows::runtime::IUnknown);
 impl IOleInPlaceFrame {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn GetWindow(&self) -> ::windows::runtime::Result<super::super::Foundation::HWND> {
         let mut result__: <super::super::Foundation::HWND as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::HWND>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn ContextSensitiveHelp<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fentermode: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), fentermode.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn GetBorder(&self) -> ::windows::runtime::Result<super::super::Foundation::RECT> {
         let mut result__: <super::super::Foundation::RECT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::RECT>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn RequestBorderSpace(&self, pborderwidths: *const super::super::Foundation::RECT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(pborderwidths)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn SetBorderSpace(&self, pborderwidths: *const super::super::Foundation::RECT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(pborderwidths)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn SetActiveObject<'a, Param0: ::windows::runtime::IntoParam<'a, IOleInPlaceActiveObject>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pactiveobject: Param0, pszobjname: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), pactiveobject.into_param().abi(), pszobjname.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_UI_WindowsAndMessaging`*"]
     pub unsafe fn InsertMenus<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::UI::WindowsAndMessaging::HMENU>>(&self, hmenushared: Param0, lpmenuwidths: *mut OleMenuGroupWidths) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), hmenushared.into_param().abi(), ::std::mem::transmute(lpmenuwidths)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
     pub unsafe fn SetMenu<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::UI::WindowsAndMessaging::HMENU>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, hmenushared: Param0, holemenu: isize, hwndactiveobject: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), hmenushared.into_param().abi(), ::std::mem::transmute(holemenu), hwndactiveobject.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_UI_WindowsAndMessaging`*"]
     pub unsafe fn RemoveMenus<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::UI::WindowsAndMessaging::HMENU>>(&self, hmenushared: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), hmenushared.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn SetStatusText<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszstatustext: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), pszstatustext.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn EnableModeless<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fenable: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), fenable.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
     pub unsafe fn TranslateAccelerator(&self, lpmsg: *const super::super::UI::WindowsAndMessaging::MSG, wid: u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(lpmsg), ::std::mem::transmute(wid)).ok()
     }
@@ -3001,29 +3511,36 @@ pub struct IOleInPlaceFrame_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lpmsg: *const super::super::UI::WindowsAndMessaging::MSG, wid: u16) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging")))] usize,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IOleInPlaceObject(::windows::runtime::IUnknown);
 impl IOleInPlaceObject {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn GetWindow(&self) -> ::windows::runtime::Result<super::super::Foundation::HWND> {
         let mut result__: <super::super::Foundation::HWND as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::HWND>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn ContextSensitiveHelp<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fentermode: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), fentermode.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn InPlaceDeactivate(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn UIDeactivate(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn SetObjectRects(&self, lprcposrect: *const super::super::Foundation::RECT, lprccliprect: *const super::super::Foundation::RECT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(lprcposrect), ::std::mem::transmute(lprccliprect)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn ReactivateAndUndo(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
     }
@@ -3088,37 +3605,46 @@ pub struct IOleInPlaceObject_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IOleInPlaceObjectWindowless(::windows::runtime::IUnknown);
 impl IOleInPlaceObjectWindowless {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn GetWindow(&self) -> ::windows::runtime::Result<super::super::Foundation::HWND> {
         let mut result__: <super::super::Foundation::HWND as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::HWND>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn ContextSensitiveHelp<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fentermode: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), fentermode.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn InPlaceDeactivate(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn UIDeactivate(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn SetObjectRects(&self, lprcposrect: *const super::super::Foundation::RECT, lprccliprect: *const super::super::Foundation::RECT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(lprcposrect), ::std::mem::transmute(lprccliprect)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn ReactivateAndUndo(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn OnWindowMessage<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::WPARAM>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, msg: u32, wparam: Param1, lparam: Param2) -> ::windows::runtime::Result<super::super::Foundation::LRESULT> {
         let mut result__: <super::super::Foundation::LRESULT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(msg), wparam.into_param().abi(), lparam.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::LRESULT>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn GetDropTarget(&self) -> ::windows::runtime::Result<IDropTarget> {
         let mut result__: <IDropTarget as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IDropTarget>(result__)
@@ -3207,50 +3733,63 @@ pub struct IOleInPlaceObjectWindowless_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppdroptarget: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IOleInPlaceSite(::windows::runtime::IUnknown);
 impl IOleInPlaceSite {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn GetWindow(&self) -> ::windows::runtime::Result<super::super::Foundation::HWND> {
         let mut result__: <super::super::Foundation::HWND as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::HWND>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn ContextSensitiveHelp<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fentermode: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), fentermode.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn CanInPlaceActivate(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn OnInPlaceActivate(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn OnUIActivate(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
     pub unsafe fn GetWindowContext(&self, ppframe: *mut ::std::option::Option<IOleInPlaceFrame>, ppdoc: *mut ::std::option::Option<IOleInPlaceUIWindow>, lprcposrect: *mut super::super::Foundation::RECT, lprccliprect: *mut super::super::Foundation::RECT, lpframeinfo: *mut OIFI) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppframe), ::std::mem::transmute(ppdoc), ::std::mem::transmute(lprcposrect), ::std::mem::transmute(lprccliprect), ::std::mem::transmute(lpframeinfo)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn Scroll<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::SIZE>>(&self, scrollextant: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), scrollextant.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn OnUIDeactivate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fundoable: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), fundoable.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn OnInPlaceDeactivate(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn DiscardUndoState(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn DeactivateAndUndo(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn OnPosRectChange(&self, lprcposrect: *const super::super::Foundation::RECT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(lprcposrect)).ok()
     }
@@ -3324,61 +3863,77 @@ pub struct IOleInPlaceSite_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lprcposrect: *const super::super::Foundation::RECT) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IOleInPlaceSiteEx(::windows::runtime::IUnknown);
 impl IOleInPlaceSiteEx {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn GetWindow(&self) -> ::windows::runtime::Result<super::super::Foundation::HWND> {
         let mut result__: <super::super::Foundation::HWND as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::HWND>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn ContextSensitiveHelp<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fentermode: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), fentermode.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn CanInPlaceActivate(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn OnInPlaceActivate(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn OnUIActivate(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
     pub unsafe fn GetWindowContext(&self, ppframe: *mut ::std::option::Option<IOleInPlaceFrame>, ppdoc: *mut ::std::option::Option<IOleInPlaceUIWindow>, lprcposrect: *mut super::super::Foundation::RECT, lprccliprect: *mut super::super::Foundation::RECT, lpframeinfo: *mut OIFI) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppframe), ::std::mem::transmute(ppdoc), ::std::mem::transmute(lprcposrect), ::std::mem::transmute(lprccliprect), ::std::mem::transmute(lpframeinfo)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn Scroll<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::SIZE>>(&self, scrollextant: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), scrollextant.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn OnUIDeactivate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fundoable: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), fundoable.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn OnInPlaceDeactivate(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn DiscardUndoState(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn DeactivateAndUndo(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn OnPosRectChange(&self, lprcposrect: *const super::super::Foundation::RECT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(lprcposrect)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn OnInPlaceActivateEx(&self, pfnoredraw: *mut super::super::Foundation::BOOL, dwflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(pfnoredraw), ::std::mem::transmute(dwflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn OnInPlaceDeactivateEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fnoredraw: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), fnoredraw.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn RequestUIActivate(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self)).ok()
     }
@@ -3477,107 +4032,135 @@ pub struct IOleInPlaceSiteEx_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IOleInPlaceSiteWindowless(::windows::runtime::IUnknown);
 impl IOleInPlaceSiteWindowless {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn GetWindow(&self) -> ::windows::runtime::Result<super::super::Foundation::HWND> {
         let mut result__: <super::super::Foundation::HWND as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::HWND>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn ContextSensitiveHelp<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fentermode: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), fentermode.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn CanInPlaceActivate(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn OnInPlaceActivate(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn OnUIActivate(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
     pub unsafe fn GetWindowContext(&self, ppframe: *mut ::std::option::Option<IOleInPlaceFrame>, ppdoc: *mut ::std::option::Option<IOleInPlaceUIWindow>, lprcposrect: *mut super::super::Foundation::RECT, lprccliprect: *mut super::super::Foundation::RECT, lpframeinfo: *mut OIFI) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppframe), ::std::mem::transmute(ppdoc), ::std::mem::transmute(lprcposrect), ::std::mem::transmute(lprccliprect), ::std::mem::transmute(lpframeinfo)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn Scroll<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::SIZE>>(&self, scrollextant: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), scrollextant.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn OnUIDeactivate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fundoable: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), fundoable.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn OnInPlaceDeactivate(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn DiscardUndoState(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn DeactivateAndUndo(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn OnPosRectChange(&self, lprcposrect: *const super::super::Foundation::RECT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(lprcposrect)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn OnInPlaceActivateEx(&self, pfnoredraw: *mut super::super::Foundation::BOOL, dwflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(pfnoredraw), ::std::mem::transmute(dwflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn OnInPlaceDeactivateEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fnoredraw: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), fnoredraw.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn RequestUIActivate(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn CanWindowlessActivate(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn GetCapture(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn SetCapture<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fcapture: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), fcapture.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn GetFocus(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn SetFocus<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, ffocus: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ffocus.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
     pub unsafe fn GetDC(&self, prect: *const super::super::Foundation::RECT, grfflags: u32) -> ::windows::runtime::Result<super::super::Graphics::Gdi::HDC> {
         let mut result__: <super::super::Graphics::Gdi::HDC as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), ::std::mem::transmute(prect), ::std::mem::transmute(grfflags), &mut result__).from_abi::<super::super::Graphics::Gdi::HDC>(result__)
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Graphics_Gdi`*"]
     pub unsafe fn ReleaseDC<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(&self, hdc: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), hdc.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn InvalidateRect<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, prect: *const super::super::Foundation::RECT, ferase: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), ::std::mem::transmute(prect), ferase.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
     pub unsafe fn InvalidateRgn<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HRGN>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, hrgn: Param0, ferase: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), hrgn.into_param().abi(), ferase.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn ScrollRect(&self, dx: i32, dy: i32, prectscroll: *const super::super::Foundation::RECT, prectclip: *const super::super::Foundation::RECT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), ::std::mem::transmute(dx), ::std::mem::transmute(dy), ::std::mem::transmute(prectscroll), ::std::mem::transmute(prectclip)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn AdjustRect(&self, prc: *mut super::super::Foundation::RECT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), ::std::mem::transmute(prc)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn OnDefWindowMessage<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::WPARAM>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, msg: u32, wparam: Param1, lparam: Param2) -> ::windows::runtime::Result<super::super::Foundation::LRESULT> {
         let mut result__: <super::super::Foundation::LRESULT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), ::std::mem::transmute(msg), wparam.into_param().abi(), lparam.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::LRESULT>(result__)
@@ -3718,33 +4301,40 @@ pub struct IOleInPlaceSiteWindowless_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, plresult: *mut super::super::Foundation::LRESULT) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IOleInPlaceUIWindow(::windows::runtime::IUnknown);
 impl IOleInPlaceUIWindow {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn GetWindow(&self) -> ::windows::runtime::Result<super::super::Foundation::HWND> {
         let mut result__: <super::super::Foundation::HWND as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::HWND>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn ContextSensitiveHelp<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fentermode: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), fentermode.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn GetBorder(&self) -> ::windows::runtime::Result<super::super::Foundation::RECT> {
         let mut result__: <super::super::Foundation::RECT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::RECT>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn RequestBorderSpace(&self, pborderwidths: *const super::super::Foundation::RECT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(pborderwidths)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn SetBorderSpace(&self, pborderwidths: *const super::super::Foundation::RECT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(pborderwidths)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn SetActiveObject<'a, Param0: ::windows::runtime::IntoParam<'a, IOleInPlaceActiveObject>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pactiveobject: Param0, pszobjname: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), pactiveobject.into_param().abi(), pszobjname.into_param().abi()).ok()
     }
@@ -3812,34 +4402,41 @@ pub struct IOleInPlaceUIWindow_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pactiveobject: ::windows::runtime::RawPtr, pszobjname: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IOleItemContainer(::windows::runtime::IUnknown);
 impl IOleItemContainer {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn ParseDisplayName<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::IBindCtx>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pbc: Param0, pszdisplayname: Param1, pcheaten: *mut u32, ppmkout: *mut ::std::option::Option<super::Com::IMoniker>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pbc.into_param().abi(), pszdisplayname.into_param().abi(), ::std::mem::transmute(pcheaten), ::std::mem::transmute(ppmkout)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com`*"]
     pub unsafe fn EnumObjects(&self, grfflags: u32) -> ::windows::runtime::Result<super::Com::IEnumUnknown> {
         let mut result__: <super::Com::IEnumUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(grfflags), &mut result__).from_abi::<super::Com::IEnumUnknown>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn LockContainer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, flock: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), flock.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn GetObject<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::Com::IBindCtx>, T: ::windows::runtime::Interface>(&self, pszitem: Param0, dwspeedneeded: u32, pbc: Param2) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), pszitem.into_param().abi(), ::std::mem::transmute(dwspeedneeded), pbc.into_param().abi(), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn GetObjectStorage<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::Com::IBindCtx>, T: ::windows::runtime::Interface>(&self, pszitem: Param0, pbc: Param1) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), pszitem.into_param().abi(), pbc.into_param().abi(), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn IsRunning<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszitem: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), pszitem.into_param().abi()).ok()
     }
@@ -3927,50 +4524,62 @@ pub struct IOleItemContainer_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pszitem: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IOleLink(::windows::runtime::IUnknown);
 impl IOleLink {
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn SetUpdateOptions(&self, dwupdateopt: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwupdateopt)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn GetUpdateOptions(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com`*"]
     pub unsafe fn SetSourceMoniker<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::IMoniker>>(&self, pmk: Param0, rclsid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), pmk.into_param().abi(), ::std::mem::transmute(rclsid)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com`*"]
     pub unsafe fn GetSourceMoniker(&self) -> ::windows::runtime::Result<super::Com::IMoniker> {
         let mut result__: <super::Com::IMoniker as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::IMoniker>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn SetSourceDisplayName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszstatustext: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), pszstatustext.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn GetSourceDisplayName(&self) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
         let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com`*"]
     pub unsafe fn BindToSource<'a, Param1: ::windows::runtime::IntoParam<'a, super::Com::IBindCtx>>(&self, bindflags: u32, pbc: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(bindflags), pbc.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn BindIfRunning(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn GetBoundSource(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
         let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn UnbindSource(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com`*"]
     pub unsafe fn Update<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::IBindCtx>>(&self, pbc: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), pbc.into_param().abi()).ok()
     }
@@ -4023,92 +4632,114 @@ pub struct IOleLink_abi(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbc: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IOleObject(::windows::runtime::IUnknown);
 impl IOleObject {
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn SetClientSite<'a, Param0: ::windows::runtime::IntoParam<'a, IOleClientSite>>(&self, pclientsite: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pclientsite.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn GetClientSite(&self) -> ::windows::runtime::Result<IOleClientSite> {
         let mut result__: <IOleClientSite as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IOleClientSite>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn SetHostNames<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, szcontainerapp: Param0, szcontainerobj: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), szcontainerapp.into_param().abi(), szcontainerobj.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn Close(&self, dwsaveoption: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwsaveoption)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com`*"]
     pub unsafe fn SetMoniker<'a, Param1: ::windows::runtime::IntoParam<'a, super::Com::IMoniker>>(&self, dwwhichmoniker: u32, pmk: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwwhichmoniker), pmk.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com`*"]
     pub unsafe fn GetMoniker(&self, dwassign: u32, dwwhichmoniker: u32) -> ::windows::runtime::Result<super::Com::IMoniker> {
         let mut result__: <super::Com::IMoniker as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwassign), ::std::mem::transmute(dwwhichmoniker), &mut result__).from_abi::<super::Com::IMoniker>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn InitFromData<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::IDataObject>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pdataobject: Param0, fcreation: Param1, dwreserved: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), pdataobject.into_param().abi(), fcreation.into_param().abi(), ::std::mem::transmute(dwreserved)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com`*"]
     pub unsafe fn GetClipboardData(&self, dwreserved: u32) -> ::windows::runtime::Result<super::Com::IDataObject> {
         let mut result__: <super::Com::IDataObject as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwreserved), &mut result__).from_abi::<super::Com::IDataObject>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
     pub unsafe fn DoVerb<'a, Param2: ::windows::runtime::IntoParam<'a, IOleClientSite>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, iverb: i32, lpmsg: *const super::super::UI::WindowsAndMessaging::MSG, pactivesite: Param2, lindex: i32, hwndparent: Param4, lprcposrect: *const super::super::Foundation::RECT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(iverb), ::std::mem::transmute(lpmsg), pactivesite.into_param().abi(), ::std::mem::transmute(lindex), hwndparent.into_param().abi(), ::std::mem::transmute(lprcposrect)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn EnumVerbs(&self) -> ::windows::runtime::Result<IEnumOLEVERB> {
         let mut result__: <IEnumOLEVERB as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IEnumOLEVERB>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn Update(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn IsUpToDate(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn GetUserClassID(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn GetUserType(&self, dwformoftype: u32) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
         let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwformoftype), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn SetExtent(&self, dwdrawaspect: u32, psizel: *const super::super::Foundation::SIZE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwdrawaspect), ::std::mem::transmute(psizel)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn GetExtent(&self, dwdrawaspect: u32) -> ::windows::runtime::Result<super::super::Foundation::SIZE> {
         let mut result__: <super::super::Foundation::SIZE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwdrawaspect), &mut result__).from_abi::<super::super::Foundation::SIZE>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com`*"]
     pub unsafe fn Advise<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::IAdviseSink>>(&self, padvsink: Param0) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), padvsink.into_param().abi(), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn Unadvise(&self, dwconnection: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwconnection)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com`*"]
     pub unsafe fn EnumAdvise(&self) -> ::windows::runtime::Result<super::Com::IEnumSTATDATA> {
         let mut result__: <super::Com::IEnumSTATDATA as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::IEnumSTATDATA>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn GetMiscStatus(&self, dwaspect: u32) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwaspect), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Graphics_Gdi`*"]
     pub unsafe fn SetColorScheme(&self, plogpal: *const super::super::Graphics::Gdi::LOGPALETTE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), ::std::mem::transmute(plogpal)).ok()
     }
@@ -4177,37 +4808,47 @@ pub struct IOleObject_abi(
     #[cfg(feature = "Win32_Graphics_Gdi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, plogpal: *const super::super::Graphics::Gdi::LOGPALETTE) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))] usize,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IOleParentUndoUnit(::windows::runtime::IUnknown);
 impl IOleParentUndoUnit {
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn Do<'a, Param0: ::windows::runtime::IntoParam<'a, IOleUndoManager>>(&self, pundomanager: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pundomanager.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn GetDescription(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn GetUnitType(&self, pclsid: *mut ::windows::runtime::GUID, plid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(pclsid), ::std::mem::transmute(plid)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn OnNextAdd(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn Open<'a, Param0: ::windows::runtime::IntoParam<'a, IOleParentUndoUnit>>(&self, ppuu: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ppuu.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn Close<'a, Param0: ::windows::runtime::IntoParam<'a, IOleParentUndoUnit>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, ppuu: Param0, fcommit: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ppuu.into_param().abi(), fcommit.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn Add<'a, Param0: ::windows::runtime::IntoParam<'a, IOleUndoUnit>>(&self, puu: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), puu.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn FindUnit<'a, Param0: ::windows::runtime::IntoParam<'a, IOleUndoUnit>>(&self, puu: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), puu.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn GetParentState(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
@@ -4275,25 +4916,31 @@ pub struct IOleParentUndoUnit_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, puu: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwstate: *mut u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IOleUILinkContainerA(::windows::runtime::IUnknown);
 impl IOleUILinkContainerA {
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn GetNextLink(&self, dwlink: u32) -> u32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwlink)))
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn SetLinkUpdateOptions(&self, dwlink: u32, dwupdateopt: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwlink), ::std::mem::transmute(dwupdateopt)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn GetLinkUpdateOptions(&self, dwlink: u32) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwlink), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn SetLinkSource<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, dwlink: u32, lpszdisplayname: Param1, lenfilename: u32, pcheaten: *mut u32, fvalidatesource: Param4) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwlink), lpszdisplayname.into_param().abi(), ::std::mem::transmute(lenfilename), ::std::mem::transmute(pcheaten), fvalidatesource.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn GetLinkSource(&self, dwlink: u32, lplpszdisplayname: *mut super::super::Foundation::PSTR, lplenfilename: *mut u32, lplpszfulllinktype: *mut super::super::Foundation::PSTR, lplpszshortlinktype: *mut super::super::Foundation::PSTR, lpfsourceavailable: *mut super::super::Foundation::BOOL, lpfisselected: *mut super::super::Foundation::BOOL) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(
             ::std::mem::transmute_copy(self),
@@ -4307,13 +4954,16 @@ impl IOleUILinkContainerA {
         )
         .ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn OpenLinkSource(&self, dwlink: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwlink)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn UpdateLink<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, dwlink: u32, ferrormessage: Param1, freserved: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwlink), ferrormessage.into_param().abi(), freserved.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn CancelLink(&self, dwlink: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwlink)).ok()
     }
@@ -4360,25 +5010,31 @@ pub struct IOleUILinkContainerA_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwlink: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IOleUILinkContainerW(::windows::runtime::IUnknown);
 impl IOleUILinkContainerW {
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn GetNextLink(&self, dwlink: u32) -> u32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwlink)))
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn SetLinkUpdateOptions(&self, dwlink: u32, dwupdateopt: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwlink), ::std::mem::transmute(dwupdateopt)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn GetLinkUpdateOptions(&self, dwlink: u32) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwlink), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn SetLinkSource<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, dwlink: u32, lpszdisplayname: Param1, lenfilename: u32, pcheaten: *mut u32, fvalidatesource: Param4) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwlink), lpszdisplayname.into_param().abi(), ::std::mem::transmute(lenfilename), ::std::mem::transmute(pcheaten), fvalidatesource.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn GetLinkSource(&self, dwlink: u32, lplpszdisplayname: *mut super::super::Foundation::PWSTR, lplenfilename: *mut u32, lplpszfulllinktype: *mut super::super::Foundation::PWSTR, lplpszshortlinktype: *mut super::super::Foundation::PWSTR, lpfsourceavailable: *mut super::super::Foundation::BOOL, lpfisselected: *mut super::super::Foundation::BOOL) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(
             ::std::mem::transmute_copy(self),
@@ -4392,13 +5048,16 @@ impl IOleUILinkContainerW {
         )
         .ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn OpenLinkSource(&self, dwlink: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwlink)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn UpdateLink<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, dwlink: u32, ferrormessage: Param1, freserved: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwlink), ferrormessage.into_param().abi(), freserved.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn CancelLink(&self, dwlink: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwlink)).ok()
     }
@@ -4445,25 +5104,31 @@ pub struct IOleUILinkContainerW_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwlink: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IOleUILinkInfoA(::windows::runtime::IUnknown);
 impl IOleUILinkInfoA {
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn GetNextLink(&self, dwlink: u32) -> u32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwlink)))
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn SetLinkUpdateOptions(&self, dwlink: u32, dwupdateopt: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwlink), ::std::mem::transmute(dwupdateopt)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn GetLinkUpdateOptions(&self, dwlink: u32) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwlink), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn SetLinkSource<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, dwlink: u32, lpszdisplayname: Param1, lenfilename: u32, pcheaten: *mut u32, fvalidatesource: Param4) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwlink), lpszdisplayname.into_param().abi(), ::std::mem::transmute(lenfilename), ::std::mem::transmute(pcheaten), fvalidatesource.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn GetLinkSource(&self, dwlink: u32, lplpszdisplayname: *mut super::super::Foundation::PSTR, lplenfilename: *mut u32, lplpszfulllinktype: *mut super::super::Foundation::PSTR, lplpszshortlinktype: *mut super::super::Foundation::PSTR, lpfsourceavailable: *mut super::super::Foundation::BOOL, lpfisselected: *mut super::super::Foundation::BOOL) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(
             ::std::mem::transmute_copy(self),
@@ -4477,17 +5142,21 @@ impl IOleUILinkInfoA {
         )
         .ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn OpenLinkSource(&self, dwlink: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwlink)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn UpdateLink<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, dwlink: u32, ferrormessage: Param1, freserved: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwlink), ferrormessage.into_param().abi(), freserved.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn CancelLink(&self, dwlink: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwlink)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn GetLastUpdate(&self, dwlink: u32) -> ::windows::runtime::Result<super::super::Foundation::FILETIME> {
         let mut result__: <super::super::Foundation::FILETIME as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwlink), &mut result__).from_abi::<super::super::Foundation::FILETIME>(result__)
@@ -4557,25 +5226,31 @@ pub struct IOleUILinkInfoA_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwlink: u32, lplastupdate: *mut super::super::Foundation::FILETIME) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IOleUILinkInfoW(::windows::runtime::IUnknown);
 impl IOleUILinkInfoW {
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn GetNextLink(&self, dwlink: u32) -> u32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwlink)))
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn SetLinkUpdateOptions(&self, dwlink: u32, dwupdateopt: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwlink), ::std::mem::transmute(dwupdateopt)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn GetLinkUpdateOptions(&self, dwlink: u32) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwlink), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn SetLinkSource<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, dwlink: u32, lpszdisplayname: Param1, lenfilename: u32, pcheaten: *mut u32, fvalidatesource: Param4) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwlink), lpszdisplayname.into_param().abi(), ::std::mem::transmute(lenfilename), ::std::mem::transmute(pcheaten), fvalidatesource.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn GetLinkSource(&self, dwlink: u32, lplpszdisplayname: *mut super::super::Foundation::PWSTR, lplenfilename: *mut u32, lplpszfulllinktype: *mut super::super::Foundation::PWSTR, lplpszshortlinktype: *mut super::super::Foundation::PWSTR, lpfsourceavailable: *mut super::super::Foundation::BOOL, lpfisselected: *mut super::super::Foundation::BOOL) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(
             ::std::mem::transmute_copy(self),
@@ -4589,17 +5264,21 @@ impl IOleUILinkInfoW {
         )
         .ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn OpenLinkSource(&self, dwlink: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwlink)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn UpdateLink<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, dwlink: u32, ferrormessage: Param1, freserved: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwlink), ferrormessage.into_param().abi(), freserved.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn CancelLink(&self, dwlink: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwlink)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn GetLastUpdate(&self, dwlink: u32) -> ::windows::runtime::Result<super::super::Foundation::FILETIME> {
         let mut result__: <super::super::Foundation::FILETIME as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwlink), &mut result__).from_abi::<super::super::Foundation::FILETIME>(result__)
@@ -4669,24 +5348,30 @@ pub struct IOleUILinkInfoW_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwlink: u32, lplastupdate: *mut super::super::Foundation::FILETIME) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IOleUIObjInfoA(::windows::runtime::IUnknown);
 impl IOleUIObjInfoA {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn GetObjectInfo(&self, dwobject: u32, lpdwobjsize: *mut u32, lplpszlabel: *mut super::super::Foundation::PSTR, lplpsztype: *mut super::super::Foundation::PSTR, lplpszshorttype: *mut super::super::Foundation::PSTR, lplpszlocation: *mut super::super::Foundation::PSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwobject), ::std::mem::transmute(lpdwobjsize), ::std::mem::transmute(lplpszlabel), ::std::mem::transmute(lplpsztype), ::std::mem::transmute(lplpszshorttype), ::std::mem::transmute(lplpszlocation)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn GetConvertInfo(&self, dwobject: u32, lpclassid: *mut ::windows::runtime::GUID, lpwformat: *mut u16, lpconvertdefaultclassid: *mut ::windows::runtime::GUID, lplpclsidexclude: *mut *mut ::windows::runtime::GUID, lpcclsidexclude: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwobject), ::std::mem::transmute(lpclassid), ::std::mem::transmute(lpwformat), ::std::mem::transmute(lpconvertdefaultclassid), ::std::mem::transmute(lplpclsidexclude), ::std::mem::transmute(lpcclsidexclude)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn ConvertObject(&self, dwobject: u32, clsidnew: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwobject), ::std::mem::transmute(clsidnew)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn GetViewInfo(&self, dwobject: u32, phmetapict: *const isize, pdvaspect: *const u32, pncurrentscale: *const i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwobject), ::std::mem::transmute(phmetapict), ::std::mem::transmute(pdvaspect), ::std::mem::transmute(pncurrentscale)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn SetViewInfo<'a, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, dwobject: u32, hmetapict: isize, dvaspect: u32, ncurrentscale: i32, brelativetoorig: Param4) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwobject), ::std::mem::transmute(hmetapict), ::std::mem::transmute(dvaspect), ::std::mem::transmute(ncurrentscale), brelativetoorig.into_param().abi()).ok()
     }
@@ -4729,24 +5414,30 @@ pub struct IOleUIObjInfoA_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwobject: u32, hmetapict: isize, dvaspect: u32, ncurrentscale: i32, brelativetoorig: super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IOleUIObjInfoW(::windows::runtime::IUnknown);
 impl IOleUIObjInfoW {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn GetObjectInfo(&self, dwobject: u32, lpdwobjsize: *mut u32, lplpszlabel: *mut super::super::Foundation::PWSTR, lplpsztype: *mut super::super::Foundation::PWSTR, lplpszshorttype: *mut super::super::Foundation::PWSTR, lplpszlocation: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwobject), ::std::mem::transmute(lpdwobjsize), ::std::mem::transmute(lplpszlabel), ::std::mem::transmute(lplpsztype), ::std::mem::transmute(lplpszshorttype), ::std::mem::transmute(lplpszlocation)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn GetConvertInfo(&self, dwobject: u32, lpclassid: *mut ::windows::runtime::GUID, lpwformat: *mut u16, lpconvertdefaultclassid: *mut ::windows::runtime::GUID, lplpclsidexclude: *mut *mut ::windows::runtime::GUID, lpcclsidexclude: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwobject), ::std::mem::transmute(lpclassid), ::std::mem::transmute(lpwformat), ::std::mem::transmute(lpconvertdefaultclassid), ::std::mem::transmute(lplpclsidexclude), ::std::mem::transmute(lpcclsidexclude)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn ConvertObject(&self, dwobject: u32, clsidnew: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwobject), ::std::mem::transmute(clsidnew)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn GetViewInfo(&self, dwobject: u32, phmetapict: *const isize, pdvaspect: *const u32, pncurrentscale: *const i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwobject), ::std::mem::transmute(phmetapict), ::std::mem::transmute(pdvaspect), ::std::mem::transmute(pncurrentscale)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn SetViewInfo<'a, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, dwobject: u32, hmetapict: isize, dvaspect: u32, ncurrentscale: i32, brelativetoorig: Param4) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwobject), ::std::mem::transmute(hmetapict), ::std::mem::transmute(dvaspect), ::std::mem::transmute(ncurrentscale), brelativetoorig.into_param().abi()).ok()
     }
@@ -4789,52 +5480,65 @@ pub struct IOleUIObjInfoW_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwobject: u32, hmetapict: isize, dvaspect: u32, ncurrentscale: i32, brelativetoorig: super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IOleUndoManager(::windows::runtime::IUnknown);
 impl IOleUndoManager {
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn Open<'a, Param0: ::windows::runtime::IntoParam<'a, IOleParentUndoUnit>>(&self, ppuu: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ppuu.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn Close<'a, Param0: ::windows::runtime::IntoParam<'a, IOleParentUndoUnit>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, ppuu: Param0, fcommit: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ppuu.into_param().abi(), fcommit.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn Add<'a, Param0: ::windows::runtime::IntoParam<'a, IOleUndoUnit>>(&self, puu: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), puu.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn GetOpenParentState(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn DiscardFrom<'a, Param0: ::windows::runtime::IntoParam<'a, IOleUndoUnit>>(&self, puu: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), puu.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn UndoTo<'a, Param0: ::windows::runtime::IntoParam<'a, IOleUndoUnit>>(&self, puu: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), puu.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn RedoTo<'a, Param0: ::windows::runtime::IntoParam<'a, IOleUndoUnit>>(&self, puu: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), puu.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn EnumUndoable(&self) -> ::windows::runtime::Result<IEnumOleUndoUnits> {
         let mut result__: <IEnumOleUndoUnits as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IEnumOleUndoUnits>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn EnumRedoable(&self) -> ::windows::runtime::Result<IEnumOleUndoUnits> {
         let mut result__: <IEnumOleUndoUnits as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IEnumOleUndoUnits>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn GetLastUndoDescription(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn GetLastRedoDescription(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn Enable<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fenable: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), fenable.into_param().abi()).ok()
     }
@@ -4886,21 +5590,26 @@ pub struct IOleUndoManager_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fenable: super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IOleUndoUnit(::windows::runtime::IUnknown);
 impl IOleUndoUnit {
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn Do<'a, Param0: ::windows::runtime::IntoParam<'a, IOleUndoManager>>(&self, pundomanager: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pundomanager.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn GetDescription(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn GetUnitType(&self, pclsid: *mut ::windows::runtime::GUID, plid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(pclsid), ::std::mem::transmute(plid)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn OnNextAdd(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self)).ok()
     }
@@ -4941,16 +5650,19 @@ pub struct IOleUndoUnit_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pclsid: *mut ::windows::runtime::GUID, plid: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IOleWindow(::windows::runtime::IUnknown);
 impl IOleWindow {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn GetWindow(&self) -> ::windows::runtime::Result<super::super::Foundation::HWND> {
         let mut result__: <super::super::Foundation::HWND as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::HWND>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn ContextSensitiveHelp<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fentermode: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), fentermode.into_param().abi()).ok()
     }
@@ -4990,11 +5702,13 @@ pub struct IOleWindow_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fentermode: super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IParseDisplayName(::windows::runtime::IUnknown);
 impl IParseDisplayName {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn ParseDisplayName<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::IBindCtx>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pbc: Param0, pszdisplayname: Param1, pcheaten: *mut u32, ppmkout: *mut ::std::option::Option<super::Com::IMoniker>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pbc.into_param().abi(), pszdisplayname.into_param().abi(), ::std::mem::transmute(pcheaten), ::std::mem::transmute(ppmkout)).ok()
     }
@@ -5032,24 +5746,29 @@ pub struct IParseDisplayName_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbc: ::windows::runtime::RawPtr, pszdisplayname: super::super::Foundation::PWSTR, pcheaten: *mut u32, ppmkout: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPerPropertyBrowsing(::windows::runtime::IUnknown);
 impl IPerPropertyBrowsing {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn GetDisplayString(&self, dispid: i32) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispid), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn MapPropertyToPage(&self, dispid: i32) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispid), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn GetPredefinedStrings(&self, dispid: i32, pcastringsout: *mut CALPOLESTR, pcacookiesout: *mut CADWORD) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispid), ::std::mem::transmute(pcastringsout), ::std::mem::transmute(pcacookiesout)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetPredefinedValue(&self, dispid: i32, dwcookie: u32) -> ::windows::runtime::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispid), ::std::mem::transmute(dwcookie), &mut result__).from_abi::<super::Com::VARIANT>(result__)
@@ -5093,28 +5812,35 @@ pub struct IPerPropertyBrowsing_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispid: i32, dwcookie: u32, pvarout: *mut ::std::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPersistMemory(::windows::runtime::IUnknown);
 impl IPersistMemory {
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn GetClassID(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn IsDirty(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn Load(&self, pmem: *const ::std::ffi::c_void, cbsize: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(pmem), ::std::mem::transmute(cbsize)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn Save<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pmem: *mut ::std::ffi::c_void, fcleardirty: Param1, cbsize: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(pmem), fcleardirty.into_param().abi(), ::std::mem::transmute(cbsize)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn GetSizeMax(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn InitNew(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
     }
@@ -5181,22 +5907,27 @@ pub struct IPersistMemory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcbsize: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPersistPropertyBag(::windows::runtime::IUnknown);
 impl IPersistPropertyBag {
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn GetClassID(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn InitNew(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Load<'a, Param0: ::windows::runtime::IntoParam<'a, Automation::IPropertyBag>, Param1: ::windows::runtime::IntoParam<'a, Automation::IErrorLog>>(&self, ppropbag: Param0, perrorlog: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ppropbag.into_param().abi(), perrorlog.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Save<'a, Param0: ::windows::runtime::IntoParam<'a, Automation::IPropertyBag>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, ppropbag: Param0, fcleardirty: Param1, fsaveallproperties: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ppropbag.into_param().abi(), fcleardirty.into_param().abi(), fsaveallproperties.into_param().abi()).ok()
     }
@@ -5262,25 +5993,31 @@ pub struct IPersistPropertyBag_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppropbag: ::windows::runtime::RawPtr, fcleardirty: super::super::Foundation::BOOL, fsaveallproperties: super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation")))] usize,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPersistPropertyBag2(::windows::runtime::IUnknown);
 impl IPersistPropertyBag2 {
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn GetClassID(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn InitNew(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Load<'a, Param0: ::windows::runtime::IntoParam<'a, IPropertyBag2>, Param1: ::windows::runtime::IntoParam<'a, Automation::IErrorLog>>(&self, ppropbag: Param0, perrlog: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ppropbag.into_param().abi(), perrlog.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn Save<'a, Param0: ::windows::runtime::IntoParam<'a, IPropertyBag2>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, ppropbag: Param0, fcleardirty: Param1, fsaveallproperties: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ppropbag.into_param().abi(), fcleardirty.into_param().abi(), fsaveallproperties.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn IsDirty(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)).ok()
     }
@@ -5347,29 +6084,36 @@ pub struct IPersistPropertyBag2_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPersistStreamInit(::windows::runtime::IUnknown);
 impl IPersistStreamInit {
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn GetClassID(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn IsDirty(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com`*"]
     pub unsafe fn Load<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::IStream>>(&self, pstm: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), pstm.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn Save<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::IStream>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pstm: Param0, fcleardirty: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), pstm.into_param().abi(), fcleardirty.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn GetSizeMax(&self) -> ::windows::runtime::Result<u64> {
         let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u64>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn InitNew(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
     }
@@ -5437,31 +6181,38 @@ pub struct IPersistStreamInit_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcbsize: *mut u64) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPicture(::windows::runtime::IUnknown);
 impl IPicture {
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn Handle(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn hPal(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn Type(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn Width(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn Height(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
     pub unsafe fn Render<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(&self, hdc: Param0, x: i32, y: i32, cx: i32, cy: i32, xsrc: i32, ysrc: i32, cxsrc: i32, cysrc: i32, prcwbounds: *const super::super::Foundation::RECT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(
             ::std::mem::transmute_copy(self),
@@ -5478,35 +6229,43 @@ impl IPicture {
         )
         .ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn set_hPal(&self, hpal: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(hpal)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Graphics_Gdi`*"]
     pub unsafe fn CurDC(&self) -> ::windows::runtime::Result<super::super::Graphics::Gdi::HDC> {
         let mut result__: <super::super::Graphics::Gdi::HDC as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Graphics::Gdi::HDC>(result__)
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Graphics_Gdi`*"]
     pub unsafe fn SelectPicture<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(&self, hdcin: Param0, phdcout: *mut super::super::Graphics::Gdi::HDC, phbmpout: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), hdcin.into_param().abi(), ::std::mem::transmute(phdcout), ::std::mem::transmute(phbmpout)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn KeepOriginalFormat(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn SetKeepOriginalFormat<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, keep: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), keep.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn PictureChanged(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn SaveAsFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::IStream>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pstream: Param0, fsavememcopy: Param1) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), pstream.into_param().abi(), fsavememcopy.into_param().abi(), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn Attributes(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
@@ -5563,31 +6322,38 @@ pub struct IPicture_abi(
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwattr: *mut u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPicture2(::windows::runtime::IUnknown);
 impl IPicture2 {
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn Handle(&self) -> ::windows::runtime::Result<usize> {
         let mut result__: <usize as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<usize>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn hPal(&self) -> ::windows::runtime::Result<usize> {
         let mut result__: <usize as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<usize>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn Type(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn Width(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn Height(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
     pub unsafe fn Render<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(&self, hdc: Param0, x: i32, y: i32, cx: i32, cy: i32, xsrc: i32, ysrc: i32, cxsrc: i32, cysrc: i32, prcwbounds: *const super::super::Foundation::RECT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(
             ::std::mem::transmute_copy(self),
@@ -5604,35 +6370,43 @@ impl IPicture2 {
         )
         .ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn set_hPal(&self, hpal: usize) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(hpal)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Graphics_Gdi`*"]
     pub unsafe fn CurDC(&self) -> ::windows::runtime::Result<super::super::Graphics::Gdi::HDC> {
         let mut result__: <super::super::Graphics::Gdi::HDC as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Graphics::Gdi::HDC>(result__)
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Graphics_Gdi`*"]
     pub unsafe fn SelectPicture<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(&self, hdcin: Param0, phdcout: *mut super::super::Graphics::Gdi::HDC, phbmpout: *mut usize) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), hdcin.into_param().abi(), ::std::mem::transmute(phdcout), ::std::mem::transmute(phbmpout)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn KeepOriginalFormat(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn SetKeepOriginalFormat<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, keep: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), keep.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn PictureChanged(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn SaveAsFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::IStream>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pstream: Param0, fsavememcopy: Param1) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), pstream.into_param().abi(), fsavememcopy.into_param().abi(), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn Attributes(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
@@ -5689,6 +6463,7 @@ pub struct IPicture2_abi(
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwattr: *mut u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPictureDisp(::windows::runtime::IUnknown);
@@ -5755,19 +6530,23 @@ pub struct IPictureDisp_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const Automation::DISPPARAMS, pvarresult: *mut ::std::mem::ManuallyDrop<super::Com::VARIANT>, pexcepinfo: *mut ::std::mem::ManuallyDrop<Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPointerInactive(::windows::runtime::IUnknown);
 impl IPointerInactive {
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn GetActivationPolicy(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn OnInactiveMouseMove(&self, prectbounds: *const super::super::Foundation::RECT, x: i32, y: i32, grfkeystate: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(prectbounds), ::std::mem::transmute(x), ::std::mem::transmute(y), ::std::mem::transmute(grfkeystate)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn OnInactiveSetCursor<'a, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, prectbounds: *const super::super::Foundation::RECT, x: i32, y: i32, dwmousemsg: u32, fsetalways: Param4) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(prectbounds), ::std::mem::transmute(x), ::std::mem::transmute(y), ::std::mem::transmute(dwmousemsg), fsetalways.into_param().abi()).ok()
     }
@@ -5808,17 +6587,21 @@ pub struct IPointerInactive_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, prectbounds: *const super::super::Foundation::RECT, x: i32, y: i32, dwmousemsg: u32, fsetalways: super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPrint(::windows::runtime::IUnknown);
 impl IPrint {
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn SetInitialPageNum(&self, nfirstpage: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(nfirstpage)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn GetPageInfo(&self, pnfirstpage: *mut i32, pcpages: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pnfirstpage), ::std::mem::transmute(pcpages)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`*"]
     pub unsafe fn Print<'a, Param4: ::windows::runtime::IntoParam<'a, IContinueCallback>>(&self, grfflags: u32, pptd: *mut *mut super::Com::DVTARGETDEVICE, pppageset: *mut *mut PAGESET, pstgmoptions: *mut super::Com::STGMEDIUM, pcallback: Param4, nfirstpage: i32, pcpagesprinted: *mut i32, pnlastpage: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(
             ::std::mem::transmute_copy(self),
@@ -5870,27 +6653,33 @@ pub struct IPrint_abi(
     pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, grfflags: u32, pptd: *mut *mut super::Com::DVTARGETDEVICE, pppageset: *mut *mut PAGESET, pstgmoptions: *mut ::std::mem::ManuallyDrop<super::Com::STGMEDIUM>, pcallback: ::windows::runtime::RawPtr, nfirstpage: i32, pcpagesprinted: *mut i32, pnlastpage: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPropertyBag2(::windows::runtime::IUnknown);
 impl IPropertyBag2 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Read<'a, Param2: ::windows::runtime::IntoParam<'a, Automation::IErrorLog>>(&self, cproperties: u32, ppropbag: *const PROPBAG2, perrlog: Param2, pvarvalue: *mut super::Com::VARIANT, phrerror: *mut ::windows::runtime::HRESULT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(cproperties), ::std::mem::transmute(ppropbag), perrlog.into_param().abi(), ::std::mem::transmute(pvarvalue), ::std::mem::transmute(phrerror)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Write(&self, cproperties: u32, ppropbag: *const PROPBAG2, pvarvalue: *const super::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(cproperties), ::std::mem::transmute(ppropbag), ::std::mem::transmute(pvarvalue)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn CountProperties(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn GetPropertyInfo(&self, iproperty: u32, cproperties: u32, ppropbag: *mut PROPBAG2, pcproperties: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(iproperty), ::std::mem::transmute(cproperties), ::std::mem::transmute(ppropbag), ::std::mem::transmute(pcproperties)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn LoadObject<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param3: ::windows::runtime::IntoParam<'a, Automation::IErrorLog>>(&self, pstrname: Param0, dwhint: u32, punkobject: Param2, perrlog: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), pstrname.into_param().abi(), ::std::mem::transmute(dwhint), punkobject.into_param().abi(), perrlog.into_param().abi()).ok()
     }
@@ -5935,13 +6724,16 @@ pub struct IPropertyBag2_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pstrname: super::super::Foundation::PWSTR, dwhint: u32, punkobject: ::windows::runtime::RawPtr, perrlog: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation")))] usize,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPropertyNotifySink(::windows::runtime::IUnknown);
 impl IPropertyNotifySink {
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn OnChanged(&self, dispid: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispid)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn OnRequestEdit(&self, dispid: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispid)).ok()
     }
@@ -5979,46 +6771,58 @@ pub struct IPropertyNotifySink_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispid: i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispid: i32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPropertyPage(::windows::runtime::IUnknown);
 impl IPropertyPage {
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn SetPageSite<'a, Param0: ::windows::runtime::IntoParam<'a, IPropertyPageSite>>(&self, ppagesite: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ppagesite.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn Activate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, hwndparent: Param0, prect: *const super::super::Foundation::RECT, bmodal: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), hwndparent.into_param().abi(), ::std::mem::transmute(prect), bmodal.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn Deactivate(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn GetPageInfo(&self) -> ::windows::runtime::Result<PROPPAGEINFO> {
         let mut result__: <PROPPAGEINFO as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<PROPPAGEINFO>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn SetObjects(&self, cobjects: u32, ppunk: *const ::std::option::Option<::windows::runtime::IUnknown>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(cobjects), ::std::mem::transmute(ppunk)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn Show(&self, ncmdshow: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(ncmdshow)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn Move(&self, prect: *const super::super::Foundation::RECT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(prect)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn IsPageDirty(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn Apply(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn Help<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszhelpdir: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), pszhelpdir.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
     pub unsafe fn TranslateAccelerator(&self, pmsg: *const super::super::UI::WindowsAndMessaging::MSG) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(pmsg)).ok()
     }
@@ -6070,49 +6874,62 @@ pub struct IPropertyPage_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pmsg: *const super::super::UI::WindowsAndMessaging::MSG) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging")))] usize,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPropertyPage2(::windows::runtime::IUnknown);
 impl IPropertyPage2 {
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn SetPageSite<'a, Param0: ::windows::runtime::IntoParam<'a, IPropertyPageSite>>(&self, ppagesite: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ppagesite.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn Activate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, hwndparent: Param0, prect: *const super::super::Foundation::RECT, bmodal: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), hwndparent.into_param().abi(), ::std::mem::transmute(prect), bmodal.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn Deactivate(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn GetPageInfo(&self) -> ::windows::runtime::Result<PROPPAGEINFO> {
         let mut result__: <PROPPAGEINFO as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<PROPPAGEINFO>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn SetObjects(&self, cobjects: u32, ppunk: *const ::std::option::Option<::windows::runtime::IUnknown>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(cobjects), ::std::mem::transmute(ppunk)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn Show(&self, ncmdshow: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(ncmdshow)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn Move(&self, prect: *const super::super::Foundation::RECT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(prect)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn IsPageDirty(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn Apply(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn Help<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszhelpdir: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), pszhelpdir.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
     pub unsafe fn TranslateAccelerator(&self, pmsg: *const super::super::UI::WindowsAndMessaging::MSG) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(pmsg)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn EditProperty(&self, dispid: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispid)).ok()
     }
@@ -6185,22 +7002,27 @@ pub struct IPropertyPage2_abi(
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispid: i32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPropertyPageSite(::windows::runtime::IUnknown);
 impl IPropertyPageSite {
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn OnStatusChange(&self, dwflags: PROPPAGESTATUS) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwflags)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn GetLocaleID(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn GetPageContainer(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
         let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
     pub unsafe fn TranslateAccelerator(&self, pmsg: *const super::super::UI::WindowsAndMessaging::MSG) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(pmsg)).ok()
     }
@@ -6241,11 +7063,13 @@ pub struct IPropertyPageSite_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pmsg: *const super::super::UI::WindowsAndMessaging::MSG) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging")))] usize,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IProtectFocus(::windows::runtime::IUnknown);
 impl IProtectFocus {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn AllowFocusChange(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
@@ -6284,21 +7108,25 @@ pub struct IProtectFocus_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pfallow: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IProtectedModeMenuServices(::windows::runtime::IUnknown);
 impl IProtectedModeMenuServices {
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_UI_WindowsAndMessaging`*"]
     pub unsafe fn CreateMenu(&self) -> ::windows::runtime::Result<super::super::UI::WindowsAndMessaging::HMENU> {
         let mut result__: <super::super::UI::WindowsAndMessaging::HMENU as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::UI::WindowsAndMessaging::HMENU>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
     pub unsafe fn LoadMenu<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszmodulename: Param0, pszmenuname: Param1) -> ::windows::runtime::Result<super::super::UI::WindowsAndMessaging::HMENU> {
         let mut result__: <super::super::UI::WindowsAndMessaging::HMENU as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pszmodulename.into_param().abi(), pszmenuname.into_param().abi(), &mut result__).from_abi::<super::super::UI::WindowsAndMessaging::HMENU>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
     pub unsafe fn LoadMenuID<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszmodulename: Param0, wresourceid: u16) -> ::windows::runtime::Result<super::super::UI::WindowsAndMessaging::HMENU> {
         let mut result__: <super::super::UI::WindowsAndMessaging::HMENU as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), pszmodulename.into_param().abi(), ::std::mem::transmute(wresourceid), &mut result__).from_abi::<super::super::UI::WindowsAndMessaging::HMENU>(result__)
@@ -6341,11 +7169,13 @@ pub struct IProtectedModeMenuServices_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pszmodulename: super::super::Foundation::PWSTR, wresourceid: u16, phmenu: *mut super::super::UI::WindowsAndMessaging::HMENU) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging")))] usize,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IProvideClassInfo(::windows::runtime::IUnknown);
 impl IProvideClassInfo {
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetClassInfo(&self) -> ::windows::runtime::Result<Automation::ITypeInfo> {
         let mut result__: <Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<Automation::ITypeInfo>(result__)
@@ -6384,15 +7214,18 @@ pub struct IProvideClassInfo_abi(
     #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppti: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IProvideClassInfo2(::windows::runtime::IUnknown);
 impl IProvideClassInfo2 {
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetClassInfo(&self) -> ::windows::runtime::Result<Automation::ITypeInfo> {
         let mut result__: <Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<Automation::ITypeInfo>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn GetGUID(&self, dwguidkind: u32) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwguidkind), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
@@ -6452,24 +7285,29 @@ pub struct IProvideClassInfo2_abi(
     #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwguidkind: u32, pguid: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IProvideMultipleClassInfo(::windows::runtime::IUnknown);
 impl IProvideMultipleClassInfo {
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetClassInfo(&self) -> ::windows::runtime::Result<Automation::ITypeInfo> {
         let mut result__: <Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<Automation::ITypeInfo>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn GetGUID(&self, dwguidkind: u32) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwguidkind), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn GetMultiTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetInfoOfIndex(&self, iti: u32, dwflags: MULTICLASSINFO_FLAGS, ppticoclass: *mut ::std::option::Option<Automation::ITypeInfo>, pdwtiflags: *mut u32, pcdispidreserved: *mut u32, piidprimary: *mut ::windows::runtime::GUID, piidsource: *mut ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(iti), ::std::mem::transmute(dwflags), ::std::mem::transmute(ppticoclass), ::std::mem::transmute(pdwtiflags), ::std::mem::transmute(pcdispidreserved), ::std::mem::transmute(piidprimary), ::std::mem::transmute(piidsource)).ok()
     }
@@ -6551,19 +7389,23 @@ pub struct IProvideMultipleClassInfo_abi(
     #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iti: u32, dwflags: MULTICLASSINFO_FLAGS, ppticoclass: *mut ::windows::runtime::RawPtr, pdwtiflags: *mut u32, pcdispidreserved: *mut u32, piidprimary: *mut ::windows::runtime::GUID, piidsource: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IQuickActivate(::windows::runtime::IUnknown);
 impl IQuickActivate {
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Graphics_Gdi`, `Win32_System_Com`*"]
     pub unsafe fn QuickActivate(&self, pqacontainer: *const QACONTAINER, pqacontrol: *mut QACONTROL) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pqacontainer), ::std::mem::transmute(pqacontrol)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn SetContentExtent(&self, psizel: *const super::super::Foundation::SIZE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(psizel)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn GetContentExtent(&self) -> ::windows::runtime::Result<super::super::Foundation::SIZE> {
         let mut result__: <super::super::Foundation::SIZE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::SIZE>(result__)
@@ -6606,15 +7448,18 @@ pub struct IQuickActivate_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, psizel: *mut super::super::Foundation::SIZE) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISimpleFrameSite(::windows::runtime::IUnknown);
 impl ISimpleFrameSite {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn PreMessageFilter<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::WPARAM>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, hwnd: Param0, msg: u32, wp: Param2, lp: Param3, plresult: *mut super::super::Foundation::LRESULT, pdwcookie: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), hwnd.into_param().abi(), ::std::mem::transmute(msg), wp.into_param().abi(), lp.into_param().abi(), ::std::mem::transmute(plresult), ::std::mem::transmute(pdwcookie)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn PostMessageFilter<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::WPARAM>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, hwnd: Param0, msg: u32, wp: Param2, lp: Param3, plresult: *mut super::super::Foundation::LRESULT, dwcookie: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), hwnd.into_param().abi(), ::std::mem::transmute(msg), wp.into_param().abi(), lp.into_param().abi(), ::std::mem::transmute(plresult), ::std::mem::transmute(dwcookie)).ok()
     }
@@ -6654,10 +7499,12 @@ pub struct ISimpleFrameSite_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hwnd: super::super::Foundation::HWND, msg: u32, wp: super::super::Foundation::WPARAM, lp: super::super::Foundation::LPARAM, plresult: *mut super::super::Foundation::LRESULT, dwcookie: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISpecifyPropertyPages(::windows::runtime::IUnknown);
 impl ISpecifyPropertyPages {
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn GetPages(&self) -> ::windows::runtime::Result<CAUUID> {
         let mut result__: <CAUUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<CAUUID>(result__)
@@ -6695,11 +7542,13 @@ pub struct ISpecifyPropertyPages_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppages: *mut CAUUID) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IVBFormat(::windows::runtime::IUnknown);
 impl IVBFormat {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Format<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, vdata: *mut super::Com::VARIANT, bstrformat: Param1, lpbuffer: *mut ::std::ffi::c_void, cb: u16, lcid: i32, sfirstdayofweek: i16, sfirstweekofyear: u16, rcb: *mut u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(vdata), bstrformat.into_param().abi(), ::std::mem::transmute(lpbuffer), ::std::mem::transmute(cb), ::std::mem::transmute(lcid), ::std::mem::transmute(sfirstdayofweek), ::std::mem::transmute(sfirstweekofyear), ::std::mem::transmute(rcb)).ok()
     }
@@ -6737,11 +7586,13 @@ pub struct IVBFormat_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, vdata: *mut ::std::mem::ManuallyDrop<super::Com::VARIANT>, bstrformat: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, lpbuffer: *mut ::std::ffi::c_void, cb: u16, lcid: i32, sfirstdayofweek: i16, sfirstweekofyear: u16, rcb: *mut u16) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IVBGetControl(::windows::runtime::IUnknown);
 impl IVBGetControl {
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com`*"]
     pub unsafe fn EnumControls(&self, dwolecontf: OLECONTF, dwwhich: ENUM_CONTROLS_WHICH_FLAGS) -> ::windows::runtime::Result<super::Com::IEnumUnknown> {
         let mut result__: <super::Com::IEnumUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwolecontf), ::std::mem::transmute(dwwhich), &mut result__).from_abi::<super::Com::IEnumUnknown>(result__)
@@ -6780,11 +7631,13 @@ pub struct IVBGetControl_abi(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwolecontf: OLECONTF, dwwhich: ENUM_CONTROLS_WHICH_FLAGS, ppenumunk: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IViewObject(::windows::runtime::IUnknown);
 impl IViewObject {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_System_Com`*"]
     pub unsafe fn Draw<'a, Param4: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>, Param5: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(
         &self,
         dwdrawaspect: u32,
@@ -6814,20 +7667,25 @@ impl IViewObject {
         .ok()
     }
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Graphics_Gdi`, `Win32_System_Com`*"]
     pub unsafe fn GetColorSet<'a, Param4: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(&self, dwdrawaspect: u32, lindex: i32, pvaspect: *mut ::std::ffi::c_void, ptd: *const super::Com::DVTARGETDEVICE, hictargetdev: Param4, ppcolorset: *mut *mut super::super::Graphics::Gdi::LOGPALETTE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwdrawaspect), ::std::mem::transmute(lindex), ::std::mem::transmute(pvaspect), ::std::mem::transmute(ptd), hictargetdev.into_param().abi(), ::std::mem::transmute(ppcolorset)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn Freeze(&self, dwdrawaspect: u32, lindex: i32, pvaspect: *mut ::std::ffi::c_void, pdwfreeze: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwdrawaspect), ::std::mem::transmute(lindex), ::std::mem::transmute(pvaspect), ::std::mem::transmute(pdwfreeze)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn Unfreeze(&self, dwfreeze: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwfreeze)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com`*"]
     pub unsafe fn SetAdvise<'a, Param2: ::windows::runtime::IntoParam<'a, super::Com::IAdviseSink>>(&self, aspects: u32, advf: u32, padvsink: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(aspects), ::std::mem::transmute(advf), padvsink.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com`*"]
     pub unsafe fn GetAdvise(&self, paspects: *mut u32, padvf: *mut u32, ppadvsink: *mut ::std::option::Option<super::Com::IAdviseSink>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(paspects), ::std::mem::transmute(padvf), ::std::mem::transmute(ppadvsink)).ok()
     }
@@ -6874,11 +7732,13 @@ pub struct IViewObject_abi(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, paspects: *mut u32, padvf: *mut u32, ppadvsink: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IViewObject2(::windows::runtime::IUnknown);
 impl IViewObject2 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_System_Com`*"]
     pub unsafe fn Draw<'a, Param4: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>, Param5: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(
         &self,
         dwdrawaspect: u32,
@@ -6908,24 +7768,30 @@ impl IViewObject2 {
         .ok()
     }
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Graphics_Gdi`, `Win32_System_Com`*"]
     pub unsafe fn GetColorSet<'a, Param4: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(&self, dwdrawaspect: u32, lindex: i32, pvaspect: *mut ::std::ffi::c_void, ptd: *const super::Com::DVTARGETDEVICE, hictargetdev: Param4, ppcolorset: *mut *mut super::super::Graphics::Gdi::LOGPALETTE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwdrawaspect), ::std::mem::transmute(lindex), ::std::mem::transmute(pvaspect), ::std::mem::transmute(ptd), hictargetdev.into_param().abi(), ::std::mem::transmute(ppcolorset)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn Freeze(&self, dwdrawaspect: u32, lindex: i32, pvaspect: *mut ::std::ffi::c_void, pdwfreeze: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwdrawaspect), ::std::mem::transmute(lindex), ::std::mem::transmute(pvaspect), ::std::mem::transmute(pdwfreeze)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn Unfreeze(&self, dwfreeze: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwfreeze)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com`*"]
     pub unsafe fn SetAdvise<'a, Param2: ::windows::runtime::IntoParam<'a, super::Com::IAdviseSink>>(&self, aspects: u32, advf: u32, padvsink: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(aspects), ::std::mem::transmute(advf), padvsink.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com`*"]
     pub unsafe fn GetAdvise(&self, paspects: *mut u32, padvf: *mut u32, ppadvsink: *mut ::std::option::Option<super::Com::IAdviseSink>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(paspects), ::std::mem::transmute(padvf), ::std::mem::transmute(ppadvsink)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn GetExtent(&self, dwdrawaspect: u32, lindex: i32, ptd: *const super::Com::DVTARGETDEVICE) -> ::windows::runtime::Result<super::super::Foundation::SIZE> {
         let mut result__: <super::super::Foundation::SIZE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwdrawaspect), ::std::mem::transmute(lindex), ::std::mem::transmute(ptd), &mut result__).from_abi::<super::super::Foundation::SIZE>(result__)
@@ -6995,11 +7861,13 @@ pub struct IViewObject2_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwdrawaspect: u32, lindex: i32, ptd: *const super::Com::DVTARGETDEVICE, lpsizel: *mut super::super::Foundation::SIZE) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IViewObjectEx(::windows::runtime::IUnknown);
 impl IViewObjectEx {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_System_Com`*"]
     pub unsafe fn Draw<'a, Param4: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>, Param5: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(
         &self,
         dwdrawaspect: u32,
@@ -7029,48 +7897,59 @@ impl IViewObjectEx {
         .ok()
     }
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Graphics_Gdi`, `Win32_System_Com`*"]
     pub unsafe fn GetColorSet<'a, Param4: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(&self, dwdrawaspect: u32, lindex: i32, pvaspect: *mut ::std::ffi::c_void, ptd: *const super::Com::DVTARGETDEVICE, hictargetdev: Param4, ppcolorset: *mut *mut super::super::Graphics::Gdi::LOGPALETTE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwdrawaspect), ::std::mem::transmute(lindex), ::std::mem::transmute(pvaspect), ::std::mem::transmute(ptd), hictargetdev.into_param().abi(), ::std::mem::transmute(ppcolorset)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn Freeze(&self, dwdrawaspect: u32, lindex: i32, pvaspect: *mut ::std::ffi::c_void, pdwfreeze: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwdrawaspect), ::std::mem::transmute(lindex), ::std::mem::transmute(pvaspect), ::std::mem::transmute(pdwfreeze)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn Unfreeze(&self, dwfreeze: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwfreeze)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com`*"]
     pub unsafe fn SetAdvise<'a, Param2: ::windows::runtime::IntoParam<'a, super::Com::IAdviseSink>>(&self, aspects: u32, advf: u32, padvsink: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(aspects), ::std::mem::transmute(advf), padvsink.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com`*"]
     pub unsafe fn GetAdvise(&self, paspects: *mut u32, padvf: *mut u32, ppadvsink: *mut ::std::option::Option<super::Com::IAdviseSink>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(paspects), ::std::mem::transmute(padvf), ::std::mem::transmute(ppadvsink)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn GetExtent(&self, dwdrawaspect: u32, lindex: i32, ptd: *const super::Com::DVTARGETDEVICE) -> ::windows::runtime::Result<super::super::Foundation::SIZE> {
         let mut result__: <super::super::Foundation::SIZE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwdrawaspect), ::std::mem::transmute(lindex), ::std::mem::transmute(ptd), &mut result__).from_abi::<super::super::Foundation::SIZE>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn GetRect(&self, dwaspect: u32) -> ::windows::runtime::Result<super::super::Foundation::RECTL> {
         let mut result__: <super::super::Foundation::RECTL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwaspect), &mut result__).from_abi::<super::super::Foundation::RECTL>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn GetViewStatus(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn QueryHitPoint<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::POINT>>(&self, dwaspect: u32, prectbounds: *const super::super::Foundation::RECT, ptlloc: Param2, lclosehint: i32) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwaspect), ::std::mem::transmute(prectbounds), ptlloc.into_param().abi(), ::std::mem::transmute(lclosehint), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
     pub unsafe fn QueryHitRect(&self, dwaspect: u32, prectbounds: *const super::super::Foundation::RECT, prectloc: *const super::super::Foundation::RECT, lclosehint: i32) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwaspect), ::std::mem::transmute(prectbounds), ::std::mem::transmute(prectloc), ::std::mem::transmute(lclosehint), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_System_Com`*"]
     pub unsafe fn GetNaturalExtent<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(&self, dwaspect: super::Com::DVASPECT, lindex: i32, ptd: *const super::Com::DVTARGETDEVICE, hictargetdev: Param3, pextentinfo: *const ExtentInfo) -> ::windows::runtime::Result<super::super::Foundation::SIZE> {
         let mut result__: <super::super::Foundation::SIZE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwaspect), ::std::mem::transmute(lindex), ::std::mem::transmute(ptd), hictargetdev.into_param().abi(), ::std::mem::transmute(pextentinfo), &mut result__).from_abi::<super::super::Foundation::SIZE>(result__)
@@ -7169,10 +8048,12 @@ pub struct IViewObjectEx_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwaspect: super::Com::DVASPECT, lindex: i32, ptd: *const super::Com::DVTARGETDEVICE, hictargetdev: super::super::Graphics::Gdi::HDC, pextentinfo: *const ExtentInfo, psizel: *mut super::super::Foundation::SIZE) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com")))] usize,
 );
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IZoomEvents(::windows::runtime::IUnknown);
 impl IZoomEvents {
+    #[doc = "*Required features: `Win32_System_Ole`*"]
     pub unsafe fn OnZoomPercentChanged(&self, ulzoompercent: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulzoompercent)).ok()
     }
@@ -7210,6 +8091,7 @@ pub struct IZoomEvents_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ulzoompercent: u32) -> ::windows::runtime::HRESULT,
 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
 #[inline]
 pub unsafe fn IsAccelerator<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::UI::WindowsAndMessaging::HACCEL>>(haccel: Param0, caccelentries: i32, lpmsg: *mut super::super::UI::WindowsAndMessaging::MSG, lpwcmd: *mut u16) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -7226,6 +8108,7 @@ pub unsafe fn IsAccelerator<'a, Param0: ::windows::runtime::IntoParam<'a, super:
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
 pub struct LICINFO {
     pub cbLicInfo: i32,
     pub fRuntimeKeyAvail: super::super::Foundation::BOOL,
@@ -7260,10 +8143,15 @@ unsafe impl ::windows::runtime::Abi for LICINFO {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type LPFNOLEUIHOOK = unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: super::super::Foundation::WPARAM, param3: super::super::Foundation::LPARAM) -> u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const LP_COLOR: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const LP_DEFAULT: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const LP_MONOCHROME: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const LP_VGACOLOR: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MEDIAPLAYBACK_STATE(pub i32);
@@ -7280,13 +8168,21 @@ unsafe impl ::windows::runtime::Abi for MEDIAPLAYBACK_STATE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const MK_ALT: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const MSOCMDERR_E_CANCELED: i32 = -2147221245i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const MSOCMDERR_E_DISABLED: i32 = -2147221247i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const MSOCMDERR_E_FIRST: i32 = -2147221248i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const MSOCMDERR_E_NOHELP: i32 = -2147221246i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const MSOCMDERR_E_NOTSUPPORTED: i32 = -2147221248i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const MSOCMDERR_E_UNKNOWNGROUP: i32 = -2147221244i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MULTICLASSINFO_FLAGS(pub u32);
@@ -7334,6 +8230,7 @@ impl ::std::ops::Not for MULTICLASSINFO_FLAGS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
 pub struct OBJECTDESCRIPTOR {
     pub cbSize: u32,
     pub clsid: ::windows::runtime::GUID,
@@ -7380,10 +8277,12 @@ unsafe impl ::windows::runtime::Abi for OBJECTDESCRIPTOR {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OCM__BASE: u32 = 8192u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
 pub struct OCPFIPARAMS {
     pub cbStructSize: u32,
     pub hWndOwner: super::super::Foundation::HWND,
@@ -7436,12 +8335,16 @@ unsafe impl ::windows::runtime::Abi for OCPFIPARAMS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OF_GET: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OF_HANDLER: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OF_SET: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
 pub struct OIFI {
     pub cb: u32,
     pub fMDIApp: super::super::Foundation::BOOL,
@@ -7476,6 +8379,7 @@ unsafe impl ::windows::runtime::Abi for OIFI {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct OLECLOSE(pub i32);
@@ -7493,6 +8397,7 @@ unsafe impl ::windows::runtime::Abi for OLECLOSE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub struct OLECMD {
     pub cmdID: u32,
     pub cmdf: u32,
@@ -7518,20 +8423,35 @@ unsafe impl ::windows::runtime::Abi for OLECMD {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLECMDARGINDEX_ACTIVEXINSTALL_CLSID: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLECMDARGINDEX_ACTIVEXINSTALL_DISPLAYNAME: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLECMDARGINDEX_ACTIVEXINSTALL_INSTALLSCOPE: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLECMDARGINDEX_ACTIVEXINSTALL_PUBLISHER: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLECMDARGINDEX_ACTIVEXINSTALL_SOURCEURL: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLECMDARGINDEX_SHOWPAGEACTIONMENU_HWND: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLECMDARGINDEX_SHOWPAGEACTIONMENU_X: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLECMDARGINDEX_SHOWPAGEACTIONMENU_Y: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLECMDERR_E_CANCELED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147221245i32 as _);
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLECMDERR_E_DISABLED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147221247i32 as _);
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLECMDERR_E_FIRST: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147221248i32 as _);
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLECMDERR_E_NOHELP: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147221246i32 as _);
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLECMDERR_E_NOTSUPPORTED: i32 = -2147221248i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLECMDERR_E_UNKNOWNGROUP: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147221244i32 as _);
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct OLECMDEXECOPT(pub i32);
@@ -7548,6 +8468,7 @@ unsafe impl ::windows::runtime::Abi for OLECMDEXECOPT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct OLECMDF(pub i32);
@@ -7566,6 +8487,7 @@ unsafe impl ::windows::runtime::Abi for OLECMDF {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct OLECMDID(pub i32);
@@ -7661,6 +8583,7 @@ unsafe impl ::windows::runtime::Abi for OLECMDID {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct OLECMDID_BROWSERSTATEFLAG(pub i32);
@@ -7680,6 +8603,7 @@ unsafe impl ::windows::runtime::Abi for OLECMDID_BROWSERSTATEFLAG {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct OLECMDID_OPTICAL_ZOOMFLAG(pub i32);
@@ -7696,6 +8620,7 @@ unsafe impl ::windows::runtime::Abi for OLECMDID_OPTICAL_ZOOMFLAG {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct OLECMDID_PAGEACTIONFLAG(pub i32);
@@ -7741,6 +8666,7 @@ unsafe impl ::windows::runtime::Abi for OLECMDID_PAGEACTIONFLAG {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct OLECMDID_REFRESHFLAG(pub i32);
@@ -7776,6 +8702,7 @@ unsafe impl ::windows::runtime::Abi for OLECMDID_REFRESHFLAG {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct OLECMDID_VIEWPORT_MODE_FLAG(pub i32);
@@ -7792,6 +8719,7 @@ unsafe impl ::windows::runtime::Abi for OLECMDID_VIEWPORT_MODE_FLAG {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct OLECMDID_WINDOWSTATE_FLAG(pub i32);
@@ -7810,6 +8738,7 @@ unsafe impl ::windows::runtime::Abi for OLECMDID_WINDOWSTATE_FLAG {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub struct OLECMDTEXT {
     pub cmdtextf: u32,
     pub cwActual: u32,
@@ -7837,6 +8766,7 @@ unsafe impl ::windows::runtime::Abi for OLECMDTEXT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct OLECMDTEXTF(pub i32);
@@ -7852,7 +8782,9 @@ unsafe impl ::windows::runtime::Abi for OLECMDTEXTF {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLECMD_TASKDLGID_ONBEFOREUNLOAD: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct OLECONTF(pub i32);
@@ -7870,7 +8802,9 @@ unsafe impl ::windows::runtime::Abi for OLECONTF {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLECREATE_LEAVERUNNING: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct OLEDCFLAGS(pub i32);
@@ -7886,6 +8820,7 @@ unsafe impl ::windows::runtime::Abi for OLEDCFLAGS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct OLEGETMONIKER(pub i32);
@@ -7902,14 +8837,23 @@ unsafe impl ::windows::runtime::Abi for OLEGETMONIKER {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEIVERB_DISCARDUNDOSTATE: i32 = -6i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEIVERB_HIDE: i32 = -3i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEIVERB_INPLACEACTIVATE: i32 = -5i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEIVERB_OPEN: i32 = -2i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEIVERB_PRIMARY: i32 = 0i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEIVERB_PROPERTIES: i32 = -7i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEIVERB_SHOW: i32 = -1i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEIVERB_UIACTIVATE: i32 = -4i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct OLELINKBIND(pub i32);
@@ -7923,6 +8867,7 @@ unsafe impl ::windows::runtime::Abi for OLELINKBIND {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct OLEMISC(pub i32);
@@ -7957,6 +8902,7 @@ unsafe impl ::windows::runtime::Abi for OLEMISC {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct OLERENDER(pub i32);
@@ -7976,6 +8922,7 @@ unsafe impl ::windows::runtime::Abi for OLERENDER {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_CoreAudio", feature = "Win32_System_LibraryLoader"))]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_Media_Audio_CoreAudio`, `Win32_System_LibraryLoader`*"]
 pub struct OLEUIBUSYA {
     pub cbStruct: u32,
     pub dwFlags: u32,
@@ -8030,6 +8977,7 @@ unsafe impl ::windows::runtime::Abi for OLEUIBUSYA {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_CoreAudio", feature = "Win32_System_LibraryLoader"))]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_Media_Audio_CoreAudio`, `Win32_System_LibraryLoader`*"]
 pub struct OLEUIBUSYW {
     pub cbStruct: u32,
     pub dwFlags: u32,
@@ -8084,6 +9032,7 @@ unsafe impl ::windows::runtime::Abi for OLEUIBUSYW {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_LibraryLoader"))]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_LibraryLoader`*"]
 pub struct OLEUICHANGEICONA {
     pub cbStruct: u32,
     pub dwFlags: u32,
@@ -8154,6 +9103,7 @@ unsafe impl ::windows::runtime::Abi for OLEUICHANGEICONA {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_LibraryLoader"))]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_LibraryLoader`*"]
 pub struct OLEUICHANGEICONW {
     pub cbStruct: u32,
     pub dwFlags: u32,
@@ -8224,6 +9174,7 @@ unsafe impl ::windows::runtime::Abi for OLEUICHANGEICONW {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_LibraryLoader", feature = "Win32_UI_Controls_Dialogs"))]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_LibraryLoader`, `Win32_UI_Controls_Dialogs`*"]
 pub struct OLEUICHANGESOURCEA {
     pub cbStruct: u32,
     pub dwFlags: u32,
@@ -8306,6 +9257,7 @@ unsafe impl ::windows::runtime::Abi for OLEUICHANGESOURCEA {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_LibraryLoader", feature = "Win32_UI_Controls_Dialogs"))]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_LibraryLoader`, `Win32_UI_Controls_Dialogs`*"]
 pub struct OLEUICHANGESOURCEW {
     pub cbStruct: u32,
     pub dwFlags: u32,
@@ -8388,6 +9340,7 @@ unsafe impl ::windows::runtime::Abi for OLEUICHANGESOURCEW {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_LibraryLoader"))]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_LibraryLoader`*"]
 pub struct OLEUICONVERTA {
     pub cbStruct: u32,
     pub dwFlags: u32,
@@ -8485,6 +9438,7 @@ unsafe impl ::windows::runtime::Abi for OLEUICONVERTA {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_LibraryLoader"))]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_LibraryLoader`*"]
 pub struct OLEUICONVERTW {
     pub cbStruct: u32,
     pub dwFlags: u32,
@@ -8582,6 +9536,7 @@ unsafe impl ::windows::runtime::Abi for OLEUICONVERTW {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_LibraryLoader"))]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_LibraryLoader`*"]
 pub struct OLEUIEDITLINKSA {
     pub cbStruct: u32,
     pub dwFlags: u32,
@@ -8634,6 +9589,7 @@ unsafe impl ::windows::runtime::Abi for OLEUIEDITLINKSA {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_LibraryLoader"))]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_LibraryLoader`*"]
 pub struct OLEUIEDITLINKSW {
     pub cbStruct: u32,
     pub dwFlags: u32,
@@ -8686,6 +9642,7 @@ unsafe impl ::windows::runtime::Abi for OLEUIEDITLINKSW {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_Controls`, `Win32_UI_WindowsAndMessaging`*"]
 pub struct OLEUIGNRLPROPSA {
     pub cbStruct: u32,
     pub dwFlags: u32,
@@ -8725,6 +9682,7 @@ unsafe impl ::windows::runtime::Abi for OLEUIGNRLPROPSA {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_Controls`, `Win32_UI_WindowsAndMessaging`*"]
 pub struct OLEUIGNRLPROPSW {
     pub cbStruct: u32,
     pub dwFlags: u32,
@@ -8764,6 +9722,7 @@ unsafe impl ::windows::runtime::Abi for OLEUIGNRLPROPSW {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_LibraryLoader"))]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_LibraryLoader`*"]
 pub struct OLEUIINSERTOBJECTA {
     pub cbStruct: u32,
     pub dwFlags: u32,
@@ -8861,6 +9820,7 @@ unsafe impl ::windows::runtime::Abi for OLEUIINSERTOBJECTA {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_LibraryLoader"))]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_LibraryLoader`*"]
 pub struct OLEUIINSERTOBJECTW {
     pub cbStruct: u32,
     pub dwFlags: u32,
@@ -8958,6 +9918,7 @@ unsafe impl ::windows::runtime::Abi for OLEUIINSERTOBJECTW {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_Controls`, `Win32_UI_WindowsAndMessaging`*"]
 pub struct OLEUILINKPROPSA {
     pub cbStruct: u32,
     pub dwFlags: u32,
@@ -8997,6 +9958,7 @@ unsafe impl ::windows::runtime::Abi for OLEUILINKPROPSA {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_Controls`, `Win32_UI_WindowsAndMessaging`*"]
 pub struct OLEUILINKPROPSW {
     pub cbStruct: u32,
     pub dwFlags: u32,
@@ -9036,6 +9998,7 @@ unsafe impl ::windows::runtime::Abi for OLEUILINKPROPSW {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_Controls`, `Win32_UI_WindowsAndMessaging`*"]
 pub struct OLEUIOBJECTPROPSA {
     pub cbStruct: u32,
     pub dwFlags: u32,
@@ -9089,6 +10052,7 @@ unsafe impl ::windows::runtime::Abi for OLEUIOBJECTPROPSA {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_Controls`, `Win32_UI_WindowsAndMessaging`*"]
 pub struct OLEUIOBJECTPROPSW {
     pub cbStruct: u32,
     pub dwFlags: u32,
@@ -9142,6 +10106,7 @@ unsafe impl ::windows::runtime::Abi for OLEUIOBJECTPROPSW {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_Com`*"]
 pub struct OLEUIPASTEENTRYA {
     pub fmtetc: super::Com::FORMATETC,
     pub lpstrFormatName: super::super::Foundation::PSTR,
@@ -9179,6 +10144,7 @@ unsafe impl ::windows::runtime::Abi for OLEUIPASTEENTRYA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_Com`*"]
 pub struct OLEUIPASTEENTRYW {
     pub fmtetc: super::Com::FORMATETC,
     pub lpstrFormatName: super::super::Foundation::PWSTR,
@@ -9213,6 +10179,7 @@ unsafe impl ::windows::runtime::Abi for OLEUIPASTEENTRYW {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct OLEUIPASTEFLAG(pub i32);
@@ -9240,6 +10207,7 @@ unsafe impl ::windows::runtime::Abi for OLEUIPASTEFLAG {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_LibraryLoader"))]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_LibraryLoader`*"]
 pub struct OLEUIPASTESPECIALA {
     pub cbStruct: u32,
     pub dwFlags: u32,
@@ -9331,6 +10299,7 @@ unsafe impl ::windows::runtime::Abi for OLEUIPASTESPECIALA {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_LibraryLoader"))]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_LibraryLoader`*"]
 pub struct OLEUIPASTESPECIALW {
     pub cbStruct: u32,
     pub dwFlags: u32,
@@ -9422,6 +10391,7 @@ unsafe impl ::windows::runtime::Abi for OLEUIPASTESPECIALW {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_Controls`, `Win32_UI_WindowsAndMessaging`*"]
 pub struct OLEUIVIEWPROPSA {
     pub cbStruct: u32,
     pub dwFlags: u32,
@@ -9472,6 +10442,7 @@ unsafe impl ::windows::runtime::Abi for OLEUIVIEWPROPSA {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_Controls`, `Win32_UI_WindowsAndMessaging`*"]
 pub struct OLEUIVIEWPROPSW {
     pub cbStruct: u32,
     pub dwFlags: u32,
@@ -9519,89 +10490,173 @@ unsafe impl ::windows::runtime::Abi for OLEUIVIEWPROPSW {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_BZERR_HTASKINVALID: u32 = 116u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_BZ_CALLUNBLOCKED: u32 = 119u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_BZ_RETRYSELECTED: u32 = 118u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_BZ_SWITCHTOSELECTED: u32 = 117u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_CANCEL: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_CIERR_MUSTHAVECLSID: u32 = 116u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_CIERR_MUSTHAVECURRENTMETAFILE: u32 = 117u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_CIERR_SZICONEXEINVALID: u32 = 118u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_CSERR_FROMNOTNULL: u32 = 118u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_CSERR_LINKCNTRINVALID: u32 = 117u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_CSERR_LINKCNTRNULL: u32 = 116u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_CSERR_SOURCEINVALID: u32 = 121u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_CSERR_SOURCENULL: u32 = 120u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_CSERR_SOURCEPARSEERROR: u32 = 122u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_CSERR_SOURCEPARSERROR: u32 = 122u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_CSERR_TONOTNULL: u32 = 119u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_CTERR_CBFORMATINVALID: u32 = 119u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_CTERR_CLASSIDINVALID: u32 = 117u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_CTERR_DVASPECTINVALID: u32 = 118u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_CTERR_HMETAPICTINVALID: u32 = 120u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_CTERR_STRINGINVALID: u32 = 121u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_ELERR_LINKCNTRINVALID: u32 = 117u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_ELERR_LINKCNTRNULL: u32 = 116u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_ERR_CBSTRUCTINCORRECT: u32 = 103u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_ERR_DIALOGFAILURE: u32 = 112u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_ERR_FINDTEMPLATEFAILURE: u32 = 110u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_ERR_GLOBALMEMALLOC: u32 = 114u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_ERR_HINSTANCEINVALID: u32 = 107u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_ERR_HRESOURCEINVALID: u32 = 109u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_ERR_HWNDOWNERINVALID: u32 = 104u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_ERR_LOADSTRING: u32 = 115u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_ERR_LOADTEMPLATEFAILURE: u32 = 111u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_ERR_LOCALMEMALLOC: u32 = 113u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_ERR_LPFNHOOKINVALID: u32 = 106u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_ERR_LPSZCAPTIONINVALID: u32 = 105u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_ERR_LPSZTEMPLATEINVALID: u32 = 108u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_ERR_OLEMEMALLOC: u32 = 100u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_ERR_STANDARDMAX: u32 = 116u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_ERR_STANDARDMIN: u32 = 100u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_ERR_STRUCTUREINVALID: u32 = 102u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_ERR_STRUCTURENULL: u32 = 101u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_FALSE: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_GPERR_CBFORMATINVALID: u32 = 130u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_GPERR_CLASSIDINVALID: u32 = 128u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_GPERR_LPCLSIDEXCLUDEINVALID: u32 = 129u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_GPERR_STRINGINVALID: u32 = 127u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_IOERR_ARRLINKTYPESINVALID: u32 = 118u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_IOERR_ARRPASTEENTRIESINVALID: u32 = 117u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_IOERR_CCHFILEINVALID: u32 = 125u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_IOERR_HICONINVALID: u32 = 118u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_IOERR_LPCLSIDEXCLUDEINVALID: u32 = 124u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_IOERR_LPFORMATETCINVALID: u32 = 119u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_IOERR_LPIOLECLIENTSITEINVALID: u32 = 121u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_IOERR_LPISTORAGEINVALID: u32 = 122u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_IOERR_LPSZFILEINVALID: u32 = 116u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_IOERR_LPSZLABELINVALID: u32 = 117u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_IOERR_PPVOBJINVALID: u32 = 120u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_IOERR_SCODEHASERROR: u32 = 123u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_IOERR_SRCDATAOBJECTINVALID: u32 = 116u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_LPERR_LINKCNTRINVALID: u32 = 134u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_LPERR_LINKCNTRNULL: u32 = 133u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_OK: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_OPERR_DLGPROCNOTNULL: u32 = 125u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_OPERR_INVALIDPAGES: u32 = 123u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_OPERR_LINKINFOINVALID: u32 = 137u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_OPERR_LPARAMNOTZERO: u32 = 126u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_OPERR_NOTSUPPORTED: u32 = 124u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_OPERR_OBJINFOINVALID: u32 = 136u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_OPERR_PAGESINCORRECT: u32 = 122u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_OPERR_PROPERTYSHEET: u32 = 135u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_OPERR_PROPSHEETINVALID: u32 = 119u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_OPERR_PROPSHEETNULL: u32 = 118u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_OPERR_PROPSINVALID: u32 = 121u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_OPERR_SUBPROPINVALID: u32 = 117u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_OPERR_SUBPROPNULL: u32 = 116u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_OPERR_SUPPROP: u32 = 120u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_PSERR_CLIPBOARDCHANGED: u32 = 119u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_PSERR_GETCLIPBOARDFAILED: u32 = 120u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_QUERY_GETCLASSID: u32 = 65280u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_QUERY_LINKBROKEN: u32 = 65281u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_SUCCESS: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_VPERR_DVASPECTINVALID: u32 = 132u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_VPERR_METAPICTINVALID: u32 = 131u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct OLEUPDATE(pub i32);
@@ -9619,6 +10674,7 @@ unsafe impl ::windows::runtime::Abi for OLEUPDATE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
 pub struct OLEVERB {
     pub lVerb: i32,
     pub lpszVerbName: super::super::Foundation::PWSTR,
@@ -9652,6 +10708,7 @@ unsafe impl ::windows::runtime::Abi for OLEVERB {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct OLEVERBATTRIB(pub i32);
@@ -9666,7 +10723,9 @@ unsafe impl ::windows::runtime::Abi for OLEVERBATTRIB {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEVERB_PRIMARY: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct OLEWHICHMK(pub i32);
@@ -9682,6 +10741,7 @@ unsafe impl ::windows::runtime::Abi for OLEWHICHMK {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct OLE_TRISTATE(pub i32);
@@ -9697,13 +10757,21 @@ unsafe impl ::windows::runtime::Abi for OLE_TRISTATE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OPF_DISABLECONVERT: i32 = 8i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OPF_NOFILLDEFAULT: i32 = 2i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OPF_OBJECTISLINK: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OPF_SHOWHELP: i32 = 4i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OT_EMBEDDED: i32 = 2i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OT_LINK: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OT_STATIC: i32 = 3i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[inline]
 pub unsafe fn OleBuildVersion() -> u32 {
     #[cfg(windows)]
@@ -9718,6 +10786,7 @@ pub unsafe fn OleBuildVersion() -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`*"]
 #[inline]
 pub unsafe fn OleCreate<'a, Param4: ::windows::runtime::IntoParam<'a, IOleClientSite>, Param5: ::windows::runtime::IntoParam<'a, super::Com::StructuredStorage::IStorage>>(rclsid: *const ::windows::runtime::GUID, riid: *const ::windows::runtime::GUID, renderopt: u32, pformatetc: *mut super::Com::FORMATETC, pclientsite: Param4, pstg: Param5, ppvobj: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -9731,6 +10800,7 @@ pub unsafe fn OleCreate<'a, Param4: ::windows::runtime::IntoParam<'a, IOleClient
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[inline]
 pub unsafe fn OleCreateDefaultHandler<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(clsid: *const ::windows::runtime::GUID, punkouter: Param1, riid: *const ::windows::runtime::GUID, lplpobj: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -9745,6 +10815,7 @@ pub unsafe fn OleCreateDefaultHandler<'a, Param1: ::windows::runtime::IntoParam<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn OleCreateEmbeddingHelper<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param3: ::windows::runtime::IntoParam<'a, super::Com::IClassFactory>>(clsid: *const ::windows::runtime::GUID, punkouter: Param1, flags: u32, pcf: Param3, riid: *const ::windows::runtime::GUID, lplpobj: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -9759,6 +10830,7 @@ pub unsafe fn OleCreateEmbeddingHelper<'a, Param1: ::windows::runtime::IntoParam
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`*"]
 #[inline]
 pub unsafe fn OleCreateEx<'a, Param7: ::windows::runtime::IntoParam<'a, super::Com::IAdviseSink>, Param9: ::windows::runtime::IntoParam<'a, IOleClientSite>, Param10: ::windows::runtime::IntoParam<'a, super::Com::StructuredStorage::IStorage>>(
     rclsid: *const ::windows::runtime::GUID,
@@ -9800,6 +10872,7 @@ pub unsafe fn OleCreateEx<'a, Param7: ::windows::runtime::IntoParam<'a, super::C
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn OleCreateFontIndirect(lpfontdesc: *mut FONTDESC, riid: *const ::windows::runtime::GUID, lplpvobj: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -9814,6 +10887,7 @@ pub unsafe fn OleCreateFontIndirect(lpfontdesc: *mut FONTDESC, riid: *const ::wi
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`*"]
 #[inline]
 pub unsafe fn OleCreateFromData<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::IDataObject>, Param4: ::windows::runtime::IntoParam<'a, IOleClientSite>, Param5: ::windows::runtime::IntoParam<'a, super::Com::StructuredStorage::IStorage>>(psrcdataobj: Param0, riid: *const ::windows::runtime::GUID, renderopt: u32, pformatetc: *mut super::Com::FORMATETC, pclientsite: Param4, pstg: Param5, ppvobj: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -9828,6 +10902,7 @@ pub unsafe fn OleCreateFromData<'a, Param0: ::windows::runtime::IntoParam<'a, su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`*"]
 #[inline]
 pub unsafe fn OleCreateFromDataEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::IDataObject>, Param7: ::windows::runtime::IntoParam<'a, super::Com::IAdviseSink>, Param9: ::windows::runtime::IntoParam<'a, IOleClientSite>, Param10: ::windows::runtime::IntoParam<'a, super::Com::StructuredStorage::IStorage>>(
     psrcdataobj: Param0,
@@ -9869,6 +10944,7 @@ pub unsafe fn OleCreateFromDataEx<'a, Param0: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`*"]
 #[inline]
 pub unsafe fn OleCreateFromFile<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::runtime::IntoParam<'a, IOleClientSite>, Param6: ::windows::runtime::IntoParam<'a, super::Com::StructuredStorage::IStorage>>(
     rclsid: *const ::windows::runtime::GUID,
@@ -9892,6 +10968,7 @@ pub unsafe fn OleCreateFromFile<'a, Param1: ::windows::runtime::IntoParam<'a, su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`*"]
 #[inline]
 pub unsafe fn OleCreateFromFileEx<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param8: ::windows::runtime::IntoParam<'a, super::Com::IAdviseSink>, Param10: ::windows::runtime::IntoParam<'a, IOleClientSite>, Param11: ::windows::runtime::IntoParam<'a, super::Com::StructuredStorage::IStorage>>(
     rclsid: *const ::windows::runtime::GUID,
@@ -9935,6 +11012,7 @@ pub unsafe fn OleCreateFromFileEx<'a, Param1: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`*"]
 #[inline]
 pub unsafe fn OleCreateLink<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::IMoniker>, Param4: ::windows::runtime::IntoParam<'a, IOleClientSite>, Param5: ::windows::runtime::IntoParam<'a, super::Com::StructuredStorage::IStorage>>(pmklinksrc: Param0, riid: *const ::windows::runtime::GUID, renderopt: u32, lpformatetc: *mut super::Com::FORMATETC, pclientsite: Param4, pstg: Param5, ppvobj: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -9949,6 +11027,7 @@ pub unsafe fn OleCreateLink<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`*"]
 #[inline]
 pub unsafe fn OleCreateLinkEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::IMoniker>, Param7: ::windows::runtime::IntoParam<'a, super::Com::IAdviseSink>, Param9: ::windows::runtime::IntoParam<'a, IOleClientSite>, Param10: ::windows::runtime::IntoParam<'a, super::Com::StructuredStorage::IStorage>>(
     pmklinksrc: Param0,
@@ -9990,6 +11069,7 @@ pub unsafe fn OleCreateLinkEx<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`*"]
 #[inline]
 pub unsafe fn OleCreateLinkFromData<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::IDataObject>, Param4: ::windows::runtime::IntoParam<'a, IOleClientSite>, Param5: ::windows::runtime::IntoParam<'a, super::Com::StructuredStorage::IStorage>>(psrcdataobj: Param0, riid: *const ::windows::runtime::GUID, renderopt: u32, pformatetc: *mut super::Com::FORMATETC, pclientsite: Param4, pstg: Param5, ppvobj: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -10004,6 +11084,7 @@ pub unsafe fn OleCreateLinkFromData<'a, Param0: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`*"]
 #[inline]
 pub unsafe fn OleCreateLinkFromDataEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::IDataObject>, Param7: ::windows::runtime::IntoParam<'a, super::Com::IAdviseSink>, Param9: ::windows::runtime::IntoParam<'a, IOleClientSite>, Param10: ::windows::runtime::IntoParam<'a, super::Com::StructuredStorage::IStorage>>(
     psrcdataobj: Param0,
@@ -10045,6 +11126,7 @@ pub unsafe fn OleCreateLinkFromDataEx<'a, Param0: ::windows::runtime::IntoParam<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`*"]
 #[inline]
 pub unsafe fn OleCreateLinkToFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, IOleClientSite>, Param5: ::windows::runtime::IntoParam<'a, super::Com::StructuredStorage::IStorage>>(lpszfilename: Param0, riid: *const ::windows::runtime::GUID, renderopt: u32, lpformatetc: *mut super::Com::FORMATETC, pclientsite: Param4, pstg: Param5, ppvobj: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -10059,6 +11141,7 @@ pub unsafe fn OleCreateLinkToFile<'a, Param0: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`*"]
 #[inline]
 pub unsafe fn OleCreateLinkToFileEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param7: ::windows::runtime::IntoParam<'a, super::Com::IAdviseSink>, Param9: ::windows::runtime::IntoParam<'a, IOleClientSite>, Param10: ::windows::runtime::IntoParam<'a, super::Com::StructuredStorage::IStorage>>(
     lpszfilename: Param0,
@@ -10100,6 +11183,7 @@ pub unsafe fn OleCreateLinkToFileEx<'a, Param0: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_UI_WindowsAndMessaging`*"]
 #[inline]
 pub unsafe fn OleCreateMenuDescriptor<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::UI::WindowsAndMessaging::HMENU>>(hmenucombined: Param0, lpmenuwidths: *mut OleMenuGroupWidths) -> isize {
     #[cfg(windows)]
@@ -10114,6 +11198,7 @@ pub unsafe fn OleCreateMenuDescriptor<'a, Param0: ::windows::runtime::IntoParam<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_WindowsAndMessaging`*"]
 #[inline]
 pub unsafe fn OleCreatePictureIndirect<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(lppictdesc: *mut PICTDESC, riid: *const ::windows::runtime::GUID, fown: Param2, lplpvobj: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -10128,6 +11213,7 @@ pub unsafe fn OleCreatePictureIndirect<'a, Param2: ::windows::runtime::IntoParam
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn OleCreatePropertyFrame<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hwndowner: Param0, x: u32, y: u32, lpszcaption: Param3, cobjects: u32, ppunk: *mut ::std::option::Option<::windows::runtime::IUnknown>, cpages: u32, ppageclsid: *mut ::windows::runtime::GUID, lcid: u32, dwreserved: u32, pvreserved: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -10155,6 +11241,7 @@ pub unsafe fn OleCreatePropertyFrame<'a, Param0: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn OleCreatePropertyFrameIndirect(lpparams: *mut OCPFIPARAMS) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -10169,6 +11256,7 @@ pub unsafe fn OleCreatePropertyFrameIndirect(lpparams: *mut OCPFIPARAMS) -> ::wi
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`*"]
 #[inline]
 pub unsafe fn OleCreateStaticFromData<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::IDataObject>, Param4: ::windows::runtime::IntoParam<'a, IOleClientSite>, Param5: ::windows::runtime::IntoParam<'a, super::Com::StructuredStorage::IStorage>>(psrcdataobj: Param0, iid: *const ::windows::runtime::GUID, renderopt: u32, pformatetc: *mut super::Com::FORMATETC, pclientsite: Param4, pstg: Param5, ppvobj: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -10182,6 +11270,7 @@ pub unsafe fn OleCreateStaticFromData<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[inline]
 pub unsafe fn OleDestroyMenuDescriptor(holemenu: isize) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -10196,6 +11285,7 @@ pub unsafe fn OleDestroyMenuDescriptor(holemenu: isize) -> ::windows::runtime::R
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com_StructuredStorage`*"]
 #[inline]
 pub unsafe fn OleDoAutoConvert<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::StructuredStorage::IStorage>>(pstg: Param0, pclsidnew: *mut ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -10210,6 +11300,7 @@ pub unsafe fn OleDoAutoConvert<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[inline]
 pub unsafe fn OleDraw<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param2: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(punknown: Param0, dwaspect: u32, hdcdraw: Param2, lprcbounds: *mut super::super::Foundation::RECT) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -10224,6 +11315,7 @@ pub unsafe fn OleDraw<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::r
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn OleDuplicateData<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hsrc: Param0, cfformat: u16, uiflags: u32) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
@@ -10237,6 +11329,7 @@ pub unsafe fn OleDuplicateData<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[inline]
 pub unsafe fn OleFlushClipboard() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -10250,6 +11343,7 @@ pub unsafe fn OleFlushClipboard() -> ::windows::runtime::Result<()> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[inline]
 pub unsafe fn OleGetAutoConvert(clsidold: *const ::windows::runtime::GUID, pclsidnew: *mut ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -10264,6 +11358,7 @@ pub unsafe fn OleGetAutoConvert(clsidold: *const ::windows::runtime::GUID, pclsi
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn OleGetClipboard() -> ::windows::runtime::Result<super::Com::IDataObject> {
     #[cfg(windows)]
@@ -10279,6 +11374,7 @@ pub unsafe fn OleGetClipboard() -> ::windows::runtime::Result<super::Com::IDataO
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn OleGetClipboardWithEnterpriseInfo(dataobject: *mut ::std::option::Option<super::Com::IDataObject>, dataenterpriseid: *mut super::super::Foundation::PWSTR, sourcedescription: *mut super::super::Foundation::PWSTR, targetdescription: *mut super::super::Foundation::PWSTR, datadescription: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -10293,6 +11389,7 @@ pub unsafe fn OleGetClipboardWithEnterpriseInfo(dataobject: *mut ::std::option::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn OleGetIconOfClass<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(rclsid: *const ::windows::runtime::GUID, lpszlabel: Param1, fusetypeaslabel: Param2) -> isize {
     #[cfg(windows)]
@@ -10307,6 +11404,7 @@ pub unsafe fn OleGetIconOfClass<'a, Param1: ::windows::runtime::IntoParam<'a, su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn OleGetIconOfFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(lpszpath: Param0, fusefileaslabel: Param1) -> isize {
     #[cfg(windows)]
@@ -10321,6 +11419,7 @@ pub unsafe fn OleGetIconOfFile<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
 #[inline]
 pub unsafe fn OleIconToCursor<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param1: ::windows::runtime::IntoParam<'a, super::super::UI::WindowsAndMessaging::HICON>>(hinstexe: Param0, hicon: Param1) -> super::super::UI::WindowsAndMessaging::HCURSOR {
     #[cfg(windows)]
@@ -10334,6 +11433,7 @@ pub unsafe fn OleIconToCursor<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[inline]
 pub unsafe fn OleInitialize(pvreserved: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -10348,6 +11448,7 @@ pub unsafe fn OleInitialize(pvreserved: *mut ::std::ffi::c_void) -> ::windows::r
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn OleIsCurrentClipboard<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::IDataObject>>(pdataobj: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -10362,6 +11463,7 @@ pub unsafe fn OleIsCurrentClipboard<'a, Param0: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn OleIsRunning<'a, Param0: ::windows::runtime::IntoParam<'a, IOleObject>>(pobject: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10376,6 +11478,7 @@ pub unsafe fn OleIsRunning<'a, Param0: ::windows::runtime::IntoParam<'a, IOleObj
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com_StructuredStorage`*"]
 #[inline]
 pub unsafe fn OleLoad<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::StructuredStorage::IStorage>, Param2: ::windows::runtime::IntoParam<'a, IOleClientSite>>(pstg: Param0, riid: *const ::windows::runtime::GUID, pclientsite: Param2, ppvobj: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -10390,6 +11493,7 @@ pub unsafe fn OleLoad<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn OleLoadFromStream<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::IStream>>(pstm: Param0, iidinterface: *const ::windows::runtime::GUID, ppvobj: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -10404,6 +11508,7 @@ pub unsafe fn OleLoadFromStream<'a, Param0: ::windows::runtime::IntoParam<'a, su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn OleLoadPicture<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::IStream>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(lpstream: Param0, lsize: i32, frunmode: Param2, riid: *const ::windows::runtime::GUID, lplpvobj: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -10418,6 +11523,7 @@ pub unsafe fn OleLoadPicture<'a, Param0: ::windows::runtime::IntoParam<'a, super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn OleLoadPictureEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::IStream>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(lpstream: Param0, lsize: i32, frunmode: Param2, riid: *const ::windows::runtime::GUID, xsizedesired: u32, ysizedesired: u32, dwflags: u32, lplpvobj: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -10432,6 +11538,7 @@ pub unsafe fn OleLoadPictureEx<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn OleLoadPictureFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::VARIANT>>(varfilename: Param0) -> ::windows::runtime::Result<Automation::IDispatch> {
     #[cfg(windows)]
@@ -10447,6 +11554,7 @@ pub unsafe fn OleLoadPictureFile<'a, Param0: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn OleLoadPictureFileEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::VARIANT>>(varfilename: Param0, xsizedesired: u32, ysizedesired: u32, dwflags: u32) -> ::windows::runtime::Result<Automation::IDispatch> {
     #[cfg(windows)]
@@ -10462,6 +11570,7 @@ pub unsafe fn OleLoadPictureFileEx<'a, Param0: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn OleLoadPicturePath<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(szurlorpath: Param0, punkcaller: Param1, dwreserved: u32, clrreserved: u32, riid: *const ::windows::runtime::GUID, ppvret: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -10476,6 +11585,7 @@ pub unsafe fn OleLoadPicturePath<'a, Param0: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn OleLockRunning<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(punknown: Param0, flock: Param1, flastunlockcloses: Param2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -10491,6 +11601,7 @@ pub unsafe fn OleLockRunning<'a, Param0: ::windows::runtime::IntoParam<'a, ::win
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub struct OleMenuGroupWidths {
     pub width: [i32; 6],
 }
@@ -10516,6 +11627,7 @@ unsafe impl ::windows::runtime::Abi for OleMenuGroupWidths {
     type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
 #[inline]
 pub unsafe fn OleMetafilePictFromIconAndLabel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::UI::WindowsAndMessaging::HICON>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hicon: Param0, lpszlabel: Param1, lpszsourcefile: Param2, iiconindex: u32) -> isize {
     #[cfg(windows)]
@@ -10530,6 +11642,7 @@ pub unsafe fn OleMetafilePictFromIconAndLabel<'a, Param0: ::windows::runtime::In
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn OleNoteObjectVisible<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(punknown: Param0, fvisible: Param1) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -10544,6 +11657,7 @@ pub unsafe fn OleNoteObjectVisible<'a, Param0: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn OleQueryCreateFromData<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::IDataObject>>(psrcdataobject: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -10558,6 +11672,7 @@ pub unsafe fn OleQueryCreateFromData<'a, Param0: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn OleQueryLinkFromData<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::IDataObject>>(psrcdataobject: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -10572,6 +11687,7 @@ pub unsafe fn OleQueryLinkFromData<'a, Param0: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn OleRegEnumFormatEtc(clsid: *const ::windows::runtime::GUID, dwdirection: u32) -> ::windows::runtime::Result<super::Com::IEnumFORMATETC> {
     #[cfg(windows)]
@@ -10586,6 +11702,7 @@ pub unsafe fn OleRegEnumFormatEtc(clsid: *const ::windows::runtime::GUID, dwdire
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[inline]
 pub unsafe fn OleRegEnumVerbs(clsid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<IEnumOLEVERB> {
     #[cfg(windows)]
@@ -10600,6 +11717,7 @@ pub unsafe fn OleRegEnumVerbs(clsid: *const ::windows::runtime::GUID) -> ::windo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[inline]
 pub unsafe fn OleRegGetMiscStatus(clsid: *const ::windows::runtime::GUID, dwaspect: u32, pdwstatus: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -10614,6 +11732,7 @@ pub unsafe fn OleRegGetMiscStatus(clsid: *const ::windows::runtime::GUID, dwaspe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn OleRegGetUserType(clsid: *const ::windows::runtime::GUID, dwformoftype: u32) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
@@ -10628,6 +11747,7 @@ pub unsafe fn OleRegGetUserType(clsid: *const ::windows::runtime::GUID, dwformof
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[inline]
 pub unsafe fn OleRun<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(punknown: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -10642,6 +11762,7 @@ pub unsafe fn OleRun<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::ru
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_Com_StructuredStorage`*"]
 #[inline]
 pub unsafe fn OleSave<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::StructuredStorage::IPersistStorage>, Param1: ::windows::runtime::IntoParam<'a, super::Com::StructuredStorage::IStorage>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(pps: Param0, pstg: Param1, fsameasload: Param2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -10656,6 +11777,7 @@ pub unsafe fn OleSave<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
 #[inline]
 pub unsafe fn OleSavePictureFile<'a, Param0: ::windows::runtime::IntoParam<'a, Automation::IDispatch>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(lpdisppicture: Param0, bstrfilename: Param1) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -10670,6 +11792,7 @@ pub unsafe fn OleSavePictureFile<'a, Param0: ::windows::runtime::IntoParam<'a, A
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn OleSaveToStream<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::IPersistStream>, Param1: ::windows::runtime::IntoParam<'a, super::Com::IStream>>(ppstm: Param0, pstm: Param1) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -10683,6 +11806,7 @@ pub unsafe fn OleSaveToStream<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[inline]
 pub unsafe fn OleSetAutoConvert(clsidold: *const ::windows::runtime::GUID, clsidnew: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -10697,6 +11821,7 @@ pub unsafe fn OleSetAutoConvert(clsidold: *const ::windows::runtime::GUID, clsid
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn OleSetClipboard<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::IDataObject>>(pdataobj: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -10711,6 +11836,7 @@ pub unsafe fn OleSetClipboard<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn OleSetContainedObject<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(punknown: Param0, fcontained: Param1) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -10725,6 +11851,7 @@ pub unsafe fn OleSetContainedObject<'a, Param0: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn OleSetMenuDescriptor<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param3: ::windows::runtime::IntoParam<'a, IOleInPlaceFrame>, Param4: ::windows::runtime::IntoParam<'a, IOleInPlaceActiveObject>>(holemenu: isize, hwndframe: Param1, hwndactiveobject: Param2, lpframe: Param3, lpactiveobj: Param4) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -10739,6 +11866,7 @@ pub unsafe fn OleSetMenuDescriptor<'a, Param1: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
 #[inline]
 pub unsafe fn OleTranslateAccelerator<'a, Param0: ::windows::runtime::IntoParam<'a, IOleInPlaceFrame>>(lpframe: Param0, lpframeinfo: *mut OIFI, lpmsg: *mut super::super::UI::WindowsAndMessaging::MSG) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -10753,6 +11881,7 @@ pub unsafe fn OleTranslateAccelerator<'a, Param0: ::windows::runtime::IntoParam<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Graphics_Gdi`*"]
 #[inline]
 pub unsafe fn OleTranslateColor<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HPALETTE>>(clr: u32, hpal: Param1, lpcolorref: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -10767,6 +11896,7 @@ pub unsafe fn OleTranslateColor<'a, Param1: ::windows::runtime::IntoParam<'a, su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
 #[inline]
 pub unsafe fn OleUIAddVerbMenuA<'a, Param0: ::windows::runtime::IntoParam<'a, IOleObject>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::UI::WindowsAndMessaging::HMENU>, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(
     lpoleobj: Param0,
@@ -10801,6 +11931,7 @@ pub unsafe fn OleUIAddVerbMenuA<'a, Param0: ::windows::runtime::IntoParam<'a, IO
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
 #[inline]
 pub unsafe fn OleUIAddVerbMenuW<'a, Param0: ::windows::runtime::IntoParam<'a, IOleObject>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::UI::WindowsAndMessaging::HMENU>, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(
     lpoleobj: Param0,
@@ -10835,6 +11966,7 @@ pub unsafe fn OleUIAddVerbMenuW<'a, Param0: ::windows::runtime::IntoParam<'a, IO
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_CoreAudio", feature = "Win32_System_LibraryLoader"))]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_Media_Audio_CoreAudio`, `Win32_System_LibraryLoader`*"]
 #[inline]
 pub unsafe fn OleUIBusyA(param0: *const OLEUIBUSYA) -> u32 {
     #[cfg(windows)]
@@ -10849,6 +11981,7 @@ pub unsafe fn OleUIBusyA(param0: *const OLEUIBUSYA) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_CoreAudio", feature = "Win32_System_LibraryLoader"))]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_Media_Audio_CoreAudio`, `Win32_System_LibraryLoader`*"]
 #[inline]
 pub unsafe fn OleUIBusyW(param0: *const OLEUIBUSYW) -> u32 {
     #[cfg(windows)]
@@ -10863,6 +11996,7 @@ pub unsafe fn OleUIBusyW(param0: *const OLEUIBUSYW) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn OleUICanConvertOrActivateAs<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(rclsid: *const ::windows::runtime::GUID, fislinkedobject: Param1, wformat: u16) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10877,6 +12011,7 @@ pub unsafe fn OleUICanConvertOrActivateAs<'a, Param1: ::windows::runtime::IntoPa
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_LibraryLoader"))]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_LibraryLoader`*"]
 #[inline]
 pub unsafe fn OleUIChangeIconA(param0: *const OLEUICHANGEICONA) -> u32 {
     #[cfg(windows)]
@@ -10891,6 +12026,7 @@ pub unsafe fn OleUIChangeIconA(param0: *const OLEUICHANGEICONA) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_LibraryLoader"))]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_LibraryLoader`*"]
 #[inline]
 pub unsafe fn OleUIChangeIconW(param0: *const OLEUICHANGEICONW) -> u32 {
     #[cfg(windows)]
@@ -10905,6 +12041,7 @@ pub unsafe fn OleUIChangeIconW(param0: *const OLEUICHANGEICONW) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_LibraryLoader", feature = "Win32_UI_Controls_Dialogs"))]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_LibraryLoader`, `Win32_UI_Controls_Dialogs`*"]
 #[inline]
 pub unsafe fn OleUIChangeSourceA(param0: *const OLEUICHANGESOURCEA) -> u32 {
     #[cfg(windows)]
@@ -10919,6 +12056,7 @@ pub unsafe fn OleUIChangeSourceA(param0: *const OLEUICHANGESOURCEA) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_LibraryLoader", feature = "Win32_UI_Controls_Dialogs"))]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_LibraryLoader`, `Win32_UI_Controls_Dialogs`*"]
 #[inline]
 pub unsafe fn OleUIChangeSourceW(param0: *const OLEUICHANGESOURCEW) -> u32 {
     #[cfg(windows)]
@@ -10933,6 +12071,7 @@ pub unsafe fn OleUIChangeSourceW(param0: *const OLEUICHANGESOURCEW) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_LibraryLoader"))]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_LibraryLoader`*"]
 #[inline]
 pub unsafe fn OleUIConvertA(param0: *const OLEUICONVERTA) -> u32 {
     #[cfg(windows)]
@@ -10947,6 +12086,7 @@ pub unsafe fn OleUIConvertA(param0: *const OLEUICONVERTA) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_LibraryLoader"))]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_LibraryLoader`*"]
 #[inline]
 pub unsafe fn OleUIConvertW(param0: *const OLEUICONVERTW) -> u32 {
     #[cfg(windows)]
@@ -10961,6 +12101,7 @@ pub unsafe fn OleUIConvertW(param0: *const OLEUICONVERTW) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_LibraryLoader"))]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_LibraryLoader`*"]
 #[inline]
 pub unsafe fn OleUIEditLinksA(param0: *const OLEUIEDITLINKSA) -> u32 {
     #[cfg(windows)]
@@ -10975,6 +12116,7 @@ pub unsafe fn OleUIEditLinksA(param0: *const OLEUIEDITLINKSA) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_LibraryLoader"))]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_LibraryLoader`*"]
 #[inline]
 pub unsafe fn OleUIEditLinksW(param0: *const OLEUIEDITLINKSW) -> u32 {
     #[cfg(windows)]
@@ -10989,6 +12131,7 @@ pub unsafe fn OleUIEditLinksW(param0: *const OLEUIEDITLINKSW) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_LibraryLoader"))]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_LibraryLoader`*"]
 #[inline]
 pub unsafe fn OleUIInsertObjectA(param0: *const OLEUIINSERTOBJECTA) -> u32 {
     #[cfg(windows)]
@@ -11003,6 +12146,7 @@ pub unsafe fn OleUIInsertObjectA(param0: *const OLEUIINSERTOBJECTA) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_LibraryLoader"))]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_LibraryLoader`*"]
 #[inline]
 pub unsafe fn OleUIInsertObjectW(param0: *const OLEUIINSERTOBJECTW) -> u32 {
     #[cfg(windows)]
@@ -11017,6 +12161,7 @@ pub unsafe fn OleUIInsertObjectW(param0: *const OLEUIINSERTOBJECTW) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_Controls`, `Win32_UI_WindowsAndMessaging`*"]
 #[inline]
 pub unsafe fn OleUIObjectPropertiesA(param0: *const OLEUIOBJECTPROPSA) -> u32 {
     #[cfg(windows)]
@@ -11031,6 +12176,7 @@ pub unsafe fn OleUIObjectPropertiesA(param0: *const OLEUIOBJECTPROPSA) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_Controls`, `Win32_UI_WindowsAndMessaging`*"]
 #[inline]
 pub unsafe fn OleUIObjectPropertiesW(param0: *const OLEUIOBJECTPROPSW) -> u32 {
     #[cfg(windows)]
@@ -11045,6 +12191,7 @@ pub unsafe fn OleUIObjectPropertiesW(param0: *const OLEUIOBJECTPROPSW) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_LibraryLoader"))]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_LibraryLoader`*"]
 #[inline]
 pub unsafe fn OleUIPasteSpecialA(param0: *const OLEUIPASTESPECIALA) -> u32 {
     #[cfg(windows)]
@@ -11059,6 +12206,7 @@ pub unsafe fn OleUIPasteSpecialA(param0: *const OLEUIPASTESPECIALA) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_LibraryLoader"))]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_LibraryLoader`*"]
 #[inline]
 pub unsafe fn OleUIPasteSpecialW(param0: *const OLEUIPASTESPECIALW) -> u32 {
     #[cfg(windows)]
@@ -11073,6 +12221,7 @@ pub unsafe fn OleUIPasteSpecialW(param0: *const OLEUIPASTESPECIALW) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn OleUIPromptUserA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(ntemplate: i32, hwndparent: Param1) -> i32 {
     #[cfg(windows)]
@@ -11087,6 +12236,7 @@ pub unsafe fn OleUIPromptUserA<'a, Param1: ::windows::runtime::IntoParam<'a, sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn OleUIPromptUserW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(ntemplate: i32, hwndparent: Param1) -> i32 {
     #[cfg(windows)]
@@ -11101,6 +12251,7 @@ pub unsafe fn OleUIPromptUserW<'a, Param1: ::windows::runtime::IntoParam<'a, sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn OleUIUpdateLinksA<'a, Param0: ::windows::runtime::IntoParam<'a, IOleUILinkContainerA>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpoleuilinkcntr: Param0, hwndparent: Param1, lpsztitle: Param2, clinks: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11115,6 +12266,7 @@ pub unsafe fn OleUIUpdateLinksA<'a, Param0: ::windows::runtime::IntoParam<'a, IO
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn OleUIUpdateLinksW<'a, Param0: ::windows::runtime::IntoParam<'a, IOleUILinkContainerW>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpoleuilinkcntr: Param0, hwndparent: Param1, lpsztitle: Param2, clinks: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11128,6 +12280,7 @@ pub unsafe fn OleUIUpdateLinksW<'a, Param0: ::windows::runtime::IntoParam<'a, IO
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[inline]
 pub unsafe fn OleUninitialize() {
     #[cfg(windows)]
@@ -11141,6 +12294,7 @@ pub unsafe fn OleUninitialize() {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PAGEACTION_UI(pub i32);
@@ -11159,6 +12313,7 @@ unsafe impl ::windows::runtime::Abi for PAGEACTION_UI {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub struct PAGERANGE {
     pub nFromPage: i32,
     pub nToPage: i32,
@@ -11187,6 +12342,7 @@ unsafe impl ::windows::runtime::Abi for PAGERANGE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
 pub struct PAGESET {
     pub cbStruct: u32,
     pub fOddPages: super::super::Foundation::BOOL,
@@ -11221,14 +12377,20 @@ unsafe impl ::windows::runtime::Abi for PAGESET {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const PERPROP_E_FIRST: i32 = -2147220992i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const PERPROP_E_LAST: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147220977i32 as _);
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const PERPROP_E_NOPAGEAVAILABLE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147220992i32 as _);
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const PERPROP_S_FIRST: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(262656i32 as _);
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const PERPROP_S_LAST: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(262671i32 as _);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Graphics_Gdi`, `Win32_UI_WindowsAndMessaging`*"]
 pub struct PICTDESC {
     pub cbSizeofstruct: u32,
     pub picType: u32,
@@ -11258,6 +12420,7 @@ unsafe impl ::windows::runtime::Abi for PICTDESC {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Graphics_Gdi`, `Win32_UI_WindowsAndMessaging`*"]
 pub union PICTDESC_0 {
     pub bmp: PICTDESC_0_0,
     pub wmf: PICTDESC_0_3,
@@ -11288,6 +12451,7 @@ unsafe impl ::windows::runtime::Abi for PICTDESC_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Graphics_Gdi`*"]
 pub struct PICTDESC_0_0 {
     pub hbitmap: super::super::Graphics::Gdi::HBITMAP,
     pub hpal: super::super::Graphics::Gdi::HPALETTE,
@@ -11322,6 +12486,7 @@ unsafe impl ::windows::runtime::Abi for PICTDESC_0_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Graphics_Gdi`*"]
 pub struct PICTDESC_0_1 {
     pub hemf: super::super::Graphics::Gdi::HENHMETAFILE,
 }
@@ -11355,6 +12520,7 @@ unsafe impl ::windows::runtime::Abi for PICTDESC_0_1 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_UI_WindowsAndMessaging`*"]
 pub struct PICTDESC_0_2 {
     pub hicon: super::super::UI::WindowsAndMessaging::HICON,
 }
@@ -11388,6 +12554,7 @@ unsafe impl ::windows::runtime::Abi for PICTDESC_0_2 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Graphics_Gdi`*"]
 pub struct PICTDESC_0_3 {
     pub hmeta: super::super::Graphics::Gdi::HMETAFILE,
     pub xExt: i32,
@@ -11420,12 +12587,19 @@ unsafe impl ::windows::runtime::Abi for PICTDESC_0_3 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const PICTYPE_BITMAP: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const PICTYPE_ENHMETAFILE: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const PICTYPE_ICON: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const PICTYPE_METAFILE: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const PICTYPE_NONE: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const PICTYPE_UNINITIALIZED: i32 = -1i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct POINTERINACTIVE(pub i32);
@@ -11443,6 +12617,7 @@ unsafe impl ::windows::runtime::Abi for POINTERINACTIVE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub struct POINTF {
     pub x: f32,
     pub y: f32,
@@ -11468,6 +12643,7 @@ unsafe impl ::windows::runtime::Abi for POINTF {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PRINTFLAG(pub u32);
@@ -11518,6 +12694,7 @@ impl ::std::ops::Not for PRINTFLAG {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
 pub struct PROPBAG2 {
     pub dwType: u32,
     pub vt: u16,
@@ -11553,6 +12730,7 @@ unsafe impl ::windows::runtime::Abi for PROPBAG2 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PROPBAG2_TYPE(pub i32);
@@ -11575,6 +12753,7 @@ unsafe impl ::windows::runtime::Abi for PROPBAG2_TYPE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
 pub struct PROPPAGEINFO {
     pub cb: u32,
     pub pszTitle: super::super::Foundation::PWSTR,
@@ -11610,6 +12789,7 @@ unsafe impl ::windows::runtime::Abi for PROPPAGEINFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PROPPAGESTATUS(pub i32);
@@ -11625,15 +12805,25 @@ unsafe impl ::windows::runtime::Abi for PROPPAGESTATUS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const PSF_CHECKDISPLAYASICON: i32 = 8i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const PSF_DISABLEDISPLAYASICON: i32 = 16i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const PSF_HIDECHANGEICON: i32 = 32i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const PSF_NOREFRESHDATAOBJECT: i32 = 128i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const PSF_SELECTPASTE: i32 = 2i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const PSF_SELECTPASTELINK: i32 = 4i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const PSF_SHOWHELP: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const PSF_STAYONCLIPBOARDCHANGE: i32 = 64i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const PS_MAXLINKTYPES: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PictureAttributes(pub i32);
@@ -11651,6 +12841,7 @@ unsafe impl ::windows::runtime::Abi for PictureAttributes {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Graphics_Gdi`, `Win32_System_Com`*"]
 pub struct QACONTAINER {
     pub cbSize: u32,
     pub pClientSite: ::std::option::Option<IOleClientSite>,
@@ -11728,6 +12919,7 @@ unsafe impl ::windows::runtime::Abi for QACONTAINER {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct QACONTAINERFLAGS(pub i32);
@@ -11750,6 +12942,7 @@ unsafe impl ::windows::runtime::Abi for QACONTAINERFLAGS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub struct QACONTROL {
     pub cbSize: u32,
     pub dwMiscStatus: u32,
@@ -11786,6 +12979,7 @@ unsafe impl ::windows::runtime::Abi for QACONTROL {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct READYSTATE(pub i32);
@@ -11804,6 +12998,7 @@ unsafe impl ::windows::runtime::Abi for READYSTATE {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RegisterDragDrop<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, IDropTarget>>(hwnd: Param0, pdroptarget: Param1) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -11818,6 +13013,7 @@ pub unsafe fn RegisterDragDrop<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`*"]
 #[inline]
 pub unsafe fn ReleaseStgMedium(param0: *mut super::Com::STGMEDIUM) {
     #[cfg(windows)]
@@ -11832,6 +13028,7 @@ pub unsafe fn ReleaseStgMedium(param0: *mut super::Com::STGMEDIUM) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RevokeDragDrop<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -11845,13 +13042,21 @@ pub unsafe fn RevokeDragDrop<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const SELFREG_E_CLASS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147220991i32 as _);
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const SELFREG_E_FIRST: i32 = -2147220992i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const SELFREG_E_LAST: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147220977i32 as _);
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const SELFREG_E_TYPELIB: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147220992i32 as _);
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const SELFREG_S_FIRST: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(262656i32 as _);
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const SELFREG_S_LAST: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(262671i32 as _);
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const TIFLAGS_EXTENDDISPATCHONLY: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct UASFLAGS(pub i32);
@@ -11868,6 +13073,7 @@ unsafe impl ::windows::runtime::Abi for UASFLAGS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct UPDFCACHE_FLAGS(pub u32);
@@ -11917,6 +13123,7 @@ impl ::std::ops::Not for UPDFCACHE_FLAGS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct USERCLASSTYPE(pub i32);
@@ -11932,6 +13139,7 @@ unsafe impl ::windows::runtime::Abi for USERCLASSTYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct VIEWSTATUS(pub i32);
@@ -11950,14 +13158,23 @@ unsafe impl ::windows::runtime::Abi for VIEWSTATUS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const VPF_DISABLERELATIVE: i32 = 2i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const VPF_DISABLESCALE: i32 = 4i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const VPF_SELECTRELATIVE: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const VT_BLOB_PROPSET: u32 = 75u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const VT_STORED_PROPSET: u32 = 74u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const VT_STREAMED_PROPSET: u32 = 73u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const VT_VERBOSE_ENUM: u32 = 76u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 pub const WIN32: u32 = 100u32;
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WPCSETTING(pub i32);
@@ -11972,6 +13189,7 @@ unsafe impl ::windows::runtime::Abi for WPCSETTING {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct XFORMCOORDS(pub i32);

@@ -41,15 +41,18 @@ pub struct IRemoteTextConnectionFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, connectionid: ::windows::runtime::GUID, pduforwarder: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `System_RemoteDesktop_Input`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct RemoteTextConnection(::windows::runtime::IInspectable);
 impl RemoteTextConnection {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `System_RemoteDesktop_Input`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `System_RemoteDesktop_Input`*"]
     pub fn IsEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -57,22 +60,27 @@ impl RemoteTextConnection {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `System_RemoteDesktop_Input`*"]
     pub fn SetIsEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `System_RemoteDesktop_Input`*"]
     pub fn RegisterThread(&self, threadid: u32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), threadid).ok() }
     }
+    #[doc = "*Required features: `System_RemoteDesktop_Input`*"]
     pub fn UnregisterThread(&self, threadid: u32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), threadid).ok() }
     }
+    #[doc = "*Required features: `System_RemoteDesktop_Input`*"]
     pub fn ReportDataReceived(&self, pdudata: &[<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), pdudata.len() as u32, ::std::mem::transmute(pdudata.as_ptr())).ok() }
     }
+    #[doc = "*Required features: `System_RemoteDesktop_Input`*"]
     pub fn CreateInstance<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>, Param1: ::windows::runtime::IntoParam<'a, RemoteTextConnectionDataHandler>>(connectionid: Param0, pduforwarder: Param1) -> ::windows::runtime::Result<RemoteTextConnection> {
         Self::IRemoteTextConnectionFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -162,6 +170,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::IClo
 }
 unsafe impl ::std::marker::Send for RemoteTextConnection {}
 unsafe impl ::std::marker::Sync for RemoteTextConnection {}
+#[doc = "*Required features: `System_RemoteDesktop_Input`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct RemoteTextConnectionDataHandler(::windows::runtime::IUnknown);
@@ -174,6 +183,7 @@ impl RemoteTextConnectionDataHandler {
         };
         unsafe { std::mem::transmute(::std::boxed::Box::new(com)) }
     }
+    #[doc = "*Required features: `System_RemoteDesktop_Input`*"]
     pub fn Invoke(&self, pdudata: &[<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {

@@ -1,4 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CIMTYPE_ENUMERATION(pub i32);
@@ -30,23 +31,29 @@ unsafe impl ::windows::runtime::Abi for CIMTYPE_ENUMERATION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IEnumWbemClassObject(::windows::runtime::IUnknown);
 impl IEnumWbemClassObject {
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Next(&self, ltimeout: i32, ucount: u32, apobjects: *mut ::std::option::Option<IWbemClassObject>, pureturned: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(ltimeout), ::std::mem::transmute(ucount), ::std::mem::transmute(apobjects), ::std::mem::transmute(pureturned)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn NextAsync<'a, Param1: ::windows::runtime::IntoParam<'a, IWbemObjectSink>>(&self, ucount: u32, psink: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(ucount), psink.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Clone(&self) -> ::windows::runtime::Result<IEnumWbemClassObject> {
         let mut result__: <IEnumWbemClassObject as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IEnumWbemClassObject>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Skip(&self, ltimeout: i32, ncount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(ltimeout), ::std::mem::transmute(ncount)).ok()
     }
@@ -87,11 +94,13 @@ pub struct IEnumWbemClassObject_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenum: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ltimeout: i32, ncount: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMofCompiler(::windows::runtime::IUnknown);
 impl IMofCompiler {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn CompileFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
         &self,
         filename: Param0,
@@ -119,6 +128,7 @@ impl IMofCompiler {
         .ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn CompileBuffer<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
         &self,
         buffsize: i32,
@@ -148,6 +158,7 @@ impl IMofCompiler {
         .ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn CreateBMOF<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, textfilename: Param0, bmoffilename: Param1, serverandnamespace: Param2, loptionflags: i32, lclassflags: i32, linstanceflags: i32, pinfo: *mut WBEM_COMPILE_STATUS_INFO) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), textfilename.into_param().abi(), bmoffilename.into_param().abi(), serverandnamespace.into_param().abi(), ::std::mem::transmute(loptionflags), ::std::mem::transmute(lclassflags), ::std::mem::transmute(linstanceflags), ::std::mem::transmute(pinfo)).ok()
     }
@@ -189,151 +200,192 @@ pub struct IMofCompiler_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, textfilename: super::super::Foundation::PWSTR, bmoffilename: super::super::Foundation::PWSTR, serverandnamespace: super::super::Foundation::PWSTR, loptionflags: i32, lclassflags: i32, linstanceflags: i32, pinfo: *mut WBEM_COMPILE_STATUS_INFO) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISWbemDateTime(::windows::runtime::IUnknown);
 impl ISWbemDateTime {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn Value(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn SetValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, strvalue: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), strvalue.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Year(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn SetYear(&self, iyear: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(iyear)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn YearSpecified(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn SetYearSpecified(&self, byearspecified: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(byearspecified)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Month(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn SetMonth(&self, imonth: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(imonth)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn MonthSpecified(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn SetMonthSpecified(&self, bmonthspecified: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(bmonthspecified)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Day(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn SetDay(&self, iday: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(iday)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn DaySpecified(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn SetDaySpecified(&self, bdayspecified: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(bdayspecified)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Hours(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn SetHours(&self, ihours: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(ihours)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn HoursSpecified(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn SetHoursSpecified(&self, bhoursspecified: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), ::std::mem::transmute(bhoursspecified)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Minutes(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn SetMinutes(&self, iminutes: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), ::std::mem::transmute(iminutes)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn MinutesSpecified(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn SetMinutesSpecified(&self, bminutesspecified: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), ::std::mem::transmute(bminutesspecified)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Seconds(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn SetSeconds(&self, iseconds: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), ::std::mem::transmute(iseconds)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn SecondsSpecified(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn SetSecondsSpecified(&self, bsecondsspecified: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).32)(::std::mem::transmute_copy(self), ::std::mem::transmute(bsecondsspecified)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Microseconds(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).33)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn SetMicroseconds(&self, imicroseconds: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).34)(::std::mem::transmute_copy(self), ::std::mem::transmute(imicroseconds)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn MicrosecondsSpecified(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).35)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn SetMicrosecondsSpecified(&self, bmicrosecondsspecified: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).36)(::std::mem::transmute_copy(self), ::std::mem::transmute(bmicrosecondsspecified)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn UTC(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).37)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn SetUTC(&self, iutc: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).38)(::std::mem::transmute_copy(self), ::std::mem::transmute(iutc)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn UTCSpecified(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).39)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn SetUTCSpecified(&self, butcspecified: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).40)(::std::mem::transmute_copy(self), ::std::mem::transmute(butcspecified)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn IsInterval(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).41)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn SetIsInterval(&self, bisinterval: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).42)(::std::mem::transmute_copy(self), ::std::mem::transmute(bisinterval)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn GetVarDate(&self, bislocal: i16) -> ::windows::runtime::Result<f64> {
         let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).43)(::std::mem::transmute_copy(self), ::std::mem::transmute(bislocal), &mut result__).from_abi::<f64>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn SetVarDate(&self, dvardate: f64, bislocal: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).44)(::std::mem::transmute_copy(self), ::std::mem::transmute(dvardate), ::std::mem::transmute(bislocal)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn GetFileTime(&self, bislocal: i16) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).45)(::std::mem::transmute_copy(self), ::std::mem::transmute(bislocal), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn SetFileTime<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, strfiletime: Param0, bislocal: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).46)(::std::mem::transmute_copy(self), strfiletime.into_param().abi(), ::std::mem::transmute(bislocal)).ok()
     }
@@ -445,14 +497,17 @@ pub struct ISWbemDateTime_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, strfiletime: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, bislocal: i16) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISWbemEventSource(::windows::runtime::IUnknown);
 impl ISWbemEventSource {
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn NextEvent(&self, itimeoutms: i32) -> ::windows::runtime::Result<ISWbemObject> {
         let mut result__: <ISWbemObject as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(itimeoutms), &mut result__).from_abi::<ISWbemObject>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Security_(&self) -> ::windows::runtime::Result<ISWbemSecurity> {
         let mut result__: <ISWbemSecurity as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISWbemSecurity>(result__)
@@ -523,63 +578,77 @@ pub struct ISWbemEventSource_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itimeoutms: i32, objwbemobject: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, objwbemsecurity: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISWbemLastError(::windows::runtime::IUnknown);
 impl ISWbemLastError {
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::Ole::Automation::ITypeInfo> {
         let mut result__: <super::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Ole::Automation::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Put_<'a, Param1: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(&self, iflags: i32, objwbemnamedvalueset: Param1) -> ::windows::runtime::Result<ISWbemObjectPath> {
         let mut result__: <ISWbemObjectPath as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), &mut result__).from_abi::<ISWbemObjectPath>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn PutAsync_<'a, Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>, Param2: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>, Param3: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(&self, objwbemsink: Param0, iflags: i32, objwbemnamedvalueset: Param2, objwbemasynccontext: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), objwbemsink.into_param().abi(), ::std::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), objwbemasynccontext.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Delete_<'a, Param1: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(&self, iflags: i32, objwbemnamedvalueset: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn DeleteAsync_<'a, Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>, Param2: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>, Param3: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(&self, objwbemsink: Param0, iflags: i32, objwbemnamedvalueset: Param2, objwbemasynccontext: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), objwbemsink.into_param().abi(), ::std::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), objwbemasynccontext.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Instances_<'a, Param1: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(&self, iflags: i32, objwbemnamedvalueset: Param1) -> ::windows::runtime::Result<ISWbemObjectSet> {
         let mut result__: <ISWbemObjectSet as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), &mut result__).from_abi::<ISWbemObjectSet>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn InstancesAsync_<'a, Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>, Param2: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>, Param3: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(&self, objwbemsink: Param0, iflags: i32, objwbemnamedvalueset: Param2, objwbemasynccontext: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), objwbemsink.into_param().abi(), ::std::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), objwbemasynccontext.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Subclasses_<'a, Param1: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(&self, iflags: i32, objwbemnamedvalueset: Param1) -> ::windows::runtime::Result<ISWbemObjectSet> {
         let mut result__: <ISWbemObjectSet as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), &mut result__).from_abi::<ISWbemObjectSet>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SubclassesAsync_<'a, Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>, Param2: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>, Param3: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(&self, objwbemsink: Param0, iflags: i32, objwbemnamedvalueset: Param2, objwbemasynccontext: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), objwbemsink.into_param().abi(), ::std::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), objwbemasynccontext.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Associators_<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>,
@@ -620,6 +689,7 @@ impl ISWbemLastError {
         .from_abi::<ISWbemObjectSet>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn AssociatorsAsync_<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>,
@@ -664,6 +734,7 @@ impl ISWbemLastError {
         .ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn References_<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param6: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(
         &self,
         strresultclass: Param0,
@@ -678,6 +749,7 @@ impl ISWbemLastError {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), strresultclass.into_param().abi(), strrole.into_param().abi(), ::std::mem::transmute(bclassesonly), ::std::mem::transmute(bschemaonly), strrequiredqualifier.into_param().abi(), ::std::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), &mut result__).from_abi::<ISWbemObjectSet>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn ReferencesAsync_<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>,
@@ -713,11 +785,13 @@ impl ISWbemLastError {
         .ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn ExecMethod_<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>, Param3: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(&self, strmethodname: Param0, objwbeminparameters: Param1, iflags: i32, objwbemnamedvalueset: Param3) -> ::windows::runtime::Result<ISWbemObject> {
         let mut result__: <ISWbemObject as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), strmethodname.into_param().abi(), objwbeminparameters.into_param().abi(), ::std::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), &mut result__).from_abi::<ISWbemObject>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn ExecMethodAsync_<'a, Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>, Param4: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>, Param5: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(
         &self,
         objwbemsink: Param0,
@@ -729,49 +803,60 @@ impl ISWbemLastError {
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), objwbemsink.into_param().abi(), strmethodname.into_param().abi(), objwbeminparameters.into_param().abi(), ::std::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), objwbemasynccontext.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Clone_(&self) -> ::windows::runtime::Result<ISWbemObject> {
         let mut result__: <ISWbemObject as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISWbemObject>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn GetObjectText_(&self, iflags: i32) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(iflags), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn SpawnDerivedClass_(&self, iflags: i32) -> ::windows::runtime::Result<ISWbemObject> {
         let mut result__: <ISWbemObject as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), ::std::mem::transmute(iflags), &mut result__).from_abi::<ISWbemObject>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn SpawnInstance_(&self, iflags: i32) -> ::windows::runtime::Result<ISWbemObject> {
         let mut result__: <ISWbemObject as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), ::std::mem::transmute(iflags), &mut result__).from_abi::<ISWbemObject>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn CompareTo_<'a, Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(&self, objwbemobject: Param0, iflags: i32) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), objwbemobject.into_param().abi(), ::std::mem::transmute(iflags), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Qualifiers_(&self) -> ::windows::runtime::Result<ISWbemQualifierSet> {
         let mut result__: <ISWbemQualifierSet as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISWbemQualifierSet>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Properties_(&self) -> ::windows::runtime::Result<ISWbemPropertySet> {
         let mut result__: <ISWbemPropertySet as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISWbemPropertySet>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Methods_(&self) -> ::windows::runtime::Result<ISWbemMethodSet> {
         let mut result__: <ISWbemMethodSet as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISWbemMethodSet>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Derivation_(&self) -> ::windows::runtime::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Path_(&self) -> ::windows::runtime::Result<ISWbemObjectPath> {
         let mut result__: <ISWbemObjectPath as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISWbemObjectPath>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Security_(&self) -> ::windows::runtime::Result<ISWbemSecurity> {
         let mut result__: <ISWbemSecurity as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISWbemSecurity>(result__)
@@ -944,11 +1029,13 @@ pub struct ISWbemLastError_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, objwbemobjectpath: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, objwbemsecurity: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISWbemLocator(::windows::runtime::IUnknown);
 impl ISWbemLocator {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn ConnectServer<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>,
@@ -984,6 +1071,7 @@ impl ISWbemLocator {
         )
         .from_abi::<ISWbemServices>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Security_(&self) -> ::windows::runtime::Result<ISWbemSecurity> {
         let mut result__: <ISWbemSecurity as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISWbemSecurity>(result__)
@@ -1067,28 +1155,34 @@ pub struct ISWbemLocator_abi(
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, objwbemsecurity: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISWbemMethod(::windows::runtime::IUnknown);
 impl ISWbemMethod {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn Name(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn Origin(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn InParameters(&self) -> ::windows::runtime::Result<ISWbemObject> {
         let mut result__: <ISWbemObject as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISWbemObject>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn OutParameters(&self) -> ::windows::runtime::Result<ISWbemObject> {
         let mut result__: <ISWbemObject as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISWbemObject>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Qualifiers_(&self) -> ::windows::runtime::Result<ISWbemQualifierSet> {
         let mut result__: <ISWbemQualifierSet as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISWbemQualifierSet>(result__)
@@ -1164,19 +1258,23 @@ pub struct ISWbemMethod_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, objwbemoutparameters: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, objwbemqualifierset: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISWbemMethodSet(::windows::runtime::IUnknown);
 impl ISWbemMethodSet {
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
         let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn Item<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, strname: Param0, iflags: i32) -> ::windows::runtime::Result<ISWbemMethod> {
         let mut result__: <ISWbemMethod as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), strname.into_param().abi(), ::std::mem::transmute(iflags), &mut result__).from_abi::<ISWbemMethod>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
@@ -1249,20 +1347,24 @@ pub struct ISWbemMethodSet_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, icount: *mut i32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISWbemNamedValue(::windows::runtime::IUnknown);
 impl ISWbemNamedValue {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Value(&self) -> ::windows::runtime::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetValue(&self, varvalue: *const super::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(varvalue)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn Name(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
@@ -1337,36 +1439,44 @@ pub struct ISWbemNamedValue_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, strname: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISWbemNamedValueSet(::windows::runtime::IUnknown);
 impl ISWbemNamedValueSet {
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
         let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn Item<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, strname: Param0, iflags: i32) -> ::windows::runtime::Result<ISWbemNamedValue> {
         let mut result__: <ISWbemNamedValue as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), strname.into_param().abi(), ::std::mem::transmute(iflags), &mut result__).from_abi::<ISWbemNamedValue>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Add<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, strname: Param0, varvalue: *const super::Com::VARIANT, iflags: i32) -> ::windows::runtime::Result<ISWbemNamedValue> {
         let mut result__: <ISWbemNamedValue as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), strname.into_param().abi(), ::std::mem::transmute(varvalue), ::std::mem::transmute(iflags), &mut result__).from_abi::<ISWbemNamedValue>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn Remove<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, strname: Param0, iflags: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), strname.into_param().abi(), ::std::mem::transmute(iflags)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Clone(&self) -> ::windows::runtime::Result<ISWbemNamedValueSet> {
         let mut result__: <ISWbemNamedValueSet as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISWbemNamedValueSet>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn DeleteAll(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self)).ok()
     }
@@ -1444,46 +1554,56 @@ pub struct ISWbemNamedValueSet_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, objwbemnamedvalueset: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISWbemObject(::windows::runtime::IUnknown);
 impl ISWbemObject {
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Put_<'a, Param1: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(&self, iflags: i32, objwbemnamedvalueset: Param1) -> ::windows::runtime::Result<ISWbemObjectPath> {
         let mut result__: <ISWbemObjectPath as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), &mut result__).from_abi::<ISWbemObjectPath>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn PutAsync_<'a, Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>, Param2: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>, Param3: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(&self, objwbemsink: Param0, iflags: i32, objwbemnamedvalueset: Param2, objwbemasynccontext: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), objwbemsink.into_param().abi(), ::std::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), objwbemasynccontext.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Delete_<'a, Param1: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(&self, iflags: i32, objwbemnamedvalueset: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn DeleteAsync_<'a, Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>, Param2: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>, Param3: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(&self, objwbemsink: Param0, iflags: i32, objwbemnamedvalueset: Param2, objwbemasynccontext: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), objwbemsink.into_param().abi(), ::std::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), objwbemasynccontext.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Instances_<'a, Param1: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(&self, iflags: i32, objwbemnamedvalueset: Param1) -> ::windows::runtime::Result<ISWbemObjectSet> {
         let mut result__: <ISWbemObjectSet as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), &mut result__).from_abi::<ISWbemObjectSet>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn InstancesAsync_<'a, Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>, Param2: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>, Param3: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(&self, objwbemsink: Param0, iflags: i32, objwbemnamedvalueset: Param2, objwbemasynccontext: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), objwbemsink.into_param().abi(), ::std::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), objwbemasynccontext.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Subclasses_<'a, Param1: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(&self, iflags: i32, objwbemnamedvalueset: Param1) -> ::windows::runtime::Result<ISWbemObjectSet> {
         let mut result__: <ISWbemObjectSet as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), &mut result__).from_abi::<ISWbemObjectSet>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SubclassesAsync_<'a, Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>, Param2: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>, Param3: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(&self, objwbemsink: Param0, iflags: i32, objwbemnamedvalueset: Param2, objwbemasynccontext: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), objwbemsink.into_param().abi(), ::std::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), objwbemasynccontext.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Associators_<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>,
@@ -1524,6 +1644,7 @@ impl ISWbemObject {
         .from_abi::<ISWbemObjectSet>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn AssociatorsAsync_<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>,
@@ -1568,6 +1689,7 @@ impl ISWbemObject {
         .ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn References_<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param6: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(
         &self,
         strresultclass: Param0,
@@ -1582,6 +1704,7 @@ impl ISWbemObject {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), strresultclass.into_param().abi(), strrole.into_param().abi(), ::std::mem::transmute(bclassesonly), ::std::mem::transmute(bschemaonly), strrequiredqualifier.into_param().abi(), ::std::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), &mut result__).from_abi::<ISWbemObjectSet>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn ReferencesAsync_<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>,
@@ -1617,11 +1740,13 @@ impl ISWbemObject {
         .ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn ExecMethod_<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>, Param3: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(&self, strmethodname: Param0, objwbeminparameters: Param1, iflags: i32, objwbemnamedvalueset: Param3) -> ::windows::runtime::Result<ISWbemObject> {
         let mut result__: <ISWbemObject as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), strmethodname.into_param().abi(), objwbeminparameters.into_param().abi(), ::std::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), &mut result__).from_abi::<ISWbemObject>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn ExecMethodAsync_<'a, Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>, Param4: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>, Param5: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(
         &self,
         objwbemsink: Param0,
@@ -1633,49 +1758,60 @@ impl ISWbemObject {
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), objwbemsink.into_param().abi(), strmethodname.into_param().abi(), objwbeminparameters.into_param().abi(), ::std::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), objwbemasynccontext.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Clone_(&self) -> ::windows::runtime::Result<ISWbemObject> {
         let mut result__: <ISWbemObject as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISWbemObject>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn GetObjectText_(&self, iflags: i32) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(iflags), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn SpawnDerivedClass_(&self, iflags: i32) -> ::windows::runtime::Result<ISWbemObject> {
         let mut result__: <ISWbemObject as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), ::std::mem::transmute(iflags), &mut result__).from_abi::<ISWbemObject>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn SpawnInstance_(&self, iflags: i32) -> ::windows::runtime::Result<ISWbemObject> {
         let mut result__: <ISWbemObject as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), ::std::mem::transmute(iflags), &mut result__).from_abi::<ISWbemObject>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn CompareTo_<'a, Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(&self, objwbemobject: Param0, iflags: i32) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), objwbemobject.into_param().abi(), ::std::mem::transmute(iflags), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Qualifiers_(&self) -> ::windows::runtime::Result<ISWbemQualifierSet> {
         let mut result__: <ISWbemQualifierSet as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISWbemQualifierSet>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Properties_(&self) -> ::windows::runtime::Result<ISWbemPropertySet> {
         let mut result__: <ISWbemPropertySet as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISWbemPropertySet>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Methods_(&self) -> ::windows::runtime::Result<ISWbemMethodSet> {
         let mut result__: <ISWbemMethodSet as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISWbemMethodSet>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Derivation_(&self) -> ::windows::runtime::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Path_(&self) -> ::windows::runtime::Result<ISWbemObjectPath> {
         let mut result__: <ISWbemObjectPath as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISWbemObjectPath>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Security_(&self) -> ::windows::runtime::Result<ISWbemSecurity> {
         let mut result__: <ISWbemSecurity as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISWbemSecurity>(result__)
@@ -1828,63 +1964,77 @@ pub struct ISWbemObject_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, objwbemobjectpath: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, objwbemsecurity: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISWbemObjectEx(::windows::runtime::IUnknown);
 impl ISWbemObjectEx {
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::Ole::Automation::ITypeInfo> {
         let mut result__: <super::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Ole::Automation::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Put_<'a, Param1: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(&self, iflags: i32, objwbemnamedvalueset: Param1) -> ::windows::runtime::Result<ISWbemObjectPath> {
         let mut result__: <ISWbemObjectPath as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), &mut result__).from_abi::<ISWbemObjectPath>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn PutAsync_<'a, Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>, Param2: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>, Param3: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(&self, objwbemsink: Param0, iflags: i32, objwbemnamedvalueset: Param2, objwbemasynccontext: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), objwbemsink.into_param().abi(), ::std::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), objwbemasynccontext.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Delete_<'a, Param1: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(&self, iflags: i32, objwbemnamedvalueset: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn DeleteAsync_<'a, Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>, Param2: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>, Param3: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(&self, objwbemsink: Param0, iflags: i32, objwbemnamedvalueset: Param2, objwbemasynccontext: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), objwbemsink.into_param().abi(), ::std::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), objwbemasynccontext.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Instances_<'a, Param1: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(&self, iflags: i32, objwbemnamedvalueset: Param1) -> ::windows::runtime::Result<ISWbemObjectSet> {
         let mut result__: <ISWbemObjectSet as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), &mut result__).from_abi::<ISWbemObjectSet>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn InstancesAsync_<'a, Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>, Param2: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>, Param3: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(&self, objwbemsink: Param0, iflags: i32, objwbemnamedvalueset: Param2, objwbemasynccontext: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), objwbemsink.into_param().abi(), ::std::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), objwbemasynccontext.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Subclasses_<'a, Param1: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(&self, iflags: i32, objwbemnamedvalueset: Param1) -> ::windows::runtime::Result<ISWbemObjectSet> {
         let mut result__: <ISWbemObjectSet as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), &mut result__).from_abi::<ISWbemObjectSet>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SubclassesAsync_<'a, Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>, Param2: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>, Param3: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(&self, objwbemsink: Param0, iflags: i32, objwbemnamedvalueset: Param2, objwbemasynccontext: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), objwbemsink.into_param().abi(), ::std::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), objwbemasynccontext.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Associators_<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>,
@@ -1925,6 +2075,7 @@ impl ISWbemObjectEx {
         .from_abi::<ISWbemObjectSet>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn AssociatorsAsync_<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>,
@@ -1969,6 +2120,7 @@ impl ISWbemObjectEx {
         .ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn References_<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param6: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(
         &self,
         strresultclass: Param0,
@@ -1983,6 +2135,7 @@ impl ISWbemObjectEx {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), strresultclass.into_param().abi(), strrole.into_param().abi(), ::std::mem::transmute(bclassesonly), ::std::mem::transmute(bschemaonly), strrequiredqualifier.into_param().abi(), ::std::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), &mut result__).from_abi::<ISWbemObjectSet>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn ReferencesAsync_<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>,
@@ -2018,11 +2171,13 @@ impl ISWbemObjectEx {
         .ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn ExecMethod_<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>, Param3: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(&self, strmethodname: Param0, objwbeminparameters: Param1, iflags: i32, objwbemnamedvalueset: Param3) -> ::windows::runtime::Result<ISWbemObject> {
         let mut result__: <ISWbemObject as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), strmethodname.into_param().abi(), objwbeminparameters.into_param().abi(), ::std::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), &mut result__).from_abi::<ISWbemObject>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn ExecMethodAsync_<'a, Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>, Param4: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>, Param5: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(
         &self,
         objwbemsink: Param0,
@@ -2034,67 +2189,82 @@ impl ISWbemObjectEx {
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), objwbemsink.into_param().abi(), strmethodname.into_param().abi(), objwbeminparameters.into_param().abi(), ::std::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), objwbemasynccontext.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Clone_(&self) -> ::windows::runtime::Result<ISWbemObject> {
         let mut result__: <ISWbemObject as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISWbemObject>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn GetObjectText_(&self, iflags: i32) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(iflags), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn SpawnDerivedClass_(&self, iflags: i32) -> ::windows::runtime::Result<ISWbemObject> {
         let mut result__: <ISWbemObject as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), ::std::mem::transmute(iflags), &mut result__).from_abi::<ISWbemObject>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn SpawnInstance_(&self, iflags: i32) -> ::windows::runtime::Result<ISWbemObject> {
         let mut result__: <ISWbemObject as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), ::std::mem::transmute(iflags), &mut result__).from_abi::<ISWbemObject>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn CompareTo_<'a, Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(&self, objwbemobject: Param0, iflags: i32) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), objwbemobject.into_param().abi(), ::std::mem::transmute(iflags), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Qualifiers_(&self) -> ::windows::runtime::Result<ISWbemQualifierSet> {
         let mut result__: <ISWbemQualifierSet as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISWbemQualifierSet>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Properties_(&self) -> ::windows::runtime::Result<ISWbemPropertySet> {
         let mut result__: <ISWbemPropertySet as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISWbemPropertySet>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Methods_(&self) -> ::windows::runtime::Result<ISWbemMethodSet> {
         let mut result__: <ISWbemMethodSet as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISWbemMethodSet>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Derivation_(&self) -> ::windows::runtime::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Path_(&self) -> ::windows::runtime::Result<ISWbemObjectPath> {
         let mut result__: <ISWbemObjectPath as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISWbemObjectPath>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Security_(&self) -> ::windows::runtime::Result<ISWbemSecurity> {
         let mut result__: <ISWbemSecurity as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISWbemSecurity>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Refresh_<'a, Param1: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(&self, iflags: i32, objwbemnamedvalueset: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).32)(::std::mem::transmute_copy(self), ::std::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn SystemProperties_(&self) -> ::windows::runtime::Result<ISWbemPropertySet> {
         let mut result__: <ISWbemPropertySet as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).33)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISWbemPropertySet>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetText_<'a, Param2: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(&self, iobjecttextformat: WbemObjectTextFormatEnum, iflags: i32, objwbemnamedvalueset: Param2) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).34)(::std::mem::transmute_copy(self), ::std::mem::transmute(iobjecttextformat), ::std::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetFromText_<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(&self, bstext: Param0, iobjecttextformat: WbemObjectTextFormatEnum, iflags: i32, objwbemnamedvalueset: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).35)(::std::mem::transmute_copy(self), bstext.into_param().abi(), ::std::mem::transmute(iobjecttextformat), ::std::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi()).ok()
     }
@@ -2273,106 +2443,130 @@ pub struct ISWbemObjectEx_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bstext: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, iobjecttextformat: WbemObjectTextFormatEnum, iflags: i32, objwbemnamedvalueset: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation")))] usize,
 );
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISWbemObjectPath(::windows::runtime::IUnknown);
 impl ISWbemObjectPath {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn Path(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn SetPath<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, strpath: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), strpath.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn RelPath(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn SetRelPath<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, strrelpath: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), strrelpath.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn Server(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn SetServer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, strserver: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), strserver.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn Namespace(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn SetNamespace<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, strnamespace: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), strnamespace.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn ParentNamespace(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn DisplayName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn SetDisplayName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, strdisplayname: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), strdisplayname.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn Class(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn SetClass<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, strclass: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), strclass.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn IsClass(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn SetAsClass(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn IsSingleton(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn SetAsSingleton(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Keys(&self) -> ::windows::runtime::Result<ISWbemNamedValueSet> {
         let mut result__: <ISWbemNamedValueSet as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISWbemNamedValueSet>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Security_(&self) -> ::windows::runtime::Result<ISWbemSecurity> {
         let mut result__: <ISWbemSecurity as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISWbemSecurity>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn Locale(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn SetLocale<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, strlocale: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), strlocale.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn Authority(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn SetAuthority<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, strauthority: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), strauthority.into_param().abi()).ok()
     }
@@ -2480,27 +2674,33 @@ pub struct ISWbemObjectPath_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, strauthority: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISWbemObjectSet(::windows::runtime::IUnknown);
 impl ISWbemObjectSet {
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
         let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn Item<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, strobjectpath: Param0, iflags: i32) -> ::windows::runtime::Result<ISWbemObject> {
         let mut result__: <ISWbemObject as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), strobjectpath.into_param().abi(), ::std::mem::transmute(iflags), &mut result__).from_abi::<ISWbemObject>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Security_(&self) -> ::windows::runtime::Result<ISWbemSecurity> {
         let mut result__: <ISWbemSecurity as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISWbemSecurity>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn ItemIndex(&self, lindex: i32) -> ::windows::runtime::Result<ISWbemObject> {
         let mut result__: <ISWbemObject as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(lindex), &mut result__).from_abi::<ISWbemObject>(result__)
@@ -2575,27 +2775,33 @@ pub struct ISWbemObjectSet_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, objwbemsecurity: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lindex: i32, objwbemobject: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISWbemPrivilege(::windows::runtime::IUnknown);
 impl ISWbemPrivilege {
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn IsEnabled(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn SetIsEnabled(&self, bisenabled: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(bisenabled)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn Name(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn DisplayName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Identifier(&self) -> ::windows::runtime::Result<WbemPrivilegeEnum> {
         let mut result__: <WbemPrivilegeEnum as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<WbemPrivilegeEnum>(result__)
@@ -2671,33 +2877,41 @@ pub struct ISWbemPrivilege_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iprivilege: *mut WbemPrivilegeEnum) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISWbemPrivilegeSet(::windows::runtime::IUnknown);
 impl ISWbemPrivilegeSet {
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
         let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Item(&self, iprivilege: WbemPrivilegeEnum) -> ::windows::runtime::Result<ISWbemPrivilege> {
         let mut result__: <ISWbemPrivilege as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(iprivilege), &mut result__).from_abi::<ISWbemPrivilege>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Add(&self, iprivilege: WbemPrivilegeEnum, bisenabled: i16) -> ::windows::runtime::Result<ISWbemPrivilege> {
         let mut result__: <ISWbemPrivilege as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(iprivilege), ::std::mem::transmute(bisenabled), &mut result__).from_abi::<ISWbemPrivilege>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Remove(&self, iprivilege: WbemPrivilegeEnum) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(iprivilege)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn DeleteAll(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn AddAsString<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, strprivilege: Param0, bisenabled: i16) -> ::windows::runtime::Result<ISWbemPrivilege> {
         let mut result__: <ISWbemPrivilege as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), strprivilege.into_param().abi(), ::std::mem::transmute(bisenabled), &mut result__).from_abi::<ISWbemPrivilege>(result__)
@@ -2774,41 +2988,50 @@ pub struct ISWbemPrivilegeSet_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, strprivilege: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, bisenabled: i16, objwbemprivilege: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISWbemProperty(::windows::runtime::IUnknown);
 impl ISWbemProperty {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Value(&self) -> ::windows::runtime::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetValue(&self, varvalue: *const super::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(varvalue)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn Name(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn IsLocal(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn Origin(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn CIMType(&self) -> ::windows::runtime::Result<WbemCimtypeEnum> {
         let mut result__: <WbemCimtypeEnum as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<WbemCimtypeEnum>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Qualifiers_(&self) -> ::windows::runtime::Result<ISWbemQualifierSet> {
         let mut result__: <ISWbemQualifierSet as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISWbemQualifierSet>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn IsArray(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
@@ -2889,29 +3112,35 @@ pub struct ISWbemProperty_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, objwbemqualifierset: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bisarray: *mut i16) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISWbemPropertySet(::windows::runtime::IUnknown);
 impl ISWbemPropertySet {
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
         let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn Item<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, strname: Param0, iflags: i32) -> ::windows::runtime::Result<ISWbemProperty> {
         let mut result__: <ISWbemProperty as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), strname.into_param().abi(), ::std::mem::transmute(iflags), &mut result__).from_abi::<ISWbemProperty>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn Add<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, strname: Param0, icimtype: WbemCimtypeEnum, bisarray: i16, iflags: i32) -> ::windows::runtime::Result<ISWbemProperty> {
         let mut result__: <ISWbemProperty as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), strname.into_param().abi(), ::std::mem::transmute(icimtype), ::std::mem::transmute(bisarray), ::std::mem::transmute(iflags), &mut result__).from_abi::<ISWbemProperty>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn Remove<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, strname: Param0, iflags: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), strname.into_param().abi(), ::std::mem::transmute(iflags)).ok()
     }
@@ -2987,49 +3216,61 @@ pub struct ISWbemPropertySet_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, strname: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, iflags: i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISWbemQualifier(::windows::runtime::IUnknown);
 impl ISWbemQualifier {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Value(&self) -> ::windows::runtime::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetValue(&self, varvalue: *const super::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(varvalue)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn Name(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn IsLocal(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn PropagatesToSubclass(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn SetPropagatesToSubclass(&self, bpropagatestosubclass: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(bpropagatestosubclass)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn PropagatesToInstance(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn SetPropagatesToInstance(&self, bpropagatestoinstance: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(bpropagatestoinstance)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn IsOverridable(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn SetIsOverridable(&self, bisoverridable: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(bisoverridable)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn IsAmended(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
@@ -3112,29 +3353,35 @@ pub struct ISWbemQualifier_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bisoverridable: i16) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bisamended: *mut i16) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISWbemQualifierSet(::windows::runtime::IUnknown);
 impl ISWbemQualifierSet {
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
         let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn Item<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0, iflags: i32) -> ::windows::runtime::Result<ISWbemQualifier> {
         let mut result__: <ISWbemQualifier as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), name.into_param().abi(), ::std::mem::transmute(iflags), &mut result__).from_abi::<ISWbemQualifier>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Add<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, strname: Param0, varval: *const super::Com::VARIANT, bpropagatestosubclass: i16, bpropagatestoinstance: i16, bisoverridable: i16, iflags: i32) -> ::windows::runtime::Result<ISWbemQualifier> {
         let mut result__: <ISWbemQualifier as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), strname.into_param().abi(), ::std::mem::transmute(varval), ::std::mem::transmute(bpropagatestosubclass), ::std::mem::transmute(bpropagatestoinstance), ::std::mem::transmute(bisoverridable), ::std::mem::transmute(iflags), &mut result__).from_abi::<ISWbemQualifier>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn Remove<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, strname: Param0, iflags: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), strname.into_param().abi(), ::std::mem::transmute(iflags)).ok()
     }
@@ -3210,30 +3457,37 @@ pub struct ISWbemQualifierSet_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, strname: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, iflags: i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISWbemRefreshableItem(::windows::runtime::IUnknown);
 impl ISWbemRefreshableItem {
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Index(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Refresher(&self) -> ::windows::runtime::Result<ISWbemRefresher> {
         let mut result__: <ISWbemRefresher as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISWbemRefresher>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn IsSet(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Object(&self) -> ::windows::runtime::Result<ISWbemObjectEx> {
         let mut result__: <ISWbemObjectEx as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISWbemObjectEx>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn ObjectSet(&self) -> ::windows::runtime::Result<ISWbemObjectSet> {
         let mut result__: <ISWbemObjectSet as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISWbemObjectSet>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Remove(&self, iflags: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(iflags)).ok()
     }
@@ -3307,45 +3561,56 @@ pub struct ISWbemRefreshableItem_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, objwbemobjectset: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iflags: i32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISWbemRefresher(::windows::runtime::IUnknown);
 impl ISWbemRefresher {
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
         let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Item(&self, iindex: i32) -> ::windows::runtime::Result<ISWbemRefreshableItem> {
         let mut result__: <ISWbemRefreshableItem as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(iindex), &mut result__).from_abi::<ISWbemRefreshableItem>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Add<'a, Param0: ::windows::runtime::IntoParam<'a, ISWbemServicesEx>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(&self, objwbemservices: Param0, bsinstancepath: Param1, iflags: i32, objwbemnamedvalueset: Param3) -> ::windows::runtime::Result<ISWbemRefreshableItem> {
         let mut result__: <ISWbemRefreshableItem as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), objwbemservices.into_param().abi(), bsinstancepath.into_param().abi(), ::std::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), &mut result__).from_abi::<ISWbemRefreshableItem>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn AddEnum<'a, Param0: ::windows::runtime::IntoParam<'a, ISWbemServicesEx>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(&self, objwbemservices: Param0, bsclassname: Param1, iflags: i32, objwbemnamedvalueset: Param3) -> ::windows::runtime::Result<ISWbemRefreshableItem> {
         let mut result__: <ISWbemRefreshableItem as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), objwbemservices.into_param().abi(), bsclassname.into_param().abi(), ::std::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), &mut result__).from_abi::<ISWbemRefreshableItem>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Remove(&self, iindex: i32, iflags: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(iindex), ::std::mem::transmute(iflags)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Refresh(&self, iflags: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(iflags)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn AutoReconnect(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn SetAutoReconnect(&self, bcount: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(bcount)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn DeleteAll(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self)).ok()
     }
@@ -3425,24 +3690,30 @@ pub struct ISWbemRefresher_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bcount: i16) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISWbemSecurity(::windows::runtime::IUnknown);
 impl ISWbemSecurity {
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn ImpersonationLevel(&self) -> ::windows::runtime::Result<WbemImpersonationLevelEnum> {
         let mut result__: <WbemImpersonationLevelEnum as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<WbemImpersonationLevelEnum>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn SetImpersonationLevel(&self, iimpersonationlevel: WbemImpersonationLevelEnum) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(iimpersonationlevel)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn AuthenticationLevel(&self) -> ::windows::runtime::Result<WbemAuthenticationLevelEnum> {
         let mut result__: <WbemAuthenticationLevelEnum as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<WbemAuthenticationLevelEnum>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn SetAuthenticationLevel(&self, iauthenticationlevel: WbemAuthenticationLevelEnum) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(iauthenticationlevel)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Privileges(&self) -> ::windows::runtime::Result<ISWbemPrivilegeSet> {
         let mut result__: <ISWbemPrivilegeSet as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISWbemPrivilegeSet>(result__)
@@ -3516,24 +3787,29 @@ pub struct ISWbemSecurity_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iauthenticationlevel: WbemAuthenticationLevelEnum) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, objwbemprivilegeset: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISWbemServices(::windows::runtime::IUnknown);
 impl ISWbemServices {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Get<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(&self, strobjectpath: Param0, iflags: i32, objwbemnamedvalueset: Param2) -> ::windows::runtime::Result<ISWbemObject> {
         let mut result__: <ISWbemObject as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), strobjectpath.into_param().abi(), ::std::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), &mut result__).from_abi::<ISWbemObject>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>, Param4: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(&self, objwbemsink: Param0, strobjectpath: Param1, iflags: i32, objwbemnamedvalueset: Param3, objwbemasynccontext: Param4) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), objwbemsink.into_param().abi(), strobjectpath.into_param().abi(), ::std::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), objwbemasynccontext.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Delete<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(&self, strobjectpath: Param0, iflags: i32, objwbemnamedvalueset: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), strobjectpath.into_param().abi(), ::std::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn DeleteAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>, Param4: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(
         &self,
         objwbemsink: Param0,
@@ -3545,11 +3821,13 @@ impl ISWbemServices {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), objwbemsink.into_param().abi(), strobjectpath.into_param().abi(), ::std::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), objwbemasynccontext.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn InstancesOf<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(&self, strclass: Param0, iflags: i32, objwbemnamedvalueset: Param2) -> ::windows::runtime::Result<ISWbemObjectSet> {
         let mut result__: <ISWbemObjectSet as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), strclass.into_param().abi(), ::std::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), &mut result__).from_abi::<ISWbemObjectSet>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn InstancesOfAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>, Param4: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(
         &self,
         objwbemsink: Param0,
@@ -3561,11 +3839,13 @@ impl ISWbemServices {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), objwbemsink.into_param().abi(), strclass.into_param().abi(), ::std::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), objwbemasynccontext.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SubclassesOf<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(&self, strsuperclass: Param0, iflags: i32, objwbemnamedvalueset: Param2) -> ::windows::runtime::Result<ISWbemObjectSet> {
         let mut result__: <ISWbemObjectSet as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), strsuperclass.into_param().abi(), ::std::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), &mut result__).from_abi::<ISWbemObjectSet>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SubclassesOfAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>, Param4: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(
         &self,
         objwbemsink: Param0,
@@ -3577,11 +3857,13 @@ impl ISWbemServices {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), objwbemsink.into_param().abi(), strsuperclass.into_param().abi(), ::std::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), objwbemasynccontext.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn ExecQuery<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(&self, strquery: Param0, strquerylanguage: Param1, iflags: i32, objwbemnamedvalueset: Param3) -> ::windows::runtime::Result<ISWbemObjectSet> {
         let mut result__: <ISWbemObjectSet as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), strquery.into_param().abi(), strquerylanguage.into_param().abi(), ::std::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), &mut result__).from_abi::<ISWbemObjectSet>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn ExecQueryAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param4: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>, Param5: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(
         &self,
         objwbemsink: Param0,
@@ -3594,6 +3876,7 @@ impl ISWbemServices {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), objwbemsink.into_param().abi(), strquery.into_param().abi(), strquerylanguage.into_param().abi(), ::std::mem::transmute(lflags), objwbemnamedvalueset.into_param().abi(), objwbemasynccontext.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn AssociatorsOf<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>,
@@ -3637,6 +3920,7 @@ impl ISWbemServices {
         .from_abi::<ISWbemObjectSet>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn AssociatorsOfAsync<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>,
@@ -3684,6 +3968,7 @@ impl ISWbemServices {
         .ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn ReferencesTo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param7: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(
         &self,
         strobjectpath: Param0,
@@ -3711,6 +3996,7 @@ impl ISWbemServices {
         .from_abi::<ISWbemObjectSet>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn ReferencesToAsync<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>,
@@ -3749,11 +4035,13 @@ impl ISWbemServices {
         .ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn ExecNotificationQuery<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(&self, strquery: Param0, strquerylanguage: Param1, iflags: i32, objwbemnamedvalueset: Param3) -> ::windows::runtime::Result<ISWbemEventSource> {
         let mut result__: <ISWbemEventSource as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), strquery.into_param().abi(), strquerylanguage.into_param().abi(), ::std::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), &mut result__).from_abi::<ISWbemEventSource>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn ExecNotificationQueryAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param4: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>, Param5: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(
         &self,
         objwbemsink: Param0,
@@ -3766,6 +4054,7 @@ impl ISWbemServices {
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), objwbemsink.into_param().abi(), strquery.into_param().abi(), strquerylanguage.into_param().abi(), ::std::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), objwbemasynccontext.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn ExecMethod<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>, Param4: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(
         &self,
         strobjectpath: Param0,
@@ -3778,6 +4067,7 @@ impl ISWbemServices {
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), strobjectpath.into_param().abi(), strmethodname.into_param().abi(), objwbeminparameters.into_param().abi(), ::std::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), &mut result__).from_abi::<ISWbemObject>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn ExecMethodAsync<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>,
@@ -3798,6 +4088,7 @@ impl ISWbemServices {
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), objwbemsink.into_param().abi(), strobjectpath.into_param().abi(), strmethodname.into_param().abi(), objwbeminparameters.into_param().abi(), ::std::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), objwbemasynccontext.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Security_(&self) -> ::windows::runtime::Result<ISWbemSecurity> {
         let mut result__: <ISWbemSecurity as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISWbemSecurity>(result__)
@@ -3960,41 +4251,50 @@ pub struct ISWbemServices_abi(
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, objwbemsecurity: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISWbemServicesEx(::windows::runtime::IUnknown);
 impl ISWbemServicesEx {
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::Ole::Automation::ITypeInfo> {
         let mut result__: <super::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Ole::Automation::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Get<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(&self, strobjectpath: Param0, iflags: i32, objwbemnamedvalueset: Param2) -> ::windows::runtime::Result<ISWbemObject> {
         let mut result__: <ISWbemObject as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), strobjectpath.into_param().abi(), ::std::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), &mut result__).from_abi::<ISWbemObject>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>, Param4: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(&self, objwbemsink: Param0, strobjectpath: Param1, iflags: i32, objwbemnamedvalueset: Param3, objwbemasynccontext: Param4) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), objwbemsink.into_param().abi(), strobjectpath.into_param().abi(), ::std::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), objwbemasynccontext.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Delete<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(&self, strobjectpath: Param0, iflags: i32, objwbemnamedvalueset: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), strobjectpath.into_param().abi(), ::std::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn DeleteAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>, Param4: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(
         &self,
         objwbemsink: Param0,
@@ -4006,11 +4306,13 @@ impl ISWbemServicesEx {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), objwbemsink.into_param().abi(), strobjectpath.into_param().abi(), ::std::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), objwbemasynccontext.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn InstancesOf<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(&self, strclass: Param0, iflags: i32, objwbemnamedvalueset: Param2) -> ::windows::runtime::Result<ISWbemObjectSet> {
         let mut result__: <ISWbemObjectSet as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), strclass.into_param().abi(), ::std::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), &mut result__).from_abi::<ISWbemObjectSet>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn InstancesOfAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>, Param4: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(
         &self,
         objwbemsink: Param0,
@@ -4022,11 +4324,13 @@ impl ISWbemServicesEx {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), objwbemsink.into_param().abi(), strclass.into_param().abi(), ::std::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), objwbemasynccontext.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SubclassesOf<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(&self, strsuperclass: Param0, iflags: i32, objwbemnamedvalueset: Param2) -> ::windows::runtime::Result<ISWbemObjectSet> {
         let mut result__: <ISWbemObjectSet as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), strsuperclass.into_param().abi(), ::std::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), &mut result__).from_abi::<ISWbemObjectSet>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SubclassesOfAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>, Param4: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(
         &self,
         objwbemsink: Param0,
@@ -4038,11 +4342,13 @@ impl ISWbemServicesEx {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), objwbemsink.into_param().abi(), strsuperclass.into_param().abi(), ::std::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), objwbemasynccontext.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn ExecQuery<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(&self, strquery: Param0, strquerylanguage: Param1, iflags: i32, objwbemnamedvalueset: Param3) -> ::windows::runtime::Result<ISWbemObjectSet> {
         let mut result__: <ISWbemObjectSet as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), strquery.into_param().abi(), strquerylanguage.into_param().abi(), ::std::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), &mut result__).from_abi::<ISWbemObjectSet>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn ExecQueryAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param4: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>, Param5: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(
         &self,
         objwbemsink: Param0,
@@ -4055,6 +4361,7 @@ impl ISWbemServicesEx {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), objwbemsink.into_param().abi(), strquery.into_param().abi(), strquerylanguage.into_param().abi(), ::std::mem::transmute(lflags), objwbemnamedvalueset.into_param().abi(), objwbemasynccontext.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn AssociatorsOf<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>,
@@ -4098,6 +4405,7 @@ impl ISWbemServicesEx {
         .from_abi::<ISWbemObjectSet>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn AssociatorsOfAsync<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>,
@@ -4145,6 +4453,7 @@ impl ISWbemServicesEx {
         .ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn ReferencesTo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param7: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(
         &self,
         strobjectpath: Param0,
@@ -4172,6 +4481,7 @@ impl ISWbemServicesEx {
         .from_abi::<ISWbemObjectSet>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn ReferencesToAsync<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>,
@@ -4210,11 +4520,13 @@ impl ISWbemServicesEx {
         .ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn ExecNotificationQuery<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(&self, strquery: Param0, strquerylanguage: Param1, iflags: i32, objwbemnamedvalueset: Param3) -> ::windows::runtime::Result<ISWbemEventSource> {
         let mut result__: <ISWbemEventSource as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), strquery.into_param().abi(), strquerylanguage.into_param().abi(), ::std::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), &mut result__).from_abi::<ISWbemEventSource>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn ExecNotificationQueryAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param4: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>, Param5: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(
         &self,
         objwbemsink: Param0,
@@ -4227,6 +4539,7 @@ impl ISWbemServicesEx {
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), objwbemsink.into_param().abi(), strquery.into_param().abi(), strquerylanguage.into_param().abi(), ::std::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), objwbemasynccontext.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn ExecMethod<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>, Param4: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(
         &self,
         strobjectpath: Param0,
@@ -4239,6 +4552,7 @@ impl ISWbemServicesEx {
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), strobjectpath.into_param().abi(), strmethodname.into_param().abi(), objwbeminparameters.into_param().abi(), ::std::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), &mut result__).from_abi::<ISWbemObject>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn ExecMethodAsync<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>,
@@ -4259,16 +4573,19 @@ impl ISWbemServicesEx {
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), objwbemsink.into_param().abi(), strobjectpath.into_param().abi(), strmethodname.into_param().abi(), objwbeminparameters.into_param().abi(), ::std::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), objwbemasynccontext.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Security_(&self) -> ::windows::runtime::Result<ISWbemSecurity> {
         let mut result__: <ISWbemSecurity as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISWbemSecurity>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Put<'a, Param0: ::windows::runtime::IntoParam<'a, ISWbemObjectEx>, Param2: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(&self, objwbemobject: Param0, iflags: i32, objwbemnamedvalueset: Param2) -> ::windows::runtime::Result<ISWbemObjectPath> {
         let mut result__: <ISWbemObjectPath as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), objwbemobject.into_param().abi(), ::std::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), &mut result__).from_abi::<ISWbemObjectPath>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn PutAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ISWbemSink>, Param1: ::windows::runtime::IntoParam<'a, ISWbemObjectEx>, Param3: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>, Param4: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(&self, objwbemsink: Param0, objwbemobject: Param1, iflags: i32, objwbemnamedvalueset: Param3, objwbemasynccontext: Param4) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), objwbemsink.into_param().abi(), objwbemobject.into_param().abi(), ::std::mem::transmute(iflags), objwbemnamedvalueset.into_param().abi(), objwbemasynccontext.into_param().abi()).ok()
     }
@@ -4454,10 +4771,12 @@ pub struct ISWbemServicesEx_abi(
     #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, objwbemsink: ::windows::runtime::RawPtr, objwbemobject: ::windows::runtime::RawPtr, iflags: i32, objwbemnamedvalueset: ::windows::runtime::RawPtr, objwbemasynccontext: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISWbemSink(::windows::runtime::IUnknown);
 impl ISWbemSink {
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Cancel(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)).ok()
     }
@@ -4526,6 +4845,7 @@ pub struct ISWbemSink_abi(
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISWbemSinkEvents(::windows::runtime::IUnknown);
@@ -4593,10 +4913,12 @@ pub struct ISWbemSinkEvents_abi(
     pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Ole::Automation::DISPPARAMS, pvarresult: *mut ::std::mem::ManuallyDrop<super::Com::VARIANT>, pexcepinfo: *mut ::std::mem::ManuallyDrop<super::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
 );
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUnsecuredApartment(::windows::runtime::IUnknown);
 impl IUnsecuredApartment {
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn CreateObjectStub<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, pobject: Param0) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
         let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pobject.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
@@ -4634,19 +4956,23 @@ pub struct IUnsecuredApartment_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pobject: ::windows::runtime::RawPtr, ppstub: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMIExtension(::windows::runtime::IUnknown);
 impl IWMIExtension {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn WMIObjectPath(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn GetWMIObject(&self) -> ::windows::runtime::Result<ISWbemObject> {
         let mut result__: <ISWbemObject as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISWbemObject>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn GetWMIServices(&self) -> ::windows::runtime::Result<ISWbemServices> {
         let mut result__: <ISWbemServices as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISWbemServices>(result__)
@@ -4719,11 +5045,13 @@ pub struct IWMIExtension_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, objwmiobject: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, objwmiservices: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWbemAddressResolution(::windows::runtime::IUnknown);
 impl IWbemAddressResolution {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn Resolve<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wsznamespacepath: Param0, wszaddresstype: super::super::Foundation::PWSTR, pdwaddresslength: *mut u32, pabbinaryaddress: *mut *mut u8) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), wsznamespacepath.into_param().abi(), ::std::mem::transmute(wszaddresstype), ::std::mem::transmute(pdwaddresslength), ::std::mem::transmute(pabbinaryaddress)).ok()
     }
@@ -4761,15 +5089,18 @@ pub struct IWbemAddressResolution_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, wsznamespacepath: super::super::Foundation::PWSTR, wszaddresstype: super::super::Foundation::PWSTR, pdwaddresslength: *mut u32, pabbinaryaddress: *mut *mut u8) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWbemBackupRestore(::windows::runtime::IUnknown);
 impl IWbemBackupRestore {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn Backup<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, strbackuptofile: Param0, lflags: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), strbackuptofile.into_param().abi(), ::std::mem::transmute(lflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn Restore<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, strrestorefromfile: Param0, lflags: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), strrestorefromfile.into_param().abi(), ::std::mem::transmute(lflags)).ok()
     }
@@ -4809,21 +5140,26 @@ pub struct IWbemBackupRestore_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, strrestorefromfile: super::super::Foundation::PWSTR, lflags: i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWbemBackupRestoreEx(::windows::runtime::IUnknown);
 impl IWbemBackupRestoreEx {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn Backup<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, strbackuptofile: Param0, lflags: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), strbackuptofile.into_param().abi(), ::std::mem::transmute(lflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn Restore<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, strrestorefromfile: Param0, lflags: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), strrestorefromfile.into_param().abi(), ::std::mem::transmute(lflags)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Pause(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Resume(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self)).ok()
     }
@@ -4885,23 +5221,28 @@ pub struct IWbemBackupRestoreEx_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWbemCallResult(::windows::runtime::IUnknown);
 impl IWbemCallResult {
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn GetResultObject(&self, ltimeout: i32) -> ::windows::runtime::Result<IWbemClassObject> {
         let mut result__: <IWbemClassObject as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(ltimeout), &mut result__).from_abi::<IWbemClassObject>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn GetResultString(&self, ltimeout: i32) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(ltimeout), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn GetResultServices(&self, ltimeout: i32) -> ::windows::runtime::Result<IWbemServices> {
         let mut result__: <IWbemServices as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(ltimeout), &mut result__).from_abi::<IWbemServices>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn GetCallStatus(&self, ltimeout: i32) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(ltimeout), &mut result__).from_abi::<i32>(result__)
@@ -4943,103 +5284,128 @@ pub struct IWbemCallResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ltimeout: i32, ppservices: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ltimeout: i32, plstatus: *mut i32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWbemClassObject(::windows::runtime::IUnknown);
 impl IWbemClassObject {
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn GetQualifierSet(&self) -> ::windows::runtime::Result<IWbemQualifierSet> {
         let mut result__: <IWbemQualifierSet as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWbemQualifierSet>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Get<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszname: Param0, lflags: i32, pval: *mut super::Com::VARIANT, ptype: *mut i32, plflavor: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), wszname.into_param().abi(), ::std::mem::transmute(lflags), ::std::mem::transmute(pval), ::std::mem::transmute(ptype), ::std::mem::transmute(plflavor)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Put<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszname: Param0, lflags: i32, pval: *const super::Com::VARIANT, r#type: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), wszname.into_param().abi(), ::std::mem::transmute(lflags), ::std::mem::transmute(pval), ::std::mem::transmute(r#type)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn Delete<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszname: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), wszname.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetNames<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszqualifiername: Param0, lflags: i32, pqualifierval: *const super::Com::VARIANT) -> ::windows::runtime::Result<*mut super::Com::SAFEARRAY> {
         let mut result__: <*mut super::Com::SAFEARRAY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), wszqualifiername.into_param().abi(), ::std::mem::transmute(lflags), ::std::mem::transmute(pqualifierval), &mut result__).from_abi::<*mut super::Com::SAFEARRAY>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn BeginEnumeration(&self, lenumflags: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(lenumflags)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Next(&self, lflags: i32, strname: *mut super::super::Foundation::BSTR, pval: *mut super::Com::VARIANT, ptype: *mut i32, plflavor: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), ::std::mem::transmute(strname), ::std::mem::transmute(pval), ::std::mem::transmute(ptype), ::std::mem::transmute(plflavor)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn EndEnumeration(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn GetPropertyQualifierSet<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszproperty: Param0) -> ::windows::runtime::Result<IWbemQualifierSet> {
         let mut result__: <IWbemQualifierSet as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), wszproperty.into_param().abi(), &mut result__).from_abi::<IWbemQualifierSet>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Clone(&self) -> ::windows::runtime::Result<IWbemClassObject> {
         let mut result__: <IWbemClassObject as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWbemClassObject>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn GetObjectText(&self, lflags: i32) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn SpawnDerivedClass(&self, lflags: i32) -> ::windows::runtime::Result<IWbemClassObject> {
         let mut result__: <IWbemClassObject as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), &mut result__).from_abi::<IWbemClassObject>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn SpawnInstance(&self, lflags: i32) -> ::windows::runtime::Result<IWbemClassObject> {
         let mut result__: <IWbemClassObject as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), &mut result__).from_abi::<IWbemClassObject>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn CompareTo<'a, Param1: ::windows::runtime::IntoParam<'a, IWbemClassObject>>(&self, lflags: i32, pcompareto: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), pcompareto.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn GetPropertyOrigin<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszname: Param0) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), wszname.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn InheritsFrom<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, strancestor: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), strancestor.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn GetMethod<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszname: Param0, lflags: i32, ppinsignature: *mut ::std::option::Option<IWbemClassObject>, ppoutsignature: *mut ::std::option::Option<IWbemClassObject>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), wszname.into_param().abi(), ::std::mem::transmute(lflags), ::std::mem::transmute(ppinsignature), ::std::mem::transmute(ppoutsignature)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn PutMethod<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, IWbemClassObject>, Param3: ::windows::runtime::IntoParam<'a, IWbemClassObject>>(&self, wszname: Param0, lflags: i32, pinsignature: Param2, poutsignature: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), wszname.into_param().abi(), ::std::mem::transmute(lflags), pinsignature.into_param().abi(), poutsignature.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn DeleteMethod<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszname: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), wszname.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn BeginMethodEnumeration(&self, lenumflags: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(lenumflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn NextMethod(&self, lflags: i32, pstrname: *mut super::super::Foundation::BSTR, ppinsignature: *mut ::std::option::Option<IWbemClassObject>, ppoutsignature: *mut ::std::option::Option<IWbemClassObject>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), ::std::mem::transmute(pstrname), ::std::mem::transmute(ppinsignature), ::std::mem::transmute(ppoutsignature)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn EndMethodEnumeration(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn GetMethodQualifierSet<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszmethod: Param0) -> ::windows::runtime::Result<IWbemQualifierSet> {
         let mut result__: <IWbemQualifierSet as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), wszmethod.into_param().abi(), &mut result__).from_abi::<IWbemQualifierSet>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn GetMethodOrigin<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszmethodname: Param0) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), wszmethodname.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
@@ -5115,11 +5481,13 @@ pub struct IWbemClassObject_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, wszmethodname: super::super::Foundation::PWSTR, pstrclassname: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWbemClientConnectionTransport(::windows::runtime::IUnknown);
 impl IWbemClientConnectionTransport {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn Open<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param8: ::windows::runtime::IntoParam<'a, IWbemContext>>(
         &self,
         straddresstype: Param0,
@@ -5153,6 +5521,7 @@ impl IWbemClientConnectionTransport {
         .ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn OpenAsync<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>,
@@ -5192,6 +5561,7 @@ impl IWbemClientConnectionTransport {
         )
         .ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Cancel<'a, Param1: ::windows::runtime::IntoParam<'a, IWbemObjectSink>>(&self, lflags: i32, phandler: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), phandler.into_param().abi()).ok()
     }
@@ -5261,11 +5631,13 @@ pub struct IWbemClientConnectionTransport_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lflags: i32, phandler: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWbemClientTransport(::windows::runtime::IUnknown);
 impl IWbemClientTransport {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn ConnectServer<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>,
@@ -5353,24 +5725,30 @@ pub struct IWbemClientTransport_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWbemConfigureRefresher(::windows::runtime::IUnknown);
 impl IWbemConfigureRefresher {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn AddObjectByPath<'a, Param0: ::windows::runtime::IntoParam<'a, IWbemServices>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, IWbemContext>>(&self, pnamespace: Param0, wszpath: Param1, lflags: i32, pcontext: Param3, pprefreshable: *mut ::std::option::Option<IWbemClassObject>, plid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pnamespace.into_param().abi(), wszpath.into_param().abi(), ::std::mem::transmute(lflags), pcontext.into_param().abi(), ::std::mem::transmute(pprefreshable), ::std::mem::transmute(plid)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn AddObjectByTemplate<'a, Param0: ::windows::runtime::IntoParam<'a, IWbemServices>, Param1: ::windows::runtime::IntoParam<'a, IWbemClassObject>, Param3: ::windows::runtime::IntoParam<'a, IWbemContext>>(&self, pnamespace: Param0, ptemplate: Param1, lflags: i32, pcontext: Param3, pprefreshable: *mut ::std::option::Option<IWbemClassObject>, plid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pnamespace.into_param().abi(), ptemplate.into_param().abi(), ::std::mem::transmute(lflags), pcontext.into_param().abi(), ::std::mem::transmute(pprefreshable), ::std::mem::transmute(plid)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn AddRefresher<'a, Param0: ::windows::runtime::IntoParam<'a, IWbemRefresher>>(&self, prefresher: Param0, lflags: i32, plid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), prefresher.into_param().abi(), ::std::mem::transmute(lflags), ::std::mem::transmute(plid)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Remove(&self, lid: i32, lflags: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(lid), ::std::mem::transmute(lflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn AddEnum<'a, Param0: ::windows::runtime::IntoParam<'a, IWbemServices>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, IWbemContext>>(&self, pnamespace: Param0, wszclassname: Param1, lflags: i32, pcontext: Param3, ppenum: *mut ::std::option::Option<IWbemHiPerfEnum>, plid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), pnamespace.into_param().abi(), wszclassname.into_param().abi(), ::std::mem::transmute(lflags), pcontext.into_param().abi(), ::std::mem::transmute(ppenum), ::std::mem::transmute(plid)).ok()
     }
@@ -5413,11 +5791,13 @@ pub struct IWbemConfigureRefresher_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pnamespace: ::windows::runtime::RawPtr, wszclassname: super::super::Foundation::PWSTR, lflags: i32, pcontext: ::windows::runtime::RawPtr, ppenum: *mut ::windows::runtime::RawPtr, plid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWbemConnectorLogin(::windows::runtime::IUnknown);
 impl IWbemConnectorLogin {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn ConnectorLogin<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, IWbemContext>, T: ::windows::runtime::Interface>(&self, wsznetworkresource: Param0, wszpreferredlocale: Param1, lflags: i32, pctx: Param3) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), wsznetworkresource.into_param().abi(), wszpreferredlocale.into_param().abi(), ::std::mem::transmute(lflags), pctx.into_param().abi(), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
@@ -5456,23 +5836,28 @@ pub struct IWbemConnectorLogin_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, wsznetworkresource: super::super::Foundation::PWSTR, wszpreferredlocale: super::super::Foundation::PWSTR, lflags: i32, pctx: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, pinterface: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWbemConstructClassObject(::windows::runtime::IUnknown);
 impl IWbemConstructClassObject {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn SetInheritanceChain(&self, lnumantecedents: i32, awszantecedents: *const super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(lnumantecedents), ::std::mem::transmute(awszantecedents)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn SetPropertyOrigin<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszpropertyname: Param0, loriginindex: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), wszpropertyname.into_param().abi(), ::std::mem::transmute(loriginindex)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn SetMethodOrigin<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszmethodname: Param0, loriginindex: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), wszmethodname.into_param().abi(), ::std::mem::transmute(loriginindex)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn SetServerNamespace<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszserver: Param0, wsznamespace: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), wszserver.into_param().abi(), wsznamespace.into_param().abi()).ok()
     }
@@ -5516,42 +5901,52 @@ pub struct IWbemConstructClassObject_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, wszserver: super::super::Foundation::PWSTR, wsznamespace: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWbemContext(::windows::runtime::IUnknown);
 impl IWbemContext {
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Clone(&self) -> ::windows::runtime::Result<IWbemContext> {
         let mut result__: <IWbemContext as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWbemContext>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_System_Com`*"]
     pub unsafe fn GetNames(&self, lflags: i32) -> ::windows::runtime::Result<*mut super::Com::SAFEARRAY> {
         let mut result__: <*mut super::Com::SAFEARRAY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), &mut result__).from_abi::<*mut super::Com::SAFEARRAY>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn BeginEnumeration(&self, lflags: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Next(&self, lflags: i32, pstrname: *mut super::super::Foundation::BSTR, pvalue: *mut super::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), ::std::mem::transmute(pstrname), ::std::mem::transmute(pvalue)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn EndEnumeration(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszname: Param0, lflags: i32, pvalue: *const super::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), wszname.into_param().abi(), ::std::mem::transmute(lflags), ::std::mem::transmute(pvalue)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszname: Param0, lflags: i32) -> ::windows::runtime::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), wszname.into_param().abi(), ::std::mem::transmute(lflags), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn DeleteValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszname: Param0, lflags: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), wszname.into_param().abi(), ::std::mem::transmute(lflags)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn DeleteAll(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self)).ok()
     }
@@ -5601,11 +5996,13 @@ pub struct IWbemContext_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWbemDecoupledBasicEventProvider(::windows::runtime::IUnknown);
 impl IWbemDecoupledBasicEventProvider {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn Register<'a, Param1: ::windows::runtime::IntoParam<'a, IWbemContext>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(
         &self,
         a_flags: i32,
@@ -5618,13 +6015,16 @@ impl IWbemDecoupledBasicEventProvider {
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(a_flags), a_context.into_param().abi(), a_user.into_param().abi(), a_locale.into_param().abi(), a_scope.into_param().abi(), a_registration.into_param().abi(), piunknown.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn UnRegister(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn GetSink<'a, Param1: ::windows::runtime::IntoParam<'a, IWbemContext>>(&self, a_flags: i32, a_context: Param1) -> ::windows::runtime::Result<IWbemObjectSink> {
         let mut result__: <IWbemObjectSink as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(a_flags), a_context.into_param().abi(), &mut result__).from_abi::<IWbemObjectSink>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn GetService<'a, Param1: ::windows::runtime::IntoParam<'a, IWbemContext>>(&self, a_flags: i32, a_context: Param1) -> ::windows::runtime::Result<IWbemServices> {
         let mut result__: <IWbemServices as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(a_flags), a_context.into_param().abi(), &mut result__).from_abi::<IWbemServices>(result__)
@@ -5686,11 +6086,13 @@ pub struct IWbemDecoupledBasicEventProvider_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, a_flags: i32, a_context: ::windows::runtime::RawPtr, a_sink: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, a_flags: i32, a_context: ::windows::runtime::RawPtr, a_service: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWbemDecoupledRegistrar(::windows::runtime::IUnknown);
 impl IWbemDecoupledRegistrar {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn Register<'a, Param1: ::windows::runtime::IntoParam<'a, IWbemContext>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(
         &self,
         a_flags: i32,
@@ -5703,6 +6105,7 @@ impl IWbemDecoupledRegistrar {
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(a_flags), a_context.into_param().abi(), a_user.into_param().abi(), a_locale.into_param().abi(), a_scope.into_param().abi(), a_registration.into_param().abi(), piunknown.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn UnRegister(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
@@ -5741,10 +6144,12 @@ pub struct IWbemDecoupledRegistrar_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWbemEventConsumerProvider(::windows::runtime::IUnknown);
 impl IWbemEventConsumerProvider {
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn FindConsumer<'a, Param0: ::windows::runtime::IntoParam<'a, IWbemClassObject>>(&self, plogicalconsumer: Param0) -> ::windows::runtime::Result<IWbemUnboundObjectSink> {
         let mut result__: <IWbemUnboundObjectSink as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), plogicalconsumer.into_param().abi(), &mut result__).from_abi::<IWbemUnboundObjectSink>(result__)
@@ -5782,10 +6187,12 @@ pub struct IWbemEventConsumerProvider_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, plogicalconsumer: ::windows::runtime::RawPtr, ppconsumer: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWbemEventProvider(::windows::runtime::IUnknown);
 impl IWbemEventProvider {
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn ProvideEvents<'a, Param0: ::windows::runtime::IntoParam<'a, IWbemObjectSink>>(&self, psink: Param0, lflags: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), psink.into_param().abi(), ::std::mem::transmute(lflags)).ok()
     }
@@ -5822,13 +6229,16 @@ pub struct IWbemEventProvider_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, psink: ::windows::runtime::RawPtr, lflags: i32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWbemEventProviderQuerySink(::windows::runtime::IUnknown);
 impl IWbemEventProviderQuerySink {
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn NewQuery(&self, dwid: u32, wszquerylanguage: *const u16, wszquery: *const u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwid), ::std::mem::transmute(wszquerylanguage), ::std::mem::transmute(wszquery)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn CancelQuery(&self, dwid: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwid)).ok()
     }
@@ -5866,10 +6276,12 @@ pub struct IWbemEventProviderQuerySink_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwid: u32, wszquerylanguage: *const u16, wszquery: *const u16) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwid: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWbemEventProviderSecurity(::windows::runtime::IUnknown);
 impl IWbemEventProviderSecurity {
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn AccessCheck(&self, wszquerylanguage: *const u16, wszquery: *const u16, lsidlength: i32, psid: *const u8) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(wszquerylanguage), ::std::mem::transmute(wszquery), ::std::mem::transmute(lsidlength), ::std::mem::transmute(psid)).ok()
     }
@@ -5906,28 +6318,35 @@ pub struct IWbemEventProviderSecurity_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, wszquerylanguage: *const u16, wszquery: *const u16, lsidlength: i32, psid: *const u8) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWbemEventSink(::windows::runtime::IUnknown);
 impl IWbemEventSink {
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Indicate(&self, lobjectcount: i32, apobjarray: *const ::std::option::Option<IWbemClassObject>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(lobjectcount), ::std::mem::transmute(apobjarray)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn SetStatus<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::runtime::IntoParam<'a, IWbemClassObject>>(&self, lflags: i32, hresult: ::windows::runtime::HRESULT, strparam: Param2, pobjparam: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), ::std::mem::transmute(hresult), strparam.into_param().abi(), pobjparam.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn SetSinkSecurity(&self, lsdlength: i32, psd: *const u8) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(lsdlength), ::std::mem::transmute(psd)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn IsActive(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn GetRestrictedSink<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, lnumqueries: i32, awszqueries: *const super::super::Foundation::PWSTR, pcallback: Param2) -> ::windows::runtime::Result<IWbemEventSink> {
         let mut result__: <IWbemEventSink as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(lnumqueries), ::std::mem::transmute(awszqueries), pcallback.into_param().abi(), &mut result__).from_abi::<IWbemEventSink>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn SetBatchingParameters(&self, lflags: i32, dwmaxbuffersize: u32, dwmaxsendlatency: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), ::std::mem::transmute(dwmaxbuffersize), ::std::mem::transmute(dwmaxsendlatency)).ok()
     }
@@ -5991,19 +6410,24 @@ pub struct IWbemEventSink_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lflags: i32, dwmaxbuffersize: u32, dwmaxsendlatency: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWbemHiPerfEnum(::windows::runtime::IUnknown);
 impl IWbemHiPerfEnum {
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn AddObjects(&self, lflags: i32, unumobjects: u32, apids: *const i32, apobj: *const ::std::option::Option<IWbemObjectAccess>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), ::std::mem::transmute(unumobjects), ::std::mem::transmute(apids), ::std::mem::transmute(apobj)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn RemoveObjects(&self, lflags: i32, unumobjects: u32, apids: *const i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), ::std::mem::transmute(unumobjects), ::std::mem::transmute(apids)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn GetObjects(&self, lflags: i32, unumobjects: u32, apobj: *mut ::std::option::Option<IWbemObjectAccess>, pureturned: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), ::std::mem::transmute(unumobjects), ::std::mem::transmute(apobj), ::std::mem::transmute(pureturned)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn RemoveAll(&self, lflags: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags)).ok()
     }
@@ -6043,25 +6467,31 @@ pub struct IWbemHiPerfEnum_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lflags: i32, unumobjects: u32, apobj: *mut ::windows::runtime::RawPtr, pureturned: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lflags: i32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWbemHiPerfProvider(::windows::runtime::IUnknown);
 impl IWbemHiPerfProvider {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn QueryInstances<'a, Param0: ::windows::runtime::IntoParam<'a, IWbemServices>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, IWbemContext>>(&self, pnamespace: Param0, wszclass: Param1, lflags: i32, pctx: Param3, psink: ::std::option::Option<IWbemObjectSink>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pnamespace.into_param().abi(), wszclass.into_param().abi(), ::std::mem::transmute(lflags), pctx.into_param().abi(), ::std::mem::transmute(psink)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn CreateRefresher<'a, Param0: ::windows::runtime::IntoParam<'a, IWbemServices>>(&self, pnamespace: Param0, lflags: i32) -> ::windows::runtime::Result<IWbemRefresher> {
         let mut result__: <IWbemRefresher as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pnamespace.into_param().abi(), ::std::mem::transmute(lflags), &mut result__).from_abi::<IWbemRefresher>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn CreateRefreshableObject<'a, Param0: ::windows::runtime::IntoParam<'a, IWbemServices>, Param1: ::windows::runtime::IntoParam<'a, IWbemObjectAccess>, Param2: ::windows::runtime::IntoParam<'a, IWbemRefresher>, Param4: ::windows::runtime::IntoParam<'a, IWbemContext>>(&self, pnamespace: Param0, ptemplate: Param1, prefresher: Param2, lflags: i32, pcontext: Param4, pprefreshable: *mut ::std::option::Option<IWbemObjectAccess>, plid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), pnamespace.into_param().abi(), ptemplate.into_param().abi(), prefresher.into_param().abi(), ::std::mem::transmute(lflags), pcontext.into_param().abi(), ::std::mem::transmute(pprefreshable), ::std::mem::transmute(plid)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn StopRefreshing<'a, Param0: ::windows::runtime::IntoParam<'a, IWbemRefresher>>(&self, prefresher: Param0, lid: i32, lflags: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), prefresher.into_param().abi(), ::std::mem::transmute(lid), ::std::mem::transmute(lflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn CreateRefreshableEnum<'a, Param0: ::windows::runtime::IntoParam<'a, IWbemServices>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, IWbemRefresher>, Param4: ::windows::runtime::IntoParam<'a, IWbemContext>, Param5: ::windows::runtime::IntoParam<'a, IWbemHiPerfEnum>>(
         &self,
         pnamespace: Param0,
@@ -6074,6 +6504,7 @@ impl IWbemHiPerfProvider {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), pnamespace.into_param().abi(), wszclass.into_param().abi(), prefresher.into_param().abi(), ::std::mem::transmute(lflags), pcontext.into_param().abi(), phiperfenum.into_param().abi(), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn GetObjects<'a, Param0: ::windows::runtime::IntoParam<'a, IWbemServices>, Param4: ::windows::runtime::IntoParam<'a, IWbemContext>>(&self, pnamespace: Param0, lnumobjects: i32, apobj: *mut ::std::option::Option<IWbemObjectAccess>, lflags: i32, pcontext: Param4) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), pnamespace.into_param().abi(), ::std::mem::transmute(lnumobjects), ::std::mem::transmute(apobj), ::std::mem::transmute(lflags), pcontext.into_param().abi()).ok()
     }
@@ -6117,26 +6548,31 @@ pub struct IWbemHiPerfProvider_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pnamespace: ::windows::runtime::RawPtr, lnumobjects: i32, apobj: *mut ::windows::runtime::RawPtr, lflags: i32, pcontext: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWbemLevel1Login(::windows::runtime::IUnknown);
 impl IWbemLevel1Login {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn EstablishPosition<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszlocalelist: Param0, dwnumlocales: u32) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), wszlocalelist.into_param().abi(), ::std::mem::transmute(dwnumlocales), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn RequestChallenge<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wsznetworkresource: Param0, wszuser: Param1) -> ::windows::runtime::Result<u8> {
         let mut result__: <u8 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), wsznetworkresource.into_param().abi(), wszuser.into_param().abi(), &mut result__).from_abi::<u8>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn WBEMLogin<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, IWbemContext>>(&self, wszpreferredlocale: Param0, accesstoken: *const u8, lflags: i32, pctx: Param3) -> ::windows::runtime::Result<IWbemServices> {
         let mut result__: <IWbemServices as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), wszpreferredlocale.into_param().abi(), ::std::mem::transmute(accesstoken), ::std::mem::transmute(lflags), pctx.into_param().abi(), &mut result__).from_abi::<IWbemServices>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn NTLMLogin<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, IWbemContext>>(&self, wsznetworkresource: Param0, wszpreferredlocale: Param1, lflags: i32, pctx: Param3) -> ::windows::runtime::Result<IWbemServices> {
         let mut result__: <IWbemServices as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), wsznetworkresource.into_param().abi(), wszpreferredlocale.into_param().abi(), ::std::mem::transmute(lflags), pctx.into_param().abi(), &mut result__).from_abi::<IWbemServices>(result__)
@@ -6181,11 +6617,13 @@ pub struct IWbemLevel1Login_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, wsznetworkresource: super::super::Foundation::PWSTR, wszpreferredlocale: super::super::Foundation::PWSTR, lflags: i32, pctx: ::windows::runtime::RawPtr, ppnamespace: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWbemLocator(::windows::runtime::IUnknown);
 impl IWbemLocator {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn ConnectServer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param6: ::windows::runtime::IntoParam<'a, IWbemContext>>(
         &self,
         strnetworkresource: Param0,
@@ -6244,138 +6682,173 @@ pub struct IWbemLocator_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWbemObjectAccess(::windows::runtime::IUnknown);
 impl IWbemObjectAccess {
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn GetQualifierSet(&self) -> ::windows::runtime::Result<IWbemQualifierSet> {
         let mut result__: <IWbemQualifierSet as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWbemQualifierSet>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Get<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszname: Param0, lflags: i32, pval: *mut super::Com::VARIANT, ptype: *mut i32, plflavor: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), wszname.into_param().abi(), ::std::mem::transmute(lflags), ::std::mem::transmute(pval), ::std::mem::transmute(ptype), ::std::mem::transmute(plflavor)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Put<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszname: Param0, lflags: i32, pval: *const super::Com::VARIANT, r#type: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), wszname.into_param().abi(), ::std::mem::transmute(lflags), ::std::mem::transmute(pval), ::std::mem::transmute(r#type)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn Delete<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszname: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), wszname.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetNames<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszqualifiername: Param0, lflags: i32, pqualifierval: *const super::Com::VARIANT) -> ::windows::runtime::Result<*mut super::Com::SAFEARRAY> {
         let mut result__: <*mut super::Com::SAFEARRAY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), wszqualifiername.into_param().abi(), ::std::mem::transmute(lflags), ::std::mem::transmute(pqualifierval), &mut result__).from_abi::<*mut super::Com::SAFEARRAY>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn BeginEnumeration(&self, lenumflags: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(lenumflags)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Next(&self, lflags: i32, strname: *mut super::super::Foundation::BSTR, pval: *mut super::Com::VARIANT, ptype: *mut i32, plflavor: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), ::std::mem::transmute(strname), ::std::mem::transmute(pval), ::std::mem::transmute(ptype), ::std::mem::transmute(plflavor)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn EndEnumeration(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn GetPropertyQualifierSet<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszproperty: Param0) -> ::windows::runtime::Result<IWbemQualifierSet> {
         let mut result__: <IWbemQualifierSet as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), wszproperty.into_param().abi(), &mut result__).from_abi::<IWbemQualifierSet>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Clone(&self) -> ::windows::runtime::Result<IWbemClassObject> {
         let mut result__: <IWbemClassObject as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWbemClassObject>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn GetObjectText(&self, lflags: i32) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn SpawnDerivedClass(&self, lflags: i32) -> ::windows::runtime::Result<IWbemClassObject> {
         let mut result__: <IWbemClassObject as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), &mut result__).from_abi::<IWbemClassObject>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn SpawnInstance(&self, lflags: i32) -> ::windows::runtime::Result<IWbemClassObject> {
         let mut result__: <IWbemClassObject as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), &mut result__).from_abi::<IWbemClassObject>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn CompareTo<'a, Param1: ::windows::runtime::IntoParam<'a, IWbemClassObject>>(&self, lflags: i32, pcompareto: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), pcompareto.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn GetPropertyOrigin<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszname: Param0) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), wszname.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn InheritsFrom<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, strancestor: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), strancestor.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn GetMethod<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszname: Param0, lflags: i32, ppinsignature: *mut ::std::option::Option<IWbemClassObject>, ppoutsignature: *mut ::std::option::Option<IWbemClassObject>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), wszname.into_param().abi(), ::std::mem::transmute(lflags), ::std::mem::transmute(ppinsignature), ::std::mem::transmute(ppoutsignature)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn PutMethod<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, IWbemClassObject>, Param3: ::windows::runtime::IntoParam<'a, IWbemClassObject>>(&self, wszname: Param0, lflags: i32, pinsignature: Param2, poutsignature: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), wszname.into_param().abi(), ::std::mem::transmute(lflags), pinsignature.into_param().abi(), poutsignature.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn DeleteMethod<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszname: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), wszname.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn BeginMethodEnumeration(&self, lenumflags: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(lenumflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn NextMethod(&self, lflags: i32, pstrname: *mut super::super::Foundation::BSTR, ppinsignature: *mut ::std::option::Option<IWbemClassObject>, ppoutsignature: *mut ::std::option::Option<IWbemClassObject>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), ::std::mem::transmute(pstrname), ::std::mem::transmute(ppinsignature), ::std::mem::transmute(ppoutsignature)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn EndMethodEnumeration(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn GetMethodQualifierSet<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszmethod: Param0) -> ::windows::runtime::Result<IWbemQualifierSet> {
         let mut result__: <IWbemQualifierSet as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), wszmethod.into_param().abi(), &mut result__).from_abi::<IWbemQualifierSet>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn GetMethodOrigin<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszmethodname: Param0) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), wszmethodname.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn GetPropertyHandle<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszpropertyname: Param0, ptype: *mut i32, plhandle: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), wszpropertyname.into_param().abi(), ::std::mem::transmute(ptype), ::std::mem::transmute(plhandle)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn WritePropertyValue(&self, lhandle: i32, lnumbytes: i32, adata: *const u8) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), ::std::mem::transmute(lhandle), ::std::mem::transmute(lnumbytes), ::std::mem::transmute(adata)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn ReadPropertyValue(&self, lhandle: i32, lbuffersize: i32, plnumbytes: *mut i32, adata: *mut u8) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), ::std::mem::transmute(lhandle), ::std::mem::transmute(lbuffersize), ::std::mem::transmute(plnumbytes), ::std::mem::transmute(adata)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn ReadDWORD(&self, lhandle: i32) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), ::std::mem::transmute(lhandle), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn WriteDWORD(&self, lhandle: i32, dw: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self), ::std::mem::transmute(lhandle), ::std::mem::transmute(dw)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn ReadQWORD(&self, lhandle: i32) -> ::windows::runtime::Result<u64> {
         let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).32)(::std::mem::transmute_copy(self), ::std::mem::transmute(lhandle), &mut result__).from_abi::<u64>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn WriteQWORD(&self, lhandle: i32, pw: u64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).33)(::std::mem::transmute_copy(self), ::std::mem::transmute(lhandle), ::std::mem::transmute(pw)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn GetPropertyInfoByHandle(&self, lhandle: i32, pstrname: *mut super::super::Foundation::BSTR, ptype: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).34)(::std::mem::transmute_copy(self), ::std::mem::transmute(lhandle), ::std::mem::transmute(pstrname), ::std::mem::transmute(ptype)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Lock(&self, lflags: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).35)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Unlock(&self, lflags: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).36)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags)).ok()
     }
@@ -6482,14 +6955,17 @@ pub struct IWbemObjectAccess_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lflags: i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lflags: i32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWbemObjectSink(::windows::runtime::IUnknown);
 impl IWbemObjectSink {
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Indicate(&self, lobjectcount: i32, apobjarray: *const ::std::option::Option<IWbemClassObject>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(lobjectcount), ::std::mem::transmute(apobjarray)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn SetStatus<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::runtime::IntoParam<'a, IWbemClassObject>>(&self, lflags: i32, hresult: ::windows::runtime::HRESULT, strparam: Param2, pobjparam: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), ::std::mem::transmute(hresult), strparam.into_param().abi(), pobjparam.into_param().abi()).ok()
     }
@@ -6528,35 +7004,43 @@ pub struct IWbemObjectSink_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lflags: i32, hresult: ::windows::runtime::HRESULT, strparam: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, pobjparam: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWbemObjectSinkEx(::windows::runtime::IUnknown);
 impl IWbemObjectSinkEx {
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Indicate(&self, lobjectcount: i32, apobjarray: *const ::std::option::Option<IWbemClassObject>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(lobjectcount), ::std::mem::transmute(apobjarray)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn SetStatus<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::runtime::IntoParam<'a, IWbemClassObject>>(&self, lflags: i32, hresult: ::windows::runtime::HRESULT, strparam: Param2, pobjparam: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), ::std::mem::transmute(hresult), strparam.into_param().abi(), pobjparam.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn WriteMessage<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, uchannel: u32, strmessage: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(uchannel), strmessage.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn WriteError<'a, Param0: ::windows::runtime::IntoParam<'a, IWbemClassObject>>(&self, pobjerror: Param0) -> ::windows::runtime::Result<u8> {
         let mut result__: <u8 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), pobjerror.into_param().abi(), &mut result__).from_abi::<u8>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn PromptUser<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, strmessage: Param0, uprompttype: u8) -> ::windows::runtime::Result<u8> {
         let mut result__: <u8 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), strmessage.into_param().abi(), ::std::mem::transmute(uprompttype), &mut result__).from_abi::<u8>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn WriteProgress<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, stractivity: Param0, strcurrentoperation: Param1, strstatusdescription: Param2, upercentcomplete: u32, usecondsremaining: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), stractivity.into_param().abi(), strcurrentoperation.into_param().abi(), strstatusdescription.into_param().abi(), ::std::mem::transmute(upercentcomplete), ::std::mem::transmute(usecondsremaining)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn WriteStreamParameter<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, strname: Param0, vtvalue: *const super::Com::VARIANT, ultype: u32, ulflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), strname.into_param().abi(), ::std::mem::transmute(vtvalue), ::std::mem::transmute(ultype), ::std::mem::transmute(ulflags)).ok()
     }
@@ -6624,16 +7108,19 @@ pub struct IWbemObjectSinkEx_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, strname: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, vtvalue: *const ::std::mem::ManuallyDrop<super::Com::VARIANT>, ultype: u32, ulflags: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
 );
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWbemObjectTextSrc(::windows::runtime::IUnknown);
 impl IWbemObjectTextSrc {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn GetText<'a, Param1: ::windows::runtime::IntoParam<'a, IWbemClassObject>, Param3: ::windows::runtime::IntoParam<'a, IWbemContext>>(&self, lflags: i32, pobj: Param1, uobjtextformat: u32, pctx: Param3) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), pobj.into_param().abi(), ::std::mem::transmute(uobjtextformat), pctx.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn CreateFromText<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::runtime::IntoParam<'a, IWbemContext>>(&self, lflags: i32, strtext: Param1, uobjtextformat: u32, pctx: Param3) -> ::windows::runtime::Result<IWbemClassObject> {
         let mut result__: <IWbemClassObject as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), strtext.into_param().abi(), ::std::mem::transmute(uobjtextformat), pctx.into_param().abi(), &mut result__).from_abi::<IWbemClassObject>(result__)
@@ -6674,106 +7161,133 @@ pub struct IWbemObjectTextSrc_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lflags: i32, strtext: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, uobjtextformat: u32, pctx: ::windows::runtime::RawPtr, pnewobj: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWbemPath(::windows::runtime::IUnknown);
 impl IWbemPath {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn SetText<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, umode: u32, pszpath: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(umode), pszpath.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn GetText(&self, lflags: i32, pubufflength: *mut u32, psztext: super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), ::std::mem::transmute(pubufflength), ::std::mem::transmute(psztext)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn GetInfo(&self, urequestedinfo: u32) -> ::windows::runtime::Result<u64> {
         let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(urequestedinfo), &mut result__).from_abi::<u64>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn SetServer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, name: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn GetServer(&self, punamebuflength: *mut u32, pname: super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(punamebuflength), ::std::mem::transmute(pname)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn GetNamespaceCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn SetNamespaceAt<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, uindex: u32, pszname: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(uindex), pszname.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn GetNamespaceAt(&self, uindex: u32, punamebuflength: *mut u32, pname: super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(uindex), ::std::mem::transmute(punamebuflength), ::std::mem::transmute(pname)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn RemoveNamespaceAt(&self, uindex: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(uindex)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn RemoveAllNamespaces(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn GetScopeCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn SetScope<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, uindex: u32, pszclass: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(uindex), pszclass.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn SetScopeFromText<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, uindex: u32, psztext: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(uindex), psztext.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn GetScope(&self, uindex: u32, puclassnamebufsize: *mut u32, pszclass: super::super::Foundation::PWSTR, pkeylist: *mut ::std::option::Option<IWbemPathKeyList>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(uindex), ::std::mem::transmute(puclassnamebufsize), ::std::mem::transmute(pszclass), ::std::mem::transmute(pkeylist)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn GetScopeAsText(&self, uindex: u32, putextbufsize: *mut u32, psztext: super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(uindex), ::std::mem::transmute(putextbufsize), ::std::mem::transmute(psztext)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn RemoveScope(&self, uindex: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(uindex)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn RemoveAllScopes(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn SetClassName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, name: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn GetClassName(&self, pubufflength: *mut u32, pszname: super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(pubufflength), ::std::mem::transmute(pszname)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn GetKeyList(&self) -> ::windows::runtime::Result<IWbemPathKeyList> {
         let mut result__: <IWbemPathKeyList as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWbemPathKeyList>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn CreateClassPart<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, lflags: i32, name: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), name.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn DeleteClassPart(&self, lflags: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn IsRelative<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszmachine: Param0, wsznamespace: Param1) -> super::super::Foundation::BOOL {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), wszmachine.into_param().abi(), wsznamespace.into_param().abi()))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn IsRelativeOrChild<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszmachine: Param0, wsznamespace: Param1, lflags: i32) -> super::super::Foundation::BOOL {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), wszmachine.into_param().abi(), wsznamespace.into_param().abi(), ::std::mem::transmute(lflags)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn IsLocal<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszmachine: Param0) -> super::super::Foundation::BOOL {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), wszmachine.into_param().abi()))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn IsSameClassName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszclass: Param0) -> super::super::Foundation::BOOL {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), wszclass.into_param().abi()))
     }
@@ -6852,45 +7366,56 @@ pub struct IWbemPath_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, wszclass: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWbemPathKeyList(::windows::runtime::IUnknown);
 impl IWbemPathKeyList {
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn GetCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn SetKey<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszname: Param0, uflags: u32, ucimtype: u32, pkeyval: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), wszname.into_param().abi(), ::std::mem::transmute(uflags), ::std::mem::transmute(ucimtype), ::std::mem::transmute(pkeyval)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetKey2<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszname: Param0, uflags: u32, ucimtype: u32, pkeyval: *const super::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), wszname.into_param().abi(), ::std::mem::transmute(uflags), ::std::mem::transmute(ucimtype), ::std::mem::transmute(pkeyval)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn GetKey(&self, ukeyix: u32, uflags: u32, punamebufsize: *mut u32, pszkeyname: super::super::Foundation::PWSTR, pukeyvalbufsize: *mut u32, pkeyval: *mut ::std::ffi::c_void, puapparentcimtype: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(ukeyix), ::std::mem::transmute(uflags), ::std::mem::transmute(punamebufsize), ::std::mem::transmute(pszkeyname), ::std::mem::transmute(pukeyvalbufsize), ::std::mem::transmute(pkeyval), ::std::mem::transmute(puapparentcimtype)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetKey2(&self, ukeyix: u32, uflags: u32, punamebufsize: *mut u32, pszkeyname: super::super::Foundation::PWSTR, pkeyvalue: *mut super::Com::VARIANT, puapparentcimtype: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(ukeyix), ::std::mem::transmute(uflags), ::std::mem::transmute(punamebufsize), ::std::mem::transmute(pszkeyname), ::std::mem::transmute(pkeyvalue), ::std::mem::transmute(puapparentcimtype)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn RemoveKey<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszname: Param0, uflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), wszname.into_param().abi(), ::std::mem::transmute(uflags)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn RemoveAllKeys(&self, uflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(uflags)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn MakeSingleton(&self, bset: u8) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(bset)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn GetInfo(&self, urequestedinfo: u32) -> ::windows::runtime::Result<u64> {
         let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(urequestedinfo), &mut result__).from_abi::<u64>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn GetText(&self, lflags: i32, pubufflength: *mut u32, psztext: super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), ::std::mem::transmute(pubufflength), ::std::mem::transmute(psztext)).ok()
     }
@@ -6942,16 +7467,19 @@ pub struct IWbemPathKeyList_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lflags: i32, pubufflength: *mut u32, psztext: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWbemPropertyProvider(::windows::runtime::IUnknown);
 impl IWbemPropertyProvider {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetProperty<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, lflags: i32, strlocale: Param1, strclassmapping: Param2, strinstmapping: Param3, strpropmapping: Param4) -> ::windows::runtime::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), strlocale.into_param().abi(), strclassmapping.into_param().abi(), strinstmapping.into_param().abi(), strpropmapping.into_param().abi(), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn PutProperty<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(
         &self,
         lflags: i32,
@@ -7001,10 +7529,12 @@ pub struct IWbemPropertyProvider_abi(
     pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lflags: i32, strlocale: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, strclassmapping: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, strinstmapping: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, strpropmapping: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, pvvalue: *const ::std::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
 );
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWbemProviderIdentity(::windows::runtime::IUnknown);
 impl IWbemProviderIdentity {
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn SetRegistrationObject<'a, Param1: ::windows::runtime::IntoParam<'a, IWbemClassObject>>(&self, lflags: i32, pprovreg: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), pprovreg.into_param().abi()).ok()
     }
@@ -7041,11 +7571,13 @@ pub struct IWbemProviderIdentity_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lflags: i32, pprovreg: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWbemProviderInit(::windows::runtime::IUnknown);
 impl IWbemProviderInit {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, IWbemServices>, Param5: ::windows::runtime::IntoParam<'a, IWbemContext>, Param6: ::windows::runtime::IntoParam<'a, IWbemProviderInitSink>>(
         &self,
         wszuser: Param0,
@@ -7092,10 +7624,12 @@ pub struct IWbemProviderInit_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, wszuser: super::super::Foundation::PWSTR, lflags: i32, wsznamespace: super::super::Foundation::PWSTR, wszlocale: super::super::Foundation::PWSTR, pnamespace: ::windows::runtime::RawPtr, pctx: ::windows::runtime::RawPtr, pinitsink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWbemProviderInitSink(::windows::runtime::IUnknown);
 impl IWbemProviderInitSink {
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn SetStatus(&self, lstatus: i32, lflags: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(lstatus), ::std::mem::transmute(lflags)).ok()
     }
@@ -7132,34 +7666,42 @@ pub struct IWbemProviderInitSink_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lstatus: i32, lflags: i32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWbemQualifierSet(::windows::runtime::IUnknown);
 impl IWbemQualifierSet {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Get<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszname: Param0, lflags: i32, pval: *mut super::Com::VARIANT, plflavor: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), wszname.into_param().abi(), ::std::mem::transmute(lflags), ::std::mem::transmute(pval), ::std::mem::transmute(plflavor)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Put<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszname: Param0, pval: *const super::Com::VARIANT, lflavor: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), wszname.into_param().abi(), ::std::mem::transmute(pval), ::std::mem::transmute(lflavor)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn Delete<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszname: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), wszname.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_System_Com`*"]
     pub unsafe fn GetNames(&self, lflags: i32) -> ::windows::runtime::Result<*mut super::Com::SAFEARRAY> {
         let mut result__: <*mut super::Com::SAFEARRAY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), &mut result__).from_abi::<*mut super::Com::SAFEARRAY>(result__)
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn BeginEnumeration(&self, lflags: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Next(&self, lflags: i32, pstrname: *mut super::super::Foundation::BSTR, pval: *mut super::Com::VARIANT, plflavor: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), ::std::mem::transmute(pstrname), ::std::mem::transmute(pval), ::std::mem::transmute(plflavor)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn EndEnumeration(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self)).ok()
     }
@@ -7207,29 +7749,37 @@ pub struct IWbemQualifierSet_abi(
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWbemQuery(::windows::runtime::IUnknown);
 impl IWbemQuery {
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Empty(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn SetLanguageFeatures(&self, uflags: u32, uarraysize: u32, pufeatures: *const u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(uflags), ::std::mem::transmute(uarraysize), ::std::mem::transmute(pufeatures)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn TestLanguageFeatures(&self, uflags: u32, uarraysize: *mut u32, pufeatures: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(uflags), ::std::mem::transmute(uarraysize), ::std::mem::transmute(pufeatures)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn Parse<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszlang: Param0, pszquery: Param1, uflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), pszlang.into_param().abi(), pszquery.into_param().abi(), ::std::mem::transmute(uflags)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn GetAnalysis(&self, uanalysistype: u32, uflags: u32, panalysis: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(uanalysistype), ::std::mem::transmute(uflags), ::std::mem::transmute(panalysis)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn FreeMemory(&self, pmem: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(pmem)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn GetQueryInfo(&self, uanalysistype: u32, uinfoid: u32, ubufsize: u32, pdestbuf: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(uanalysistype), ::std::mem::transmute(uinfoid), ::std::mem::transmute(ubufsize), ::std::mem::transmute(pdestbuf)).ok()
     }
@@ -7273,10 +7823,12 @@ pub struct IWbemQuery_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pmem: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, uanalysistype: u32, uinfoid: u32, ubufsize: u32, pdestbuf: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWbemRefresher(::windows::runtime::IUnknown);
 impl IWbemRefresher {
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Refresh(&self, lflags: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags)).ok()
     }
@@ -7313,94 +7865,117 @@ pub struct IWbemRefresher_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lflags: i32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWbemServices(::windows::runtime::IUnknown);
 impl IWbemServices {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn OpenNamespace<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, IWbemContext>>(&self, strnamespace: Param0, lflags: i32, pctx: Param2, ppworkingnamespace: *mut ::std::option::Option<IWbemServices>, ppresult: *mut ::std::option::Option<IWbemCallResult>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), strnamespace.into_param().abi(), ::std::mem::transmute(lflags), pctx.into_param().abi(), ::std::mem::transmute(ppworkingnamespace), ::std::mem::transmute(ppresult)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn CancelAsyncCall<'a, Param0: ::windows::runtime::IntoParam<'a, IWbemObjectSink>>(&self, psink: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), psink.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn QueryObjectSink(&self, lflags: i32) -> ::windows::runtime::Result<IWbemObjectSink> {
         let mut result__: <IWbemObjectSink as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags), &mut result__).from_abi::<IWbemObjectSink>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn GetObject<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, IWbemContext>>(&self, strobjectpath: Param0, lflags: i32, pctx: Param2, ppobject: *mut ::std::option::Option<IWbemClassObject>, ppcallresult: *mut ::std::option::Option<IWbemCallResult>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), strobjectpath.into_param().abi(), ::std::mem::transmute(lflags), pctx.into_param().abi(), ::std::mem::transmute(ppobject), ::std::mem::transmute(ppcallresult)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn GetObjectAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, IWbemContext>, Param3: ::windows::runtime::IntoParam<'a, IWbemObjectSink>>(&self, strobjectpath: Param0, lflags: i32, pctx: Param2, presponsehandler: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), strobjectpath.into_param().abi(), ::std::mem::transmute(lflags), pctx.into_param().abi(), presponsehandler.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn PutClass<'a, Param0: ::windows::runtime::IntoParam<'a, IWbemClassObject>, Param2: ::windows::runtime::IntoParam<'a, IWbemContext>>(&self, pobject: Param0, lflags: i32, pctx: Param2, ppcallresult: *mut ::std::option::Option<IWbemCallResult>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), pobject.into_param().abi(), ::std::mem::transmute(lflags), pctx.into_param().abi(), ::std::mem::transmute(ppcallresult)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn PutClassAsync<'a, Param0: ::windows::runtime::IntoParam<'a, IWbemClassObject>, Param2: ::windows::runtime::IntoParam<'a, IWbemContext>, Param3: ::windows::runtime::IntoParam<'a, IWbemObjectSink>>(&self, pobject: Param0, lflags: i32, pctx: Param2, presponsehandler: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), pobject.into_param().abi(), ::std::mem::transmute(lflags), pctx.into_param().abi(), presponsehandler.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn DeleteClass<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, IWbemContext>>(&self, strclass: Param0, lflags: i32, pctx: Param2, ppcallresult: *mut ::std::option::Option<IWbemCallResult>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), strclass.into_param().abi(), ::std::mem::transmute(lflags), pctx.into_param().abi(), ::std::mem::transmute(ppcallresult)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn DeleteClassAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, IWbemContext>, Param3: ::windows::runtime::IntoParam<'a, IWbemObjectSink>>(&self, strclass: Param0, lflags: i32, pctx: Param2, presponsehandler: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), strclass.into_param().abi(), ::std::mem::transmute(lflags), pctx.into_param().abi(), presponsehandler.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn CreateClassEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, IWbemContext>>(&self, strsuperclass: Param0, lflags: i32, pctx: Param2) -> ::windows::runtime::Result<IEnumWbemClassObject> {
         let mut result__: <IEnumWbemClassObject as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), strsuperclass.into_param().abi(), ::std::mem::transmute(lflags), pctx.into_param().abi(), &mut result__).from_abi::<IEnumWbemClassObject>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn CreateClassEnumAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, IWbemContext>, Param3: ::windows::runtime::IntoParam<'a, IWbemObjectSink>>(&self, strsuperclass: Param0, lflags: i32, pctx: Param2, presponsehandler: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), strsuperclass.into_param().abi(), ::std::mem::transmute(lflags), pctx.into_param().abi(), presponsehandler.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn PutInstance<'a, Param0: ::windows::runtime::IntoParam<'a, IWbemClassObject>, Param2: ::windows::runtime::IntoParam<'a, IWbemContext>>(&self, pinst: Param0, lflags: i32, pctx: Param2, ppcallresult: *mut ::std::option::Option<IWbemCallResult>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), pinst.into_param().abi(), ::std::mem::transmute(lflags), pctx.into_param().abi(), ::std::mem::transmute(ppcallresult)).ok()
     }
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn PutInstanceAsync<'a, Param0: ::windows::runtime::IntoParam<'a, IWbemClassObject>, Param2: ::windows::runtime::IntoParam<'a, IWbemContext>, Param3: ::windows::runtime::IntoParam<'a, IWbemObjectSink>>(&self, pinst: Param0, lflags: i32, pctx: Param2, presponsehandler: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), pinst.into_param().abi(), ::std::mem::transmute(lflags), pctx.into_param().abi(), presponsehandler.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn DeleteInstance<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, IWbemContext>>(&self, strobjectpath: Param0, lflags: i32, pctx: Param2, ppcallresult: *mut ::std::option::Option<IWbemCallResult>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), strobjectpath.into_param().abi(), ::std::mem::transmute(lflags), pctx.into_param().abi(), ::std::mem::transmute(ppcallresult)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn DeleteInstanceAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, IWbemContext>, Param3: ::windows::runtime::IntoParam<'a, IWbemObjectSink>>(&self, strobjectpath: Param0, lflags: i32, pctx: Param2, presponsehandler: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), strobjectpath.into_param().abi(), ::std::mem::transmute(lflags), pctx.into_param().abi(), presponsehandler.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn CreateInstanceEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, IWbemContext>>(&self, strfilter: Param0, lflags: i32, pctx: Param2) -> ::windows::runtime::Result<IEnumWbemClassObject> {
         let mut result__: <IEnumWbemClassObject as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), strfilter.into_param().abi(), ::std::mem::transmute(lflags), pctx.into_param().abi(), &mut result__).from_abi::<IEnumWbemClassObject>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn CreateInstanceEnumAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, IWbemContext>, Param3: ::windows::runtime::IntoParam<'a, IWbemObjectSink>>(&self, strfilter: Param0, lflags: i32, pctx: Param2, presponsehandler: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), strfilter.into_param().abi(), ::std::mem::transmute(lflags), pctx.into_param().abi(), presponsehandler.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn ExecQuery<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::runtime::IntoParam<'a, IWbemContext>>(&self, strquerylanguage: Param0, strquery: Param1, lflags: i32, pctx: Param3) -> ::windows::runtime::Result<IEnumWbemClassObject> {
         let mut result__: <IEnumWbemClassObject as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), strquerylanguage.into_param().abi(), strquery.into_param().abi(), ::std::mem::transmute(lflags), pctx.into_param().abi(), &mut result__).from_abi::<IEnumWbemClassObject>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn ExecQueryAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::runtime::IntoParam<'a, IWbemContext>, Param4: ::windows::runtime::IntoParam<'a, IWbemObjectSink>>(&self, strquerylanguage: Param0, strquery: Param1, lflags: i32, pctx: Param3, presponsehandler: Param4) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), strquerylanguage.into_param().abi(), strquery.into_param().abi(), ::std::mem::transmute(lflags), pctx.into_param().abi(), presponsehandler.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn ExecNotificationQuery<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::runtime::IntoParam<'a, IWbemContext>>(&self, strquerylanguage: Param0, strquery: Param1, lflags: i32, pctx: Param3) -> ::windows::runtime::Result<IEnumWbemClassObject> {
         let mut result__: <IEnumWbemClassObject as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), strquerylanguage.into_param().abi(), strquery.into_param().abi(), ::std::mem::transmute(lflags), pctx.into_param().abi(), &mut result__).from_abi::<IEnumWbemClassObject>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn ExecNotificationQueryAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::runtime::IntoParam<'a, IWbemContext>, Param4: ::windows::runtime::IntoParam<'a, IWbemObjectSink>>(&self, strquerylanguage: Param0, strquery: Param1, lflags: i32, pctx: Param3, presponsehandler: Param4) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), strquerylanguage.into_param().abi(), strquery.into_param().abi(), ::std::mem::transmute(lflags), pctx.into_param().abi(), presponsehandler.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn ExecMethod<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::runtime::IntoParam<'a, IWbemContext>, Param4: ::windows::runtime::IntoParam<'a, IWbemClassObject>>(
         &self,
         strobjectpath: Param0,
@@ -7414,6 +7989,7 @@ impl IWbemServices {
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), strobjectpath.into_param().abi(), strmethodname.into_param().abi(), ::std::mem::transmute(lflags), pctx.into_param().abi(), pinparams.into_param().abi(), ::std::mem::transmute(ppoutparams), ::std::mem::transmute(ppcallresult)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn ExecMethodAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::runtime::IntoParam<'a, IWbemContext>, Param4: ::windows::runtime::IntoParam<'a, IWbemClassObject>, Param5: ::windows::runtime::IntoParam<'a, IWbemObjectSink>>(
         &self,
         strobjectpath: Param0,
@@ -7497,10 +8073,12 @@ pub struct IWbemServices_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, strobjectpath: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, strmethodname: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, lflags: i32, pctx: ::windows::runtime::RawPtr, pinparams: ::windows::runtime::RawPtr, presponsehandler: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWbemShutdown(::windows::runtime::IUnknown);
 impl IWbemShutdown {
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Shutdown<'a, Param2: ::windows::runtime::IntoParam<'a, IWbemContext>>(&self, ureason: i32, umaxmilliseconds: u32, pctx: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(ureason), ::std::mem::transmute(umaxmilliseconds), pctx.into_param().abi()).ok()
     }
@@ -7537,16 +8115,19 @@ pub struct IWbemShutdown_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ureason: i32, umaxmilliseconds: u32, pctx: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWbemStatusCodeText(::windows::runtime::IUnknown);
 impl IWbemStatusCodeText {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn GetErrorCodeText(&self, hres: ::windows::runtime::HRESULT, localeid: u32, lflags: i32) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(hres), ::std::mem::transmute(localeid), ::std::mem::transmute(lflags), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn GetFacilityCodeText(&self, hres: ::windows::runtime::HRESULT, localeid: u32, lflags: i32) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(hres), ::std::mem::transmute(localeid), ::std::mem::transmute(lflags), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
@@ -7587,10 +8168,12 @@ pub struct IWbemStatusCodeText_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hres: ::windows::runtime::HRESULT, localeid: u32, lflags: i32, messagetext: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWbemTransport(::windows::runtime::IUnknown);
 impl IWbemTransport {
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Initialize(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)).ok()
     }
@@ -7627,10 +8210,12 @@ pub struct IWbemTransport_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWbemUnboundObjectSink(::windows::runtime::IUnknown);
 impl IWbemUnboundObjectSink {
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn IndicateToConsumer<'a, Param0: ::windows::runtime::IntoParam<'a, IWbemClassObject>>(&self, plogicalconsumer: Param0, lnumobjects: i32, apobjects: *const ::std::option::Option<IWbemClassObject>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), plogicalconsumer.into_param().abi(), ::std::mem::transmute(lnumobjects), ::std::mem::transmute(apobjects)).ok()
     }
@@ -7667,15 +8252,18 @@ pub struct IWbemUnboundObjectSink_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, plogicalconsumer: ::windows::runtime::RawPtr, lnumobjects: i32, apobjects: *const ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWbemUnsecuredApartment(::windows::runtime::IUnknown);
 impl IWbemUnsecuredApartment {
+    #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn CreateObjectStub<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, pobject: Param0) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
         let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pobject.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
     pub unsafe fn CreateSinkStub<'a, Param0: ::windows::runtime::IntoParam<'a, IWbemObjectSink>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, psink: Param0, dwflags: u32, wszreserved: Param2) -> ::windows::runtime::Result<IWbemObjectSink> {
         let mut result__: <IWbemObjectSink as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), psink.into_param().abi(), ::std::mem::transmute(dwflags), wszreserved.into_param().abi(), &mut result__).from_abi::<IWbemObjectSink>(result__)
@@ -7737,6 +8325,7 @@ pub struct IWbemUnsecuredApartment_abi(
 );
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_Application {
     pub reserved1: u64,
     pub reserved2: isize,
@@ -7765,6 +8354,7 @@ unsafe impl ::windows::runtime::Abi for MI_Application {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_ApplicationFT {
     pub Close: isize,
     pub NewSession: isize,
@@ -7821,6 +8411,7 @@ unsafe impl ::windows::runtime::Abi for MI_ApplicationFT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[inline]
 pub unsafe fn MI_Application_InitializeV1(flags: u32, applicationid: *const u16, extendederror: *mut *mut MI_Instance, application: *mut MI_Application) -> MI_Result {
     #[cfg(windows)]
@@ -7836,6 +8427,7 @@ pub unsafe fn MI_Application_InitializeV1(flags: u32, applicationid: *const u16,
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_Array {
     pub data: *mut ::std::ffi::c_void,
     pub size: u32,
@@ -7863,6 +8455,7 @@ unsafe impl ::windows::runtime::Abi for MI_Array {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_ArrayField {
     pub value: MI_Array,
     pub exists: u8,
@@ -7891,6 +8484,7 @@ unsafe impl ::windows::runtime::Abi for MI_ArrayField {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_BooleanA {
     pub data: *mut u8,
     pub size: u32,
@@ -7918,6 +8512,7 @@ unsafe impl ::windows::runtime::Abi for MI_BooleanA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_BooleanAField {
     pub value: MI_BooleanA,
     pub exists: u8,
@@ -7946,6 +8541,7 @@ unsafe impl ::windows::runtime::Abi for MI_BooleanAField {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_BooleanField {
     pub value: u8,
     pub exists: u8,
@@ -7972,7 +8568,9 @@ unsafe impl ::windows::runtime::Abi for MI_BooleanField {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_CALL_VERSION: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MI_CallbackMode(pub i32);
@@ -7989,6 +8587,7 @@ unsafe impl ::windows::runtime::Abi for MI_CallbackMode {
     type DefaultType = Self;
 }
 pub type MI_CancelCallback = unsafe extern "system" fn(reason: MI_CancellationReason, callbackdata: *const ::std::ffi::c_void);
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MI_CancellationReason(pub i32);
@@ -8007,6 +8606,7 @@ unsafe impl ::windows::runtime::Abi for MI_CancellationReason {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_Char16A {
     pub data: *mut u16,
     pub size: u32,
@@ -8034,6 +8634,7 @@ unsafe impl ::windows::runtime::Abi for MI_Char16A {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_Char16AField {
     pub value: MI_Char16A,
     pub exists: u8,
@@ -8062,6 +8663,7 @@ unsafe impl ::windows::runtime::Abi for MI_Char16AField {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_Char16Field {
     pub value: u16,
     pub exists: u8,
@@ -8090,6 +8692,7 @@ unsafe impl ::windows::runtime::Abi for MI_Char16Field {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_Class {
     pub ft: *mut MI_ClassFT,
     pub classDecl: *mut MI_ClassDecl,
@@ -8120,6 +8723,7 @@ unsafe impl ::windows::runtime::Abi for MI_Class {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_ClassDecl {
     pub flags: u32,
     pub code: u32,
@@ -8190,6 +8794,7 @@ unsafe impl ::windows::runtime::Abi for MI_ClassDecl {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_ClassFT {
     pub GetClassNameA: isize,
     pub GetNameSpace: isize,
@@ -8257,6 +8862,7 @@ unsafe impl ::windows::runtime::Abi for MI_ClassFT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_ClientFT_V1 {
     pub applicationFT: *mut MI_ApplicationFT,
     pub sessionFT: *mut MI_SessionFT,
@@ -8303,6 +8909,7 @@ unsafe impl ::windows::runtime::Abi for MI_ClientFT_V1 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_ConstBooleanA {
     pub data: *mut u8,
     pub size: u32,
@@ -8330,6 +8937,7 @@ unsafe impl ::windows::runtime::Abi for MI_ConstBooleanA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_ConstBooleanAField {
     pub value: MI_ConstBooleanA,
     pub exists: u8,
@@ -8358,6 +8966,7 @@ unsafe impl ::windows::runtime::Abi for MI_ConstBooleanAField {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_ConstBooleanField {
     pub value: u8,
     pub exists: u8,
@@ -8386,6 +8995,7 @@ unsafe impl ::windows::runtime::Abi for MI_ConstBooleanField {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_ConstChar16A {
     pub data: *mut u16,
     pub size: u32,
@@ -8413,6 +9023,7 @@ unsafe impl ::windows::runtime::Abi for MI_ConstChar16A {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_ConstChar16AField {
     pub value: MI_ConstChar16A,
     pub exists: u8,
@@ -8441,6 +9052,7 @@ unsafe impl ::windows::runtime::Abi for MI_ConstChar16AField {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_ConstChar16Field {
     pub value: u16,
     pub exists: u8,
@@ -8469,6 +9081,7 @@ unsafe impl ::windows::runtime::Abi for MI_ConstChar16Field {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_ConstDatetimeA {
     pub data: *mut MI_Datetime,
     pub size: u32,
@@ -8496,6 +9109,7 @@ unsafe impl ::windows::runtime::Abi for MI_ConstDatetimeA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_ConstDatetimeAField {
     pub value: MI_ConstDatetimeA,
     pub exists: u8,
@@ -8524,6 +9138,7 @@ unsafe impl ::windows::runtime::Abi for MI_ConstDatetimeAField {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_ConstDatetimeField {
     pub value: MI_Datetime,
     pub exists: u8,
@@ -8547,6 +9162,7 @@ unsafe impl ::windows::runtime::Abi for MI_ConstDatetimeField {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_ConstInstanceA {
     pub data: *mut *mut MI_Instance,
     pub size: u32,
@@ -8574,6 +9190,7 @@ unsafe impl ::windows::runtime::Abi for MI_ConstInstanceA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_ConstInstanceAField {
     pub value: MI_ConstInstanceA,
     pub exists: u8,
@@ -8602,6 +9219,7 @@ unsafe impl ::windows::runtime::Abi for MI_ConstInstanceAField {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_ConstInstanceField {
     pub value: *mut MI_Instance,
     pub exists: u8,
@@ -8630,6 +9248,7 @@ unsafe impl ::windows::runtime::Abi for MI_ConstInstanceField {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_ConstReal32A {
     pub data: *mut f32,
     pub size: u32,
@@ -8657,6 +9276,7 @@ unsafe impl ::windows::runtime::Abi for MI_ConstReal32A {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_ConstReal32AField {
     pub value: MI_ConstReal32A,
     pub exists: u8,
@@ -8685,6 +9305,7 @@ unsafe impl ::windows::runtime::Abi for MI_ConstReal32AField {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_ConstReal32Field {
     pub value: f32,
     pub exists: u8,
@@ -8713,6 +9334,7 @@ unsafe impl ::windows::runtime::Abi for MI_ConstReal32Field {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_ConstReal64A {
     pub data: *mut f64,
     pub size: u32,
@@ -8740,6 +9362,7 @@ unsafe impl ::windows::runtime::Abi for MI_ConstReal64A {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_ConstReal64AField {
     pub value: MI_ConstReal64A,
     pub exists: u8,
@@ -8768,6 +9391,7 @@ unsafe impl ::windows::runtime::Abi for MI_ConstReal64AField {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_ConstReal64Field {
     pub value: f64,
     pub exists: u8,
@@ -8796,6 +9420,7 @@ unsafe impl ::windows::runtime::Abi for MI_ConstReal64Field {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_ConstReferenceA {
     pub data: *mut *mut MI_Instance,
     pub size: u32,
@@ -8823,6 +9448,7 @@ unsafe impl ::windows::runtime::Abi for MI_ConstReferenceA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_ConstReferenceAField {
     pub value: MI_ConstReferenceA,
     pub exists: u8,
@@ -8851,6 +9477,7 @@ unsafe impl ::windows::runtime::Abi for MI_ConstReferenceAField {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_ConstReferenceField {
     pub value: *mut MI_Instance,
     pub exists: u8,
@@ -8879,6 +9506,7 @@ unsafe impl ::windows::runtime::Abi for MI_ConstReferenceField {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_ConstSint16A {
     pub data: *mut i16,
     pub size: u32,
@@ -8906,6 +9534,7 @@ unsafe impl ::windows::runtime::Abi for MI_ConstSint16A {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_ConstSint16AField {
     pub value: MI_ConstSint16A,
     pub exists: u8,
@@ -8934,6 +9563,7 @@ unsafe impl ::windows::runtime::Abi for MI_ConstSint16AField {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_ConstSint16Field {
     pub value: i16,
     pub exists: u8,
@@ -8962,6 +9592,7 @@ unsafe impl ::windows::runtime::Abi for MI_ConstSint16Field {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_ConstSint32A {
     pub data: *mut i32,
     pub size: u32,
@@ -8989,6 +9620,7 @@ unsafe impl ::windows::runtime::Abi for MI_ConstSint32A {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_ConstSint32AField {
     pub value: MI_ConstSint32A,
     pub exists: u8,
@@ -9017,6 +9649,7 @@ unsafe impl ::windows::runtime::Abi for MI_ConstSint32AField {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_ConstSint32Field {
     pub value: i32,
     pub exists: u8,
@@ -9045,6 +9678,7 @@ unsafe impl ::windows::runtime::Abi for MI_ConstSint32Field {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_ConstSint64A {
     pub data: *mut i64,
     pub size: u32,
@@ -9072,6 +9706,7 @@ unsafe impl ::windows::runtime::Abi for MI_ConstSint64A {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_ConstSint64AField {
     pub value: MI_ConstSint64A,
     pub exists: u8,
@@ -9100,6 +9735,7 @@ unsafe impl ::windows::runtime::Abi for MI_ConstSint64AField {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_ConstSint64Field {
     pub value: i64,
     pub exists: u8,
@@ -9128,6 +9764,7 @@ unsafe impl ::windows::runtime::Abi for MI_ConstSint64Field {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_ConstSint8A {
     pub data: *mut i8,
     pub size: u32,
@@ -9155,6 +9792,7 @@ unsafe impl ::windows::runtime::Abi for MI_ConstSint8A {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_ConstSint8AField {
     pub value: MI_ConstSint8A,
     pub exists: u8,
@@ -9183,6 +9821,7 @@ unsafe impl ::windows::runtime::Abi for MI_ConstSint8AField {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_ConstSint8Field {
     pub value: i8,
     pub exists: u8,
@@ -9211,6 +9850,7 @@ unsafe impl ::windows::runtime::Abi for MI_ConstSint8Field {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_ConstStringA {
     pub data: *mut *mut u16,
     pub size: u32,
@@ -9238,6 +9878,7 @@ unsafe impl ::windows::runtime::Abi for MI_ConstStringA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_ConstStringAField {
     pub value: MI_ConstStringA,
     pub exists: u8,
@@ -9266,6 +9907,7 @@ unsafe impl ::windows::runtime::Abi for MI_ConstStringAField {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_ConstStringField {
     pub value: *mut u16,
     pub exists: u8,
@@ -9294,6 +9936,7 @@ unsafe impl ::windows::runtime::Abi for MI_ConstStringField {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_ConstUint16A {
     pub data: *mut u16,
     pub size: u32,
@@ -9321,6 +9964,7 @@ unsafe impl ::windows::runtime::Abi for MI_ConstUint16A {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_ConstUint16AField {
     pub value: MI_ConstUint16A,
     pub exists: u8,
@@ -9349,6 +9993,7 @@ unsafe impl ::windows::runtime::Abi for MI_ConstUint16AField {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_ConstUint16Field {
     pub value: u16,
     pub exists: u8,
@@ -9377,6 +10022,7 @@ unsafe impl ::windows::runtime::Abi for MI_ConstUint16Field {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_ConstUint32A {
     pub data: *mut u32,
     pub size: u32,
@@ -9404,6 +10050,7 @@ unsafe impl ::windows::runtime::Abi for MI_ConstUint32A {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_ConstUint32AField {
     pub value: MI_ConstUint32A,
     pub exists: u8,
@@ -9432,6 +10079,7 @@ unsafe impl ::windows::runtime::Abi for MI_ConstUint32AField {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_ConstUint32Field {
     pub value: u32,
     pub exists: u8,
@@ -9460,6 +10108,7 @@ unsafe impl ::windows::runtime::Abi for MI_ConstUint32Field {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_ConstUint64A {
     pub data: *mut u64,
     pub size: u32,
@@ -9487,6 +10136,7 @@ unsafe impl ::windows::runtime::Abi for MI_ConstUint64A {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_ConstUint64AField {
     pub value: MI_ConstUint64A,
     pub exists: u8,
@@ -9515,6 +10165,7 @@ unsafe impl ::windows::runtime::Abi for MI_ConstUint64AField {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_ConstUint64Field {
     pub value: u64,
     pub exists: u8,
@@ -9543,6 +10194,7 @@ unsafe impl ::windows::runtime::Abi for MI_ConstUint64Field {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_ConstUint8A {
     pub data: *mut u8,
     pub size: u32,
@@ -9570,6 +10222,7 @@ unsafe impl ::windows::runtime::Abi for MI_ConstUint8A {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_ConstUint8AField {
     pub value: MI_ConstUint8A,
     pub exists: u8,
@@ -9598,6 +10251,7 @@ unsafe impl ::windows::runtime::Abi for MI_ConstUint8AField {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_ConstUint8Field {
     pub value: u8,
     pub exists: u8,
@@ -9626,6 +10280,7 @@ unsafe impl ::windows::runtime::Abi for MI_ConstUint8Field {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_Context {
     pub ft: *mut MI_ContextFT,
     pub reserved: [isize; 3],
@@ -9653,6 +10308,7 @@ unsafe impl ::windows::runtime::Abi for MI_Context {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_ContextFT {
     pub PostResult: isize,
     pub PostInstance: isize,
@@ -9768,6 +10424,7 @@ unsafe impl ::windows::runtime::Abi for MI_ContextFT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_Datetime {
     pub isTimestamp: u32,
     pub u: MI_Datetime_0,
@@ -9790,6 +10447,7 @@ unsafe impl ::windows::runtime::Abi for MI_Datetime {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub union MI_Datetime_0 {
     pub timestamp: MI_Timestamp,
     pub interval: MI_Interval,
@@ -9812,6 +10470,7 @@ unsafe impl ::windows::runtime::Abi for MI_Datetime_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_DatetimeA {
     pub data: *mut MI_Datetime,
     pub size: u32,
@@ -9839,6 +10498,7 @@ unsafe impl ::windows::runtime::Abi for MI_DatetimeA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_DatetimeAField {
     pub value: MI_DatetimeA,
     pub exists: u8,
@@ -9867,6 +10527,7 @@ unsafe impl ::windows::runtime::Abi for MI_DatetimeAField {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_DatetimeField {
     pub value: MI_Datetime,
     pub exists: u8,
@@ -9890,6 +10551,7 @@ unsafe impl ::windows::runtime::Abi for MI_DatetimeField {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_Deserializer {
     pub reserved1: u64,
     pub reserved2: isize,
@@ -9917,6 +10579,7 @@ unsafe impl ::windows::runtime::Abi for MI_Deserializer {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_DeserializerFT {
     pub Close: isize,
     pub DeserializeClass: isize,
@@ -9956,6 +10619,7 @@ unsafe impl ::windows::runtime::Abi for MI_DeserializerFT {
 pub type MI_Deserializer_ClassObjectNeeded = unsafe extern "system" fn(context: *const ::std::ffi::c_void, servername: *const u16, namespacename: *const u16, classname: *const u16, requestedclassobject: *mut *mut MI_Class) -> MI_Result;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_DestinationOptions {
     pub reserved1: u64,
     pub reserved2: isize,
@@ -9984,6 +10648,7 @@ unsafe impl ::windows::runtime::Abi for MI_DestinationOptions {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_DestinationOptionsFT {
     pub Delete: isize,
     pub SetString: isize,
@@ -10052,6 +10717,7 @@ unsafe impl ::windows::runtime::Abi for MI_DestinationOptionsFT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MI_DestinationOptions_ImpersonationType(pub i32);
@@ -10069,6 +10735,7 @@ unsafe impl ::windows::runtime::Abi for MI_DestinationOptions_ImpersonationType 
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MI_ErrorCategory(pub i32);
@@ -10113,37 +10780,67 @@ unsafe impl ::windows::runtime::Abi for MI_ErrorCategory {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_FLAG_ABSTRACT: u32 = 131072u32;
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_FLAG_ADOPT: u32 = 2147483648u32;
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_FLAG_ANY: u32 = 127u32;
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_FLAG_ASSOCIATION: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_FLAG_BORROW: u32 = 1073741824u32;
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_FLAG_CLASS: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_FLAG_DISABLEOVERRIDE: u32 = 256u32;
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_FLAG_ENABLEOVERRIDE: u32 = 128u32;
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_FLAG_EXPENSIVE: u32 = 524288u32;
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_FLAG_EXTENDED: u32 = 4096u32;
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_FLAG_IN: u32 = 8192u32;
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_FLAG_INDICATION: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_FLAG_KEY: u32 = 4096u32;
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_FLAG_METHOD: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_FLAG_NOT_MODIFIED: u32 = 33554432u32;
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_FLAG_NULL: u32 = 536870912u32;
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_FLAG_OUT: u32 = 16384u32;
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_FLAG_PARAMETER: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_FLAG_PROPERTY: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_FLAG_READONLY: u32 = 2097152u32;
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_FLAG_REFERENCE: u32 = 64u32;
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_FLAG_REQUIRED: u32 = 32768u32;
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_FLAG_RESTRICTED: u32 = 512u32;
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_FLAG_STATIC: u32 = 65536u32;
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_FLAG_STREAM: u32 = 1048576u32;
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_FLAG_TERMINAL: u32 = 262144u32;
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_FLAG_TOSUBCLASS: u32 = 1024u32;
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_FLAG_TRANSLATABLE: u32 = 2048u32;
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_FLAG_VERSION: u32 = 469762048u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_FeatureDecl {
     pub flags: u32,
     pub code: u32,
@@ -10174,6 +10871,7 @@ unsafe impl ::windows::runtime::Abi for MI_FeatureDecl {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_Filter {
     pub ft: *mut MI_FilterFT,
     pub reserved: [isize; 3],
@@ -10201,6 +10899,7 @@ unsafe impl ::windows::runtime::Abi for MI_Filter {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_FilterFT {
     pub Evaluate: isize,
     pub GetExpression: isize,
@@ -10228,6 +10927,7 @@ unsafe impl ::windows::runtime::Abi for MI_FilterFT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_HostedProvider {
     pub reserved1: u64,
     pub reserved2: isize,
@@ -10256,6 +10956,7 @@ unsafe impl ::windows::runtime::Abi for MI_HostedProvider {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_HostedProviderFT {
     pub Close: isize,
     pub GetApplication: isize,
@@ -10283,6 +10984,7 @@ unsafe impl ::windows::runtime::Abi for MI_HostedProviderFT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_Instance {
     pub ft: *mut MI_InstanceFT,
     pub classDecl: *mut MI_ClassDecl,
@@ -10313,6 +11015,7 @@ unsafe impl ::windows::runtime::Abi for MI_Instance {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_InstanceA {
     pub data: *mut *mut MI_Instance,
     pub size: u32,
@@ -10340,6 +11043,7 @@ unsafe impl ::windows::runtime::Abi for MI_InstanceA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_InstanceAField {
     pub value: MI_InstanceA,
     pub exists: u8,
@@ -10368,6 +11072,7 @@ unsafe impl ::windows::runtime::Abi for MI_InstanceAField {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_InstanceExFT {
     pub parent: MI_InstanceFT,
     pub Normalize: isize,
@@ -10395,6 +11100,7 @@ unsafe impl ::windows::runtime::Abi for MI_InstanceExFT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_InstanceFT {
     pub Clone: isize,
     pub Destruct: isize,
@@ -10474,6 +11180,7 @@ unsafe impl ::windows::runtime::Abi for MI_InstanceFT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_InstanceField {
     pub value: *mut MI_Instance,
     pub exists: u8,
@@ -10502,6 +11209,7 @@ unsafe impl ::windows::runtime::Abi for MI_InstanceField {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_Interval {
     pub days: u32,
     pub hours: u32,
@@ -10542,6 +11250,7 @@ unsafe impl ::windows::runtime::Abi for MI_Interval {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MI_LocaleType(pub i32);
@@ -10558,18 +11267,28 @@ unsafe impl ::windows::runtime::Abi for MI_LocaleType {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_MAX_LOCALE_SIZE: u32 = 128u32;
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_MODULE_FLAG_BOOLEANS: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_MODULE_FLAG_CPLUSPLUS: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_MODULE_FLAG_DESCRIPTIONS: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_MODULE_FLAG_FILTER_SUPPORT: u32 = 128u32;
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_MODULE_FLAG_LOCALIZED: u32 = 64u32;
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_MODULE_FLAG_MAPPING_STRINGS: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_MODULE_FLAG_STANDARD_QUALIFIERS: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_MODULE_FLAG_VALUES: u32 = 4u32;
 pub type MI_MainFunction = unsafe extern "system" fn(server: *mut MI_Server) -> *mut MI_Module;
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_MethodDecl {
     pub flags: u32,
     pub code: u32,
@@ -10622,6 +11341,7 @@ unsafe impl ::windows::runtime::Abi for MI_MethodDecl {
 pub type MI_MethodDecl_Invoke = unsafe extern "system" fn(self_: *const ::std::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, methodname: *const u16, instancename: *const MI_Instance, parameters: *const MI_Instance);
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_Module {
     pub version: u32,
     pub generatorVersion: u32,
@@ -10658,19 +11378,31 @@ pub type MI_Module_Load = unsafe extern "system" fn(self_: *mut *mut MI_Module_S
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
 pub struct MI_Module_Self(pub u8);
 pub type MI_Module_Unload = unsafe extern "system" fn(self_: *const MI_Module_Self, context: *const MI_Context);
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_OPERATIONFLAGS_BASIC_RTTI: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_OPERATIONFLAGS_DEFAULT_RTTI: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_OPERATIONFLAGS_EXPENSIVE_PROPERTIES: u32 = 64u32;
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_OPERATIONFLAGS_FULL_RTTI: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_OPERATIONFLAGS_LOCALIZED_QUALIFIERS: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_OPERATIONFLAGS_MANUAL_ACK_RESULTS: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_OPERATIONFLAGS_NO_RTTI: u32 = 1024u32;
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_OPERATIONFLAGS_POLYMORPHISM_DEEP_BASE_PROPS_ONLY: u32 = 384u32;
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_OPERATIONFLAGS_POLYMORPHISM_SHALLOW: u32 = 128u32;
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_OPERATIONFLAGS_REPORT_OPERATION_STARTED: u32 = 512u32;
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_OPERATIONFLAGS_STANDARD_RTTI: u32 = 2048u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_ObjectDecl {
     pub flags: u32,
     pub code: u32,
@@ -10713,6 +11445,7 @@ unsafe impl ::windows::runtime::Abi for MI_ObjectDecl {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_Operation {
     pub reserved1: u64,
     pub reserved2: isize,
@@ -10743,6 +11476,7 @@ pub type MI_OperationCallback_Class = unsafe extern "system" fn(operation: *cons
 pub type MI_OperationCallback_Indication = unsafe extern "system" fn(operation: *const MI_Operation, callbackcontext: *const ::std::ffi::c_void, instance: *const MI_Instance, bookmark: *const u16, machineid: *const u16, moreresults: u8, resultcode: MI_Result, errorstring: *const u16, errordetails: *const MI_Instance, resultacknowledgement: isize);
 pub type MI_OperationCallback_Instance = unsafe extern "system" fn(operation: *const MI_Operation, callbackcontext: *const ::std::ffi::c_void, instance: *const MI_Instance, moreresults: u8, resultcode: MI_Result, errorstring: *const u16, errordetails: *const MI_Instance, resultacknowledgement: isize);
 pub type MI_OperationCallback_PromptUser = unsafe extern "system" fn(operation: *const MI_Operation, callbackcontext: *const ::std::ffi::c_void, message: *const u16, prompttype: MI_PromptType, promptuserresult: isize);
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MI_OperationCallback_ResponseType(pub i32);
@@ -10765,6 +11499,7 @@ pub type MI_OperationCallback_WriteMessage = unsafe extern "system" fn(operation
 pub type MI_OperationCallback_WriteProgress = unsafe extern "system" fn(operation: *const MI_Operation, callbackcontext: *const ::std::ffi::c_void, activity: *const u16, currentoperation: *const u16, statusdescription: *const u16, percentagecomplete: u32, secondsremaining: u32);
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_OperationCallbacks {
     pub callbackContext: *mut ::std::ffi::c_void,
     pub promptUser: ::std::option::Option<MI_OperationCallback_PromptUser>,
@@ -10807,6 +11542,7 @@ unsafe impl ::windows::runtime::Abi for MI_OperationCallbacks {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_OperationFT {
     pub Close: isize,
     pub Cancel: isize,
@@ -10838,6 +11574,7 @@ unsafe impl ::windows::runtime::Abi for MI_OperationFT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_OperationOptions {
     pub reserved1: u64,
     pub reserved2: isize,
@@ -10866,6 +11603,7 @@ unsafe impl ::windows::runtime::Abi for MI_OperationOptions {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_OperationOptionsFT {
     pub Delete: isize,
     pub SetString: isize,
@@ -10930,6 +11668,7 @@ unsafe impl ::windows::runtime::Abi for MI_OperationOptionsFT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_ParameterDecl {
     pub flags: u32,
     pub code: u32,
@@ -10974,6 +11713,7 @@ unsafe impl ::windows::runtime::Abi for MI_ParameterDecl {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_ParameterSet {
     pub reserved1: u64,
     pub reserved2: isize,
@@ -11002,6 +11742,7 @@ unsafe impl ::windows::runtime::Abi for MI_ParameterSet {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_ParameterSetFT {
     pub GetMethodReturnType: isize,
     pub GetParameterCount: isize,
@@ -11029,6 +11770,7 @@ unsafe impl ::windows::runtime::Abi for MI_ParameterSetFT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MI_PromptType(pub i32);
@@ -11045,6 +11787,7 @@ unsafe impl ::windows::runtime::Abi for MI_PromptType {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_PropertyDecl {
     pub flags: u32,
     pub code: u32,
@@ -11095,6 +11838,7 @@ unsafe impl ::windows::runtime::Abi for MI_PropertyDecl {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_PropertySet {
     pub ft: *mut MI_PropertySetFT,
     pub reserved: [isize; 3],
@@ -11122,6 +11866,7 @@ unsafe impl ::windows::runtime::Abi for MI_PropertySet {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_PropertySetFT {
     pub GetElementCount: isize,
     pub ContainsElement: isize,
@@ -11162,6 +11907,7 @@ unsafe impl ::windows::runtime::Abi for MI_PropertySetFT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MI_ProviderArchitecture(pub i32);
@@ -11178,6 +11924,7 @@ unsafe impl ::windows::runtime::Abi for MI_ProviderArchitecture {
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_ProviderFT {
     pub Load: ::std::option::Option<MI_ProviderFT_Load>,
     pub Unload: ::std::option::Option<MI_ProviderFT_Unload>,
@@ -11244,6 +11991,7 @@ pub type MI_ProviderFT_Unload = unsafe extern "system" fn(self_: *const ::std::f
 pub type MI_ProviderFT_Unsubscribe = unsafe extern "system" fn(self_: *const ::std::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, subscriptionid: u64, subscriptionself: *const ::std::ffi::c_void);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_Qualifier {
     pub name: *mut u16,
     pub r#type: u32,
@@ -11273,6 +12021,7 @@ unsafe impl ::windows::runtime::Abi for MI_Qualifier {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_QualifierDecl {
     pub name: *mut u16,
     pub r#type: u32,
@@ -11304,6 +12053,7 @@ unsafe impl ::windows::runtime::Abi for MI_QualifierDecl {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_QualifierSet {
     pub reserved1: u64,
     pub reserved2: isize,
@@ -11332,6 +12082,7 @@ unsafe impl ::windows::runtime::Abi for MI_QualifierSet {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_QualifierSetFT {
     pub GetQualifierCount: isize,
     pub GetQualifierAt: isize,
@@ -11360,6 +12111,7 @@ unsafe impl ::windows::runtime::Abi for MI_QualifierSetFT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_Real32A {
     pub data: *mut f32,
     pub size: u32,
@@ -11387,6 +12139,7 @@ unsafe impl ::windows::runtime::Abi for MI_Real32A {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_Real32AField {
     pub value: MI_Real32A,
     pub exists: u8,
@@ -11415,6 +12168,7 @@ unsafe impl ::windows::runtime::Abi for MI_Real32AField {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_Real32Field {
     pub value: f32,
     pub exists: u8,
@@ -11443,6 +12197,7 @@ unsafe impl ::windows::runtime::Abi for MI_Real32Field {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_Real64A {
     pub data: *mut f64,
     pub size: u32,
@@ -11470,6 +12225,7 @@ unsafe impl ::windows::runtime::Abi for MI_Real64A {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_Real64AField {
     pub value: MI_Real64A,
     pub exists: u8,
@@ -11498,6 +12254,7 @@ unsafe impl ::windows::runtime::Abi for MI_Real64AField {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_Real64Field {
     pub value: f64,
     pub exists: u8,
@@ -11526,6 +12283,7 @@ unsafe impl ::windows::runtime::Abi for MI_Real64Field {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_ReferenceA {
     pub data: *mut *mut MI_Instance,
     pub size: u32,
@@ -11553,6 +12311,7 @@ unsafe impl ::windows::runtime::Abi for MI_ReferenceA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_ReferenceAField {
     pub value: MI_ReferenceA,
     pub exists: u8,
@@ -11581,6 +12340,7 @@ unsafe impl ::windows::runtime::Abi for MI_ReferenceAField {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_ReferenceField {
     pub value: *mut MI_Instance,
     pub exists: u8,
@@ -11607,6 +12367,7 @@ unsafe impl ::windows::runtime::Abi for MI_ReferenceField {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MI_Result(pub i32);
@@ -11646,10 +12407,13 @@ unsafe impl ::windows::runtime::Abi for MI_Result {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_SERIALIZER_FLAGS_CLASS_DEEP: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_SERIALIZER_FLAGS_INSTANCE_WITH_CLASS: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_SchemaDecl {
     pub qualifierDecls: *mut *mut MI_QualifierDecl,
     pub numQualifierDecls: u32,
@@ -11679,6 +12443,7 @@ unsafe impl ::windows::runtime::Abi for MI_SchemaDecl {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_Serializer {
     pub reserved1: u64,
     pub reserved2: isize,
@@ -11706,6 +12471,7 @@ unsafe impl ::windows::runtime::Abi for MI_Serializer {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_SerializerFT {
     pub Close: isize,
     pub SerializeClass: isize,
@@ -11734,6 +12500,7 @@ unsafe impl ::windows::runtime::Abi for MI_SerializerFT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_Server {
     pub serverFT: *mut MI_ServerFT,
     pub contextFT: *mut MI_ContextFT,
@@ -11764,6 +12531,7 @@ unsafe impl ::windows::runtime::Abi for MI_Server {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_ServerFT {
     pub GetVersion: isize,
     pub GetSystemName: isize,
@@ -11791,6 +12559,7 @@ unsafe impl ::windows::runtime::Abi for MI_ServerFT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_Session {
     pub reserved1: u64,
     pub reserved2: isize,
@@ -11819,6 +12588,7 @@ unsafe impl ::windows::runtime::Abi for MI_Session {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_SessionCallbacks {
     pub callbackContext: *mut ::std::ffi::c_void,
     pub writeMessage: isize,
@@ -11847,6 +12617,7 @@ unsafe impl ::windows::runtime::Abi for MI_SessionCallbacks {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_SessionFT {
     pub Close: isize,
     pub GetApplication: isize,
@@ -11917,6 +12688,7 @@ unsafe impl ::windows::runtime::Abi for MI_SessionFT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_Sint16A {
     pub data: *mut i16,
     pub size: u32,
@@ -11944,6 +12716,7 @@ unsafe impl ::windows::runtime::Abi for MI_Sint16A {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_Sint16AField {
     pub value: MI_Sint16A,
     pub exists: u8,
@@ -11972,6 +12745,7 @@ unsafe impl ::windows::runtime::Abi for MI_Sint16AField {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_Sint16Field {
     pub value: i16,
     pub exists: u8,
@@ -12000,6 +12774,7 @@ unsafe impl ::windows::runtime::Abi for MI_Sint16Field {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_Sint32A {
     pub data: *mut i32,
     pub size: u32,
@@ -12027,6 +12802,7 @@ unsafe impl ::windows::runtime::Abi for MI_Sint32A {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_Sint32AField {
     pub value: MI_Sint32A,
     pub exists: u8,
@@ -12055,6 +12831,7 @@ unsafe impl ::windows::runtime::Abi for MI_Sint32AField {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_Sint32Field {
     pub value: i32,
     pub exists: u8,
@@ -12083,6 +12860,7 @@ unsafe impl ::windows::runtime::Abi for MI_Sint32Field {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_Sint64A {
     pub data: *mut i64,
     pub size: u32,
@@ -12110,6 +12888,7 @@ unsafe impl ::windows::runtime::Abi for MI_Sint64A {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_Sint64AField {
     pub value: MI_Sint64A,
     pub exists: u8,
@@ -12138,6 +12917,7 @@ unsafe impl ::windows::runtime::Abi for MI_Sint64AField {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_Sint64Field {
     pub value: i64,
     pub exists: u8,
@@ -12166,6 +12946,7 @@ unsafe impl ::windows::runtime::Abi for MI_Sint64Field {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_Sint8A {
     pub data: *mut i8,
     pub size: u32,
@@ -12193,6 +12974,7 @@ unsafe impl ::windows::runtime::Abi for MI_Sint8A {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_Sint8AField {
     pub value: MI_Sint8A,
     pub exists: u8,
@@ -12221,6 +13003,7 @@ unsafe impl ::windows::runtime::Abi for MI_Sint8AField {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_Sint8Field {
     pub value: i8,
     pub exists: u8,
@@ -12249,6 +13032,7 @@ unsafe impl ::windows::runtime::Abi for MI_Sint8Field {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_StringA {
     pub data: *mut *mut u16,
     pub size: u32,
@@ -12276,6 +13060,7 @@ unsafe impl ::windows::runtime::Abi for MI_StringA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_StringAField {
     pub value: MI_StringA,
     pub exists: u8,
@@ -12304,6 +13089,7 @@ unsafe impl ::windows::runtime::Abi for MI_StringAField {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_StringField {
     pub value: *mut u16,
     pub exists: u8,
@@ -12332,6 +13118,7 @@ unsafe impl ::windows::runtime::Abi for MI_StringField {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_SubscriptionDeliveryOptions {
     pub reserved1: u64,
     pub reserved2: isize,
@@ -12360,6 +13147,7 @@ unsafe impl ::windows::runtime::Abi for MI_SubscriptionDeliveryOptions {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_SubscriptionDeliveryOptionsFT {
     pub SetString: isize,
     pub SetNumber: isize,
@@ -12434,6 +13222,7 @@ unsafe impl ::windows::runtime::Abi for MI_SubscriptionDeliveryOptionsFT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MI_SubscriptionDeliveryType(pub i32);
@@ -12450,6 +13239,7 @@ unsafe impl ::windows::runtime::Abi for MI_SubscriptionDeliveryType {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_Timestamp {
     pub year: u32,
     pub month: u32,
@@ -12481,6 +13271,7 @@ unsafe impl ::windows::runtime::Abi for MI_Timestamp {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MI_Type(pub i32);
@@ -12528,6 +13319,7 @@ unsafe impl ::windows::runtime::Abi for MI_Type {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_Uint16A {
     pub data: *mut u16,
     pub size: u32,
@@ -12555,6 +13347,7 @@ unsafe impl ::windows::runtime::Abi for MI_Uint16A {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_Uint16AField {
     pub value: MI_Uint16A,
     pub exists: u8,
@@ -12583,6 +13376,7 @@ unsafe impl ::windows::runtime::Abi for MI_Uint16AField {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_Uint16Field {
     pub value: u16,
     pub exists: u8,
@@ -12611,6 +13405,7 @@ unsafe impl ::windows::runtime::Abi for MI_Uint16Field {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_Uint32A {
     pub data: *mut u32,
     pub size: u32,
@@ -12638,6 +13433,7 @@ unsafe impl ::windows::runtime::Abi for MI_Uint32A {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_Uint32AField {
     pub value: MI_Uint32A,
     pub exists: u8,
@@ -12666,6 +13462,7 @@ unsafe impl ::windows::runtime::Abi for MI_Uint32AField {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_Uint32Field {
     pub value: u32,
     pub exists: u8,
@@ -12694,6 +13491,7 @@ unsafe impl ::windows::runtime::Abi for MI_Uint32Field {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_Uint64A {
     pub data: *mut u64,
     pub size: u32,
@@ -12721,6 +13519,7 @@ unsafe impl ::windows::runtime::Abi for MI_Uint64A {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_Uint64AField {
     pub value: MI_Uint64A,
     pub exists: u8,
@@ -12749,6 +13548,7 @@ unsafe impl ::windows::runtime::Abi for MI_Uint64AField {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_Uint64Field {
     pub value: u64,
     pub exists: u8,
@@ -12777,6 +13577,7 @@ unsafe impl ::windows::runtime::Abi for MI_Uint64Field {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_Uint8A {
     pub data: *mut u8,
     pub size: u32,
@@ -12804,6 +13605,7 @@ unsafe impl ::windows::runtime::Abi for MI_Uint8A {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_Uint8AField {
     pub value: MI_Uint8A,
     pub exists: u8,
@@ -12832,6 +13634,7 @@ unsafe impl ::windows::runtime::Abi for MI_Uint8AField {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_Uint8Field {
     pub value: u8,
     pub exists: u8,
@@ -12860,6 +13663,7 @@ unsafe impl ::windows::runtime::Abi for MI_Uint8Field {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_UserCredentials {
     pub authenticationType: *mut u16,
     pub credentials: MI_UserCredentials_0,
@@ -12882,6 +13686,7 @@ unsafe impl ::windows::runtime::Abi for MI_UserCredentials {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub union MI_UserCredentials_0 {
     pub usernamePassword: MI_UsernamePasswordCreds,
     pub certificateThumbprint: *mut u16,
@@ -12904,6 +13709,7 @@ unsafe impl ::windows::runtime::Abi for MI_UserCredentials_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_UsernamePasswordCreds {
     pub domain: *mut u16,
     pub username: *mut u16,
@@ -12932,6 +13738,7 @@ unsafe impl ::windows::runtime::Abi for MI_UsernamePasswordCreds {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct MI_UtilitiesFT {
     pub MapErrorToMiErrorCategory: isize,
     pub CimErrorFromErrorCode: isize,
@@ -12959,6 +13766,7 @@ unsafe impl ::windows::runtime::Abi for MI_UtilitiesFT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub union MI_Value {
     pub boolean: u8,
     pub uint8: u8,
@@ -13010,13 +13818,17 @@ unsafe impl ::windows::runtime::Abi for MI_Value {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_WRITEMESSAGE_CHANNEL_DEBUG: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_WRITEMESSAGE_CHANNEL_VERBOSE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_WRITEMESSAGE_CHANNEL_WARNING: u32 = 0u32;
 pub const MofCompiler: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1840224087, 11831, 4562, [174, 201, 0, 192, 79, 182, 136, 32]);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
 pub struct SWbemAnalysisMatrix {
     pub m_uVersion: u32,
     pub m_uMatrixType: u32,
@@ -13064,6 +13876,7 @@ unsafe impl ::windows::runtime::Abi for SWbemAnalysisMatrix {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
 pub struct SWbemAnalysisMatrixList {
     pub m_uVersion: u32,
     pub m_uMatrixType: u32,
@@ -13100,6 +13913,7 @@ unsafe impl ::windows::runtime::Abi for SWbemAnalysisMatrixList {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
 pub struct SWbemAssocQueryInf {
     pub m_uVersion: u32,
     pub m_uAnalysisType: u32,
@@ -13186,6 +14000,7 @@ pub const SWbemQualifierSet: ::windows::runtime::GUID = ::windows::runtime::GUID
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
 pub struct SWbemQueryQualifiedName {
     pub m_uVersion: u32,
     pub m_uTokenType: u32,
@@ -13235,6 +14050,7 @@ pub const SWbemRefresher: ::windows::runtime::GUID = ::windows::runtime::GUID::f
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
 pub union SWbemRpnConst {
     pub m_pszStrVal: super::super::Foundation::PWSTR,
     pub m_bBoolVal: super::super::Foundation::BOOL,
@@ -13268,6 +14084,7 @@ unsafe impl ::windows::runtime::Abi for SWbemRpnConst {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
 pub struct SWbemRpnEncodedQuery {
     pub m_uVersion: u32,
     pub m_uTokenType: u32,
@@ -13354,6 +14171,7 @@ unsafe impl ::windows::runtime::Abi for SWbemRpnEncodedQuery {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
 pub struct SWbemRpnQueryToken {
     pub m_uVersion: u32,
     pub m_uTokenType: u32,
@@ -13391,6 +14209,7 @@ unsafe impl ::windows::runtime::Abi for SWbemRpnQueryToken {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct SWbemRpnTokenList {
     pub m_uVersion: u32,
     pub m_uTokenType: u32,
@@ -13422,6 +14241,7 @@ pub const SWbemServices: ::windows::runtime::GUID = ::windows::runtime::GUID::fr
 pub const SWbemServicesEx: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1659183836, 36083, 16552, [139, 46, 55, 213, 149, 101, 30, 64]);
 pub const SWbemSink: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1970375834, 61481, 4561, [161, 172, 0, 192, 79, 182, 194, 35]);
 pub const UnsecuredApartment: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1237131304, 5411, 4561, [173, 121, 0, 192, 79, 216, 253, 255]);
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WBEMSTATUS(pub i32);
@@ -13627,6 +14447,7 @@ unsafe impl ::windows::runtime::Abi for WBEMSTATUS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WBEMSTATUS_FORMAT(pub i32);
@@ -13641,12 +14462,19 @@ unsafe impl ::windows::runtime::Abi for WBEMSTATUS_FORMAT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const WBEMS_DISPID_COMPLETED: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const WBEMS_DISPID_CONNECTION_READY: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const WBEMS_DISPID_DERIVATION: u32 = 23u32;
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const WBEMS_DISPID_OBJECT_PUT: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const WBEMS_DISPID_OBJECT_READY: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const WBEMS_DISPID_PROGRESS: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WBEM_BACKUP_RESTORE_FLAGS(pub i32);
@@ -13661,6 +14489,7 @@ unsafe impl ::windows::runtime::Abi for WBEM_BACKUP_RESTORE_FLAGS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WBEM_BATCH_TYPE(pub i32);
@@ -13676,6 +14505,7 @@ unsafe impl ::windows::runtime::Abi for WBEM_BATCH_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WBEM_CHANGE_FLAG_TYPE(pub i32);
@@ -13696,6 +14526,7 @@ unsafe impl ::windows::runtime::Abi for WBEM_CHANGE_FLAG_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WBEM_COMPARISON_FLAG(pub i32);
@@ -13715,6 +14546,7 @@ unsafe impl ::windows::runtime::Abi for WBEM_COMPARISON_FLAG {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WBEM_COMPILER_OPTIONS(pub i32);
@@ -13736,6 +14568,7 @@ unsafe impl ::windows::runtime::Abi for WBEM_COMPILER_OPTIONS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub struct WBEM_COMPILE_STATUS_INFO {
     pub lPhaseError: i32,
     pub hRes: ::windows::runtime::HRESULT,
@@ -13765,6 +14598,7 @@ unsafe impl ::windows::runtime::Abi for WBEM_COMPILE_STATUS_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WBEM_CONDITION_FLAG_TYPE(pub i32);
@@ -13792,6 +14626,7 @@ unsafe impl ::windows::runtime::Abi for WBEM_CONDITION_FLAG_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WBEM_CONNECT_OPTIONS(pub i32);
@@ -13807,6 +14642,7 @@ unsafe impl ::windows::runtime::Abi for WBEM_CONNECT_OPTIONS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WBEM_EXTRA_RETURN_CODES(pub i32);
@@ -13825,6 +14661,7 @@ unsafe impl ::windows::runtime::Abi for WBEM_EXTRA_RETURN_CODES {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WBEM_FLAVOR_TYPE(pub i32);
@@ -13851,6 +14688,7 @@ unsafe impl ::windows::runtime::Abi for WBEM_FLAVOR_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WBEM_GENERIC_FLAG_TYPE(pub i32);
@@ -13879,6 +14717,7 @@ unsafe impl ::windows::runtime::Abi for WBEM_GENERIC_FLAG_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WBEM_GENUS_TYPE(pub i32);
@@ -13893,6 +14732,7 @@ unsafe impl ::windows::runtime::Abi for WBEM_GENUS_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WBEM_GET_KEY_FLAGS(pub i32);
@@ -13907,6 +14747,7 @@ unsafe impl ::windows::runtime::Abi for WBEM_GET_KEY_FLAGS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WBEM_GET_TEXT_FLAGS(pub i32);
@@ -13925,6 +14766,7 @@ unsafe impl ::windows::runtime::Abi for WBEM_GET_TEXT_FLAGS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WBEM_INFORMATION_FLAG_TYPE(pub i32);
@@ -13939,6 +14781,7 @@ unsafe impl ::windows::runtime::Abi for WBEM_INFORMATION_FLAG_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WBEM_LIMITATION_FLAG_TYPE(pub i32);
@@ -13953,6 +14796,7 @@ unsafe impl ::windows::runtime::Abi for WBEM_LIMITATION_FLAG_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WBEM_LIMITS(pub i32);
@@ -13970,6 +14814,7 @@ unsafe impl ::windows::runtime::Abi for WBEM_LIMITS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WBEM_LOCKING(pub i32);
@@ -13983,6 +14828,7 @@ unsafe impl ::windows::runtime::Abi for WBEM_LOCKING {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WBEM_PATH_CREATE_FLAG(pub i32);
@@ -13999,6 +14845,7 @@ unsafe impl ::windows::runtime::Abi for WBEM_PATH_CREATE_FLAG {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WBEM_PATH_STATUS_FLAG(pub i32);
@@ -14029,6 +14876,7 @@ unsafe impl ::windows::runtime::Abi for WBEM_PATH_STATUS_FLAG {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WBEM_PROVIDER_FLAGS(pub i32);
@@ -14042,6 +14890,7 @@ unsafe impl ::windows::runtime::Abi for WBEM_PROVIDER_FLAGS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WBEM_PROVIDER_REQUIREMENTS_TYPE(pub i32);
@@ -14057,6 +14906,7 @@ unsafe impl ::windows::runtime::Abi for WBEM_PROVIDER_REQUIREMENTS_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WBEM_QUERY_FLAG_TYPE(pub i32);
@@ -14072,6 +14922,7 @@ unsafe impl ::windows::runtime::Abi for WBEM_QUERY_FLAG_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WBEM_REFRESHER_FLAGS(pub i32);
@@ -14086,6 +14937,7 @@ unsafe impl ::windows::runtime::Abi for WBEM_REFRESHER_FLAGS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WBEM_SECURITY_FLAGS(pub i32);
@@ -14106,6 +14958,7 @@ unsafe impl ::windows::runtime::Abi for WBEM_SECURITY_FLAGS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WBEM_SHUTDOWN_FLAGS(pub i32);
@@ -14121,6 +14974,7 @@ unsafe impl ::windows::runtime::Abi for WBEM_SHUTDOWN_FLAGS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WBEM_STATUS_TYPE(pub i32);
@@ -14141,6 +14995,7 @@ unsafe impl ::windows::runtime::Abi for WBEM_STATUS_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WBEM_TEXT_FLAG_TYPE(pub i32);
@@ -14154,6 +15009,7 @@ unsafe impl ::windows::runtime::Abi for WBEM_TEXT_FLAG_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WBEM_TIMEOUT_TYPE(pub i32);
@@ -14168,6 +15024,7 @@ unsafe impl ::windows::runtime::Abi for WBEM_TIMEOUT_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WBEM_UNSECAPP_FLAG_TYPE(pub i32);
@@ -14184,6 +15041,7 @@ unsafe impl ::windows::runtime::Abi for WBEM_UNSECAPP_FLAG_TYPE {
     type DefaultType = Self;
 }
 pub const WMIExtension: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4036451070, 23679, 4562, [139, 116, 0, 16, 75, 42, 251, 65]);
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WMIQ_ANALYSIS_TYPE(pub i32);
@@ -14201,6 +15059,7 @@ unsafe impl ::windows::runtime::Abi for WMIQ_ANALYSIS_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WMIQ_ASSOCQ_FLAGS(pub i32);
@@ -14225,6 +15084,7 @@ unsafe impl ::windows::runtime::Abi for WMIQ_ASSOCQ_FLAGS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WMIQ_LANGUAGE_FEATURES(pub i32);
@@ -14278,6 +15138,7 @@ unsafe impl ::windows::runtime::Abi for WMIQ_LANGUAGE_FEATURES {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WMIQ_RPNQ_FEATURE(pub i32);
@@ -14304,6 +15165,7 @@ unsafe impl ::windows::runtime::Abi for WMIQ_RPNQ_FEATURE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WMIQ_RPN_TOKEN_FLAGS(pub i32);
@@ -14349,6 +15211,7 @@ unsafe impl ::windows::runtime::Abi for WMIQ_RPN_TOKEN_FLAGS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WMI_OBJ_TEXT(pub i32);
@@ -14376,6 +15239,7 @@ unsafe impl ::windows::runtime::Abi for WMI_OBJ_TEXT {
 }
 pub const WbemAdministrativeLocator: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3414513100, 37160, 4561, [173, 155, 0, 192, 79, 216, 253, 255]);
 pub const WbemAuthenticatedLocator: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3440919350, 37160, 4561, [173, 155, 0, 192, 79, 216, 253, 255]);
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WbemAuthenticationLevelEnum(pub i32);
@@ -14396,6 +15260,7 @@ unsafe impl ::windows::runtime::Abi for WbemAuthenticationLevelEnum {
     type DefaultType = Self;
 }
 pub const WbemBackupRestore: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3298702022, 48267, 4562, [133, 212, 0, 16, 90, 31, 131, 4]);
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WbemChangeFlagEnum(pub i32);
@@ -14416,6 +15281,7 @@ unsafe impl ::windows::runtime::Abi for WbemChangeFlagEnum {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WbemCimtypeEnum(pub i32);
@@ -14445,6 +15311,7 @@ unsafe impl ::windows::runtime::Abi for WbemCimtypeEnum {
     type DefaultType = Self;
 }
 pub const WbemClassObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2590322822, 5967, 4562, [181, 249, 0, 16, 75, 112, 62, 253]);
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WbemComparisonFlagEnum(pub i32);
@@ -14464,6 +15331,7 @@ unsafe impl ::windows::runtime::Abi for WbemComparisonFlagEnum {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WbemConnectOptionsEnum(pub i32);
@@ -14482,6 +15350,7 @@ pub const WbemDCOMTransport: ::windows::runtime::GUID = ::windows::runtime::GUID
 pub const WbemDecoupledBasicEventProvider: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4126627639, 10307, 20258, [147, 61, 199, 106, 151, 205, 166, 47]);
 pub const WbemDecoupledRegistrar: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1291614514, 3997, 19439, [156, 50, 142, 162, 166, 181, 111, 203]);
 pub const WbemDefPath: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3477914629, 58053, 19933, [179, 206, 94, 117, 130, 216, 201, 250]);
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WbemErrorEnum(pub i32);
@@ -14622,6 +15491,7 @@ unsafe impl ::windows::runtime::Abi for WbemErrorEnum {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WbemFlagEnum(pub i32);
@@ -14649,6 +15519,7 @@ unsafe impl ::windows::runtime::Abi for WbemFlagEnum {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WbemImpersonationLevelEnum(pub i32);
@@ -14668,6 +15539,7 @@ unsafe impl ::windows::runtime::Abi for WbemImpersonationLevelEnum {
 pub const WbemLevel1Login: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2344874078, 55403, 4560, [160, 117, 0, 192, 79, 182, 136, 32]);
 pub const WbemLocalAddrRes: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2701412353, 36734, 4561, [158, 124, 0, 192, 79, 195, 36, 168]);
 pub const WbemLocator: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1167128593, 7482, 4560, [137, 31, 0, 170, 0, 75, 46, 36]);
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WbemObjectTextFormatEnum(pub i32);
@@ -14683,6 +15555,7 @@ unsafe impl ::windows::runtime::Abi for WbemObjectTextFormatEnum {
     type DefaultType = Self;
 }
 pub const WbemObjectTextSrc: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2367444381, 34032, 19379, [167, 213, 86, 167, 67, 90, 155, 166]);
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WbemPrivilegeEnum(pub i32);
@@ -14723,6 +15596,7 @@ unsafe impl ::windows::runtime::Abi for WbemPrivilegeEnum {
     type DefaultType = Self;
 }
 pub const WbemQuery: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3939016740, 8674, 17699, [173, 115, 167, 26, 10, 162, 245, 106]);
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WbemQueryFlagEnum(pub i32);
@@ -14740,6 +15614,7 @@ unsafe impl ::windows::runtime::Abi for WbemQueryFlagEnum {
 }
 pub const WbemRefresher: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3340068594, 22046, 4561, [173, 135, 0, 192, 79, 216, 253, 255]);
 pub const WbemStatusCodeText: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3951550909, 12851, 4562, [174, 201, 0, 192, 79, 182, 136, 32]);
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WbemTextFlagEnum(pub i32);
@@ -14753,6 +15628,7 @@ unsafe impl ::windows::runtime::Abi for WbemTextFlagEnum {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WbemTimeout(pub i32);
@@ -14768,6 +15644,7 @@ unsafe impl ::windows::runtime::Abi for WbemTimeout {
 }
 pub const WbemUnauthenticatedLocator: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1144945529, 56881, 4562, [179, 64, 0, 16, 75, 204, 75, 74]);
 pub const WbemUninitializedClassObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2046961654, 28936, 4561, [173, 144, 0, 192, 79, 216, 253, 255]);
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct tag_WBEM_LOGIN_TYPE(pub i32);

@@ -124,6 +124,7 @@ pub struct IMidiInPortStatics_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Devices_Midi`*"]
 pub struct IMidiMessage(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiMessage {
     type Vtable = IMidiMessage_abi;
@@ -131,6 +132,7 @@ unsafe impl ::windows::runtime::Interface for IMidiMessage {
 }
 impl IMidiMessage {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Midi`, `Foundation`*"]
     pub fn Timestamp(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -139,6 +141,7 @@ impl IMidiMessage {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Devices_Midi`, `Storage_Streams`*"]
     pub fn RawData(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
@@ -146,6 +149,7 @@ impl IMidiMessage {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Midi`*"]
     pub fn Type(&self) -> ::windows::runtime::Result<MidiMessageType> {
         let this = self;
         unsafe {
@@ -313,21 +317,25 @@ pub struct IMidiNoteOnMessageFactory_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Devices_Midi`*"]
 pub struct IMidiOutPort(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMidiOutPort {
     type Vtable = IMidiOutPort_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2468179359, 22434, 19002, [173, 184, 70, 64, 136, 111, 102, 147]);
 }
 impl IMidiOutPort {
+    #[doc = "*Required features: `Devices_Midi`*"]
     pub fn SendMessage<'a, Param0: ::windows::runtime::IntoParam<'a, IMidiMessage>>(&self, midimessage: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), midimessage.into_param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Devices_Midi`, `Storage_Streams`*"]
     pub fn SendBuffer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(&self, mididata: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), mididata.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Devices_Midi`*"]
     pub fn DeviceId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -336,6 +344,7 @@ impl IMidiOutPort {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Midi`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
@@ -744,6 +753,7 @@ pub struct IMidiTimeCodeMessageFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, frametype: u8, values: u8, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Devices_Midi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MidiActiveSensingMessage(::windows::runtime::IInspectable);
@@ -756,6 +766,7 @@ impl MidiActiveSensingMessage {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Midi`, `Foundation`*"]
     pub fn Timestamp(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -764,6 +775,7 @@ impl MidiActiveSensingMessage {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Devices_Midi`, `Storage_Streams`*"]
     pub fn RawData(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
@@ -771,6 +783,7 @@ impl MidiActiveSensingMessage {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Midi`*"]
     pub fn Type(&self) -> ::windows::runtime::Result<MidiMessageType> {
         let this = self;
         unsafe {
@@ -851,10 +864,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, IMidiMessage> for &MidiActiveSensingM
 }
 unsafe impl ::std::marker::Send for MidiActiveSensingMessage {}
 unsafe impl ::std::marker::Sync for MidiActiveSensingMessage {}
+#[doc = "*Required features: `Devices_Midi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MidiChannelPressureMessage(::windows::runtime::IInspectable);
 impl MidiChannelPressureMessage {
+    #[doc = "*Required features: `Devices_Midi`*"]
     pub fn Channel(&self) -> ::windows::runtime::Result<u8> {
         let this = self;
         unsafe {
@@ -862,6 +877,7 @@ impl MidiChannelPressureMessage {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Midi`*"]
     pub fn Pressure(&self) -> ::windows::runtime::Result<u8> {
         let this = self;
         unsafe {
@@ -870,6 +886,7 @@ impl MidiChannelPressureMessage {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Midi`, `Foundation`*"]
     pub fn Timestamp(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = &::windows::runtime::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
@@ -878,6 +895,7 @@ impl MidiChannelPressureMessage {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Devices_Midi`, `Storage_Streams`*"]
     pub fn RawData(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IBuffer> {
         let this = &::windows::runtime::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
@@ -885,6 +903,7 @@ impl MidiChannelPressureMessage {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Midi`*"]
     pub fn Type(&self) -> ::windows::runtime::Result<MidiMessageType> {
         let this = &::windows::runtime::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
@@ -892,6 +911,7 @@ impl MidiChannelPressureMessage {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MidiMessageType>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Midi`*"]
     pub fn CreateMidiChannelPressureMessage(channel: u8, pressure: u8) -> ::windows::runtime::Result<MidiChannelPressureMessage> {
         Self::IMidiChannelPressureMessageFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -977,6 +997,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IMidiMessage> for &MidiChannelPressur
 }
 unsafe impl ::std::marker::Send for MidiChannelPressureMessage {}
 unsafe impl ::std::marker::Sync for MidiChannelPressureMessage {}
+#[doc = "*Required features: `Devices_Midi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MidiContinueMessage(::windows::runtime::IInspectable);
@@ -989,6 +1010,7 @@ impl MidiContinueMessage {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Midi`, `Foundation`*"]
     pub fn Timestamp(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -997,6 +1019,7 @@ impl MidiContinueMessage {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Devices_Midi`, `Storage_Streams`*"]
     pub fn RawData(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
@@ -1004,6 +1027,7 @@ impl MidiContinueMessage {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Midi`*"]
     pub fn Type(&self) -> ::windows::runtime::Result<MidiMessageType> {
         let this = self;
         unsafe {
@@ -1084,10 +1108,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, IMidiMessage> for &MidiContinueMessag
 }
 unsafe impl ::std::marker::Send for MidiContinueMessage {}
 unsafe impl ::std::marker::Sync for MidiContinueMessage {}
+#[doc = "*Required features: `Devices_Midi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MidiControlChangeMessage(::windows::runtime::IInspectable);
 impl MidiControlChangeMessage {
+    #[doc = "*Required features: `Devices_Midi`*"]
     pub fn Channel(&self) -> ::windows::runtime::Result<u8> {
         let this = self;
         unsafe {
@@ -1095,6 +1121,7 @@ impl MidiControlChangeMessage {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Midi`*"]
     pub fn Controller(&self) -> ::windows::runtime::Result<u8> {
         let this = self;
         unsafe {
@@ -1102,6 +1129,7 @@ impl MidiControlChangeMessage {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Midi`*"]
     pub fn ControlValue(&self) -> ::windows::runtime::Result<u8> {
         let this = self;
         unsafe {
@@ -1110,6 +1138,7 @@ impl MidiControlChangeMessage {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Midi`, `Foundation`*"]
     pub fn Timestamp(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = &::windows::runtime::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
@@ -1118,6 +1147,7 @@ impl MidiControlChangeMessage {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Devices_Midi`, `Storage_Streams`*"]
     pub fn RawData(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IBuffer> {
         let this = &::windows::runtime::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
@@ -1125,6 +1155,7 @@ impl MidiControlChangeMessage {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Midi`*"]
     pub fn Type(&self) -> ::windows::runtime::Result<MidiMessageType> {
         let this = &::windows::runtime::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
@@ -1132,6 +1163,7 @@ impl MidiControlChangeMessage {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MidiMessageType>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Midi`*"]
     pub fn CreateMidiControlChangeMessage(channel: u8, controller: u8, controlvalue: u8) -> ::windows::runtime::Result<MidiControlChangeMessage> {
         Self::IMidiControlChangeMessageFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1217,11 +1249,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, IMidiMessage> for &MidiControlChangeM
 }
 unsafe impl ::std::marker::Send for MidiControlChangeMessage {}
 unsafe impl ::std::marker::Sync for MidiControlChangeMessage {}
+#[doc = "*Required features: `Devices_Midi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MidiInPort(::windows::runtime::IInspectable);
 impl MidiInPort {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Midi`, `Foundation`*"]
     pub fn MessageReceived<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<MidiInPort, MidiMessageReceivedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1230,10 +1264,12 @@ impl MidiInPort {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Midi`, `Foundation`*"]
     pub fn RemoveMessageReceived<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Devices_Midi`*"]
     pub fn DeviceId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1242,17 +1278,20 @@ impl MidiInPort {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Midi`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Midi`, `Foundation`*"]
     pub fn FromIdAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(deviceid: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<MidiInPort>> {
         Self::IMidiInPortStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), deviceid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<MidiInPort>>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Midi`*"]
     pub fn GetDeviceSelector() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IMidiInPortStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
@@ -1342,10 +1381,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> 
 }
 unsafe impl ::std::marker::Send for MidiInPort {}
 unsafe impl ::std::marker::Sync for MidiInPort {}
+#[doc = "*Required features: `Devices_Midi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MidiMessageReceivedEventArgs(::windows::runtime::IInspectable);
 impl MidiMessageReceivedEventArgs {
+    #[doc = "*Required features: `Devices_Midi`*"]
     pub fn Message(&self) -> ::windows::runtime::Result<IMidiMessage> {
         let this = self;
         unsafe {
@@ -1406,6 +1447,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for MidiMessageReceivedEventArgs {}
 unsafe impl ::std::marker::Sync for MidiMessageReceivedEventArgs {}
+#[doc = "*Required features: `Devices_Midi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MidiMessageType(pub i32);
@@ -1443,10 +1485,12 @@ unsafe impl ::windows::runtime::Abi for MidiMessageType {
 unsafe impl ::windows::runtime::RuntimeType for MidiMessageType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Midi.MidiMessageType;i4)");
 }
+#[doc = "*Required features: `Devices_Midi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MidiNoteOffMessage(::windows::runtime::IInspectable);
 impl MidiNoteOffMessage {
+    #[doc = "*Required features: `Devices_Midi`*"]
     pub fn Channel(&self) -> ::windows::runtime::Result<u8> {
         let this = self;
         unsafe {
@@ -1454,6 +1498,7 @@ impl MidiNoteOffMessage {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Midi`*"]
     pub fn Note(&self) -> ::windows::runtime::Result<u8> {
         let this = self;
         unsafe {
@@ -1461,6 +1506,7 @@ impl MidiNoteOffMessage {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Midi`*"]
     pub fn Velocity(&self) -> ::windows::runtime::Result<u8> {
         let this = self;
         unsafe {
@@ -1469,6 +1515,7 @@ impl MidiNoteOffMessage {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Midi`, `Foundation`*"]
     pub fn Timestamp(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = &::windows::runtime::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
@@ -1477,6 +1524,7 @@ impl MidiNoteOffMessage {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Devices_Midi`, `Storage_Streams`*"]
     pub fn RawData(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IBuffer> {
         let this = &::windows::runtime::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
@@ -1484,6 +1532,7 @@ impl MidiNoteOffMessage {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Midi`*"]
     pub fn Type(&self) -> ::windows::runtime::Result<MidiMessageType> {
         let this = &::windows::runtime::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
@@ -1491,6 +1540,7 @@ impl MidiNoteOffMessage {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MidiMessageType>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Midi`*"]
     pub fn CreateMidiNoteOffMessage(channel: u8, note: u8, velocity: u8) -> ::windows::runtime::Result<MidiNoteOffMessage> {
         Self::IMidiNoteOffMessageFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1576,10 +1626,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, IMidiMessage> for &MidiNoteOffMessage
 }
 unsafe impl ::std::marker::Send for MidiNoteOffMessage {}
 unsafe impl ::std::marker::Sync for MidiNoteOffMessage {}
+#[doc = "*Required features: `Devices_Midi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MidiNoteOnMessage(::windows::runtime::IInspectable);
 impl MidiNoteOnMessage {
+    #[doc = "*Required features: `Devices_Midi`*"]
     pub fn Channel(&self) -> ::windows::runtime::Result<u8> {
         let this = self;
         unsafe {
@@ -1587,6 +1639,7 @@ impl MidiNoteOnMessage {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Midi`*"]
     pub fn Note(&self) -> ::windows::runtime::Result<u8> {
         let this = self;
         unsafe {
@@ -1594,6 +1647,7 @@ impl MidiNoteOnMessage {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Midi`*"]
     pub fn Velocity(&self) -> ::windows::runtime::Result<u8> {
         let this = self;
         unsafe {
@@ -1602,6 +1656,7 @@ impl MidiNoteOnMessage {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Midi`, `Foundation`*"]
     pub fn Timestamp(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = &::windows::runtime::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
@@ -1610,6 +1665,7 @@ impl MidiNoteOnMessage {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Devices_Midi`, `Storage_Streams`*"]
     pub fn RawData(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IBuffer> {
         let this = &::windows::runtime::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
@@ -1617,6 +1673,7 @@ impl MidiNoteOnMessage {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Midi`*"]
     pub fn Type(&self) -> ::windows::runtime::Result<MidiMessageType> {
         let this = &::windows::runtime::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
@@ -1624,6 +1681,7 @@ impl MidiNoteOnMessage {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MidiMessageType>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Midi`*"]
     pub fn CreateMidiNoteOnMessage(channel: u8, note: u8, velocity: u8) -> ::windows::runtime::Result<MidiNoteOnMessage> {
         Self::IMidiNoteOnMessageFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1709,19 +1767,23 @@ impl<'a> ::windows::runtime::IntoParam<'a, IMidiMessage> for &MidiNoteOnMessage 
 }
 unsafe impl ::std::marker::Send for MidiNoteOnMessage {}
 unsafe impl ::std::marker::Sync for MidiNoteOnMessage {}
+#[doc = "*Required features: `Devices_Midi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MidiOutPort(::windows::runtime::IInspectable);
 impl MidiOutPort {
+    #[doc = "*Required features: `Devices_Midi`*"]
     pub fn SendMessage<'a, Param0: ::windows::runtime::IntoParam<'a, IMidiMessage>>(&self, midimessage: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), midimessage.into_param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Devices_Midi`, `Storage_Streams`*"]
     pub fn SendBuffer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(&self, mididata: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), mididata.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Devices_Midi`*"]
     pub fn DeviceId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1730,17 +1792,20 @@ impl MidiOutPort {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Midi`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Midi`, `Foundation`*"]
     pub fn FromIdAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(deviceid: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<IMidiOutPort>> {
         Self::IMidiOutPortStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), deviceid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<IMidiOutPort>>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Midi`*"]
     pub fn GetDeviceSelector() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IMidiOutPortStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
@@ -1850,10 +1915,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> 
 }
 unsafe impl ::std::marker::Send for MidiOutPort {}
 unsafe impl ::std::marker::Sync for MidiOutPort {}
+#[doc = "*Required features: `Devices_Midi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MidiPitchBendChangeMessage(::windows::runtime::IInspectable);
 impl MidiPitchBendChangeMessage {
+    #[doc = "*Required features: `Devices_Midi`*"]
     pub fn Channel(&self) -> ::windows::runtime::Result<u8> {
         let this = self;
         unsafe {
@@ -1861,6 +1928,7 @@ impl MidiPitchBendChangeMessage {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Midi`*"]
     pub fn Bend(&self) -> ::windows::runtime::Result<u16> {
         let this = self;
         unsafe {
@@ -1869,6 +1937,7 @@ impl MidiPitchBendChangeMessage {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Midi`, `Foundation`*"]
     pub fn Timestamp(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = &::windows::runtime::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
@@ -1877,6 +1946,7 @@ impl MidiPitchBendChangeMessage {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Devices_Midi`, `Storage_Streams`*"]
     pub fn RawData(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IBuffer> {
         let this = &::windows::runtime::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
@@ -1884,6 +1954,7 @@ impl MidiPitchBendChangeMessage {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Midi`*"]
     pub fn Type(&self) -> ::windows::runtime::Result<MidiMessageType> {
         let this = &::windows::runtime::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
@@ -1891,6 +1962,7 @@ impl MidiPitchBendChangeMessage {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MidiMessageType>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Midi`*"]
     pub fn CreateMidiPitchBendChangeMessage(channel: u8, bend: u16) -> ::windows::runtime::Result<MidiPitchBendChangeMessage> {
         Self::IMidiPitchBendChangeMessageFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1976,10 +2048,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, IMidiMessage> for &MidiPitchBendChang
 }
 unsafe impl ::std::marker::Send for MidiPitchBendChangeMessage {}
 unsafe impl ::std::marker::Sync for MidiPitchBendChangeMessage {}
+#[doc = "*Required features: `Devices_Midi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MidiPolyphonicKeyPressureMessage(::windows::runtime::IInspectable);
 impl MidiPolyphonicKeyPressureMessage {
+    #[doc = "*Required features: `Devices_Midi`*"]
     pub fn Channel(&self) -> ::windows::runtime::Result<u8> {
         let this = self;
         unsafe {
@@ -1987,6 +2061,7 @@ impl MidiPolyphonicKeyPressureMessage {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Midi`*"]
     pub fn Note(&self) -> ::windows::runtime::Result<u8> {
         let this = self;
         unsafe {
@@ -1994,6 +2069,7 @@ impl MidiPolyphonicKeyPressureMessage {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Midi`*"]
     pub fn Pressure(&self) -> ::windows::runtime::Result<u8> {
         let this = self;
         unsafe {
@@ -2002,6 +2078,7 @@ impl MidiPolyphonicKeyPressureMessage {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Midi`, `Foundation`*"]
     pub fn Timestamp(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = &::windows::runtime::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
@@ -2010,6 +2087,7 @@ impl MidiPolyphonicKeyPressureMessage {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Devices_Midi`, `Storage_Streams`*"]
     pub fn RawData(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IBuffer> {
         let this = &::windows::runtime::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
@@ -2017,6 +2095,7 @@ impl MidiPolyphonicKeyPressureMessage {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Midi`*"]
     pub fn Type(&self) -> ::windows::runtime::Result<MidiMessageType> {
         let this = &::windows::runtime::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
@@ -2024,6 +2103,7 @@ impl MidiPolyphonicKeyPressureMessage {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MidiMessageType>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Midi`*"]
     pub fn CreateMidiPolyphonicKeyPressureMessage(channel: u8, note: u8, pressure: u8) -> ::windows::runtime::Result<MidiPolyphonicKeyPressureMessage> {
         Self::IMidiPolyphonicKeyPressureMessageFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -2109,10 +2189,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, IMidiMessage> for &MidiPolyphonicKeyP
 }
 unsafe impl ::std::marker::Send for MidiPolyphonicKeyPressureMessage {}
 unsafe impl ::std::marker::Sync for MidiPolyphonicKeyPressureMessage {}
+#[doc = "*Required features: `Devices_Midi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MidiProgramChangeMessage(::windows::runtime::IInspectable);
 impl MidiProgramChangeMessage {
+    #[doc = "*Required features: `Devices_Midi`*"]
     pub fn Channel(&self) -> ::windows::runtime::Result<u8> {
         let this = self;
         unsafe {
@@ -2120,6 +2202,7 @@ impl MidiProgramChangeMessage {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Midi`*"]
     pub fn Program(&self) -> ::windows::runtime::Result<u8> {
         let this = self;
         unsafe {
@@ -2128,6 +2211,7 @@ impl MidiProgramChangeMessage {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Midi`, `Foundation`*"]
     pub fn Timestamp(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = &::windows::runtime::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
@@ -2136,6 +2220,7 @@ impl MidiProgramChangeMessage {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Devices_Midi`, `Storage_Streams`*"]
     pub fn RawData(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IBuffer> {
         let this = &::windows::runtime::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
@@ -2143,6 +2228,7 @@ impl MidiProgramChangeMessage {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Midi`*"]
     pub fn Type(&self) -> ::windows::runtime::Result<MidiMessageType> {
         let this = &::windows::runtime::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
@@ -2150,6 +2236,7 @@ impl MidiProgramChangeMessage {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MidiMessageType>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Midi`*"]
     pub fn CreateMidiProgramChangeMessage(channel: u8, program: u8) -> ::windows::runtime::Result<MidiProgramChangeMessage> {
         Self::IMidiProgramChangeMessageFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -2235,10 +2322,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, IMidiMessage> for &MidiProgramChangeM
 }
 unsafe impl ::std::marker::Send for MidiProgramChangeMessage {}
 unsafe impl ::std::marker::Sync for MidiProgramChangeMessage {}
+#[doc = "*Required features: `Devices_Midi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MidiSongPositionPointerMessage(::windows::runtime::IInspectable);
 impl MidiSongPositionPointerMessage {
+    #[doc = "*Required features: `Devices_Midi`*"]
     pub fn Beats(&self) -> ::windows::runtime::Result<u16> {
         let this = self;
         unsafe {
@@ -2247,6 +2336,7 @@ impl MidiSongPositionPointerMessage {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Midi`, `Foundation`*"]
     pub fn Timestamp(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = &::windows::runtime::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
@@ -2255,6 +2345,7 @@ impl MidiSongPositionPointerMessage {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Devices_Midi`, `Storage_Streams`*"]
     pub fn RawData(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IBuffer> {
         let this = &::windows::runtime::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
@@ -2262,6 +2353,7 @@ impl MidiSongPositionPointerMessage {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Midi`*"]
     pub fn Type(&self) -> ::windows::runtime::Result<MidiMessageType> {
         let this = &::windows::runtime::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
@@ -2269,6 +2361,7 @@ impl MidiSongPositionPointerMessage {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MidiMessageType>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Midi`*"]
     pub fn CreateMidiSongPositionPointerMessage(beats: u16) -> ::windows::runtime::Result<MidiSongPositionPointerMessage> {
         Self::IMidiSongPositionPointerMessageFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -2354,10 +2447,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, IMidiMessage> for &MidiSongPositionPo
 }
 unsafe impl ::std::marker::Send for MidiSongPositionPointerMessage {}
 unsafe impl ::std::marker::Sync for MidiSongPositionPointerMessage {}
+#[doc = "*Required features: `Devices_Midi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MidiSongSelectMessage(::windows::runtime::IInspectable);
 impl MidiSongSelectMessage {
+    #[doc = "*Required features: `Devices_Midi`*"]
     pub fn Song(&self) -> ::windows::runtime::Result<u8> {
         let this = self;
         unsafe {
@@ -2366,6 +2461,7 @@ impl MidiSongSelectMessage {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Midi`, `Foundation`*"]
     pub fn Timestamp(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = &::windows::runtime::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
@@ -2374,6 +2470,7 @@ impl MidiSongSelectMessage {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Devices_Midi`, `Storage_Streams`*"]
     pub fn RawData(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IBuffer> {
         let this = &::windows::runtime::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
@@ -2381,6 +2478,7 @@ impl MidiSongSelectMessage {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Midi`*"]
     pub fn Type(&self) -> ::windows::runtime::Result<MidiMessageType> {
         let this = &::windows::runtime::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
@@ -2388,6 +2486,7 @@ impl MidiSongSelectMessage {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MidiMessageType>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Midi`*"]
     pub fn CreateMidiSongSelectMessage(song: u8) -> ::windows::runtime::Result<MidiSongSelectMessage> {
         Self::IMidiSongSelectMessageFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -2473,6 +2572,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IMidiMessage> for &MidiSongSelectMess
 }
 unsafe impl ::std::marker::Send for MidiSongSelectMessage {}
 unsafe impl ::std::marker::Sync for MidiSongSelectMessage {}
+#[doc = "*Required features: `Devices_Midi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MidiStartMessage(::windows::runtime::IInspectable);
@@ -2485,6 +2585,7 @@ impl MidiStartMessage {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Midi`, `Foundation`*"]
     pub fn Timestamp(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -2493,6 +2594,7 @@ impl MidiStartMessage {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Devices_Midi`, `Storage_Streams`*"]
     pub fn RawData(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
@@ -2500,6 +2602,7 @@ impl MidiStartMessage {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Midi`*"]
     pub fn Type(&self) -> ::windows::runtime::Result<MidiMessageType> {
         let this = self;
         unsafe {
@@ -2580,6 +2683,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IMidiMessage> for &MidiStartMessage {
 }
 unsafe impl ::std::marker::Send for MidiStartMessage {}
 unsafe impl ::std::marker::Sync for MidiStartMessage {}
+#[doc = "*Required features: `Devices_Midi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MidiStopMessage(::windows::runtime::IInspectable);
@@ -2592,6 +2696,7 @@ impl MidiStopMessage {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Midi`, `Foundation`*"]
     pub fn Timestamp(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -2600,6 +2705,7 @@ impl MidiStopMessage {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Devices_Midi`, `Storage_Streams`*"]
     pub fn RawData(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
@@ -2607,6 +2713,7 @@ impl MidiStopMessage {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Midi`*"]
     pub fn Type(&self) -> ::windows::runtime::Result<MidiMessageType> {
         let this = self;
         unsafe {
@@ -2687,11 +2794,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, IMidiMessage> for &MidiStopMessage {
 }
 unsafe impl ::std::marker::Send for MidiStopMessage {}
 unsafe impl ::std::marker::Sync for MidiStopMessage {}
+#[doc = "*Required features: `Devices_Midi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MidiSynthesizer(::windows::runtime::IInspectable);
 impl MidiSynthesizer {
     #[cfg(feature = "Devices_Enumeration")]
+    #[doc = "*Required features: `Devices_Midi`, `Devices_Enumeration`*"]
     pub fn AudioDevice(&self) -> ::windows::runtime::Result<super::Enumeration::DeviceInformation> {
         let this = self;
         unsafe {
@@ -2699,6 +2808,7 @@ impl MidiSynthesizer {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Enumeration::DeviceInformation>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Midi`*"]
     pub fn Volume(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -2706,19 +2816,23 @@ impl MidiSynthesizer {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Midi`*"]
     pub fn SetVolume(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Devices_Midi`*"]
     pub fn SendMessage<'a, Param0: ::windows::runtime::IntoParam<'a, IMidiMessage>>(&self, midimessage: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IMidiOutPort>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), midimessage.into_param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Devices_Midi`, `Storage_Streams`*"]
     pub fn SendBuffer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(&self, mididata: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IMidiOutPort>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), mididata.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Devices_Midi`*"]
     pub fn DeviceId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IMidiOutPort>(self)?;
         unsafe {
@@ -2727,11 +2841,13 @@ impl MidiSynthesizer {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Midi`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Midi`, `Foundation`*"]
     pub fn CreateAsync() -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<MidiSynthesizer>> {
         Self::IMidiSynthesizerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -2739,6 +2855,7 @@ impl MidiSynthesizer {
         })
     }
     #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation"))]
+    #[doc = "*Required features: `Devices_Midi`, `Devices_Enumeration`, `Foundation`*"]
     pub fn CreateFromAudioDeviceAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::Enumeration::DeviceInformation>>(audiodevice: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<MidiSynthesizer>> {
         Self::IMidiSynthesizerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -2746,6 +2863,7 @@ impl MidiSynthesizer {
         })
     }
     #[cfg(feature = "Devices_Enumeration")]
+    #[doc = "*Required features: `Devices_Midi`, `Devices_Enumeration`*"]
     pub fn IsSynthesizer<'a, Param0: ::windows::runtime::IntoParam<'a, super::Enumeration::DeviceInformation>>(mididevice: Param0) -> ::windows::runtime::Result<bool> {
         Self::IMidiSynthesizerStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
@@ -2857,11 +2975,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> 
 }
 unsafe impl ::std::marker::Send for MidiSynthesizer {}
 unsafe impl ::std::marker::Sync for MidiSynthesizer {}
+#[doc = "*Required features: `Devices_Midi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MidiSystemExclusiveMessage(::windows::runtime::IInspectable);
 impl MidiSystemExclusiveMessage {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Midi`, `Foundation`*"]
     pub fn Timestamp(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -2870,6 +2990,7 @@ impl MidiSystemExclusiveMessage {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Devices_Midi`, `Storage_Streams`*"]
     pub fn RawData(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
@@ -2877,6 +2998,7 @@ impl MidiSystemExclusiveMessage {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Midi`*"]
     pub fn Type(&self) -> ::windows::runtime::Result<MidiMessageType> {
         let this = self;
         unsafe {
@@ -2885,6 +3007,7 @@ impl MidiSystemExclusiveMessage {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Devices_Midi`, `Storage_Streams`*"]
     pub fn CreateMidiSystemExclusiveMessage<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(rawdata: Param0) -> ::windows::runtime::Result<MidiSystemExclusiveMessage> {
         Self::IMidiSystemExclusiveMessageFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -2968,6 +3091,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IMidiMessage> for &MidiSystemExclusiv
 }
 unsafe impl ::std::marker::Send for MidiSystemExclusiveMessage {}
 unsafe impl ::std::marker::Sync for MidiSystemExclusiveMessage {}
+#[doc = "*Required features: `Devices_Midi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MidiSystemResetMessage(::windows::runtime::IInspectable);
@@ -2980,6 +3104,7 @@ impl MidiSystemResetMessage {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Midi`, `Foundation`*"]
     pub fn Timestamp(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -2988,6 +3113,7 @@ impl MidiSystemResetMessage {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Devices_Midi`, `Storage_Streams`*"]
     pub fn RawData(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
@@ -2995,6 +3121,7 @@ impl MidiSystemResetMessage {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Midi`*"]
     pub fn Type(&self) -> ::windows::runtime::Result<MidiMessageType> {
         let this = self;
         unsafe {
@@ -3075,10 +3202,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, IMidiMessage> for &MidiSystemResetMes
 }
 unsafe impl ::std::marker::Send for MidiSystemResetMessage {}
 unsafe impl ::std::marker::Sync for MidiSystemResetMessage {}
+#[doc = "*Required features: `Devices_Midi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MidiTimeCodeMessage(::windows::runtime::IInspectable);
 impl MidiTimeCodeMessage {
+    #[doc = "*Required features: `Devices_Midi`*"]
     pub fn FrameType(&self) -> ::windows::runtime::Result<u8> {
         let this = self;
         unsafe {
@@ -3086,6 +3215,7 @@ impl MidiTimeCodeMessage {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Midi`*"]
     pub fn Values(&self) -> ::windows::runtime::Result<u8> {
         let this = self;
         unsafe {
@@ -3094,6 +3224,7 @@ impl MidiTimeCodeMessage {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Midi`, `Foundation`*"]
     pub fn Timestamp(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = &::windows::runtime::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
@@ -3102,6 +3233,7 @@ impl MidiTimeCodeMessage {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Devices_Midi`, `Storage_Streams`*"]
     pub fn RawData(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IBuffer> {
         let this = &::windows::runtime::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
@@ -3109,6 +3241,7 @@ impl MidiTimeCodeMessage {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Midi`*"]
     pub fn Type(&self) -> ::windows::runtime::Result<MidiMessageType> {
         let this = &::windows::runtime::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
@@ -3116,6 +3249,7 @@ impl MidiTimeCodeMessage {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MidiMessageType>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Midi`*"]
     pub fn CreateMidiTimeCodeMessage(frametype: u8, values: u8) -> ::windows::runtime::Result<MidiTimeCodeMessage> {
         Self::IMidiTimeCodeMessageFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -3201,6 +3335,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IMidiMessage> for &MidiTimeCodeMessag
 }
 unsafe impl ::std::marker::Send for MidiTimeCodeMessage {}
 unsafe impl ::std::marker::Sync for MidiTimeCodeMessage {}
+#[doc = "*Required features: `Devices_Midi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MidiTimingClockMessage(::windows::runtime::IInspectable);
@@ -3213,6 +3348,7 @@ impl MidiTimingClockMessage {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Midi`, `Foundation`*"]
     pub fn Timestamp(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -3221,6 +3357,7 @@ impl MidiTimingClockMessage {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Devices_Midi`, `Storage_Streams`*"]
     pub fn RawData(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
@@ -3228,6 +3365,7 @@ impl MidiTimingClockMessage {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Midi`*"]
     pub fn Type(&self) -> ::windows::runtime::Result<MidiMessageType> {
         let this = self;
         unsafe {
@@ -3308,6 +3446,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IMidiMessage> for &MidiTimingClockMes
 }
 unsafe impl ::std::marker::Send for MidiTimingClockMessage {}
 unsafe impl ::std::marker::Sync for MidiTimingClockMessage {}
+#[doc = "*Required features: `Devices_Midi`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MidiTuneRequestMessage(::windows::runtime::IInspectable);
@@ -3320,6 +3459,7 @@ impl MidiTuneRequestMessage {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Midi`, `Foundation`*"]
     pub fn Timestamp(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -3328,6 +3468,7 @@ impl MidiTuneRequestMessage {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Devices_Midi`, `Storage_Streams`*"]
     pub fn RawData(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
@@ -3335,6 +3476,7 @@ impl MidiTuneRequestMessage {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Midi`*"]
     pub fn Type(&self) -> ::windows::runtime::Result<MidiMessageType> {
         let this = self;
         unsafe {

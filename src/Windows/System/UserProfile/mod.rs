@@ -1,4 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `System_UserProfile`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AccountPictureKind(pub i32);
@@ -19,14 +20,17 @@ unsafe impl ::windows::runtime::Abi for AccountPictureKind {
 unsafe impl ::windows::runtime::RuntimeType for AccountPictureKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.System.UserProfile.AccountPictureKind;i4)");
 }
+#[doc = "*Required features: `System_UserProfile`*"]
 pub struct AdvertisingManager {}
 impl AdvertisingManager {
+    #[doc = "*Required features: `System_UserProfile`*"]
     pub fn AdvertisingId() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IAdvertisingManagerStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `System_UserProfile`*"]
     pub fn GetForUser<'a, Param0: ::windows::runtime::IntoParam<'a, super::User>>(user: Param0) -> ::windows::runtime::Result<AdvertisingManagerForUser> {
         Self::IAdvertisingManagerStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -45,10 +49,12 @@ impl AdvertisingManager {
 impl ::windows::runtime::RuntimeName for AdvertisingManager {
     const NAME: &'static str = "Windows.System.UserProfile.AdvertisingManager";
 }
+#[doc = "*Required features: `System_UserProfile`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AdvertisingManagerForUser(::windows::runtime::IInspectable);
 impl AdvertisingManagerForUser {
+    #[doc = "*Required features: `System_UserProfile`*"]
     pub fn AdvertisingId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -56,6 +62,7 @@ impl AdvertisingManagerForUser {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `System_UserProfile`*"]
     pub fn User(&self) -> ::windows::runtime::Result<super::User> {
         let this = self;
         unsafe {
@@ -116,10 +123,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for AdvertisingManagerForUser {}
 unsafe impl ::std::marker::Sync for AdvertisingManagerForUser {}
+#[doc = "*Required features: `System_UserProfile`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AssignedAccessSettings(::windows::runtime::IInspectable);
 impl AssignedAccessSettings {
+    #[doc = "*Required features: `System_UserProfile`*"]
     pub fn IsEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -127,6 +136,7 @@ impl AssignedAccessSettings {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `System_UserProfile`*"]
     pub fn IsSingleAppKioskMode(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -134,6 +144,7 @@ impl AssignedAccessSettings {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `System_UserProfile`*"]
     pub fn User(&self) -> ::windows::runtime::Result<super::User> {
         let this = self;
         unsafe {
@@ -141,12 +152,14 @@ impl AssignedAccessSettings {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::User>(result__)
         }
     }
+    #[doc = "*Required features: `System_UserProfile`*"]
     pub fn GetDefault() -> ::windows::runtime::Result<AssignedAccessSettings> {
         Self::IAssignedAccessSettingsStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AssignedAccessSettings>(result__)
         })
     }
+    #[doc = "*Required features: `System_UserProfile`*"]
     pub fn GetForUser<'a, Param0: ::windows::runtime::IntoParam<'a, super::User>>(user: Param0) -> ::windows::runtime::Result<AssignedAccessSettings> {
         Self::IAssignedAccessSettingsStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -210,10 +223,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for AssignedAccessSettings {}
 unsafe impl ::std::marker::Sync for AssignedAccessSettings {}
+#[doc = "*Required features: `System_UserProfile`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct DiagnosticsSettings(::windows::runtime::IInspectable);
 impl DiagnosticsSettings {
+    #[doc = "*Required features: `System_UserProfile`*"]
     pub fn CanUseDiagnosticsToTailorExperiences(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -221,6 +236,7 @@ impl DiagnosticsSettings {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `System_UserProfile`*"]
     pub fn User(&self) -> ::windows::runtime::Result<super::User> {
         let this = self;
         unsafe {
@@ -228,12 +244,14 @@ impl DiagnosticsSettings {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::User>(result__)
         }
     }
+    #[doc = "*Required features: `System_UserProfile`*"]
     pub fn GetDefault() -> ::windows::runtime::Result<DiagnosticsSettings> {
         Self::IDiagnosticsSettingsStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<DiagnosticsSettings>(result__)
         })
     }
+    #[doc = "*Required features: `System_UserProfile`*"]
     pub fn GetForUser<'a, Param0: ::windows::runtime::IntoParam<'a, super::User>>(user: Param0) -> ::windows::runtime::Result<DiagnosticsSettings> {
         Self::IDiagnosticsSettingsStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -297,11 +315,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for DiagnosticsSettings {}
 unsafe impl ::std::marker::Sync for DiagnosticsSettings {}
+#[doc = "*Required features: `System_UserProfile`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct FirstSignInSettings(::windows::runtime::IInspectable);
 impl FirstSignInSettings {
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `System_UserProfile`, `Foundation_Collections`*"]
     pub fn First(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IIterator<super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>>(self)?;
         unsafe {
@@ -310,6 +330,7 @@ impl FirstSignInSettings {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `System_UserProfile`, `Foundation_Collections`*"]
     pub fn Lookup<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, key: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>(self)?;
         unsafe {
@@ -318,6 +339,7 @@ impl FirstSignInSettings {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `System_UserProfile`, `Foundation_Collections`*"]
     pub fn Size(&self) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>(self)?;
         unsafe {
@@ -326,6 +348,7 @@ impl FirstSignInSettings {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `System_UserProfile`, `Foundation_Collections`*"]
     pub fn HasKey<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, key: Param0) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>(self)?;
         unsafe {
@@ -334,10 +357,12 @@ impl FirstSignInSettings {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `System_UserProfile`, `Foundation_Collections`*"]
     pub fn Split(&self, first: &mut ::std::option::Option<super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>, second: &mut ::std::option::Option<super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), first as *mut _ as _, second as *mut _ as _).ok() }
     }
+    #[doc = "*Required features: `System_UserProfile`*"]
     pub fn GetDefault() -> ::windows::runtime::Result<FirstSignInSettings> {
         Self::IFirstSignInSettingsStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -469,9 +494,11 @@ impl ::std::iter::IntoIterator for &FirstSignInSettings {
         self.First().unwrap()
     }
 }
+#[doc = "*Required features: `System_UserProfile`*"]
 pub struct GlobalizationPreferences {}
 impl GlobalizationPreferences {
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `System_UserProfile`, `Foundation_Collections`*"]
     pub fn Calendars() -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>> {
         Self::IGlobalizationPreferencesStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -479,6 +506,7 @@ impl GlobalizationPreferences {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `System_UserProfile`, `Foundation_Collections`*"]
     pub fn Clocks() -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>> {
         Self::IGlobalizationPreferencesStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -486,6 +514,7 @@ impl GlobalizationPreferences {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `System_UserProfile`, `Foundation_Collections`*"]
     pub fn Currencies() -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>> {
         Self::IGlobalizationPreferencesStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -493,12 +522,14 @@ impl GlobalizationPreferences {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `System_UserProfile`, `Foundation_Collections`*"]
     pub fn Languages() -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>> {
         Self::IGlobalizationPreferencesStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>>(result__)
         })
     }
+    #[doc = "*Required features: `System_UserProfile`*"]
     pub fn HomeGeographicRegion() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IGlobalizationPreferencesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
@@ -506,12 +537,14 @@ impl GlobalizationPreferences {
         })
     }
     #[cfg(feature = "Globalization")]
+    #[doc = "*Required features: `System_UserProfile`, `Globalization`*"]
     pub fn WeekStartsOn() -> ::windows::runtime::Result<super::super::Globalization::DayOfWeek> {
         Self::IGlobalizationPreferencesStatics(|this| unsafe {
             let mut result__: super::super::Globalization::DayOfWeek = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Globalization::DayOfWeek>(result__)
         })
     }
+    #[doc = "*Required features: `System_UserProfile`*"]
     pub fn TrySetHomeGeographicRegion<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(region: Param0) -> ::windows::runtime::Result<bool> {
         Self::IGlobalizationPreferencesStatics2(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
@@ -519,12 +552,14 @@ impl GlobalizationPreferences {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `System_UserProfile`, `Foundation_Collections`*"]
     pub fn TrySetLanguages<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>>(languagetags: Param0) -> ::windows::runtime::Result<bool> {
         Self::IGlobalizationPreferencesStatics2(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), languagetags.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: `System_UserProfile`*"]
     pub fn GetForUser<'a, Param0: ::windows::runtime::IntoParam<'a, super::User>>(user: Param0) -> ::windows::runtime::Result<GlobalizationPreferencesForUser> {
         Self::IGlobalizationPreferencesStatics3(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -547,10 +582,12 @@ impl GlobalizationPreferences {
 impl ::windows::runtime::RuntimeName for GlobalizationPreferences {
     const NAME: &'static str = "Windows.System.UserProfile.GlobalizationPreferences";
 }
+#[doc = "*Required features: `System_UserProfile`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct GlobalizationPreferencesForUser(::windows::runtime::IInspectable);
 impl GlobalizationPreferencesForUser {
+    #[doc = "*Required features: `System_UserProfile`*"]
     pub fn User(&self) -> ::windows::runtime::Result<super::User> {
         let this = self;
         unsafe {
@@ -559,6 +596,7 @@ impl GlobalizationPreferencesForUser {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `System_UserProfile`, `Foundation_Collections`*"]
     pub fn Calendars(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -567,6 +605,7 @@ impl GlobalizationPreferencesForUser {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `System_UserProfile`, `Foundation_Collections`*"]
     pub fn Clocks(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -575,6 +614,7 @@ impl GlobalizationPreferencesForUser {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `System_UserProfile`, `Foundation_Collections`*"]
     pub fn Currencies(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -583,6 +623,7 @@ impl GlobalizationPreferencesForUser {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `System_UserProfile`, `Foundation_Collections`*"]
     pub fn Languages(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -590,6 +631,7 @@ impl GlobalizationPreferencesForUser {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>>(result__)
         }
     }
+    #[doc = "*Required features: `System_UserProfile`*"]
     pub fn HomeGeographicRegion(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -598,6 +640,7 @@ impl GlobalizationPreferencesForUser {
         }
     }
     #[cfg(feature = "Globalization")]
+    #[doc = "*Required features: `System_UserProfile`, `Globalization`*"]
     pub fn WeekStartsOn(&self) -> ::windows::runtime::Result<super::super::Globalization::DayOfWeek> {
         let this = self;
         unsafe {
@@ -1068,15 +1111,18 @@ pub struct IUserProfilePersonalizationSettingsStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `System_UserProfile`*"]
 pub struct LockScreen {}
 impl LockScreen {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `System_UserProfile`, `Foundation`*"]
     pub fn RequestSetImageFeedAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>>(syndicationfeeduri: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<SetImageFeedResult>> {
         Self::ILockScreenImageFeedStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), syndicationfeeduri.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<SetImageFeedResult>>(result__)
         })
     }
+    #[doc = "*Required features: `System_UserProfile`*"]
     pub fn TryRemoveImageFeed() -> ::windows::runtime::Result<bool> {
         Self::ILockScreenImageFeedStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
@@ -1084,6 +1130,7 @@ impl LockScreen {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `System_UserProfile`, `Foundation`*"]
     pub fn OriginalImageFile() -> ::windows::runtime::Result<super::super::Foundation::Uri> {
         Self::ILockScreenStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1091,6 +1138,7 @@ impl LockScreen {
         })
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `System_UserProfile`, `Storage_Streams`*"]
     pub fn GetImageStream() -> ::windows::runtime::Result<super::super::Storage::Streams::IRandomAccessStream> {
         Self::ILockScreenStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1098,6 +1146,7 @@ impl LockScreen {
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
+    #[doc = "*Required features: `System_UserProfile`, `Foundation`, `Storage`*"]
     pub fn SetImageFileAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::IStorageFile>>(value: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         Self::ILockScreenStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1105,6 +1154,7 @@ impl LockScreen {
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `System_UserProfile`, `Foundation`, `Storage_Streams`*"]
     pub fn SetImageStreamAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStream>>(value: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         Self::ILockScreenStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1123,6 +1173,7 @@ impl LockScreen {
 impl ::windows::runtime::RuntimeName for LockScreen {
     const NAME: &'static str = "Windows.System.UserProfile.LockScreen";
 }
+#[doc = "*Required features: `System_UserProfile`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SetAccountPictureResult(pub i32);
@@ -1146,6 +1197,7 @@ unsafe impl ::windows::runtime::Abi for SetAccountPictureResult {
 unsafe impl ::windows::runtime::RuntimeType for SetAccountPictureResult {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.System.UserProfile.SetAccountPictureResult;i4)");
 }
+#[doc = "*Required features: `System_UserProfile`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SetImageFeedResult(pub i32);
@@ -1166,9 +1218,11 @@ unsafe impl ::windows::runtime::Abi for SetImageFeedResult {
 unsafe impl ::windows::runtime::RuntimeType for SetImageFeedResult {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.System.UserProfile.SetImageFeedResult;i4)");
 }
+#[doc = "*Required features: `System_UserProfile`*"]
 pub struct UserInformation {}
 impl UserInformation {
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `System_UserProfile`*"]
     pub fn AccountPictureChangeEnabled() -> ::windows::runtime::Result<bool> {
         Self::IUserInformationStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
@@ -1176,6 +1230,7 @@ impl UserInformation {
         })
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `System_UserProfile`*"]
     pub fn NameAccessAllowed() -> ::windows::runtime::Result<bool> {
         Self::IUserInformationStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
@@ -1184,6 +1239,7 @@ impl UserInformation {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Storage")]
+    #[doc = "*Required features: `System_UserProfile`, `Storage`*"]
     pub fn GetAccountPicture(kind: AccountPictureKind) -> ::windows::runtime::Result<super::super::Storage::IStorageFile> {
         Self::IUserInformationStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1192,6 +1248,7 @@ impl UserInformation {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
+    #[doc = "*Required features: `System_UserProfile`, `Foundation`, `Storage`*"]
     pub fn SetAccountPictureAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::IStorageFile>>(image: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<SetAccountPictureResult>> {
         Self::IUserInformationStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1200,6 +1257,7 @@ impl UserInformation {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
+    #[doc = "*Required features: `System_UserProfile`, `Foundation`, `Storage`*"]
     pub fn SetAccountPicturesAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::IStorageFile>, Param1: ::windows::runtime::IntoParam<'a, super::super::Storage::IStorageFile>, Param2: ::windows::runtime::IntoParam<'a, super::super::Storage::IStorageFile>>(smallimage: Param0, largeimage: Param1, video: Param2) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<SetAccountPictureResult>> {
         Self::IUserInformationStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1208,6 +1266,7 @@ impl UserInformation {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `System_UserProfile`, `Foundation`, `Storage_Streams`*"]
     pub fn SetAccountPictureFromStreamAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStream>>(image: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<SetAccountPictureResult>> {
         Self::IUserInformationStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1216,6 +1275,7 @@ impl UserInformation {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `System_UserProfile`, `Foundation`, `Storage_Streams`*"]
     pub fn SetAccountPicturesFromStreamsAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Param1: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Param2: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStream>>(smallimage: Param0, largeimage: Param1, video: Param2) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<SetAccountPictureResult>> {
         Self::IUserInformationStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1224,6 +1284,7 @@ impl UserInformation {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `System_UserProfile`, `Foundation`*"]
     pub fn AccountPictureChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventHandler<::windows::runtime::IInspectable>>>(changehandler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IUserInformationStatics(|this| unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
@@ -1232,11 +1293,13 @@ impl UserInformation {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `System_UserProfile`, `Foundation`*"]
     pub fn RemoveAccountPictureChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::runtime::Result<()> {
         Self::IUserInformationStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() })
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `System_UserProfile`, `Foundation`*"]
     pub fn GetDisplayNameAsync() -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<::windows::runtime::HSTRING>> {
         Self::IUserInformationStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1245,6 +1308,7 @@ impl UserInformation {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `System_UserProfile`, `Foundation`*"]
     pub fn GetFirstNameAsync() -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<::windows::runtime::HSTRING>> {
         Self::IUserInformationStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1253,6 +1317,7 @@ impl UserInformation {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `System_UserProfile`, `Foundation`*"]
     pub fn GetLastNameAsync() -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<::windows::runtime::HSTRING>> {
         Self::IUserInformationStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1261,6 +1326,7 @@ impl UserInformation {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `System_UserProfile`, `Foundation`*"]
     pub fn GetPrincipalNameAsync() -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<::windows::runtime::HSTRING>> {
         Self::IUserInformationStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1269,6 +1335,7 @@ impl UserInformation {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `System_UserProfile`, `Foundation`*"]
     pub fn GetSessionInitiationProtocolUriAsync() -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Uri>> {
         Self::IUserInformationStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1277,6 +1344,7 @@ impl UserInformation {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `System_UserProfile`, `Foundation`*"]
     pub fn GetDomainNameAsync() -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<::windows::runtime::HSTRING>> {
         Self::IUserInformationStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1297,11 +1365,13 @@ pub struct UserProfileContract(pub u8);
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
 pub struct UserProfileLockScreenContract(pub u8);
+#[doc = "*Required features: `System_UserProfile`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct UserProfilePersonalizationSettings(::windows::runtime::IInspectable);
 impl UserProfilePersonalizationSettings {
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
+    #[doc = "*Required features: `System_UserProfile`, `Foundation`, `Storage`*"]
     pub fn TrySetLockScreenImageAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::StorageFile>>(&self, imagefile: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
@@ -1310,6 +1380,7 @@ impl UserProfilePersonalizationSettings {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
+    #[doc = "*Required features: `System_UserProfile`, `Foundation`, `Storage`*"]
     pub fn TrySetWallpaperImageAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::StorageFile>>(&self, imagefile: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
@@ -1317,12 +1388,14 @@ impl UserProfilePersonalizationSettings {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), imagefile.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
+    #[doc = "*Required features: `System_UserProfile`*"]
     pub fn Current() -> ::windows::runtime::Result<UserProfilePersonalizationSettings> {
         Self::IUserProfilePersonalizationSettingsStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<UserProfilePersonalizationSettings>(result__)
         })
     }
+    #[doc = "*Required features: `System_UserProfile`*"]
     pub fn IsSupported() -> ::windows::runtime::Result<bool> {
         Self::IUserProfilePersonalizationSettingsStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();

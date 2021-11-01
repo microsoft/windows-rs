@@ -1,9 +1,12 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ALLOW_NO_AUTH: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ATADDRESSLEN: u32 = 32u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 pub struct AUTH_VALIDATION_EX {
     pub Header: MPRAPI_OBJECT_HEADER,
     pub hRasConnection: super::super::Foundation::HANDLE,
@@ -39,289 +42,571 @@ unsafe impl ::windows::runtime::Abi for AUTH_VALIDATION_EX {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const DO_NOT_ALLOW_NO_AUTH: u32 = 0u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_ACCESSING_TCPCFGDLL: u32 = 727u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_ACCT_DISABLED: u32 = 647u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_ACCT_EXPIRED: u32 = 708u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_ACTION_REQUIRED: u32 = 877u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_ALLOCATING_MEMORY: u32 = 664u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_ALREADY_DISCONNECTING: u32 = 617u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_ASYNC_REQUEST_PENDING: u32 = 616u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_AUTHENTICATION_FAILURE: u32 = 691u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_AUTH_INTERNAL: u32 = 645u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_AUTOMATIC_VPN_FAILED: u32 = 800u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_BAD_ADDRESS_SPECIFIED: u32 = 769u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_BAD_CALLBACK_NUMBER: u32 = 704u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_BAD_PHONE_NUMBER: u32 = 749u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_BAD_STRING: u32 = 637u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_BAD_USAGE_IN_INI_FILE: u32 = 669u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_BIPLEX_PORT_NOT_AVAILABLE: u32 = 712u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_BLOCKED: u32 = 775u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_BROADBAND_ACTIVE: u32 = 813u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_BROADBAND_NO_NIC: u32 = 814u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_BROADBAND_TIMEOUT: u32 = 815u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_BUFFER_INVALID: u32 = 610u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_BUFFER_TOO_SMALL: u32 = 603u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_BUNDLE_NOT_FOUND: u32 = 754u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_CANNOT_DELETE: u32 = 817u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_CANNOT_DO_CUSTOMDIAL: u32 = 755u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_CANNOT_FIND_PHONEBOOK_ENTRY: u32 = 623u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_CANNOT_GET_LANA: u32 = 639u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_CANNOT_INITIATE_MOBIKE_UPDATE: u32 = 844u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_CANNOT_LOAD_PHONEBOOK: u32 = 622u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_CANNOT_LOAD_STRING: u32 = 626u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_CANNOT_OPEN_PHONEBOOK: u32 = 621u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_CANNOT_PROJECT_CLIENT: u32 = 634u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_CANNOT_SET_PORT_INFO: u32 = 605u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_CANNOT_SHARE_CONNECTION: u32 = 763u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_CANNOT_USE_LOGON_CREDENTIALS: u32 = 739u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_CANNOT_WRITE_PHONEBOOK: u32 = 624u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_CERT_FOR_ENCRYPTION_NOT_FOUND: u32 = 781u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_CHANGING_PASSWORD: u32 = 709u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_CMD_TOO_LONG: u32 = 700u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_CONGESTION: u32 = 771u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_CONNECTING_DEVICE_NOT_FOUND: u32 = 797u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_CONNECTION_ALREADY_SHARED: u32 = 758u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_CONNECTION_REJECT: u32 = 770u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_CORRUPT_PHONEBOOK: u32 = 625u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_DCB_NOT_FOUND: u32 = 694u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_DEFAULTOFF_MACRO_NOT_FOUND: u32 = 656u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_DEVICENAME_NOT_FOUND: u32 = 659u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_DEVICENAME_TOO_LONG: u32 = 658u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_DEVICETYPE_DOES_NOT_EXIST: u32 = 609u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_DEVICE_COMPLIANCE: u32 = 875u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_DEVICE_DOES_NOT_EXIST: u32 = 608u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_DEVICE_NOT_READY: u32 = 666u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_DIAL_ALREADY_IN_PROGRESS: u32 = 756u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_DISCONNECTION: u32 = 628u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_DNSNAME_NOT_RESOLVABLE: u32 = 868u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_DONOTDISTURB: u32 = 776u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_EAPTLS_CACHE_CREDENTIALS_INVALID: u32 = 826u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_EAPTLS_PASSWD_INVALID: u32 = 869u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_EAPTLS_SCARD_CACHE_CREDENTIALS_INVALID: u32 = 847u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_EAP_METHOD_DOES_NOT_SUPPORT_SSO: u32 = 851u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_EAP_METHOD_NOT_INSTALLED: u32 = 850u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_EAP_METHOD_OPERATION_NOT_SUPPORTED: u32 = 852u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_EAP_SERVER_CERT_EXPIRED: u32 = 858u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_EAP_SERVER_CERT_INVALID: u32 = 857u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_EAP_SERVER_CERT_OTHER_ERROR: u32 = 860u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_EAP_SERVER_CERT_REVOKED: u32 = 859u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_EAP_SERVER_ROOT_CERT_INVALID: u32 = 865u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_EAP_SERVER_ROOT_CERT_NAME_REQUIRED: u32 = 866u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_EAP_SERVER_ROOT_CERT_NOT_FOUND: u32 = 864u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_EAP_USER_CERT_EXPIRED: u32 = 854u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_EAP_USER_CERT_INVALID: u32 = 853u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_EAP_USER_CERT_OTHER_ERROR: u32 = 856u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_EAP_USER_CERT_REVOKED: u32 = 855u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_EAP_USER_ROOT_CERT_EXPIRED: u32 = 863u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_EAP_USER_ROOT_CERT_INVALID: u32 = 862u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_EAP_USER_ROOT_CERT_NOT_FOUND: u32 = 861u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_EMPTY_INI_FILE: u32 = 690u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_EVENT_INVALID: u32 = 607u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_FAILED_CP_REQUIRED: u32 = 841u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_FAILED_TO_ENCRYPT: u32 = 768u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_FAST_USER_SWITCH: u32 = 831u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_FEATURE_DEPRECATED: u32 = 816u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_FILE_COULD_NOT_BE_OPENED: u32 = 657u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_FROM_DEVICE: u32 = 651u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_HANGUP_FAILED: u32 = 753u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_HARDWARE_FAILURE: u32 = 630u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_HIBERNATION: u32 = 832u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_IDLE_TIMEOUT: u32 = 828u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_IKEV2_PSK_INTERFACE_ALREADY_EXISTS: u32 = 870u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_INCOMPATIBLE: u32 = 772u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_INTERACTIVE_MODE: u32 = 703u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_INTERNAL_ADDRESS_FAILURE: u32 = 840u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_INVALID_AUTH_STATE: u32 = 705u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_INVALID_CALLBACK_NUMBER: u32 = 751u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_INVALID_COMPRESSION_SPECIFIED: u32 = 613u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_INVALID_DESTINATION_IP: u32 = 871u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_INVALID_FUNCTION_FOR_ENTRY: u32 = 780u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_INVALID_INTERFACE_CONFIG: u32 = 872u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_INVALID_MSCHAPV2_CONFIG: u32 = 805u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_INVALID_PEAP_COOKIE_ATTRIBUTES: u32 = 849u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_INVALID_PEAP_COOKIE_CONFIG: u32 = 803u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_INVALID_PEAP_COOKIE_USER: u32 = 804u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_INVALID_PORT_HANDLE: u32 = 601u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_INVALID_PREFERENCES: u32 = 846u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_INVALID_SERVER_CERT: u32 = 835u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_INVALID_SIZE: u32 = 632u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_INVALID_SMM: u32 = 745u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_INVALID_TUNNELID: u32 = 837u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_INVALID_VPNSTRATEGY: u32 = 825u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_IN_COMMAND: u32 = 681u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_IPSEC_SERVICE_STOPPED: u32 = 827u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_IPXCP_DIALOUT_ALREADY_ACTIVE: u32 = 726u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_IPXCP_NET_NUMBER_CONFLICT: u32 = 744u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_IPXCP_NO_DIALIN_CONFIGURED: u32 = 725u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_IPXCP_NO_DIALOUT_CONFIGURED: u32 = 724u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_IP_CONFIGURATION: u32 = 716u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_KEY_NOT_FOUND: u32 = 627u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_LINE_BUSY: u32 = 676u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_LINK_FAILURE: u32 = 829u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_MACRO_NOT_DEFINED: u32 = 654u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_MACRO_NOT_FOUND: u32 = 653u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_MESSAGE_MACRO_NOT_FOUND: u32 = 655u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_MOBIKE_DISABLED: u32 = 843u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_NAME_EXISTS_ON_NET: u32 = 642u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_NETBIOS_ERROR: u32 = 640u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_NOT_BINARY_MACRO: u32 = 693u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_NOT_NAP_CAPABLE: u32 = 836u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_NO_ACTIVE_ISDN_LINES: u32 = 713u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_NO_ANSWER: u32 = 678u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_NO_CARRIER: u32 = 679u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_NO_CERTIFICATE: u32 = 766u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_NO_COMMAND_FOUND: u32 = 661u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_NO_CONNECTION: u32 = 668u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_NO_DIALIN_PERMISSION: u32 = 649u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_NO_DIALTONE: u32 = 680u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_NO_DIFF_USER_AT_LOGON: u32 = 784u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_NO_EAPTLS_CERTIFICATE: u32 = 798u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_NO_ENDPOINTS: u32 = 620u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_NO_IP_ADDRESSES: u32 = 717u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_NO_IP_RAS_ADAPTER: u32 = 728u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_NO_ISDN_CHANNELS_AVAILABLE: u32 = 714u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_NO_LOCAL_ENCRYPTION: u32 = 741u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_NO_MAC_FOR_PORT: u32 = 747u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_NO_REG_CERT_AT_LOGON: u32 = 785u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_NO_REMOTE_ENCRYPTION: u32 = 742u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_NO_RESPONSES: u32 = 660u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_NO_SMART_CARD_READER: u32 = 764u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_NUMBERCHANGED: u32 = 773u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_OAKLEY_ATTRIB_FAIL: u32 = 788u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_OAKLEY_AUTH_FAIL: u32 = 787u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_OAKLEY_ERROR: u32 = 793u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_OAKLEY_GENERAL_PROCESSING: u32 = 789u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_OAKLEY_NO_CERT: u32 = 786u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_OAKLEY_NO_PEER_CERT: u32 = 790u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_OAKLEY_NO_POLICY: u32 = 791u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_OAKLEY_TIMED_OUT: u32 = 792u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_OUTOFORDER: u32 = 777u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_OUT_OF_BUFFERS: u32 = 614u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_OVERRUN: u32 = 710u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_PARTIAL_RESPONSE_LOOPING: u32 = 697u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_PASSWD_EXPIRED: u32 = 648u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_PEAP_CRYPTOBINDING_INVALID: u32 = 823u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_PEAP_CRYPTOBINDING_NOTRECEIVED: u32 = 824u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_PEAP_IDENTITY_MISMATCH: u32 = 867u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_PEAP_SERVER_REJECTED_CLIENT_TLV: u32 = 845u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_PHONE_NUMBER_TOO_LONG: u32 = 723u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_PLUGIN_NOT_INSTALLED: u32 = 876u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_PORT_ALREADY_OPEN: u32 = 602u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_PORT_DISCONNECTED: u32 = 619u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_PORT_NOT_AVAILABLE: u32 = 633u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_PORT_NOT_CONFIGURED: u32 = 665u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_PORT_NOT_CONNECTED: u32 = 606u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_PORT_NOT_FOUND: u32 = 615u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_PORT_NOT_OPEN: u32 = 618u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_PORT_OR_DEVICE: u32 = 692u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_PPP_CP_REJECTED: u32 = 733u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_PPP_INVALID_PACKET: u32 = 722u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_PPP_LCP_TERMINATED: u32 = 734u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_PPP_LOOPBACK_DETECTED: u32 = 737u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_PPP_NCP_TERMINATED: u32 = 736u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_PPP_NOT_CONVERGING: u32 = 732u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_PPP_NO_ADDRESS_ASSIGNED: u32 = 738u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_PPP_NO_PROTOCOLS_CONFIGURED: u32 = 720u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_PPP_NO_RESPONSE: u32 = 721u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_PPP_REMOTE_TERMINATED: u32 = 719u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_PPP_REQUIRED_ADDRESS_REJECTED: u32 = 735u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_PPP_TIMEOUT: u32 = 718u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_PROJECTION_NOT_COMPLETE: u32 = 730u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_PROTOCOL_ENGINE_DISABLED: u32 = 839u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_PROTOCOL_NOT_CONFIGURED: u32 = 731u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_RASAUTO_CANNOT_INITIALIZE: u32 = 757u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_RASMAN_CANNOT_INITIALIZE: u32 = 711u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_RASMAN_SERVICE_STOPPED: u32 = 834u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_RASQEC_CONN_DOESNOTEXIST: u32 = 821u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_RASQEC_NAPAGENT_NOT_CONNECTED: u32 = 820u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_RASQEC_NAPAGENT_NOT_ENABLED: u32 = 819u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_RASQEC_RESOURCE_CREATION_FAILED: u32 = 818u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_RASQEC_TIMEOUT: u32 = 822u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_READING_DEFAULTOFF: u32 = 689u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_READING_DEVICENAME: u32 = 672u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_READING_DEVICETYPE: u32 = 671u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_READING_INI_FILE: u32 = 667u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_READING_MAXCARRIERBPS: u32 = 675u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_READING_MAXCONNECTBPS: u32 = 674u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_READING_SCARD: u32 = 802u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_READING_SECTIONNAME: u32 = 670u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_READING_USAGE: u32 = 673u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_RECV_BUF_FULL: u32 = 699u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_REMOTE_DISCONNECTION: u32 = 629u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_REMOTE_REQUIRES_ENCRYPTION: u32 = 743u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_REQUEST_TIMEOUT: u32 = 638u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_RESTRICTED_LOGON_HOURS: u32 = 646u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_ROUTE_NOT_ALLOCATED: u32 = 612u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_ROUTE_NOT_AVAILABLE: u32 = 611u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_SCRIPT_SYNTAX: u32 = 752u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_SERVER_GENERAL_NET_FAILURE: u32 = 643u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_SERVER_NOT_RESPONDING: u32 = 650u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_SERVER_OUT_OF_RESOURCES: u32 = 641u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_SERVER_POLICY: u32 = 812u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_SHARE_CONNECTION_FAILED: u32 = 761u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_SHARING_ADDRESS_EXISTS: u32 = 765u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_SHARING_CHANGE_FAILED: u32 = 759u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_SHARING_HOST_ADDRESS_CONFLICT: u32 = 799u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_SHARING_MULTIPLE_ADDRESSES: u32 = 767u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_SHARING_NO_PRIVATE_LAN: u32 = 783u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_SHARING_PRIVATE_INSTALL: u32 = 762u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_SHARING_ROUTER_INSTALL: u32 = 760u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_SHARING_RRAS_CONFLICT: u32 = 782u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_SLIP_REQUIRES_IP: u32 = 729u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_SMART_CARD_REQUIRED: u32 = 779u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_SMM_TIMEOUT: u32 = 748u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_SMM_UNINITIALIZED: u32 = 746u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_SSO_CERT_MISSING: u32 = 874u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_SSTP_COOKIE_SET_FAILURE: u32 = 848u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_STATE_MACHINES_ALREADY_STARTED: u32 = 696u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_STATE_MACHINES_NOT_STARTED: u32 = 695u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_SYSTEM_SUSPENDED: u32 = 833u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_TAPI_CONFIGURATION: u32 = 740u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_TEMPFAILURE: u32 = 774u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_TOO_MANY_LINE_ERRORS: u32 = 715u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_TS_UNACCEPTABLE: u32 = 842u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_UNABLE_TO_AUTHENTICATE_SERVER: u32 = 778u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_UNEXPECTED_RESPONSE: u32 = 702u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_UNKNOWN: u32 = 635u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_UNKNOWN_DEVICE_TYPE: u32 = 663u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_UNKNOWN_FRAMED_PROTOCOL: u32 = 794u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_UNKNOWN_RESPONSE_KEY: u32 = 698u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_UNKNOWN_SERVICE_TYPE: u32 = 796u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_UNRECOGNIZED_RESPONSE: u32 = 652u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_UNSUPPORTED_BPS: u32 = 701u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_UPDATECONNECTION_REQUEST_IN_PROCESS: u32 = 838u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_USER_DISCONNECTION: u32 = 631u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_USER_LOGOFF: u32 = 830u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_VALIDATING_SERVER_CERT: u32 = 801u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_VOICE_ANSWER: u32 = 677u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_VPN_BAD_CERT: u32 = 810u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_VPN_BAD_PSK: u32 = 811u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_VPN_DISCONNECT: u32 = 807u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_VPN_GRE_BLOCKED: u32 = 806u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_VPN_PLUGIN_GENERIC: u32 = 873u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_VPN_REFUSED: u32 = 808u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_VPN_TIMEOUT: u32 = 809u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_WRITING_DEFAULTOFF: u32 = 688u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_WRITING_DEVICENAME: u32 = 684u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_WRITING_DEVICETYPE: u32 = 683u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_WRITING_INITBPS: u32 = 706u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_WRITING_MAXCARRIERBPS: u32 = 686u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_WRITING_MAXCONNECTBPS: u32 = 685u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_WRITING_SECTIONNAME: u32 = 682u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_WRITING_USAGE: u32 = 687u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_WRONG_DEVICE_ATTACHED: u32 = 636u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_WRONG_INFO_SPECIFIED: u32 = 604u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_WRONG_KEY_SPECIFIED: u32 = 662u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_WRONG_MODULE: u32 = 750u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_WRONG_TUNNEL_TYPE: u32 = 795u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ERROR_X25_DIAGNOSTIC: u32 = 707u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ET_None: u32 = 0u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ET_Optional: u32 = 3u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ET_Require: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const ET_RequireMax: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub struct GRE_CONFIG_PARAMS0 {
     pub dwNumPorts: u32,
     pub dwPortFlags: u32,
@@ -363,6 +648,7 @@ unsafe impl ::windows::runtime::Abi for HRASCONN {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`, `Win32_Security_Cryptography`*"]
 pub struct IKEV2_CONFIG_PARAMS {
     pub dwNumPorts: u32,
     pub dwPortFlags: u32,
@@ -396,6 +682,7 @@ unsafe impl ::windows::runtime::Abi for IKEV2_CONFIG_PARAMS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IKEV2_ID_PAYLOAD_TYPE(pub i32);
@@ -423,6 +710,7 @@ unsafe impl ::windows::runtime::Abi for IKEV2_ID_PAYLOAD_TYPE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub struct IKEV2_PROJECTION_INFO {
     pub dwIPv4NegotiationError: u32,
     pub wszAddress: [u16; 16],
@@ -493,6 +781,7 @@ unsafe impl ::windows::runtime::Abi for IKEV2_PROJECTION_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub struct IKEV2_PROJECTION_INFO2 {
     pub dwIPv4NegotiationError: u32,
     pub wszAddress: [u16; 16],
@@ -567,6 +856,7 @@ unsafe impl ::windows::runtime::Abi for IKEV2_PROJECTION_INFO2 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Security_Cryptography`*"]
 pub struct IKEV2_TUNNEL_CONFIG_PARAMS2 {
     pub dwIdleTimeout: u32,
     pub dwNetworkBlackoutTime: u32,
@@ -629,6 +919,7 @@ unsafe impl ::windows::runtime::Abi for IKEV2_TUNNEL_CONFIG_PARAMS2 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`, `Win32_Security_Cryptography`*"]
 pub struct IKEV2_TUNNEL_CONFIG_PARAMS3 {
     pub dwIdleTimeout: u32,
     pub dwNetworkBlackoutTime: u32,
@@ -700,6 +991,7 @@ unsafe impl ::windows::runtime::Abi for IKEV2_TUNNEL_CONFIG_PARAMS3 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`, `Win32_Security_Cryptography`*"]
 pub struct IKEV2_TUNNEL_CONFIG_PARAMS4 {
     pub dwIdleTimeout: u32,
     pub dwNetworkBlackoutTime: u32,
@@ -771,11 +1063,15 @@ unsafe impl ::windows::runtime::Abi for IKEV2_TUNNEL_CONFIG_PARAMS4 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const IPADDRESSLEN: u32 = 15u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const IPV6_ADDRESS_LEN_IN_BYTES: u32 = 16u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const IPXADDRESSLEN: u32 = 22u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub struct L2TP_CONFIG_PARAMS0 {
     pub dwNumPorts: u32,
     pub dwPortFlags: u32,
@@ -803,6 +1099,7 @@ unsafe impl ::windows::runtime::Abi for L2TP_CONFIG_PARAMS0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub struct L2TP_CONFIG_PARAMS1 {
     pub dwNumPorts: u32,
     pub dwPortFlags: u32,
@@ -832,6 +1129,7 @@ unsafe impl ::windows::runtime::Abi for L2TP_CONFIG_PARAMS1 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub struct L2TP_TUNNEL_CONFIG_PARAMS1 {
     pub dwIdleTimeout: u32,
     pub dwEncryptionType: u32,
@@ -868,6 +1166,7 @@ unsafe impl ::windows::runtime::Abi for L2TP_TUNNEL_CONFIG_PARAMS1 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub struct L2TP_TUNNEL_CONFIG_PARAMS2 {
     pub dwIdleTimeout: u32,
     pub dwEncryptionType: u32,
@@ -904,17 +1203,29 @@ unsafe impl ::windows::runtime::Abi for L2TP_TUNNEL_CONFIG_PARAMS2 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MAXIPADRESSLEN: u32 = 64u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MAX_SSTP_HASH_SIZE: u32 = 32u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const METHOD_BGP4_AS_PATH: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const METHOD_BGP4_NEXTHOP_ATTR: u32 = 8u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const METHOD_BGP4_PA_ORIGIN: u32 = 4u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const METHOD_BGP4_PEER_ID: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const METHOD_RIP2_NEIGHBOUR_ADDR: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const METHOD_RIP2_OUTBOUND_INTF: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const METHOD_RIP2_ROUTE_TAG: u32 = 4u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const METHOD_RIP2_ROUTE_TIMESTAMP: u32 = 8u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const METHOD_TYPE_ALL_METHODS: u32 = 4294967295u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MGM_ENUM_TYPES(pub i32);
@@ -929,10 +1240,12 @@ unsafe impl ::windows::runtime::Abi for MGM_ENUM_TYPES {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MGM_FORWARD_STATE_FLAG: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 pub struct MGM_IF_ENTRY {
     pub dwIfIndex: u32,
     pub dwIfNextHopAddr: u32,
@@ -966,12 +1279,16 @@ unsafe impl ::windows::runtime::Abi for MGM_IF_ENTRY {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MGM_JOIN_STATE_FLAG: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MGM_MFE_STATS_0: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MGM_MFE_STATS_1: u32 = 2u32;
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 pub struct MPRAPI_ADMIN_DLL_CALLBACKS {
     pub revision: u8,
     pub lpfnMprAdminGetIpAddressForUser: ::std::option::Option<PMPRADMINGETIPADDRESSFORUSER>,
@@ -1026,29 +1343,51 @@ unsafe impl ::windows::runtime::Abi for MPRAPI_ADMIN_DLL_CALLBACKS {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPRAPI_ADMIN_DLL_VERSION_1: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPRAPI_ADMIN_DLL_VERSION_2: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPRAPI_IF_CUSTOM_CONFIG_FOR_IKEV2: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPRAPI_IKEV2_AUTH_USING_CERT: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPRAPI_IKEV2_AUTH_USING_EAP: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPRAPI_IKEV2_PROJECTION_INFO_TYPE: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPRAPI_IKEV2_SET_TUNNEL_CONFIG_PARAMS: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPRAPI_L2TP_SET_TUNNEL_CONFIG_PARAMS: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPRAPI_MPR_IF_CUSTOM_CONFIG_OBJECT_REVISION_1: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPRAPI_MPR_IF_CUSTOM_CONFIG_OBJECT_REVISION_2: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPRAPI_MPR_IF_CUSTOM_CONFIG_OBJECT_REVISION_3: u32 = 3u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPRAPI_MPR_SERVER_OBJECT_REVISION_1: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPRAPI_MPR_SERVER_OBJECT_REVISION_2: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPRAPI_MPR_SERVER_OBJECT_REVISION_3: u32 = 3u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPRAPI_MPR_SERVER_OBJECT_REVISION_4: u32 = 4u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPRAPI_MPR_SERVER_OBJECT_REVISION_5: u32 = 5u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPRAPI_MPR_SERVER_SET_CONFIG_OBJECT_REVISION_1: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPRAPI_MPR_SERVER_SET_CONFIG_OBJECT_REVISION_2: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPRAPI_MPR_SERVER_SET_CONFIG_OBJECT_REVISION_3: u32 = 3u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPRAPI_MPR_SERVER_SET_CONFIG_OBJECT_REVISION_4: u32 = 4u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPRAPI_MPR_SERVER_SET_CONFIG_OBJECT_REVISION_5: u32 = 5u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub struct MPRAPI_OBJECT_HEADER {
     pub revision: u8,
     pub r#type: u8,
@@ -1075,6 +1414,7 @@ unsafe impl ::windows::runtime::Abi for MPRAPI_OBJECT_HEADER {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MPRAPI_OBJECT_TYPE(pub i32);
@@ -1093,17 +1433,26 @@ unsafe impl ::windows::runtime::Abi for MPRAPI_OBJECT_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPRAPI_PPP_PROJECTION_INFO_TYPE: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPRAPI_RAS_CONNECTION_OBJECT_REVISION_1: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPRAPI_RAS_UPDATE_CONNECTION_OBJECT_REVISION_1: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPRAPI_SET_CONFIG_PROTOCOL_FOR_GRE: u32 = 16u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPRAPI_SET_CONFIG_PROTOCOL_FOR_IKEV2: u32 = 8u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPRAPI_SET_CONFIG_PROTOCOL_FOR_L2TP: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPRAPI_SET_CONFIG_PROTOCOL_FOR_PPTP: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPRAPI_SET_CONFIG_PROTOCOL_FOR_SSTP: u32 = 4u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`, `Win32_Security_Cryptography`*"]
 pub struct MPRAPI_TUNNEL_CONFIG_PARAMS0 {
     pub IkeConfigParams: IKEV2_CONFIG_PARAMS,
     pub PptpConfigParams: PPTP_CONFIG_PARAMS,
@@ -1140,6 +1489,7 @@ unsafe impl ::windows::runtime::Abi for MPRAPI_TUNNEL_CONFIG_PARAMS0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`, `Win32_Security_Cryptography`*"]
 pub struct MPRAPI_TUNNEL_CONFIG_PARAMS1 {
     pub IkeConfigParams: IKEV2_CONFIG_PARAMS,
     pub PptpConfigParams: PPTP_CONFIG_PARAMS,
@@ -1180,40 +1530,72 @@ unsafe impl ::windows::runtime::Abi for MPRAPI_TUNNEL_CONFIG_PARAMS1 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPRET_Direct: u32 = 3u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPRET_Phone: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPRET_Vpn: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPRIDS_Disabled: u32 = 4294967295u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPRIDS_UseGlobalValue: u32 = 0u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPRIO_DisableLcpExtensions: u32 = 32u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPRIO_IpHeaderCompression: u32 = 8u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPRIO_IpSecPreSharedKey: u32 = 2147483648u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPRIO_NetworkLogon: u32 = 8192u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPRIO_PromoteAlternates: u32 = 32768u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPRIO_RemoteDefaultGateway: u32 = 16u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPRIO_RequireCHAP: u32 = 134217728u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPRIO_RequireDataEncryption: u32 = 4096u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPRIO_RequireEAP: u32 = 131072u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPRIO_RequireEncryptedPw: u32 = 1024u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPRIO_RequireMachineCertificates: u32 = 16777216u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPRIO_RequireMsCHAP: u32 = 268435456u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPRIO_RequireMsCHAP2: u32 = 536870912u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPRIO_RequireMsEncryptedPw: u32 = 2048u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPRIO_RequirePAP: u32 = 262144u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPRIO_RequireSPAP: u32 = 524288u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPRIO_SecureLocalFiles: u32 = 65536u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPRIO_SharedPhoneNumbers: u32 = 8388608u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPRIO_SpecificIpAddr: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPRIO_SpecificNameServers: u32 = 4u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPRIO_SwCompression: u32 = 512u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPRIO_UsePreSharedKeyForIkev2Initiator: u32 = 33554432u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPRIO_UsePreSharedKeyForIkev2Responder: u32 = 67108864u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPRNP_Ip: u32 = 4u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPRNP_Ipv6: u32 = 8u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPRNP_Ipx: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 pub struct MPR_CERT_EKU {
     pub dwSize: u32,
     pub IsEKUOID: super::super::Foundation::BOOL,
@@ -1248,6 +1630,7 @@ unsafe impl ::windows::runtime::Abi for MPR_CERT_EKU {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub struct MPR_CREDENTIALSEX_0 {
     pub dwSize: u32,
     pub lpbCredentialsInfo: *mut u8,
@@ -1275,6 +1658,7 @@ unsafe impl ::windows::runtime::Abi for MPR_CREDENTIALSEX_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub struct MPR_CREDENTIALSEX_1 {
     pub dwSize: u32,
     pub lpbCredentialsInfo: *mut u8,
@@ -1302,6 +1686,7 @@ unsafe impl ::windows::runtime::Abi for MPR_CREDENTIALSEX_1 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub struct MPR_DEVICE_0 {
     pub szDeviceType: [u16; 17],
     pub szDeviceName: [u16; 129],
@@ -1330,6 +1715,7 @@ unsafe impl ::windows::runtime::Abi for MPR_DEVICE_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 pub struct MPR_DEVICE_1 {
     pub szDeviceType: [u16; 17],
     pub szDeviceName: [u16; 129],
@@ -1363,8 +1749,11 @@ unsafe impl ::windows::runtime::Abi for MPR_DEVICE_1 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPR_ENABLE_RAS_ON_DEVICE: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPR_ENABLE_ROUTING_ON_DEVICE: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MPR_ET(pub u32);
@@ -1412,6 +1801,7 @@ impl ::std::ops::Not for MPR_ET {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 pub struct MPR_FILTER_0 {
     pub fEnable: super::super::Foundation::BOOL,
 }
@@ -1445,6 +1835,7 @@ unsafe impl ::windows::runtime::Abi for MPR_FILTER_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 pub struct MPR_IFTRANSPORT_0 {
     pub dwTransportId: u32,
     pub hIfTransport: super::super::Foundation::HANDLE,
@@ -1480,6 +1871,7 @@ unsafe impl ::windows::runtime::Abi for MPR_IFTRANSPORT_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Security_Cryptography`*"]
 pub struct MPR_IF_CUSTOMINFOEX0 {
     pub Header: MPRAPI_OBJECT_HEADER,
     pub dwFlags: u32,
@@ -1515,6 +1907,7 @@ unsafe impl ::windows::runtime::Abi for MPR_IF_CUSTOMINFOEX0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Security_Cryptography`*"]
 pub struct MPR_IF_CUSTOMINFOEX1 {
     pub Header: MPRAPI_OBJECT_HEADER,
     pub dwFlags: u32,
@@ -1550,6 +1943,7 @@ unsafe impl ::windows::runtime::Abi for MPR_IF_CUSTOMINFOEX1 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Networking_WinSock`, `Win32_Security_Cryptography`*"]
 pub struct MPR_IF_CUSTOMINFOEX2 {
     pub Header: MPRAPI_OBJECT_HEADER,
     pub dwFlags: u32,
@@ -1585,6 +1979,7 @@ unsafe impl ::windows::runtime::Abi for MPR_IF_CUSTOMINFOEX2 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 pub struct MPR_INTERFACE_0 {
     pub wszInterfaceName: [u16; 257],
     pub hInterface: super::super::Foundation::HANDLE,
@@ -1632,6 +2027,7 @@ unsafe impl ::windows::runtime::Abi for MPR_INTERFACE_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 pub struct MPR_INTERFACE_1 {
     pub wszInterfaceName: [u16; 257],
     pub hInterface: super::super::Foundation::HANDLE,
@@ -1681,6 +2077,7 @@ unsafe impl ::windows::runtime::Abi for MPR_INTERFACE_1 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 pub struct MPR_INTERFACE_2 {
     pub wszInterfaceName: [u16; 257],
     pub hInterface: super::super::Foundation::HANDLE,
@@ -1824,6 +2221,7 @@ unsafe impl ::windows::runtime::Abi for MPR_INTERFACE_2 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 pub struct MPR_INTERFACE_3 {
     pub wszInterfaceName: [u16; 257],
     pub hInterface: super::super::Foundation::HANDLE,
@@ -1888,9 +2286,13 @@ unsafe impl ::windows::runtime::Abi for MPR_INTERFACE_3 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPR_INTERFACE_ADMIN_DISABLED: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPR_INTERFACE_CONNECTION_FAILURE: u32 = 4u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPR_INTERFACE_DIALOUT_HOURS_RESTRICTION: u32 = 16u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MPR_INTERFACE_DIAL_MODE(pub u32);
@@ -1934,12 +2336,17 @@ impl ::std::ops::Not for MPR_INTERFACE_DIAL_MODE {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPR_INTERFACE_NO_DEVICE: u32 = 64u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPR_INTERFACE_NO_MEDIA_SENSE: u32 = 32u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPR_INTERFACE_OUT_OF_RESOURCES: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPR_INTERFACE_SERVICE_PAUSED: u32 = 8u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub struct MPR_IPINIP_INTERFACE_0 {
     pub wszFriendlyName: [u16; 257],
     pub Guid: ::windows::runtime::GUID,
@@ -1965,21 +2372,34 @@ unsafe impl ::windows::runtime::Abi for MPR_IPINIP_INTERFACE_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPR_MaxAreaCode: u32 = 10u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPR_MaxCallbackNumber: u32 = 128u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPR_MaxDeviceName: u32 = 128u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPR_MaxDeviceType: u32 = 16u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPR_MaxEntryName: u32 = 256u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPR_MaxFacilities: u32 = 200u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPR_MaxIpAddress: u32 = 15u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPR_MaxIpxAddress: u32 = 21u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPR_MaxPadType: u32 = 32u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPR_MaxPhoneNumber: u32 = 128u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPR_MaxUserData: u32 = 200u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPR_MaxX25Address: u32 = 200u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 pub struct MPR_SERVER_0 {
     pub fLanOnlyMode: super::super::Foundation::BOOL,
     pub dwUpTime: u32,
@@ -2015,6 +2435,7 @@ unsafe impl ::windows::runtime::Abi for MPR_SERVER_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub struct MPR_SERVER_1 {
     pub dwNumPptpPorts: u32,
     pub dwPptpPortFlags: u32,
@@ -2044,6 +2465,7 @@ unsafe impl ::windows::runtime::Abi for MPR_SERVER_1 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub struct MPR_SERVER_2 {
     pub dwNumPptpPorts: u32,
     pub dwPptpPortFlags: u32,
@@ -2083,6 +2505,7 @@ unsafe impl ::windows::runtime::Abi for MPR_SERVER_2 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`, `Win32_Security_Cryptography`*"]
 pub struct MPR_SERVER_EX0 {
     pub Header: MPRAPI_OBJECT_HEADER,
     pub fLanOnlyMode: u32,
@@ -2130,6 +2553,7 @@ unsafe impl ::windows::runtime::Abi for MPR_SERVER_EX0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`, `Win32_Security_Cryptography`*"]
 pub struct MPR_SERVER_EX1 {
     pub Header: MPRAPI_OBJECT_HEADER,
     pub fLanOnlyMode: u32,
@@ -2177,6 +2601,7 @@ unsafe impl ::windows::runtime::Abi for MPR_SERVER_EX1 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`, `Win32_Security_Cryptography`*"]
 pub struct MPR_SERVER_SET_CONFIG_EX0 {
     pub Header: MPRAPI_OBJECT_HEADER,
     pub setConfigForProtocols: u32,
@@ -2212,6 +2637,7 @@ unsafe impl ::windows::runtime::Abi for MPR_SERVER_SET_CONFIG_EX0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`, `Win32_Security_Cryptography`*"]
 pub struct MPR_SERVER_SET_CONFIG_EX1 {
     pub Header: MPRAPI_OBJECT_HEADER,
     pub setConfigForProtocols: u32,
@@ -2247,6 +2673,7 @@ unsafe impl ::windows::runtime::Abi for MPR_SERVER_SET_CONFIG_EX1 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 pub struct MPR_TRANSPORT_0 {
     pub dwTransportId: u32,
     pub hTransport: super::super::Foundation::HANDLE,
@@ -2282,6 +2709,7 @@ unsafe impl ::windows::runtime::Abi for MPR_TRANSPORT_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Networking_WinSock`*"]
 pub struct MPR_VPN_TRAFFIC_SELECTORS {
     pub numTsi: u32,
     pub numTsr: u32,
@@ -2315,6 +2743,7 @@ unsafe impl ::windows::runtime::Abi for MPR_VPN_TRAFFIC_SELECTORS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MPR_VPN_TS_TYPE(pub i32);
@@ -2329,6 +2758,7 @@ unsafe impl ::windows::runtime::Abi for MPR_VPN_TS_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MPR_VS(pub u32);
@@ -2374,9 +2804,12 @@ impl ::std::ops::Not for MPR_VS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPR_VS_Ikev2First: u32 = 8u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPR_VS_Ikev2Only: u32 = 7u32;
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MgmAddGroupMembershipEntry<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprotocol: Param0, dwsourceaddr: u32, dwsourcemask: u32, dwgroupaddr: u32, dwgroupmask: u32, dwifindex: u32, dwifnexthopipaddr: u32, dwflags: u32) -> u32 {
     #[cfg(windows)]
@@ -2400,6 +2833,7 @@ pub unsafe fn MgmAddGroupMembershipEntry<'a, Param0: ::windows::runtime::IntoPar
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MgmDeRegisterMProtocol<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprotocol: Param0) -> u32 {
     #[cfg(windows)]
@@ -2414,6 +2848,7 @@ pub unsafe fn MgmDeRegisterMProtocol<'a, Param0: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MgmDeleteGroupMembershipEntry<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprotocol: Param0, dwsourceaddr: u32, dwsourcemask: u32, dwgroupaddr: u32, dwgroupmask: u32, dwifindex: u32, dwifnexthopipaddr: u32, dwflags: u32) -> u32 {
     #[cfg(windows)]
@@ -2436,6 +2871,7 @@ pub unsafe fn MgmDeleteGroupMembershipEntry<'a, Param0: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn MgmGetFirstMfe(pdwbuffersize: *mut u32, pbbuffer: *mut u8, pdwnumentries: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -2449,6 +2885,7 @@ pub unsafe fn MgmGetFirstMfe(pdwbuffersize: *mut u32, pbbuffer: *mut u8, pdwnume
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn MgmGetFirstMfeStats(pdwbuffersize: *mut u32, pbbuffer: *mut u8, pdwnumentries: *mut u32, dwflags: u32) -> u32 {
     #[cfg(windows)]
@@ -2463,6 +2900,7 @@ pub unsafe fn MgmGetFirstMfeStats(pdwbuffersize: *mut u32, pbbuffer: *mut u8, pd
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_NetworkManagement_IpHelper")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_NetworkManagement_IpHelper`*"]
 #[inline]
 pub unsafe fn MgmGetMfe(pimm: *mut super::IpHelper::MIB_IPMCAST_MFE, pdwbuffersize: *mut u32, pbbuffer: *mut u8) -> u32 {
     #[cfg(windows)]
@@ -2477,6 +2915,7 @@ pub unsafe fn MgmGetMfe(pimm: *mut super::IpHelper::MIB_IPMCAST_MFE, pdwbuffersi
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_NetworkManagement_IpHelper")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_NetworkManagement_IpHelper`*"]
 #[inline]
 pub unsafe fn MgmGetMfeStats(pimm: *mut super::IpHelper::MIB_IPMCAST_MFE, pdwbuffersize: *mut u32, pbbuffer: *mut u8, dwflags: u32) -> u32 {
     #[cfg(windows)]
@@ -2491,6 +2930,7 @@ pub unsafe fn MgmGetMfeStats(pimm: *mut super::IpHelper::MIB_IPMCAST_MFE, pdwbuf
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_NetworkManagement_IpHelper")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_NetworkManagement_IpHelper`*"]
 #[inline]
 pub unsafe fn MgmGetNextMfe(pimmstart: *mut super::IpHelper::MIB_IPMCAST_MFE, pdwbuffersize: *mut u32, pbbuffer: *mut u8, pdwnumentries: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -2505,6 +2945,7 @@ pub unsafe fn MgmGetNextMfe(pimmstart: *mut super::IpHelper::MIB_IPMCAST_MFE, pd
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_NetworkManagement_IpHelper")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_NetworkManagement_IpHelper`*"]
 #[inline]
 pub unsafe fn MgmGetNextMfeStats(pimmstart: *mut super::IpHelper::MIB_IPMCAST_MFE, pdwbuffersize: *mut u32, pbbuffer: *mut u8, pdwnumentries: *mut u32, dwflags: u32) -> u32 {
     #[cfg(windows)]
@@ -2518,6 +2959,7 @@ pub unsafe fn MgmGetNextMfeStats(pimmstart: *mut super::IpHelper::MIB_IPMCAST_MF
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn MgmGetProtocolOnInterface(dwifindex: u32, dwifnexthopaddr: u32, pdwifprotocolid: *mut u32, pdwifcomponentid: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -2532,6 +2974,7 @@ pub unsafe fn MgmGetProtocolOnInterface(dwifindex: u32, dwifnexthopaddr: u32, pd
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MgmGroupEnumerationEnd<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(henum: Param0) -> u32 {
     #[cfg(windows)]
@@ -2546,6 +2989,7 @@ pub unsafe fn MgmGroupEnumerationEnd<'a, Param0: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MgmGroupEnumerationGetNext<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(henum: Param0, pdwbuffersize: *mut u32, pbbuffer: *mut u8, pdwnumentries: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -2560,6 +3004,7 @@ pub unsafe fn MgmGroupEnumerationGetNext<'a, Param0: ::windows::runtime::IntoPar
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MgmGroupEnumerationStart<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprotocol: Param0, metenumtype: MGM_ENUM_TYPES, phenumhandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -2574,6 +3019,7 @@ pub unsafe fn MgmGroupEnumerationStart<'a, Param0: ::windows::runtime::IntoParam
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MgmRegisterMProtocol(prpiinfo: *mut ROUTING_PROTOCOL_CONFIG, dwprotocolid: u32, dwcomponentid: u32, phprotocol: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -2588,6 +3034,7 @@ pub unsafe fn MgmRegisterMProtocol(prpiinfo: *mut ROUTING_PROTOCOL_CONFIG, dwpro
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MgmReleaseInterfaceOwnership<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprotocol: Param0, dwifindex: u32, dwifnexthopaddr: u32) -> u32 {
     #[cfg(windows)]
@@ -2602,6 +3049,7 @@ pub unsafe fn MgmReleaseInterfaceOwnership<'a, Param0: ::windows::runtime::IntoP
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MgmTakeInterfaceOwnership<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprotocol: Param0, dwifindex: u32, dwifnexthopaddr: u32) -> u32 {
     #[cfg(windows)]
@@ -2615,6 +3063,7 @@ pub unsafe fn MgmTakeInterfaceOwnership<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn MprAdminBufferFree(pbuffer: *const ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -2629,6 +3078,7 @@ pub unsafe fn MprAdminBufferFree(pbuffer: *const ::std::ffi::c_void) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MprAdminConnectionClearStats<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hrasserver: isize, hrasconnection: Param1) -> u32 {
     #[cfg(windows)]
@@ -2642,6 +3092,7 @@ pub unsafe fn MprAdminConnectionClearStats<'a, Param1: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn MprAdminConnectionEnum(hrasserver: isize, dwlevel: u32, lplpbbuffer: *mut *mut u8, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: *const u32) -> u32 {
     #[cfg(windows)]
@@ -2656,6 +3107,7 @@ pub unsafe fn MprAdminConnectionEnum(hrasserver: isize, dwlevel: u32, lplpbbuffe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MprAdminConnectionEnumEx(hrasserver: isize, pobjectheader: *const MPRAPI_OBJECT_HEADER, dwpreferedmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, pprasconn: *mut *mut RAS_CONNECTION_EX, lpdwresumehandle: *const u32) -> u32 {
     #[cfg(windows)]
@@ -2670,6 +3122,7 @@ pub unsafe fn MprAdminConnectionEnumEx(hrasserver: isize, pobjectheader: *const 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MprAdminConnectionGetInfo<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hrasserver: isize, dwlevel: u32, hrasconnection: Param2, lplpbbuffer: *mut *mut u8) -> u32 {
     #[cfg(windows)]
@@ -2684,6 +3137,7 @@ pub unsafe fn MprAdminConnectionGetInfo<'a, Param2: ::windows::runtime::IntoPara
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MprAdminConnectionGetInfoEx<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hrasserver: isize, hrasconnection: Param1, prasconnection: *mut RAS_CONNECTION_EX) -> u32 {
     #[cfg(windows)]
@@ -2698,6 +3152,7 @@ pub unsafe fn MprAdminConnectionGetInfoEx<'a, Param1: ::windows::runtime::IntoPa
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MprAdminConnectionRemoveQuarantine<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hrasserver: Param0, hrasconnection: Param1, fisipaddress: Param2) -> u32 {
     #[cfg(windows)]
@@ -2712,6 +3167,7 @@ pub unsafe fn MprAdminConnectionRemoveQuarantine<'a, Param0: ::windows::runtime:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MprAdminDeregisterConnectionNotification<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprserver: isize, heventnotification: Param1) -> u32 {
     #[cfg(windows)]
@@ -2725,6 +3181,7 @@ pub unsafe fn MprAdminDeregisterConnectionNotification<'a, Param1: ::windows::ru
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn MprAdminDeviceEnum(hmprserver: isize, dwlevel: u32, lplpbbuffer: *mut *mut u8, lpdwtotalentries: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -2739,6 +3196,7 @@ pub unsafe fn MprAdminDeviceEnum(hmprserver: isize, dwlevel: u32, lplpbbuffer: *
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MprAdminEstablishDomainRasServer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(pszdomain: Param0, pszmachine: Param1, benable: Param2) -> u32 {
     #[cfg(windows)]
@@ -2753,6 +3211,7 @@ pub unsafe fn MprAdminEstablishDomainRasServer<'a, Param0: ::windows::runtime::I
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MprAdminGetErrorString(dwerror: u32, lplpwserrorstring: *mut super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
@@ -2767,6 +3226,7 @@ pub unsafe fn MprAdminGetErrorString(dwerror: u32, lplpwserrorstring: *mut super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MprAdminGetPDCServer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszdomain: Param0, lpszserver: Param1, lpszpdcserver: super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
@@ -2781,6 +3241,7 @@ pub unsafe fn MprAdminGetPDCServer<'a, Param0: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MprAdminInterfaceConnect<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hmprserver: isize, hinterface: Param1, hevent: Param2, fsynchronous: Param3) -> u32 {
     #[cfg(windows)]
@@ -2795,6 +3256,7 @@ pub unsafe fn MprAdminInterfaceConnect<'a, Param1: ::windows::runtime::IntoParam
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MprAdminInterfaceCreate(hmprserver: isize, dwlevel: u32, lpbbuffer: *const u8, phinterface: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -2809,6 +3271,7 @@ pub unsafe fn MprAdminInterfaceCreate(hmprserver: isize, dwlevel: u32, lpbbuffer
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MprAdminInterfaceDelete<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1) -> u32 {
     #[cfg(windows)]
@@ -2823,6 +3286,7 @@ pub unsafe fn MprAdminInterfaceDelete<'a, Param1: ::windows::runtime::IntoParam<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MprAdminInterfaceDeviceGetInfo<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1, dwindex: u32, dwlevel: u32, lplpbuffer: *mut *mut u8) -> u32 {
     #[cfg(windows)]
@@ -2837,6 +3301,7 @@ pub unsafe fn MprAdminInterfaceDeviceGetInfo<'a, Param1: ::windows::runtime::Int
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MprAdminInterfaceDeviceSetInfo<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1, dwindex: u32, dwlevel: u32, lpbbuffer: *const u8) -> u32 {
     #[cfg(windows)]
@@ -2851,6 +3316,7 @@ pub unsafe fn MprAdminInterfaceDeviceSetInfo<'a, Param1: ::windows::runtime::Int
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MprAdminInterfaceDisconnect<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1) -> u32 {
     #[cfg(windows)]
@@ -2864,6 +3330,7 @@ pub unsafe fn MprAdminInterfaceDisconnect<'a, Param1: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn MprAdminInterfaceEnum(hmprserver: isize, dwlevel: u32, lplpbbuffer: *mut *mut u8, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: *const u32) -> u32 {
     #[cfg(windows)]
@@ -2878,6 +3345,7 @@ pub unsafe fn MprAdminInterfaceEnum(hmprserver: isize, dwlevel: u32, lplpbbuffer
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MprAdminInterfaceGetCredentials<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpwsserver: Param0, lpwsinterfacename: Param1, lpwsusername: super::super::Foundation::PWSTR, lpwspassword: super::super::Foundation::PWSTR, lpwsdomainname: super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
@@ -2892,6 +3360,7 @@ pub unsafe fn MprAdminInterfaceGetCredentials<'a, Param0: ::windows::runtime::In
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MprAdminInterfaceGetCredentialsEx<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1, dwlevel: u32, lplpbbuffer: *mut *mut u8) -> u32 {
     #[cfg(windows)]
@@ -2906,6 +3375,7 @@ pub unsafe fn MprAdminInterfaceGetCredentialsEx<'a, Param1: ::windows::runtime::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`, `Win32_Networking_WinSock`, `Win32_Security_Cryptography`*"]
 #[inline]
 pub unsafe fn MprAdminInterfaceGetCustomInfoEx<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1, pcustominfo: *mut MPR_IF_CUSTOMINFOEX2) -> u32 {
     #[cfg(windows)]
@@ -2920,6 +3390,7 @@ pub unsafe fn MprAdminInterfaceGetCustomInfoEx<'a, Param1: ::windows::runtime::I
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MprAdminInterfaceGetHandle<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hmprserver: isize, lpwsinterfacename: Param1, phinterface: *mut super::super::Foundation::HANDLE, fincludeclientinterfaces: Param3) -> u32 {
     #[cfg(windows)]
@@ -2934,6 +3405,7 @@ pub unsafe fn MprAdminInterfaceGetHandle<'a, Param1: ::windows::runtime::IntoPar
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MprAdminInterfaceGetInfo<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1, dwlevel: u32, lplpbbuffer: *const *const u8) -> u32 {
     #[cfg(windows)]
@@ -2948,6 +3420,7 @@ pub unsafe fn MprAdminInterfaceGetInfo<'a, Param1: ::windows::runtime::IntoParam
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MprAdminInterfaceQueryUpdateResult<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1, dwprotocolid: u32, lpdwupdateresult: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -2962,6 +3435,7 @@ pub unsafe fn MprAdminInterfaceQueryUpdateResult<'a, Param1: ::windows::runtime:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MprAdminInterfaceSetCredentials<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
     lpwsserver: Param0,
@@ -2982,6 +3456,7 @@ pub unsafe fn MprAdminInterfaceSetCredentials<'a, Param0: ::windows::runtime::In
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MprAdminInterfaceSetCredentialsEx<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1, dwlevel: u32, lpbbuffer: *const u8) -> u32 {
     #[cfg(windows)]
@@ -2996,6 +3471,7 @@ pub unsafe fn MprAdminInterfaceSetCredentialsEx<'a, Param1: ::windows::runtime::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`, `Win32_Networking_WinSock`, `Win32_Security_Cryptography`*"]
 #[inline]
 pub unsafe fn MprAdminInterfaceSetCustomInfoEx<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1, pcustominfo: *const MPR_IF_CUSTOMINFOEX2) -> u32 {
     #[cfg(windows)]
@@ -3010,6 +3486,7 @@ pub unsafe fn MprAdminInterfaceSetCustomInfoEx<'a, Param1: ::windows::runtime::I
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MprAdminInterfaceSetInfo<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1, dwlevel: u32, lpbbuffer: *const u8) -> u32 {
     #[cfg(windows)]
@@ -3024,6 +3501,7 @@ pub unsafe fn MprAdminInterfaceSetInfo<'a, Param1: ::windows::runtime::IntoParam
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MprAdminInterfaceTransportAdd<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1, dwtransportid: u32, pinterfaceinfo: *const u8, dwinterfaceinfosize: u32) -> u32 {
     #[cfg(windows)]
@@ -3038,6 +3516,7 @@ pub unsafe fn MprAdminInterfaceTransportAdd<'a, Param1: ::windows::runtime::Into
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MprAdminInterfaceTransportGetInfo<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1, dwtransportid: u32, ppinterfaceinfo: *mut *mut u8, lpdwinterfaceinfosize: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -3052,6 +3531,7 @@ pub unsafe fn MprAdminInterfaceTransportGetInfo<'a, Param1: ::windows::runtime::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MprAdminInterfaceTransportRemove<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1, dwtransportid: u32) -> u32 {
     #[cfg(windows)]
@@ -3066,6 +3546,7 @@ pub unsafe fn MprAdminInterfaceTransportRemove<'a, Param1: ::windows::runtime::I
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MprAdminInterfaceTransportSetInfo<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1, dwtransportid: u32, pinterfaceinfo: *const u8, dwinterfaceinfosize: u32) -> u32 {
     #[cfg(windows)]
@@ -3080,6 +3561,7 @@ pub unsafe fn MprAdminInterfaceTransportSetInfo<'a, Param1: ::windows::runtime::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MprAdminInterfaceUpdatePhonebookInfo<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1) -> u32 {
     #[cfg(windows)]
@@ -3094,6 +3576,7 @@ pub unsafe fn MprAdminInterfaceUpdatePhonebookInfo<'a, Param1: ::windows::runtim
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MprAdminInterfaceUpdateRoutes<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1, dwprotocolid: u32, hevent: Param3) -> u32 {
     #[cfg(windows)]
@@ -3108,6 +3591,7 @@ pub unsafe fn MprAdminInterfaceUpdateRoutes<'a, Param1: ::windows::runtime::Into
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MprAdminIsDomainRasServer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszdomain: Param0, pszmachine: Param1, pbisrasserver: *mut super::super::Foundation::BOOL) -> u32 {
     #[cfg(windows)]
@@ -3122,6 +3606,7 @@ pub unsafe fn MprAdminIsDomainRasServer<'a, Param0: ::windows::runtime::IntoPara
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MprAdminIsServiceInitialized<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpwsservername: Param0, fisserviceinitialized: *const super::super::Foundation::BOOL) -> u32 {
     #[cfg(windows)]
@@ -3136,6 +3621,7 @@ pub unsafe fn MprAdminIsServiceInitialized<'a, Param0: ::windows::runtime::IntoP
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MprAdminIsServiceRunning<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpwsservername: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -3149,6 +3635,7 @@ pub unsafe fn MprAdminIsServiceRunning<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn MprAdminMIBBufferFree(pbuffer: *const ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -3162,6 +3649,7 @@ pub unsafe fn MprAdminMIBBufferFree(pbuffer: *const ::std::ffi::c_void) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn MprAdminMIBEntryCreate(hmibserver: isize, dwpid: u32, dwroutingpid: u32, lpentry: *const ::std::ffi::c_void, dwentrysize: u32) -> u32 {
     #[cfg(windows)]
@@ -3175,6 +3663,7 @@ pub unsafe fn MprAdminMIBEntryCreate(hmibserver: isize, dwpid: u32, dwroutingpid
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn MprAdminMIBEntryDelete(hmibserver: isize, dwprotocolid: u32, dwroutingpid: u32, lpentry: *const ::std::ffi::c_void, dwentrysize: u32) -> u32 {
     #[cfg(windows)]
@@ -3188,6 +3677,7 @@ pub unsafe fn MprAdminMIBEntryDelete(hmibserver: isize, dwprotocolid: u32, dwrou
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn MprAdminMIBEntryGet(hmibserver: isize, dwprotocolid: u32, dwroutingpid: u32, lpinentry: *const ::std::ffi::c_void, dwinentrysize: u32, lplpoutentry: *mut *mut ::std::ffi::c_void, lpoutentrysize: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -3201,6 +3691,7 @@ pub unsafe fn MprAdminMIBEntryGet(hmibserver: isize, dwprotocolid: u32, dwroutin
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn MprAdminMIBEntryGetFirst(hmibserver: isize, dwprotocolid: u32, dwroutingpid: u32, lpinentry: *const ::std::ffi::c_void, dwinentrysize: u32, lplpoutentry: *mut *mut ::std::ffi::c_void, lpoutentrysize: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -3214,6 +3705,7 @@ pub unsafe fn MprAdminMIBEntryGetFirst(hmibserver: isize, dwprotocolid: u32, dwr
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn MprAdminMIBEntryGetNext(hmibserver: isize, dwprotocolid: u32, dwroutingpid: u32, lpinentry: *const ::std::ffi::c_void, dwinentrysize: u32, lplpoutentry: *mut *mut ::std::ffi::c_void, lpoutentrysize: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -3227,6 +3719,7 @@ pub unsafe fn MprAdminMIBEntryGetNext(hmibserver: isize, dwprotocolid: u32, dwro
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn MprAdminMIBEntrySet(hmibserver: isize, dwprotocolid: u32, dwroutingpid: u32, lpentry: *const ::std::ffi::c_void, dwentrysize: u32) -> u32 {
     #[cfg(windows)]
@@ -3241,6 +3734,7 @@ pub unsafe fn MprAdminMIBEntrySet(hmibserver: isize, dwprotocolid: u32, dwroutin
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MprAdminMIBServerConnect<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpwsservername: Param0, phmibserver: *mut isize) -> u32 {
     #[cfg(windows)]
@@ -3254,6 +3748,7 @@ pub unsafe fn MprAdminMIBServerConnect<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn MprAdminMIBServerDisconnect(hmibserver: isize) {
     #[cfg(windows)]
@@ -3268,6 +3763,7 @@ pub unsafe fn MprAdminMIBServerDisconnect(hmibserver: isize) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MprAdminPortClearStats<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hrasserver: isize, hport: Param1) -> u32 {
     #[cfg(windows)]
@@ -3282,6 +3778,7 @@ pub unsafe fn MprAdminPortClearStats<'a, Param1: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MprAdminPortDisconnect<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hrasserver: isize, hport: Param1) -> u32 {
     #[cfg(windows)]
@@ -3296,6 +3793,7 @@ pub unsafe fn MprAdminPortDisconnect<'a, Param1: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MprAdminPortEnum<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hrasserver: isize, dwlevel: u32, hrasconnection: Param2, lplpbbuffer: *mut *mut u8, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: *const u32) -> u32 {
     #[cfg(windows)]
@@ -3319,6 +3817,7 @@ pub unsafe fn MprAdminPortEnum<'a, Param2: ::windows::runtime::IntoParam<'a, sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MprAdminPortGetInfo<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hrasserver: isize, dwlevel: u32, hport: Param2, lplpbbuffer: *mut *mut u8) -> u32 {
     #[cfg(windows)]
@@ -3333,6 +3832,7 @@ pub unsafe fn MprAdminPortGetInfo<'a, Param2: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MprAdminPortReset<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hrasserver: isize, hport: Param1) -> u32 {
     #[cfg(windows)]
@@ -3347,6 +3847,7 @@ pub unsafe fn MprAdminPortReset<'a, Param1: ::windows::runtime::IntoParam<'a, su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MprAdminRegisterConnectionNotification<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprserver: isize, heventnotification: Param1) -> u32 {
     #[cfg(windows)]
@@ -3361,6 +3862,7 @@ pub unsafe fn MprAdminRegisterConnectionNotification<'a, Param1: ::windows::runt
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MprAdminSendUserMessage<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hmprserver: isize, hconnection: Param1, lpwszmessage: Param2) -> u32 {
     #[cfg(windows)]
@@ -3375,6 +3877,7 @@ pub unsafe fn MprAdminSendUserMessage<'a, Param1: ::windows::runtime::IntoParam<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MprAdminServerConnect<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpwsservername: Param0, phmprserver: *mut isize) -> u32 {
     #[cfg(windows)]
@@ -3388,6 +3891,7 @@ pub unsafe fn MprAdminServerConnect<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn MprAdminServerDisconnect(hmprserver: isize) {
     #[cfg(windows)]
@@ -3401,6 +3905,7 @@ pub unsafe fn MprAdminServerDisconnect(hmprserver: isize) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn MprAdminServerGetCredentials(hmprserver: isize, dwlevel: u32, lplpbbuffer: *const *const u8) -> u32 {
     #[cfg(windows)]
@@ -3414,6 +3919,7 @@ pub unsafe fn MprAdminServerGetCredentials(hmprserver: isize, dwlevel: u32, lplp
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn MprAdminServerGetInfo(hmprserver: isize, dwlevel: u32, lplpbbuffer: *mut *mut u8) -> u32 {
     #[cfg(windows)]
@@ -3428,6 +3934,7 @@ pub unsafe fn MprAdminServerGetInfo(hmprserver: isize, dwlevel: u32, lplpbbuffer
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`, `Win32_Security_Cryptography`*"]
 #[inline]
 pub unsafe fn MprAdminServerGetInfoEx(hmprserver: isize, pserverinfo: *mut MPR_SERVER_EX1) -> u32 {
     #[cfg(windows)]
@@ -3441,6 +3948,7 @@ pub unsafe fn MprAdminServerGetInfoEx(hmprserver: isize, pserverinfo: *mut MPR_S
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn MprAdminServerSetCredentials(hmprserver: isize, dwlevel: u32, lpbbuffer: *const u8) -> u32 {
     #[cfg(windows)]
@@ -3454,6 +3962,7 @@ pub unsafe fn MprAdminServerSetCredentials(hmprserver: isize, dwlevel: u32, lpbb
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn MprAdminServerSetInfo(hmprserver: isize, dwlevel: u32, lpbbuffer: *const u8) -> u32 {
     #[cfg(windows)]
@@ -3468,6 +3977,7 @@ pub unsafe fn MprAdminServerSetInfo(hmprserver: isize, dwlevel: u32, lpbbuffer: 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`, `Win32_Security_Cryptography`*"]
 #[inline]
 pub unsafe fn MprAdminServerSetInfoEx(hmprserver: isize, pserverinfo: *const MPR_SERVER_SET_CONFIG_EX1) -> u32 {
     #[cfg(windows)]
@@ -3482,6 +3992,7 @@ pub unsafe fn MprAdminServerSetInfoEx(hmprserver: isize, pserverinfo: *const MPR
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MprAdminTransportCreate<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param7: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hmprserver: isize, dwtransportid: u32, lpwstransportname: Param2, pglobalinfo: *const u8, dwglobalinfosize: u32, pclientinterfaceinfo: *const u8, dwclientinterfaceinfosize: u32, lpwsdllpath: Param7) -> u32 {
     #[cfg(windows)]
@@ -3504,6 +4015,7 @@ pub unsafe fn MprAdminTransportCreate<'a, Param2: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn MprAdminTransportGetInfo(hmprserver: isize, dwtransportid: u32, ppglobalinfo: *mut *mut u8, lpdwglobalinfosize: *mut u32, ppclientinterfaceinfo: *mut *mut u8, lpdwclientinterfaceinfosize: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -3517,6 +4029,7 @@ pub unsafe fn MprAdminTransportGetInfo(hmprserver: isize, dwtransportid: u32, pp
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn MprAdminTransportSetInfo(hmprserver: isize, dwtransportid: u32, pglobalinfo: *const u8, dwglobalinfosize: u32, pclientinterfaceinfo: *const u8, dwclientinterfaceinfosize: u32) -> u32 {
     #[cfg(windows)]
@@ -3531,6 +4044,7 @@ pub unsafe fn MprAdminTransportSetInfo(hmprserver: isize, dwtransportid: u32, pg
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MprAdminUpdateConnection<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hrasserver: isize, hrasconnection: Param1, prasupdateconnection: *const RAS_UPDATE_CONNECTION) -> u32 {
     #[cfg(windows)]
@@ -3545,6 +4059,7 @@ pub unsafe fn MprAdminUpdateConnection<'a, Param1: ::windows::runtime::IntoParam
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MprAdminUserGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszserver: Param0, lpszuser: Param1, dwlevel: u32, lpbbuffer: *mut u8) -> u32 {
     #[cfg(windows)]
@@ -3559,6 +4074,7 @@ pub unsafe fn MprAdminUserGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MprAdminUserSetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszserver: Param0, lpszuser: Param1, dwlevel: u32, lpbbuffer: *const u8) -> u32 {
     #[cfg(windows)]
@@ -3572,6 +4088,7 @@ pub unsafe fn MprAdminUserSetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn MprConfigBufferFree(pbuffer: *const ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -3586,6 +4103,7 @@ pub unsafe fn MprConfigBufferFree(pbuffer: *const ::std::ffi::c_void) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MprConfigFilterGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, dwlevel: u32, dwtransportid: u32, lpbuffer: *mut u8) -> u32 {
     #[cfg(windows)]
@@ -3600,6 +4118,7 @@ pub unsafe fn MprConfigFilterGetInfo<'a, Param0: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MprConfigFilterSetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, dwlevel: u32, dwtransportid: u32, lpbuffer: *const u8) -> u32 {
     #[cfg(windows)]
@@ -3614,6 +4133,7 @@ pub unsafe fn MprConfigFilterSetInfo<'a, Param0: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MprConfigGetFriendlyName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hmprconfig: Param0, pszguidname: Param1, pszbuffer: super::super::Foundation::PWSTR, dwbuffersize: u32) -> u32 {
     #[cfg(windows)]
@@ -3628,6 +4148,7 @@ pub unsafe fn MprConfigGetFriendlyName<'a, Param0: ::windows::runtime::IntoParam
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MprConfigGetGuidName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hmprconfig: Param0, pszfriendlyname: Param1, pszbuffer: super::super::Foundation::PWSTR, dwbuffersize: u32) -> u32 {
     #[cfg(windows)]
@@ -3642,6 +4163,7 @@ pub unsafe fn MprConfigGetGuidName<'a, Param0: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MprConfigInterfaceCreate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, dwlevel: u32, lpbbuffer: *const u8, phrouterinterface: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -3656,6 +4178,7 @@ pub unsafe fn MprConfigInterfaceCreate<'a, Param0: ::windows::runtime::IntoParam
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MprConfigInterfaceDelete<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, hrouterinterface: Param1) -> u32 {
     #[cfg(windows)]
@@ -3670,6 +4193,7 @@ pub unsafe fn MprConfigInterfaceDelete<'a, Param0: ::windows::runtime::IntoParam
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MprConfigInterfaceEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, dwlevel: u32, lplpbuffer: *mut *mut u8, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -3684,6 +4208,7 @@ pub unsafe fn MprConfigInterfaceEnum<'a, Param0: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`, `Win32_Networking_WinSock`, `Win32_Security_Cryptography`*"]
 #[inline]
 pub unsafe fn MprConfigInterfaceGetCustomInfoEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, hrouterinterface: Param1, pcustominfo: *mut MPR_IF_CUSTOMINFOEX2) -> u32 {
     #[cfg(windows)]
@@ -3698,6 +4223,7 @@ pub unsafe fn MprConfigInterfaceGetCustomInfoEx<'a, Param0: ::windows::runtime::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MprConfigInterfaceGetHandle<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hmprconfig: Param0, lpwsinterfacename: Param1, phrouterinterface: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -3712,6 +4238,7 @@ pub unsafe fn MprConfigInterfaceGetHandle<'a, Param0: ::windows::runtime::IntoPa
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MprConfigInterfaceGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, hrouterinterface: Param1, dwlevel: u32, lplpbuffer: *mut *mut u8, lpdwbuffersize: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -3726,6 +4253,7 @@ pub unsafe fn MprConfigInterfaceGetInfo<'a, Param0: ::windows::runtime::IntoPara
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`, `Win32_Networking_WinSock`, `Win32_Security_Cryptography`*"]
 #[inline]
 pub unsafe fn MprConfigInterfaceSetCustomInfoEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, hrouterinterface: Param1, pcustominfo: *const MPR_IF_CUSTOMINFOEX2) -> u32 {
     #[cfg(windows)]
@@ -3740,6 +4268,7 @@ pub unsafe fn MprConfigInterfaceSetCustomInfoEx<'a, Param0: ::windows::runtime::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MprConfigInterfaceSetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, hrouterinterface: Param1, dwlevel: u32, lpbbuffer: *const u8) -> u32 {
     #[cfg(windows)]
@@ -3754,6 +4283,7 @@ pub unsafe fn MprConfigInterfaceSetInfo<'a, Param0: ::windows::runtime::IntoPara
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MprConfigInterfaceTransportAdd<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hmprconfig: Param0, hrouterinterface: Param1, dwtransportid: u32, lpwstransportname: Param3, pinterfaceinfo: *const u8, dwinterfaceinfosize: u32, phrouteriftransport: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -3776,6 +4306,7 @@ pub unsafe fn MprConfigInterfaceTransportAdd<'a, Param0: ::windows::runtime::Int
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MprConfigInterfaceTransportEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, hrouterinterface: Param1, dwlevel: u32, lplpbuffer: *mut *mut u8, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -3799,6 +4330,7 @@ pub unsafe fn MprConfigInterfaceTransportEnum<'a, Param0: ::windows::runtime::In
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MprConfigInterfaceTransportGetHandle<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, hrouterinterface: Param1, dwtransportid: u32, phrouteriftransport: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -3813,6 +4345,7 @@ pub unsafe fn MprConfigInterfaceTransportGetHandle<'a, Param0: ::windows::runtim
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MprConfigInterfaceTransportGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, hrouterinterface: Param1, hrouteriftransport: Param2, ppinterfaceinfo: *mut *mut u8, lpdwinterfaceinfosize: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -3827,6 +4360,7 @@ pub unsafe fn MprConfigInterfaceTransportGetInfo<'a, Param0: ::windows::runtime:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MprConfigInterfaceTransportRemove<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, hrouterinterface: Param1, hrouteriftransport: Param2) -> u32 {
     #[cfg(windows)]
@@ -3841,6 +4375,7 @@ pub unsafe fn MprConfigInterfaceTransportRemove<'a, Param0: ::windows::runtime::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MprConfigInterfaceTransportSetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, hrouterinterface: Param1, hrouteriftransport: Param2, pinterfaceinfo: *const u8, dwinterfaceinfosize: u32) -> u32 {
     #[cfg(windows)]
@@ -3855,6 +4390,7 @@ pub unsafe fn MprConfigInterfaceTransportSetInfo<'a, Param0: ::windows::runtime:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MprConfigServerBackup<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hmprconfig: Param0, lpwspath: Param1) -> u32 {
     #[cfg(windows)]
@@ -3869,6 +4405,7 @@ pub unsafe fn MprConfigServerBackup<'a, Param0: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MprConfigServerConnect<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpwsservername: Param0, phmprconfig: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -3883,6 +4420,7 @@ pub unsafe fn MprConfigServerConnect<'a, Param0: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MprConfigServerDisconnect<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0) {
     #[cfg(windows)]
@@ -3897,6 +4435,7 @@ pub unsafe fn MprConfigServerDisconnect<'a, Param0: ::windows::runtime::IntoPara
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MprConfigServerGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, dwlevel: u32, lplpbbuffer: *mut *mut u8) -> u32 {
     #[cfg(windows)]
@@ -3911,6 +4450,7 @@ pub unsafe fn MprConfigServerGetInfo<'a, Param0: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`, `Win32_Security_Cryptography`*"]
 #[inline]
 pub unsafe fn MprConfigServerGetInfoEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, pserverinfo: *mut MPR_SERVER_EX1) -> u32 {
     #[cfg(windows)]
@@ -3924,6 +4464,7 @@ pub unsafe fn MprConfigServerGetInfoEx<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn MprConfigServerInstall(dwlevel: u32, pbuffer: *const ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -3938,6 +4479,7 @@ pub unsafe fn MprConfigServerInstall(dwlevel: u32, pbuffer: *const ::std::ffi::c
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MprConfigServerRefresh<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0) -> u32 {
     #[cfg(windows)]
@@ -3952,6 +4494,7 @@ pub unsafe fn MprConfigServerRefresh<'a, Param0: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MprConfigServerRestore<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hmprconfig: Param0, lpwspath: Param1) -> u32 {
     #[cfg(windows)]
@@ -3965,6 +4508,7 @@ pub unsafe fn MprConfigServerRestore<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn MprConfigServerSetInfo(hmprserver: isize, dwlevel: u32, lpbbuffer: *const u8) -> u32 {
     #[cfg(windows)]
@@ -3979,6 +4523,7 @@ pub unsafe fn MprConfigServerSetInfo(hmprserver: isize, dwlevel: u32, lpbbuffer:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`, `Win32_Security_Cryptography`*"]
 #[inline]
 pub unsafe fn MprConfigServerSetInfoEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, psetserverconfig: *const MPR_SERVER_SET_CONFIG_EX1) -> u32 {
     #[cfg(windows)]
@@ -3993,6 +4538,7 @@ pub unsafe fn MprConfigServerSetInfoEx<'a, Param0: ::windows::runtime::IntoParam
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MprConfigTransportCreate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param7: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
     hmprconfig: Param0,
@@ -4027,6 +4573,7 @@ pub unsafe fn MprConfigTransportCreate<'a, Param0: ::windows::runtime::IntoParam
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MprConfigTransportDelete<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, hroutertransport: Param1) -> u32 {
     #[cfg(windows)]
@@ -4041,6 +4588,7 @@ pub unsafe fn MprConfigTransportDelete<'a, Param0: ::windows::runtime::IntoParam
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MprConfigTransportEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, dwlevel: u32, lplpbuffer: *mut *mut u8, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -4055,6 +4603,7 @@ pub unsafe fn MprConfigTransportEnum<'a, Param0: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MprConfigTransportGetHandle<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, dwtransportid: u32, phroutertransport: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -4069,6 +4618,7 @@ pub unsafe fn MprConfigTransportGetHandle<'a, Param0: ::windows::runtime::IntoPa
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MprConfigTransportGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, hroutertransport: Param1, ppglobalinfo: *mut *mut u8, lpdwglobalinfosize: *mut u32, ppclientinterfaceinfo: *mut *mut u8, lpdwclientinterfaceinfosize: *mut u32, lplpwsdllpath: *mut super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
@@ -4091,6 +4641,7 @@ pub unsafe fn MprConfigTransportGetInfo<'a, Param0: ::windows::runtime::IntoPara
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MprConfigTransportSetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hmprconfig: Param0, hroutertransport: Param1, pglobalinfo: *const u8, dwglobalinfosize: u32, pclientinterfaceinfo: *const u8, dwclientinterfaceinfosize: u32, lpwsdllpath: Param6) -> u32 {
     #[cfg(windows)]
@@ -4104,6 +4655,7 @@ pub unsafe fn MprConfigTransportSetInfo<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn MprInfoBlockAdd(lpheader: *const ::std::ffi::c_void, dwinfotype: u32, dwitemsize: u32, dwitemcount: u32, lpitemdata: *const u8, lplpnewheader: *mut *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -4117,6 +4669,7 @@ pub unsafe fn MprInfoBlockAdd(lpheader: *const ::std::ffi::c_void, dwinfotype: u
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn MprInfoBlockFind(lpheader: *const ::std::ffi::c_void, dwinfotype: u32, lpdwitemsize: *mut u32, lpdwitemcount: *mut u32, lplpitemdata: *mut *mut u8) -> u32 {
     #[cfg(windows)]
@@ -4130,6 +4683,7 @@ pub unsafe fn MprInfoBlockFind(lpheader: *const ::std::ffi::c_void, dwinfotype: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn MprInfoBlockQuerySize(lpheader: *const ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -4143,6 +4697,7 @@ pub unsafe fn MprInfoBlockQuerySize(lpheader: *const ::std::ffi::c_void) -> u32 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn MprInfoBlockRemove(lpheader: *const ::std::ffi::c_void, dwinfotype: u32, lplpnewheader: *mut *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -4156,6 +4711,7 @@ pub unsafe fn MprInfoBlockRemove(lpheader: *const ::std::ffi::c_void, dwinfotype
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn MprInfoBlockSet(lpheader: *const ::std::ffi::c_void, dwinfotype: u32, dwitemsize: u32, dwitemcount: u32, lpitemdata: *const u8, lplpnewheader: *mut *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -4169,6 +4725,7 @@ pub unsafe fn MprInfoBlockSet(lpheader: *const ::std::ffi::c_void, dwinfotype: u
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn MprInfoCreate(dwversion: u32, lplpnewheader: *mut *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -4182,6 +4739,7 @@ pub unsafe fn MprInfoCreate(dwversion: u32, lplpnewheader: *mut *mut ::std::ffi:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn MprInfoDelete(lpheader: *const ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -4195,6 +4753,7 @@ pub unsafe fn MprInfoDelete(lpheader: *const ::std::ffi::c_void) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn MprInfoDuplicate(lpheader: *const ::std::ffi::c_void, lplpnewheader: *mut *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -4208,6 +4767,7 @@ pub unsafe fn MprInfoDuplicate(lpheader: *const ::std::ffi::c_void, lplpnewheade
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn MprInfoRemoveAll(lpheader: *const ::std::ffi::c_void, lplpnewheader: *mut *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -4223,6 +4783,7 @@ pub unsafe fn MprInfoRemoveAll(lpheader: *const ::std::ffi::c_void, lplpnewheade
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type ORASADFUNC = unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: super::super::Foundation::PSTR, param2: u32, param3: *mut u32) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const PENDING: u32 = 600u32;
 pub type PFNRASFREEBUFFER = unsafe extern "system" fn(pbufer: *mut u8) -> u32;
 pub type PFNRASGETBUFFER = unsafe extern "system" fn(ppbuffer: *mut *mut u8, pdwsize: *mut u32) -> u32;
@@ -4234,10 +4795,15 @@ pub type PFNRASRETRIEVEBUFFER = unsafe extern "system" fn(hport: super::super::F
 pub type PFNRASSENDBUFFER = unsafe extern "system" fn(hport: super::super::Foundation::HANDLE, pbuffer: *mut u8, dwsize: u32) -> u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNRASSETCOMMSETTINGS = unsafe extern "system" fn(hport: super::super::Foundation::HANDLE, prascommsettings: *mut RASCOMMSETTINGS, pvreserved: *mut ::std::ffi::c_void) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const PID_ATALK: u32 = 41u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const PID_IP: u32 = 33u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const PID_IPV6: u32 = 87u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const PID_IPX: u32 = 43u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const PID_NBF: u32 = 63u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type PMGM_CREATION_ALERT_CALLBACK = unsafe extern "system" fn(dwsourceaddr: u32, dwsourcemask: u32, dwgroupaddr: u32, dwgroupmask: u32, dwinifindex: u32, dwinifnexthopaddr: u32, dwifcount: u32, pmieoutiflist: *mut MGM_IF_ENTRY) -> u32;
@@ -4290,6 +4856,7 @@ pub type PMPRADMINRELEASEIPV6ADDRESSFORUSER = unsafe extern "system" fn(param0: 
 pub type PMPRADMINTERMINATEDLL = unsafe extern "system" fn() -> u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub struct PPP_ATCP_INFO {
     pub dwError: u32,
     pub wszAddress: [u16; 33],
@@ -4315,14 +4882,21 @@ unsafe impl ::windows::runtime::Abi for PPP_ATCP_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const PPP_CCP_COMPRESSION: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const PPP_CCP_ENCRYPTION128BIT: u32 = 64u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const PPP_CCP_ENCRYPTION40BIT: u32 = 32u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const PPP_CCP_ENCRYPTION40BITOLD: u32 = 16u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const PPP_CCP_ENCRYPTION56BIT: u32 = 128u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const PPP_CCP_HISTORYLESS: u32 = 16777216u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub struct PPP_CCP_INFO {
     pub dwError: u32,
     pub dwCompressionAlgorithm: u32,
@@ -4353,6 +4927,7 @@ unsafe impl ::windows::runtime::Abi for PPP_CCP_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub struct PPP_INFO {
     pub nbf: PPP_NBFCP_INFO,
     pub ip: PPP_IPCP_INFO,
@@ -4382,6 +4957,7 @@ unsafe impl ::windows::runtime::Abi for PPP_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub struct PPP_INFO_2 {
     pub nbf: PPP_NBFCP_INFO,
     pub ip: PPP_IPCP_INFO2,
@@ -4413,6 +4989,7 @@ unsafe impl ::windows::runtime::Abi for PPP_INFO_2 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub struct PPP_INFO_3 {
     pub nbf: PPP_NBFCP_INFO,
     pub ip: PPP_IPCP_INFO2,
@@ -4443,6 +5020,7 @@ unsafe impl ::windows::runtime::Abi for PPP_INFO_3 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub struct PPP_IPCP_INFO {
     pub dwError: u32,
     pub wszAddress: [u16; 16],
@@ -4471,6 +5049,7 @@ unsafe impl ::windows::runtime::Abi for PPP_IPCP_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub struct PPP_IPCP_INFO2 {
     pub dwError: u32,
     pub wszAddress: [u16; 16],
@@ -4499,9 +5078,11 @@ unsafe impl ::windows::runtime::Abi for PPP_IPCP_INFO2 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const PPP_IPCP_VJ: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub struct PPP_IPV6_CP_INFO {
     pub dwVersion: u32,
     pub dwSize: u32,
@@ -4546,6 +5127,7 @@ unsafe impl ::windows::runtime::Abi for PPP_IPV6_CP_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub struct PPP_IPXCP_INFO {
     pub dwError: u32,
     pub wszAddress: [u16; 23],
@@ -4571,6 +5153,7 @@ unsafe impl ::windows::runtime::Abi for PPP_IPXCP_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PPP_LCP(pub u32);
@@ -4615,17 +5198,27 @@ impl ::std::ops::Not for PPP_LCP {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const PPP_LCP_3_DES: u32 = 32u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const PPP_LCP_ACFC: u32 = 4u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const PPP_LCP_AES_128: u32 = 64u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const PPP_LCP_AES_192: u32 = 256u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const PPP_LCP_AES_256: u32 = 128u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const PPP_LCP_DES_56: u32 = 16u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const PPP_LCP_GCM_AES_128: u32 = 512u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const PPP_LCP_GCM_AES_192: u32 = 1024u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const PPP_LCP_GCM_AES_256: u32 = 2048u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub struct PPP_LCP_INFO {
     pub dwError: u32,
     pub dwAuthenticationProtocol: PPP_LCP,
@@ -4682,6 +5275,7 @@ unsafe impl ::windows::runtime::Abi for PPP_LCP_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PPP_LCP_INFO_AUTH_DATA(pub u32);
@@ -4725,11 +5319,15 @@ impl ::std::ops::Not for PPP_LCP_INFO_AUTH_DATA {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const PPP_LCP_MULTILINK_FRAMING: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const PPP_LCP_PFC: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const PPP_LCP_SSHF: u32 = 8u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub struct PPP_NBFCP_INFO {
     pub dwError: u32,
     pub wszWksta: [u16; 17],
@@ -4757,6 +5355,7 @@ unsafe impl ::windows::runtime::Abi for PPP_NBFCP_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub struct PPP_PROJECTION_INFO {
     pub dwIPv4NegotiationError: u32,
     pub wszAddress: [u16; 16],
@@ -4866,6 +5465,7 @@ unsafe impl ::windows::runtime::Abi for PPP_PROJECTION_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub struct PPP_PROJECTION_INFO2 {
     pub dwIPv4NegotiationError: u32,
     pub wszAddress: [u16; 16],
@@ -4978,6 +5578,7 @@ unsafe impl ::windows::runtime::Abi for PPP_PROJECTION_INFO2 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub struct PPTP_CONFIG_PARAMS {
     pub dwNumPorts: u32,
     pub dwPortFlags: u32,
@@ -5005,6 +5606,7 @@ unsafe impl ::windows::runtime::Abi for PPTP_CONFIG_PARAMS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub struct PROJECTION_INFO {
     pub projectionInfoType: u8,
     pub Anonymous: PROJECTION_INFO_0,
@@ -5027,6 +5629,7 @@ unsafe impl ::windows::runtime::Abi for PROJECTION_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub union PROJECTION_INFO_0 {
     pub PppProjectionInfo: PPP_PROJECTION_INFO,
     pub Ikev2ProjectionInfo: IKEV2_PROJECTION_INFO,
@@ -5049,6 +5652,7 @@ unsafe impl ::windows::runtime::Abi for PROJECTION_INFO_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub struct PROJECTION_INFO2 {
     pub projectionInfoType: u8,
     pub Anonymous: PROJECTION_INFO2_0,
@@ -5071,6 +5675,7 @@ unsafe impl ::windows::runtime::Abi for PROJECTION_INFO2 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub union PROJECTION_INFO2_0 {
     pub PppProjectionInfo: PPP_PROJECTION_INFO2,
     pub Ikev2ProjectionInfo: IKEV2_PROJECTION_INFO2,
@@ -5091,6 +5696,7 @@ unsafe impl ::windows::runtime::Abi for PROJECTION_INFO2_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASADFLG_PositionDlg: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type RASADFUNCA = unsafe extern "system" fn(param0: super::super::Foundation::PSTR, param1: super::super::Foundation::PSTR, param2: *mut RASADPARAMS, param3: *mut u32) -> super::super::Foundation::BOOL;
@@ -5099,6 +5705,7 @@ pub type RASADFUNCW = unsafe extern "system" fn(param0: super::super::Foundation
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 pub struct RASADPARAMS {
     pub dwSize: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -5127,14 +5734,20 @@ unsafe impl ::windows::runtime::Abi for RASADPARAMS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASADP_ConnectionQueryTimeout: u32 = 4u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASADP_DisableConnectionQuery: u32 = 0u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASADP_FailedConnectionTimeout: u32 = 3u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASADP_LoginSessionDisable: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASADP_SavedAddressesLimit: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 pub struct RASAMBA {
     pub dwSize: u32,
     pub dwError: u32,
@@ -5170,6 +5783,7 @@ unsafe impl ::windows::runtime::Abi for RASAMBA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub struct RASAMBW {
     pub dwSize: u32,
     pub dwError: u32,
@@ -5197,6 +5811,7 @@ unsafe impl ::windows::runtime::Abi for RASAMBW {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RASAPIVERSION(pub i32);
@@ -5216,6 +5831,7 @@ unsafe impl ::windows::runtime::Abi for RASAPIVERSION {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 pub struct RASAUTODIALENTRYA {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -5251,6 +5867,7 @@ unsafe impl ::windows::runtime::Abi for RASAUTODIALENTRYA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub struct RASAUTODIALENTRYW {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -5278,35 +5895,63 @@ unsafe impl ::windows::runtime::Abi for RASAUTODIALENTRYW {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASBASE: u32 = 600u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASBASEEND: u32 = 877u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASCCPCA_MPPC: u32 = 6u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASCCPCA_STAC: u32 = 5u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASCCPO_Compression: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASCCPO_Encryption128bit: u32 = 64u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASCCPO_Encryption40bit: u32 = 32u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASCCPO_Encryption56bit: u32 = 16u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASCCPO_HistoryLess: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASCF_AllUsers: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASCF_GlobalCreds: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASCF_OwnerKnown: u32 = 4u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASCF_OwnerMatch: u32 = 8u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASCM_DDMPreSharedKey: u32 = 64u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASCM_DefaultCreds: u32 = 8u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASCM_Domain: u32 = 4u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASCM_Password: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASCM_PreSharedKey: u32 = 16u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASCM_ServerPreSharedKey: u32 = 32u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASCM_UserName: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASCN_BandwidthAdded: u32 = 4u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASCN_BandwidthRemoved: u32 = 8u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASCN_Connection: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASCN_Disconnection: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASCN_Dormant: u32 = 16u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASCN_EPDGPacketArrival: u32 = 64u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASCN_ReConnection: u32 = 32u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub struct RASCOMMSETTINGS {
     pub dwSize: u32,
     pub bParity: u8,
@@ -5338,6 +5983,7 @@ unsafe impl ::windows::runtime::Abi for RASCOMMSETTINGS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 pub struct RASCONNA {
     pub dwSize: u32,
     pub hrasconn: HRASCONN,
@@ -5372,6 +6018,7 @@ unsafe impl ::windows::runtime::Abi for RASCONNA {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RASCONNSTATE(pub i32);
@@ -5419,6 +6066,7 @@ unsafe impl ::windows::runtime::Abi for RASCONNSTATE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 pub struct RASCONNSTATUSA {
     pub dwSize: u32,
     pub rasconnstate: RASCONNSTATE,
@@ -5454,6 +6102,7 @@ unsafe impl ::windows::runtime::Abi for RASCONNSTATUSA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Networking_WinSock`*"]
 pub struct RASCONNSTATUSW {
     pub dwSize: u32,
     pub rasconnstate: RASCONNSTATE,
@@ -5486,6 +6135,7 @@ unsafe impl ::windows::runtime::Abi for RASCONNSTATUSW {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RASCONNSUBSTATE(pub i32);
@@ -5505,6 +6155,7 @@ unsafe impl ::windows::runtime::Abi for RASCONNSUBSTATE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 pub struct RASCONNW {
     pub dwSize: u32,
     pub hrasconn: HRASCONN,
@@ -5542,6 +6193,7 @@ unsafe impl ::windows::runtime::Abi for RASCONNW {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 pub struct RASCREDENTIALSA {
     pub dwSize: u32,
     pub dwMask: u32,
@@ -5578,6 +6230,7 @@ unsafe impl ::windows::runtime::Abi for RASCREDENTIALSA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub struct RASCREDENTIALSW {
     pub dwSize: u32,
     pub dwMask: u32,
@@ -5606,11 +6259,15 @@ unsafe impl ::windows::runtime::Abi for RASCREDENTIALSW {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASCSS_DONE: u32 = 8192u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASCS_DONE: u32 = 8192u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASCS_PAUSED: u32 = 4096u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub struct RASCTRYINFO {
     pub dwSize: u32,
     pub dwCountryID: u32,
@@ -5647,6 +6304,7 @@ impl ::std::clone::Clone for RASCUSTOMSCRIPTEXTENSIONS {
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 pub struct RASCUSTOMSCRIPTEXTENSIONS {
     pub dwSize: u32,
     pub pfnRasSetCommSettings: ::std::option::Option<PFNRASSETCOMMSETTINGS>,
@@ -5672,13 +6330,18 @@ unsafe impl ::windows::runtime::Abi for RASCUSTOMSCRIPTEXTENSIONS {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASDDFLAG_AoacRedial: u32 = 4u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASDDFLAG_LinkFailure: u32 = 2147483648u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASDDFLAG_NoPrompt: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASDDFLAG_PositionDlg: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 pub struct RASDEVINFOA {
     pub dwSize: u32,
     pub szDeviceType: [super::super::Foundation::CHAR; 17],
@@ -5713,6 +6376,7 @@ unsafe impl ::windows::runtime::Abi for RASDEVINFOA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub struct RASDEVINFOW {
     pub dwSize: u32,
     pub szDeviceType: [u16; 17],
@@ -5741,6 +6405,7 @@ unsafe impl ::windows::runtime::Abi for RASDEVINFOW {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(4))]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub struct RASDEVSPECIFICINFO {
     pub dwSize: u32,
     pub pbDevSpecificInfo: *mut u8,
@@ -5764,6 +6429,7 @@ unsafe impl ::windows::runtime::Abi for RASDEVSPECIFICINFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 pub struct RASDIALDLG {
     pub dwSize: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -5799,6 +6465,7 @@ unsafe impl ::windows::runtime::Abi for RASDIALDLG {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 pub struct RASDIALEXTENSIONS {
     pub dwSize: u32,
     pub dwfOptions: u32,
@@ -5836,6 +6503,7 @@ pub type RASDIALFUNC2 = unsafe extern "system" fn(param0: usize, param1: u32, pa
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 pub struct RASDIALPARAMSA {
     pub dwSize: u32,
     pub szEntryName: [super::super::Foundation::CHAR; 257],
@@ -5873,6 +6541,7 @@ unsafe impl ::windows::runtime::Abi for RASDIALPARAMSA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 pub struct RASDIALPARAMSW {
     pub dwSize: u32,
     pub szEntryName: [u16; 257],
@@ -5907,11 +6576,15 @@ unsafe impl ::windows::runtime::Abi for RASDIALPARAMSW {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEAPF_Logon: u32 = 4u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEAPF_NonInteractive: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEAPF_Preview: u32 = 8u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(4))]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub struct RASEAPINFO {
     pub dwSizeofEapInfo: u32,
     pub pbEapInfo: *mut u8,
@@ -5935,6 +6608,7 @@ unsafe impl ::windows::runtime::Abi for RASEAPINFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 pub struct RASEAPUSERIDENTITYA {
     pub szUserName: [super::super::Foundation::CHAR; 257],
     pub dwSizeofEapInfo: u32,
@@ -5969,6 +6643,7 @@ unsafe impl ::windows::runtime::Abi for RASEAPUSERIDENTITYA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub struct RASEAPUSERIDENTITYW {
     pub szUserName: [u16; 257],
     pub dwSizeofEapInfo: u32,
@@ -5995,21 +6670,34 @@ unsafe impl ::windows::runtime::Abi for RASEAPUSERIDENTITYW {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEDFLAG_CloneEntry: u32 = 4u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEDFLAG_IncomingConnection: u32 = 1024u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEDFLAG_InternetEntry: u32 = 256u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEDFLAG_NAT: u32 = 512u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEDFLAG_NewBroadbandEntry: u32 = 128u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEDFLAG_NewDirectEntry: u32 = 64u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEDFLAG_NewEntry: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEDFLAG_NewPhoneEntry: u32 = 16u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEDFLAG_NewTunnelEntry: u32 = 32u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEDFLAG_NoRename: u32 = 8u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEDFLAG_PositionDlg: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEDFLAG_ShellOwned: u32 = 1073741824u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 pub struct RASENTRYA {
     pub dwSize: u32,
     pub dwfOptions: u32,
@@ -6097,6 +6785,7 @@ unsafe impl ::windows::runtime::Abi for RASENTRYA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 pub struct RASENTRYDLGA {
     pub dwSize: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -6132,6 +6821,7 @@ unsafe impl ::windows::runtime::Abi for RASENTRYDLGA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 pub struct RASENTRYDLGW {
     pub dwSize: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -6167,6 +6857,7 @@ unsafe impl ::windows::runtime::Abi for RASENTRYDLGW {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 pub struct RASENTRYNAMEA {
     pub dwSize: u32,
     pub szEntryName: [super::super::Foundation::CHAR; 257],
@@ -6202,6 +6893,7 @@ unsafe impl ::windows::runtime::Abi for RASENTRYNAMEA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub struct RASENTRYNAMEW {
     pub dwSize: u32,
     pub szEntryName: [u16; 257],
@@ -6232,6 +6924,7 @@ unsafe impl ::windows::runtime::Abi for RASENTRYNAMEW {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 pub struct RASENTRYW {
     pub dwSize: u32,
     pub dwfOptions: u32,
@@ -6316,6 +7009,7 @@ unsafe impl ::windows::runtime::Abi for RASENTRYW {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RASENTRY_DIAL_MODE(pub u32);
@@ -6358,82 +7052,156 @@ impl ::std::ops::Not for RASENTRY_DIAL_MODE {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEO2_AuthTypeIsOtp: u32 = 268435456u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEO2_AutoTriggerCapable: u32 = 67108864u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEO2_CacheCredentials: u32 = 33554432u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEO2_DisableClassBasedStaticRoute: u32 = 524288u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEO2_DisableIKENameEkuCheck: u32 = 262144u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEO2_DisableMobility: u32 = 2097152u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEO2_DisableNbtOverIP: u32 = 64u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEO2_DontNegotiateMultilink: u32 = 4u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEO2_DontUseRasCredentials: u32 = 8u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEO2_IPv4ExplicitMetric: u32 = 65536u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEO2_IPv6ExplicitMetric: u32 = 131072u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEO2_IPv6RemoteDefaultGateway: u32 = 8192u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEO2_IPv6SpecificNameServers: u32 = 4096u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEO2_Internet: u32 = 32u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEO2_IsAlwaysOn: u32 = 536870912u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEO2_IsPrivateNetwork: u32 = 1073741824u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEO2_IsThirdPartyProfile: u32 = 134217728u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEO2_PlumbIKEv2TSAsRoutes: u32 = 2147483648u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEO2_ReconnectIfDropped: u32 = 256u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEO2_RegisterIpWithDNS: u32 = 16384u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEO2_RequireMachineCertificates: u32 = 4194304u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEO2_SecureClientForMSNet: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEO2_SecureFileAndPrint: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEO2_SecureRoutingCompartment: u32 = 1024u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEO2_SharePhoneNumbers: u32 = 512u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEO2_SpecificIPv6Addr: u32 = 1048576u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEO2_UseDNSSuffixForRegistration: u32 = 32768u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEO2_UseGlobalDeviceSettings: u32 = 128u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEO2_UsePreSharedKey: u32 = 16u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEO2_UsePreSharedKeyForIkev2Initiator: u32 = 8388608u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEO2_UsePreSharedKeyForIkev2Responder: u32 = 16777216u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEO2_UseTypicalSettings: u32 = 2048u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEO_Custom: u32 = 1048576u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEO_CustomScript: u32 = 2147483648u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEO_DisableLcpExtensions: u32 = 32u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEO_IpHeaderCompression: u32 = 8u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEO_ModemLights: u32 = 256u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEO_NetworkLogon: u32 = 8192u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEO_PreviewDomain: u32 = 33554432u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEO_PreviewPhoneNumber: u32 = 2097152u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEO_PreviewUserPw: u32 = 16777216u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEO_PromoteAlternates: u32 = 32768u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEO_RemoteDefaultGateway: u32 = 16u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEO_RequireCHAP: u32 = 134217728u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEO_RequireDataEncryption: u32 = 4096u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEO_RequireEAP: u32 = 131072u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEO_RequireEncryptedPw: u32 = 1024u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEO_RequireMsCHAP: u32 = 268435456u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEO_RequireMsCHAP2: u32 = 536870912u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEO_RequireMsEncryptedPw: u32 = 2048u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEO_RequirePAP: u32 = 262144u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEO_RequireSPAP: u32 = 524288u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEO_RequireW95MSCHAP: u32 = 1073741824u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEO_SecureLocalFiles: u32 = 65536u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEO_SharedPhoneNumbers: u32 = 8388608u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEO_ShowDialingProgress: u32 = 67108864u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEO_SpecificIpAddr: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEO_SpecificNameServers: u32 = 4u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEO_SwCompression: u32 = 512u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEO_TerminalAfterDial: u32 = 128u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEO_TerminalBeforeDial: u32 = 64u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEO_UseCountryAndAreaCodes: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEO_UseLogonCredentials: u32 = 16384u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASET_Broadband: u32 = 5u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASET_Direct: u32 = 3u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASET_Internet: u32 = 4u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASET_Phone: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASET_Vpn: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASFP_Ppp: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASFP_Ras: u32 = 4u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASFP_Slip: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASIDS_Disabled: u32 = 4294967295u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASIDS_UseGlobalValue: u32 = 0u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Networking_WinSock`*"]
 pub struct RASIKEV2_PROJECTION_INFO {
     pub dwIPv4NegotiationError: u32,
     pub ipv4Address: super::super::Networking::WinSock::IN_ADDR,
@@ -6472,6 +7240,7 @@ unsafe impl ::windows::runtime::Abi for RASIKEV2_PROJECTION_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RASIKEV_PROJECTION_INFO_FLAGS(pub u32);
@@ -6515,11 +7284,15 @@ impl ::std::ops::Not for RASIKEV_PROJECTION_INFO_FLAGS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASIKEv2_AUTH_EAP: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASIKEv2_AUTH_MACHINECERTIFICATES: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASIKEv2_AUTH_PSK: u32 = 3u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub struct RASIPADDR {
     pub a: u8,
     pub b: u8,
@@ -6547,9 +7320,11 @@ unsafe impl ::windows::runtime::Abi for RASIPADDR {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASIPO_VJ: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub struct RASIPXW {
     pub dwSize: u32,
     pub dwError: u32,
@@ -6576,21 +7351,34 @@ unsafe impl ::windows::runtime::Abi for RASIPXW {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASLCPO_3_DES: u32 = 16u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASLCPO_ACFC: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASLCPO_AES_128: u32 = 32u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASLCPO_AES_192: u32 = 128u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASLCPO_AES_256: u32 = 64u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASLCPO_DES_56: u32 = 8u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASLCPO_GCM_AES_128: u32 = 256u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASLCPO_GCM_AES_192: u32 = 512u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASLCPO_GCM_AES_256: u32 = 1024u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASLCPO_PFC: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASLCPO_SSHF: u32 = 4u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASNAP_ProbationTime: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 pub struct RASNOUSERA {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -6628,6 +7416,7 @@ unsafe impl ::windows::runtime::Abi for RASNOUSERA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub struct RASNOUSERW {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -6657,21 +7446,37 @@ unsafe impl ::windows::runtime::Abi for RASNOUSERW {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASNOUSER_SmartCard: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASNP_Ip: u32 = 4u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASNP_Ipv6: u32 = 8u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASNP_Ipx: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASNP_NetBEUI: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASPBDEVENT_AddEntry: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASPBDEVENT_DialEntry: u32 = 4u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASPBDEVENT_EditEntry: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASPBDEVENT_EditGlobals: u32 = 5u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASPBDEVENT_NoUser: u32 = 6u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASPBDEVENT_NoUserEdit: u32 = 7u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASPBDEVENT_RemoveEntry: u32 = 3u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASPBDFLAG_ForceCloseOnDial: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASPBDFLAG_NoUser: u32 = 16u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASPBDFLAG_PositionDlg: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASPBDFLAG_UpdateDefaults: u32 = 2147483648u32;
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::clone::Clone for RASPBDLGA {
@@ -6681,6 +7486,7 @@ impl ::std::clone::Clone for RASPBDLGA {
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 pub struct RASPBDLGA {
     pub dwSize: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -6726,6 +7532,7 @@ impl ::std::clone::Clone for RASPBDLGW {
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 pub struct RASPBDLGW {
     pub dwSize: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -6761,6 +7568,7 @@ unsafe impl ::windows::runtime::Abi for RASPBDLGW {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub struct RASPPPCCP {
     pub dwSize: u32,
     pub dwError: u32,
@@ -6800,6 +7608,7 @@ unsafe impl ::windows::runtime::Abi for RASPPPCCP {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 pub struct RASPPPIPA {
     pub dwSize: u32,
     pub dwError: u32,
@@ -6837,6 +7646,7 @@ unsafe impl ::windows::runtime::Abi for RASPPPIPA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub struct RASPPPIPV6 {
     pub dwSize: u32,
     pub dwError: u32,
@@ -6875,6 +7685,7 @@ unsafe impl ::windows::runtime::Abi for RASPPPIPV6 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub struct RASPPPIPW {
     pub dwSize: u32,
     pub dwError: u32,
@@ -6907,6 +7718,7 @@ unsafe impl ::windows::runtime::Abi for RASPPPIPW {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 pub struct RASPPPIPXA {
     pub dwSize: u32,
     pub dwError: u32,
@@ -6942,6 +7754,7 @@ unsafe impl ::windows::runtime::Abi for RASPPPIPXA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 pub struct RASPPPLCPA {
     pub dwSize: u32,
     pub fBundled: super::super::Foundation::BOOL,
@@ -7019,6 +7832,7 @@ unsafe impl ::windows::runtime::Abi for RASPPPLCPA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 pub struct RASPPPLCPW {
     pub dwSize: u32,
     pub fBundled: super::super::Foundation::BOOL,
@@ -7096,6 +7910,7 @@ unsafe impl ::windows::runtime::Abi for RASPPPLCPW {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 pub struct RASPPPNBFA {
     pub dwSize: u32,
     pub dwError: u32,
@@ -7133,6 +7948,7 @@ unsafe impl ::windows::runtime::Abi for RASPPPNBFA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub struct RASPPPNBFW {
     pub dwSize: u32,
     pub dwError: u32,
@@ -7165,6 +7981,7 @@ unsafe impl ::windows::runtime::Abi for RASPPPNBFW {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 pub struct RASPPP_PROJECTION_INFO {
     pub dwIPv4NegotiationError: u32,
     pub ipv4Address: super::super::Networking::WinSock::IN_ADDR,
@@ -7211,6 +8028,7 @@ unsafe impl ::windows::runtime::Abi for RASPPP_PROJECTION_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA(pub u32);
@@ -7254,6 +8072,7 @@ impl ::std::ops::Not for RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL(pub u32);
@@ -7298,11 +8117,17 @@ impl ::std::ops::Not for RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASPRIV2_DialinPolicy: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASPRIV_AdminSetCallback: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASPRIV_CallerSetCallback: u32 = 4u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASPRIV_DialinPrivilege: u32 = 8u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASPRIV_NoCallback: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RASPROJECTION(pub i32);
@@ -7322,6 +8147,7 @@ unsafe impl ::windows::runtime::Abi for RASPROJECTION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RASPROJECTION_INFO_TYPE(pub i32);
@@ -7340,6 +8166,7 @@ pub type RASSECURITYPROC = unsafe extern "system" fn() -> u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 pub struct RASSUBENTRYA {
     pub dwSize: u32,
     pub dwfFlags: u32,
@@ -7377,6 +8204,7 @@ unsafe impl ::windows::runtime::Abi for RASSUBENTRYA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub struct RASSUBENTRYW {
     pub dwSize: u32,
     pub dwfFlags: u32,
@@ -7409,6 +8237,7 @@ unsafe impl ::windows::runtime::Abi for RASSUBENTRYW {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Networking_WinSock`*"]
 pub struct RASTUNNELENDPOINT {
     pub dwType: u32,
     pub Anonymous: RASTUNNELENDPOINT_0,
@@ -7437,6 +8266,7 @@ unsafe impl ::windows::runtime::Abi for RASTUNNELENDPOINT {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Networking_WinSock`*"]
 pub union RASTUNNELENDPOINT_0 {
     pub ipv4: super::super::Networking::WinSock::IN_ADDR,
     pub ipv6: super::super::Networking::WinSock::IN6_ADDR,
@@ -7462,12 +8292,16 @@ unsafe impl ::windows::runtime::Abi for RASTUNNELENDPOINT_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASTUNNELENDPOINT_IPv4: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASTUNNELENDPOINT_IPv6: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASTUNNELENDPOINT_UNKNOWN: u32 = 0u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Networking_WinSock`*"]
 pub struct RASUPDATECONN {
     pub version: RASAPIVERSION,
     pub dwSize: u32,
@@ -7500,6 +8334,7 @@ unsafe impl ::windows::runtime::Abi for RASUPDATECONN {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 pub struct RAS_CONNECTION_0 {
     pub hConnection: super::super::Foundation::HANDLE,
     pub hInterface: super::super::Foundation::HANDLE,
@@ -7551,6 +8386,7 @@ unsafe impl ::windows::runtime::Abi for RAS_CONNECTION_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 pub struct RAS_CONNECTION_1 {
     pub hConnection: super::super::Foundation::HANDLE,
     pub hInterface: super::super::Foundation::HANDLE,
@@ -7628,6 +8464,7 @@ unsafe impl ::windows::runtime::Abi for RAS_CONNECTION_1 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 pub struct RAS_CONNECTION_2 {
     pub hConnection: super::super::Foundation::HANDLE,
     pub wszUserName: [u16; 257],
@@ -7665,6 +8502,7 @@ unsafe impl ::windows::runtime::Abi for RAS_CONNECTION_2 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 pub struct RAS_CONNECTION_3 {
     pub dwVersion: u32,
     pub dwSize: u32,
@@ -7716,6 +8554,7 @@ unsafe impl ::windows::runtime::Abi for RAS_CONNECTION_3 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 pub struct RAS_CONNECTION_4 {
     pub dwConnectDuration: u32,
     pub dwInterfaceType: ROUTER_INTERFACE_TYPE,
@@ -7772,6 +8611,7 @@ unsafe impl ::windows::runtime::Abi for RAS_CONNECTION_4 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 pub struct RAS_CONNECTION_EX {
     pub Header: MPRAPI_OBJECT_HEADER,
     pub dwConnectDuration: u32,
@@ -7824,6 +8664,7 @@ unsafe impl ::windows::runtime::Abi for RAS_CONNECTION_EX {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RAS_FLAGS(pub u32);
@@ -7870,7 +8711,9 @@ impl ::std::ops::Not for RAS_FLAGS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RAS_FLAGS_RAS_CONNECTION: u32 = 4u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RAS_HARDWARE_CONDITION(pub i32);
@@ -7885,24 +8728,40 @@ unsafe impl ::windows::runtime::Abi for RAS_HARDWARE_CONDITION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RAS_MaxAreaCode: u32 = 10u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RAS_MaxCallbackNumber: u32 = 128u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RAS_MaxDeviceName: u32 = 128u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RAS_MaxDeviceType: u32 = 16u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RAS_MaxDnsSuffix: u32 = 256u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RAS_MaxEntryName: u32 = 256u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RAS_MaxFacilities: u32 = 200u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RAS_MaxIDSize: u32 = 256u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RAS_MaxIpAddress: u32 = 15u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RAS_MaxIpxAddress: u32 = 21u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RAS_MaxPadType: u32 = 32u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RAS_MaxPhoneNumber: u32 = 128u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RAS_MaxReplyMessage: u32 = 1024u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RAS_MaxUserData: u32 = 200u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RAS_MaxX25Address: u32 = 200u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 pub struct RAS_PORT_0 {
     pub hPort: super::super::Foundation::HANDLE,
     pub hConnection: super::super::Foundation::HANDLE,
@@ -7954,6 +8813,7 @@ unsafe impl ::windows::runtime::Abi for RAS_PORT_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 pub struct RAS_PORT_1 {
     pub hPort: super::super::Foundation::HANDLE,
     pub hConnection: super::super::Foundation::HANDLE,
@@ -8034,6 +8894,7 @@ unsafe impl ::windows::runtime::Abi for RAS_PORT_1 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 pub struct RAS_PORT_2 {
     pub hPort: super::super::Foundation::HANDLE,
     pub hConnection: super::super::Foundation::HANDLE,
@@ -8144,6 +9005,7 @@ unsafe impl ::windows::runtime::Abi for RAS_PORT_2 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RAS_PORT_CONDITION(pub i32);
@@ -8166,6 +9028,7 @@ unsafe impl ::windows::runtime::Abi for RAS_PORT_CONDITION {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 pub struct RAS_PROJECTION_INFO {
     pub version: RASAPIVERSION,
     pub r#type: RASPROJECTION_INFO_TYPE,
@@ -8195,6 +9058,7 @@ unsafe impl ::windows::runtime::Abi for RAS_PROJECTION_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 pub union RAS_PROJECTION_INFO_0 {
     pub ppp: RASPPP_PROJECTION_INFO,
     pub ikev2: RASIKEV2_PROJECTION_INFO,
@@ -8220,6 +9084,7 @@ unsafe impl ::windows::runtime::Abi for RAS_PROJECTION_INFO_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RAS_QUARANTINE_STATE(pub i32);
@@ -8239,6 +9104,7 @@ unsafe impl ::windows::runtime::Abi for RAS_QUARANTINE_STATE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 pub struct RAS_SECURITY_INFO {
     pub LastError: u32,
     pub BytesReceived: u32,
@@ -8273,6 +9139,7 @@ unsafe impl ::windows::runtime::Abi for RAS_SECURITY_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub struct RAS_STATS {
     pub dwSize: u32,
     pub dwBytesXmited: u32,
@@ -8343,6 +9210,7 @@ unsafe impl ::windows::runtime::Abi for RAS_STATS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub struct RAS_UPDATE_CONNECTION {
     pub Header: MPRAPI_OBJECT_HEADER,
     pub dwIfIndex: u32,
@@ -8372,6 +9240,7 @@ unsafe impl ::windows::runtime::Abi for RAS_UPDATE_CONNECTION {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub struct RAS_USER_0 {
     pub bfPrivilege: u8,
     pub wszPhoneNumber: [u16; 129],
@@ -8399,6 +9268,7 @@ unsafe impl ::windows::runtime::Abi for RAS_USER_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub struct RAS_USER_1 {
     pub bfPrivilege: u8,
     pub wszPhoneNumber: [u16; 129],
@@ -8425,28 +9295,51 @@ unsafe impl ::windows::runtime::Abi for RAS_USER_1 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RCD_AllUsers: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RCD_Eap: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RCD_Logon: u32 = 4u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RCD_SingleUser: u32 = 0u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RDEOPT_CustomDial: u32 = 4096u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RDEOPT_DisableConnectedUI: u32 = 64u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RDEOPT_DisableReconnect: u32 = 256u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RDEOPT_DisableReconnectUI: u32 = 128u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RDEOPT_EapInfoCryptInCapable: u32 = 32768u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RDEOPT_IgnoreModemSpeaker: u32 = 4u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RDEOPT_IgnoreSoftwareCompression: u32 = 16u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RDEOPT_InvokeAutoTriggerCredentialUI: u32 = 16384u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RDEOPT_NoUser: u32 = 512u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RDEOPT_PauseOnScript: u32 = 1024u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RDEOPT_PausedStates: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RDEOPT_Router: u32 = 2048u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RDEOPT_SetModemSpeaker: u32 = 8u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RDEOPT_SetSoftwareCompression: u32 = 32u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RDEOPT_UseCustomScripting: u32 = 8192u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RDEOPT_UsePrefixSuffix: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const REN_AllUsers: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const REN_User: u32 = 0u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ROUTER_CONNECTION_STATE(pub i32);
@@ -8465,6 +9358,7 @@ unsafe impl ::windows::runtime::Abi for ROUTER_CONNECTION_STATE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub struct ROUTER_CUSTOM_IKEv2_POLICY0 {
     pub dwIntegrityMethod: u32,
     pub dwEncryptionMethod: u32,
@@ -8504,6 +9398,7 @@ unsafe impl ::windows::runtime::Abi for ROUTER_CUSTOM_IKEv2_POLICY0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Security_Cryptography`*"]
 pub struct ROUTER_IKEv2_IF_CUSTOM_CONFIG0 {
     pub dwSaLifeTime: u32,
     pub dwSaDataSize: u32,
@@ -8540,6 +9435,7 @@ unsafe impl ::windows::runtime::Abi for ROUTER_IKEv2_IF_CUSTOM_CONFIG0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Security_Cryptography`*"]
 pub struct ROUTER_IKEv2_IF_CUSTOM_CONFIG1 {
     pub dwSaLifeTime: u32,
     pub dwSaDataSize: u32,
@@ -8577,6 +9473,7 @@ unsafe impl ::windows::runtime::Abi for ROUTER_IKEv2_IF_CUSTOM_CONFIG1 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Networking_WinSock`, `Win32_Security_Cryptography`*"]
 pub struct ROUTER_IKEv2_IF_CUSTOM_CONFIG2 {
     pub dwSaLifeTime: u32,
     pub dwSaDataSize: u32,
@@ -8621,6 +9518,7 @@ unsafe impl ::windows::runtime::Abi for ROUTER_IKEv2_IF_CUSTOM_CONFIG2 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ROUTER_INTERFACE_TYPE(pub i32);
@@ -8645,6 +9543,7 @@ unsafe impl ::windows::runtime::Abi for ROUTER_INTERFACE_TYPE {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 pub struct ROUTING_PROTOCOL_CONFIG {
     pub dwCallbackFlags: u32,
     pub pfnRpfCallback: ::std::option::Option<PMGM_RPF_CALLBACK>,
@@ -8693,16 +9592,24 @@ unsafe impl ::windows::runtime::Abi for ROUTING_PROTOCOL_CONFIG {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RTM_BLOCK_METHODS: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RTM_CHANGE_TYPE_ALL: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RTM_CHANGE_TYPE_BEST: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RTM_CHANGE_TYPE_FORWARDING: u32 = 4u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RTM_DEST_FLAG_DONT_FORWARD: u32 = 4u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RTM_DEST_FLAG_FWD_ENGIN_ADD: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RTM_DEST_FLAG_NATURAL_NET: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 pub struct RTM_DEST_INFO {
     pub DestHandle: isize,
     pub DestAddress: RTM_NET_ADDRESS,
@@ -8740,6 +9647,7 @@ unsafe impl ::windows::runtime::Abi for RTM_DEST_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub struct RTM_DEST_INFO_0 {
     pub ViewId: i32,
     pub NumRoutes: u32,
@@ -8772,6 +9680,7 @@ unsafe impl ::windows::runtime::Abi for RTM_DEST_INFO_0 {
 pub type RTM_ENTITY_EXPORT_METHOD = unsafe extern "system" fn(callerhandle: isize, calleehandle: isize, input: *mut RTM_ENTITY_METHOD_INPUT, output: *mut RTM_ENTITY_METHOD_OUTPUT);
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub struct RTM_ENTITY_EXPORT_METHODS {
     pub NumMethods: u32,
     pub Methods: [::std::option::Option<RTM_ENTITY_EXPORT_METHOD>; 1],
@@ -8794,6 +9703,7 @@ unsafe impl ::windows::runtime::Abi for RTM_ENTITY_EXPORT_METHODS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub struct RTM_ENTITY_ID {
     pub Anonymous: RTM_ENTITY_ID_0,
 }
@@ -8815,6 +9725,7 @@ unsafe impl ::windows::runtime::Abi for RTM_ENTITY_ID {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub union RTM_ENTITY_ID_0 {
     pub Anonymous: RTM_ENTITY_ID_0_0,
     pub EntityId: u64,
@@ -8837,6 +9748,7 @@ unsafe impl ::windows::runtime::Abi for RTM_ENTITY_ID_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub struct RTM_ENTITY_ID_0_0 {
     pub EntityProtocolId: u32,
     pub EntityInstanceId: u32,
@@ -8864,6 +9776,7 @@ unsafe impl ::windows::runtime::Abi for RTM_ENTITY_ID_0_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub struct RTM_ENTITY_INFO {
     pub RtmInstanceId: u16,
     pub AddressFamily: u16,
@@ -8887,6 +9800,7 @@ unsafe impl ::windows::runtime::Abi for RTM_ENTITY_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub struct RTM_ENTITY_METHOD_INPUT {
     pub MethodType: u32,
     pub InputSize: u32,
@@ -8915,6 +9829,7 @@ unsafe impl ::windows::runtime::Abi for RTM_ENTITY_METHOD_INPUT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub struct RTM_ENTITY_METHOD_OUTPUT {
     pub MethodType: u32,
     pub MethodStatus: u32,
@@ -8942,14 +9857,22 @@ unsafe impl ::windows::runtime::Abi for RTM_ENTITY_METHOD_OUTPUT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RTM_ENUM_ALL_DESTS: u32 = 0u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RTM_ENUM_ALL_ROUTES: u32 = 0u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RTM_ENUM_NEXT: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RTM_ENUM_OWN_DESTS: u32 = 16777216u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RTM_ENUM_OWN_ROUTES: u32 = 65536u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RTM_ENUM_RANGE: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RTM_ENUM_START: u32 = 0u32;
 pub type RTM_EVENT_CALLBACK = unsafe extern "system" fn(rtmreghandle: isize, eventtype: RTM_EVENT_TYPE, context1: *mut ::std::ffi::c_void, context2: *mut ::std::ffi::c_void) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RTM_EVENT_TYPE(pub i32);
@@ -8966,17 +9889,27 @@ unsafe impl ::windows::runtime::Abi for RTM_EVENT_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RTM_MATCH_FULL: u32 = 65535u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RTM_MATCH_INTERFACE: u32 = 16u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RTM_MATCH_NEIGHBOUR: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RTM_MATCH_NEXTHOP: u32 = 8u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RTM_MATCH_NONE: u32 = 0u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RTM_MATCH_OWNER: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RTM_MATCH_PREF: u32 = 4u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RTM_MAX_ADDRESS_SIZE: u32 = 16u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RTM_MAX_VIEWS: u32 = 32u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub struct RTM_NET_ADDRESS {
     pub AddressFamily: u16,
     pub NumBits: u16,
@@ -9003,11 +9936,15 @@ unsafe impl ::windows::runtime::Abi for RTM_NET_ADDRESS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RTM_NEXTHOP_CHANGE_NEW: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RTM_NEXTHOP_FLAGS_DOWN: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RTM_NEXTHOP_FLAGS_REMOTE: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub struct RTM_NEXTHOP_INFO {
     pub NextHopAddress: RTM_NET_ADDRESS,
     pub NextHopOwner: isize,
@@ -9048,6 +9985,7 @@ unsafe impl ::windows::runtime::Abi for RTM_NEXTHOP_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub struct RTM_NEXTHOP_LIST {
     pub NumNextHops: u16,
     pub NextHops: [isize; 1],
@@ -9073,12 +10011,17 @@ unsafe impl ::windows::runtime::Abi for RTM_NEXTHOP_LIST {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RTM_NEXTHOP_STATE_CREATED: u32 = 0u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RTM_NEXTHOP_STATE_DELETED: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RTM_NOTIFY_ONLY_MARKED_DESTS: u32 = 65536u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RTM_NUM_CHANGE_TYPES: u32 = 3u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub struct RTM_PREF_INFO {
     pub Metric: u32,
     pub Preference: u32,
@@ -9106,6 +10049,7 @@ unsafe impl ::windows::runtime::Abi for RTM_PREF_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub struct RTM_REGN_PROFILE {
     pub MaxNextHopsInRoute: u32,
     pub MaxHandlesInEnum: u32,
@@ -9133,27 +10077,47 @@ unsafe impl ::windows::runtime::Abi for RTM_REGN_PROFILE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RTM_RESUME_METHODS: u32 = 0u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RTM_ROUTE_CHANGE_BEST: u32 = 65536u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RTM_ROUTE_CHANGE_FIRST: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RTM_ROUTE_CHANGE_NEW: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RTM_ROUTE_FLAGS_BLACKHOLE: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RTM_ROUTE_FLAGS_DISCARD: u32 = 4u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RTM_ROUTE_FLAGS_INACTIVE: u32 = 8u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RTM_ROUTE_FLAGS_LIMITED_BC: u32 = 1024u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RTM_ROUTE_FLAGS_LOCAL: u32 = 16u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RTM_ROUTE_FLAGS_LOCAL_MCAST: u32 = 512u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RTM_ROUTE_FLAGS_LOOPBACK: u32 = 128u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RTM_ROUTE_FLAGS_MARTIAN: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RTM_ROUTE_FLAGS_MCAST: u32 = 256u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RTM_ROUTE_FLAGS_MYSELF: u32 = 64u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RTM_ROUTE_FLAGS_ONES_NETBC: u32 = 16384u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RTM_ROUTE_FLAGS_ONES_SUBNETBC: u32 = 32768u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RTM_ROUTE_FLAGS_REMOTE: u32 = 32u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RTM_ROUTE_FLAGS_ZEROS_NETBC: u32 = 4096u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RTM_ROUTE_FLAGS_ZEROS_SUBNETBC: u32 = 8192u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub struct RTM_ROUTE_INFO {
     pub DestHandle: isize,
     pub RouteOwner: isize,
@@ -9198,17 +10162,29 @@ unsafe impl ::windows::runtime::Abi for RTM_ROUTE_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RTM_ROUTE_STATE_CREATED: u32 = 0u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RTM_ROUTE_STATE_DELETED: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RTM_ROUTE_STATE_DELETING: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RTM_VIEW_ID_MCAST: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RTM_VIEW_ID_UCAST: u32 = 0u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RTM_VIEW_MASK_ALL: u32 = 4294967295u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RTM_VIEW_MASK_ANY: u32 = 0u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RTM_VIEW_MASK_MCAST: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RTM_VIEW_MASK_NONE: u32 = 0u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RTM_VIEW_MASK_SIZE: u32 = 32u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RTM_VIEW_MASK_UCAST: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn RasClearConnectionStatistics<'a, Param0: ::windows::runtime::IntoParam<'a, HRASCONN>>(hrasconn: Param0) -> u32 {
     #[cfg(windows)]
@@ -9222,6 +10198,7 @@ pub unsafe fn RasClearConnectionStatistics<'a, Param0: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn RasClearLinkStatistics<'a, Param0: ::windows::runtime::IntoParam<'a, HRASCONN>>(hrasconn: Param0, dwsubentry: u32) -> u32 {
     #[cfg(windows)]
@@ -9236,6 +10213,7 @@ pub unsafe fn RasClearLinkStatistics<'a, Param0: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RasConnectionNotificationA<'a, Param0: ::windows::runtime::IntoParam<'a, HRASCONN>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(param0: Param0, param1: Param1, param2: u32) -> u32 {
     #[cfg(windows)]
@@ -9250,6 +10228,7 @@ pub unsafe fn RasConnectionNotificationA<'a, Param0: ::windows::runtime::IntoPar
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RasConnectionNotificationW<'a, Param0: ::windows::runtime::IntoParam<'a, HRASCONN>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(param0: Param0, param1: Param1, param2: u32) -> u32 {
     #[cfg(windows)]
@@ -9264,6 +10243,7 @@ pub unsafe fn RasConnectionNotificationW<'a, Param0: ::windows::runtime::IntoPar
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RasCreatePhonebookEntryA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(param0: Param0, param1: Param1) -> u32 {
     #[cfg(windows)]
@@ -9278,6 +10258,7 @@ pub unsafe fn RasCreatePhonebookEntryA<'a, Param0: ::windows::runtime::IntoParam
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RasCreatePhonebookEntryW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(param0: Param0, param1: Param1) -> u32 {
     #[cfg(windows)]
@@ -9315,6 +10296,7 @@ pub type RasCustomScriptExecuteFn = unsafe extern "system" fn(
     pvreserved: *mut ::std::ffi::c_void,
 ) -> u32;
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RasDeleteEntryA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(param0: Param0, param1: Param1) -> u32 {
     #[cfg(windows)]
@@ -9329,6 +10311,7 @@ pub unsafe fn RasDeleteEntryA<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RasDeleteEntryW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(param0: Param0, param1: Param1) -> u32 {
     #[cfg(windows)]
@@ -9343,6 +10326,7 @@ pub unsafe fn RasDeleteEntryW<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RasDeleteSubEntryA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszphonebook: Param0, pszentry: Param1, dwsubentryid: u32) -> u32 {
     #[cfg(windows)]
@@ -9357,6 +10341,7 @@ pub unsafe fn RasDeleteSubEntryA<'a, Param0: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RasDeleteSubEntryW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszphonebook: Param0, pszentry: Param1, dwsubentryid: u32) -> u32 {
     #[cfg(windows)]
@@ -9371,6 +10356,7 @@ pub unsafe fn RasDeleteSubEntryW<'a, Param0: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RasDialA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *const RASDIALEXTENSIONS, param1: Param1, param2: *const RASDIALPARAMSA, param3: u32, param4: *const ::std::ffi::c_void, param5: *mut HRASCONN) -> u32 {
     #[cfg(windows)]
@@ -9385,6 +10371,7 @@ pub unsafe fn RasDialA<'a, Param1: ::windows::runtime::IntoParam<'a, super::supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RasDialDlgA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpszphonebook: Param0, lpszentry: Param1, lpszphonenumber: Param2, lpinfo: *mut RASDIALDLG) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -9399,6 +10386,7 @@ pub unsafe fn RasDialDlgA<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RasDialDlgW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszphonebook: Param0, lpszentry: Param1, lpszphonenumber: Param2, lpinfo: *mut RASDIALDLG) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -9413,6 +10401,7 @@ pub unsafe fn RasDialDlgW<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RasDialW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(param0: *const RASDIALEXTENSIONS, param1: Param1, param2: *const RASDIALPARAMSW, param3: u32, param4: *const ::std::ffi::c_void, param5: *mut HRASCONN) -> u32 {
     #[cfg(windows)]
@@ -9427,6 +10416,7 @@ pub unsafe fn RasDialW<'a, Param1: ::windows::runtime::IntoParam<'a, super::supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RasEditPhonebookEntryA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(param0: Param0, param1: Param1, param2: Param2) -> u32 {
     #[cfg(windows)]
@@ -9441,6 +10431,7 @@ pub unsafe fn RasEditPhonebookEntryA<'a, Param0: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RasEditPhonebookEntryW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(param0: Param0, param1: Param1, param2: Param2) -> u32 {
     #[cfg(windows)]
@@ -9455,6 +10446,7 @@ pub unsafe fn RasEditPhonebookEntryW<'a, Param0: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RasEntryDlgA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpszphonebook: Param0, lpszentry: Param1, lpinfo: *mut RASENTRYDLGA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -9469,6 +10461,7 @@ pub unsafe fn RasEntryDlgA<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RasEntryDlgW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszphonebook: Param0, lpszentry: Param1, lpinfo: *mut RASENTRYDLGW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -9483,6 +10476,7 @@ pub unsafe fn RasEntryDlgW<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RasEnumAutodialAddressesA(lpprasautodialaddresses: *mut super::super::Foundation::PSTR, lpdwcbrasautodialaddresses: *mut u32, lpdwcrasautodialaddresses: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -9497,6 +10491,7 @@ pub unsafe fn RasEnumAutodialAddressesA(lpprasautodialaddresses: *mut super::sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RasEnumAutodialAddressesW(lpprasautodialaddresses: *mut super::super::Foundation::PWSTR, lpdwcbrasautodialaddresses: *mut u32, lpdwcrasautodialaddresses: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -9511,6 +10506,7 @@ pub unsafe fn RasEnumAutodialAddressesW(lpprasautodialaddresses: *mut super::sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RasEnumConnectionsA(param0: *mut RASCONNA, param1: *mut u32, param2: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -9525,6 +10521,7 @@ pub unsafe fn RasEnumConnectionsA(param0: *mut RASCONNA, param1: *mut u32, param
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RasEnumConnectionsW(param0: *mut RASCONNW, param1: *mut u32, param2: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -9539,6 +10536,7 @@ pub unsafe fn RasEnumConnectionsW(param0: *mut RASCONNW, param1: *mut u32, param
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RasEnumDevicesA(param0: *mut RASDEVINFOA, param1: *mut u32, param2: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -9552,6 +10550,7 @@ pub unsafe fn RasEnumDevicesA(param0: *mut RASDEVINFOA, param1: *mut u32, param2
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn RasEnumDevicesW(param0: *mut RASDEVINFOW, param1: *mut u32, param2: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -9566,6 +10565,7 @@ pub unsafe fn RasEnumDevicesW(param0: *mut RASDEVINFOW, param1: *mut u32, param2
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RasEnumEntriesA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(param0: Param0, param1: Param1, param2: *mut RASENTRYNAMEA, param3: *mut u32, param4: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -9580,6 +10580,7 @@ pub unsafe fn RasEnumEntriesA<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RasEnumEntriesW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(param0: Param0, param1: Param1, param2: *mut RASENTRYNAMEW, param3: *mut u32, param4: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -9594,6 +10595,7 @@ pub unsafe fn RasEnumEntriesW<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RasFreeEapUserIdentityA(praseapuseridentity: *const RASEAPUSERIDENTITYA) {
     #[cfg(windows)]
@@ -9607,6 +10609,7 @@ pub unsafe fn RasFreeEapUserIdentityA(praseapuseridentity: *const RASEAPUSERIDEN
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn RasFreeEapUserIdentityW(praseapuseridentity: *const RASEAPUSERIDENTITYW) {
     #[cfg(windows)]
@@ -9621,6 +10624,7 @@ pub unsafe fn RasFreeEapUserIdentityW(praseapuseridentity: *const RASEAPUSERIDEN
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RasGetAutodialAddressA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(param0: Param0, param1: *const u32, param2: *mut RASAUTODIALENTRYA, param3: *mut u32, param4: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -9635,6 +10639,7 @@ pub unsafe fn RasGetAutodialAddressA<'a, Param0: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RasGetAutodialAddressW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(param0: Param0, param1: *const u32, param2: *mut RASAUTODIALENTRYW, param3: *mut u32, param4: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -9648,6 +10653,7 @@ pub unsafe fn RasGetAutodialAddressW<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn RasGetAutodialEnableA(param0: u32, param1: *mut i32) -> u32 {
     #[cfg(windows)]
@@ -9661,6 +10667,7 @@ pub unsafe fn RasGetAutodialEnableA(param0: u32, param1: *mut i32) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn RasGetAutodialEnableW(param0: u32, param1: *mut i32) -> u32 {
     #[cfg(windows)]
@@ -9674,6 +10681,7 @@ pub unsafe fn RasGetAutodialEnableW(param0: u32, param1: *mut i32) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn RasGetAutodialParamA(param0: u32, param1: *mut ::std::ffi::c_void, param2: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -9687,6 +10695,7 @@ pub unsafe fn RasGetAutodialParamA(param0: u32, param1: *mut ::std::ffi::c_void,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn RasGetAutodialParamW(param0: u32, param1: *mut ::std::ffi::c_void, param2: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -9701,6 +10710,7 @@ pub unsafe fn RasGetAutodialParamW(param0: u32, param1: *mut ::std::ffi::c_void,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn RasGetConnectStatusA<'a, Param0: ::windows::runtime::IntoParam<'a, HRASCONN>>(param0: Param0, param1: *mut RASCONNSTATUSA) -> u32 {
     #[cfg(windows)]
@@ -9715,6 +10725,7 @@ pub unsafe fn RasGetConnectStatusA<'a, Param0: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn RasGetConnectStatusW<'a, Param0: ::windows::runtime::IntoParam<'a, HRASCONN>>(param0: Param0, param1: *mut RASCONNSTATUSW) -> u32 {
     #[cfg(windows)]
@@ -9728,6 +10739,7 @@ pub unsafe fn RasGetConnectStatusW<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn RasGetConnectionStatistics<'a, Param0: ::windows::runtime::IntoParam<'a, HRASCONN>>(hrasconn: Param0, lpstatistics: *mut RAS_STATS) -> u32 {
     #[cfg(windows)]
@@ -9741,6 +10753,7 @@ pub unsafe fn RasGetConnectionStatistics<'a, Param0: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn RasGetCountryInfoA(param0: *mut RASCTRYINFO, param1: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -9754,6 +10767,7 @@ pub unsafe fn RasGetCountryInfoA(param0: *mut RASCTRYINFO, param1: *mut u32) -> 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn RasGetCountryInfoW(param0: *mut RASCTRYINFO, param1: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -9768,6 +10782,7 @@ pub unsafe fn RasGetCountryInfoW(param0: *mut RASCTRYINFO, param1: *mut u32) -> 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RasGetCredentialsA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(param0: Param0, param1: Param1, param2: *mut RASCREDENTIALSA) -> u32 {
     #[cfg(windows)]
@@ -9782,6 +10797,7 @@ pub unsafe fn RasGetCredentialsA<'a, Param0: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RasGetCredentialsW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(param0: Param0, param1: Param1, param2: *mut RASCREDENTIALSW) -> u32 {
     #[cfg(windows)]
@@ -9796,6 +10812,7 @@ pub unsafe fn RasGetCredentialsW<'a, Param0: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RasGetCustomAuthDataA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszphonebook: Param0, pszentry: Param1, pbcustomauthdata: *mut u8, pdwsizeofcustomauthdata: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -9810,6 +10827,7 @@ pub unsafe fn RasGetCustomAuthDataA<'a, Param0: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RasGetCustomAuthDataW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszphonebook: Param0, pszentry: Param1, pbcustomauthdata: *mut u8, pdwsizeofcustomauthdata: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -9824,6 +10842,7 @@ pub unsafe fn RasGetCustomAuthDataW<'a, Param0: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RasGetEapUserDataA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(htoken: Param0, pszphonebook: Param1, pszentry: Param2, pbeapdata: *mut u8, pdwsizeofeapdata: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -9838,6 +10857,7 @@ pub unsafe fn RasGetEapUserDataA<'a, Param0: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RasGetEapUserDataW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(htoken: Param0, pszphonebook: Param1, pszentry: Param2, pbeapdata: *mut u8, pdwsizeofeapdata: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -9852,6 +10872,7 @@ pub unsafe fn RasGetEapUserDataW<'a, Param0: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RasGetEapUserIdentityA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(pszphonebook: Param0, pszentry: Param1, dwflags: u32, hwnd: Param3, ppraseapuseridentity: *mut *mut RASEAPUSERIDENTITYA) -> u32 {
     #[cfg(windows)]
@@ -9866,6 +10887,7 @@ pub unsafe fn RasGetEapUserIdentityA<'a, Param0: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RasGetEapUserIdentityW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(pszphonebook: Param0, pszentry: Param1, dwflags: u32, hwnd: Param3, ppraseapuseridentity: *mut *mut RASEAPUSERIDENTITYW) -> u32 {
     #[cfg(windows)]
@@ -9880,6 +10902,7 @@ pub unsafe fn RasGetEapUserIdentityW<'a, Param0: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RasGetEntryDialParamsA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(param0: Param0, param1: *mut RASDIALPARAMSA, param2: *mut i32) -> u32 {
     #[cfg(windows)]
@@ -9894,6 +10917,7 @@ pub unsafe fn RasGetEntryDialParamsA<'a, Param0: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RasGetEntryDialParamsW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(param0: Param0, param1: *mut RASDIALPARAMSW, param2: *mut i32) -> u32 {
     #[cfg(windows)]
@@ -9908,6 +10932,7 @@ pub unsafe fn RasGetEntryDialParamsW<'a, Param0: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn RasGetEntryPropertiesA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(param0: Param0, param1: Param1, param2: *mut RASENTRYA, param3: *mut u32, param4: *mut u8, param5: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -9922,6 +10947,7 @@ pub unsafe fn RasGetEntryPropertiesA<'a, Param0: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn RasGetEntryPropertiesW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(param0: Param0, param1: Param1, param2: *mut RASENTRYW, param3: *mut u32, param4: *mut u8, param5: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -9936,6 +10962,7 @@ pub unsafe fn RasGetEntryPropertiesW<'a, Param0: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RasGetErrorStringA(resourceid: u32, lpszstring: super::super::Foundation::PSTR, inbufsize: u32) -> u32 {
     #[cfg(windows)]
@@ -9950,6 +10977,7 @@ pub unsafe fn RasGetErrorStringA(resourceid: u32, lpszstring: super::super::Foun
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RasGetErrorStringW(resourceid: u32, lpszstring: super::super::Foundation::PWSTR, inbufsize: u32) -> u32 {
     #[cfg(windows)]
@@ -9963,6 +10991,7 @@ pub unsafe fn RasGetErrorStringW(resourceid: u32, lpszstring: super::super::Foun
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn RasGetLinkStatistics<'a, Param0: ::windows::runtime::IntoParam<'a, HRASCONN>>(hrasconn: Param0, dwsubentry: u32, lpstatistics: *mut RAS_STATS) -> u32 {
     #[cfg(windows)]
@@ -9977,6 +11006,7 @@ pub unsafe fn RasGetLinkStatistics<'a, Param0: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RasGetPCscf(lpszpcscf: super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
@@ -9990,6 +11020,7 @@ pub unsafe fn RasGetPCscf(lpszpcscf: super::super::Foundation::PWSTR) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn RasGetProjectionInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, HRASCONN>>(param0: Param0, param1: RASPROJECTION, param2: *mut ::std::ffi::c_void, param3: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -10004,6 +11035,7 @@ pub unsafe fn RasGetProjectionInfoA<'a, Param0: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn RasGetProjectionInfoEx<'a, Param0: ::windows::runtime::IntoParam<'a, HRASCONN>>(hrasconn: Param0, prasprojection: *mut RAS_PROJECTION_INFO, lpdwsize: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -10017,6 +11049,7 @@ pub unsafe fn RasGetProjectionInfoEx<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn RasGetProjectionInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, HRASCONN>>(param0: Param0, param1: RASPROJECTION, param2: *mut ::std::ffi::c_void, param3: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -10030,6 +11063,7 @@ pub unsafe fn RasGetProjectionInfoW<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn RasGetSubEntryHandleA<'a, Param0: ::windows::runtime::IntoParam<'a, HRASCONN>>(param0: Param0, param1: u32, param2: *mut HRASCONN) -> u32 {
     #[cfg(windows)]
@@ -10043,6 +11077,7 @@ pub unsafe fn RasGetSubEntryHandleA<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn RasGetSubEntryHandleW<'a, Param0: ::windows::runtime::IntoParam<'a, HRASCONN>>(param0: Param0, param1: u32, param2: *mut HRASCONN) -> u32 {
     #[cfg(windows)]
@@ -10057,6 +11092,7 @@ pub unsafe fn RasGetSubEntryHandleW<'a, Param0: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RasGetSubEntryPropertiesA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(param0: Param0, param1: Param1, param2: u32, param3: *mut RASSUBENTRYA, param4: *mut u32, param5: *mut u8, param6: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -10071,6 +11107,7 @@ pub unsafe fn RasGetSubEntryPropertiesA<'a, Param0: ::windows::runtime::IntoPara
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RasGetSubEntryPropertiesW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(param0: Param0, param1: Param1, param2: u32, param3: *mut RASSUBENTRYW, param4: *mut u32, param5: *mut u8, param6: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -10084,6 +11121,7 @@ pub unsafe fn RasGetSubEntryPropertiesW<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn RasHangUpA<'a, Param0: ::windows::runtime::IntoParam<'a, HRASCONN>>(param0: Param0) -> u32 {
     #[cfg(windows)]
@@ -10097,6 +11135,7 @@ pub unsafe fn RasHangUpA<'a, Param0: ::windows::runtime::IntoParam<'a, HRASCONN>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn RasHangUpW<'a, Param0: ::windows::runtime::IntoParam<'a, HRASCONN>>(param0: Param0) -> u32 {
     #[cfg(windows)]
@@ -10111,6 +11150,7 @@ pub unsafe fn RasHangUpW<'a, Param0: ::windows::runtime::IntoParam<'a, HRASCONN>
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RasInvokeEapUI<'a, Param0: ::windows::runtime::IntoParam<'a, HRASCONN>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(param0: Param0, param1: u32, param2: *const RASDIALEXTENSIONS, param3: Param3) -> u32 {
     #[cfg(windows)]
@@ -10125,6 +11165,7 @@ pub unsafe fn RasInvokeEapUI<'a, Param0: ::windows::runtime::IntoParam<'a, HRASC
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RasPhonebookDlgA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpszphonebook: Param0, lpszentry: Param1, lpinfo: *mut RASPBDLGA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10139,6 +11180,7 @@ pub unsafe fn RasPhonebookDlgA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RasPhonebookDlgW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszphonebook: Param0, lpszentry: Param1, lpinfo: *mut RASPBDLGW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10153,6 +11195,7 @@ pub unsafe fn RasPhonebookDlgW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RasRenameEntryA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(param0: Param0, param1: Param1, param2: Param2) -> u32 {
     #[cfg(windows)]
@@ -10167,6 +11210,7 @@ pub unsafe fn RasRenameEntryA<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RasRenameEntryW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(param0: Param0, param1: Param1, param2: Param2) -> u32 {
     #[cfg(windows)]
@@ -10181,6 +11225,7 @@ pub unsafe fn RasRenameEntryW<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RasSetAutodialAddressA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(param0: Param0, param1: u32, param2: *const RASAUTODIALENTRYA, param3: u32, param4: u32) -> u32 {
     #[cfg(windows)]
@@ -10195,6 +11240,7 @@ pub unsafe fn RasSetAutodialAddressA<'a, Param0: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RasSetAutodialAddressW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(param0: Param0, param1: u32, param2: *const RASAUTODIALENTRYW, param3: u32, param4: u32) -> u32 {
     #[cfg(windows)]
@@ -10209,6 +11255,7 @@ pub unsafe fn RasSetAutodialAddressW<'a, Param0: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RasSetAutodialEnableA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(param0: u32, param1: Param1) -> u32 {
     #[cfg(windows)]
@@ -10223,6 +11270,7 @@ pub unsafe fn RasSetAutodialEnableA<'a, Param1: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RasSetAutodialEnableW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(param0: u32, param1: Param1) -> u32 {
     #[cfg(windows)]
@@ -10236,6 +11284,7 @@ pub unsafe fn RasSetAutodialEnableW<'a, Param1: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn RasSetAutodialParamA(param0: u32, param1: *const ::std::ffi::c_void, param2: u32) -> u32 {
     #[cfg(windows)]
@@ -10249,6 +11298,7 @@ pub unsafe fn RasSetAutodialParamA(param0: u32, param1: *const ::std::ffi::c_voi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn RasSetAutodialParamW(param0: u32, param1: *const ::std::ffi::c_void, param2: u32) -> u32 {
     #[cfg(windows)]
@@ -10263,6 +11313,7 @@ pub unsafe fn RasSetAutodialParamW(param0: u32, param1: *const ::std::ffi::c_voi
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RasSetCredentialsA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(param0: Param0, param1: Param1, param2: *const RASCREDENTIALSA, param3: Param3) -> u32 {
     #[cfg(windows)]
@@ -10277,6 +11328,7 @@ pub unsafe fn RasSetCredentialsA<'a, Param0: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RasSetCredentialsW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(param0: Param0, param1: Param1, param2: *const RASCREDENTIALSW, param3: Param3) -> u32 {
     #[cfg(windows)]
@@ -10291,6 +11343,7 @@ pub unsafe fn RasSetCredentialsW<'a, Param0: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RasSetCustomAuthDataA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszphonebook: Param0, pszentry: Param1, pbcustomauthdata: *const u8, dwsizeofcustomauthdata: u32) -> u32 {
     #[cfg(windows)]
@@ -10305,6 +11358,7 @@ pub unsafe fn RasSetCustomAuthDataA<'a, Param0: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RasSetCustomAuthDataW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszphonebook: Param0, pszentry: Param1, pbcustomauthdata: *const u8, dwsizeofcustomauthdata: u32) -> u32 {
     #[cfg(windows)]
@@ -10319,6 +11373,7 @@ pub unsafe fn RasSetCustomAuthDataW<'a, Param0: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RasSetEapUserDataA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(htoken: Param0, pszphonebook: Param1, pszentry: Param2, pbeapdata: *const u8, dwsizeofeapdata: u32) -> u32 {
     #[cfg(windows)]
@@ -10333,6 +11388,7 @@ pub unsafe fn RasSetEapUserDataA<'a, Param0: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RasSetEapUserDataW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(htoken: Param0, pszphonebook: Param1, pszentry: Param2, pbeapdata: *const u8, dwsizeofeapdata: u32) -> u32 {
     #[cfg(windows)]
@@ -10347,6 +11403,7 @@ pub unsafe fn RasSetEapUserDataW<'a, Param0: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RasSetEntryDialParamsA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(param0: Param0, param1: *const RASDIALPARAMSA, param2: Param2) -> u32 {
     #[cfg(windows)]
@@ -10361,6 +11418,7 @@ pub unsafe fn RasSetEntryDialParamsA<'a, Param0: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RasSetEntryDialParamsW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(param0: Param0, param1: *const RASDIALPARAMSW, param2: Param2) -> u32 {
     #[cfg(windows)]
@@ -10375,6 +11433,7 @@ pub unsafe fn RasSetEntryDialParamsW<'a, Param0: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn RasSetEntryPropertiesA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(param0: Param0, param1: Param1, param2: *const RASENTRYA, param3: u32, param4: *const u8, param5: u32) -> u32 {
     #[cfg(windows)]
@@ -10389,6 +11448,7 @@ pub unsafe fn RasSetEntryPropertiesA<'a, Param0: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn RasSetEntryPropertiesW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(param0: Param0, param1: Param1, param2: *const RASENTRYW, param3: u32, param4: *const u8, param5: u32) -> u32 {
     #[cfg(windows)]
@@ -10403,6 +11463,7 @@ pub unsafe fn RasSetEntryPropertiesW<'a, Param0: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RasSetSubEntryPropertiesA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(param0: Param0, param1: Param1, param2: u32, param3: *const RASSUBENTRYA, param4: u32, param5: *const u8, param6: u32) -> u32 {
     #[cfg(windows)]
@@ -10417,6 +11478,7 @@ pub unsafe fn RasSetSubEntryPropertiesA<'a, Param0: ::windows::runtime::IntoPara
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RasSetSubEntryPropertiesW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(param0: Param0, param1: Param1, param2: u32, param3: *const RASSUBENTRYW, param4: u32, param5: *const u8, param6: u32) -> u32 {
     #[cfg(windows)]
@@ -10431,6 +11493,7 @@ pub unsafe fn RasSetSubEntryPropertiesW<'a, Param0: ::windows::runtime::IntoPara
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn RasUpdateConnection<'a, Param0: ::windows::runtime::IntoParam<'a, HRASCONN>>(hrasconn: Param0, lprasupdateconn: *const RASUPDATECONN) -> u32 {
     #[cfg(windows)]
@@ -10445,6 +11508,7 @@ pub unsafe fn RasUpdateConnection<'a, Param0: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RasValidateEntryNameA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(param0: Param0, param1: Param1) -> u32 {
     #[cfg(windows)]
@@ -10459,6 +11523,7 @@ pub unsafe fn RasValidateEntryNameA<'a, Param0: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RasValidateEntryNameW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(param0: Param0, param1: Param1) -> u32 {
     #[cfg(windows)]
@@ -10472,6 +11537,7 @@ pub unsafe fn RasValidateEntryNameW<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn RtmAddNextHop(rtmreghandle: isize, nexthopinfo: *mut RTM_NEXTHOP_INFO, nexthophandle: *mut isize, changeflags: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -10485,6 +11551,7 @@ pub unsafe fn RtmAddNextHop(rtmreghandle: isize, nexthopinfo: *mut RTM_NEXTHOP_I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn RtmAddRouteToDest(rtmreghandle: isize, routehandle: *mut isize, destaddress: *mut RTM_NET_ADDRESS, routeinfo: *mut RTM_ROUTE_INFO, timetolive: u32, routelisthandle: isize, notifytype: u32, notifyhandle: isize, changeflags: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -10509,6 +11576,7 @@ pub unsafe fn RtmAddRouteToDest(rtmreghandle: isize, routehandle: *mut isize, de
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RtmBlockMethods<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(rtmreghandle: isize, targethandle: Param1, targettype: u8, blockingflag: u32) -> u32 {
     #[cfg(windows)]
@@ -10523,6 +11591,7 @@ pub unsafe fn RtmBlockMethods<'a, Param1: ::windows::runtime::IntoParam<'a, supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn RtmConvertIpv6AddressAndLengthToNetAddress<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Networking::WinSock::IN6_ADDR>>(pnetaddress: *mut RTM_NET_ADDRESS, address: Param1, dwlength: u32, dwaddresssize: u32) -> u32 {
     #[cfg(windows)]
@@ -10537,6 +11606,7 @@ pub unsafe fn RtmConvertIpv6AddressAndLengthToNetAddress<'a, Param1: ::windows::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn RtmConvertNetAddressToIpv6AddressAndLength(pnetaddress: *mut RTM_NET_ADDRESS, paddress: *mut super::super::Networking::WinSock::IN6_ADDR, plength: *mut u32, dwaddresssize: u32) -> u32 {
     #[cfg(windows)]
@@ -10550,6 +11620,7 @@ pub unsafe fn RtmConvertNetAddressToIpv6AddressAndLength(pnetaddress: *mut RTM_N
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn RtmCreateDestEnum(rtmreghandle: isize, targetviews: u32, enumflags: u32, netaddress: *mut RTM_NET_ADDRESS, protocolid: u32, rtmenumhandle: *mut isize) -> u32 {
     #[cfg(windows)]
@@ -10563,6 +11634,7 @@ pub unsafe fn RtmCreateDestEnum(rtmreghandle: isize, targetviews: u32, enumflags
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn RtmCreateNextHopEnum(rtmreghandle: isize, enumflags: u32, netaddress: *mut RTM_NET_ADDRESS, rtmenumhandle: *mut isize) -> u32 {
     #[cfg(windows)]
@@ -10576,6 +11648,7 @@ pub unsafe fn RtmCreateNextHopEnum(rtmreghandle: isize, enumflags: u32, netaddre
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn RtmCreateRouteEnum(rtmreghandle: isize, desthandle: isize, targetviews: u32, enumflags: u32, startdest: *mut RTM_NET_ADDRESS, matchingflags: u32, criteriaroute: *mut RTM_ROUTE_INFO, criteriainterface: u32, rtmenumhandle: *mut isize) -> u32 {
     #[cfg(windows)]
@@ -10599,6 +11672,7 @@ pub unsafe fn RtmCreateRouteEnum(rtmreghandle: isize, desthandle: isize, targetv
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn RtmCreateRouteList(rtmreghandle: isize, routelisthandle: *mut isize) -> u32 {
     #[cfg(windows)]
@@ -10612,6 +11686,7 @@ pub unsafe fn RtmCreateRouteList(rtmreghandle: isize, routelisthandle: *mut isiz
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn RtmCreateRouteListEnum(rtmreghandle: isize, routelisthandle: isize, rtmenumhandle: *mut isize) -> u32 {
     #[cfg(windows)]
@@ -10625,6 +11700,7 @@ pub unsafe fn RtmCreateRouteListEnum(rtmreghandle: isize, routelisthandle: isize
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn RtmDeleteEnumHandle(rtmreghandle: isize, enumhandle: isize) -> u32 {
     #[cfg(windows)]
@@ -10638,6 +11714,7 @@ pub unsafe fn RtmDeleteEnumHandle(rtmreghandle: isize, enumhandle: isize) -> u32
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn RtmDeleteNextHop(rtmreghandle: isize, nexthophandle: isize, nexthopinfo: *mut RTM_NEXTHOP_INFO) -> u32 {
     #[cfg(windows)]
@@ -10651,6 +11728,7 @@ pub unsafe fn RtmDeleteNextHop(rtmreghandle: isize, nexthophandle: isize, nextho
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn RtmDeleteRouteList(rtmreghandle: isize, routelisthandle: isize) -> u32 {
     #[cfg(windows)]
@@ -10664,6 +11742,7 @@ pub unsafe fn RtmDeleteRouteList(rtmreghandle: isize, routelisthandle: isize) ->
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn RtmDeleteRouteToDest(rtmreghandle: isize, routehandle: isize, changeflags: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -10677,6 +11756,7 @@ pub unsafe fn RtmDeleteRouteToDest(rtmreghandle: isize, routehandle: isize, chan
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn RtmDeregisterEntity(rtmreghandle: isize) -> u32 {
     #[cfg(windows)]
@@ -10690,6 +11770,7 @@ pub unsafe fn RtmDeregisterEntity(rtmreghandle: isize) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn RtmDeregisterFromChangeNotification(rtmreghandle: isize, notifyhandle: isize) -> u32 {
     #[cfg(windows)]
@@ -10703,6 +11784,7 @@ pub unsafe fn RtmDeregisterFromChangeNotification(rtmreghandle: isize, notifyhan
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn RtmFindNextHop(rtmreghandle: isize, nexthopinfo: *mut RTM_NEXTHOP_INFO, nexthophandle: *mut isize, nexthoppointer: *mut *mut RTM_NEXTHOP_INFO) -> u32 {
     #[cfg(windows)]
@@ -10717,6 +11799,7 @@ pub unsafe fn RtmFindNextHop(rtmreghandle: isize, nexthopinfo: *mut RTM_NEXTHOP_
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RtmGetChangeStatus(rtmreghandle: isize, notifyhandle: isize, desthandle: isize, changestatus: *mut super::super::Foundation::BOOL) -> u32 {
     #[cfg(windows)]
@@ -10731,6 +11814,7 @@ pub unsafe fn RtmGetChangeStatus(rtmreghandle: isize, notifyhandle: isize, desth
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RtmGetChangedDests(rtmreghandle: isize, notifyhandle: isize, numdests: *mut u32, changeddests: *mut RTM_DEST_INFO) -> u32 {
     #[cfg(windows)]
@@ -10745,6 +11829,7 @@ pub unsafe fn RtmGetChangedDests(rtmreghandle: isize, notifyhandle: isize, numde
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RtmGetDestInfo(rtmreghandle: isize, desthandle: isize, protocolid: u32, targetviews: u32, destinfo: *mut RTM_DEST_INFO) -> u32 {
     #[cfg(windows)]
@@ -10758,6 +11843,7 @@ pub unsafe fn RtmGetDestInfo(rtmreghandle: isize, desthandle: isize, protocolid:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn RtmGetEntityInfo(rtmreghandle: isize, entityhandle: isize, entityinfo: *mut RTM_ENTITY_INFO) -> u32 {
     #[cfg(windows)]
@@ -10771,6 +11857,7 @@ pub unsafe fn RtmGetEntityInfo(rtmreghandle: isize, entityhandle: isize, entityi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn RtmGetEntityMethods(rtmreghandle: isize, entityhandle: isize, nummethods: *mut u32, exptmethods: *mut ::std::option::Option<RTM_ENTITY_EXPORT_METHOD>) -> u32 {
     #[cfg(windows)]
@@ -10785,6 +11872,7 @@ pub unsafe fn RtmGetEntityMethods(rtmreghandle: isize, entityhandle: isize, numm
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RtmGetEnumDests(rtmreghandle: isize, enumhandle: isize, numdests: *mut u32, destinfos: *mut RTM_DEST_INFO) -> u32 {
     #[cfg(windows)]
@@ -10798,6 +11886,7 @@ pub unsafe fn RtmGetEnumDests(rtmreghandle: isize, enumhandle: isize, numdests: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn RtmGetEnumNextHops(rtmreghandle: isize, enumhandle: isize, numnexthops: *mut u32, nexthophandles: *mut isize) -> u32 {
     #[cfg(windows)]
@@ -10811,6 +11900,7 @@ pub unsafe fn RtmGetEnumNextHops(rtmreghandle: isize, enumhandle: isize, numnext
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn RtmGetEnumRoutes(rtmreghandle: isize, enumhandle: isize, numroutes: *mut u32, routehandles: *mut isize) -> u32 {
     #[cfg(windows)]
@@ -10825,6 +11915,7 @@ pub unsafe fn RtmGetEnumRoutes(rtmreghandle: isize, enumhandle: isize, numroutes
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RtmGetExactMatchDestination(rtmreghandle: isize, destaddress: *mut RTM_NET_ADDRESS, protocolid: u32, targetviews: u32, destinfo: *mut RTM_DEST_INFO) -> u32 {
     #[cfg(windows)]
@@ -10838,6 +11929,7 @@ pub unsafe fn RtmGetExactMatchDestination(rtmreghandle: isize, destaddress: *mut
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn RtmGetExactMatchRoute(rtmreghandle: isize, destaddress: *mut RTM_NET_ADDRESS, matchingflags: u32, routeinfo: *mut RTM_ROUTE_INFO, interfaceindex: u32, targetviews: u32, routehandle: *mut isize) -> u32 {
     #[cfg(windows)]
@@ -10852,6 +11944,7 @@ pub unsafe fn RtmGetExactMatchRoute(rtmreghandle: isize, destaddress: *mut RTM_N
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RtmGetLessSpecificDestination(rtmreghandle: isize, desthandle: isize, protocolid: u32, targetviews: u32, destinfo: *mut RTM_DEST_INFO) -> u32 {
     #[cfg(windows)]
@@ -10865,6 +11958,7 @@ pub unsafe fn RtmGetLessSpecificDestination(rtmreghandle: isize, desthandle: isi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn RtmGetListEnumRoutes(rtmreghandle: isize, enumhandle: isize, numroutes: *mut u32, routehandles: *mut isize) -> u32 {
     #[cfg(windows)]
@@ -10879,6 +11973,7 @@ pub unsafe fn RtmGetListEnumRoutes(rtmreghandle: isize, enumhandle: isize, numro
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RtmGetMostSpecificDestination(rtmreghandle: isize, destaddress: *mut RTM_NET_ADDRESS, protocolid: u32, targetviews: u32, destinfo: *mut RTM_DEST_INFO) -> u32 {
     #[cfg(windows)]
@@ -10892,6 +11987,7 @@ pub unsafe fn RtmGetMostSpecificDestination(rtmreghandle: isize, destaddress: *m
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn RtmGetNextHopInfo(rtmreghandle: isize, nexthophandle: isize, nexthopinfo: *mut RTM_NEXTHOP_INFO) -> u32 {
     #[cfg(windows)]
@@ -10905,6 +12001,7 @@ pub unsafe fn RtmGetNextHopInfo(rtmreghandle: isize, nexthophandle: isize, nexth
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn RtmGetNextHopPointer(rtmreghandle: isize, nexthophandle: isize, nexthoppointer: *mut *mut RTM_NEXTHOP_INFO) -> u32 {
     #[cfg(windows)]
@@ -10918,6 +12015,7 @@ pub unsafe fn RtmGetNextHopPointer(rtmreghandle: isize, nexthophandle: isize, ne
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn RtmGetOpaqueInformationPointer(rtmreghandle: isize, desthandle: isize, opaqueinfopointer: *mut *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -10931,6 +12029,7 @@ pub unsafe fn RtmGetOpaqueInformationPointer(rtmreghandle: isize, desthandle: is
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn RtmGetRegisteredEntities(rtmreghandle: isize, numentities: *mut u32, entityhandles: *mut isize, entityinfos: *mut RTM_ENTITY_INFO) -> u32 {
     #[cfg(windows)]
@@ -10944,6 +12043,7 @@ pub unsafe fn RtmGetRegisteredEntities(rtmreghandle: isize, numentities: *mut u3
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn RtmGetRouteInfo(rtmreghandle: isize, routehandle: isize, routeinfo: *mut RTM_ROUTE_INFO, destaddress: *mut RTM_NET_ADDRESS) -> u32 {
     #[cfg(windows)]
@@ -10957,6 +12057,7 @@ pub unsafe fn RtmGetRouteInfo(rtmreghandle: isize, routehandle: isize, routeinfo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn RtmGetRoutePointer(rtmreghandle: isize, routehandle: isize, routepointer: *mut *mut RTM_ROUTE_INFO) -> u32 {
     #[cfg(windows)]
@@ -10970,6 +12071,7 @@ pub unsafe fn RtmGetRoutePointer(rtmreghandle: isize, routehandle: isize, routep
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn RtmHoldDestination(rtmreghandle: isize, desthandle: isize, targetviews: u32, holdtime: u32) -> u32 {
     #[cfg(windows)]
@@ -10983,6 +12085,7 @@ pub unsafe fn RtmHoldDestination(rtmreghandle: isize, desthandle: isize, targetv
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn RtmIgnoreChangedDests(rtmreghandle: isize, notifyhandle: isize, numdests: u32, changeddests: *mut isize) -> u32 {
     #[cfg(windows)]
@@ -10996,6 +12099,7 @@ pub unsafe fn RtmIgnoreChangedDests(rtmreghandle: isize, notifyhandle: isize, nu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn RtmInsertInRouteList(rtmreghandle: isize, routelisthandle: isize, numroutes: u32, routehandles: *mut isize) -> u32 {
     #[cfg(windows)]
@@ -11009,6 +12113,7 @@ pub unsafe fn RtmInsertInRouteList(rtmreghandle: isize, routelisthandle: isize, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn RtmInvokeMethod(rtmreghandle: isize, entityhandle: isize, input: *mut RTM_ENTITY_METHOD_INPUT, outputsize: *mut u32, output: *mut RTM_ENTITY_METHOD_OUTPUT) -> u32 {
     #[cfg(windows)]
@@ -11022,6 +12127,7 @@ pub unsafe fn RtmInvokeMethod(rtmreghandle: isize, entityhandle: isize, input: *
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn RtmIsBestRoute(rtmreghandle: isize, routehandle: isize, bestinviews: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -11036,6 +12142,7 @@ pub unsafe fn RtmIsBestRoute(rtmreghandle: isize, routehandle: isize, bestinview
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RtmIsMarkedForChangeNotification(rtmreghandle: isize, notifyhandle: isize, desthandle: isize, destmarked: *mut super::super::Foundation::BOOL) -> u32 {
     #[cfg(windows)]
@@ -11050,6 +12157,7 @@ pub unsafe fn RtmIsMarkedForChangeNotification(rtmreghandle: isize, notifyhandle
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RtmLockDestination<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(rtmreghandle: isize, desthandle: isize, exclusive: Param2, lockdest: Param3) -> u32 {
     #[cfg(windows)]
@@ -11064,6 +12172,7 @@ pub unsafe fn RtmLockDestination<'a, Param2: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RtmLockNextHop<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(rtmreghandle: isize, nexthophandle: isize, exclusive: Param2, locknexthop: Param3, nexthoppointer: *mut *mut RTM_NEXTHOP_INFO) -> u32 {
     #[cfg(windows)]
@@ -11078,6 +12187,7 @@ pub unsafe fn RtmLockNextHop<'a, Param2: ::windows::runtime::IntoParam<'a, super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RtmLockRoute<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(rtmreghandle: isize, routehandle: isize, exclusive: Param2, lockroute: Param3, routepointer: *mut *mut RTM_ROUTE_INFO) -> u32 {
     #[cfg(windows)]
@@ -11092,6 +12202,7 @@ pub unsafe fn RtmLockRoute<'a, Param2: ::windows::runtime::IntoParam<'a, super::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RtmMarkDestForChangeNotification<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(rtmreghandle: isize, notifyhandle: isize, desthandle: isize, markdest: Param3) -> u32 {
     #[cfg(windows)]
@@ -11106,6 +12217,7 @@ pub unsafe fn RtmMarkDestForChangeNotification<'a, Param3: ::windows::runtime::I
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RtmReferenceHandles(rtmreghandle: isize, numhandles: u32, rtmhandles: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -11120,6 +12232,7 @@ pub unsafe fn RtmReferenceHandles(rtmreghandle: isize, numhandles: u32, rtmhandl
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RtmRegisterEntity<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(rtmentityinfo: *mut RTM_ENTITY_INFO, exportmethods: *mut RTM_ENTITY_EXPORT_METHODS, eventcallback: ::std::option::Option<RTM_EVENT_CALLBACK>, reserveopaquepointer: Param3, rtmregprofile: *mut RTM_REGN_PROFILE, rtmreghandle: *mut isize) -> u32 {
     #[cfg(windows)]
@@ -11133,6 +12246,7 @@ pub unsafe fn RtmRegisterEntity<'a, Param3: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn RtmRegisterForChangeNotification(rtmreghandle: isize, targetviews: u32, notifyflags: u32, notifycontext: *mut ::std::ffi::c_void, notifyhandle: *mut isize) -> u32 {
     #[cfg(windows)]
@@ -11147,6 +12261,7 @@ pub unsafe fn RtmRegisterForChangeNotification(rtmreghandle: isize, targetviews:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RtmReleaseChangedDests(rtmreghandle: isize, notifyhandle: isize, numdests: u32, changeddests: *mut RTM_DEST_INFO) -> u32 {
     #[cfg(windows)]
@@ -11161,6 +12276,7 @@ pub unsafe fn RtmReleaseChangedDests(rtmreghandle: isize, notifyhandle: isize, n
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RtmReleaseDestInfo(rtmreghandle: isize, destinfo: *mut RTM_DEST_INFO) -> u32 {
     #[cfg(windows)]
@@ -11175,6 +12291,7 @@ pub unsafe fn RtmReleaseDestInfo(rtmreghandle: isize, destinfo: *mut RTM_DEST_IN
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RtmReleaseDests(rtmreghandle: isize, numdests: u32, destinfos: *mut RTM_DEST_INFO) -> u32 {
     #[cfg(windows)]
@@ -11188,6 +12305,7 @@ pub unsafe fn RtmReleaseDests(rtmreghandle: isize, numdests: u32, destinfos: *mu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn RtmReleaseEntities(rtmreghandle: isize, numentities: u32, entityhandles: *mut isize) -> u32 {
     #[cfg(windows)]
@@ -11201,6 +12319,7 @@ pub unsafe fn RtmReleaseEntities(rtmreghandle: isize, numentities: u32, entityha
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn RtmReleaseEntityInfo(rtmreghandle: isize, entityinfo: *mut RTM_ENTITY_INFO) -> u32 {
     #[cfg(windows)]
@@ -11214,6 +12333,7 @@ pub unsafe fn RtmReleaseEntityInfo(rtmreghandle: isize, entityinfo: *mut RTM_ENT
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn RtmReleaseNextHopInfo(rtmreghandle: isize, nexthopinfo: *mut RTM_NEXTHOP_INFO) -> u32 {
     #[cfg(windows)]
@@ -11227,6 +12347,7 @@ pub unsafe fn RtmReleaseNextHopInfo(rtmreghandle: isize, nexthopinfo: *mut RTM_N
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn RtmReleaseNextHops(rtmreghandle: isize, numnexthops: u32, nexthophandles: *mut isize) -> u32 {
     #[cfg(windows)]
@@ -11240,6 +12361,7 @@ pub unsafe fn RtmReleaseNextHops(rtmreghandle: isize, numnexthops: u32, nexthoph
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn RtmReleaseRouteInfo(rtmreghandle: isize, routeinfo: *mut RTM_ROUTE_INFO) -> u32 {
     #[cfg(windows)]
@@ -11253,6 +12375,7 @@ pub unsafe fn RtmReleaseRouteInfo(rtmreghandle: isize, routeinfo: *mut RTM_ROUTE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn RtmReleaseRoutes(rtmreghandle: isize, numroutes: u32, routehandles: *mut isize) -> u32 {
     #[cfg(windows)]
@@ -11266,6 +12389,7 @@ pub unsafe fn RtmReleaseRoutes(rtmreghandle: isize, numroutes: u32, routehandles
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[inline]
 pub unsafe fn RtmUpdateAndUnlockRoute(rtmreghandle: isize, routehandle: isize, timetolive: u32, routelisthandle: isize, notifytype: u32, notifyhandle: isize, changeflags: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -11282,6 +12406,7 @@ pub unsafe fn RtmUpdateAndUnlockRoute(rtmreghandle: isize, routehandle: isize, t
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 pub struct SECURITY_MESSAGE {
     pub dwMsgId: SECURITY_MESSAGE_MSG_ID,
     pub hPort: isize,
@@ -11316,6 +12441,7 @@ unsafe impl ::windows::runtime::Abi for SECURITY_MESSAGE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SECURITY_MESSAGE_MSG_ID(pub u32);
@@ -11361,6 +12487,7 @@ impl ::std::ops::Not for SECURITY_MESSAGE_MSG_ID {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub struct SOURCE_GROUP_ENTRY {
     pub dwSourceAddr: u32,
     pub dwSourceMask: u32,
@@ -11391,6 +12518,7 @@ unsafe impl ::windows::runtime::Abi for SOURCE_GROUP_ENTRY {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`, `Win32_Security_Cryptography`*"]
 pub struct SSTP_CERT_INFO {
     pub isDefault: super::super::Foundation::BOOL,
     pub certBlob: super::super::Security::Cryptography::CRYPTOAPI_BLOB,
@@ -11425,6 +12553,7 @@ unsafe impl ::windows::runtime::Abi for SSTP_CERT_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`, `Win32_Security_Cryptography`*"]
 pub struct SSTP_CONFIG_PARAMS {
     pub dwNumPorts: u32,
     pub dwPortFlags: u32,
@@ -11462,6 +12591,7 @@ unsafe impl ::windows::runtime::Abi for SSTP_CONFIG_PARAMS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Networking_WinSock`*"]
 pub struct VPN_TS_IP_ADDRESS {
     pub Type: u16,
     pub Anonymous: VPN_TS_IP_ADDRESS_0,
@@ -11490,6 +12620,7 @@ unsafe impl ::windows::runtime::Abi for VPN_TS_IP_ADDRESS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Networking_WinSock`*"]
 pub union VPN_TS_IP_ADDRESS_0 {
     pub v4: super::super::Networking::WinSock::IN_ADDR,
     pub v6: super::super::Networking::WinSock::IN6_ADDR,
@@ -11515,25 +12646,42 @@ unsafe impl ::windows::runtime::Abi for VPN_TS_IP_ADDRESS_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const VS_Default: u32 = 0u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const VS_GREOnly: u32 = 9u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const VS_Ikev2First: u32 = 8u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const VS_Ikev2Only: u32 = 7u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const VS_Ikev2Sstp: u32 = 14u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const VS_L2tpFirst: u32 = 4u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const VS_L2tpOnly: u32 = 3u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const VS_L2tpSstp: u32 = 13u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const VS_PptpFirst: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const VS_PptpOnly: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const VS_PptpSstp: u32 = 12u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const VS_ProtocolList: u32 = 15u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const VS_SstpFirst: u32 = 6u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const VS_SstpOnly: u32 = 5u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const WARNING_MSG_ALIAS_NOT_ADDED: u32 = 644u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const WM_RASDIALEVENT: u32 = 52429u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Networking_WinSock`*"]
 pub struct _MPR_VPN_SELECTOR {
     pub r#type: MPR_VPN_TS_TYPE,
     pub protocolId: u8,

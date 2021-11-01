@@ -1,17 +1,29 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 pub const BATTERY_DEVTYPE_GAMEPAD: u32 = 0u32;
+#[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 pub const BATTERY_DEVTYPE_HEADSET: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 pub const BATTERY_LEVEL_EMPTY: u32 = 0u32;
+#[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 pub const BATTERY_LEVEL_FULL: u32 = 3u32;
+#[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 pub const BATTERY_LEVEL_LOW: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 pub const BATTERY_LEVEL_MEDIUM: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 pub const BATTERY_TYPE_ALKALINE: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 pub const BATTERY_TYPE_DISCONNECTED: u32 = 0u32;
+#[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 pub const BATTERY_TYPE_NIMH: u32 = 3u32;
+#[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 pub const BATTERY_TYPE_UNKNOWN: u32 = 255u32;
+#[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 pub const BATTERY_TYPE_WIRED: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 pub struct XINPUT_BATTERY_INFORMATION {
     pub BatteryType: u8,
     pub BatteryLevel: u8,
@@ -39,6 +51,7 @@ unsafe impl ::windows::runtime::Abi for XINPUT_BATTERY_INFORMATION {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 pub struct XINPUT_CAPABILITIES {
     pub Type: u8,
     pub SubType: u8,
@@ -67,26 +80,45 @@ unsafe impl ::windows::runtime::Abi for XINPUT_CAPABILITIES {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 pub const XINPUT_CAPS_FFB_SUPPORTED: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 pub const XINPUT_CAPS_NO_NAVIGATION: u32 = 16u32;
+#[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 pub const XINPUT_CAPS_PMD_SUPPORTED: u32 = 8u32;
+#[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 pub const XINPUT_CAPS_VOICE_SUPPORTED: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 pub const XINPUT_CAPS_WIRELESS: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 pub const XINPUT_DEVSUBTYPE_ARCADE_PAD: u32 = 19u32;
+#[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 pub const XINPUT_DEVSUBTYPE_ARCADE_STICK: u32 = 3u32;
+#[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 pub const XINPUT_DEVSUBTYPE_DANCE_PAD: u32 = 5u32;
+#[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 pub const XINPUT_DEVSUBTYPE_DRUM_KIT: u32 = 8u32;
+#[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 pub const XINPUT_DEVSUBTYPE_FLIGHT_STICK: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 pub const XINPUT_DEVSUBTYPE_GAMEPAD: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 pub const XINPUT_DEVSUBTYPE_GUITAR: u32 = 6u32;
+#[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 pub const XINPUT_DEVSUBTYPE_GUITAR_ALTERNATE: u32 = 7u32;
+#[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 pub const XINPUT_DEVSUBTYPE_GUITAR_BASS: u32 = 11u32;
+#[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 pub const XINPUT_DEVSUBTYPE_UNKNOWN: u32 = 0u32;
+#[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 pub const XINPUT_DEVSUBTYPE_WHEEL: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 pub const XINPUT_DEVTYPE_GAMEPAD: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 pub const XINPUT_FLAG_GAMEPAD: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 pub struct XINPUT_GAMEPAD {
     pub wButtons: u16,
     pub bLeftTrigger: u8,
@@ -117,25 +149,43 @@ unsafe impl ::windows::runtime::Abi for XINPUT_GAMEPAD {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 pub const XINPUT_GAMEPAD_A: u32 = 4096u32;
+#[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 pub const XINPUT_GAMEPAD_B: u32 = 8192u32;
+#[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 pub const XINPUT_GAMEPAD_BACK: u32 = 32u32;
+#[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 pub const XINPUT_GAMEPAD_DPAD_DOWN: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 pub const XINPUT_GAMEPAD_DPAD_LEFT: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 pub const XINPUT_GAMEPAD_DPAD_RIGHT: u32 = 8u32;
+#[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 pub const XINPUT_GAMEPAD_DPAD_UP: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 pub const XINPUT_GAMEPAD_LEFT_SHOULDER: u32 = 256u32;
+#[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 pub const XINPUT_GAMEPAD_LEFT_THUMB: u32 = 64u32;
+#[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 pub const XINPUT_GAMEPAD_LEFT_THUMB_DEADZONE: u32 = 7849u32;
+#[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 pub const XINPUT_GAMEPAD_RIGHT_SHOULDER: u32 = 512u32;
+#[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 pub const XINPUT_GAMEPAD_RIGHT_THUMB: u32 = 128u32;
+#[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 pub const XINPUT_GAMEPAD_RIGHT_THUMB_DEADZONE: u32 = 8689u32;
+#[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 pub const XINPUT_GAMEPAD_START: u32 = 16u32;
+#[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 pub const XINPUT_GAMEPAD_TRIGGER_THRESHOLD: u32 = 30u32;
+#[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 pub const XINPUT_GAMEPAD_X: u32 = 16384u32;
+#[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 pub const XINPUT_GAMEPAD_Y: u32 = 32768u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 pub struct XINPUT_KEYSTROKE {
     pub VirtualKey: XINPUT_VIRTUAL_KEY,
     pub Unicode: u16,
@@ -164,11 +214,15 @@ unsafe impl ::windows::runtime::Abi for XINPUT_KEYSTROKE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 pub const XINPUT_KEYSTROKE_KEYDOWN: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 pub const XINPUT_KEYSTROKE_KEYUP: u32 = 2u32;
+#[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 pub const XINPUT_KEYSTROKE_REPEAT: u32 = 4u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 pub struct XINPUT_STATE {
     pub dwPacketNumber: u32,
     pub Gamepad: XINPUT_GAMEPAD,
@@ -196,6 +250,7 @@ unsafe impl ::windows::runtime::Abi for XINPUT_STATE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 pub struct XINPUT_VIBRATION {
     pub wLeftMotorSpeed: u16,
     pub wRightMotorSpeed: u16,
@@ -221,6 +276,7 @@ unsafe impl ::windows::runtime::Abi for XINPUT_VIBRATION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct XINPUT_VIRTUAL_KEY(pub u16);
@@ -266,6 +322,7 @@ unsafe impl ::windows::runtime::Abi for XINPUT_VIRTUAL_KEY {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_Input_XboxController`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn XInputEnable<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOL>>(enable: Param0) {
     #[cfg(windows)]
@@ -280,6 +337,7 @@ pub unsafe fn XInputEnable<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_Input_XboxController`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn XInputGetAudioDeviceIds(dwuserindex: u32, prenderdeviceid: super::super::super::Foundation::PWSTR, prendercount: *mut u32, pcapturedeviceid: super::super::super::Foundation::PWSTR, pcapturecount: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -293,6 +351,7 @@ pub unsafe fn XInputGetAudioDeviceIds(dwuserindex: u32, prenderdeviceid: super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 #[inline]
 pub unsafe fn XInputGetBatteryInformation(dwuserindex: u32, devtype: u8, pbatteryinformation: *mut XINPUT_BATTERY_INFORMATION) -> u32 {
     #[cfg(windows)]
@@ -306,6 +365,7 @@ pub unsafe fn XInputGetBatteryInformation(dwuserindex: u32, devtype: u8, pbatter
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 #[inline]
 pub unsafe fn XInputGetCapabilities(dwuserindex: u32, dwflags: u32, pcapabilities: *mut XINPUT_CAPABILITIES) -> u32 {
     #[cfg(windows)]
@@ -319,6 +379,7 @@ pub unsafe fn XInputGetCapabilities(dwuserindex: u32, dwflags: u32, pcapabilitie
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 #[inline]
 pub unsafe fn XInputGetKeystroke(dwuserindex: u32, dwreserved: u32, pkeystroke: *mut XINPUT_KEYSTROKE) -> u32 {
     #[cfg(windows)]
@@ -332,6 +393,7 @@ pub unsafe fn XInputGetKeystroke(dwuserindex: u32, dwreserved: u32, pkeystroke: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 #[inline]
 pub unsafe fn XInputGetState(dwuserindex: u32, pstate: *mut XINPUT_STATE) -> u32 {
     #[cfg(windows)]
@@ -345,6 +407,7 @@ pub unsafe fn XInputGetState(dwuserindex: u32, pstate: *mut XINPUT_STATE) -> u32
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 #[inline]
 pub unsafe fn XInputSetState(dwuserindex: u32, pvibration: *const XINPUT_VIBRATION) -> u32 {
     #[cfg(windows)]
@@ -358,5 +421,7 @@ pub unsafe fn XInputSetState(dwuserindex: u32, pvibration: *const XINPUT_VIBRATI
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 pub const XUSER_INDEX_ANY: u32 = 255u32;
+#[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 pub const XUSER_MAX_COUNT: u32 = 4u32;

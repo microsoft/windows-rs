@@ -37,11 +37,13 @@ pub struct IWindowManagementPreviewStatics_abi(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, window: ::windows::runtime::RawPtr, preferredframeminsize: super::super::super::Foundation::Size) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: `UI_WindowManagement_Preview`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct WindowManagementPreview(::windows::runtime::IInspectable);
 impl WindowManagementPreview {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_WindowManagement_Preview`, `Foundation`*"]
     pub fn SetPreferredMinSize<'a, Param0: ::windows::runtime::IntoParam<'a, super::AppWindow>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Size>>(window: Param0, preferredframeminsize: Param1) -> ::windows::runtime::Result<()> {
         Self::IWindowManagementPreviewStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), window.into_param().abi(), preferredframeminsize.into_param().abi()).ok() })
     }

@@ -219,6 +219,8 @@ pub fn gen_winrt_method(sig: &MethodSignature, method: &MethodInfo, interface: &
     // TODO: need to consolidate this cfg generation so we
 
     let features = interface_method_features(&interface.def, sig, gen);
+    let cfg = gen.gen_cfg(&features);
+    let doc = gen.gen_cfg_doc(&features);
 
     let deprecated = if method.is_deprecated {
         quote! { #[cfg(feature = "deprecated")] }
@@ -229,7 +231,8 @@ pub fn gen_winrt_method(sig: &MethodSignature, method: &MethodInfo, interface: &
     match interface.kind {
         InterfaceKind::Default => quote! {
             #deprecated
-            #features
+            #cfg
+            #doc
             pub fn #name<#constraints>(&self, #params) -> ::windows::runtime::Result<#return_type_tokens> {
                 let this = self;
                 unsafe {
@@ -240,7 +243,8 @@ pub fn gen_winrt_method(sig: &MethodSignature, method: &MethodInfo, interface: &
         InterfaceKind::NonDefault | InterfaceKind::Overridable => {
             quote! {
                 #deprecated
-                #features
+                #cfg
+                #doc
                 pub fn #name<#constraints>(&self, #params) -> ::windows::runtime::Result<#return_type_tokens> {
                     let this = &::windows::runtime::Interface::cast::<#interface_name>(self)?;
                     unsafe {
@@ -252,7 +256,8 @@ pub fn gen_winrt_method(sig: &MethodSignature, method: &MethodInfo, interface: &
         InterfaceKind::Static | InterfaceKind::Composable => {
             quote! {
                 #deprecated
-                #features
+                #cfg
+                #doc
                 pub fn #name<#constraints>(#params) -> ::windows::runtime::Result<#return_type_tokens> {
                     Self::#interface_name(|this| unsafe { #vcall })
                 }
@@ -262,7 +267,8 @@ pub fn gen_winrt_method(sig: &MethodSignature, method: &MethodInfo, interface: &
             let interface_name = to_ident(interface.def.name());
             quote! {
                 // TODO: why no deprecated?
-                #features
+                #cfg
+                #doc
                 pub fn #name<#constraints>(self, #params) -> ::windows::runtime::Result<#return_type_tokens> {
                     unsafe {
                         let (derived__, base__) = ::windows::runtime::Compose::compose(self);

@@ -10,7 +10,9 @@ pub const CLSID_DxcLinker: ::windows::runtime::GUID = ::windows::runtime::GUID::
 pub const CLSID_DxcOptimizer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2922174367, 52258, 17727, [155, 107, 177, 36, 231, 165, 32, 76]);
 pub const CLSID_DxcPdbUtils: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1415716347, 62158, 17790, [174, 140, 236, 53, 95, 174, 236, 124]);
 pub const CLSID_DxcValidator: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2359550485, 63272, 19699, [140, 221, 136, 175, 145, 117, 135, 161]);
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 pub const D3DCOMPILER_DLL: &'static str = "d3dcompiler_47.dll";
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3DCOMPILER_STRIP_FLAGS(pub i32);
@@ -29,41 +31,76 @@ unsafe impl ::windows::runtime::Abi for D3DCOMPILER_STRIP_FLAGS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 pub const D3DCOMPILE_ALL_RESOURCES_BOUND: u32 = 2097152u32;
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 pub const D3DCOMPILE_AVOID_FLOW_CONTROL: u32 = 512u32;
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 pub const D3DCOMPILE_DEBUG: u32 = 1u32;
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 pub const D3DCOMPILE_DEBUG_NAME_FOR_BINARY: u32 = 8388608u32;
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 pub const D3DCOMPILE_DEBUG_NAME_FOR_SOURCE: u32 = 4194304u32;
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 pub const D3DCOMPILE_EFFECT_ALLOW_SLOW_OPS: u32 = 2u32;
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 pub const D3DCOMPILE_EFFECT_CHILD_EFFECT: u32 = 1u32;
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 pub const D3DCOMPILE_ENABLE_BACKWARDS_COMPATIBILITY: u32 = 4096u32;
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 pub const D3DCOMPILE_ENABLE_STRICTNESS: u32 = 2048u32;
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 pub const D3DCOMPILE_ENABLE_UNBOUNDED_DESCRIPTOR_TABLES: u32 = 1048576u32;
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 pub const D3DCOMPILE_FLAGS2_FORCE_ROOT_SIGNATURE_1_0: u32 = 16u32;
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 pub const D3DCOMPILE_FLAGS2_FORCE_ROOT_SIGNATURE_1_1: u32 = 32u32;
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 pub const D3DCOMPILE_FLAGS2_FORCE_ROOT_SIGNATURE_LATEST: u32 = 0u32;
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 pub const D3DCOMPILE_FORCE_PS_SOFTWARE_NO_OPT: u32 = 128u32;
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 pub const D3DCOMPILE_FORCE_VS_SOFTWARE_NO_OPT: u32 = 64u32;
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 pub const D3DCOMPILE_IEEE_STRICTNESS: u32 = 8192u32;
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 pub const D3DCOMPILE_NO_PRESHADER: u32 = 256u32;
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 pub const D3DCOMPILE_OPTIMIZATION_LEVEL0: u32 = 16384u32;
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 pub const D3DCOMPILE_OPTIMIZATION_LEVEL1: u32 = 0u32;
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 pub const D3DCOMPILE_OPTIMIZATION_LEVEL2: u32 = 49152u32;
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 pub const D3DCOMPILE_OPTIMIZATION_LEVEL3: u32 = 32768u32;
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 pub const D3DCOMPILE_PACK_MATRIX_COLUMN_MAJOR: u32 = 16u32;
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 pub const D3DCOMPILE_PACK_MATRIX_ROW_MAJOR: u32 = 8u32;
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 pub const D3DCOMPILE_PARTIAL_PRECISION: u32 = 32u32;
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 pub const D3DCOMPILE_PREFER_FLOW_CONTROL: u32 = 1024u32;
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 pub const D3DCOMPILE_RESERVED16: u32 = 65536u32;
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 pub const D3DCOMPILE_RESERVED17: u32 = 131072u32;
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 pub const D3DCOMPILE_RESOURCES_MAY_ALIAS: u32 = 524288u32;
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 pub const D3DCOMPILE_SECDATA_MERGE_UAV_SLOTS: u32 = 1u32;
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 pub const D3DCOMPILE_SECDATA_PRESERVE_TEMPLATE_SLOTS: u32 = 2u32;
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 pub const D3DCOMPILE_SECDATA_REQUIRE_TEMPLATE_MATCH: u32 = 4u32;
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 pub const D3DCOMPILE_SKIP_OPTIMIZATION: u32 = 4u32;
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 pub const D3DCOMPILE_SKIP_VALIDATION: u32 = 2u32;
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 pub const D3DCOMPILE_WARNINGS_ARE_ERRORS: u32 = 262144u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+#[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Foundation`, `Win32_Graphics_Direct3D11`*"]
 #[inline]
 pub unsafe fn D3DCompile<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::runtime::IntoParam<'a, super::Direct3D11::ID3DInclude>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(
     psrcdata: *const ::std::ffi::c_void,
@@ -103,6 +140,7 @@ pub unsafe fn D3DCompile<'a, Param2: ::windows::runtime::IntoParam<'a, super::su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+#[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Foundation`, `Win32_Graphics_Direct3D11`*"]
 #[inline]
 pub unsafe fn D3DCompile2<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::runtime::IntoParam<'a, super::Direct3D11::ID3DInclude>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(
     psrcdata: *const ::std::ffi::c_void,
@@ -163,6 +201,7 @@ pub unsafe fn D3DCompile2<'a, Param2: ::windows::runtime::IntoParam<'a, super::s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+#[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Foundation`, `Win32_Graphics_Direct3D11`*"]
 #[inline]
 pub unsafe fn D3DCompileFromFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::Direct3D11::ID3DInclude>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(
     pfilename: Param0,
@@ -187,6 +226,7 @@ pub unsafe fn D3DCompileFromFile<'a, Param0: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Direct3D11")]
+#[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Graphics_Direct3D11`*"]
 #[inline]
 pub unsafe fn D3DCompressShaders(unumshaders: u32, pshaderdata: *const D3D_SHADER_DATA, uflags: u32) -> ::windows::runtime::Result<super::Direct3D11::ID3DBlob> {
     #[cfg(windows)]
@@ -202,6 +242,7 @@ pub unsafe fn D3DCompressShaders(unumshaders: u32, pshaderdata: *const D3D_SHADE
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Direct3D11")]
+#[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Graphics_Direct3D11`*"]
 #[inline]
 pub unsafe fn D3DCreateBlob(size: usize) -> ::windows::runtime::Result<super::Direct3D11::ID3DBlob> {
     #[cfg(windows)]
@@ -217,6 +258,7 @@ pub unsafe fn D3DCreateBlob(size: usize) -> ::windows::runtime::Result<super::Di
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Direct3D11")]
+#[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Graphics_Direct3D11`*"]
 #[inline]
 pub unsafe fn D3DCreateFunctionLinkingGraph(uflags: u32) -> ::windows::runtime::Result<super::Direct3D11::ID3D11FunctionLinkingGraph> {
     #[cfg(windows)]
@@ -232,6 +274,7 @@ pub unsafe fn D3DCreateFunctionLinkingGraph(uflags: u32) -> ::windows::runtime::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Direct3D11")]
+#[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Graphics_Direct3D11`*"]
 #[inline]
 pub unsafe fn D3DCreateLinker() -> ::windows::runtime::Result<super::Direct3D11::ID3D11Linker> {
     #[cfg(windows)]
@@ -247,6 +290,7 @@ pub unsafe fn D3DCreateLinker() -> ::windows::runtime::Result<super::Direct3D11:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Direct3D11")]
+#[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Graphics_Direct3D11`*"]
 #[inline]
 pub unsafe fn D3DDecompressShaders(psrcdata: *const ::std::ffi::c_void, srcdatasize: usize, unumshaders: u32, ustartindex: u32, pindices: *const u32, uflags: u32, ppshaders: *mut ::std::option::Option<super::Direct3D11::ID3DBlob>, ptotalshaders: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -261,6 +305,7 @@ pub unsafe fn D3DDecompressShaders(psrcdata: *const ::std::ffi::c_void, srcdatas
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+#[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Foundation`, `Win32_Graphics_Direct3D11`*"]
 #[inline]
 pub unsafe fn D3DDisassemble<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(psrcdata: *const ::std::ffi::c_void, srcdatasize: usize, flags: u32, szcomments: Param3) -> ::windows::runtime::Result<super::Direct3D11::ID3DBlob> {
     #[cfg(windows)]
@@ -276,6 +321,7 @@ pub unsafe fn D3DDisassemble<'a, Param3: ::windows::runtime::IntoParam<'a, super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D10", feature = "Win32_Graphics_Direct3D11"))]
+#[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Graphics_Direct3D10`, `Win32_Graphics_Direct3D11`*"]
 #[inline]
 pub unsafe fn D3DDisassemble10Effect<'a, Param0: ::windows::runtime::IntoParam<'a, super::Direct3D10::ID3D10Effect>>(peffect: Param0, flags: u32) -> ::windows::runtime::Result<super::Direct3D11::ID3DBlob> {
     #[cfg(windows)]
@@ -291,6 +337,7 @@ pub unsafe fn D3DDisassemble10Effect<'a, Param0: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+#[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Foundation`, `Win32_Graphics_Direct3D11`*"]
 #[inline]
 pub unsafe fn D3DDisassembleRegion<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(psrcdata: *const ::std::ffi::c_void, srcdatasize: usize, flags: u32, szcomments: Param3, startbyteoffset: usize, numinsts: usize, pfinishbyteoffset: *mut usize, ppdisassembly: *mut ::std::option::Option<super::Direct3D11::ID3DBlob>) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -305,6 +352,7 @@ pub unsafe fn D3DDisassembleRegion<'a, Param3: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Direct3D11")]
+#[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Graphics_Direct3D11`*"]
 #[inline]
 pub unsafe fn D3DGetBlobPart(psrcdata: *const ::std::ffi::c_void, srcdatasize: usize, part: D3D_BLOB_PART, flags: u32) -> ::windows::runtime::Result<super::Direct3D11::ID3DBlob> {
     #[cfg(windows)]
@@ -320,6 +368,7 @@ pub unsafe fn D3DGetBlobPart(psrcdata: *const ::std::ffi::c_void, srcdatasize: u
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Direct3D11")]
+#[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Graphics_Direct3D11`*"]
 #[inline]
 pub unsafe fn D3DGetDebugInfo(psrcdata: *const ::std::ffi::c_void, srcdatasize: usize) -> ::windows::runtime::Result<super::Direct3D11::ID3DBlob> {
     #[cfg(windows)]
@@ -335,6 +384,7 @@ pub unsafe fn D3DGetDebugInfo(psrcdata: *const ::std::ffi::c_void, srcdatasize: 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Direct3D11")]
+#[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Graphics_Direct3D11`*"]
 #[inline]
 pub unsafe fn D3DGetInputAndOutputSignatureBlob(psrcdata: *const ::std::ffi::c_void, srcdatasize: usize) -> ::windows::runtime::Result<super::Direct3D11::ID3DBlob> {
     #[cfg(windows)]
@@ -350,6 +400,7 @@ pub unsafe fn D3DGetInputAndOutputSignatureBlob(psrcdata: *const ::std::ffi::c_v
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Direct3D11")]
+#[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Graphics_Direct3D11`*"]
 #[inline]
 pub unsafe fn D3DGetInputSignatureBlob(psrcdata: *const ::std::ffi::c_void, srcdatasize: usize) -> ::windows::runtime::Result<super::Direct3D11::ID3DBlob> {
     #[cfg(windows)]
@@ -365,6 +416,7 @@ pub unsafe fn D3DGetInputSignatureBlob(psrcdata: *const ::std::ffi::c_void, srcd
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Direct3D11")]
+#[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Graphics_Direct3D11`*"]
 #[inline]
 pub unsafe fn D3DGetOutputSignatureBlob(psrcdata: *const ::std::ffi::c_void, srcdatasize: usize) -> ::windows::runtime::Result<super::Direct3D11::ID3DBlob> {
     #[cfg(windows)]
@@ -379,6 +431,7 @@ pub unsafe fn D3DGetOutputSignatureBlob(psrcdata: *const ::std::ffi::c_void, src
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 #[inline]
 pub unsafe fn D3DGetTraceInstructionOffsets(psrcdata: *const ::std::ffi::c_void, srcdatasize: usize, flags: u32, startinstindex: usize, numinsts: usize, poffsets: *mut usize, ptotalinsts: *mut usize) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -393,6 +446,7 @@ pub unsafe fn D3DGetTraceInstructionOffsets(psrcdata: *const ::std::ffi::c_void,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Direct3D11")]
+#[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Graphics_Direct3D11`*"]
 #[inline]
 pub unsafe fn D3DLoadModule(psrcdata: *const ::std::ffi::c_void, cbsrcdatasize: usize) -> ::windows::runtime::Result<super::Direct3D11::ID3D11Module> {
     #[cfg(windows)]
@@ -408,6 +462,7 @@ pub unsafe fn D3DLoadModule(psrcdata: *const ::std::ffi::c_void, cbsrcdatasize: 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+#[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Foundation`, `Win32_Graphics_Direct3D11`*"]
 #[inline]
 pub unsafe fn D3DPreprocess<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::runtime::IntoParam<'a, super::Direct3D11::ID3DInclude>>(
     psrcdata: *const ::std::ffi::c_void,
@@ -430,6 +485,7 @@ pub unsafe fn D3DPreprocess<'a, Param2: ::windows::runtime::IntoParam<'a, super:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+#[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Foundation`, `Win32_Graphics_Direct3D11`*"]
 #[inline]
 pub unsafe fn D3DReadFileToBlob<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pfilename: Param0) -> ::windows::runtime::Result<super::Direct3D11::ID3DBlob> {
     #[cfg(windows)]
@@ -444,6 +500,7 @@ pub unsafe fn D3DReadFileToBlob<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 #[inline]
 pub unsafe fn D3DReflect(psrcdata: *const ::std::ffi::c_void, srcdatasize: usize, pinterface: *const ::windows::runtime::GUID, ppreflector: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -457,6 +514,7 @@ pub unsafe fn D3DReflect(psrcdata: *const ::std::ffi::c_void, srcdatasize: usize
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 #[inline]
 pub unsafe fn D3DReflectLibrary(psrcdata: *const ::std::ffi::c_void, srcdatasize: usize, riid: *const ::windows::runtime::GUID, ppreflector: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -471,6 +529,7 @@ pub unsafe fn D3DReflectLibrary(psrcdata: *const ::std::ffi::c_void, srcdatasize
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Direct3D11")]
+#[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Graphics_Direct3D11`*"]
 #[inline]
 pub unsafe fn D3DSetBlobPart(psrcdata: *const ::std::ffi::c_void, srcdatasize: usize, part: D3D_BLOB_PART, flags: u32, ppart: *const ::std::ffi::c_void, partsize: usize) -> ::windows::runtime::Result<super::Direct3D11::ID3DBlob> {
     #[cfg(windows)]
@@ -486,6 +545,7 @@ pub unsafe fn D3DSetBlobPart(psrcdata: *const ::std::ffi::c_void, srcdatasize: u
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Direct3D11")]
+#[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Graphics_Direct3D11`*"]
 #[inline]
 pub unsafe fn D3DStripShader(pshaderbytecode: *const ::std::ffi::c_void, bytecodelength: usize, ustripflags: u32) -> ::windows::runtime::Result<super::Direct3D11::ID3DBlob> {
     #[cfg(windows)]
@@ -501,6 +561,7 @@ pub unsafe fn D3DStripShader(pshaderbytecode: *const ::std::ffi::c_void, bytecod
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+#[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Foundation`, `Win32_Graphics_Direct3D11`*"]
 #[inline]
 pub unsafe fn D3DWriteBlobToFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::Direct3D11::ID3DBlob>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(pblob: Param0, pfilename: Param1, boverwrite: Param2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -514,6 +575,7 @@ pub unsafe fn D3DWriteBlobToFile<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3D_BLOB_PART(pub i32);
@@ -543,20 +605,33 @@ unsafe impl ::windows::runtime::Abi for D3D_BLOB_PART {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 pub const D3D_COMPILER_VERSION: u32 = 47u32;
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 pub const D3D_COMPILE_STANDARD_FILE_INCLUDE: u32 = 1u32;
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 pub const D3D_COMPRESS_SHADER_KEEP_ALL_PARTS: u32 = 1u32;
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 pub const D3D_DISASM_DISABLE_DEBUG_INFO: u32 = 16u32;
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 pub const D3D_DISASM_ENABLE_COLOR_CODE: u32 = 1u32;
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 pub const D3D_DISASM_ENABLE_DEFAULT_VALUE_PRINTS: u32 = 2u32;
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 pub const D3D_DISASM_ENABLE_INSTRUCTION_CYCLE: u32 = 8u32;
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 pub const D3D_DISASM_ENABLE_INSTRUCTION_NUMBERING: u32 = 4u32;
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 pub const D3D_DISASM_ENABLE_INSTRUCTION_OFFSET: u32 = 32u32;
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 pub const D3D_DISASM_INSTRUCTION_ONLY: u32 = 64u32;
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 pub const D3D_DISASM_PRINT_HEX_LITERALS: u32 = 128u32;
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 pub const D3D_GET_INST_OFFSETS_INCLUDE_NON_EXECUTABLE: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 pub struct D3D_SHADER_DATA {
     pub pBytecode: *mut ::std::ffi::c_void,
     pub BytecodeLength: usize,
@@ -582,6 +657,7 @@ unsafe impl ::windows::runtime::Abi for D3D_SHADER_DATA {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DXC_CP(pub u32);
@@ -625,7 +701,9 @@ impl ::std::ops::Not for DXC_CP {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 pub const DXC_HASHFLAG_INCLUDES_SOURCE: u32 = 1u32;
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DXC_OUT_KIND(pub i32);
@@ -653,6 +731,7 @@ unsafe impl ::windows::runtime::Abi for DXC_OUT_KIND {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Foundation`*"]
 pub struct DxcArgPair {
     pub pName: super::super::Foundation::PWSTR,
     pub pValue: super::super::Foundation::PWSTR,
@@ -686,6 +765,7 @@ unsafe impl ::windows::runtime::Abi for DxcArgPair {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 pub struct DxcBuffer {
     pub Ptr: *mut ::std::ffi::c_void,
     pub Size: usize,
@@ -712,6 +792,7 @@ unsafe impl ::windows::runtime::Abi for DxcBuffer {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 #[inline]
 pub unsafe fn DxcCreateInstance(rclsid: *const ::windows::runtime::GUID, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -726,6 +807,7 @@ pub unsafe fn DxcCreateInstance(rclsid: *const ::windows::runtime::GUID, riid: *
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn DxcCreateInstance2<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IMalloc>>(pmalloc: Param0, rclsid: *const ::windows::runtime::GUID, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -745,6 +827,7 @@ pub type DxcCreateInstanceProc = unsafe extern "system" fn(rclsid: *const ::wind
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Foundation`*"]
 pub struct DxcDefine {
     pub Name: super::super::Foundation::PWSTR,
     pub Value: super::super::Foundation::PWSTR,
@@ -778,6 +861,7 @@ unsafe impl ::windows::runtime::Abi for DxcDefine {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 pub struct DxcShaderHash {
     pub Flags: u32,
     pub HashDigest: [u8; 16],
@@ -803,18 +887,28 @@ unsafe impl ::windows::runtime::Abi for DxcShaderHash {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 pub const DxcValidatorFlags_Default: u32 = 0u32;
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 pub const DxcValidatorFlags_InPlaceEdit: u32 = 1u32;
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 pub const DxcValidatorFlags_ModuleOnly: u32 = 4u32;
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 pub const DxcValidatorFlags_RootSignatureOnly: u32 = 2u32;
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 pub const DxcValidatorFlags_ValidMask: u32 = 7u32;
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 pub const DxcVersionInfoFlags_Debug: u32 = 1u32;
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 pub const DxcVersionInfoFlags_Internal: u32 = 2u32;
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 pub const DxcVersionInfoFlags_None: u32 = 0u32;
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDxcAssembler(::windows::runtime::IUnknown);
 impl IDxcAssembler {
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
     pub unsafe fn AssembleToContainer<'a, Param0: ::windows::runtime::IntoParam<'a, IDxcBlob>>(&self, pshader: Param0) -> ::windows::runtime::Result<IDxcOperationResult> {
         let mut result__: <IDxcOperationResult as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pshader.into_param().abi(), &mut result__).from_abi::<IDxcOperationResult>(result__)
@@ -852,13 +946,16 @@ pub struct IDxcAssembler_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pshader: ::windows::runtime::RawPtr, ppresult: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDxcBlob(::windows::runtime::IUnknown);
 impl IDxcBlob {
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
     pub unsafe fn GetBufferPointer(&self) -> *mut ::std::ffi::c_void {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
     pub unsafe fn GetBufferSize(&self) -> usize {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)))
     }
@@ -896,17 +993,21 @@ pub struct IDxcBlob_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> *mut ::std::ffi::c_void,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> usize,
 );
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDxcBlobEncoding(::windows::runtime::IUnknown);
 impl IDxcBlobEncoding {
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
     pub unsafe fn GetBufferPointer(&self) -> *mut ::std::ffi::c_void {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
     pub unsafe fn GetBufferSize(&self) -> usize {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Foundation`*"]
     pub unsafe fn GetEncoding(&self, pknown: *mut super::super::Foundation::BOOL, pcodepage: *mut DXC_CP) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(pknown), ::std::mem::transmute(pcodepage)).ok()
     }
@@ -966,24 +1067,30 @@ pub struct IDxcBlobEncoding_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pknown: *mut super::super::Foundation::BOOL, pcodepage: *mut DXC_CP) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDxcBlobUtf16(::windows::runtime::IUnknown);
 impl IDxcBlobUtf16 {
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
     pub unsafe fn GetBufferPointer(&self) -> *mut ::std::ffi::c_void {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
     pub unsafe fn GetBufferSize(&self) -> usize {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Foundation`*"]
     pub unsafe fn GetEncoding(&self, pknown: *mut super::super::Foundation::BOOL, pcodepage: *mut DXC_CP) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(pknown), ::std::mem::transmute(pcodepage)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Foundation`*"]
     pub unsafe fn GetStringPointer(&self) -> super::super::Foundation::PWSTR {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
     pub unsafe fn GetStringLength(&self) -> usize {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)))
     }
@@ -1066,24 +1173,30 @@ pub struct IDxcBlobUtf16_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> usize,
 );
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDxcBlobUtf8(::windows::runtime::IUnknown);
 impl IDxcBlobUtf8 {
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
     pub unsafe fn GetBufferPointer(&self) -> *mut ::std::ffi::c_void {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
     pub unsafe fn GetBufferSize(&self) -> usize {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Foundation`*"]
     pub unsafe fn GetEncoding(&self, pknown: *mut super::super::Foundation::BOOL, pcodepage: *mut DXC_CP) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(pknown), ::std::mem::transmute(pcodepage)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Foundation`*"]
     pub unsafe fn GetStringPointer(&self) -> super::super::Foundation::PSTR {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
     pub unsafe fn GetStringLength(&self) -> usize {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)))
     }
@@ -1166,11 +1279,13 @@ pub struct IDxcBlobUtf8_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> usize,
 );
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDxcCompiler(::windows::runtime::IUnknown);
 impl IDxcCompiler {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Foundation`*"]
     pub unsafe fn Compile<'a, Param0: ::windows::runtime::IntoParam<'a, IDxcBlob>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param8: ::windows::runtime::IntoParam<'a, IDxcIncludeHandler>>(
         &self,
         psource: Param0,
@@ -1200,10 +1315,12 @@ impl IDxcCompiler {
         .from_abi::<IDxcOperationResult>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Foundation`*"]
     pub unsafe fn Preprocess<'a, Param0: ::windows::runtime::IntoParam<'a, IDxcBlob>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::runtime::IntoParam<'a, IDxcIncludeHandler>>(&self, psource: Param0, psourcename: Param1, parguments: *const super::super::Foundation::PWSTR, argcount: u32, pdefines: *const DxcDefine, definecount: u32, pincludehandler: Param6) -> ::windows::runtime::Result<IDxcOperationResult> {
         let mut result__: <IDxcOperationResult as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), psource.into_param().abi(), psourcename.into_param().abi(), ::std::mem::transmute(parguments), ::std::mem::transmute(argcount), ::std::mem::transmute(pdefines), ::std::mem::transmute(definecount), pincludehandler.into_param().abi(), &mut result__).from_abi::<IDxcOperationResult>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
     pub unsafe fn Disassemble<'a, Param0: ::windows::runtime::IntoParam<'a, IDxcBlob>>(&self, psource: Param0) -> ::windows::runtime::Result<IDxcBlobEncoding> {
         let mut result__: <IDxcBlobEncoding as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), psource.into_param().abi(), &mut result__).from_abi::<IDxcBlobEncoding>(result__)
@@ -1246,11 +1363,13 @@ pub struct IDxcCompiler_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, psource: ::windows::runtime::RawPtr, ppdisassembly: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDxcCompiler2(::windows::runtime::IUnknown);
 impl IDxcCompiler2 {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Foundation`*"]
     pub unsafe fn Compile<'a, Param0: ::windows::runtime::IntoParam<'a, IDxcBlob>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param8: ::windows::runtime::IntoParam<'a, IDxcIncludeHandler>>(
         &self,
         psource: Param0,
@@ -1280,15 +1399,18 @@ impl IDxcCompiler2 {
         .from_abi::<IDxcOperationResult>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Foundation`*"]
     pub unsafe fn Preprocess<'a, Param0: ::windows::runtime::IntoParam<'a, IDxcBlob>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::runtime::IntoParam<'a, IDxcIncludeHandler>>(&self, psource: Param0, psourcename: Param1, parguments: *const super::super::Foundation::PWSTR, argcount: u32, pdefines: *const DxcDefine, definecount: u32, pincludehandler: Param6) -> ::windows::runtime::Result<IDxcOperationResult> {
         let mut result__: <IDxcOperationResult as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), psource.into_param().abi(), psourcename.into_param().abi(), ::std::mem::transmute(parguments), ::std::mem::transmute(argcount), ::std::mem::transmute(pdefines), ::std::mem::transmute(definecount), pincludehandler.into_param().abi(), &mut result__).from_abi::<IDxcOperationResult>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
     pub unsafe fn Disassemble<'a, Param0: ::windows::runtime::IntoParam<'a, IDxcBlob>>(&self, psource: Param0) -> ::windows::runtime::Result<IDxcBlobEncoding> {
         let mut result__: <IDxcBlobEncoding as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), psource.into_param().abi(), &mut result__).from_abi::<IDxcBlobEncoding>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Foundation`*"]
     pub unsafe fn CompileWithDebug<'a, Param0: ::windows::runtime::IntoParam<'a, IDxcBlob>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param8: ::windows::runtime::IntoParam<'a, IDxcIncludeHandler>>(
         &self,
         psource: Param0,
@@ -1396,14 +1518,17 @@ pub struct IDxcCompiler2_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDxcCompiler3(::windows::runtime::IUnknown);
 impl IDxcCompiler3 {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Foundation`*"]
     pub unsafe fn Compile<'a, Param3: ::windows::runtime::IntoParam<'a, IDxcIncludeHandler>>(&self, psource: *const DxcBuffer, parguments: *const super::super::Foundation::PWSTR, argcount: u32, pincludehandler: Param3, riid: *const ::windows::runtime::GUID, ppresult: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(psource), ::std::mem::transmute(parguments), ::std::mem::transmute(argcount), pincludehandler.into_param().abi(), ::std::mem::transmute(riid), ::std::mem::transmute(ppresult)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
     pub unsafe fn Disassemble(&self, pobject: *const DxcBuffer, riid: *const ::windows::runtime::GUID, ppresult: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pobject), ::std::mem::transmute(riid), ::std::mem::transmute(ppresult)).ok()
     }
@@ -1442,26 +1567,32 @@ pub struct IDxcCompiler3_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pobject: *const DxcBuffer, riid: *const ::windows::runtime::GUID, ppresult: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDxcCompilerArgs(::windows::runtime::IUnknown);
 impl IDxcCompilerArgs {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Foundation`*"]
     pub unsafe fn GetArguments(&self) -> *mut super::super::Foundation::PWSTR {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
     pub unsafe fn GetCount(&self) -> u32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Foundation`*"]
     pub unsafe fn AddArguments(&self, parguments: *const super::super::Foundation::PWSTR, argcount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(parguments), ::std::mem::transmute(argcount)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Foundation`*"]
     pub unsafe fn AddArgumentsUTF8(&self, parguments: *const super::super::Foundation::PSTR, argcount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(parguments), ::std::mem::transmute(argcount)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Foundation`*"]
     pub unsafe fn AddDefines(&self, pdefines: *const DxcDefine, definecount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdefines), ::std::mem::transmute(definecount)).ok()
     }
@@ -1506,19 +1637,24 @@ pub struct IDxcCompilerArgs_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdefines: *const DxcDefine, definecount: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDxcContainerBuilder(::windows::runtime::IUnknown);
 impl IDxcContainerBuilder {
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
     pub unsafe fn Load<'a, Param0: ::windows::runtime::IntoParam<'a, IDxcBlob>>(&self, pdxilcontainerheader: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pdxilcontainerheader.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
     pub unsafe fn AddPart<'a, Param1: ::windows::runtime::IntoParam<'a, IDxcBlob>>(&self, fourcc: u32, psource: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(fourcc), psource.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
     pub unsafe fn RemovePart(&self, fourcc: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(fourcc)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
     pub unsafe fn SerializeContainer(&self) -> ::windows::runtime::Result<IDxcOperationResult> {
         let mut result__: <IDxcOperationResult as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IDxcOperationResult>(result__)
@@ -1559,29 +1695,36 @@ pub struct IDxcContainerBuilder_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fourcc: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppresult: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDxcContainerReflection(::windows::runtime::IUnknown);
 impl IDxcContainerReflection {
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
     pub unsafe fn Load<'a, Param0: ::windows::runtime::IntoParam<'a, IDxcBlob>>(&self, pcontainer: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pcontainer.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
     pub unsafe fn GetPartCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
     pub unsafe fn GetPartKind(&self, idx: u32) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(idx), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
     pub unsafe fn GetPartContent(&self, idx: u32) -> ::windows::runtime::Result<IDxcBlob> {
         let mut result__: <IDxcBlob as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(idx), &mut result__).from_abi::<IDxcBlob>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
     pub unsafe fn FindFirstPartKind(&self, kind: u32) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(kind), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
     pub unsafe fn GetPartReflection(&self, idx: u32, iid: *const ::windows::runtime::GUID, ppvobject: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(idx), ::std::mem::transmute(iid), ::std::mem::transmute(ppvobject)).ok()
     }
@@ -1623,13 +1766,16 @@ pub struct IDxcContainerReflection_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, kind: u32, presult: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, idx: u32, iid: *const ::windows::runtime::GUID, ppvobject: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDxcExtraOutputs(::windows::runtime::IUnknown);
 impl IDxcExtraOutputs {
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
     pub unsafe fn GetOutputCount(&self) -> u32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
     pub unsafe fn GetOutput(&self, uindex: u32, iid: *const ::windows::runtime::GUID, ppvobject: *mut *mut ::std::ffi::c_void, ppoutputtype: *mut ::std::option::Option<IDxcBlobUtf16>, ppoutputname: *mut ::std::option::Option<IDxcBlobUtf16>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(uindex), ::std::mem::transmute(iid), ::std::mem::transmute(ppvobject), ::std::mem::transmute(ppoutputtype), ::std::mem::transmute(ppoutputname)).ok()
     }
@@ -1667,11 +1813,13 @@ pub struct IDxcExtraOutputs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, uindex: u32, iid: *const ::windows::runtime::GUID, ppvobject: *mut *mut ::std::ffi::c_void, ppoutputtype: *mut ::windows::runtime::RawPtr, ppoutputname: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDxcIncludeHandler(::windows::runtime::IUnknown);
 impl IDxcIncludeHandler {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Foundation`*"]
     pub unsafe fn LoadSource<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pfilename: Param0) -> ::windows::runtime::Result<IDxcBlob> {
         let mut result__: <IDxcBlob as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pfilename.into_param().abi(), &mut result__).from_abi::<IDxcBlob>(result__)
@@ -1710,49 +1858,60 @@ pub struct IDxcIncludeHandler_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pfilename: super::super::Foundation::PWSTR, ppincludesource: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDxcLibrary(::windows::runtime::IUnknown);
 impl IDxcLibrary {
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_System_Com`*"]
     pub unsafe fn SetMalloc<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IMalloc>>(&self, pmalloc: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pmalloc.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
     pub unsafe fn CreateBlobFromBlob<'a, Param0: ::windows::runtime::IntoParam<'a, IDxcBlob>>(&self, pblob: Param0, offset: u32, length: u32) -> ::windows::runtime::Result<IDxcBlob> {
         let mut result__: <IDxcBlob as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pblob.into_param().abi(), ::std::mem::transmute(offset), ::std::mem::transmute(length), &mut result__).from_abi::<IDxcBlob>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Foundation`*"]
     pub unsafe fn CreateBlobFromFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pfilename: Param0, codepage: *const DXC_CP) -> ::windows::runtime::Result<IDxcBlobEncoding> {
         let mut result__: <IDxcBlobEncoding as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), pfilename.into_param().abi(), ::std::mem::transmute(codepage), &mut result__).from_abi::<IDxcBlobEncoding>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
     pub unsafe fn CreateBlobWithEncodingFromPinned(&self, ptext: *const ::std::ffi::c_void, size: u32, codepage: DXC_CP) -> ::windows::runtime::Result<IDxcBlobEncoding> {
         let mut result__: <IDxcBlobEncoding as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(ptext), ::std::mem::transmute(size), ::std::mem::transmute(codepage), &mut result__).from_abi::<IDxcBlobEncoding>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
     pub unsafe fn CreateBlobWithEncodingOnHeapCopy(&self, ptext: *const ::std::ffi::c_void, size: u32, codepage: DXC_CP) -> ::windows::runtime::Result<IDxcBlobEncoding> {
         let mut result__: <IDxcBlobEncoding as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(ptext), ::std::mem::transmute(size), ::std::mem::transmute(codepage), &mut result__).from_abi::<IDxcBlobEncoding>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_System_Com`*"]
     pub unsafe fn CreateBlobWithEncodingOnMalloc<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::System::Com::IMalloc>>(&self, ptext: *const ::std::ffi::c_void, pimalloc: Param1, size: u32, codepage: DXC_CP) -> ::windows::runtime::Result<IDxcBlobEncoding> {
         let mut result__: <IDxcBlobEncoding as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(ptext), pimalloc.into_param().abi(), ::std::mem::transmute(size), ::std::mem::transmute(codepage), &mut result__).from_abi::<IDxcBlobEncoding>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
     pub unsafe fn CreateIncludeHandler(&self) -> ::windows::runtime::Result<IDxcIncludeHandler> {
         let mut result__: <IDxcIncludeHandler as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IDxcIncludeHandler>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_System_Com`*"]
     pub unsafe fn CreateStreamFromBlobReadOnly<'a, Param0: ::windows::runtime::IntoParam<'a, IDxcBlob>>(&self, pblob: Param0) -> ::windows::runtime::Result<super::super::System::Com::IStream> {
         let mut result__: <super::super::System::Com::IStream as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), pblob.into_param().abi(), &mut result__).from_abi::<super::super::System::Com::IStream>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
     pub unsafe fn GetBlobAsUtf8<'a, Param0: ::windows::runtime::IntoParam<'a, IDxcBlob>>(&self, pblob: Param0) -> ::windows::runtime::Result<IDxcBlobEncoding> {
         let mut result__: <IDxcBlobEncoding as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), pblob.into_param().abi(), &mut result__).from_abi::<IDxcBlobEncoding>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
     pub unsafe fn GetBlobAsUtf16<'a, Param0: ::windows::runtime::IntoParam<'a, IDxcBlob>>(&self, pblob: Param0) -> ::windows::runtime::Result<IDxcBlobEncoding> {
         let mut result__: <IDxcBlobEncoding as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), pblob.into_param().abi(), &mut result__).from_abi::<IDxcBlobEncoding>(result__)
@@ -1803,15 +1962,18 @@ pub struct IDxcLibrary_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pblob: ::windows::runtime::RawPtr, pblobencoding: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pblob: ::windows::runtime::RawPtr, pblobencoding: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDxcLinker(::windows::runtime::IUnknown);
 impl IDxcLinker {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Foundation`*"]
     pub unsafe fn RegisterLibrary<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, IDxcBlob>>(&self, plibname: Param0, plib: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), plibname.into_param().abi(), plib.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Foundation`*"]
     pub unsafe fn Link<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pentryname: Param0, ptargetprofile: Param1, plibnames: *const super::super::Foundation::PWSTR, libcount: u32, parguments: *const super::super::Foundation::PWSTR, argcount: u32) -> ::windows::runtime::Result<IDxcOperationResult> {
         let mut result__: <IDxcOperationResult as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pentryname.into_param().abi(), ptargetprofile.into_param().abi(), ::std::mem::transmute(plibnames), ::std::mem::transmute(libcount), ::std::mem::transmute(parguments), ::std::mem::transmute(argcount), &mut result__).from_abi::<IDxcOperationResult>(result__)
@@ -1852,18 +2014,22 @@ pub struct IDxcLinker_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pentryname: super::super::Foundation::PWSTR, ptargetprofile: super::super::Foundation::PWSTR, plibnames: *const super::super::Foundation::PWSTR, libcount: u32, parguments: *const super::super::Foundation::PWSTR, argcount: u32, ppresult: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDxcOperationResult(::windows::runtime::IUnknown);
 impl IDxcOperationResult {
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
     pub unsafe fn GetStatus(&self) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
         let mut result__: <::windows::runtime::HRESULT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::HRESULT>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
     pub unsafe fn GetResult(&self) -> ::windows::runtime::Result<IDxcBlob> {
         let mut result__: <IDxcBlob as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IDxcBlob>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
     pub unsafe fn GetErrorBuffer(&self) -> ::windows::runtime::Result<IDxcBlobEncoding> {
         let mut result__: <IDxcBlobEncoding as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IDxcBlobEncoding>(result__)
@@ -1903,19 +2069,23 @@ pub struct IDxcOperationResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppresult: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pperrors: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDxcOptimizer(::windows::runtime::IUnknown);
 impl IDxcOptimizer {
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
     pub unsafe fn GetAvailablePassCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
     pub unsafe fn GetAvailablePass(&self, index: u32) -> ::windows::runtime::Result<IDxcOptimizerPass> {
         let mut result__: <IDxcOptimizerPass as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), &mut result__).from_abi::<IDxcOptimizerPass>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Foundation`*"]
     pub unsafe fn RunOptimizer<'a, Param0: ::windows::runtime::IntoParam<'a, IDxcBlob>>(&self, pblob: Param0, ppoptions: *const super::super::Foundation::PWSTR, optioncount: u32, poutputmodule: *mut ::std::option::Option<IDxcBlob>, ppoutputtext: *mut ::std::option::Option<IDxcBlobEncoding>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), pblob.into_param().abi(), ::std::mem::transmute(ppoptions), ::std::mem::transmute(optioncount), ::std::mem::transmute(poutputmodule), ::std::mem::transmute(ppoutputtext)).ok()
     }
@@ -1955,30 +2125,36 @@ pub struct IDxcOptimizer_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pblob: ::windows::runtime::RawPtr, ppoptions: *const super::super::Foundation::PWSTR, optioncount: u32, poutputmodule: *mut ::windows::runtime::RawPtr, ppoutputtext: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDxcOptimizerPass(::windows::runtime::IUnknown);
 impl IDxcOptimizerPass {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Foundation`*"]
     pub unsafe fn GetOptionName(&self) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
         let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Foundation`*"]
     pub unsafe fn GetDescription(&self) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
         let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
     pub unsafe fn GetOptionArgCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Foundation`*"]
     pub unsafe fn GetOptionArgName(&self, argindex: u32) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
         let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(argindex), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Foundation`*"]
     pub unsafe fn GetOptionArgDescription(&self, argindex: u32) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
         let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(argindex), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
@@ -2024,109 +2200,134 @@ pub struct IDxcOptimizerPass_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, argindex: u32, ppresult: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDxcPdbUtils(::windows::runtime::IUnknown);
 impl IDxcPdbUtils {
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
     pub unsafe fn Load<'a, Param0: ::windows::runtime::IntoParam<'a, IDxcBlob>>(&self, ppdbordxil: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ppdbordxil.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
     pub unsafe fn GetSourceCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
     pub unsafe fn GetSource(&self, uindex: u32) -> ::windows::runtime::Result<IDxcBlobEncoding> {
         let mut result__: <IDxcBlobEncoding as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(uindex), &mut result__).from_abi::<IDxcBlobEncoding>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Foundation`*"]
     pub unsafe fn GetSourceName(&self, uindex: u32) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(uindex), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
     pub unsafe fn GetFlagCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Foundation`*"]
     pub unsafe fn GetFlag(&self, uindex: u32) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(uindex), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
     pub unsafe fn GetArgCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Foundation`*"]
     pub unsafe fn GetArg(&self, uindex: u32) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(uindex), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
     pub unsafe fn GetArgPairCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Foundation`*"]
     pub unsafe fn GetArgPair(&self, uindex: u32, pname: *mut super::super::Foundation::BSTR, pvalue: *mut super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(uindex), ::std::mem::transmute(pname), ::std::mem::transmute(pvalue)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
     pub unsafe fn GetDefineCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Foundation`*"]
     pub unsafe fn GetDefine(&self, uindex: u32) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(uindex), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Foundation`*"]
     pub unsafe fn GetTargetProfile(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Foundation`*"]
     pub unsafe fn GetEntryPoint(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Foundation`*"]
     pub unsafe fn GetMainFileName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
     pub unsafe fn GetHash(&self) -> ::windows::runtime::Result<IDxcBlob> {
         let mut result__: <IDxcBlob as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IDxcBlob>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Foundation`*"]
     pub unsafe fn GetName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Foundation`*"]
     pub unsafe fn IsFullPDB(&self) -> super::super::Foundation::BOOL {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
     pub unsafe fn GetFullPDB(&self) -> ::windows::runtime::Result<IDxcBlob> {
         let mut result__: <IDxcBlob as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IDxcBlob>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
     pub unsafe fn GetVersionInfo(&self) -> ::windows::runtime::Result<IDxcVersionInfo> {
         let mut result__: <IDxcVersionInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IDxcVersionInfo>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
     pub unsafe fn SetCompiler<'a, Param0: ::windows::runtime::IntoParam<'a, IDxcCompiler3>>(&self, pcompiler: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), pcompiler.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
     pub unsafe fn CompileForFullPDB(&self) -> ::windows::runtime::Result<IDxcResult> {
         let mut result__: <IDxcResult as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IDxcResult>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Foundation`*"]
     pub unsafe fn OverrideArgs(&self, pargpairs: *const DxcArgPair, unumargpairs: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), ::std::mem::transmute(pargpairs), ::std::mem::transmute(unumargpairs)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Foundation`*"]
     pub unsafe fn OverrideRootSignature<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, prootsignature: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), prootsignature.into_param().abi()).ok()
     }
@@ -2198,35 +2399,44 @@ pub struct IDxcPdbUtils_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, prootsignature: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDxcResult(::windows::runtime::IUnknown);
 impl IDxcResult {
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
     pub unsafe fn GetStatus(&self) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
         let mut result__: <::windows::runtime::HRESULT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::HRESULT>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
     pub unsafe fn GetResult(&self) -> ::windows::runtime::Result<IDxcBlob> {
         let mut result__: <IDxcBlob as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IDxcBlob>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
     pub unsafe fn GetErrorBuffer(&self) -> ::windows::runtime::Result<IDxcBlobEncoding> {
         let mut result__: <IDxcBlobEncoding as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IDxcBlobEncoding>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Foundation`*"]
     pub unsafe fn HasOutput(&self, dxcoutkind: DXC_OUT_KIND) -> super::super::Foundation::BOOL {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dxcoutkind)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
     pub unsafe fn GetOutput(&self, dxcoutkind: DXC_OUT_KIND, iid: *const ::windows::runtime::GUID, ppvobject: *mut *mut ::std::ffi::c_void, ppoutputname: *mut ::std::option::Option<IDxcBlobUtf16>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(dxcoutkind), ::std::mem::transmute(iid), ::std::mem::transmute(ppvobject), ::std::mem::transmute(ppoutputname)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
     pub unsafe fn GetNumOutputs(&self) -> u32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
     pub unsafe fn GetOutputByIndex(&self, index: u32) -> DXC_OUT_KIND {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(index)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
     pub unsafe fn PrimaryOutput(&self) -> DXC_OUT_KIND {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)))
     }
@@ -2291,60 +2501,74 @@ pub struct IDxcResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, index: u32) -> DXC_OUT_KIND,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> DXC_OUT_KIND,
 );
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDxcUtils(::windows::runtime::IUnknown);
 impl IDxcUtils {
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
     pub unsafe fn CreateBlobFromBlob<'a, Param0: ::windows::runtime::IntoParam<'a, IDxcBlob>>(&self, pblob: Param0, offset: u32, length: u32) -> ::windows::runtime::Result<IDxcBlob> {
         let mut result__: <IDxcBlob as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pblob.into_param().abi(), ::std::mem::transmute(offset), ::std::mem::transmute(length), &mut result__).from_abi::<IDxcBlob>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
     pub unsafe fn CreateBlobFromPinned(&self, pdata: *const ::std::ffi::c_void, size: u32, codepage: DXC_CP) -> ::windows::runtime::Result<IDxcBlobEncoding> {
         let mut result__: <IDxcBlobEncoding as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata), ::std::mem::transmute(size), ::std::mem::transmute(codepage), &mut result__).from_abi::<IDxcBlobEncoding>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_System_Com`*"]
     pub unsafe fn MoveToBlob<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::System::Com::IMalloc>>(&self, pdata: *const ::std::ffi::c_void, pimalloc: Param1, size: u32, codepage: DXC_CP) -> ::windows::runtime::Result<IDxcBlobEncoding> {
         let mut result__: <IDxcBlobEncoding as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata), pimalloc.into_param().abi(), ::std::mem::transmute(size), ::std::mem::transmute(codepage), &mut result__).from_abi::<IDxcBlobEncoding>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
     pub unsafe fn CreateBlob(&self, pdata: *const ::std::ffi::c_void, size: u32, codepage: DXC_CP) -> ::windows::runtime::Result<IDxcBlobEncoding> {
         let mut result__: <IDxcBlobEncoding as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata), ::std::mem::transmute(size), ::std::mem::transmute(codepage), &mut result__).from_abi::<IDxcBlobEncoding>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Foundation`*"]
     pub unsafe fn LoadFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pfilename: Param0, pcodepage: *const DXC_CP) -> ::windows::runtime::Result<IDxcBlobEncoding> {
         let mut result__: <IDxcBlobEncoding as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), pfilename.into_param().abi(), ::std::mem::transmute(pcodepage), &mut result__).from_abi::<IDxcBlobEncoding>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_System_Com`*"]
     pub unsafe fn CreateReadOnlyStreamFromBlob<'a, Param0: ::windows::runtime::IntoParam<'a, IDxcBlob>>(&self, pblob: Param0) -> ::windows::runtime::Result<super::super::System::Com::IStream> {
         let mut result__: <super::super::System::Com::IStream as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), pblob.into_param().abi(), &mut result__).from_abi::<super::super::System::Com::IStream>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
     pub unsafe fn CreateDefaultIncludeHandler(&self) -> ::windows::runtime::Result<IDxcIncludeHandler> {
         let mut result__: <IDxcIncludeHandler as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IDxcIncludeHandler>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
     pub unsafe fn GetBlobAsUtf8<'a, Param0: ::windows::runtime::IntoParam<'a, IDxcBlob>>(&self, pblob: Param0) -> ::windows::runtime::Result<IDxcBlobUtf8> {
         let mut result__: <IDxcBlobUtf8 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), pblob.into_param().abi(), &mut result__).from_abi::<IDxcBlobUtf8>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
     pub unsafe fn GetBlobAsUtf16<'a, Param0: ::windows::runtime::IntoParam<'a, IDxcBlob>>(&self, pblob: Param0) -> ::windows::runtime::Result<IDxcBlobUtf16> {
         let mut result__: <IDxcBlobUtf16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), pblob.into_param().abi(), &mut result__).from_abi::<IDxcBlobUtf16>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
     pub unsafe fn GetDxilContainerPart(&self, pshader: *const DxcBuffer, dxcpart: u32, pppartdata: *mut *mut ::std::ffi::c_void, ppartsizeinbytes: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(pshader), ::std::mem::transmute(dxcpart), ::std::mem::transmute(pppartdata), ::std::mem::transmute(ppartsizeinbytes)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
     pub unsafe fn CreateReflection(&self, pdata: *const DxcBuffer, iid: *const ::windows::runtime::GUID, ppvreflection: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata), ::std::mem::transmute(iid), ::std::mem::transmute(ppvreflection)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Foundation`*"]
     pub unsafe fn BuildArguments<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, psourcename: Param0, pentrypoint: Param1, ptargetprofile: Param2, parguments: *const super::super::Foundation::PWSTR, argcount: u32, pdefines: *const DxcDefine, definecount: u32) -> ::windows::runtime::Result<IDxcCompilerArgs> {
         let mut result__: <IDxcCompilerArgs as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), psourcename.into_param().abi(), pentrypoint.into_param().abi(), ptargetprofile.into_param().abi(), ::std::mem::transmute(parguments), ::std::mem::transmute(argcount), ::std::mem::transmute(pdefines), ::std::mem::transmute(definecount), &mut result__).from_abi::<IDxcCompilerArgs>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
     pub unsafe fn GetPDBContents<'a, Param0: ::windows::runtime::IntoParam<'a, IDxcBlob>>(&self, ppdbblob: Param0, pphash: *mut ::std::option::Option<IDxcBlob>, ppcontainer: *mut ::std::option::Option<IDxcBlob>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ppdbblob.into_param().abi(), ::std::mem::transmute(pphash), ::std::mem::transmute(ppcontainer)).ok()
     }
@@ -2397,10 +2621,12 @@ pub struct IDxcUtils_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppdbblob: ::windows::runtime::RawPtr, pphash: *mut ::windows::runtime::RawPtr, ppcontainer: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDxcValidator(::windows::runtime::IUnknown);
 impl IDxcValidator {
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
     pub unsafe fn Validate<'a, Param0: ::windows::runtime::IntoParam<'a, IDxcBlob>>(&self, pshader: Param0, flags: u32) -> ::windows::runtime::Result<IDxcOperationResult> {
         let mut result__: <IDxcOperationResult as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pshader.into_param().abi(), ::std::mem::transmute(flags), &mut result__).from_abi::<IDxcOperationResult>(result__)
@@ -2438,14 +2664,17 @@ pub struct IDxcValidator_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pshader: ::windows::runtime::RawPtr, flags: u32, ppresult: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDxcValidator2(::windows::runtime::IUnknown);
 impl IDxcValidator2 {
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
     pub unsafe fn Validate<'a, Param0: ::windows::runtime::IntoParam<'a, IDxcBlob>>(&self, pshader: Param0, flags: u32) -> ::windows::runtime::Result<IDxcOperationResult> {
         let mut result__: <IDxcOperationResult as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pshader.into_param().abi(), ::std::mem::transmute(flags), &mut result__).from_abi::<IDxcOperationResult>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
     pub unsafe fn ValidateWithDebug<'a, Param0: ::windows::runtime::IntoParam<'a, IDxcBlob>>(&self, pshader: Param0, flags: u32, poptdebugbitcode: *const DxcBuffer) -> ::windows::runtime::Result<IDxcOperationResult> {
         let mut result__: <IDxcOperationResult as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pshader.into_param().abi(), ::std::mem::transmute(flags), ::std::mem::transmute(poptdebugbitcode), &mut result__).from_abi::<IDxcOperationResult>(result__)
@@ -2504,13 +2733,16 @@ pub struct IDxcValidator2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pshader: ::windows::runtime::RawPtr, flags: u32, ppresult: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pshader: ::windows::runtime::RawPtr, flags: u32, poptdebugbitcode: *const DxcBuffer, ppresult: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDxcVersionInfo(::windows::runtime::IUnknown);
 impl IDxcVersionInfo {
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
     pub unsafe fn GetVersion(&self, pmajor: *mut u32, pminor: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pmajor), ::std::mem::transmute(pminor)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
     pub unsafe fn GetFlags(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
@@ -2549,17 +2781,21 @@ pub struct IDxcVersionInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pmajor: *mut u32, pminor: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pflags: *mut u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDxcVersionInfo2(::windows::runtime::IUnknown);
 impl IDxcVersionInfo2 {
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
     pub unsafe fn GetVersion(&self, pmajor: *mut u32, pminor: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pmajor), ::std::mem::transmute(pminor)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
     pub unsafe fn GetFlags(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
     pub unsafe fn GetCommitInfo(&self, pcommitcount: *mut u32, pcommithash: *mut *mut i8) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcommitcount), ::std::mem::transmute(pcommithash)).ok()
     }
@@ -2618,10 +2854,12 @@ pub struct IDxcVersionInfo2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pflags: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcommitcount: *mut u32, pcommithash: *mut *mut i8) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDxcVersionInfo3(::windows::runtime::IUnknown);
 impl IDxcVersionInfo3 {
+    #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
     pub unsafe fn GetCustomVersionString(&self) -> ::windows::runtime::Result<*mut i8> {
         let mut result__: <*mut i8 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut i8>(result__)

@@ -5,94 +5,180 @@ pub mod Catalog;
 pub mod Certificates;
 #[cfg(feature = "Win32_Security_Cryptography_Sip")]
 pub mod Sip;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ACTION_REVOCATION_DEFAULT_CACHE: u32 = 131072u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ACTION_REVOCATION_DEFAULT_ONLINE: u32 = 65536u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ALG_CLASS_ALL: u32 = 57344u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ALG_CLASS_ANY: u32 = 0u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ALG_CLASS_DATA_ENCRYPT: u32 = 24576u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ALG_CLASS_HASH: u32 = 32768u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ALG_CLASS_KEY_EXCHANGE: u32 = 40960u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ALG_CLASS_MSG_ENCRYPT: u32 = 16384u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ALG_CLASS_SIGNATURE: u32 = 8192u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ALG_SID_3DES: u32 = 3u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ALG_SID_3DES_112: u32 = 9u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ALG_SID_AES: u32 = 17u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ALG_SID_AES_128: u32 = 14u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ALG_SID_AES_192: u32 = 15u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ALG_SID_AES_256: u32 = 16u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ALG_SID_AGREED_KEY_ANY: u32 = 3u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ALG_SID_ANY: u32 = 0u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ALG_SID_CAST: u32 = 6u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ALG_SID_CYLINK_MEK: u32 = 12u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ALG_SID_DES: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ALG_SID_DESX: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ALG_SID_DH_EPHEM: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ALG_SID_DH_SANDF: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ALG_SID_DSS_ANY: u32 = 0u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ALG_SID_DSS_DMS: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ALG_SID_DSS_PKCS: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ALG_SID_ECDH: u32 = 5u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ALG_SID_ECDH_EPHEM: u32 = 6u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ALG_SID_ECDSA: u32 = 3u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ALG_SID_ECMQV: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ALG_SID_EXAMPLE: u32 = 80u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ALG_SID_HASH_REPLACE_OWF: u32 = 11u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ALG_SID_HMAC: u32 = 9u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ALG_SID_IDEA: u32 = 5u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ALG_SID_KEA: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ALG_SID_MAC: u32 = 5u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ALG_SID_MD2: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ALG_SID_MD4: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ALG_SID_MD5: u32 = 3u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ALG_SID_PCT1_MASTER: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ALG_SID_RC2: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ALG_SID_RC4: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ALG_SID_RC5: u32 = 13u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ALG_SID_RIPEMD: u32 = 6u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ALG_SID_RIPEMD160: u32 = 7u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ALG_SID_RSA_ANY: u32 = 0u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ALG_SID_RSA_ENTRUST: u32 = 3u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ALG_SID_RSA_MSATWORK: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ALG_SID_RSA_PGP: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ALG_SID_RSA_PKCS: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ALG_SID_SAFERSK128: u32 = 8u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ALG_SID_SAFERSK64: u32 = 7u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ALG_SID_SCHANNEL_ENC_KEY: u32 = 7u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ALG_SID_SCHANNEL_MAC_KEY: u32 = 3u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ALG_SID_SCHANNEL_MASTER_HASH: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ALG_SID_SEAL: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ALG_SID_SHA: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ALG_SID_SHA1: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ALG_SID_SHA_256: u32 = 12u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ALG_SID_SHA_384: u32 = 13u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ALG_SID_SHA_512: u32 = 14u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ALG_SID_SKIPJACK: u32 = 10u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ALG_SID_SSL2_MASTER: u32 = 5u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ALG_SID_SSL3SHAMD5: u32 = 8u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ALG_SID_SSL3_MASTER: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ALG_SID_TEK: u32 = 11u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ALG_SID_THIRDPARTY_ANY: u32 = 0u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ALG_SID_TLS1PRF: u32 = 10u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ALG_SID_TLS1_MASTER: u32 = 6u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ALG_TYPE_ANY: u32 = 0u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ALG_TYPE_BLOCK: u32 = 1536u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ALG_TYPE_DH: u32 = 2560u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ALG_TYPE_DSS: u32 = 512u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ALG_TYPE_ECDH: u32 = 3584u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ALG_TYPE_RSA: u32 = 1024u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ALG_TYPE_SECURECHANNEL: u32 = 3072u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ALG_TYPE_STREAM: u32 = 2048u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ALG_TYPE_THIRDPARTY: u32 = 4096u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const AUDIT_CARD_DELETE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(1074070017i32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const AUDIT_CARD_IMPORT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(1074070018i32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const AUDIT_CARD_WRITTEN: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(1074070016i32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const AUDIT_SERVICE_IDLE_STOP: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(1074070022i32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const AUDIT_STORE_DELETE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(1074070021i32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const AUDIT_STORE_EXPORT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(1074070020i32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const AUDIT_STORE_IMPORT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(1074070019i32 as _);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_PARA {
     pub cbSize: u32,
     pub dwRegPolicySettings: u32,
@@ -128,6 +214,7 @@ unsafe impl ::windows::runtime::Abi for AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_PAR
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_STATUS {
     pub cbSize: u32,
     pub fCommercial: super::super::Foundation::BOOL,
@@ -162,6 +249,7 @@ unsafe impl ::windows::runtime::Abi for AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_STA
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct AUTHENTICODE_TS_EXTRA_CERT_CHAIN_POLICY_PARA {
     pub cbSize: u32,
     pub dwRegPolicySettings: u32,
@@ -194,25 +282,42 @@ unsafe impl ::windows::runtime::Abi for AUTHENTICODE_TS_EXTRA_CERT_CHAIN_POLICY_
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BASIC_CONSTRAINTS_CERT_CHAIN_POLICY_CA_FLAG: u32 = 2147483648u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BASIC_CONSTRAINTS_CERT_CHAIN_POLICY_END_ENTITY_FLAG: u32 = 1073741824u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPTBUFFER_VERSION: u32 = 0u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_3DES_112_CBC_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(369u32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_3DES_112_CFB_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(401u32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_3DES_112_ECB_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(385u32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_3DES_CBC_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(321u32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_3DES_CFB_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(353u32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_3DES_ECB_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(337u32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_AES_CBC_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(417u32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_AES_CCM_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(465u32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_AES_CFB_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(449u32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_AES_CMAC_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(257u32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_AES_ECB_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(433u32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_AES_GCM_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(481u32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_AES_GMAC_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(273u32 as _);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct BCRYPT_ALGORITHM_IDENTIFIER {
     pub pszName: super::super::Foundation::PWSTR,
     pub dwClass: u32,
@@ -260,6 +365,7 @@ unsafe impl ::windows::runtime::Abi for BCRYPT_ALG_HANDLE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO {
     pub cbSize: u32,
     pub dwInfoVersion: u32,
@@ -310,23 +416,39 @@ unsafe impl ::windows::runtime::Abi for BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO_VERSION: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_AUTH_MODE_CHAIN_CALLS_FLAG: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_AUTH_MODE_IN_PROGRESS_FLAG: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_BLOCK_PADDING: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_BUFFERS_LOCKED_FLAG: u32 = 64u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_CAPI_AES_FLAG: u32 = 16u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_CAPI_KDF_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(801u32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_CHACHA20_POLY1305_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(929u32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_DESX_CBC_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(545u32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_DESX_CFB_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(577u32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_DESX_ECB_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(561u32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_DES_CBC_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(497u32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_DES_CFB_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(529u32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_DES_ECB_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(513u32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_DH_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(641u32 as _);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct BCRYPT_DH_KEY_BLOB {
     pub dwMagic: BCRYPT_DH_KEY_BLOB_MAGIC,
     pub cbKey: u32,
@@ -352,6 +474,7 @@ unsafe impl ::windows::runtime::Abi for BCRYPT_DH_KEY_BLOB {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct BCRYPT_DH_KEY_BLOB_MAGIC(pub u32);
@@ -394,9 +517,11 @@ impl ::std::ops::Not for BCRYPT_DH_KEY_BLOB_MAGIC {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_DH_PARAMETERS_MAGIC: u32 = 1297107012u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct BCRYPT_DH_PARAMETER_HEADER {
     pub cbLength: u32,
     pub dwMagic: u32,
@@ -423,9 +548,11 @@ unsafe impl ::windows::runtime::Abi for BCRYPT_DH_PARAMETER_HEADER {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_DSA_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(721u32 as _);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct BCRYPT_DSA_KEY_BLOB {
     pub dwMagic: BCRYPT_DSA_MAGIC,
     pub cbKey: u32,
@@ -456,6 +583,7 @@ unsafe impl ::windows::runtime::Abi for BCRYPT_DSA_KEY_BLOB {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct BCRYPT_DSA_KEY_BLOB_V2 {
     pub dwMagic: BCRYPT_DSA_MAGIC,
     pub cbKey: u32,
@@ -494,6 +622,7 @@ unsafe impl ::windows::runtime::Abi for BCRYPT_DSA_KEY_BLOB_V2 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct BCRYPT_DSA_MAGIC(pub u32);
@@ -536,10 +665,13 @@ impl ::std::ops::Not for BCRYPT_DSA_MAGIC {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_DSA_PARAMETERS_MAGIC: u32 = 1297109828u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_DSA_PARAMETERS_MAGIC_V2: u32 = 843927620u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct BCRYPT_DSA_PARAMETER_HEADER {
     pub cbLength: u32,
     pub dwMagic: u32,
@@ -571,6 +703,7 @@ unsafe impl ::windows::runtime::Abi for BCRYPT_DSA_PARAMETER_HEADER {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct BCRYPT_DSA_PARAMETER_HEADER_V2 {
     pub cbLength: u32,
     pub dwMagic: u32,
@@ -611,10 +744,13 @@ unsafe impl ::windows::runtime::Abi for BCRYPT_DSA_PARAMETER_HEADER_V2 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_DSA_PRIVATE_MAGIC_V2: u32 = 844517444u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_DSA_PUBLIC_MAGIC_V2: u32 = 843206724u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct BCRYPT_ECCFULLKEY_BLOB {
     pub dwMagic: u32,
     pub dwVersion: u32,
@@ -657,6 +793,7 @@ unsafe impl ::windows::runtime::Abi for BCRYPT_ECCFULLKEY_BLOB {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct BCRYPT_ECCKEY_BLOB {
     pub dwMagic: u32,
     pub cbKey: u32,
@@ -685,6 +822,7 @@ unsafe impl ::windows::runtime::Abi for BCRYPT_ECCKEY_BLOB {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct BCRYPT_ECC_CURVE_NAMES {
     pub dwEccCurveNames: u32,
     pub pEccCurveNames: *mut super::super::Foundation::PWSTR,
@@ -716,36 +854,67 @@ unsafe impl ::windows::runtime::Abi for BCRYPT_ECC_CURVE_NAMES {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_ECC_FULLKEY_BLOB_V1: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_ECC_PARAMETERS_MAGIC: u32 = 1346585413u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_ECDH_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(657u32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_ECDH_P256_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(673u32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_ECDH_P384_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(689u32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_ECDH_P521_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(705u32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_ECDH_PRIVATE_GENERIC_MAGIC: u32 = 1447772997u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_ECDH_PRIVATE_P256_MAGIC: u32 = 843793221u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_ECDH_PRIVATE_P384_MAGIC: u32 = 877347653u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_ECDH_PRIVATE_P521_MAGIC: u32 = 910902085u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_ECDH_PUBLIC_GENERIC_MAGIC: u32 = 1347109701u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_ECDH_PUBLIC_P256_MAGIC: u32 = 827016005u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_ECDH_PUBLIC_P384_MAGIC: u32 = 860570437u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_ECDH_PUBLIC_P521_MAGIC: u32 = 894124869u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_ECDSA_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(241u32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_ECDSA_P256_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(737u32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_ECDSA_P384_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(753u32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_ECDSA_P521_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(769u32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_ECDSA_PRIVATE_GENERIC_MAGIC: u32 = 1447314245u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_ECDSA_PRIVATE_P256_MAGIC: u32 = 844317509u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_ECDSA_PRIVATE_P384_MAGIC: u32 = 877871941u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_ECDSA_PRIVATE_P521_MAGIC: u32 = 911426373u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_ECDSA_PUBLIC_GENERIC_MAGIC: u32 = 1346650949u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_ECDSA_PUBLIC_P256_MAGIC: u32 = 827540293u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_ECDSA_PUBLIC_P384_MAGIC: u32 = 861094725u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_ECDSA_PUBLIC_P521_MAGIC: u32 = 894649157u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_ENABLE_INCOMPATIBLE_FIPS_CHECKS: u32 = 256u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_EXTENDED_KEYSIZE: u32 = 128u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_GENERATE_IV: u32 = 32u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_HASH_INTERFACE_MAJORVERSION_2: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct BCRYPT_HASH_OPERATION_TYPE(pub i32);
@@ -760,14 +929,23 @@ unsafe impl ::windows::runtime::Abi for BCRYPT_HASH_OPERATION_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_HKDF_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(913u32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_HMAC_MD2_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(289u32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_HMAC_MD4_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(305u32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_HMAC_MD5_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(145u32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_HMAC_SHA1_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(161u32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_HMAC_SHA256_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(177u32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_HMAC_SHA384_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(193u32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_HMAC_SHA512_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(209u32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct BCRYPT_INTERFACE(pub u32);
@@ -819,6 +997,7 @@ impl ::std::ops::Not for BCRYPT_INTERFACE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct BCRYPT_INTERFACE_VERSION {
     pub MajorVersion: u16,
     pub MinorVersion: u16,
@@ -846,6 +1025,7 @@ unsafe impl ::windows::runtime::Abi for BCRYPT_INTERFACE_VERSION {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct BCRYPT_KEY_BLOB {
     pub Magic: u32,
 }
@@ -872,6 +1052,7 @@ unsafe impl ::windows::runtime::Abi for BCRYPT_KEY_BLOB {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct BCRYPT_KEY_DATA_BLOB_HEADER {
     pub dwMagic: u32,
     pub dwVersion: u32,
@@ -898,9 +1079,13 @@ unsafe impl ::windows::runtime::Abi for BCRYPT_KEY_DATA_BLOB_HEADER {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_KEY_DATA_BLOB_MAGIC: u32 = 1296188491u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_KEY_DATA_BLOB_VERSION1: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_KEY_DERIVATION_INTERFACE: u32 = 7u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_KEY_DERIVATION_OPERATION: u32 = 64u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -917,6 +1102,7 @@ unsafe impl ::windows::runtime::Abi for BCRYPT_KEY_HANDLE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct BCRYPT_KEY_LENGTHS_STRUCT {
     pub dwMinLength: u32,
     pub dwMaxLength: u32,
@@ -943,15 +1129,23 @@ unsafe impl ::windows::runtime::Abi for BCRYPT_KEY_LENGTHS_STRUCT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_KEY_VALIDATION_RANGE: u32 = 16u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_KEY_VALIDATION_RANGE_AND_ORDER: u32 = 24u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_KEY_VALIDATION_REGENERATE: u32 = 32u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_MD2_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(1u32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_MD4_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(17u32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_MD5_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(33u32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_MULTI_FLAG: u32 = 64u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct BCRYPT_MULTI_HASH_OPERATION {
     pub iHash: u32,
     pub hashOperation: BCRYPT_HASH_OPERATION_TYPE,
@@ -981,6 +1175,7 @@ unsafe impl ::windows::runtime::Abi for BCRYPT_MULTI_HASH_OPERATION {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct BCRYPT_MULTI_OBJECT_LENGTH_STRUCT {
     pub cbPerObject: u32,
     pub cbPerElement: u32,
@@ -1006,6 +1201,7 @@ unsafe impl ::windows::runtime::Abi for BCRYPT_MULTI_OBJECT_LENGTH_STRUCT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct BCRYPT_MULTI_OPERATION_TYPE(pub i32);
@@ -1019,10 +1215,12 @@ unsafe impl ::windows::runtime::Abi for BCRYPT_MULTI_OPERATION_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_NO_KEY_VALIDATION: u32 = 8u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct BCRYPT_OAEP_PADDING_INFO {
     pub pszAlgId: super::super::Foundation::PWSTR,
     pub pbLabel: *mut u8,
@@ -1055,9 +1253,11 @@ unsafe impl ::windows::runtime::Abi for BCRYPT_OAEP_PADDING_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_OBJECT_ALIGNMENT: u32 = 16u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct BCRYPT_OID {
     pub cbOID: u32,
     pub pbOID: *mut u8,
@@ -1085,6 +1285,7 @@ unsafe impl ::windows::runtime::Abi for BCRYPT_OID {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct BCRYPT_OID_LIST {
     pub dwOIDCount: u32,
     pub pOIDs: *mut BCRYPT_OID,
@@ -1110,6 +1311,7 @@ unsafe impl ::windows::runtime::Abi for BCRYPT_OID_LIST {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS(pub u32);
@@ -1153,6 +1355,7 @@ impl ::std::ops::Not for BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct BCRYPT_OPERATION(pub u32);
@@ -1199,11 +1402,14 @@ impl ::std::ops::Not for BCRYPT_OPERATION {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_PAD_PKCS1_OPTIONAL_HASH_OID: u32 = 16u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_PBKDF2_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(817u32 as _);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct BCRYPT_PKCS1_PADDING_INFO {
     pub pszAlgId: super::super::Foundation::PWSTR,
 }
@@ -1234,10 +1440,12 @@ unsafe impl ::windows::runtime::Abi for BCRYPT_PKCS1_PADDING_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_PRIVATE_KEY_FLAG: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct BCRYPT_PROVIDER_NAME {
     pub pszProviderName: super::super::Foundation::PWSTR,
 }
@@ -1271,6 +1479,7 @@ unsafe impl ::windows::runtime::Abi for BCRYPT_PROVIDER_NAME {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct BCRYPT_PSS_PADDING_INFO {
     pub pszAlgId: super::super::Foundation::PWSTR,
     pub cbSalt: u32,
@@ -1302,7 +1511,9 @@ unsafe impl ::windows::runtime::Abi for BCRYPT_PSS_PADDING_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_PUBLIC_KEY_FLAG: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct BCRYPT_QUERY_PROVIDER_MODE(pub u32);
@@ -1347,10 +1558,15 @@ impl ::std::ops::Not for BCRYPT_QUERY_PROVIDER_MODE {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_RC2_CBC_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(593u32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_RC2_CFB_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(625u32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_RC2_ECB_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(609u32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_RC4_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(113u32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct BCRYPT_RESOLVE_PROVIDERS_FLAGS(pub u32);
@@ -1393,10 +1609,13 @@ impl ::std::ops::Not for BCRYPT_RESOLVE_PROVIDERS_FLAGS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_RNG_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(129u32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_RNG_USE_ENTROPY_IN_BUFFER: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct BCRYPT_RSAKEY_BLOB {
     pub Magic: BCRYPT_RSAKEY_BLOB_MAGIC,
     pub BitLength: u32,
@@ -1426,6 +1645,7 @@ unsafe impl ::windows::runtime::Abi for BCRYPT_RSAKEY_BLOB {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct BCRYPT_RSAKEY_BLOB_MAGIC(pub u32);
@@ -1469,19 +1689,33 @@ impl ::std::ops::Not for BCRYPT_RSAKEY_BLOB_MAGIC {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_RSA_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(225u32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_RSA_SIGN_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(785u32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_SHA1_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(49u32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_SHA256_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(65u32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_SHA384_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(81u32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_SHA512_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(97u32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_SP800108_CTR_HMAC_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(833u32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_SP80056A_CONCAT_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(849u32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_SUPPORTED_PAD_OAEP: u32 = 8u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_SUPPORTED_PAD_PKCS1_ENC: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_SUPPORTED_PAD_PKCS1_SIG: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_SUPPORTED_PAD_PSS: u32 = 16u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_SUPPORTED_PAD_ROUTER: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct BCRYPT_TABLE(pub u32);
@@ -1524,12 +1758,18 @@ impl ::std::ops::Not for BCRYPT_TABLE {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_TLS1_1_KDF_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(865u32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_TLS1_2_KDF_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(881u32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_TLS_CBC_HMAC_VERIFY_FLAG: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_USE_SYSTEM_PREFERRED_RNG: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_XTS_AES_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(897u32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn BCryptAddContextFunction<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dwtable: BCRYPT_TABLE, pszcontext: Param1, dwinterface: BCRYPT_INTERFACE, pszfunction: Param3, dwposition: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1545,6 +1785,7 @@ pub unsafe fn BCryptAddContextFunction<'a, Param1: ::windows::runtime::IntoParam
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct BCryptBuffer {
     pub cbBuffer: u32,
     pub BufferType: u32,
@@ -1573,6 +1814,7 @@ unsafe impl ::windows::runtime::Abi for BCryptBuffer {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct BCryptBufferDesc {
     pub ulVersion: u32,
     pub cBuffers: u32,
@@ -1600,6 +1842,7 @@ unsafe impl ::windows::runtime::Abi for BCryptBufferDesc {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn BCryptCloseAlgorithmProvider<'a, Param0: ::windows::runtime::IntoParam<'a, BCRYPT_ALG_HANDLE>>(halgorithm: Param0, dwflags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1614,6 +1857,7 @@ pub unsafe fn BCryptCloseAlgorithmProvider<'a, Param0: ::windows::runtime::IntoP
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn BCryptConfigureContext<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dwtable: BCRYPT_TABLE, pszcontext: Param1, pconfig: *const CRYPT_CONTEXT_CONFIG) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1628,6 +1872,7 @@ pub unsafe fn BCryptConfigureContext<'a, Param1: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn BCryptConfigureContextFunction<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dwtable: BCRYPT_TABLE, pszcontext: Param1, dwinterface: BCRYPT_INTERFACE, pszfunction: Param3, pconfig: *const CRYPT_CONTEXT_FUNCTION_CONFIG) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1642,6 +1887,7 @@ pub unsafe fn BCryptConfigureContextFunction<'a, Param1: ::windows::runtime::Int
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn BCryptCreateContext<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dwtable: BCRYPT_TABLE, pszcontext: Param1, pconfig: *const CRYPT_CONTEXT_CONFIG) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1656,6 +1902,7 @@ pub unsafe fn BCryptCreateContext<'a, Param1: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn BCryptCreateHash<'a, Param0: ::windows::runtime::IntoParam<'a, BCRYPT_ALG_HANDLE>>(halgorithm: Param0, phhash: *mut *mut ::std::ffi::c_void, pbhashobject: *mut u8, cbhashobject: u32, pbsecret: *const u8, cbsecret: u32, dwflags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1670,6 +1917,7 @@ pub unsafe fn BCryptCreateHash<'a, Param0: ::windows::runtime::IntoParam<'a, BCR
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn BCryptCreateMultiHash<'a, Param0: ::windows::runtime::IntoParam<'a, BCRYPT_ALG_HANDLE>>(halgorithm: Param0, phhash: *mut *mut ::std::ffi::c_void, nhashes: u32, pbhashobject: *mut u8, cbhashobject: u32, pbsecret: *const u8, cbsecret: u32, dwflags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1684,6 +1932,7 @@ pub unsafe fn BCryptCreateMultiHash<'a, Param0: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn BCryptDecrypt<'a, Param0: ::windows::runtime::IntoParam<'a, BCRYPT_KEY_HANDLE>>(hkey: Param0, pbinput: *const u8, cbinput: u32, ppaddinginfo: *const ::std::ffi::c_void, pbiv: *mut u8, cbiv: u32, pboutput: *mut u8, cboutput: u32, pcbresult: *mut u32, dwflags: NCRYPT_FLAGS) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1710,6 +1959,7 @@ pub unsafe fn BCryptDecrypt<'a, Param0: ::windows::runtime::IntoParam<'a, BCRYPT
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn BCryptDeleteContext<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dwtable: BCRYPT_TABLE, pszcontext: Param1) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1724,6 +1974,7 @@ pub unsafe fn BCryptDeleteContext<'a, Param1: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn BCryptDeriveKey<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hsharedsecret: *const ::std::ffi::c_void, pwszkdf: Param1, pparameterlist: *const BCryptBufferDesc, pbderivedkey: *mut u8, cbderivedkey: u32, pcbresult: *mut u32, dwflags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1738,6 +1989,7 @@ pub unsafe fn BCryptDeriveKey<'a, Param1: ::windows::runtime::IntoParam<'a, supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn BCryptDeriveKeyCapi<'a, Param1: ::windows::runtime::IntoParam<'a, BCRYPT_ALG_HANDLE>>(hhash: *const ::std::ffi::c_void, htargetalg: Param1, pbderivedkey: *mut u8, cbderivedkey: u32, dwflags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1752,6 +2004,7 @@ pub unsafe fn BCryptDeriveKeyCapi<'a, Param1: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn BCryptDeriveKeyPBKDF2<'a, Param0: ::windows::runtime::IntoParam<'a, BCRYPT_ALG_HANDLE>>(hprf: Param0, pbpassword: *const u8, cbpassword: u32, pbsalt: *const u8, cbsalt: u32, citerations: u64, pbderivedkey: *mut u8, cbderivedkey: u32, dwflags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1766,6 +2019,7 @@ pub unsafe fn BCryptDeriveKeyPBKDF2<'a, Param0: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn BCryptDestroyHash(hhash: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1780,6 +2034,7 @@ pub unsafe fn BCryptDestroyHash(hhash: *mut ::std::ffi::c_void) -> ::windows::ru
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn BCryptDestroyKey<'a, Param0: ::windows::runtime::IntoParam<'a, BCRYPT_KEY_HANDLE>>(hkey: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1794,6 +2049,7 @@ pub unsafe fn BCryptDestroyKey<'a, Param0: ::windows::runtime::IntoParam<'a, BCR
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn BCryptDestroySecret(hsecret: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1808,6 +2064,7 @@ pub unsafe fn BCryptDestroySecret(hsecret: *mut ::std::ffi::c_void) -> ::windows
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn BCryptDuplicateHash(hhash: *const ::std::ffi::c_void, phnewhash: *mut *mut ::std::ffi::c_void, pbhashobject: *mut u8, cbhashobject: u32, dwflags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1822,6 +2079,7 @@ pub unsafe fn BCryptDuplicateHash(hhash: *const ::std::ffi::c_void, phnewhash: *
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn BCryptDuplicateKey<'a, Param0: ::windows::runtime::IntoParam<'a, BCRYPT_KEY_HANDLE>>(hkey: Param0, phnewkey: *mut BCRYPT_KEY_HANDLE, pbkeyobject: *mut u8, cbkeyobject: u32, dwflags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1836,6 +2094,7 @@ pub unsafe fn BCryptDuplicateKey<'a, Param0: ::windows::runtime::IntoParam<'a, B
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn BCryptEncrypt<'a, Param0: ::windows::runtime::IntoParam<'a, BCRYPT_KEY_HANDLE>>(hkey: Param0, pbinput: *const u8, cbinput: u32, ppaddinginfo: *const ::std::ffi::c_void, pbiv: *mut u8, cbiv: u32, pboutput: *mut u8, cboutput: u32, pcbresult: *mut u32, dwflags: NCRYPT_FLAGS) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1862,6 +2121,7 @@ pub unsafe fn BCryptEncrypt<'a, Param0: ::windows::runtime::IntoParam<'a, BCRYPT
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn BCryptEnumAlgorithms(dwalgoperations: BCRYPT_OPERATION, palgcount: *mut u32, ppalglist: *mut *mut BCRYPT_ALGORITHM_IDENTIFIER, dwflags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1876,6 +2136,7 @@ pub unsafe fn BCryptEnumAlgorithms(dwalgoperations: BCRYPT_OPERATION, palgcount:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn BCryptEnumContextFunctionProviders<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dwtable: BCRYPT_TABLE, pszcontext: Param1, dwinterface: BCRYPT_INTERFACE, pszfunction: Param3, pcbbuffer: *mut u32, ppbuffer: *mut *mut CRYPT_CONTEXT_FUNCTION_PROVIDERS) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1890,6 +2151,7 @@ pub unsafe fn BCryptEnumContextFunctionProviders<'a, Param1: ::windows::runtime:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn BCryptEnumContextFunctions<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dwtable: BCRYPT_TABLE, pszcontext: Param1, dwinterface: BCRYPT_INTERFACE, pcbbuffer: *mut u32, ppbuffer: *mut *mut CRYPT_CONTEXT_FUNCTIONS) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1904,6 +2166,7 @@ pub unsafe fn BCryptEnumContextFunctions<'a, Param1: ::windows::runtime::IntoPar
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn BCryptEnumContexts(dwtable: BCRYPT_TABLE, pcbbuffer: *mut u32, ppbuffer: *mut *mut CRYPT_CONTEXTS) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1918,6 +2181,7 @@ pub unsafe fn BCryptEnumContexts(dwtable: BCRYPT_TABLE, pcbbuffer: *mut u32, ppb
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn BCryptEnumProviders<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszalgid: Param0, pimplcount: *mut u32, ppimpllist: *mut *mut BCRYPT_PROVIDER_NAME, dwflags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1932,6 +2196,7 @@ pub unsafe fn BCryptEnumProviders<'a, Param0: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn BCryptEnumRegisteredProviders(pcbbuffer: *mut u32, ppbuffer: *mut *mut CRYPT_PROVIDERS) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1946,6 +2211,7 @@ pub unsafe fn BCryptEnumRegisteredProviders(pcbbuffer: *mut u32, ppbuffer: *mut 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn BCryptExportKey<'a, Param0: ::windows::runtime::IntoParam<'a, BCRYPT_KEY_HANDLE>, Param1: ::windows::runtime::IntoParam<'a, BCRYPT_KEY_HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hkey: Param0, hexportkey: Param1, pszblobtype: Param2, pboutput: *mut u8, cboutput: u32, pcbresult: *mut u32, dwflags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1960,6 +2226,7 @@ pub unsafe fn BCryptExportKey<'a, Param0: ::windows::runtime::IntoParam<'a, BCRY
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn BCryptFinalizeKeyPair<'a, Param0: ::windows::runtime::IntoParam<'a, BCRYPT_KEY_HANDLE>>(hkey: Param0, dwflags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1974,6 +2241,7 @@ pub unsafe fn BCryptFinalizeKeyPair<'a, Param0: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn BCryptFinishHash(hhash: *mut ::std::ffi::c_void, pboutput: *mut u8, cboutput: u32, dwflags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1987,6 +2255,7 @@ pub unsafe fn BCryptFinishHash(hhash: *mut ::std::ffi::c_void, pboutput: *mut u8
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[inline]
 pub unsafe fn BCryptFreeBuffer(pvbuffer: *const ::std::ffi::c_void) {
     #[cfg(windows)]
@@ -2001,6 +2270,7 @@ pub unsafe fn BCryptFreeBuffer(pvbuffer: *const ::std::ffi::c_void) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn BCryptGenRandom<'a, Param0: ::windows::runtime::IntoParam<'a, BCRYPT_ALG_HANDLE>>(halgorithm: Param0, pbbuffer: *mut u8, cbbuffer: u32, dwflags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -2015,6 +2285,7 @@ pub unsafe fn BCryptGenRandom<'a, Param0: ::windows::runtime::IntoParam<'a, BCRY
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn BCryptGenerateKeyPair<'a, Param0: ::windows::runtime::IntoParam<'a, BCRYPT_ALG_HANDLE>>(halgorithm: Param0, phkey: *mut BCRYPT_KEY_HANDLE, dwlength: u32, dwflags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -2029,6 +2300,7 @@ pub unsafe fn BCryptGenerateKeyPair<'a, Param0: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn BCryptGenerateSymmetricKey<'a, Param0: ::windows::runtime::IntoParam<'a, BCRYPT_ALG_HANDLE>>(halgorithm: Param0, phkey: *mut BCRYPT_KEY_HANDLE, pbkeyobject: *mut u8, cbkeyobject: u32, pbsecret: *const u8, cbsecret: u32, dwflags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -2043,6 +2315,7 @@ pub unsafe fn BCryptGenerateSymmetricKey<'a, Param0: ::windows::runtime::IntoPar
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn BCryptGetFipsAlgorithmMode(pfenabled: *mut u8) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -2057,6 +2330,7 @@ pub unsafe fn BCryptGetFipsAlgorithmMode(pfenabled: *mut u8) -> ::windows::runti
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn BCryptGetProperty<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hobject: *const ::std::ffi::c_void, pszproperty: Param1, pboutput: *mut u8, cboutput: u32, pcbresult: *mut u32, dwflags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -2071,6 +2345,7 @@ pub unsafe fn BCryptGetProperty<'a, Param1: ::windows::runtime::IntoParam<'a, su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn BCryptHash<'a, Param0: ::windows::runtime::IntoParam<'a, BCRYPT_ALG_HANDLE>>(halgorithm: Param0, pbsecret: *const u8, cbsecret: u32, pbinput: *const u8, cbinput: u32, pboutput: *mut u8, cboutput: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -2085,6 +2360,7 @@ pub unsafe fn BCryptHash<'a, Param0: ::windows::runtime::IntoParam<'a, BCRYPT_AL
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn BCryptHashData(hhash: *mut ::std::ffi::c_void, pbinput: *const u8, cbinput: u32, dwflags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -2099,6 +2375,7 @@ pub unsafe fn BCryptHashData(hhash: *mut ::std::ffi::c_void, pbinput: *const u8,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn BCryptImportKey<'a, Param0: ::windows::runtime::IntoParam<'a, BCRYPT_ALG_HANDLE>, Param1: ::windows::runtime::IntoParam<'a, BCRYPT_KEY_HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(halgorithm: Param0, himportkey: Param1, pszblobtype: Param2, phkey: *mut BCRYPT_KEY_HANDLE, pbkeyobject: *mut u8, cbkeyobject: u32, pbinput: *const u8, cbinput: u32, dwflags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -2113,6 +2390,7 @@ pub unsafe fn BCryptImportKey<'a, Param0: ::windows::runtime::IntoParam<'a, BCRY
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn BCryptImportKeyPair<'a, Param0: ::windows::runtime::IntoParam<'a, BCRYPT_ALG_HANDLE>, Param1: ::windows::runtime::IntoParam<'a, BCRYPT_KEY_HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(halgorithm: Param0, himportkey: Param1, pszblobtype: Param2, phkey: *mut BCRYPT_KEY_HANDLE, pbinput: *const u8, cbinput: u32, dwflags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -2127,6 +2405,7 @@ pub unsafe fn BCryptImportKeyPair<'a, Param0: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn BCryptKeyDerivation<'a, Param0: ::windows::runtime::IntoParam<'a, BCRYPT_KEY_HANDLE>>(hkey: Param0, pparameterlist: *const BCryptBufferDesc, pbderivedkey: *mut u8, cbderivedkey: u32, pcbresult: *mut u32, dwflags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -2141,6 +2420,7 @@ pub unsafe fn BCryptKeyDerivation<'a, Param0: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn BCryptOpenAlgorithmProvider<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(phalgorithm: *mut BCRYPT_ALG_HANDLE, pszalgid: Param1, pszimplementation: Param2, dwflags: BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -2155,6 +2435,7 @@ pub unsafe fn BCryptOpenAlgorithmProvider<'a, Param1: ::windows::runtime::IntoPa
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn BCryptProcessMultiOperations(hobject: *mut ::std::ffi::c_void, operationtype: BCRYPT_MULTI_OPERATION_TYPE, poperations: *const ::std::ffi::c_void, cboperations: u32, dwflags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -2169,6 +2450,7 @@ pub unsafe fn BCryptProcessMultiOperations(hobject: *mut ::std::ffi::c_void, ope
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn BCryptQueryContextConfiguration<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dwtable: BCRYPT_TABLE, pszcontext: Param1, pcbbuffer: *mut u32, ppbuffer: *mut *mut CRYPT_CONTEXT_CONFIG) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -2183,6 +2465,7 @@ pub unsafe fn BCryptQueryContextConfiguration<'a, Param1: ::windows::runtime::In
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn BCryptQueryContextFunctionConfiguration<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dwtable: BCRYPT_TABLE, pszcontext: Param1, dwinterface: BCRYPT_INTERFACE, pszfunction: Param3, pcbbuffer: *mut u32, ppbuffer: *mut *mut CRYPT_CONTEXT_FUNCTION_CONFIG) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -2197,6 +2480,7 @@ pub unsafe fn BCryptQueryContextFunctionConfiguration<'a, Param1: ::windows::run
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn BCryptQueryContextFunctionProperty<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dwtable: BCRYPT_TABLE, pszcontext: Param1, dwinterface: BCRYPT_INTERFACE, pszfunction: Param3, pszproperty: Param4, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -2211,6 +2495,7 @@ pub unsafe fn BCryptQueryContextFunctionProperty<'a, Param1: ::windows::runtime:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn BCryptQueryProviderRegistration<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszprovider: Param0, dwmode: BCRYPT_QUERY_PROVIDER_MODE, dwinterface: BCRYPT_INTERFACE, pcbbuffer: *mut u32, ppbuffer: *mut *mut CRYPT_PROVIDER_REG) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -2225,6 +2510,7 @@ pub unsafe fn BCryptQueryProviderRegistration<'a, Param0: ::windows::runtime::In
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn BCryptRegisterConfigChangeNotify(phevent: *mut super::super::Foundation::HANDLE) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -2239,6 +2525,7 @@ pub unsafe fn BCryptRegisterConfigChangeNotify(phevent: *mut super::super::Found
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn BCryptRemoveContextFunction<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dwtable: BCRYPT_TABLE, pszcontext: Param1, dwinterface: BCRYPT_INTERFACE, pszfunction: Param3) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -2253,6 +2540,7 @@ pub unsafe fn BCryptRemoveContextFunction<'a, Param1: ::windows::runtime::IntoPa
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn BCryptResolveProviders<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
     pszcontext: Param0,
@@ -2276,6 +2564,7 @@ pub unsafe fn BCryptResolveProviders<'a, Param0: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn BCryptSecretAgreement<'a, Param0: ::windows::runtime::IntoParam<'a, BCRYPT_KEY_HANDLE>, Param1: ::windows::runtime::IntoParam<'a, BCRYPT_KEY_HANDLE>>(hprivkey: Param0, hpubkey: Param1, phagreedsecret: *mut *mut ::std::ffi::c_void, dwflags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -2290,6 +2579,7 @@ pub unsafe fn BCryptSecretAgreement<'a, Param0: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn BCryptSetContextFunctionProperty<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dwtable: BCRYPT_TABLE, pszcontext: Param1, dwinterface: BCRYPT_INTERFACE, pszfunction: Param3, pszproperty: Param4, cbvalue: u32, pbvalue: *const u8) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -2304,6 +2594,7 @@ pub unsafe fn BCryptSetContextFunctionProperty<'a, Param1: ::windows::runtime::I
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn BCryptSetProperty<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hobject: *mut ::std::ffi::c_void, pszproperty: Param1, pbinput: *const u8, cbinput: u32, dwflags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -2318,6 +2609,7 @@ pub unsafe fn BCryptSetProperty<'a, Param1: ::windows::runtime::IntoParam<'a, su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn BCryptSignHash<'a, Param0: ::windows::runtime::IntoParam<'a, BCRYPT_KEY_HANDLE>>(hkey: Param0, ppaddinginfo: *const ::std::ffi::c_void, pbinput: *const u8, cbinput: u32, pboutput: *mut u8, cboutput: u32, pcbresult: *mut u32, dwflags: NCRYPT_FLAGS) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -2332,6 +2624,7 @@ pub unsafe fn BCryptSignHash<'a, Param0: ::windows::runtime::IntoParam<'a, BCRYP
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn BCryptUnregisterConfigChangeNotify<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hevent: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -2346,6 +2639,7 @@ pub unsafe fn BCryptUnregisterConfigChangeNotify<'a, Param0: ::windows::runtime:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn BCryptVerifySignature<'a, Param0: ::windows::runtime::IntoParam<'a, BCRYPT_KEY_HANDLE>>(hkey: Param0, ppaddinginfo: *const ::std::ffi::c_void, pbhash: *const u8, cbhash: u32, pbsignature: *const u8, cbsignature: u32, dwflags: NCRYPT_FLAGS) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -2359,8 +2653,11 @@ pub unsafe fn BCryptVerifySignature<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CALG_OID_INFO_CNG_ONLY: u32 = 4294967295u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CALG_OID_INFO_PARAMETERS: u32 = 4294967294u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CASetupProperty(pub i32);
@@ -2395,6 +2692,7 @@ pub const CCertSrvSetup: ::windows::runtime::GUID = ::windows::runtime::GUID::fr
 pub const CCertSrvSetupKeyInformation: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(943143174, 21555, 17971, [176, 251, 41, 183, 231, 130, 98, 225]);
 pub const CCertificateEnrollmentPolicyServerSetup: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2950887986, 16817, 17821, [165, 222, 73, 173, 216, 167, 33, 130]);
 pub const CCertificateEnrollmentServerSetup: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2567107516, 34991, 19704, [174, 98, 113, 64, 83, 21, 82, 182]);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CEPSetupProperty(pub i32);
@@ -2413,6 +2711,7 @@ unsafe impl ::windows::runtime::Abi for CEPSetupProperty {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct CERTIFICATE_CHAIN_BLOB {
     pub certCount: u32,
     pub rawCertificates: *mut CRYPTOAPI_BLOB,
@@ -2438,10 +2737,12 @@ unsafe impl ::windows::runtime::Abi for CERTIFICATE_CHAIN_BLOB {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERTVIEW_CRYPTUI_LPARAM: u32 = 8388608u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_ACCESS_DESCRIPTION {
     pub pszAccessMethod: super::super::Foundation::PSTR,
     pub AccessLocation: CERT_ALT_NAME_ENTRY,
@@ -2467,17 +2768,26 @@ unsafe impl ::windows::runtime::Abi for CERT_ACCESS_DESCRIPTION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_ACCESS_STATE_GP_SYSTEM_STORE_FLAG: u32 = 8u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_ACCESS_STATE_LM_SYSTEM_STORE_FLAG: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_ACCESS_STATE_PROP_ID: u32 = 14u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_ACCESS_STATE_SHARED_USER_FLAG: u32 = 16u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_ACCESS_STATE_SYSTEM_STORE_FLAG: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_ACCESS_STATE_WRITE_PERSIST_FLAG: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_AIA_URL_RETRIEVED_PROP_ID: u32 = 67u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_ALT_NAME_EDI_PARTY_NAME: u32 = 6u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_ALT_NAME_ENTRY {
     pub dwAltNameChoice: u32,
     pub Anonymous: CERT_ALT_NAME_ENTRY_0,
@@ -2506,6 +2816,7 @@ unsafe impl ::windows::runtime::Abi for CERT_ALT_NAME_ENTRY {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub union CERT_ALT_NAME_ENTRY_0 {
     pub pOtherName: *mut CERT_OTHER_NAME,
     pub pwszRfc822Name: super::super::Foundation::PWSTR,
@@ -2536,11 +2847,14 @@ unsafe impl ::windows::runtime::Abi for CERT_ALT_NAME_ENTRY_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_ALT_NAME_ENTRY_ERR_INDEX_MASK: u32 = 255u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_ALT_NAME_ENTRY_ERR_INDEX_SHIFT: u32 = 16u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_ALT_NAME_INFO {
     pub cAltEntry: u32,
     pub rgAltEntry: *mut CERT_ALT_NAME_ENTRY,
@@ -2572,14 +2886,20 @@ unsafe impl ::windows::runtime::Abi for CERT_ALT_NAME_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_ALT_NAME_VALUE_ERR_INDEX_MASK: u32 = 65535u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_ALT_NAME_VALUE_ERR_INDEX_SHIFT: u32 = 0u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_ALT_NAME_X400_ADDRESS: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_ARCHIVED_KEY_HASH_PROP_ID: u32 = 65u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_ARCHIVED_PROP_ID: u32 = 19u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_AUTHORITY_INFO_ACCESS {
     pub cAccDescr: u32,
     pub rgAccDescr: *mut CERT_ACCESS_DESCRIPTION,
@@ -2611,10 +2931,12 @@ unsafe impl ::windows::runtime::Abi for CERT_AUTHORITY_INFO_ACCESS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_AUTHORITY_INFO_ACCESS_PROP_ID: u32 = 68u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_AUTHORITY_KEY_ID2_INFO {
     pub KeyId: CRYPTOAPI_BLOB,
     pub AuthorityCertIssuer: CERT_ALT_NAME_INFO,
@@ -2649,6 +2971,7 @@ unsafe impl ::windows::runtime::Abi for CERT_AUTHORITY_KEY_ID2_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct CERT_AUTHORITY_KEY_ID_INFO {
     pub KeyId: CRYPTOAPI_BLOB,
     pub CertIssuer: CRYPTOAPI_BLOB,
@@ -2675,16 +2998,24 @@ unsafe impl ::windows::runtime::Abi for CERT_AUTHORITY_KEY_ID_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_AUTH_ROOT_AUTO_UPDATE_DISABLE_PARTIAL_CHAIN_LOGGING_FLAG: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_AUTH_ROOT_AUTO_UPDATE_DISABLE_UNTRUSTED_ROOT_LOGGING_FLAG: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_AUTH_ROOT_SHA256_HASH_PROP_ID: u32 = 98u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_AUTO_ENROLL_PROP_ID: u32 = 21u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_AUTO_ENROLL_RETRY_PROP_ID: u32 = 66u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_AUTO_UPDATE_DISABLE_RANDOM_QUERY_STRING_FLAG: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_BACKED_UP_PROP_ID: u32 = 69u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_BASIC_CONSTRAINTS2_INFO {
     pub fCA: super::super::Foundation::BOOL,
     pub fPathLenConstraint: super::super::Foundation::BOOL,
@@ -2720,6 +3051,7 @@ unsafe impl ::windows::runtime::Abi for CERT_BASIC_CONSTRAINTS2_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_BASIC_CONSTRAINTS_INFO {
     pub SubjectType: CRYPT_BIT_BLOB,
     pub fPathLenConstraint: super::super::Foundation::BOOL,
@@ -2763,6 +3095,7 @@ unsafe impl ::windows::runtime::Abi for CERT_BASIC_CONSTRAINTS_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_BIOMETRIC_DATA {
     pub dwTypeOfBiometricDataChoice: CERT_BIOMETRIC_DATA_TYPE,
     pub Anonymous: CERT_BIOMETRIC_DATA_0,
@@ -2792,6 +3125,7 @@ unsafe impl ::windows::runtime::Abi for CERT_BIOMETRIC_DATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub union CERT_BIOMETRIC_DATA_0 {
     pub dwPredefined: u32,
     pub pszObjId: super::super::Foundation::PSTR,
@@ -2817,6 +3151,7 @@ unsafe impl ::windows::runtime::Abi for CERT_BIOMETRIC_DATA_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CERT_BIOMETRIC_DATA_TYPE(pub u32);
@@ -2862,6 +3197,7 @@ impl ::std::ops::Not for CERT_BIOMETRIC_DATA_TYPE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_BIOMETRIC_EXT_INFO {
     pub cBiometricData: u32,
     pub rgBiometricData: *mut CERT_BIOMETRIC_DATA,
@@ -2893,18 +3229,28 @@ unsafe impl ::windows::runtime::Abi for CERT_BIOMETRIC_EXT_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_BIOMETRIC_PICTURE_TYPE: u32 = 0u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_BIOMETRIC_SIGNATURE_TYPE: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_BUNDLE_CERTIFICATE: u32 = 0u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_BUNDLE_CRL: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CASE_INSENSITIVE_IS_RDN_ATTRS_FLAG: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CA_DISABLE_CRL_PROP_ID: u32 = 82u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CA_OCSP_AUTHORITY_INFO_ACCESS_PROP_ID: u32 = 81u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CA_SUBJECT_FLAG: u32 = 128u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CEP_PROP_ID: u32 = 87u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_CHAIN {
     pub cCerts: u32,
     pub certs: *mut CRYPTOAPI_BLOB,
@@ -2937,23 +3283,38 @@ unsafe impl ::windows::runtime::Abi for CERT_CHAIN {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_AUTO_CURRENT_USER: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_AUTO_FLUSH_DISABLE_FLAG: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_AUTO_HPKP_RULE_INFO: u32 = 8u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_AUTO_IMPERSONATED: u32 = 3u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_AUTO_LOCAL_MACHINE: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_AUTO_LOG_CREATE_FLAG: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_AUTO_LOG_FLUSH_FLAG: u32 = 8u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_AUTO_LOG_FREE_FLAG: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_AUTO_NETWORK_INFO: u32 = 6u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_AUTO_PINRULE_INFO: u32 = 5u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_AUTO_PROCESS_INFO: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_AUTO_SERIAL_LOCAL_MACHINE: u32 = 7u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_CACHE_END_CERT: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_CACHE_ONLY_URL_RETRIEVAL: u32 = 4u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_CHAIN_CONTEXT {
     pub cbSize: u32,
     pub TrustStatus: CERT_TRUST_STATUS,
@@ -3013,27 +3374,46 @@ unsafe impl ::windows::runtime::Abi for CERT_CHAIN_CONTEXT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_CRL_VALIDITY_EXT_PERIOD_HOURS_DEFAULT: u32 = 12u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_DISABLE_AIA: u32 = 8192u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_DISABLE_ALL_EKU_WEAK_FLAG: u32 = 65536u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_DISABLE_AUTH_ROOT_AUTO_UPDATE: u32 = 256u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_DISABLE_CODE_SIGNING_WEAK_FLAG: u32 = 4194304u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_DISABLE_ECC_PARA_FLAG: u32 = 16u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_DISABLE_FILE_HASH_WEAK_FLAG: u32 = 4096u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_DISABLE_MD2_MD4: u32 = 4096u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_DISABLE_MOTW_CODE_SIGNING_WEAK_FLAG: u32 = 8388608u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_DISABLE_MOTW_FILE_HASH_WEAK_FLAG: u32 = 8192u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_DISABLE_MOTW_TIMESTAMP_HASH_WEAK_FLAG: u32 = 32768u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_DISABLE_MOTW_TIMESTAMP_WEAK_FLAG: u32 = 134217728u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_DISABLE_MY_PEER_TRUST: u32 = 2048u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_DISABLE_OPT_IN_SERVER_AUTH_WEAK_FLAG: u32 = 262144u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_DISABLE_PASS1_QUALITY_FILTERING: u32 = 64u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_DISABLE_SERVER_AUTH_WEAK_FLAG: u32 = 1048576u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_DISABLE_TIMESTAMP_HASH_WEAK_FLAG: u32 = 16384u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_DISABLE_TIMESTAMP_WEAK_FLAG: u32 = 67108864u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_CHAIN_ELEMENT {
     pub cbSize: u32,
     pub pCertContext: *mut CERT_CONTEXT,
@@ -3078,22 +3458,37 @@ unsafe impl ::windows::runtime::Abi for CERT_CHAIN_ELEMENT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_ENABLE_ALL_EKU_HYGIENE_FLAG: u32 = 131072u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_ENABLE_CACHE_AUTO_UPDATE: u32 = 16u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_ENABLE_CODE_SIGNING_HYGIENE_FLAG: u32 = 16777216u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_ENABLE_MD2_MD4_FLAG: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_ENABLE_MOTW_CODE_SIGNING_HYGIENE_FLAG: u32 = 33554432u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_ENABLE_MOTW_TIMESTAMP_HYGIENE_FLAG: u32 = 536870912u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_ENABLE_ONLY_WEAK_LOGGING_FLAG: u32 = 8u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_ENABLE_PEER_TRUST: u32 = 1024u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_ENABLE_SERVER_AUTH_HYGIENE_FLAG: u32 = 2097152u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_ENABLE_SHARE_STORE: u32 = 32u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_ENABLE_TIMESTAMP_HYGIENE_FLAG: u32 = 268435456u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_ENABLE_WEAK_LOGGING_FLAG: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_ENABLE_WEAK_RSA_ROOT_FLAG: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_ENABLE_WEAK_SETTINGS_FLAG: u32 = 2147483648u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct CERT_CHAIN_ENGINE_CONFIG {
     pub cbSize: u32,
     pub hRestrictedRoot: *mut ::std::ffi::c_void,
@@ -3156,11 +3551,14 @@ unsafe impl ::windows::runtime::Abi for CERT_CHAIN_ENGINE_CONFIG {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_EXCLUSIVE_ENABLE_CA_FLAG: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_FIND_BY_ISSUER: u32 = 1u32;
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_CHAIN_FIND_BY_ISSUER_PARA {
     pub cbSize: u32,
     pub pszUsageIdentifier: super::super::Foundation::PSTR,
@@ -3206,25 +3604,42 @@ unsafe impl ::windows::runtime::Abi for CERT_CHAIN_FIND_BY_ISSUER_PARA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_HAS_MOTW: u32 = 16384u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_MAX_AIA_URL_COUNT_IN_CERT_DEFAULT: u32 = 5u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_MAX_AIA_URL_RETRIEVAL_BYTE_COUNT_DEFAULT: u32 = 100000u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_MAX_AIA_URL_RETRIEVAL_CERT_COUNT_DEFAULT: u32 = 10u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_MAX_AIA_URL_RETRIEVAL_COUNT_PER_CHAIN_DEFAULT: u32 = 3u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_MAX_SSL_TIME_UPDATED_EVENT_COUNT_DEFAULT: u32 = 5u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_MAX_SSL_TIME_UPDATED_EVENT_COUNT_DISABLE: u32 = 4294967295u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_MIN_PUB_KEY_BIT_LENGTH_DISABLE: u32 = 4294967295u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_MIN_RSA_PUB_KEY_BIT_LENGTH_DEFAULT: u32 = 1023u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_MIN_RSA_PUB_KEY_BIT_LENGTH_DISABLE: u32 = 4294967295u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_MOTW_IGNORE_AFTER_TIME_WEAK_FLAG: u32 = 1073741824u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_ONLY_ADDITIONAL_AND_AUTH_ROOT: u32 = 32768u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_OPTION_DISABLE_AIA_URL_RETRIEVAL: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_OPTION_ENABLE_SIA_URL_RETRIEVAL: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_OPT_IN_WEAK_FLAGS: u32 = 262144u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_OPT_IN_WEAK_SIGNATURE: u32 = 65536u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_CHAIN_PARA {
     pub cbSize: u32,
     pub RequestedUsage: CERT_USAGE_MATCH,
@@ -3256,6 +3671,7 @@ unsafe impl ::windows::runtime::Abi for CERT_CHAIN_PARA {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CERT_CHAIN_POLICY_FLAGS(pub u32);
@@ -3314,9 +3730,11 @@ impl ::std::ops::Not for CERT_CHAIN_POLICY_FLAGS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_POLICY_IGNORE_WEAK_SIGNATURE_FLAG: u32 = 134217728u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct CERT_CHAIN_POLICY_PARA {
     pub cbSize: u32,
     pub dwFlags: CERT_CHAIN_POLICY_FLAGS,
@@ -3343,19 +3761,31 @@ unsafe impl ::windows::runtime::Abi for CERT_CHAIN_POLICY_PARA {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_POLICY_SSL_F12_ERROR_LEVEL: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_POLICY_SSL_F12_NONE_CATEGORY: u32 = 0u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_POLICY_SSL_F12_ROOT_PROGRAM_CATEGORY: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_POLICY_SSL_F12_SUCCESS_LEVEL: u32 = 0u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_POLICY_SSL_F12_WARNING_LEVEL: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_POLICY_SSL_F12_WEAK_CRYPTO_CATEGORY: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_POLICY_SSL_KEY_PIN_MISMATCH_ERROR: i32 = -2i32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_POLICY_SSL_KEY_PIN_MISMATCH_WARNING: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_POLICY_SSL_KEY_PIN_MITM_ERROR: i32 = -1i32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_POLICY_SSL_KEY_PIN_MITM_WARNING: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_POLICY_SSL_KEY_PIN_SUCCESS: u32 = 0u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct CERT_CHAIN_POLICY_STATUS {
     pub cbSize: u32,
     pub dwError: u32,
@@ -3384,49 +3814,90 @@ unsafe impl ::windows::runtime::Abi for CERT_CHAIN_POLICY_STATUS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_RETURN_LOWER_QUALITY_CONTEXTS: u32 = 128u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_REVOCATION_ACCUMULATIVE_TIMEOUT: u32 = 134217728u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY: u32 = 2147483648u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_REVOCATION_CHECK_CHAIN: u32 = 536870912u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT: u32 = 1073741824u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_REVOCATION_CHECK_END_CERT: u32 = 268435456u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_REVOCATION_CHECK_OCSP_CERT: u32 = 67108864u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_STRONG_SIGN_DISABLE_END_CHECK_FLAG: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_THREAD_STORE_SYNC: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_TIMESTAMP_TIME: u32 = 512u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_USE_LOCAL_MACHINE_STORE: u32 = 8u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CLOSE_STORE_CHECK_FLAG: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CLOSE_STORE_FORCE_FLAG: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CLR_DELETE_KEY_PROP_ID: u32 = 125u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_COMPARE_ANY: u32 = 0u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_COMPARE_ATTR: u32 = 3u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_COMPARE_CERT_ID: u32 = 16u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_COMPARE_CROSS_CERT_DIST_POINTS: u32 = 17u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_COMPARE_CTL_USAGE: u32 = 10u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_COMPARE_ENHKEY_USAGE: u32 = 10u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_COMPARE_EXISTING: u32 = 13u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_COMPARE_HASH: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_COMPARE_HASH_STR: u32 = 20u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_COMPARE_HAS_PRIVATE_KEY: u32 = 21u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_COMPARE_ISSUER_OF: u32 = 12u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_COMPARE_KEY_IDENTIFIER: u32 = 15u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_COMPARE_KEY_SPEC: u32 = 9u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_COMPARE_MASK: u32 = 65535u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_COMPARE_MD5_HASH: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_COMPARE_NAME: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_COMPARE_NAME_STR_A: u32 = 7u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_COMPARE_NAME_STR_W: u32 = 8u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_COMPARE_PROPERTY: u32 = 5u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_COMPARE_PUBKEY_MD5_HASH: u32 = 18u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_COMPARE_PUBLIC_KEY: u32 = 6u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_COMPARE_SHA1_HASH: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_COMPARE_SHIFT: i32 = 16i32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_COMPARE_SIGNATURE_HASH: u32 = 14u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_COMPARE_SUBJECT_CERT: u32 = 11u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_COMPARE_SUBJECT_INFO_ACCESS: u32 = 19u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_CONTEXT {
     pub dwCertEncodingType: u32,
     pub pbCertEncoded: *mut u8,
@@ -3461,7 +3932,9 @@ unsafe impl ::windows::runtime::Abi for CERT_CONTEXT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CONTEXT_REVOCATION_TYPE: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CERT_CONTROL_STORE_FLAGS(pub u32);
@@ -3505,12 +3978,16 @@ impl ::std::ops::Not for CERT_CONTROL_STORE_FLAGS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CREATE_CONTEXT_NOCOPY_FLAG: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CREATE_CONTEXT_NO_ENTRY_FLAG: u32 = 8u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CREATE_CONTEXT_NO_HCRYPTMSG_FLAG: u32 = 4u32;
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_CREATE_CONTEXT_PARA {
     pub cbSize: u32,
     pub pfnFree: ::std::option::Option<PFN_CRYPT_FREE>,
@@ -3545,7 +4022,9 @@ unsafe impl ::windows::runtime::Abi for CERT_CREATE_CONTEXT_PARA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CREATE_CONTEXT_SORTED_FLAG: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CERT_CREATE_SELFSIGN_FLAGS(pub u32);
@@ -3588,10 +4067,12 @@ impl ::std::ops::Not for CERT_CREATE_SELFSIGN_FLAGS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CREDENTIAL_PROVIDER_ID: i32 = -509i32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_CRL_CONTEXT_PAIR {
     pub pCertContext: *mut CERT_CONTEXT,
     pub pCrlContext: *mut CRL_CONTEXT,
@@ -3623,15 +4104,23 @@ unsafe impl ::windows::runtime::Abi for CERT_CRL_CONTEXT_PAIR {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CRL_SIGN_KEY_USAGE: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CROSS_CERT_DIST_POINTS_PROP_ID: u32 = 23u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CTL_USAGE_PROP_ID: u32 = 9u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_DATA_ENCIPHERMENT_KEY_USAGE: u32 = 16u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_DATE_STAMP_PROP_ID: u32 = 27u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_DECIPHER_ONLY_KEY_USAGE: u32 = 128u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_DESCRIPTION_PROP_ID: u32 = 13u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct CERT_DH_PARAMETERS {
     pub p: CRYPTOAPI_BLOB,
     pub g: CRYPTOAPI_BLOB,
@@ -3657,20 +4146,33 @@ unsafe impl ::windows::runtime::Abi for CERT_DH_PARAMETERS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_DIGITAL_SIGNATURE_KEY_USAGE: u32 = 128u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_DISALLOWED_ENHKEY_USAGE_PROP_ID: u32 = 122u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_DISALLOWED_FILETIME_PROP_ID: u32 = 104u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_DISPWELL_DISTRUST_ADD_CA_CERT: u32 = 8u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_DISPWELL_DISTRUST_ADD_LEAF_CERT: u32 = 9u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_DISPWELL_DISTRUST_CA_CERT: u32 = 6u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_DISPWELL_DISTRUST_LEAF_CERT: u32 = 7u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_DISPWELL_SELECT: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_DISPWELL_TRUST_ADD_CA_CERT: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_DISPWELL_TRUST_ADD_LEAF_CERT: u32 = 5u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_DISPWELL_TRUST_CA_CERT: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_DISPWELL_TRUST_LEAF_CERT: u32 = 3u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct CERT_DSS_PARAMETERS {
     pub p: CRYPTOAPI_BLOB,
     pub q: CRYPTOAPI_BLOB,
@@ -3697,10 +4199,13 @@ unsafe impl ::windows::runtime::Abi for CERT_DSS_PARAMETERS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_DSS_R_LEN: u32 = 20u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_DSS_S_LEN: u32 = 20u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct CERT_ECC_SIGNATURE {
     pub r: CRYPTOAPI_BLOB,
     pub s: CRYPTOAPI_BLOB,
@@ -3726,17 +4231,26 @@ unsafe impl ::windows::runtime::Abi for CERT_ECC_SIGNATURE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_EFS_PROP_ID: u32 = 17u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_ENCIPHER_ONLY_KEY_USAGE: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_ENCODING_TYPE_MASK: u32 = 65535u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_END_ENTITY_SUBJECT_FLAG: u32 = 64u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_ENHKEY_USAGE_PROP_ID: u32 = 9u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_ENROLLMENT_PROP_ID: u32 = 26u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_EXCLUDED_SUBTREE_BIT: i32 = -2147483648i32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_EXTENDED_ERROR_INFO_PROP_ID: u32 = 30u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_EXTENSION {
     pub pszObjId: super::super::Foundation::PSTR,
     pub fCritical: super::super::Foundation::BOOL,
@@ -3772,6 +4286,7 @@ unsafe impl ::windows::runtime::Abi for CERT_EXTENSION {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_EXTENSIONS {
     pub cExtension: u32,
     pub rgExtension: *mut CERT_EXTENSION,
@@ -3803,17 +4318,29 @@ unsafe impl ::windows::runtime::Abi for CERT_EXTENSIONS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_FILE_HASH_USE_TYPE: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_FILE_STORE_COMMIT_ENABLE_FLAG: u32 = 65536u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_FILTER_INCLUDE_V1_CERTS: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_FILTER_ISSUER_CERTS_ONLY: u32 = 16u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_FILTER_KEY_EXISTS: u32 = 32u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_FILTER_LEAF_CERTS_ONLY: u32 = 8u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_FILTER_OP_EQUALITY: u32 = 3u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_FILTER_OP_EXISTS: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_FILTER_OP_NOT_EXISTS: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_FILTER_VALID_SIGNATURE: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_FILTER_VALID_TIME_RANGE: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CERT_FIND_CHAIN_IN_STORE_FLAGS(pub u32);
@@ -3860,6 +4387,7 @@ impl ::std::ops::Not for CERT_FIND_CHAIN_IN_STORE_FLAGS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CERT_FIND_FLAGS(pub u32);
@@ -3942,6 +4470,7 @@ impl ::std::ops::Not for CERT_FIND_FLAGS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CERT_FIND_TYPE(pub u32);
@@ -3989,10 +4518,13 @@ impl ::std::ops::Not for CERT_FIND_TYPE {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_FIRST_RESERVED_PROP_ID: u32 = 128u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_FIRST_USER_PROP_ID: u32 = 32768u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct CERT_FORTEZZA_DATA_PROP {
     pub SerialNumber: [u8; 8],
     pub CertIndex: i32,
@@ -4019,11 +4551,14 @@ unsafe impl ::windows::runtime::Abi for CERT_FORTEZZA_DATA_PROP {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_FORTEZZA_DATA_PROP_ID: u32 = 18u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_FRIENDLY_NAME_PROP_ID: u32 = 11u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_GENERAL_SUBTREE {
     pub Base: CERT_ALT_NAME_ENTRY,
     pub dwMinimum: u32,
@@ -4054,6 +4589,7 @@ unsafe impl ::windows::runtime::Abi for CERT_GENERAL_SUBTREE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_HASHED_URL {
     pub HashAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub Hash: CRYPTOAPI_BLOB,
@@ -4086,11 +4622,15 @@ unsafe impl ::windows::runtime::Abi for CERT_HASHED_URL {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_HASH_PROP_ID: u32 = 3u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_HCRYPTPROV_OR_NCRYPT_KEY_HANDLE_PROP_ID: u32 = 79u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_HCRYPTPROV_TRANSFER_PROP_ID: u32 = 100u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct CERT_ID {
     pub dwIdChoice: CERT_ID_OPTION,
     pub Anonymous: CERT_ID_0,
@@ -4113,6 +4653,7 @@ unsafe impl ::windows::runtime::Abi for CERT_ID {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub union CERT_ID_0 {
     pub IssuerSerialNumber: CERT_ISSUER_SERIAL_NUMBER,
     pub KeyId: CRYPTOAPI_BLOB,
@@ -4134,6 +4675,7 @@ unsafe impl ::windows::runtime::Abi for CERT_ID_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CERT_ID_OPTION(pub u32);
@@ -4177,10 +4719,12 @@ impl ::std::ops::Not for CERT_ID_OPTION {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_IE30_RESERVED_PROP_ID: u32 = 7u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_INFO {
     pub dwVersion: u32,
     pub SerialNumber: CRYPTOAPI_BLOB,
@@ -4246,24 +4790,41 @@ unsafe impl ::windows::runtime::Abi for CERT_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_INFO_EXTENSION_FLAG: u32 = 11u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_INFO_ISSUER_FLAG: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_INFO_ISSUER_UNIQUE_ID_FLAG: u32 = 9u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_INFO_NOT_AFTER_FLAG: u32 = 6u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_INFO_NOT_BEFORE_FLAG: u32 = 5u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_INFO_SERIAL_NUMBER_FLAG: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_INFO_SIGNATURE_ALGORITHM_FLAG: u32 = 3u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_INFO_SUBJECT_FLAG: u32 = 7u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_INFO_SUBJECT_PUBLIC_KEY_INFO_FLAG: u32 = 8u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_INFO_SUBJECT_UNIQUE_ID_FLAG: u32 = 10u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_INFO_VERSION_FLAG: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_ISOLATED_KEY_PROP_ID: u32 = 118u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_ISSUER_CHAIN_PUB_KEY_CNG_ALG_BIT_LENGTH_PROP_ID: u32 = 96u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_ISSUER_CHAIN_SIGN_HASH_CNG_ALG_PROP_ID: u32 = 95u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_ISSUER_PUBLIC_KEY_MD5_HASH_PROP_ID: u32 = 24u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_ISSUER_PUB_KEY_BIT_LENGTH_PROP_ID: u32 = 94u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct CERT_ISSUER_SERIAL_NUMBER {
     pub Issuer: CRYPTOAPI_BLOB,
     pub SerialNumber: CRYPTOAPI_BLOB,
@@ -4289,10 +4850,12 @@ unsafe impl ::windows::runtime::Abi for CERT_ISSUER_SERIAL_NUMBER {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_ISSUER_SERIAL_NUMBER_MD5_HASH_PROP_ID: u32 = 28u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_KEYGEN_REQUEST_INFO {
     pub dwVersion: u32,
     pub SubjectPublicKeyInfo: CERT_PUBLIC_KEY_INFO,
@@ -4325,11 +4888,14 @@ unsafe impl ::windows::runtime::Abi for CERT_KEYGEN_REQUEST_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_KEYGEN_REQUEST_V1: u32 = 0u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_KEY_AGREEMENT_KEY_USAGE: u32 = 8u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_KEY_ATTRIBUTES_INFO {
     pub KeyId: CRYPTOAPI_BLOB,
     pub IntendedKeyUsage: CRYPT_BIT_BLOB,
@@ -4362,10 +4928,13 @@ unsafe impl ::windows::runtime::Abi for CERT_KEY_ATTRIBUTES_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_KEY_CERT_SIGN_KEY_USAGE: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_KEY_CLASSIFICATION_PROP_ID: u32 = 120u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct CERT_KEY_CONTEXT {
     pub cbSize: u32,
     pub Anonymous: CERT_KEY_CONTEXT_0,
@@ -4389,6 +4958,7 @@ unsafe impl ::windows::runtime::Abi for CERT_KEY_CONTEXT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub union CERT_KEY_CONTEXT_0 {
     pub hCryptProv: usize,
     pub hNCryptKey: usize,
@@ -4409,12 +4979,19 @@ unsafe impl ::windows::runtime::Abi for CERT_KEY_CONTEXT_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_KEY_CONTEXT_PROP_ID: u32 = 5u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_KEY_ENCIPHERMENT_KEY_USAGE: u32 = 32u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_KEY_IDENTIFIER_PROP_ID: u32 = 20u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_KEY_PROV_HANDLE_PROP_ID: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_KEY_PROV_INFO_PROP_ID: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_KEY_REPAIR_ATTEMPTED_PROP_ID: u32 = 103u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CERT_KEY_SPEC(pub u32);
@@ -4458,10 +5035,12 @@ impl ::std::ops::Not for CERT_KEY_SPEC {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_KEY_SPEC_PROP_ID: u32 = 6u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_KEY_USAGE_RESTRICTION_INFO {
     pub cCertPolicyId: u32,
     pub rgCertPolicyId: *mut CERT_POLICY_ID,
@@ -4494,13 +5073,18 @@ unsafe impl ::windows::runtime::Abi for CERT_KEY_USAGE_RESTRICTION_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_LAST_RESERVED_PROP_ID: u32 = 32767u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_LAST_USER_PROP_ID: u32 = 65535u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_LDAP_STORE_AREC_EXCLUSIVE_FLAG: u32 = 131072u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_LDAP_STORE_OPENED_FLAG: u32 = 262144u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_LDAP_STORE_OPENED_PARA {
     pub pvLdapSessionHandle: *mut ::std::ffi::c_void,
     pub pwszLdapUrl: super::super::Foundation::PWSTR,
@@ -4532,11 +5116,14 @@ unsafe impl ::windows::runtime::Abi for CERT_LDAP_STORE_OPENED_PARA {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_LDAP_STORE_SIGN_FLAG: u32 = 65536u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_LDAP_STORE_UNBIND_FLAG: u32 = 524288u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_LOGOTYPE_AUDIO {
     pub LogotypeDetails: CERT_LOGOTYPE_DETAILS,
     pub pLogotypeAudioInfo: *mut CERT_LOGOTYPE_AUDIO_INFO,
@@ -4571,6 +5158,7 @@ unsafe impl ::windows::runtime::Abi for CERT_LOGOTYPE_AUDIO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_LOGOTYPE_AUDIO_INFO {
     pub dwFileSize: u32,
     pub dwPlayTime: u32,
@@ -4605,6 +5193,7 @@ unsafe impl ::windows::runtime::Abi for CERT_LOGOTYPE_AUDIO_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CERT_LOGOTYPE_CHOICE(pub u32);
@@ -4651,6 +5240,7 @@ impl ::std::ops::Not for CERT_LOGOTYPE_CHOICE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_LOGOTYPE_DATA {
     pub cLogotypeImage: u32,
     pub rgLogotypeImage: *mut CERT_LOGOTYPE_IMAGE,
@@ -4687,6 +5277,7 @@ unsafe impl ::windows::runtime::Abi for CERT_LOGOTYPE_DATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_LOGOTYPE_DETAILS {
     pub pwszMimeType: super::super::Foundation::PWSTR,
     pub cHashedUrl: u32,
@@ -4722,6 +5313,7 @@ unsafe impl ::windows::runtime::Abi for CERT_LOGOTYPE_DETAILS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_LOGOTYPE_EXT_INFO {
     pub cCommunityLogo: u32,
     pub rgCommunityLogo: *mut CERT_LOGOTYPE_INFO,
@@ -4767,6 +5359,7 @@ unsafe impl ::windows::runtime::Abi for CERT_LOGOTYPE_EXT_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_LOGOTYPE_IMAGE {
     pub LogotypeDetails: CERT_LOGOTYPE_DETAILS,
     pub pLogotypeImageInfo: *mut CERT_LOGOTYPE_IMAGE_INFO,
@@ -4801,6 +5394,7 @@ unsafe impl ::windows::runtime::Abi for CERT_LOGOTYPE_IMAGE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_LOGOTYPE_IMAGE_INFO {
     pub dwLogotypeImageInfoChoice: CERT_LOGOTYPE_IMAGE_INFO_TYPE,
     pub dwFileSize: u32,
@@ -4833,6 +5427,7 @@ unsafe impl ::windows::runtime::Abi for CERT_LOGOTYPE_IMAGE_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub union CERT_LOGOTYPE_IMAGE_INFO_0 {
     pub dwNumBits: u32,
     pub dwTableSize: u32,
@@ -4853,6 +5448,7 @@ unsafe impl ::windows::runtime::Abi for CERT_LOGOTYPE_IMAGE_INFO_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CERT_LOGOTYPE_IMAGE_INFO_TYPE(pub u32);
@@ -4898,6 +5494,7 @@ impl ::std::ops::Not for CERT_LOGOTYPE_IMAGE_INFO_TYPE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_LOGOTYPE_INFO {
     pub dwLogotypeInfoChoice: CERT_LOGOTYPE_OPTION,
     pub Anonymous: CERT_LOGOTYPE_INFO_0,
@@ -4926,6 +5523,7 @@ unsafe impl ::windows::runtime::Abi for CERT_LOGOTYPE_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub union CERT_LOGOTYPE_INFO_0 {
     pub pLogotypeDirectInfo: *mut CERT_LOGOTYPE_DATA,
     pub pLogotypeIndirectInfo: *mut CERT_LOGOTYPE_REFERENCE,
@@ -4951,6 +5549,7 @@ unsafe impl ::windows::runtime::Abi for CERT_LOGOTYPE_INFO_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CERT_LOGOTYPE_OPTION(pub u32);
@@ -4996,6 +5595,7 @@ impl ::std::ops::Not for CERT_LOGOTYPE_OPTION {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_LOGOTYPE_REFERENCE {
     pub cHashedUrl: u32,
     pub rgHashedUrl: *mut CERT_HASHED_URL,
@@ -5027,11 +5627,14 @@ unsafe impl ::windows::runtime::Abi for CERT_LOGOTYPE_REFERENCE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_MD5_HASH_PROP_ID: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_NAME_ATTR_TYPE: u32 = 3u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_NAME_CONSTRAINTS_INFO {
     pub cPermittedSubtree: u32,
     pub rgPermittedSubtree: *mut CERT_GENERAL_SUBTREE,
@@ -5065,13 +5668,18 @@ unsafe impl ::windows::runtime::Abi for CERT_NAME_CONSTRAINTS_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_NAME_DISABLE_IE4_UTF8_FLAG: u32 = 65536u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_NAME_DNS_TYPE: u32 = 6u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_NAME_EMAIL_TYPE: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_NAME_FRIENDLY_DISPLAY_TYPE: u32 = 5u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_NAME_INFO {
     pub cRDN: u32,
     pub rgRDN: *mut CERT_RDN,
@@ -5103,27 +5711,47 @@ unsafe impl ::windows::runtime::Abi for CERT_NAME_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_NAME_ISSUER_FLAG: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_NAME_RDN_TYPE: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_NAME_SEARCH_ALL_NAMES_FLAG: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_NAME_SIMPLE_DISPLAY_TYPE: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_NAME_STR_COMMA_FLAG: u32 = 67108864u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_NAME_STR_CRLF_FLAG: u32 = 134217728u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_NAME_STR_DISABLE_IE4_UTF8_FLAG: u32 = 65536u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_NAME_STR_DISABLE_UTF8_DIR_STR_FLAG: u32 = 1048576u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_NAME_STR_ENABLE_PUNYCODE_FLAG: u32 = 2097152u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_NAME_STR_ENABLE_T61_UNICODE_FLAG: u32 = 131072u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_NAME_STR_ENABLE_UTF8_UNICODE_FLAG: u32 = 262144u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_NAME_STR_FORCE_UTF8_DIR_STR_FLAG: u32 = 524288u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_NAME_STR_FORWARD_FLAG: u32 = 16777216u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_NAME_STR_NO_PLUS_FLAG: u32 = 536870912u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_NAME_STR_NO_QUOTING_FLAG: u32 = 268435456u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_NAME_STR_REVERSE_FLAG: u32 = 33554432u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_NAME_STR_SEMICOLON_FLAG: u32 = 1073741824u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_NAME_UPN_TYPE: u32 = 8u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_NAME_URL_TYPE: u32 = 7u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct CERT_NAME_VALUE {
     pub dwValueType: u32,
     pub Value: CRYPTOAPI_BLOB,
@@ -5149,20 +5777,35 @@ unsafe impl ::windows::runtime::Abi for CERT_NAME_VALUE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_NCRYPT_KEY_HANDLE_PROP_ID: u32 = 78u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_NCRYPT_KEY_HANDLE_TRANSFER_PROP_ID: u32 = 99u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_NEW_KEY_PROP_ID: u32 = 74u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_NEXT_UPDATE_LOCATION_PROP_ID: u32 = 10u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_NONCOMPLIANT_ROOT_URL_PROP_ID: u32 = 123u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_NON_REPUDIATION_KEY_USAGE: u32 = 64u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_NOT_BEFORE_ENHKEY_USAGE_PROP_ID: u32 = 127u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_NOT_BEFORE_FILETIME_PROP_ID: u32 = 126u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_NO_AUTO_EXPIRE_CHECK_PROP_ID: u32 = 77u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_NO_EXPIRE_NOTIFICATION_PROP_ID: u32 = 97u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_OCSP_CACHE_PREFIX_PROP_ID: u32 = 75u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_OCSP_MUST_STAPLE_PROP_ID: u32 = 121u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_OCSP_RESPONSE_PROP_ID: u32 = 70u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_OFFLINE_CRL_SIGN_KEY_USAGE: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CERT_OPEN_STORE_FLAGS(pub u32);
@@ -5217,6 +5860,7 @@ impl ::std::ops::Not for CERT_OPEN_STORE_FLAGS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct CERT_OR_CRL_BLOB {
     pub dwChoice: u32,
     pub cbEncoded: u32,
@@ -5245,6 +5889,7 @@ unsafe impl ::windows::runtime::Abi for CERT_OR_CRL_BLOB {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct CERT_OR_CRL_BUNDLE {
     pub cItem: u32,
     pub rgItem: *mut CERT_OR_CRL_BLOB,
@@ -5273,6 +5918,7 @@ unsafe impl ::windows::runtime::Abi for CERT_OR_CRL_BUNDLE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_OTHER_LOGOTYPE_INFO {
     pub pszObjId: super::super::Foundation::PSTR,
     pub LogotypeInfo: CERT_LOGOTYPE_INFO,
@@ -5301,6 +5947,7 @@ unsafe impl ::windows::runtime::Abi for CERT_OTHER_LOGOTYPE_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_OTHER_NAME {
     pub pszObjId: super::super::Foundation::PSTR,
     pub Value: CRYPTOAPI_BLOB,
@@ -5334,6 +5981,7 @@ unsafe impl ::windows::runtime::Abi for CERT_OTHER_NAME {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct CERT_PAIR {
     pub Forward: CRYPTOAPI_BLOB,
     pub Reverse: CRYPTOAPI_BLOB,
@@ -5359,10 +6007,12 @@ unsafe impl ::windows::runtime::Abi for CERT_PAIR {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_PHYSICAL_STORE_ADD_ENABLE_FLAG: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_PHYSICAL_STORE_INFO {
     pub cbSize: u32,
     pub pszOpenStoreProvider: super::super::Foundation::PSTR,
@@ -5407,14 +6057,20 @@ unsafe impl ::windows::runtime::Abi for CERT_PHYSICAL_STORE_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_PHYSICAL_STORE_INSERT_COMPUTER_NAME_ENABLE_FLAG: u32 = 8u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_PHYSICAL_STORE_OPEN_DISABLE_FLAG: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_PHYSICAL_STORE_PREDEFINED_ENUM_FLAG: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_PHYSICAL_STORE_REMOTE_OPEN_DISABLE_FLAG: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_PIN_SHA256_HASH_PROP_ID: u32 = 124u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_POLICIES_INFO {
     pub cPolicyInfo: u32,
     pub rgPolicyInfo: *mut CERT_POLICY_INFO,
@@ -5449,6 +6105,7 @@ unsafe impl ::windows::runtime::Abi for CERT_POLICIES_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_POLICY95_QUALIFIER1 {
     pub pszPracticesReference: super::super::Foundation::PWSTR,
     pub pszNoticeIdentifier: super::super::Foundation::PSTR,
@@ -5492,6 +6149,7 @@ unsafe impl ::windows::runtime::Abi for CERT_POLICY95_QUALIFIER1 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_POLICY_CONSTRAINTS_INFO {
     pub fRequireExplicitPolicy: super::super::Foundation::BOOL,
     pub dwRequireExplicitPolicySkipCerts: u32,
@@ -5533,6 +6191,7 @@ unsafe impl ::windows::runtime::Abi for CERT_POLICY_CONSTRAINTS_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_POLICY_ID {
     pub cCertPolicyElementId: u32,
     pub rgpszCertPolicyElementId: *mut super::super::Foundation::PSTR,
@@ -5567,6 +6226,7 @@ unsafe impl ::windows::runtime::Abi for CERT_POLICY_ID {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_POLICY_INFO {
     pub pszPolicyIdentifier: super::super::Foundation::PSTR,
     pub cPolicyQualifier: u32,
@@ -5602,6 +6262,7 @@ unsafe impl ::windows::runtime::Abi for CERT_POLICY_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_POLICY_MAPPING {
     pub pszIssuerDomainPolicy: super::super::Foundation::PSTR,
     pub pszSubjectDomainPolicy: super::super::Foundation::PSTR,
@@ -5636,6 +6297,7 @@ unsafe impl ::windows::runtime::Abi for CERT_POLICY_MAPPING {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_POLICY_MAPPINGS_INFO {
     pub cPolicyMapping: u32,
     pub rgPolicyMapping: *mut CERT_POLICY_MAPPING,
@@ -5670,6 +6332,7 @@ unsafe impl ::windows::runtime::Abi for CERT_POLICY_MAPPINGS_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_POLICY_QUALIFIER_INFO {
     pub pszPolicyQualifierId: super::super::Foundation::PSTR,
     pub Qualifier: CRYPTOAPI_BLOB,
@@ -5704,6 +6367,7 @@ unsafe impl ::windows::runtime::Abi for CERT_POLICY_QUALIFIER_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_POLICY_QUALIFIER_NOTICE_REFERENCE {
     pub pszOrganization: super::super::Foundation::PSTR,
     pub cNoticeNumbers: u32,
@@ -5739,6 +6403,7 @@ unsafe impl ::windows::runtime::Abi for CERT_POLICY_QUALIFIER_NOTICE_REFERENCE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_POLICY_QUALIFIER_USER_NOTICE {
     pub pNoticeReference: *mut CERT_POLICY_QUALIFIER_NOTICE_REFERENCE,
     pub pszDisplayText: super::super::Foundation::PWSTR,
@@ -5773,6 +6438,7 @@ unsafe impl ::windows::runtime::Abi for CERT_POLICY_QUALIFIER_USER_NOTICE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_PRIVATE_KEY_VALIDITY {
     pub NotBefore: super::super::Foundation::FILETIME,
     pub NotAfter: super::super::Foundation::FILETIME,
@@ -5804,19 +6470,30 @@ unsafe impl ::windows::runtime::Abi for CERT_PRIVATE_KEY_VALIDITY {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_PROT_ROOT_DISABLE_CURRENT_USER_FLAG: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_PROT_ROOT_DISABLE_LM_AUTH_FLAG: u32 = 8u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_PROT_ROOT_DISABLE_NOT_DEFINED_NAME_CONSTRAINT_FLAG: u32 = 32u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_PROT_ROOT_DISABLE_NT_AUTH_REQUIRED_FLAG: u32 = 16u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_PROT_ROOT_DISABLE_PEER_TRUST: u32 = 65536u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_PROT_ROOT_INHIBIT_ADD_AT_INIT_FLAG: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_PROT_ROOT_INHIBIT_PURGE_LM_FLAG: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_PROT_ROOT_ONLY_LM_GPT_FLAG: u32 = 8u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_PUBKEY_ALG_PARA_PROP_ID: u32 = 22u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_PUBKEY_HASH_RESERVED_PROP_ID: u32 = 8u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_PUBLIC_KEY_INFO {
     pub Algorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub PublicKey: CRYPT_BIT_BLOB,
@@ -5848,11 +6525,14 @@ unsafe impl ::windows::runtime::Abi for CERT_PUBLIC_KEY_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_PUB_KEY_CNG_ALG_BIT_LENGTH_PROP_ID: u32 = 93u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_PVK_FILE_PROP_ID: u32 = 12u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_QC_STATEMENT {
     pub pszStatementId: super::super::Foundation::PSTR,
     pub StatementInfo: CRYPTOAPI_BLOB,
@@ -5887,6 +6567,7 @@ unsafe impl ::windows::runtime::Abi for CERT_QC_STATEMENT {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_QC_STATEMENTS_EXT_INFO {
     pub cStatement: u32,
     pub rgStatement: *mut CERT_QC_STATEMENT,
@@ -5918,6 +6599,7 @@ unsafe impl ::windows::runtime::Abi for CERT_QC_STATEMENTS_EXT_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CERT_QUERY_CONTENT_TYPE(pub u32);
@@ -5972,6 +6654,7 @@ impl ::std::ops::Not for CERT_QUERY_CONTENT_TYPE {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CERT_QUERY_CONTENT_TYPE_FLAGS(pub u32);
@@ -6028,6 +6711,7 @@ impl ::std::ops::Not for CERT_QUERY_CONTENT_TYPE_FLAGS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CERT_QUERY_ENCODING_TYPE(pub u32);
@@ -6070,6 +6754,7 @@ impl ::std::ops::Not for CERT_QUERY_ENCODING_TYPE {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CERT_QUERY_FORMAT_TYPE(pub u32);
@@ -6113,6 +6798,7 @@ impl ::std::ops::Not for CERT_QUERY_FORMAT_TYPE {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CERT_QUERY_FORMAT_TYPE_FLAGS(pub u32);
@@ -6157,6 +6843,7 @@ impl ::std::ops::Not for CERT_QUERY_FORMAT_TYPE_FLAGS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CERT_QUERY_OBJECT_TYPE(pub u32);
@@ -6202,6 +6889,7 @@ impl ::std::ops::Not for CERT_QUERY_OBJECT_TYPE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_RDN {
     pub cRDNAttr: u32,
     pub rgRDNAttr: *mut CERT_RDN_ATTR,
@@ -6236,6 +6924,7 @@ unsafe impl ::windows::runtime::Abi for CERT_RDN {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_RDN_ATTR {
     pub pszObjId: super::super::Foundation::PSTR,
     pub dwValueType: CERT_RDN_ATTR_VALUE_TYPE,
@@ -6268,6 +6957,7 @@ unsafe impl ::windows::runtime::Abi for CERT_RDN_ATTR {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CERT_RDN_ATTR_VALUE_TYPE(pub u32);
@@ -6326,18 +7016,28 @@ impl ::std::ops::Not for CERT_RDN_ATTR_VALUE_TYPE {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_RDN_DISABLE_CHECK_TYPE_FLAG: u32 = 1073741824u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_RDN_DISABLE_IE4_UTF8_FLAG: u32 = 16777216u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_RDN_ENABLE_PUNYCODE_FLAG: u32 = 33554432u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_RDN_ENABLE_T61_UNICODE_FLAG: u32 = 2147483648u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_RDN_ENABLE_UTF8_UNICODE_FLAG: u32 = 536870912u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_RDN_FLAGS_MASK: u32 = 4278190080u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_RDN_FORCE_UTF8_UNICODE_FLAG: u32 = 268435456u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_RDN_TYPE_MASK: u32 = 255u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_REGISTRY_STORE_CLIENT_GPT_FLAG: u32 = 2147483648u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`, `Win32_System_Registry`*"]
 pub struct CERT_REGISTRY_STORE_CLIENT_GPT_PARA {
     pub hKeyBase: super::super::System::Registry::HKEY,
     pub pwszRegPath: super::super::Foundation::PWSTR,
@@ -6369,14 +7069,20 @@ unsafe impl ::windows::runtime::Abi for CERT_REGISTRY_STORE_CLIENT_GPT_PARA {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_REGISTRY_STORE_EXTERNAL_FLAG: u32 = 1048576u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_REGISTRY_STORE_LM_GPT_FLAG: u32 = 16777216u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_REGISTRY_STORE_MY_IE_DIRTY_FLAG: u32 = 524288u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_REGISTRY_STORE_REMOTE_FLAG: u32 = 65536u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_REGISTRY_STORE_ROAMING_FLAG: u32 = 262144u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`, `Win32_System_Registry`*"]
 pub struct CERT_REGISTRY_STORE_ROAMING_PARA {
     pub hKey: super::super::System::Registry::HKEY,
     pub pwszStoreDirectory: super::super::Foundation::PWSTR,
@@ -6408,11 +7114,14 @@ unsafe impl ::windows::runtime::Abi for CERT_REGISTRY_STORE_ROAMING_PARA {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_REGISTRY_STORE_SERIALIZED_FLAG: u32 = 131072u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_RENEWAL_PROP_ID: u32 = 64u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_REQUEST_INFO {
     pub dwVersion: u32,
     pub Subject: CRYPTOAPI_BLOB,
@@ -6447,11 +7156,14 @@ unsafe impl ::windows::runtime::Abi for CERT_REQUEST_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_REQUEST_ORIGINATOR_PROP_ID: u32 = 71u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_REQUEST_V1: u32 = 0u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_REVOCATION_CHAIN_PARA {
     pub cbSize: u32,
     pub hChainEngine: HCERTCHAINENGINE,
@@ -6501,6 +7213,7 @@ unsafe impl ::windows::runtime::Abi for CERT_REVOCATION_CHAIN_PARA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_REVOCATION_CRL_INFO {
     pub cbSize: u32,
     pub pBaseCrlContext: *mut CRL_CONTEXT,
@@ -6538,6 +7251,7 @@ unsafe impl ::windows::runtime::Abi for CERT_REVOCATION_CRL_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_REVOCATION_INFO {
     pub cbSize: u32,
     pub dwRevocationResult: u32,
@@ -6585,6 +7299,7 @@ unsafe impl ::windows::runtime::Abi for CERT_REVOCATION_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_REVOCATION_PARA {
     pub cbSize: u32,
     pub pIssuerCert: *mut CERT_CONTEXT,
@@ -6623,6 +7338,7 @@ unsafe impl ::windows::runtime::Abi for CERT_REVOCATION_PARA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_REVOCATION_STATUS {
     pub cbSize: u32,
     pub dwIndex: u32,
@@ -6658,6 +7374,7 @@ unsafe impl ::windows::runtime::Abi for CERT_REVOCATION_STATUS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CERT_REVOCATION_STATUS_REASON(pub u32);
@@ -6706,8 +7423,11 @@ impl ::std::ops::Not for CERT_REVOCATION_STATUS_REASON {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_ROOT_PROGRAM_CERT_POLICIES_PROP_ID: u32 = 83u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_ROOT_PROGRAM_CHAIN_POLICIES_PROP_ID: u32 = 105u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CERT_ROOT_PROGRAM_FLAGS(pub u32);
@@ -6751,23 +7471,38 @@ impl ::std::ops::Not for CERT_ROOT_PROGRAM_FLAGS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_ROOT_PROGRAM_FLAG_ADDRESS: u32 = 8u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_ROOT_PROGRAM_FLAG_OU: u32 = 16u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_ROOT_PROGRAM_NAME_CONSTRAINTS_PROP_ID: u32 = 84u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_SCARD_PIN_ID_PROP_ID: u32 = 90u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_SCARD_PIN_INFO_PROP_ID: u32 = 91u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_SCEP_CA_CERT_PROP_ID: u32 = 111u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_SCEP_ENCRYPT_HASH_CNG_ALG_PROP_ID: u32 = 114u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_SCEP_FLAGS_PROP_ID: u32 = 115u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_SCEP_GUID_PROP_ID: u32 = 116u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_SCEP_NONCE_PROP_ID: u32 = 113u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_SCEP_RA_ENCRYPTION_CERT_PROP_ID: u32 = 110u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_SCEP_RA_SIGNATURE_CERT_PROP_ID: u32 = 109u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_SCEP_SERVER_CERTS_PROP_ID: u32 = 108u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_SCEP_SIGNER_CERT_PROP_ID: u32 = 112u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_SELECTUI_INPUT {
     pub hStore: *mut ::std::ffi::c_void,
     pub prgpChain: *mut *mut CERT_CHAIN_CONTEXT,
@@ -6800,14 +7535,20 @@ unsafe impl ::windows::runtime::Abi for CERT_SELECTUI_INPUT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_SELECT_ALLOW_DUPLICATES: u32 = 128u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_SELECT_ALLOW_EXPIRED: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_SELECT_BY_FRIENDLYNAME: u32 = 13u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_SELECT_BY_ISSUER_DISPLAYNAME: u32 = 12u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_SELECT_BY_THUMBPRINT: u32 = 14u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_SELECT_CHAIN_PARA {
     pub hChainEngine: HCERTCHAINENGINE,
     pub pTime: *mut super::super::Foundation::FILETIME,
@@ -6844,6 +7585,7 @@ unsafe impl ::windows::runtime::Abi for CERT_SELECT_CHAIN_PARA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct CERT_SELECT_CRITERIA {
     pub dwType: CERT_SELECT_CRITERIA_TYPE,
     pub cPara: u32,
@@ -6870,6 +7612,7 @@ unsafe impl ::windows::runtime::Abi for CERT_SELECT_CRITERIA {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CERT_SELECT_CRITERIA_TYPE(pub u32);
@@ -6921,16 +7664,24 @@ impl ::std::ops::Not for CERT_SELECT_CRITERIA_TYPE {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_SELECT_DISALLOW_SELFSIGNED: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_SELECT_HARDWARE_ONLY: u32 = 64u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_SELECT_HAS_KEY_FOR_KEY_EXCHANGE: u32 = 32u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_SELECT_HAS_KEY_FOR_SIGNATURE: u32 = 16u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_SELECT_HAS_PRIVATE_KEY: u32 = 8u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_SELECT_IGNORE_AUTOSELECT: u32 = 256u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_SELECT_MAX_PARA: u32 = 500u32;
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_SELECT_STRUCT_A {
     pub dwSize: u32,
     pub hwndParent: super::super::Foundation::HWND,
@@ -7009,6 +7760,7 @@ unsafe impl ::windows::runtime::Abi for CERT_SELECT_STRUCT_A {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CERT_SELECT_STRUCT_FLAGS(pub u32);
@@ -7058,6 +7810,7 @@ impl ::std::ops::Not for CERT_SELECT_STRUCT_FLAGS {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_SELECT_STRUCT_W {
     pub dwSize: u32,
     pub hwndParent: super::super::Foundation::HWND,
@@ -7136,13 +7889,19 @@ unsafe impl ::windows::runtime::Abi for CERT_SELECT_STRUCT_W {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_SELECT_TRUSTED_ROOT: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_SEND_AS_TRUSTED_ISSUER_PROP_ID: u32 = 102u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_SERIALIZABLE_KEY_CONTEXT_PROP_ID: u32 = 117u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_SERIAL_CHAIN_PROP_ID: u32 = 119u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_SERVER_OCSP_RESPONSE_ASYNC_FLAG: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct CERT_SERVER_OCSP_RESPONSE_CONTEXT {
     pub cbSize: u32,
     pub pbEncodedOcspResponse: *mut u8,
@@ -7172,6 +7931,7 @@ unsafe impl ::windows::runtime::Abi for CERT_SERVER_OCSP_RESPONSE_CONTEXT {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_SERVER_OCSP_RESPONSE_OPEN_PARA {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -7207,16 +7967,24 @@ unsafe impl ::windows::runtime::Abi for CERT_SERVER_OCSP_RESPONSE_OPEN_PARA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_SERVER_OCSP_RESPONSE_OPEN_PARA_READ_FLAG: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_SERVER_OCSP_RESPONSE_OPEN_PARA_WRITE_FLAG: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_SET_PROPERTY_IGNORE_PERSIST_ERROR_FLAG: u32 = 2147483648u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_SET_PROPERTY_INHIBIT_PERSIST_FLAG: u32 = 1073741824u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_SHA1_HASH_PROP_ID: u32 = 3u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_SHA256_HASH_PROP_ID: u32 = 107u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_SIGNATURE_HASH_PROP_ID: u32 = 15u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_SIGNED_CONTENT_INFO {
     pub ToBeSigned: CRYPTOAPI_BLOB,
     pub SignatureAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
@@ -7249,10 +8017,12 @@ unsafe impl ::windows::runtime::Abi for CERT_SIGNED_CONTENT_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_SIGN_HASH_CNG_ALG_PROP_ID: u32 = 89u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_SIMPLE_CHAIN {
     pub cbSize: u32,
     pub TrustStatus: CERT_TRUST_STATUS,
@@ -7297,44 +8067,81 @@ unsafe impl ::windows::runtime::Abi for CERT_SIMPLE_CHAIN {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_SMART_CARD_DATA_PROP_ID: u32 = 16u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_SMART_CARD_READER_NON_REMOVABLE_PROP_ID: u32 = 106u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_SMART_CARD_READER_PROP_ID: u32 = 101u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_SMART_CARD_ROOT_INFO_PROP_ID: u32 = 76u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_SOURCE_LOCATION_PROP_ID: u32 = 72u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_SOURCE_URL_PROP_ID: u32 = 73u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_SRV_OCSP_RESP_MIN_SYNC_CERT_FILE_SECONDS_DEFAULT: u32 = 5u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_STORE_ADD_ALWAYS: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_STORE_ADD_NEW: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_STORE_ADD_NEWER: u32 = 6u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_STORE_ADD_NEWER_INHERIT_PROPERTIES: u32 = 7u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_STORE_ADD_REPLACE_EXISTING: u32 = 3u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_STORE_ADD_REPLACE_EXISTING_INHERIT_PROPERTIES: u32 = 5u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_STORE_ADD_USE_EXISTING: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_STORE_BASE_CRL_FLAG: u32 = 256u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_STORE_CERTIFICATE_CONTEXT: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_STORE_CRL_CONTEXT: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_STORE_CTL_CONTEXT: u32 = 3u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_STORE_CTRL_AUTO_RESYNC: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_STORE_CTRL_CANCEL_NOTIFY: u32 = 5u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_STORE_CTRL_COMMIT: u32 = 3u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_STORE_CTRL_NOTIFY_CHANGE: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_STORE_CTRL_RESYNC: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_STORE_DELTA_CRL_FLAG: u32 = 512u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_STORE_LOCALIZED_NAME_PROP_ID: u32 = 4096u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_STORE_MANIFOLD_FLAG: u32 = 256u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_STORE_NO_CRL_FLAG: u32 = 65536u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_STORE_NO_ISSUER_FLAG: u32 = 131072u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_STORE_PROV_CLOSE_FUNC: u32 = 0u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_STORE_PROV_CONTROL_FUNC: u32 = 13u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_STORE_PROV_DELETE_CERT_FUNC: u32 = 3u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_STORE_PROV_DELETE_CRL_FUNC: u32 = 7u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_STORE_PROV_DELETE_CTL_FUNC: u32 = 11u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_STORE_PROV_FIND_CERT_FUNC: u32 = 14u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_STORE_PROV_FIND_CRL_FUNC: u32 = 17u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_STORE_PROV_FIND_CTL_FUNC: u32 = 20u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct CERT_STORE_PROV_FIND_INFO {
     pub cbSize: u32,
     pub dwMsgAndCertEncodingType: u32,
@@ -7363,6 +8170,7 @@ unsafe impl ::windows::runtime::Abi for CERT_STORE_PROV_FIND_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CERT_STORE_PROV_FLAGS(pub u32);
@@ -7408,15 +8216,23 @@ impl ::std::ops::Not for CERT_STORE_PROV_FLAGS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_STORE_PROV_FREE_FIND_CERT_FUNC: u32 = 15u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_STORE_PROV_FREE_FIND_CRL_FUNC: u32 = 18u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_STORE_PROV_FREE_FIND_CTL_FUNC: u32 = 21u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_STORE_PROV_GET_CERT_PROPERTY_FUNC: u32 = 16u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_STORE_PROV_GET_CRL_PROPERTY_FUNC: u32 = 19u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_STORE_PROV_GET_CTL_PROPERTY_FUNC: u32 = 22u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_STORE_PROV_GP_SYSTEM_STORE_FLAG: u32 = 32u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct CERT_STORE_PROV_INFO {
     pub cbSize: u32,
     pub cStoreProvFunc: u32,
@@ -7453,18 +8269,31 @@ unsafe impl ::windows::runtime::Abi for CERT_STORE_PROV_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_STORE_PROV_READ_CERT_FUNC: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_STORE_PROV_READ_CRL_FUNC: u32 = 5u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_STORE_PROV_READ_CTL_FUNC: u32 = 9u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_STORE_PROV_SET_CERT_PROPERTY_FUNC: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_STORE_PROV_SET_CRL_PROPERTY_FUNC: u32 = 8u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_STORE_PROV_SET_CTL_PROPERTY_FUNC: u32 = 12u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_STORE_PROV_SHARED_USER_FLAG: u32 = 64u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_STORE_PROV_WRITE_ADD_FLAG: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_STORE_PROV_WRITE_CERT_FUNC: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_STORE_PROV_WRITE_CRL_FUNC: u32 = 6u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_STORE_PROV_WRITE_CTL_FUNC: u32 = 10u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_STORE_REVOCATION_FLAG: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CERT_STORE_SAVE_AS(pub u32);
@@ -7507,7 +8336,9 @@ impl ::std::ops::Not for CERT_STORE_SAVE_AS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_STORE_SAVE_AS_PKCS12: u32 = 3u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CERT_STORE_SAVE_TO(pub u32);
@@ -7553,10 +8384,15 @@ impl ::std::ops::Not for CERT_STORE_SAVE_TO {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_STORE_SHARE_STORE_FLAG: u32 = 64u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_STORE_SIGNATURE_FLAG: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_STORE_TIME_VALIDITY_FLAG: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_STORE_UNSAFE_PHYSICAL_FLAG: u32 = 32u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CERT_STRING_TYPE(pub u32);
@@ -7600,6 +8436,7 @@ impl ::std::ops::Not for CERT_STRING_TYPE {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CERT_STRONG_SIGN_FLAGS(pub u32);
@@ -7642,10 +8479,12 @@ impl ::std::ops::Not for CERT_STRONG_SIGN_FLAGS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_STRONG_SIGN_OID_INFO_CHOICE: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_STRONG_SIGN_PARA {
     pub cbSize: u32,
     pub dwInfoChoice: u32,
@@ -7675,6 +8514,7 @@ unsafe impl ::windows::runtime::Abi for CERT_STRONG_SIGN_PARA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub union CERT_STRONG_SIGN_PARA_0 {
     pub pvInfo: *mut ::std::ffi::c_void,
     pub pSerializedInfo: *mut CERT_STRONG_SIGN_SERIALIZED_INFO,
@@ -7704,6 +8544,7 @@ unsafe impl ::windows::runtime::Abi for CERT_STRONG_SIGN_PARA_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_STRONG_SIGN_SERIALIZED_INFO {
     pub dwFlags: CERT_STRONG_SIGN_FLAGS,
     pub pwszCNGSignHashAlgids: super::super::Foundation::PWSTR,
@@ -7736,16 +8577,24 @@ unsafe impl ::windows::runtime::Abi for CERT_STRONG_SIGN_SERIALIZED_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_STRONG_SIGN_SERIALIZED_INFO_CHOICE: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_SUBJECT_DISABLE_CRL_PROP_ID: u32 = 86u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_SUBJECT_INFO_ACCESS_PROP_ID: u32 = 80u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_SUBJECT_NAME_MD5_HASH_PROP_ID: u32 = 29u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_SUBJECT_OCSP_AUTHORITY_INFO_ACCESS_PROP_ID: u32 = 85u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_SUBJECT_PUBLIC_KEY_MD5_HASH_PROP_ID: u32 = 25u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_SUBJECT_PUB_KEY_BIT_LENGTH_PROP_ID: u32 = 92u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_SUPPORTED_ALGORITHM_INFO {
     pub Algorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub IntendedKeyUsage: CRYPT_BIT_BLOB,
@@ -7778,10 +8627,15 @@ unsafe impl ::windows::runtime::Abi for CERT_SUPPORTED_ALGORITHM_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_SYSTEM_STORE_CURRENT_SERVICE_ID: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_SYSTEM_STORE_CURRENT_USER_GROUP_POLICY_ID: u32 = 7u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_SYSTEM_STORE_CURRENT_USER_ID: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_SYSTEM_STORE_DEFER_READ_FLAG: u32 = 536870912u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CERT_SYSTEM_STORE_FLAGS(pub u32);
@@ -7826,6 +8680,7 @@ impl ::std::ops::Not for CERT_SYSTEM_STORE_FLAGS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct CERT_SYSTEM_STORE_INFO {
     pub cbSize: u32,
 }
@@ -7850,15 +8705,22 @@ unsafe impl ::windows::runtime::Abi for CERT_SYSTEM_STORE_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_SYSTEM_STORE_LOCAL_MACHINE_ENTERPRISE_ID: u32 = 9u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_SYSTEM_STORE_LOCAL_MACHINE_GROUP_POLICY_ID: u32 = 8u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_SYSTEM_STORE_LOCAL_MACHINE_ID: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_SYSTEM_STORE_LOCAL_MACHINE_WCOS_ID: u32 = 10u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_SYSTEM_STORE_LOCATION_SHIFT: u32 = 16u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_SYSTEM_STORE_MASK: u32 = 4294901760u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`, `Win32_System_Registry`*"]
 pub struct CERT_SYSTEM_STORE_RELOCATE_PARA {
     pub Anonymous1: CERT_SYSTEM_STORE_RELOCATE_PARA_0,
     pub Anonymous2: CERT_SYSTEM_STORE_RELOCATE_PARA_1,
@@ -7887,6 +8749,7 @@ unsafe impl ::windows::runtime::Abi for CERT_SYSTEM_STORE_RELOCATE_PARA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Registry")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_System_Registry`*"]
 pub union CERT_SYSTEM_STORE_RELOCATE_PARA_0 {
     pub hKeyBase: super::super::System::Registry::HKEY,
     pub pvBase: *mut ::std::ffi::c_void,
@@ -7915,6 +8778,7 @@ unsafe impl ::windows::runtime::Abi for CERT_SYSTEM_STORE_RELOCATE_PARA_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub union CERT_SYSTEM_STORE_RELOCATE_PARA_1 {
     pub pvSystemStore: *mut ::std::ffi::c_void,
     pub pszSystemStore: super::super::Foundation::PSTR,
@@ -7941,12 +8805,16 @@ unsafe impl ::windows::runtime::Abi for CERT_SYSTEM_STORE_RELOCATE_PARA_1 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_SYSTEM_STORE_SERVICES_ID: u32 = 5u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_SYSTEM_STORE_UNPROTECTED_FLAG: u32 = 1073741824u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_SYSTEM_STORE_USERS_ID: u32 = 6u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_TEMPLATE_EXT {
     pub pszObjId: super::super::Foundation::PSTR,
     pub dwMajorVersion: u32,
@@ -7980,10 +8848,12 @@ unsafe impl ::windows::runtime::Abi for CERT_TEMPLATE_EXT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_TIMESTAMP_HASH_USE_TYPE: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_TPM_SPECIFICATION_INFO {
     pub pwszFamily: super::super::Foundation::PWSTR,
     pub dwLevel: u32,
@@ -8016,52 +8886,96 @@ unsafe impl ::windows::runtime::Abi for CERT_TPM_SPECIFICATION_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_TRUST_AUTO_UPDATE_CA_REVOCATION: u32 = 16u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_TRUST_AUTO_UPDATE_END_REVOCATION: u32 = 32u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_TRUST_CTL_IS_NOT_SIGNATURE_VALID: u32 = 262144u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_TRUST_CTL_IS_NOT_TIME_VALID: u32 = 131072u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_TRUST_CTL_IS_NOT_VALID_FOR_USAGE: u32 = 524288u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_TRUST_DO_FULL_SEARCH: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_TRUST_DO_FULL_TRUST: u32 = 5u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_TRUST_HAS_ALLOW_WEAK_SIGNATURE: u32 = 131072u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_TRUST_HAS_AUTO_UPDATE_WEAK_SIGNATURE: u32 = 32768u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_TRUST_HAS_CRL_VALIDITY_EXTENDED: u32 = 4096u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_TRUST_HAS_EXACT_MATCH_ISSUER: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_TRUST_HAS_EXCLUDED_NAME_CONSTRAINT: u32 = 32768u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_TRUST_HAS_ISSUANCE_CHAIN_POLICY: u32 = 512u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_TRUST_HAS_KEY_MATCH_ISSUER: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_TRUST_HAS_NAME_MATCH_ISSUER: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_TRUST_HAS_NOT_DEFINED_NAME_CONSTRAINT: u32 = 8192u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_TRUST_HAS_NOT_PERMITTED_NAME_CONSTRAINT: u32 = 16384u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_TRUST_HAS_NOT_SUPPORTED_CRITICAL_EXT: u32 = 134217728u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_TRUST_HAS_NOT_SUPPORTED_NAME_CONSTRAINT: u32 = 4096u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_TRUST_HAS_PREFERRED_ISSUER: u32 = 256u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_TRUST_HAS_VALID_NAME_CONSTRAINTS: u32 = 1024u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_TRUST_HAS_WEAK_HYGIENE: u32 = 2097152u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_TRUST_HAS_WEAK_SIGNATURE: u32 = 1048576u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_TRUST_INVALID_BASIC_CONSTRAINTS: u32 = 1024u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_TRUST_INVALID_EXTENSION: u32 = 256u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_TRUST_INVALID_NAME_CONSTRAINTS: u32 = 2048u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_TRUST_INVALID_POLICY_CONSTRAINTS: u32 = 512u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_TRUST_IS_CA_TRUSTED: u32 = 16384u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_TRUST_IS_COMPLEX_CHAIN: u32 = 65536u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_TRUST_IS_CYCLIC: u32 = 128u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_TRUST_IS_EXPLICIT_DISTRUST: u32 = 67108864u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_TRUST_IS_FROM_EXCLUSIVE_TRUST_STORE: u32 = 8192u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_TRUST_IS_KEY_ROLLOVER: u32 = 128u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_TRUST_IS_NOT_SIGNATURE_VALID: u32 = 8u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_TRUST_IS_NOT_TIME_NESTED: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_TRUST_IS_NOT_TIME_VALID: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_TRUST_IS_NOT_VALID_FOR_USAGE: u32 = 16u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_TRUST_IS_OFFLINE_REVOCATION: u32 = 16777216u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_TRUST_IS_PARTIAL_CHAIN: u32 = 65536u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_TRUST_IS_PEER_TRUSTED: u32 = 2048u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_TRUST_IS_REVOKED: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_TRUST_IS_SELF_SIGNED: u32 = 8u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_TRUST_IS_UNTRUSTED_ROOT: u32 = 32u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_TRUST_LIST_INFO {
     pub cbSize: u32,
     pub pCtlEntry: *mut CTL_ENTRY,
@@ -8094,25 +9008,43 @@ unsafe impl ::windows::runtime::Abi for CERT_TRUST_LIST_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_TRUST_MASK: u32 = 16777215u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_TRUST_NO_ERROR: u32 = 0u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_TRUST_NO_ISSUANCE_CHAIN_POLICY: u32 = 33554432u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_TRUST_NO_OCSP_FAILOVER_TO_CRL: u32 = 64u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_TRUST_NO_TIME_CHECK: u32 = 33554432u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_TRUST_PERMIT_MISSING_CRLS: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_TRUST_PUB_ALLOW_END_USER_TRUST: u32 = 0u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_TRUST_PUB_ALLOW_ENTERPRISE_ADMIN_TRUST: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_TRUST_PUB_ALLOW_MACHINE_ADMIN_TRUST: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_TRUST_PUB_ALLOW_TRUST_MASK: u32 = 3u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_TRUST_PUB_CHECK_PUBLISHER_REV_FLAG: u32 = 256u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_TRUST_PUB_CHECK_TIMESTAMP_REV_FLAG: u32 = 512u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_TRUST_REVOCATION_STATUS_UNKNOWN: u32 = 64u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_TRUST_SSL_HANDSHAKE_OCSP: u32 = 262144u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_TRUST_SSL_RECONNECT_OCSP: u32 = 1048576u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_TRUST_SSL_TIME_VALID: u32 = 16777216u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_TRUST_SSL_TIME_VALID_OCSP: u32 = 524288u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct CERT_TRUST_STATUS {
     pub dwErrorStatus: u32,
     pub dwInfoStatus: u32,
@@ -8138,16 +9070,24 @@ unsafe impl ::windows::runtime::Abi for CERT_TRUST_STATUS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_UNICODE_ATTR_ERR_INDEX_MASK: u32 = 63u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_UNICODE_ATTR_ERR_INDEX_SHIFT: u32 = 16u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_UNICODE_IS_RDN_ATTRS_FLAG: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_UNICODE_RDN_ERR_INDEX_MASK: u32 = 1023u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_UNICODE_RDN_ERR_INDEX_SHIFT: u32 = 22u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_UNICODE_VALUE_ERR_INDEX_MASK: u32 = 65535u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_UNICODE_VALUE_ERR_INDEX_SHIFT: u32 = 0u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_USAGE_MATCH {
     pub dwType: u32,
     pub Usage: CTL_USAGE,
@@ -8179,34 +9119,60 @@ unsafe impl ::windows::runtime::Abi for CERT_USAGE_MATCH {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_V1: u32 = 0u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_V2: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_V3: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_VALIDITY_AFTER_END: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_VALIDITY_BEFORE_START: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_VALIDITY_CERTIFICATE_REVOKED: u32 = 8u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_VALIDITY_CRL_OUT_OF_DATE: u32 = 1073741824u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_VALIDITY_EXPLICITLY_DISTRUSTED: u32 = 16777216u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_VALIDITY_EXTENDED_USAGE_FAILURE: u32 = 32u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_VALIDITY_ISSUER_DISTRUST: u32 = 33554432u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_VALIDITY_ISSUER_INVALID: u32 = 256u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_VALIDITY_KEY_USAGE_EXT_FAILURE: u32 = 16u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_VALIDITY_MASK_TRUST: u32 = 4294901760u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_VALIDITY_MASK_VALIDITY: u32 = 65535u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_VALIDITY_NAME_CONSTRAINTS_FAILURE: u32 = 64u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_VALIDITY_NO_CRL_FOUND: u32 = 536870912u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_VALIDITY_NO_ISSUER_CERT_FOUND: u32 = 268435456u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_VALIDITY_NO_TRUST_DATA: u32 = 2147483648u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_VALIDITY_OTHER_ERROR: u32 = 2048u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_VALIDITY_OTHER_EXTENSION_FAILURE: u32 = 512u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_VALIDITY_PERIOD_NESTING_FAILURE: u32 = 1024u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_VALIDITY_SIGNATURE_FAILS: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_VALIDITY_UNKNOWN_CRITICAL_EXTENSION: u32 = 128u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_VERIFY_ALLOW_MORE_USAGE_FLAG: u32 = 8u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_VERIFY_CACHE_ONLY_BASED_REVOCATION: u32 = 2u32;
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CERT_VERIFY_CERTIFICATE_TRUST {
     pub cbSize: u32,
     pub pccert: *mut CERT_CONTEXT,
@@ -8292,18 +9258,28 @@ unsafe impl ::windows::runtime::Abi for CERT_VERIFY_CERTIFICATE_TRUST {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_VERIFY_INHIBIT_CTL_UPDATE_FLAG: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_VERIFY_NO_TIME_CHECK_FLAG: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_VERIFY_REV_ACCUMULATIVE_TIMEOUT_FLAG: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_VERIFY_REV_CHAIN_FLAG: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_VERIFY_REV_NO_OCSP_FAILOVER_TO_CRL_FLAG: u32 = 16u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_VERIFY_REV_SERVER_OCSP_FLAG: u32 = 8u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_VERIFY_REV_SERVER_OCSP_WIRE_ONLY_FLAG: u32 = 32u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_VERIFY_TRUSTED_SIGNERS_FLAG: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_VERIFY_UPDATED_CTL_FLAG: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_System_SystemServices`, `Win32_UI_Controls`, `Win32_UI_WindowsAndMessaging`*"]
 pub struct CERT_VIEWPROPERTIES_STRUCT_A {
     pub dwSize: u32,
     pub hwndParent: super::super::Foundation::HWND,
@@ -8402,6 +9378,7 @@ unsafe impl ::windows::runtime::Abi for CERT_VIEWPROPERTIES_STRUCT_A {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_System_SystemServices`, `Win32_UI_Controls`, `Win32_UI_WindowsAndMessaging`*"]
 pub struct CERT_VIEWPROPERTIES_STRUCT_W {
     pub dwSize: u32,
     pub hwndParent: super::super::Foundation::HWND,
@@ -8499,6 +9476,7 @@ unsafe impl ::windows::runtime::Abi for CERT_VIEWPROPERTIES_STRUCT_W {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct CERT_X942_DH_PARAMETERS {
     pub p: CRYPTOAPI_BLOB,
     pub g: CRYPTOAPI_BLOB,
@@ -8529,6 +9507,7 @@ unsafe impl ::windows::runtime::Abi for CERT_X942_DH_PARAMETERS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct CERT_X942_DH_VALIDATION_PARAMS {
     pub seed: CRYPT_BIT_BLOB,
     pub pgenCounter: u32,
@@ -8554,7 +9533,9 @@ unsafe impl ::windows::runtime::Abi for CERT_X942_DH_VALIDATION_PARAMS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_XML_NAME_STR: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CESSetupProperty(pub i32);
@@ -8577,6 +9558,7 @@ unsafe impl ::windows::runtime::Abi for CESSetupProperty {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CLAIMLIST {
     pub count: u32,
     pub claims: *mut super::super::Foundation::PWSTR,
@@ -8611,6 +9593,7 @@ unsafe impl ::windows::runtime::Abi for CLAIMLIST {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CMC_ADD_ATTRIBUTES_INFO {
     pub dwCmcDataReference: u32,
     pub cCertReference: u32,
@@ -8648,6 +9631,7 @@ unsafe impl ::windows::runtime::Abi for CMC_ADD_ATTRIBUTES_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CMC_ADD_EXTENSIONS_INFO {
     pub dwCmcDataReference: u32,
     pub cCertReference: u32,
@@ -8685,6 +9669,7 @@ unsafe impl ::windows::runtime::Abi for CMC_ADD_EXTENSIONS_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CMC_DATA_INFO {
     pub cTaggedAttribute: u32,
     pub rgTaggedAttribute: *mut CMC_TAGGED_ATTRIBUTE,
@@ -8731,25 +9716,42 @@ unsafe impl ::windows::runtime::Abi for CMC_DATA_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMC_FAIL_BAD_ALG: u32 = 0u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMC_FAIL_BAD_CERT_ID: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMC_FAIL_BAD_IDENTITY: u32 = 7u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMC_FAIL_BAD_MESSAGE_CHECK: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMC_FAIL_BAD_REQUEST: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMC_FAIL_BAD_TIME: u32 = 3u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMC_FAIL_INTERNAL_CA_ERROR: u32 = 11u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMC_FAIL_MUST_ARCHIVE_KEYS: u32 = 6u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMC_FAIL_NO_KEY_REUSE: u32 = 10u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMC_FAIL_POP_FAILED: u32 = 9u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMC_FAIL_POP_REQUIRED: u32 = 8u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMC_FAIL_TRY_LATER: u32 = 12u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMC_FAIL_UNSUPORTED_EXT: u32 = 5u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMC_OTHER_INFO_FAIL_CHOICE: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMC_OTHER_INFO_NO_CHOICE: u32 = 0u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMC_OTHER_INFO_PEND_CHOICE: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CMC_PEND_INFO {
     pub PendToken: CRYPTOAPI_BLOB,
     pub PendTime: super::super::Foundation::FILETIME,
@@ -8784,6 +9786,7 @@ unsafe impl ::windows::runtime::Abi for CMC_PEND_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CMC_RESPONSE_INFO {
     pub cTaggedAttribute: u32,
     pub rgTaggedAttribute: *mut CMC_TAGGED_ATTRIBUTE,
@@ -8826,11 +9829,14 @@ unsafe impl ::windows::runtime::Abi for CMC_RESPONSE_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMC_STATUS_CONFIRM_REQUIRED: u32 = 5u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMC_STATUS_FAILED: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CMC_STATUS_INFO {
     pub dwStatus: u32,
     pub cBodyList: u32,
@@ -8863,6 +9869,7 @@ unsafe impl ::windows::runtime::Abi for CMC_STATUS_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub union CMC_STATUS_INFO_0 {
     pub dwFailInfo: u32,
     pub pPendInfo: *mut CMC_PEND_INFO,
@@ -8888,12 +9895,16 @@ unsafe impl ::windows::runtime::Abi for CMC_STATUS_INFO_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMC_STATUS_NO_SUPPORT: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMC_STATUS_PENDING: u32 = 3u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMC_STATUS_SUCCESS: u32 = 0u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CMC_TAGGED_ATTRIBUTE {
     pub dwBodyPartID: u32,
     pub Attribute: CRYPT_ATTRIBUTE,
@@ -8927,6 +9938,7 @@ unsafe impl ::windows::runtime::Abi for CMC_TAGGED_ATTRIBUTE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct CMC_TAGGED_CERT_REQUEST {
     pub dwBodyPartID: u32,
     pub SignedCertRequest: CRYPTOAPI_BLOB,
@@ -8952,9 +9964,11 @@ unsafe impl ::windows::runtime::Abi for CMC_TAGGED_CERT_REQUEST {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMC_TAGGED_CERT_REQUEST_CHOICE: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct CMC_TAGGED_CONTENT_INFO {
     pub dwBodyPartID: u32,
     pub EncodedContentInfo: CRYPTOAPI_BLOB,
@@ -8983,6 +9997,7 @@ unsafe impl ::windows::runtime::Abi for CMC_TAGGED_CONTENT_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CMC_TAGGED_OTHER_MSG {
     pub dwBodyPartID: u32,
     pub pszObjId: super::super::Foundation::PSTR,
@@ -9017,6 +10032,7 @@ unsafe impl ::windows::runtime::Abi for CMC_TAGGED_OTHER_MSG {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct CMC_TAGGED_REQUEST {
     pub dwTaggedRequestChoice: u32,
     pub Anonymous: CMC_TAGGED_REQUEST_0,
@@ -9039,6 +10055,7 @@ unsafe impl ::windows::runtime::Abi for CMC_TAGGED_REQUEST {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub union CMC_TAGGED_REQUEST_0 {
     pub pTaggedCertRequest: *mut CMC_TAGGED_CERT_REQUEST,
 }
@@ -9061,6 +10078,7 @@ unsafe impl ::windows::runtime::Abi for CMC_TAGGED_REQUEST_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CMFLTR {
     pub dwSize: u32,
     pub cExtensionChecks: u32,
@@ -9097,6 +10115,7 @@ unsafe impl ::windows::runtime::Abi for CMFLTR {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CMOID {
     pub szExtensionOID: super::super::Foundation::PSTR,
     pub dwTestOperation: u32,
@@ -9131,21 +10150,34 @@ unsafe impl ::windows::runtime::Abi for CMOID {
     type DefaultType = Self;
 }
 pub const CMSCEPSetup: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2857327618, 36476, 18884, [148, 250, 103, 165, 204, 94, 173, 180]);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_ATTR_CERT_COUNT_PARAM: u32 = 31u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_ATTR_CERT_PARAM: u32 = 32u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_AUTHENTICATED_ATTRIBUTES_FLAG: u32 = 8u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_BARE_CONTENT_FLAG: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_BARE_CONTENT_PARAM: u32 = 3u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_CERT_COUNT_PARAM: u32 = 11u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_CERT_PARAM: u32 = 12u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_CMS_ENCAPSULATED_CONTENT_FLAG: u32 = 64u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_CMS_ENCAPSULATED_CTL_FLAG: u32 = 32768u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_CMS_RECIPIENT_COUNT_PARAM: u32 = 33u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_CMS_RECIPIENT_ENCRYPTED_KEY_INDEX_PARAM: u32 = 35u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_CMS_RECIPIENT_INDEX_PARAM: u32 = 34u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CMSG_CMS_RECIPIENT_INFO {
     pub dwRecipientChoice: u32,
     pub Anonymous: CMSG_CMS_RECIPIENT_INFO_0,
@@ -9174,6 +10206,7 @@ unsafe impl ::windows::runtime::Abi for CMSG_CMS_RECIPIENT_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub union CMSG_CMS_RECIPIENT_INFO_0 {
     pub pKeyTrans: *mut CMSG_KEY_TRANS_RECIPIENT_INFO,
     pub pKeyAgree: *mut CMSG_KEY_AGREE_RECIPIENT_INFO,
@@ -9200,10 +10233,12 @@ unsafe impl ::windows::runtime::Abi for CMSG_CMS_RECIPIENT_INFO_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_CMS_RECIPIENT_INFO_PARAM: u32 = 36u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CMSG_CMS_SIGNER_INFO {
     pub dwVersion: u32,
     pub SignerId: CERT_ID,
@@ -9234,10 +10269,12 @@ unsafe impl ::windows::runtime::Abi for CMSG_CMS_SIGNER_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_CMS_SIGNER_INFO_PARAM: u32 = 39u32;
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CMSG_CNG_CONTENT_DECRYPT_INFO {
     pub cbSize: u32,
     pub ContentEncryptionAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
@@ -9292,9 +10329,13 @@ unsafe impl ::windows::runtime::Abi for CMSG_CNG_CONTENT_DECRYPT_INFO {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_COMPUTED_HASH_PARAM: u32 = 22u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_CONTENTS_OCTETS_FLAG: u32 = 16u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_CONTENT_ENCRYPT_FREE_OBJID_FLAG: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_CONTENT_ENCRYPT_FREE_PARA_FLAG: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::clone::Clone for CMSG_CONTENT_ENCRYPT_INFO {
@@ -9304,6 +10345,7 @@ impl ::std::clone::Clone for CMSG_CONTENT_ENCRYPT_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CMSG_CONTENT_ENCRYPT_INFO {
     pub cbSize: u32,
     pub hCryptProv: usize,
@@ -9344,6 +10386,7 @@ unsafe impl ::windows::runtime::Abi for CMSG_CONTENT_ENCRYPT_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub union CMSG_CONTENT_ENCRYPT_INFO_0 {
     pub hContentEncryptKey: usize,
     pub hCNGContentEncryptKey: BCRYPT_KEY_HANDLE,
@@ -9364,20 +10407,33 @@ unsafe impl ::windows::runtime::Abi for CMSG_CONTENT_ENCRYPT_INFO_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_CONTENT_ENCRYPT_PAD_ENCODED_LEN_FLAG: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_CONTENT_ENCRYPT_RELEASE_CONTEXT_FLAG: u32 = 32768u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_CONTENT_PARAM: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_CRL_COUNT_PARAM: u32 = 13u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_CRL_PARAM: u32 = 14u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_CRYPT_RELEASE_CONTEXT_FLAG: u32 = 32768u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_CTRL_ADD_ATTR_CERT: u32 = 14u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_CTRL_ADD_CERT: u32 = 10u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_CTRL_ADD_CMS_SIGNER_INFO: u32 = 20u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_CTRL_ADD_CRL: u32 = 12u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_CTRL_ADD_SIGNER: u32 = 6u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_CTRL_ADD_SIGNER_UNAUTH_ATTR: u32 = 8u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct CMSG_CTRL_ADD_SIGNER_UNAUTH_ATTR_PARA {
     pub cbSize: u32,
     pub dwSignerIndex: u32,
@@ -9404,9 +10460,11 @@ unsafe impl ::windows::runtime::Abi for CMSG_CTRL_ADD_SIGNER_UNAUTH_ATTR_PARA {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_CTRL_DECRYPT: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct CMSG_CTRL_DECRYPT_PARA {
     pub cbSize: u32,
     pub Anonymous: CMSG_CTRL_DECRYPT_PARA_0,
@@ -9431,6 +10489,7 @@ unsafe impl ::windows::runtime::Abi for CMSG_CTRL_DECRYPT_PARA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub union CMSG_CTRL_DECRYPT_PARA_0 {
     pub hCryptProv: usize,
     pub hNCryptKey: usize,
@@ -9451,13 +10510,19 @@ unsafe impl ::windows::runtime::Abi for CMSG_CTRL_DECRYPT_PARA_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_CTRL_DEL_ATTR_CERT: u32 = 15u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_CTRL_DEL_CERT: u32 = 11u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_CTRL_DEL_CRL: u32 = 13u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_CTRL_DEL_SIGNER: u32 = 7u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_CTRL_DEL_SIGNER_UNAUTH_ATTR: u32 = 9u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct CMSG_CTRL_DEL_SIGNER_UNAUTH_ATTR_PARA {
     pub cbSize: u32,
     pub dwSignerIndex: u32,
@@ -9484,11 +10549,14 @@ unsafe impl ::windows::runtime::Abi for CMSG_CTRL_DEL_SIGNER_UNAUTH_ATTR_PARA {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_CTRL_ENABLE_STRONG_SIGNATURE: u32 = 21u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_CTRL_KEY_AGREE_DECRYPT: u32 = 17u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CMSG_CTRL_KEY_AGREE_DECRYPT_PARA {
     pub cbSize: u32,
     pub Anonymous: CMSG_CTRL_KEY_AGREE_DECRYPT_PARA_0,
@@ -9521,6 +10589,7 @@ unsafe impl ::windows::runtime::Abi for CMSG_CTRL_KEY_AGREE_DECRYPT_PARA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub union CMSG_CTRL_KEY_AGREE_DECRYPT_PARA_0 {
     pub hCryptProv: usize,
     pub hNCryptKey: usize,
@@ -9541,10 +10610,12 @@ unsafe impl ::windows::runtime::Abi for CMSG_CTRL_KEY_AGREE_DECRYPT_PARA_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_CTRL_KEY_TRANS_DECRYPT: u32 = 16u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CMSG_CTRL_KEY_TRANS_DECRYPT_PARA {
     pub cbSize: u32,
     pub Anonymous: CMSG_CTRL_KEY_TRANS_DECRYPT_PARA_0,
@@ -9575,6 +10646,7 @@ unsafe impl ::windows::runtime::Abi for CMSG_CTRL_KEY_TRANS_DECRYPT_PARA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub union CMSG_CTRL_KEY_TRANS_DECRYPT_PARA_0 {
     pub hCryptProv: usize,
     pub hNCryptKey: usize,
@@ -9595,10 +10667,12 @@ unsafe impl ::windows::runtime::Abi for CMSG_CTRL_KEY_TRANS_DECRYPT_PARA_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_CTRL_MAIL_LIST_DECRYPT: u32 = 18u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CMSG_CTRL_MAIL_LIST_DECRYPT_PARA {
     pub cbSize: u32,
     pub hCryptProv: usize,
@@ -9630,6 +10704,7 @@ unsafe impl ::windows::runtime::Abi for CMSG_CTRL_MAIL_LIST_DECRYPT_PARA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub union CMSG_CTRL_MAIL_LIST_DECRYPT_PARA_0 {
     pub hKeyEncryptionKey: usize,
     pub pvKeyEncryptionKey: *mut ::std::ffi::c_void,
@@ -9650,11 +10725,15 @@ unsafe impl ::windows::runtime::Abi for CMSG_CTRL_MAIL_LIST_DECRYPT_PARA_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_CTRL_VERIFY_HASH: u32 = 5u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_CTRL_VERIFY_SIGNATURE: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_CTRL_VERIFY_SIGNATURE_EX: u32 = 19u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct CMSG_CTRL_VERIFY_SIGNATURE_EX_PARA {
     pub cbSize: u32,
     pub hCryptProv: usize,
@@ -9683,17 +10762,26 @@ unsafe impl ::windows::runtime::Abi for CMSG_CTRL_VERIFY_SIGNATURE_EX_PARA {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_DETACHED_FLAG: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_ENCODED_MESSAGE: u32 = 29u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_ENCODED_SIGNER: u32 = 28u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_ENCODE_HASHED_SUBJECT_IDENTIFIER_FLAG: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_ENCODE_SORTED_CTL_FLAG: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_ENCODING_TYPE_MASK: u32 = 4294901760u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_ENCRYPTED: u32 = 6u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_ENCRYPTED_DIGEST: u32 = 27u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CMSG_ENCRYPTED_ENCODE_INFO {
     pub cbSize: u32,
     pub ContentEncryptionAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
@@ -9726,14 +10814,20 @@ unsafe impl ::windows::runtime::Abi for CMSG_ENCRYPTED_ENCODE_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_ENCRYPT_PARAM: u32 = 26u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_ENVELOPED_DATA_CMS_VERSION: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_ENVELOPED_DATA_PKCS_1_5_VERSION: u32 = 0u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_ENVELOPED_DATA_V0: u32 = 0u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_ENVELOPED_DATA_V2: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CMSG_ENVELOPED_ENCODE_INFO {
     pub cbSize: u32,
     pub hCryptProv: usize,
@@ -9776,18 +10870,28 @@ unsafe impl ::windows::runtime::Abi for CMSG_ENVELOPED_ENCODE_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_ENVELOPED_RECIPIENT_V0: u32 = 0u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_ENVELOPED_RECIPIENT_V2: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_ENVELOPED_RECIPIENT_V3: u32 = 3u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_ENVELOPED_RECIPIENT_V4: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_ENVELOPE_ALGORITHM_PARAM: u32 = 15u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_HASHED_DATA_CMS_VERSION: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_HASHED_DATA_PKCS_1_5_VERSION: u32 = 0u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_HASHED_DATA_V0: u32 = 0u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_HASHED_DATA_V2: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CMSG_HASHED_ENCODE_INFO {
     pub cbSize: u32,
     pub hCryptProv: usize,
@@ -9821,19 +10925,30 @@ unsafe impl ::windows::runtime::Abi for CMSG_HASHED_ENCODE_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_HASH_ALGORITHM_PARAM: u32 = 20u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_HASH_DATA_PARAM: u32 = 21u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_INDEFINITE_LENGTH: u32 = 4294967295u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_INNER_CONTENT_TYPE_PARAM: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_KEY_AGREE_ENCRYPT_FREE_MATERIAL_FLAG: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_KEY_AGREE_ENCRYPT_FREE_OBJID_FLAG: u32 = 32u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_KEY_AGREE_ENCRYPT_FREE_PARA_FLAG: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_KEY_AGREE_ENCRYPT_FREE_PUBKEY_ALG_FLAG: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_KEY_AGREE_ENCRYPT_FREE_PUBKEY_BITS_FLAG: u32 = 16u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_KEY_AGREE_ENCRYPT_FREE_PUBKEY_PARA_FLAG: u32 = 8u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CMSG_KEY_AGREE_ENCRYPT_INFO {
     pub cbSize: u32,
     pub dwRecipientIndex: u32,
@@ -9869,6 +10984,7 @@ unsafe impl ::windows::runtime::Abi for CMSG_KEY_AGREE_ENCRYPT_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub union CMSG_KEY_AGREE_ENCRYPT_INFO_0 {
     pub OriginatorCertId: CERT_ID,
     pub OriginatorPublicKeyInfo: CERT_PUBLIC_KEY_INFO,
@@ -9896,6 +11012,7 @@ unsafe impl ::windows::runtime::Abi for CMSG_KEY_AGREE_ENCRYPT_INFO_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct CMSG_KEY_AGREE_KEY_ENCRYPT_INFO {
     pub cbSize: u32,
     pub EncryptedKey: CRYPTOAPI_BLOB,
@@ -9921,6 +11038,7 @@ unsafe impl ::windows::runtime::Abi for CMSG_KEY_AGREE_KEY_ENCRYPT_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CMSG_KEY_AGREE_OPTION(pub u32);
@@ -9963,6 +11081,7 @@ impl ::std::ops::Not for CMSG_KEY_AGREE_OPTION {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CMSG_KEY_AGREE_ORIGINATOR(pub u32);
@@ -10005,10 +11124,12 @@ impl ::std::ops::Not for CMSG_KEY_AGREE_ORIGINATOR {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_KEY_AGREE_RECIPIENT: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO {
     pub cbSize: u32,
     pub KeyEncryptionAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
@@ -10047,6 +11168,7 @@ unsafe impl ::windows::runtime::Abi for CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub union CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO_0 {
     pub pEphemeralAlgorithm: *mut CRYPT_ALGORITHM_IDENTIFIER,
     pub pSenderId: *mut CERT_ID,
@@ -10075,6 +11197,7 @@ unsafe impl ::windows::runtime::Abi for CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CMSG_KEY_AGREE_RECIPIENT_INFO {
     pub dwVersion: u32,
     pub dwOriginatorChoice: CMSG_KEY_AGREE_ORIGINATOR,
@@ -10108,6 +11231,7 @@ unsafe impl ::windows::runtime::Abi for CMSG_KEY_AGREE_RECIPIENT_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub union CMSG_KEY_AGREE_RECIPIENT_INFO_0 {
     pub OriginatorCertId: CERT_ID,
     pub OriginatorPublicKeyInfo: CERT_PUBLIC_KEY_INFO,
@@ -10133,13 +11257,18 @@ unsafe impl ::windows::runtime::Abi for CMSG_KEY_AGREE_RECIPIENT_INFO_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_KEY_AGREE_VERSION: u32 = 3u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_KEY_TRANS_CMS_VERSION: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_KEY_TRANS_ENCRYPT_FREE_OBJID_FLAG: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_KEY_TRANS_ENCRYPT_FREE_PARA_FLAG: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CMSG_KEY_TRANS_ENCRYPT_INFO {
     pub cbSize: u32,
     pub dwRecipientIndex: u32,
@@ -10174,11 +11303,14 @@ unsafe impl ::windows::runtime::Abi for CMSG_KEY_TRANS_ENCRYPT_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_KEY_TRANS_PKCS_1_5_VERSION: u32 = 0u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_KEY_TRANS_RECIPIENT: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CMSG_KEY_TRANS_RECIPIENT_ENCODE_INFO {
     pub cbSize: u32,
     pub KeyEncryptionAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
@@ -10211,6 +11343,7 @@ unsafe impl ::windows::runtime::Abi for CMSG_KEY_TRANS_RECIPIENT_ENCODE_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CMSG_KEY_TRANS_RECIPIENT_INFO {
     pub dwVersion: u32,
     pub RecipientId: CERT_ID,
@@ -10238,12 +11371,16 @@ unsafe impl ::windows::runtime::Abi for CMSG_KEY_TRANS_RECIPIENT_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_LENGTH_ONLY_FLAG: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_MAIL_LIST_ENCRYPT_FREE_OBJID_FLAG: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_MAIL_LIST_ENCRYPT_FREE_PARA_FLAG: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CMSG_MAIL_LIST_ENCRYPT_INFO {
     pub cbSize: u32,
     pub dwRecipientIndex: u32,
@@ -10278,11 +11415,14 @@ unsafe impl ::windows::runtime::Abi for CMSG_MAIL_LIST_ENCRYPT_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_MAIL_LIST_HANDLE_KEY_CHOICE: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_MAIL_LIST_RECIPIENT: u32 = 3u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO {
     pub cbSize: u32,
     pub KeyEncryptionAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
@@ -10317,6 +11457,7 @@ unsafe impl ::windows::runtime::Abi for CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub union CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO_0 {
     pub hKeyEncryptionKey: usize,
     pub pvKeyEncryptionKey: *mut ::std::ffi::c_void,
@@ -10340,6 +11481,7 @@ unsafe impl ::windows::runtime::Abi for CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CMSG_MAIL_LIST_RECIPIENT_INFO {
     pub dwVersion: u32,
     pub KeyId: CRYPTOAPI_BLOB,
@@ -10375,10 +11517,13 @@ unsafe impl ::windows::runtime::Abi for CMSG_MAIL_LIST_RECIPIENT_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_MAIL_LIST_VERSION: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_MAX_LENGTH_FLAG: u32 = 32u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct CMSG_RC2_AUX_INFO {
     pub cbSize: u32,
     pub dwBitLen: u32,
@@ -10406,6 +11551,7 @@ unsafe impl ::windows::runtime::Abi for CMSG_RC2_AUX_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct CMSG_RC4_AUX_INFO {
     pub cbSize: u32,
     pub dwBitLen: u32,
@@ -10431,11 +11577,14 @@ unsafe impl ::windows::runtime::Abi for CMSG_RC4_AUX_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_RC4_NO_SALT_FLAG: u32 = 1073741824u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_RECIPIENT_COUNT_PARAM: u32 = 17u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CMSG_RECIPIENT_ENCODE_INFO {
     pub dwRecipientChoice: u32,
     pub Anonymous: CMSG_RECIPIENT_ENCODE_INFO_0,
@@ -10464,6 +11613,7 @@ unsafe impl ::windows::runtime::Abi for CMSG_RECIPIENT_ENCODE_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub union CMSG_RECIPIENT_ENCODE_INFO_0 {
     pub pKeyTrans: *mut CMSG_KEY_TRANS_RECIPIENT_ENCODE_INFO,
     pub pKeyAgree: *mut CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO,
@@ -10493,6 +11643,7 @@ unsafe impl ::windows::runtime::Abi for CMSG_RECIPIENT_ENCODE_INFO_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CMSG_RECIPIENT_ENCRYPTED_KEY_ENCODE_INFO {
     pub cbSize: u32,
     pub RecipientPublicKey: CRYPT_BIT_BLOB,
@@ -10524,6 +11675,7 @@ unsafe impl ::windows::runtime::Abi for CMSG_RECIPIENT_ENCRYPTED_KEY_ENCODE_INFO
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CMSG_RECIPIENT_ENCRYPTED_KEY_INFO {
     pub RecipientId: CERT_ID,
     pub EncryptedKey: CRYPTOAPI_BLOB,
@@ -10551,11 +11703,14 @@ unsafe impl ::windows::runtime::Abi for CMSG_RECIPIENT_ENCRYPTED_KEY_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_RECIPIENT_INDEX_PARAM: u32 = 18u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_RECIPIENT_INFO_PARAM: u32 = 19u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CMSG_SIGNED_AND_ENVELOPED_ENCODE_INFO {
     pub cbSize: u32,
     pub SignedInfo: CMSG_SIGNED_ENCODE_INFO,
@@ -10588,14 +11743,20 @@ unsafe impl ::windows::runtime::Abi for CMSG_SIGNED_AND_ENVELOPED_ENCODE_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_SIGNED_DATA_CMS_VERSION: u32 = 3u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_SIGNED_DATA_NO_SIGN_FLAG: u32 = 128u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_SIGNED_DATA_PKCS_1_5_VERSION: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_SIGNED_DATA_V1: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_SIGNED_DATA_V3: u32 = 3u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CMSG_SIGNED_ENCODE_INFO {
     pub cbSize: u32,
     pub cSigners: u32,
@@ -10640,13 +11801,18 @@ unsafe impl ::windows::runtime::Abi for CMSG_SIGNED_ENCODE_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_SIGNER_AUTH_ATTR_PARAM: u32 = 9u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_SIGNER_CERT_ID_PARAM: u32 = 38u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_SIGNER_CERT_INFO_PARAM: u32 = 7u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_SIGNER_COUNT_PARAM: u32 = 5u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CMSG_SIGNER_ENCODE_INFO {
     pub cbSize: u32,
     pub pCertInfo: *mut CERT_INFO,
@@ -10682,6 +11848,7 @@ unsafe impl ::windows::runtime::Abi for CMSG_SIGNER_ENCODE_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub union CMSG_SIGNER_ENCODE_INFO_0 {
     pub hCryptProv: usize,
     pub hNCryptKey: usize,
@@ -10702,10 +11869,12 @@ unsafe impl ::windows::runtime::Abi for CMSG_SIGNER_ENCODE_INFO_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_SIGNER_HASH_ALGORITHM_PARAM: u32 = 8u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CMSG_SIGNER_INFO {
     pub dwVersion: u32,
     pub Issuer: CRYPTOAPI_BLOB,
@@ -10752,15 +11921,23 @@ unsafe impl ::windows::runtime::Abi for CMSG_SIGNER_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_SIGNER_INFO_CMS_VERSION: u32 = 3u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_SIGNER_INFO_PARAM: u32 = 6u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_SIGNER_INFO_PKCS_1_5_VERSION: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_SIGNER_INFO_V1: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_SIGNER_INFO_V3: u32 = 3u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_SIGNER_ONLY_FLAG: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_SIGNER_UNAUTH_ATTR_PARAM: u32 = 10u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct CMSG_SP3_COMPATIBLE_AUX_INFO {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -10786,10 +11963,12 @@ unsafe impl ::windows::runtime::Abi for CMSG_SP3_COMPATIBLE_AUX_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_SP3_COMPATIBLE_ENCRYPT_FLAG: u32 = 2147483648u32;
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CMSG_STREAM_INFO {
     pub cbContent: u32,
     pub pfnStreamOutput: ::std::option::Option<PFN_CMSG_STREAM_OUTPUT>,
@@ -10822,19 +12001,30 @@ unsafe impl ::windows::runtime::Abi for CMSG_STREAM_INFO {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_TRUSTED_SIGNER_FLAG: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_TYPE_PARAM: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_UNPROTECTED_ATTR_PARAM: u32 = 37u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_USE_SIGNER_INDEX_FLAG: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_VERIFY_COUNTER_SIGN_ENABLE_STRONG_FLAG: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_VERIFY_SIGNER_CERT: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_VERIFY_SIGNER_CHAIN: u32 = 3u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_VERIFY_SIGNER_NULL: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_VERIFY_SIGNER_PUBKEY: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_VERSION_PARAM: u32 = 30u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CMS_DH_KEY_INFO {
     pub dwVersion: u32,
     pub Algid: u32,
@@ -10871,6 +12061,7 @@ unsafe impl ::windows::runtime::Abi for CMS_DH_KEY_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct CMS_KEY_INFO {
     pub dwVersion: u32,
     pub Algid: u32,
@@ -10898,10 +12089,12 @@ unsafe impl ::windows::runtime::Abi for CMS_KEY_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CM_VIEWFLAGS_MASK: u32 = 16777215u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CPS_URLS {
     pub pszURL: super::super::Foundation::PWSTR,
     pub pAlgorithm: *mut CRYPT_ALGORITHM_IDENTIFIER,
@@ -10937,6 +12130,7 @@ unsafe impl ::windows::runtime::Abi for CPS_URLS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRL_CONTEXT {
     pub dwCertEncodingType: u32,
     pub pbCrlEncoded: *mut u8,
@@ -10974,6 +12168,7 @@ unsafe impl ::windows::runtime::Abi for CRL_CONTEXT {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRL_DIST_POINT {
     pub DistPointName: CRL_DIST_POINT_NAME,
     pub ReasonFlags: CRYPT_BIT_BLOB,
@@ -11003,6 +12198,7 @@ unsafe impl ::windows::runtime::Abi for CRL_DIST_POINT {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRL_DIST_POINTS_INFO {
     pub cDistPoint: u32,
     pub rgDistPoint: *mut CRL_DIST_POINT,
@@ -11034,14 +12230,20 @@ unsafe impl ::windows::runtime::Abi for CRL_DIST_POINTS_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRL_DIST_POINT_ERR_CRL_ISSUER_BIT: i32 = -2147483648i32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRL_DIST_POINT_ERR_INDEX_MASK: u32 = 127u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRL_DIST_POINT_ERR_INDEX_SHIFT: u32 = 24u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRL_DIST_POINT_FULL_NAME: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRL_DIST_POINT_ISSUER_RDN_NAME: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRL_DIST_POINT_NAME {
     pub dwDistPointNameChoice: u32,
     pub Anonymous: CRL_DIST_POINT_NAME_0,
@@ -11070,6 +12272,7 @@ unsafe impl ::windows::runtime::Abi for CRL_DIST_POINT_NAME {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub union CRL_DIST_POINT_NAME_0 {
     pub FullName: CERT_ALT_NAME_INFO,
 }
@@ -11094,10 +12297,12 @@ unsafe impl ::windows::runtime::Abi for CRL_DIST_POINT_NAME_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRL_DIST_POINT_NO_NAME: u32 = 0u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRL_ENTRY {
     pub SerialNumber: CRYPTOAPI_BLOB,
     pub RevocationDate: super::super::Foundation::FILETIME,
@@ -11131,17 +12336,26 @@ unsafe impl ::windows::runtime::Abi for CRL_ENTRY {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRL_FIND_ANY: u32 = 0u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRL_FIND_EXISTING: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRL_FIND_ISSUED_BY: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRL_FIND_ISSUED_BY_AKI_FLAG: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRL_FIND_ISSUED_BY_BASE_FLAG: u32 = 8u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRL_FIND_ISSUED_BY_DELTA_FLAG: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRL_FIND_ISSUED_BY_SIGNATURE_FLAG: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRL_FIND_ISSUED_FOR: u32 = 3u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRL_FIND_ISSUED_FOR_PARA {
     pub pSubjectCert: *mut CERT_CONTEXT,
     pub pIssuerCert: *mut CERT_CONTEXT,
@@ -11173,10 +12387,12 @@ unsafe impl ::windows::runtime::Abi for CRL_FIND_ISSUED_FOR_PARA {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRL_FIND_ISSUED_FOR_SET_STRONG_PROPERTIES_FLAG: u32 = 16u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRL_INFO {
     pub dwVersion: u32,
     pub SignatureAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
@@ -11228,6 +12444,7 @@ unsafe impl ::windows::runtime::Abi for CRL_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRL_ISSUING_DIST_POINT {
     pub DistPointName: CRL_DIST_POINT_NAME,
     pub fOnlyContainsUserCerts: super::super::Foundation::BOOL,
@@ -11256,20 +12473,32 @@ unsafe impl ::windows::runtime::Abi for CRL_ISSUING_DIST_POINT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRL_REASON_AA_COMPROMISE: u32 = 10u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRL_REASON_AA_COMPROMISE_FLAG: u32 = 128u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRL_REASON_AFFILIATION_CHANGED_FLAG: u32 = 16u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRL_REASON_CA_COMPROMISE_FLAG: u32 = 32u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRL_REASON_CERTIFICATE_HOLD_FLAG: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRL_REASON_CESSATION_OF_OPERATION_FLAG: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRL_REASON_KEY_COMPROMISE_FLAG: u32 = 64u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRL_REASON_PRIVILEGE_WITHDRAWN: u32 = 9u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRL_REASON_PRIVILEGE_WITHDRAWN_FLAG: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRL_REASON_SUPERSEDED_FLAG: u32 = 8u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRL_REASON_UNUSED_FLAG: u32 = 128u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRL_REVOCATION_INFO {
     pub pCrlEntry: *mut CRL_ENTRY,
     pub pCrlContext: *mut CRL_CONTEXT,
@@ -11302,11 +12531,14 @@ unsafe impl ::windows::runtime::Abi for CRL_REVOCATION_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRL_V1: u32 = 0u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRL_V2: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CROSS_CERT_DIST_POINTS_INFO {
     pub dwSyncDeltaTime: u32,
     pub cDistPoint: u32,
@@ -11339,30 +12571,52 @@ unsafe impl ::windows::runtime::Abi for CROSS_CERT_DIST_POINTS_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CROSS_CERT_DIST_POINT_ERR_INDEX_MASK: u32 = 255u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CROSS_CERT_DIST_POINT_ERR_INDEX_SHIFT: u32 = 24u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPTDLG_ACTION_MASK: u32 = 4294901760u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPTDLG_CACHE_ONLY_URL_RETRIEVAL: u32 = 268435456u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPTDLG_DISABLE_AIA: u32 = 134217728u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPTDLG_POLICY_MASK: u32 = 65535u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPTDLG_REVOCATION_CACHE: u32 = 1073741824u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPTDLG_REVOCATION_DEFAULT: u32 = 0u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPTDLG_REVOCATION_NONE: u32 = 536870912u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPTDLG_REVOCATION_ONLINE: u32 = 2147483648u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPTNET_CACHED_OCSP_SWITCH_TO_CRL_COUNT_DEFAULT: u32 = 50u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPTNET_CRL_BEFORE_OCSP_ENABLE: u32 = 4294967295u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPTNET_MAX_CACHED_OCSP_PER_CRL_COUNT_DEFAULT: u32 = 500u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPTNET_OCSP_AFTER_CRL_DISABLE: u32 = 4294967295u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPTNET_PRE_FETCH_AFTER_PUBLISH_PRE_FETCH_DIVISOR_DEFAULT: u32 = 10u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPTNET_PRE_FETCH_BEFORE_NEXT_UPDATE_PRE_FETCH_DIVISOR_DEFAULT: u32 = 20u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPTNET_PRE_FETCH_SCAN_AFTER_TRIGGER_DELAY_SECONDS_DEFAULT: u32 = 60u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPTNET_PRE_FETCH_TRIGGER_DISABLE: u32 = 4294967295u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPTNET_PRE_FETCH_VALIDITY_PERIOD_AFTER_NEXT_UPDATE_PRE_FETCH_DIVISOR_DEFAULT: u32 = 10u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPTNET_URL_CACHE_DEFAULT_FLUSH: u32 = 0u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPTNET_URL_CACHE_DISABLE_FLUSH: u32 = 4294967295u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPTNET_URL_CACHE_FLUSH_INFO {
     pub cbSize: u32,
     pub dwExemptSeconds: u32,
@@ -11395,13 +12649,18 @@ unsafe impl ::windows::runtime::Abi for CRYPTNET_URL_CACHE_FLUSH_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPTNET_URL_CACHE_PRE_FETCH_AUTOROOT_CAB: u32 = 5u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPTNET_URL_CACHE_PRE_FETCH_BLOB: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPTNET_URL_CACHE_PRE_FETCH_CRL: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPTNET_URL_CACHE_PRE_FETCH_DISALLOWED_CERT_CAB: u32 = 6u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPTNET_URL_CACHE_PRE_FETCH_INFO {
     pub cbSize: u32,
     pub dwObjectType: u32,
@@ -11446,13 +12705,18 @@ unsafe impl ::windows::runtime::Abi for CRYPTNET_URL_CACHE_PRE_FETCH_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPTNET_URL_CACHE_PRE_FETCH_NONE: u32 = 0u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPTNET_URL_CACHE_PRE_FETCH_OCSP: u32 = 3u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPTNET_URL_CACHE_PRE_FETCH_PIN_RULES_CAB: u32 = 7u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPTNET_URL_CACHE_RESPONSE_HTTP: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPTNET_URL_CACHE_RESPONSE_INFO {
     pub cbSize: u32,
     pub wResponseType: u16,
@@ -11497,10 +12761,13 @@ unsafe impl ::windows::runtime::Abi for CRYPTNET_URL_CACHE_RESPONSE_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPTNET_URL_CACHE_RESPONSE_NONE: u32 = 0u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPTNET_URL_CACHE_RESPONSE_VALIDATED: u32 = 32768u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct CRYPTOAPI_BLOB {
     pub cbData: u32,
     pub pbData: *mut u8,
@@ -11526,20 +12793,32 @@ unsafe impl ::windows::runtime::Abi for CRYPTOAPI_BLOB {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPTPROTECTMEMORY_BLOCK_SIZE: u32 = 16u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPTPROTECTMEMORY_CROSS_PROCESS: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPTPROTECTMEMORY_SAME_LOGON: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPTPROTECTMEMORY_SAME_PROCESS: u32 = 0u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPTPROTECT_AUDIT: u32 = 16u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPTPROTECT_CRED_REGENERATE: u32 = 128u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPTPROTECT_CRED_SYNC: u32 = 8u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPTPROTECT_FIRST_RESERVED_FLAGVAL: u32 = 268435455u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPTPROTECT_LAST_RESERVED_FLAGVAL: u32 = 4294967295u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPTPROTECT_LOCAL_MACHINE: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPTPROTECT_NO_RECOVERY: u32 = 32u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPTPROTECT_PROMPTSTRUCT {
     pub cbSize: u32,
     pub dwPromptFlags: u32,
@@ -11573,18 +12852,28 @@ unsafe impl ::windows::runtime::Abi for CRYPTPROTECT_PROMPTSTRUCT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPTPROTECT_PROMPT_ON_PROTECT: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPTPROTECT_PROMPT_ON_UNPROTECT: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPTPROTECT_PROMPT_REQUIRE_STRONG: u32 = 16u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPTPROTECT_PROMPT_RESERVED: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPTPROTECT_PROMPT_STRONG: u32 = 8u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPTPROTECT_UI_FORBIDDEN: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPTPROTECT_VERIFY_PROTECTION: u32 = 64u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPTUI_CERT_MGR_PUBLISHER_TAB: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPTUI_CERT_MGR_SINGLE_TAB_FLAG: u32 = 32768u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPTUI_CERT_MGR_STRUCT {
     pub dwSize: u32,
     pub hwndParent: super::super::Foundation::HWND,
@@ -11619,10 +12908,12 @@ unsafe impl ::windows::runtime::Abi for CRYPTUI_CERT_MGR_STRUCT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPTUI_CERT_MGR_TAB_MASK: u32 = 15u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPTUI_INITDIALOG_STRUCT {
     pub lParam: super::super::Foundation::LPARAM,
     pub pCertContext: *mut CERT_CONTEXT,
@@ -11654,12 +12945,19 @@ unsafe impl ::windows::runtime::Abi for CRYPTUI_INITDIALOG_STRUCT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPTUI_SELECT_EXPIRATION_COLUMN: u64 = 32u64;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPTUI_SELECT_FRIENDLYNAME_COLUMN: u64 = 8u64;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPTUI_SELECT_INTENDEDUSE_COLUMN: u64 = 4u64;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPTUI_SELECT_ISSUEDBY_COLUMN: u64 = 2u64;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPTUI_SELECT_ISSUEDTO_COLUMN: u64 = 1u64;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPTUI_SELECT_LOCATION_COLUMN: u64 = 16u64;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CRYPTUI_VIEWCERTIFICATE_FLAGS(pub u32);
@@ -11723,6 +13021,7 @@ impl ::std::ops::Not for CRYPTUI_VIEWCERTIFICATE_FLAGS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip", feature = "Win32_Security_WinTrust", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_Security_Cryptography_Catalog`, `Win32_Security_Cryptography_Sip`, `Win32_Security_WinTrust`, `Win32_UI_Controls`, `Win32_UI_WindowsAndMessaging`*"]
 pub struct CRYPTUI_VIEWCERTIFICATE_STRUCTA {
     pub dwSize: u32,
     pub hwndParent: super::super::Foundation::HWND,
@@ -11767,6 +13066,7 @@ unsafe impl ::windows::runtime::Abi for CRYPTUI_VIEWCERTIFICATE_STRUCTA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip", feature = "Win32_Security_WinTrust"))]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`, `Win32_Security_Cryptography_Catalog`, `Win32_Security_Cryptography_Sip`, `Win32_Security_WinTrust`*"]
 pub union CRYPTUI_VIEWCERTIFICATE_STRUCTA_0 {
     pub pCryptProviderData: *mut super::WinTrust::CRYPT_PROVIDER_DATA,
     pub hWVTStateData: super::super::Foundation::HANDLE,
@@ -11795,6 +13095,7 @@ unsafe impl ::windows::runtime::Abi for CRYPTUI_VIEWCERTIFICATE_STRUCTA_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip", feature = "Win32_Security_WinTrust", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_Security_Cryptography_Catalog`, `Win32_Security_Cryptography_Sip`, `Win32_Security_WinTrust`, `Win32_UI_Controls`, `Win32_UI_WindowsAndMessaging`*"]
 pub struct CRYPTUI_VIEWCERTIFICATE_STRUCTW {
     pub dwSize: u32,
     pub hwndParent: super::super::Foundation::HWND,
@@ -11839,6 +13140,7 @@ unsafe impl ::windows::runtime::Abi for CRYPTUI_VIEWCERTIFICATE_STRUCTW {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip", feature = "Win32_Security_WinTrust"))]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`, `Win32_Security_Cryptography_Catalog`, `Win32_Security_Cryptography_Sip`, `Win32_Security_WinTrust`*"]
 pub union CRYPTUI_VIEWCERTIFICATE_STRUCTW_0 {
     pub pCryptProviderData: *mut super::WinTrust::CRYPT_PROVIDER_DATA,
     pub hWVTStateData: super::super::Foundation::HANDLE,
@@ -11864,6 +13166,7 @@ unsafe impl ::windows::runtime::Abi for CRYPTUI_VIEWCERTIFICATE_STRUCTW_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CRYPTUI_WIZ_DIGITAL_ADDITIONAL_CERT_CHOICE(pub u32);
@@ -11907,6 +13210,7 @@ impl ::std::ops::Not for CRYPTUI_WIZ_DIGITAL_ADDITIONAL_CERT_CHOICE {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN(pub u32);
@@ -11954,6 +13258,7 @@ impl ::std::ops::Not for CRYPTUI_WIZ_DIGITAL_SIGN {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN_BLOB_INFO {
     pub dwSize: u32,
     pub pGuidSubject: *mut ::windows::runtime::GUID,
@@ -11991,6 +13296,7 @@ unsafe impl ::windows::runtime::Abi for CRYPTUI_WIZ_DIGITAL_SIGN_BLOB_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO {
     pub dwSize: u32,
     pub pwszSigningCertFileName: super::super::Foundation::PWSTR,
@@ -12021,6 +13327,7 @@ unsafe impl ::windows::runtime::Abi for CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub union CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO_0 {
     pub pPvkFileInfo: *mut CRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE_INFO,
     pub pPvkProvInfo: *mut CRYPT_KEY_PROV_INFO,
@@ -12048,6 +13355,7 @@ unsafe impl ::windows::runtime::Abi for CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO_0
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT {
     pub dwSize: u32,
     pub cbBlob: u32,
@@ -12074,10 +13382,12 @@ unsafe impl ::windows::runtime::Abi for CRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPTUI_WIZ_DIGITAL_SIGN_EXCLUDE_PAGE_HASHES: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN_EXTENDED_INFO {
     pub dwSize: u32,
     pub dwAttrFlags: CRYPTUI_WIZ_DIGITAL_SIGN_SIG_TYPE,
@@ -12126,10 +13436,12 @@ unsafe impl ::windows::runtime::Abi for CRYPTUI_WIZ_DIGITAL_SIGN_EXTENDED_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPTUI_WIZ_DIGITAL_SIGN_INCLUDE_PAGE_HASHES: u32 = 4u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN_INFO {
     pub dwSize: u32,
     pub dwSubjectChoice: CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT,
@@ -12164,6 +13476,7 @@ unsafe impl ::windows::runtime::Abi for CRYPTUI_WIZ_DIGITAL_SIGN_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub union CRYPTUI_WIZ_DIGITAL_SIGN_INFO_0 {
     pub pwszFileName: super::super::Foundation::PWSTR,
     pub pSignBlobInfo: *mut CRYPTUI_WIZ_DIGITAL_SIGN_BLOB_INFO,
@@ -12192,6 +13505,7 @@ unsafe impl ::windows::runtime::Abi for CRYPTUI_WIZ_DIGITAL_SIGN_INFO_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub union CRYPTUI_WIZ_DIGITAL_SIGN_INFO_1 {
     pub pSigningCertContext: *mut CERT_CONTEXT,
     pub pSigningCertStore: *mut ::std::mem::ManuallyDrop<CRYPTUI_WIZ_DIGITAL_SIGN_STORE_INFO>,
@@ -12221,6 +13535,7 @@ unsafe impl ::windows::runtime::Abi for CRYPTUI_WIZ_DIGITAL_SIGN_INFO_1 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE_INFO {
     pub dwSize: u32,
     pub pwszPvkFileName: super::super::Foundation::PWSTR,
@@ -12254,6 +13569,7 @@ unsafe impl ::windows::runtime::Abi for CRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN_PVK_OPTION(pub u32);
@@ -12296,6 +13612,7 @@ impl ::std::ops::Not for CRYPTUI_WIZ_DIGITAL_SIGN_PVK_OPTION {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN_SIG_TYPE(pub u32);
@@ -12341,6 +13658,7 @@ impl ::std::ops::Not for CRYPTUI_WIZ_DIGITAL_SIGN_SIG_TYPE {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN_STORE_INFO {
     pub dwSize: u32,
     pub cCertStore: u32,
@@ -12375,6 +13693,7 @@ unsafe impl ::windows::runtime::Abi for CRYPTUI_WIZ_DIGITAL_SIGN_STORE_INFO {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT(pub u32);
@@ -12421,6 +13740,7 @@ impl ::std::ops::Not for CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPTUI_WIZ_EXPORT_CERTCONTEXT_INFO {
     pub dwSize: u32,
     pub dwExportFormat: CRYPTUI_WIZ_EXPORT_FORMAT,
@@ -12463,6 +13783,7 @@ unsafe impl ::windows::runtime::Abi for CRYPTUI_WIZ_EXPORT_CERTCONTEXT_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CRYPTUI_WIZ_EXPORT_FORMAT(pub u32);
@@ -12509,10 +13830,12 @@ impl ::std::ops::Not for CRYPTUI_WIZ_EXPORT_FORMAT {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPTUI_WIZ_EXPORT_FORMAT_SERIALIZED_CERT_STORE: u32 = 5u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPTUI_WIZ_EXPORT_INFO {
     pub dwSize: u32,
     pub pwszExportFileName: super::super::Foundation::PWSTR,
@@ -12545,6 +13868,7 @@ unsafe impl ::windows::runtime::Abi for CRYPTUI_WIZ_EXPORT_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub union CRYPTUI_WIZ_EXPORT_INFO_0 {
     pub pCertContext: *mut CERT_CONTEXT,
     pub pCTLContext: *mut CTL_CONTEXT,
@@ -12572,6 +13896,7 @@ unsafe impl ::windows::runtime::Abi for CRYPTUI_WIZ_EXPORT_INFO_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CRYPTUI_WIZ_EXPORT_SUBJECT(pub u32);
@@ -12617,6 +13942,7 @@ impl ::std::ops::Not for CRYPTUI_WIZ_EXPORT_SUBJECT {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CRYPTUI_WIZ_FLAGS(pub u32);
@@ -12672,6 +13998,7 @@ impl ::std::ops::Not for CRYPTUI_WIZ_FLAGS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPTUI_WIZ_IMPORT_SRC_INFO {
     pub dwSize: u32,
     pub dwSubjectChoice: CRYPTUI_WIZ_IMPORT_SUBJECT_OPTION,
@@ -12703,6 +14030,7 @@ unsafe impl ::windows::runtime::Abi for CRYPTUI_WIZ_IMPORT_SRC_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub union CRYPTUI_WIZ_IMPORT_SRC_INFO_0 {
     pub pwszFileName: super::super::Foundation::PWSTR,
     pub pCertContext: *mut CERT_CONTEXT,
@@ -12731,6 +14059,7 @@ unsafe impl ::windows::runtime::Abi for CRYPTUI_WIZ_IMPORT_SRC_INFO_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CRYPTUI_WIZ_IMPORT_SUBJECT_OPTION(pub u32);
@@ -12778,6 +14107,7 @@ impl ::std::ops::Not for CRYPTUI_WIZ_IMPORT_SUBJECT_OPTION {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct CRYPT_3DES_KEY_STATE {
     pub Key: [u8; 24],
     pub IV: [u8; 8],
@@ -12804,8 +14134,11 @@ unsafe impl ::windows::runtime::Abi for CRYPT_3DES_KEY_STATE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_ACCUMULATIVE_TIMEOUT: u32 = 2048u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_ACQUIRE_ALLOW_NCRYPT_KEY_FLAG: u32 = 65536u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CRYPT_ACQUIRE_FLAGS(pub u32);
@@ -12851,12 +14184,17 @@ impl ::std::ops::Not for CRYPT_ACQUIRE_FLAGS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_ACQUIRE_NCRYPT_KEY_FLAGS_MASK: u32 = 458752u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_ACQUIRE_ONLY_NCRYPT_KEY_FLAG: u32 = 262144u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_ACQUIRE_PREFER_NCRYPT_KEY_FLAG: u32 = 131072u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_ACQUIRE_WINDOW_HANDLE_FLAG: u32 = 128u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct CRYPT_AES_128_KEY_STATE {
     pub Key: [u8; 16],
     pub IV: [u8; 16],
@@ -12887,6 +14225,7 @@ unsafe impl ::windows::runtime::Abi for CRYPT_AES_128_KEY_STATE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct CRYPT_AES_256_KEY_STATE {
     pub Key: [u8; 32],
     pub IV: [u8; 16],
@@ -12915,10 +14254,12 @@ unsafe impl ::windows::runtime::Abi for CRYPT_AES_256_KEY_STATE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_AIA_RETRIEVAL: u32 = 524288u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_ALGORITHM_IDENTIFIER {
     pub pszObjId: super::super::Foundation::PSTR,
     pub Parameters: CRYPTOAPI_BLOB,
@@ -12950,12 +14291,16 @@ unsafe impl ::windows::runtime::Abi for CRYPT_ALGORITHM_IDENTIFIER {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_ARCHIVE: u32 = 256u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_ASN_ENCODING: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_ASYNC_RETRIEVAL: u32 = 16u32;
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_ASYNC_RETRIEVAL_COMPLETION {
     pub pfnCompletion: ::std::option::Option<PFN_CRYPT_ASYNC_RETRIEVAL_COMPLETION_FUNC>,
     pub pvCompletion: *mut ::std::ffi::c_void,
@@ -12990,6 +14335,7 @@ unsafe impl ::windows::runtime::Abi for CRYPT_ASYNC_RETRIEVAL_COMPLETION {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_ATTRIBUTE {
     pub pszObjId: super::super::Foundation::PSTR,
     pub cValue: u32,
@@ -13025,6 +14371,7 @@ unsafe impl ::windows::runtime::Abi for CRYPT_ATTRIBUTE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_ATTRIBUTES {
     pub cAttr: u32,
     pub rgAttr: *mut CRYPT_ATTRIBUTE,
@@ -13059,6 +14406,7 @@ unsafe impl ::windows::runtime::Abi for CRYPT_ATTRIBUTES {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_ATTRIBUTE_TYPE_VALUE {
     pub pszObjId: super::super::Foundation::PSTR,
     pub Value: CRYPTOAPI_BLOB,
@@ -13092,6 +14440,7 @@ unsafe impl ::windows::runtime::Abi for CRYPT_ATTRIBUTE_TYPE_VALUE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct CRYPT_BIT_BLOB {
     pub cbData: u32,
     pub pbData: *mut u8,
@@ -13120,6 +14469,7 @@ unsafe impl ::windows::runtime::Abi for CRYPT_BIT_BLOB {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct CRYPT_BLOB_ARRAY {
     pub cBlob: u32,
     pub rgBlob: *mut CRYPTOAPI_BLOB,
@@ -13145,11 +14495,14 @@ unsafe impl ::windows::runtime::Abi for CRYPT_BLOB_ARRAY {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_CACHE_ONLY_RETRIEVAL: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_CHECK_FRESHNESS_TIME_VALIDITY: u32 = 1024u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_CONTENT_INFO {
     pub pszObjId: super::super::Foundation::PSTR,
     pub Content: CRYPTOAPI_BLOB,
@@ -13184,6 +14537,7 @@ unsafe impl ::windows::runtime::Abi for CRYPT_CONTENT_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_CONTENT_INFO_SEQUENCE_OF_ANY {
     pub pszObjId: super::super::Foundation::PSTR,
     pub cValue: u32,
@@ -13219,6 +14573,7 @@ unsafe impl ::windows::runtime::Abi for CRYPT_CONTENT_INFO_SEQUENCE_OF_ANY {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_CONTEXTS {
     pub cContexts: u32,
     pub rgpszContexts: *mut super::super::Foundation::PWSTR,
@@ -13252,6 +14607,7 @@ unsafe impl ::windows::runtime::Abi for CRYPT_CONTEXTS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct CRYPT_CONTEXT_CONFIG {
     pub dwFlags: CRYPT_CONTEXT_CONFIG_FLAGS,
     pub dwReserved: u32,
@@ -13277,6 +14633,7 @@ unsafe impl ::windows::runtime::Abi for CRYPT_CONTEXT_CONFIG {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CRYPT_CONTEXT_CONFIG_FLAGS(pub u32);
@@ -13322,6 +14679,7 @@ impl ::std::ops::Not for CRYPT_CONTEXT_CONFIG_FLAGS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_CONTEXT_FUNCTIONS {
     pub cFunctions: u32,
     pub rgpszFunctions: *mut super::super::Foundation::PWSTR,
@@ -13355,6 +14713,7 @@ unsafe impl ::windows::runtime::Abi for CRYPT_CONTEXT_FUNCTIONS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct CRYPT_CONTEXT_FUNCTION_CONFIG {
     pub dwFlags: u32,
     pub dwReserved: u32,
@@ -13383,6 +14742,7 @@ unsafe impl ::windows::runtime::Abi for CRYPT_CONTEXT_FUNCTION_CONFIG {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_CONTEXT_FUNCTION_PROVIDERS {
     pub cProviders: u32,
     pub rgpszProviders: *mut super::super::Foundation::PWSTR,
@@ -13414,10 +14774,12 @@ unsafe impl ::windows::runtime::Abi for CRYPT_CONTEXT_FUNCTION_PROVIDERS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_CREATE_NEW_FLUSH_ENTRY: u32 = 268435456u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_CREDENTIALS {
     pub cbSize: u32,
     pub pszCredentialsOid: super::super::Foundation::PSTR,
@@ -13453,6 +14815,7 @@ unsafe impl ::windows::runtime::Abi for CRYPT_CREDENTIALS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_CSP_PROVIDER {
     pub dwKeySpec: u32,
     pub pwszProviderName: super::super::Foundation::PWSTR,
@@ -13485,13 +14848,19 @@ unsafe impl ::windows::runtime::Abi for CRYPT_CSP_PROVIDER {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_DECODE_ALLOC_FLAG: u32 = 32768u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_DECODE_ENABLE_PUNYCODE_FLAG: u32 = 33554432u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_DECODE_ENABLE_UTF8PERCENT_FLAG: u32 = 67108864u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_DECODE_NOCOPY_FLAG: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_DECODE_NO_SIGNATURE_BYTE_REVERSAL_FLAG: u32 = 8u32;
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct CRYPT_DECODE_PARA {
     pub cbSize: u32,
     pub pfnAlloc: ::std::option::Option<PFN_CRYPT_ALLOC>,
@@ -13518,11 +14887,15 @@ unsafe impl ::windows::runtime::Abi for CRYPT_DECODE_PARA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_DECODE_SHARE_OID_STRING_FLAG: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_DECODE_TO_BE_SIGNED_FLAG: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_DECRYPT: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct CRYPT_DECRYPT_MESSAGE_PARA {
     pub cbSize: u32,
     pub dwMsgAndCertEncodingType: u32,
@@ -13550,8 +14923,11 @@ unsafe impl ::windows::runtime::Abi for CRYPT_DECRYPT_MESSAGE_PARA {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_DECRYPT_RSA_NO_PADDING_CHECK: u32 = 32u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_DEFAULT_CONTAINER_OPTIONAL: u32 = 128u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CRYPT_DEFAULT_CONTEXT_FLAGS(pub u32);
@@ -13597,6 +14973,7 @@ impl ::std::ops::Not for CRYPT_DEFAULT_CONTEXT_FLAGS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_DEFAULT_CONTEXT_MULTI_OID_PARA {
     pub cOID: u32,
     pub rgpszOID: *mut super::super::Foundation::PSTR,
@@ -13628,6 +15005,7 @@ unsafe impl ::windows::runtime::Abi for CRYPT_DEFAULT_CONTEXT_MULTI_OID_PARA {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CRYPT_DEFAULT_CONTEXT_TYPE(pub u32);
@@ -13670,11 +15048,15 @@ impl ::std::ops::Not for CRYPT_DEFAULT_CONTEXT_TYPE {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_DELETEKEYSET: u32 = 16u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_DELETE_DEFAULT: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_DELETE_KEYSET: u32 = 16u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct CRYPT_DES_KEY_STATE {
     pub Key: [u8; 8],
     pub IV: [u8; 8],
@@ -13701,12 +15083,16 @@ unsafe impl ::windows::runtime::Abi for CRYPT_DES_KEY_STATE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_DONT_CACHE_RESULT: u32 = 8u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_DONT_CHECK_TIME_VALIDITY: u32 = 512u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_DONT_VERIFY_SIGNATURE: u32 = 256u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_ECC_CMS_SHARED_INFO {
     pub Algorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub EntityUInfo: CRYPTOAPI_BLOB,
@@ -13739,10 +15125,12 @@ unsafe impl ::windows::runtime::Abi for CRYPT_ECC_CMS_SHARED_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_ECC_CMS_SHARED_INFO_SUPPPUBINFO_BYTE_LENGTH: u32 = 4u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_ECC_PRIVATE_KEY_INFO {
     pub dwVersion: u32,
     pub PrivateKey: CRYPTOAPI_BLOB,
@@ -13776,12 +15164,19 @@ unsafe impl ::windows::runtime::Abi for CRYPT_ECC_PRIVATE_KEY_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_ECC_PRIVATE_KEY_INFO_v1: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_ENABLE_FILE_RETRIEVAL: u32 = 134217728u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_ENABLE_SSL_REVOCATION_RETRIEVAL: u32 = 8388608u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_ENCODE_DECODE_NONE: u32 = 0u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_ENCODE_ENABLE_UTF8PERCENT_FLAG: u32 = 262144u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_ENCODE_NO_SIGNATURE_BYTE_REVERSAL_FLAG: u32 = 8u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CRYPT_ENCODE_OBJECT_FLAGS(pub u32);
@@ -13829,6 +15224,7 @@ impl ::std::ops::Not for CRYPT_ENCODE_OBJECT_FLAGS {
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct CRYPT_ENCODE_PARA {
     pub cbSize: u32,
     pub pfnAlloc: ::std::option::Option<PFN_CRYPT_ALLOC>,
@@ -13855,10 +15251,12 @@ unsafe impl ::windows::runtime::Abi for CRYPT_ENCODE_PARA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_ENCRYPT: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_ENCRYPTED_PRIVATE_KEY_INFO {
     pub EncryptionAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub EncryptedPrivateKey: CRYPTOAPI_BLOB,
@@ -13890,10 +15288,12 @@ unsafe impl ::windows::runtime::Abi for CRYPT_ENCRYPTED_PRIVATE_KEY_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_ENCRYPT_ALG_OID_GROUP_ID: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_ENCRYPT_MESSAGE_PARA {
     pub cbSize: u32,
     pub dwMsgEncodingType: u32,
@@ -13938,10 +15338,12 @@ unsafe impl ::windows::runtime::Abi for CRYPT_ENCRYPT_MESSAGE_PARA {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_ENHKEY_USAGE_OID_GROUP_ID: u32 = 7u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_ENROLLMENT_NAME_VALUE_PAIR {
     pub pwszName: super::super::Foundation::PWSTR,
     pub pwszValue: super::super::Foundation::PWSTR,
@@ -13973,11 +15375,17 @@ unsafe impl ::windows::runtime::Abi for CRYPT_ENROLLMENT_NAME_VALUE_PAIR {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_EXPORT: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_EXPORT_KEY: u32 = 64u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_EXT_OR_ATTR_OID_GROUP_ID: u32 = 6u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_FAILED: u32 = 0u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_FASTSGC: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CRYPT_FIND_FLAGS(pub u32);
@@ -14021,30 +15429,52 @@ impl ::std::ops::Not for CRYPT_FIND_FLAGS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_FIRST: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_FIRST_ALG_OID_GROUP_ID: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_FLAG_IPSEC: u32 = 16u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_FLAG_PCT1: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_FLAG_SIGNING: u32 = 32u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_FLAG_SSL2: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_FLAG_SSL3: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_FLAG_TLS1: u32 = 8u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_FORMAT_COMMA: u32 = 4096u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_FORMAT_CRLF: u32 = 512u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_FORMAT_OID: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_FORMAT_RDN_CRLF: u32 = 512u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_FORMAT_RDN_REVERSE: u32 = 2048u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_FORMAT_RDN_SEMICOLON: u32 = 256u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_FORMAT_RDN_UNQUOTE: u32 = 1024u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_FORMAT_SEMICOLON: u32 = 256u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_FORMAT_SIMPLE: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_FORMAT_STR_MULTI_LINE: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_FORMAT_STR_NO_HEX: u32 = 16u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_FORMAT_X509: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_GET_INSTALLED_OID_FUNC_FLAG: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_GET_TIME_VALID_OBJECT_EXTRA_INFO {
     pub cbSize: u32,
     pub iDeltaCrlIndicator: i32,
@@ -14089,6 +15519,7 @@ unsafe impl ::windows::runtime::Abi for CRYPT_GET_TIME_VALID_OBJECT_EXTRA_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CRYPT_GET_URL_FLAGS(pub u32);
@@ -14133,10 +15564,12 @@ impl ::std::ops::Not for CRYPT_GET_URL_FLAGS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_HASH_ALG_OID_GROUP_ID: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_HASH_INFO {
     pub HashAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub Hash: CRYPTOAPI_BLOB,
@@ -14171,6 +15604,7 @@ unsafe impl ::windows::runtime::Abi for CRYPT_HASH_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_HASH_MESSAGE_PARA {
     pub cbSize: u32,
     pub dwMsgEncodingType: u32,
@@ -14205,10 +15639,12 @@ unsafe impl ::windows::runtime::Abi for CRYPT_HASH_MESSAGE_PARA {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_HTTP_POST_RETRIEVAL: u32 = 1048576u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_IMAGE_REF {
     pub pszImage: super::super::Foundation::PWSTR,
     pub dwFlags: CRYPT_IMAGE_REF_FLAGS,
@@ -14240,6 +15676,7 @@ unsafe impl ::windows::runtime::Abi for CRYPT_IMAGE_REF {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CRYPT_IMAGE_REF_FLAGS(pub u32);
@@ -14285,6 +15722,7 @@ impl ::std::ops::Not for CRYPT_IMAGE_REF_FLAGS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_IMAGE_REG {
     pub pszImage: super::super::Foundation::PWSTR,
     pub cInterfaces: u32,
@@ -14317,12 +15755,19 @@ unsafe impl ::windows::runtime::Abi for CRYPT_IMAGE_REG {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_IMPL_HARDWARE: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_IMPL_MIXED: u32 = 3u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_IMPL_REMOVABLE: u32 = 8u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_IMPL_SOFTWARE: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_IMPL_UNKNOWN: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_IMPORT_KEY: u32 = 128u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CRYPT_IMPORT_PUBLIC_KEY_FLAGS(pub u32);
@@ -14365,11 +15810,14 @@ impl ::std::ops::Not for CRYPT_IMPORT_PUBLIC_KEY_FLAGS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_INSTALL_OID_FUNC_BEFORE_FLAG: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_INSTALL_OID_INFO_BEFORE_FLAG: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_INTERFACE_REG {
     pub dwInterface: BCRYPT_INTERFACE,
     pub dwFlags: BCRYPT_TABLE,
@@ -14403,12 +15851,19 @@ unsafe impl ::windows::runtime::Abi for CRYPT_INTERFACE_REG {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_KDF_OID_GROUP_ID: u32 = 10u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_KEEP_TIME_VALID: u32 = 128u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_KEYID_ALLOC_FLAG: u32 = 32768u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_KEYID_DELETE_FLAG: u32 = 16u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_KEYID_MACHINE_FLAG: u32 = 32u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_KEYID_SET_NEW_FLAG: u32 = 8192u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CRYPT_KEY_FLAGS(pub u32);
@@ -14480,6 +15935,7 @@ impl ::std::ops::Not for CRYPT_KEY_FLAGS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CRYPT_KEY_PARAM_ID(pub u32);
@@ -14531,6 +15987,7 @@ impl ::std::ops::Not for CRYPT_KEY_PARAM_ID {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_KEY_PROV_INFO {
     pub pwszContainerName: super::super::Foundation::PWSTR,
     pub pwszProvName: super::super::Foundation::PWSTR,
@@ -14577,6 +16034,7 @@ unsafe impl ::windows::runtime::Abi for CRYPT_KEY_PROV_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct CRYPT_KEY_PROV_PARAM {
     pub dwParam: u32,
     pub pbData: *mut u8,
@@ -14607,6 +16065,7 @@ unsafe impl ::windows::runtime::Abi for CRYPT_KEY_PROV_PARAM {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_KEY_SIGN_MESSAGE_PARA {
     pub cbSize: u32,
     pub dwMsgAndCertEncodingType: CERT_QUERY_ENCODING_TYPE,
@@ -14639,6 +16098,7 @@ unsafe impl ::windows::runtime::Abi for CRYPT_KEY_SIGN_MESSAGE_PARA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub union CRYPT_KEY_SIGN_MESSAGE_PARA_0 {
     pub hCryptProv: usize,
     pub hNCryptKey: usize,
@@ -14661,6 +16121,7 @@ unsafe impl ::windows::runtime::Abi for CRYPT_KEY_SIGN_MESSAGE_PARA_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct CRYPT_KEY_VERIFY_MESSAGE_PARA {
     pub cbSize: u32,
     pub dwMsgEncodingType: u32,
@@ -14687,19 +16148,30 @@ unsafe impl ::windows::runtime::Abi for CRYPT_KEY_VERIFY_MESSAGE_PARA {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_LAST_ALG_OID_GROUP_ID: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_LAST_OID_GROUP_ID: u32 = 10u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_LDAP_AREC_EXCLUSIVE_RETRIEVAL: u32 = 262144u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_LDAP_INSERT_ENTRY_ATTRIBUTE: u32 = 32768u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_LDAP_SCOPE_BASE_ONLY_RETRIEVAL: u32 = 8192u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_LDAP_SIGN_RETRIEVAL: u32 = 65536u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_LITTLE_ENDIAN: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_LOCALIZED_NAME_ENCODING_TYPE: u32 = 0u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_MAC: u32 = 32u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_MACHINE_DEFAULT: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_MASK_GEN_ALGORITHM {
     pub pszObjId: super::super::Foundation::PSTR,
     pub HashAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
@@ -14731,22 +16203,39 @@ unsafe impl ::windows::runtime::Abi for CRYPT_MASK_GEN_ALGORITHM {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_MATCH_ANY_ENCODING_TYPE: u32 = 4294967295u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_MESSAGE_BARE_CONTENT_OUT_FLAG: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_MESSAGE_ENCAPSULATED_CONTENT_OUT_FLAG: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_MESSAGE_KEYID_RECIPIENT_FLAG: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_MESSAGE_KEYID_SIGNER_FLAG: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_MESSAGE_SILENT_KEYSET_FLAG: u32 = 64u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_MODE_CBC: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_MODE_CBCI: u32 = 6u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_MODE_CBCOFM: u32 = 9u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_MODE_CBCOFMI: u32 = 10u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_MODE_CFB: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_MODE_CFBP: u32 = 7u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_MODE_CTS: u32 = 5u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_MODE_ECB: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_MODE_OFB: u32 = 3u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_MODE_OFBP: u32 = 8u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CRYPT_MSG_TYPE(pub u32);
@@ -14792,19 +16281,30 @@ impl ::std::ops::Not for CRYPT_MSG_TYPE {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_NDR_ENCODING: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_NEWKEYSET: u32 = 8u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_NEXT: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_NOHASHOID: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_NOT_MODIFIED_RETRIEVAL: u32 = 4194304u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_NO_AUTH_RETRIEVAL: u32 = 131072u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_NO_OCSP_FAILOVER_TO_CRL_RETRIEVAL: u32 = 33554432u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_OBJECT_LOCATOR_FIRST_RESERVED_USER_NAME_TYPE: u32 = 33u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_OBJECT_LOCATOR_LAST_RESERVED_NAME_TYPE: u32 = 32u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_OBJECT_LOCATOR_LAST_RESERVED_USER_NAME_TYPE: u32 = 65535u32;
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_OBJECT_LOCATOR_PROVIDER_TABLE {
     pub cbSize: u32,
     pub pfnGet: ::std::option::Option<PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_GET>,
@@ -14840,6 +16340,7 @@ unsafe impl ::windows::runtime::Abi for CRYPT_OBJECT_LOCATOR_PROVIDER_TABLE {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CRYPT_OBJECT_LOCATOR_RELEASE_REASON(pub u32);
@@ -14884,10 +16385,12 @@ impl ::std::ops::Not for CRYPT_OBJECT_LOCATOR_RELEASE_REASON {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_OBJECT_LOCATOR_SPN_NAME_TYPE: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_OBJID_TABLE {
     pub dwAlgId: u32,
     pub pszObjId: super::super::Foundation::PSTR,
@@ -14919,12 +16422,16 @@ unsafe impl ::windows::runtime::Abi for CRYPT_OBJID_TABLE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_OCSP_ONLY_RETRIEVAL: u32 = 16777216u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_OFFLINE_CHECK_RETRIEVAL: u32 = 16384u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_OID_DISABLE_SEARCH_DS_FLAG: u32 = 2147483648u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_OID_FUNC_ENTRY {
     pub pszOID: super::super::Foundation::PSTR,
     pub pvFuncAddr: *mut ::std::ffi::c_void,
@@ -14959,6 +16466,7 @@ unsafe impl ::windows::runtime::Abi for CRYPT_OID_FUNC_ENTRY {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_OID_INFO {
     pub cbSize: u32,
     pub pszOID: super::super::Foundation::PSTR,
@@ -14990,6 +16498,7 @@ unsafe impl ::windows::runtime::Abi for CRYPT_OID_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub union CRYPT_OID_INFO_0 {
     pub dwValue: u32,
     pub Algid: u32,
@@ -15011,28 +16520,48 @@ unsafe impl ::windows::runtime::Abi for CRYPT_OID_INFO_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_OID_INFO_ALGID_KEY: u32 = 3u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_OID_INFO_CNG_ALGID_KEY: u32 = 5u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_OID_INFO_CNG_SIGN_KEY: u32 = 6u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_OID_INFO_NAME_KEY: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_OID_INFO_OID_GROUP_BIT_LEN_MASK: u32 = 268369920u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_OID_INFO_OID_GROUP_BIT_LEN_SHIFT: u32 = 16u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_OID_INFO_OID_KEY: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_OID_INFO_OID_KEY_FLAGS_MASK: u32 = 4294901760u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_OID_INFO_SIGN_KEY: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_OID_INHIBIT_SIGNATURE_FORMAT_FLAG: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_OID_NO_NULL_ALGORITHM_PARA_FLAG: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_OID_PREFER_CNG_ALGID_FLAG: u32 = 1073741824u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_OID_PUBKEY_ENCRYPT_ONLY_FLAG: u32 = 1073741824u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_OID_PUBKEY_SIGN_ONLY_FLAG: u32 = 2147483648u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_OID_USE_CURVE_NAME_FOR_ENCODE_FLAG: u32 = 536870912u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_OID_USE_CURVE_PARAMETERS_FOR_ENCODE_FLAG: u32 = 268435456u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_OID_USE_PUBKEY_PARA_FOR_PKCS7_FLAG: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_OVERWRITE: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_OWF_REPL_LM_HASH: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_PASSWORD_CREDENTIALSA {
     pub cbSize: u32,
     pub pszUsername: super::super::Foundation::PSTR,
@@ -15068,6 +16597,7 @@ unsafe impl ::windows::runtime::Abi for CRYPT_PASSWORD_CREDENTIALSA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_PASSWORD_CREDENTIALSW {
     pub cbSize: u32,
     pub pszUsername: super::super::Foundation::PWSTR,
@@ -15102,6 +16632,7 @@ unsafe impl ::windows::runtime::Abi for CRYPT_PASSWORD_CREDENTIALSW {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct CRYPT_PKCS12_PBE_PARAMS {
     pub iIterations: i32,
     pub cbSalt: u32,
@@ -15130,6 +16661,7 @@ unsafe impl ::windows::runtime::Abi for CRYPT_PKCS12_PBE_PARAMS {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_PKCS8_EXPORT_PARAMS {
     pub hCryptProv: usize,
     pub dwKeySpec: u32,
@@ -15167,6 +16699,7 @@ unsafe impl ::windows::runtime::Abi for CRYPT_PKCS8_EXPORT_PARAMS {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_PKCS8_IMPORT_PARAMS {
     pub PrivateKey: CRYPTOAPI_BLOB,
     pub pResolvehCryptProvFunc: ::std::option::Option<PCRYPT_RESOLVE_HCRYPTPROV_FUNC>,
@@ -15201,12 +16734,16 @@ unsafe impl ::windows::runtime::Abi for CRYPT_PKCS8_IMPORT_PARAMS {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_POLICY_OID_GROUP_ID: u32 = 8u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_PRIORITY_BOTTOM: u32 = 4294967295u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_PRIORITY_TOP: u32 = 0u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_PRIVATE_KEY_INFO {
     pub Version: u32,
     pub Algorithm: CRYPT_ALGORITHM_IDENTIFIER,
@@ -15243,6 +16780,7 @@ unsafe impl ::windows::runtime::Abi for CRYPT_PRIVATE_KEY_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_PROPERTY_REF {
     pub pszProperty: super::super::Foundation::PWSTR,
     pub cbValue: u32,
@@ -15278,6 +16816,7 @@ unsafe impl ::windows::runtime::Abi for CRYPT_PROPERTY_REF {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_PROVIDERS {
     pub cProviders: u32,
     pub rgpszProviders: *mut super::super::Foundation::PWSTR,
@@ -15312,6 +16851,7 @@ unsafe impl ::windows::runtime::Abi for CRYPT_PROVIDERS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_PROVIDER_REF {
     pub dwInterface: u32,
     pub pszFunction: super::super::Foundation::PWSTR,
@@ -15351,6 +16891,7 @@ unsafe impl ::windows::runtime::Abi for CRYPT_PROVIDER_REF {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_PROVIDER_REFS {
     pub cProviders: u32,
     pub rgpProviders: *mut *mut CRYPT_PROVIDER_REF,
@@ -15385,6 +16926,7 @@ unsafe impl ::windows::runtime::Abi for CRYPT_PROVIDER_REFS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_PROVIDER_REG {
     pub cAliases: u32,
     pub rgpszAliases: *mut super::super::Foundation::PWSTR,
@@ -15418,10 +16960,12 @@ unsafe impl ::windows::runtime::Abi for CRYPT_PROVIDER_REG {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_PROXY_CACHE_RETRIEVAL: u32 = 2097152u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_PSOURCE_ALGORITHM {
     pub pszObjId: super::super::Foundation::PSTR,
     pub EncodingParameters: CRYPTOAPI_BLOB,
@@ -15453,16 +16997,24 @@ unsafe impl ::windows::runtime::Abi for CRYPT_PSOURCE_ALGORITHM {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_PSTORE: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_PUBKEY_ALG_OID_GROUP_ID: u32 = 3u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_RANDOM_QUERY_STRING_RETRIEVAL: u32 = 67108864u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_RC2_128BIT_VERSION: u32 = 58u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_RC2_40BIT_VERSION: u32 = 160u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_RC2_56BIT_VERSION: u32 = 52u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_RC2_64BIT_VERSION: u32 = 120u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_RC2_CBC_PARAMETERS {
     pub dwVersion: u32,
     pub fIV: super::super::Foundation::BOOL,
@@ -15497,6 +17049,7 @@ unsafe impl ::windows::runtime::Abi for CRYPT_RC2_CBC_PARAMETERS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct CRYPT_RC4_KEY_STATE {
     pub Key: [u8; 16],
     pub SBox: [u8; 256],
@@ -15524,13 +17077,18 @@ unsafe impl ::windows::runtime::Abi for CRYPT_RC4_KEY_STATE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_RDN_ATTR_OID_GROUP_ID: u32 = 5u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_READ: u32 = 8u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_REGISTER_FIRST_INDEX: u32 = 0u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_REGISTER_LAST_INDEX: u32 = 4294967295u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_RETRIEVE_AUX_INFO {
     pub cbSize: u32,
     pub pLastSyncTime: *mut super::super::Foundation::FILETIME,
@@ -15596,11 +17154,14 @@ unsafe impl ::windows::runtime::Abi for CRYPT_RETRIEVE_AUX_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_RETRIEVE_MAX_ERROR_CONTENT_LENGTH: u32 = 4096u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_RETRIEVE_MULTIPLE_OBJECTS: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_RSAES_OAEP_PARAMETERS {
     pub HashAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub MaskGenAlgorithm: CRYPT_MASK_GEN_ALGORITHM,
@@ -15636,6 +17197,7 @@ unsafe impl ::windows::runtime::Abi for CRYPT_RSAES_OAEP_PARAMETERS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_RSA_SSA_PSS_PARAMETERS {
     pub HashAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub MaskGenAlgorithm: CRYPT_MASK_GEN_ALGORITHM,
@@ -15669,10 +17231,13 @@ unsafe impl ::windows::runtime::Abi for CRYPT_RSA_SSA_PSS_PARAMETERS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_SECRETDIGEST: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_SEC_DESCR: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct CRYPT_SEQUENCE_OF_ANY {
     pub cValue: u32,
     pub rgValue: *mut CRYPTOAPI_BLOB,
@@ -15698,7 +17263,9 @@ unsafe impl ::windows::runtime::Abi for CRYPT_SEQUENCE_OF_ANY {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_SERVER: u32 = 1024u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CRYPT_SET_HASH_PARAM(pub u32);
@@ -15741,6 +17308,7 @@ impl ::std::ops::Not for CRYPT_SET_HASH_PARAM {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CRYPT_SET_PROV_PARAM_ID(pub u32);
@@ -15798,12 +17366,16 @@ impl ::std::ops::Not for CRYPT_SET_PROV_PARAM_ID {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_SGC: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_SGC_ENUM: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_SIGN_ALG_OID_GROUP_ID: u32 = 4u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_SIGN_MESSAGE_PARA {
     pub cbSize: u32,
     pub dwMsgEncodingType: u32,
@@ -15878,9 +17450,11 @@ unsafe impl ::windows::runtime::Abi for CRYPT_SIGN_MESSAGE_PARA {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_SILENT: u32 = 64u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct CRYPT_SMART_CARD_ROOT_INFO {
     pub rgbCardID: [u8; 16],
     pub luid: ROOT_INFO_LUID,
@@ -15909,6 +17483,7 @@ unsafe impl ::windows::runtime::Abi for CRYPT_SMART_CARD_ROOT_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_SMIME_CAPABILITIES {
     pub cCapability: u32,
     pub rgCapability: *mut CRYPT_SMIME_CAPABILITY,
@@ -15943,6 +17518,7 @@ unsafe impl ::windows::runtime::Abi for CRYPT_SMIME_CAPABILITIES {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_SMIME_CAPABILITY {
     pub pszObjId: super::super::Foundation::PSTR,
     pub Parameters: CRYPTOAPI_BLOB,
@@ -15974,8 +17550,11 @@ unsafe impl ::windows::runtime::Abi for CRYPT_SMIME_CAPABILITY {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_SORTED_CTL_ENCODE_HASHED_SUBJECT_IDENTIFIER_FLAG: u32 = 65536u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_STICKY_CACHE_RETRIEVAL: u32 = 4096u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CRYPT_STRING(pub u32);
@@ -16030,18 +17609,29 @@ impl ::std::ops::Not for CRYPT_STRING {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_STRING_BASE64URI: u32 = 13u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_STRING_ENCODEMASK: u32 = 255u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_STRING_HASHDATA: u32 = 268435456u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_STRING_NOCR: u32 = 2147483648u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_STRING_NOCRLF: u32 = 1073741824u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_STRING_PERCENTESCAPE: u32 = 134217728u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_STRING_RESERVED100: u32 = 256u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_STRING_RESERVED200: u32 = 512u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_SUCCEED: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_TEMPLATE_OID_GROUP_ID: u32 = 9u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct CRYPT_TIMESTAMP_ACCURACY {
     pub dwSeconds: u32,
     pub dwMillis: u32,
@@ -16071,6 +17661,7 @@ unsafe impl ::windows::runtime::Abi for CRYPT_TIMESTAMP_ACCURACY {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_TIMESTAMP_CONTEXT {
     pub cbEncoded: u32,
     pub pbEncoded: *mut u8,
@@ -16106,6 +17697,7 @@ unsafe impl ::windows::runtime::Abi for CRYPT_TIMESTAMP_CONTEXT {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_TIMESTAMP_INFO {
     pub dwVersion: u32,
     pub pszTSAPolicyId: super::super::Foundation::PSTR,
@@ -16163,6 +17755,7 @@ unsafe impl ::windows::runtime::Abi for CRYPT_TIMESTAMP_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_TIMESTAMP_PARA {
     pub pszTSAPolicyId: super::super::Foundation::PSTR,
     pub fRequestCerts: super::super::Foundation::BOOL,
@@ -16200,6 +17793,7 @@ unsafe impl ::windows::runtime::Abi for CRYPT_TIMESTAMP_PARA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_TIMESTAMP_REQUEST {
     pub dwVersion: CRYPT_TIMESTAMP_VERSION,
     pub HashAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
@@ -16249,6 +17843,7 @@ unsafe impl ::windows::runtime::Abi for CRYPT_TIMESTAMP_REQUEST {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_TIMESTAMP_RESPONSE {
     pub dwStatus: CRYPT_TIMESTAMP_RESPONSE_STATUS,
     pub cFreeText: u32,
@@ -16283,6 +17878,7 @@ unsafe impl ::windows::runtime::Abi for CRYPT_TIMESTAMP_RESPONSE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CRYPT_TIMESTAMP_RESPONSE_STATUS(pub u32);
@@ -16329,6 +17925,7 @@ impl ::std::ops::Not for CRYPT_TIMESTAMP_RESPONSE_STATUS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CRYPT_TIMESTAMP_VERSION(pub u32);
@@ -16373,6 +17970,7 @@ impl ::std::ops::Not for CRYPT_TIMESTAMP_VERSION {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_TIME_STAMP_REQUEST_INFO {
     pub pszTimeStampAlgorithm: super::super::Foundation::PSTR,
     pub pszContentType: super::super::Foundation::PSTR,
@@ -16407,14 +18005,20 @@ unsafe impl ::windows::runtime::Abi for CRYPT_TIME_STAMP_REQUEST_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_TYPE2_FORMAT: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_UI_PROMPT: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_UNICODE_NAME_DECODE_DISABLE_IE4_UTF8_FLAG: u32 = 16777216u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_UNICODE_NAME_ENCODE_FORCE_UTF8_UNICODE_FLAG: u32 = 268435456u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_UPDATE_KEY: u32 = 8u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_URL_ARRAY {
     pub cUrl: u32,
     pub rgwszUrl: *mut super::super::Foundation::PWSTR,
@@ -16448,6 +18052,7 @@ unsafe impl ::windows::runtime::Abi for CRYPT_URL_ARRAY {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct CRYPT_URL_INFO {
     pub cbSize: u32,
     pub dwSyncDeltaTime: u32,
@@ -16475,10 +18080,15 @@ unsafe impl ::windows::runtime::Abi for CRYPT_URL_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_USERDATA: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_USER_DEFAULT: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_USER_PROTECTED_STRONG: u32 = 1048576u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_VERIFYCONTEXT: u32 = 4026531840u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CRYPT_VERIFY_CERT_FLAGS(pub u32);
@@ -16522,13 +18132,19 @@ impl ::std::ops::Not for CRYPT_VERIFY_CERT_FLAGS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_VERIFY_CERT_SIGN_CHECK_WEAK_HASH_FLAG: u32 = 8u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_VERIFY_CERT_SIGN_ISSUER_CERT: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_VERIFY_CERT_SIGN_ISSUER_CHAIN: u32 = 3u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_VERIFY_CERT_SIGN_ISSUER_NULL: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_VERIFY_CERT_SIGN_ISSUER_PUBKEY: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct CRYPT_VERIFY_CERT_SIGN_STRONG_PROPERTIES_INFO {
     pub CertSignHashCNGAlgPropData: CRYPTOAPI_BLOB,
     pub CertIssuerPubKeyBitLengthPropData: CRYPTOAPI_BLOB,
@@ -16554,13 +18170,18 @@ unsafe impl ::windows::runtime::Abi for CRYPT_VERIFY_CERT_SIGN_STRONG_PROPERTIES
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_VERIFY_CERT_SIGN_SUBJECT_BLOB: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_VERIFY_CERT_SIGN_SUBJECT_CERT: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_VERIFY_CERT_SIGN_SUBJECT_CRL: u32 = 3u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_VERIFY_CERT_SIGN_SUBJECT_OCSP_BASIC_SIGNED_RESPONSE: u32 = 4u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_VERIFY_CERT_SIGN_WEAK_HASH_INFO {
     pub cCNGHashAlgid: u32,
     pub rgpwszCNGHashAlgid: *mut super::super::Foundation::PWSTR,
@@ -16593,11 +18214,14 @@ unsafe impl ::windows::runtime::Abi for CRYPT_VERIFY_CERT_SIGN_WEAK_HASH_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_VERIFY_CONTEXT_SIGNATURE: u32 = 32u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_VERIFY_DATA_HASH: u32 = 64u32;
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_VERIFY_MESSAGE_PARA {
     pub cbSize: u32,
     pub dwMsgAndCertEncodingType: u32,
@@ -16632,14 +18256,20 @@ unsafe impl ::windows::runtime::Abi for CRYPT_VERIFY_MESSAGE_PARA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_WIRE_ONLY_RETRIEVAL: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_WRITE: u32 = 16u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_X931_FORMAT: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_X942_COUNTER_BYTE_LENGTH: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_X942_KEY_LENGTH_BYTE_LENGTH: u32 = 4u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_X942_OTHER_INFO {
     pub pszContentEncryptionObjId: super::super::Foundation::PSTR,
     pub rgbCounter: [u8; 4],
@@ -16676,6 +18306,7 @@ unsafe impl ::windows::runtime::Abi for CRYPT_X942_OTHER_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_XML_ALGORITHM {
     pub cbSize: u32,
     pub wszAlgorithm: super::super::Foundation::PWSTR,
@@ -16711,6 +18342,7 @@ unsafe impl ::windows::runtime::Abi for CRYPT_XML_ALGORITHM {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_XML_ALGORITHM_INFO {
     pub cbSize: u32,
     pub wszAlgorithmURI: super::super::Foundation::PWSTR,
@@ -16761,12 +18393,17 @@ unsafe impl ::windows::runtime::Abi for CRYPT_XML_ALGORITHM_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_XML_ALGORITHM_INFO_FIND_BY_CNG_ALGID: u32 = 3u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_XML_ALGORITHM_INFO_FIND_BY_CNG_SIGN_ALGID: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_XML_ALGORITHM_INFO_FIND_BY_NAME: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_XML_ALGORITHM_INFO_FIND_BY_URI: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct CRYPT_XML_BLOB {
     pub dwCharset: CRYPT_XML_CHARSET,
     pub cbData: u32,
@@ -16793,7 +18430,9 @@ unsafe impl ::windows::runtime::Abi for CRYPT_XML_BLOB {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_XML_BLOB_MAX: u32 = 2147483640u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CRYPT_XML_CHARSET(pub i32);
@@ -16813,6 +18452,7 @@ unsafe impl ::windows::runtime::Abi for CRYPT_XML_CHARSET {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_XML_CRYPTOGRAPHIC_INTERFACE {
     pub cbSize: u32,
     pub fpCryptXmlEncodeAlgorithm: ::std::option::Option<CryptXmlDllEncodeAlgorithm>,
@@ -16861,6 +18501,7 @@ unsafe impl ::windows::runtime::Abi for CRYPT_XML_CRYPTOGRAPHIC_INTERFACE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct CRYPT_XML_DATA_BLOB {
     pub cbData: u32,
     pub pbData: *mut u8,
@@ -16888,6 +18529,7 @@ unsafe impl ::windows::runtime::Abi for CRYPT_XML_DATA_BLOB {
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct CRYPT_XML_DATA_PROVIDER {
     pub pvCallbackState: *mut ::std::ffi::c_void,
     pub cbBufferSize: u32,
@@ -16915,11 +18557,14 @@ unsafe impl ::windows::runtime::Abi for CRYPT_XML_DATA_PROVIDER {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_XML_DIGEST_REFERENCE_DATA_TRANSFORMED: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_XML_DIGEST_VALUE_MAX: u32 = 128u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_XML_DOC_CTXT {
     pub cbSize: u32,
     pub hDocCtxt: *mut ::std::ffi::c_void,
@@ -16954,26 +18599,47 @@ unsafe impl ::windows::runtime::Abi for CRYPT_XML_DOC_CTXT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_XML_E_ALGORITHM: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146885372i32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_XML_E_BASE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146885376i32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_XML_E_ENCODING: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146885373i32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_XML_E_HANDLE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146885370i32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_XML_E_HASH_FAILED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146885365i32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_XML_E_INVALID_DIGEST: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146885367i32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_XML_E_INVALID_KEYVALUE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146885361i32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_XML_E_INVALID_SIGNATURE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146885366i32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_XML_E_LARGE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146885375i32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_XML_E_LAST: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146885358i32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_XML_E_NON_UNIQUE_ID: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146885358i32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_XML_E_OPERATION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146885369i32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_XML_E_SIGNER: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146885359i32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_XML_E_SIGN_FAILED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146885364i32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_XML_E_TOO_MANY_SIGNATURES: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146885362i32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_XML_E_TOO_MANY_TRANSFORMS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146885374i32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_XML_E_TRANSFORM: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146885371i32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_XML_E_UNEXPECTED_XML: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146885360i32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_XML_E_UNRESOLVED_REFERENCE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146885368i32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_XML_E_VERIFY_FAILED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146885363i32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CRYPT_XML_FLAGS(pub u32);
@@ -17017,12 +18683,19 @@ impl ::std::ops::Not for CRYPT_XML_FLAGS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_XML_FLAG_ADD_OBJECT_CREATE_COPY: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_XML_FLAG_ALWAYS_RETURN_ENCODED_OBJECT: u32 = 1073741824u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_XML_FLAG_CREATE_REFERENCE_AS_OBJECT: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_XML_FLAG_ECDSA_DSIG11: u32 = 67108864u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_XML_FLAG_ENFORCE_ID_NAME_FORMAT: u32 = 134217728u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_XML_FLAG_ENFORCE_ID_NCNAME_FORMAT: u32 = 536870912u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CRYPT_XML_GROUP_ID(pub u32);
@@ -17065,12 +18738,16 @@ impl ::std::ops::Not for CRYPT_XML_GROUP_ID {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_XML_GROUP_ID_HASH: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_XML_GROUP_ID_SIGN: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_XML_ID_MAX: u32 = 256u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_XML_ISSUER_SERIAL {
     pub wszIssuer: super::super::Foundation::PWSTR,
     pub wszSerial: super::super::Foundation::PWSTR,
@@ -17105,6 +18782,7 @@ unsafe impl ::windows::runtime::Abi for CRYPT_XML_ISSUER_SERIAL {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_XML_KEYINFO_PARAM {
     pub wszId: super::super::Foundation::PWSTR,
     pub wszKeyName: super::super::Foundation::PWSTR,
@@ -17151,6 +18829,7 @@ unsafe impl ::windows::runtime::Abi for CRYPT_XML_KEYINFO_PARAM {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CRYPT_XML_KEYINFO_SPEC(pub i32);
@@ -17166,6 +18845,7 @@ unsafe impl ::windows::runtime::Abi for CRYPT_XML_KEYINFO_SPEC {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CRYPT_XML_KEYINFO_TYPE(pub u32);
@@ -17213,6 +18893,7 @@ impl ::std::ops::Not for CRYPT_XML_KEYINFO_TYPE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct CRYPT_XML_KEY_DSA_KEY_VALUE {
     pub P: CRYPT_XML_DATA_BLOB,
     pub Q: CRYPT_XML_DATA_BLOB,
@@ -17246,6 +18927,7 @@ unsafe impl ::windows::runtime::Abi for CRYPT_XML_KEY_DSA_KEY_VALUE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_XML_KEY_ECDSA_KEY_VALUE {
     pub wszNamedCurve: super::super::Foundation::PWSTR,
     pub X: CRYPT_XML_DATA_BLOB,
@@ -17282,6 +18964,7 @@ unsafe impl ::windows::runtime::Abi for CRYPT_XML_KEY_ECDSA_KEY_VALUE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_XML_KEY_INFO {
     pub cbSize: u32,
     pub wszId: super::super::Foundation::PWSTR,
@@ -17319,6 +19002,7 @@ unsafe impl ::windows::runtime::Abi for CRYPT_XML_KEY_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_XML_KEY_INFO_ITEM {
     pub dwType: CRYPT_XML_KEYINFO_TYPE,
     pub Anonymous: CRYPT_XML_KEY_INFO_ITEM_0,
@@ -17347,6 +19031,7 @@ unsafe impl ::windows::runtime::Abi for CRYPT_XML_KEY_INFO_ITEM {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub union CRYPT_XML_KEY_INFO_ITEM_0 {
     pub wszKeyName: super::super::Foundation::PWSTR,
     pub KeyValue: CRYPT_XML_KEY_VALUE,
@@ -17377,6 +19062,7 @@ unsafe impl ::windows::runtime::Abi for CRYPT_XML_KEY_INFO_ITEM_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct CRYPT_XML_KEY_RSA_KEY_VALUE {
     pub Modulus: CRYPT_XML_DATA_BLOB,
     pub Exponent: CRYPT_XML_DATA_BLOB,
@@ -17405,6 +19091,7 @@ unsafe impl ::windows::runtime::Abi for CRYPT_XML_KEY_RSA_KEY_VALUE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_XML_KEY_VALUE {
     pub dwType: CRYPT_XML_KEY_VALUE_TYPE,
     pub Anonymous: CRYPT_XML_KEY_VALUE_0,
@@ -17433,6 +19120,7 @@ unsafe impl ::windows::runtime::Abi for CRYPT_XML_KEY_VALUE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub union CRYPT_XML_KEY_VALUE_0 {
     pub DSAKeyValue: CRYPT_XML_KEY_DSA_KEY_VALUE,
     pub RSAKeyValue: CRYPT_XML_KEY_RSA_KEY_VALUE,
@@ -17460,6 +19148,7 @@ unsafe impl ::windows::runtime::Abi for CRYPT_XML_KEY_VALUE_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CRYPT_XML_KEY_VALUE_TYPE(pub u32);
@@ -17507,6 +19196,7 @@ impl ::std::ops::Not for CRYPT_XML_KEY_VALUE_TYPE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_XML_OBJECT {
     pub cbSize: u32,
     pub hObject: *mut ::std::ffi::c_void,
@@ -17543,9 +19233,11 @@ unsafe impl ::windows::runtime::Abi for CRYPT_XML_OBJECT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_XML_OBJECTS_MAX: u32 = 256u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct CRYPT_XML_PROPERTY {
     pub dwPropId: CRYPT_XML_PROPERTY_ID,
     pub pvValue: *mut ::std::ffi::c_void,
@@ -17572,6 +19264,7 @@ unsafe impl ::windows::runtime::Abi for CRYPT_XML_PROPERTY {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CRYPT_XML_PROPERTY_ID(pub i32);
@@ -17592,6 +19285,7 @@ unsafe impl ::windows::runtime::Abi for CRYPT_XML_PROPERTY_ID {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_XML_REFERENCE {
     pub cbSize: u32,
     pub hReference: *mut ::std::ffi::c_void,
@@ -17643,6 +19337,7 @@ unsafe impl ::windows::runtime::Abi for CRYPT_XML_REFERENCE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_XML_REFERENCES {
     pub cReference: u32,
     pub rgpReference: *mut *mut CRYPT_XML_REFERENCE,
@@ -17674,10 +19369,12 @@ unsafe impl ::windows::runtime::Abi for CRYPT_XML_REFERENCES {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_XML_REFERENCES_MAX: u32 = 32760u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_XML_SIGNATURE {
     pub cbSize: u32,
     pub hSignature: *mut ::std::ffi::c_void,
@@ -17724,11 +19421,14 @@ unsafe impl ::windows::runtime::Abi for CRYPT_XML_SIGNATURE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_XML_SIGNATURES_MAX: u32 = 16u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_XML_SIGNATURE_VALUE_MAX: u32 = 2048u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_XML_SIGNED_INFO {
     pub cbSize: u32,
     pub wszId: super::super::Foundation::PWSTR,
@@ -17775,6 +19475,7 @@ unsafe impl ::windows::runtime::Abi for CRYPT_XML_SIGNED_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct CRYPT_XML_STATUS {
     pub cbSize: u32,
     pub dwErrorStatus: CRYPT_XML_STATUS_ERROR_STATUS,
@@ -17801,6 +19502,7 @@ unsafe impl ::windows::runtime::Abi for CRYPT_XML_STATUS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CRYPT_XML_STATUS_ERROR_STATUS(pub u32);
@@ -17847,6 +19549,7 @@ impl ::std::ops::Not for CRYPT_XML_STATUS_ERROR_STATUS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CRYPT_XML_STATUS_INFO_STATUS(pub u32);
@@ -17893,10 +19596,12 @@ impl ::std::ops::Not for CRYPT_XML_STATUS_INFO_STATUS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_XML_STATUS_NO_ERROR: u32 = 0u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_XML_TRANSFORM_CHAIN_CONFIG {
     pub cbSize: u32,
     pub cTransformInfo: u32,
@@ -17929,6 +19634,7 @@ unsafe impl ::windows::runtime::Abi for CRYPT_XML_TRANSFORM_CHAIN_CONFIG {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CRYPT_XML_TRANSFORM_FLAGS(pub u32);
@@ -17975,6 +19681,7 @@ impl ::std::ops::Not for CRYPT_XML_TRANSFORM_FLAGS {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_XML_TRANSFORM_INFO {
     pub cbSize: u32,
     pub wszAlgorithm: super::super::Foundation::PWSTR,
@@ -18009,10 +19716,12 @@ unsafe impl ::windows::runtime::Abi for CRYPT_XML_TRANSFORM_INFO {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_XML_TRANSFORM_MAX: u32 = 16u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_XML_X509DATA {
     pub cX509Data: u32,
     pub rgX509Data: *mut CRYPT_XML_X509DATA_ITEM,
@@ -18047,6 +19756,7 @@ unsafe impl ::windows::runtime::Abi for CRYPT_XML_X509DATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CRYPT_XML_X509DATA_ITEM {
     pub dwType: CRYPT_XML_X509DATA_TYPE,
     pub Anonymous: CRYPT_XML_X509DATA_ITEM_0,
@@ -18075,6 +19785,7 @@ unsafe impl ::windows::runtime::Abi for CRYPT_XML_X509DATA_ITEM {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub union CRYPT_XML_X509DATA_ITEM_0 {
     pub IssuerSerial: CRYPT_XML_ISSUER_SERIAL,
     pub SKI: CRYPT_XML_DATA_BLOB,
@@ -18104,6 +19815,7 @@ unsafe impl ::windows::runtime::Abi for CRYPT_XML_X509DATA_ITEM_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CRYPT_XML_X509DATA_TYPE(pub u32);
@@ -18150,11 +19862,14 @@ impl ::std::ops::Not for CRYPT_XML_X509DATA_TYPE {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYTPDLG_FLAGS_MASK: u32 = 4278190080u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CSS_SELECTCERT_MASK: u32 = 16777215u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CTL_ANY_SUBJECT_INFO {
     pub SubjectAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub SubjectIdentifier: CRYPTOAPI_BLOB,
@@ -18186,11 +19901,14 @@ unsafe impl ::windows::runtime::Abi for CTL_ANY_SUBJECT_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CTL_ANY_SUBJECT_TYPE: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CTL_CERT_SUBJECT_TYPE: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CTL_CONTEXT {
     pub dwMsgAndCertEncodingType: u32,
     pub pbCtlEncoded: *mut u8,
@@ -18240,6 +19958,7 @@ unsafe impl ::windows::runtime::Abi for CTL_CONTEXT {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CTL_ENTRY {
     pub SubjectIdentifier: CRYPTOAPI_BLOB,
     pub cAttribute: u32,
@@ -18272,11 +19991,14 @@ unsafe impl ::windows::runtime::Abi for CTL_ENTRY {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CTL_ENTRY_FROM_PROP_CHAIN_FLAG: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CTL_FIND_NO_LIST_ID_CBDATA: u32 = 4294967295u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CTL_FIND_SUBJECT_PARA {
     pub cbSize: u32,
     pub pUsagePara: *mut CTL_FIND_USAGE_PARA,
@@ -18313,6 +20035,7 @@ unsafe impl ::windows::runtime::Abi for CTL_FIND_SUBJECT_PARA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CTL_FIND_USAGE_PARA {
     pub cbSize: u32,
     pub SubjectUsage: CTL_USAGE,
@@ -18349,6 +20072,7 @@ unsafe impl ::windows::runtime::Abi for CTL_FIND_USAGE_PARA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CTL_INFO {
     pub dwVersion: u32,
     pub SubjectUsage: CTL_USAGE,
@@ -18404,6 +20128,7 @@ unsafe impl ::windows::runtime::Abi for CTL_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CTL_MODIFY_REQUEST {
     pub pccert: *mut CERT_CONTEXT,
     pub dwOperation: CTL_MODIFY_REQUEST_OPERATION,
@@ -18436,6 +20161,7 @@ unsafe impl ::windows::runtime::Abi for CTL_MODIFY_REQUEST {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CTL_MODIFY_REQUEST_OPERATION(pub u32);
@@ -18482,6 +20208,7 @@ impl ::std::ops::Not for CTL_MODIFY_REQUEST_OPERATION {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CTL_USAGE {
     pub cUsageIdentifier: u32,
     pub rgpszUsageIdentifier: *mut super::super::Foundation::PSTR,
@@ -18516,6 +20243,7 @@ unsafe impl ::windows::runtime::Abi for CTL_USAGE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CTL_USAGE_MATCH {
     pub dwType: u32,
     pub Usage: CTL_USAGE,
@@ -18547,9 +20275,11 @@ unsafe impl ::windows::runtime::Abi for CTL_USAGE_MATCH {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CTL_V1: u32 = 0u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct CTL_VERIFY_USAGE_PARA {
     pub cbSize: u32,
     pub ListIdentifier: CRYPTOAPI_BLOB,
@@ -18582,6 +20312,7 @@ unsafe impl ::windows::runtime::Abi for CTL_VERIFY_USAGE_PARA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct CTL_VERIFY_USAGE_STATUS {
     pub cbSize: u32,
     pub dwError: u32,
@@ -18618,8 +20349,10 @@ unsafe impl ::windows::runtime::Abi for CTL_VERIFY_USAGE_STATUS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CUR_BLOB_VERSION: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertAddCRLContextToStore(hcertstore: *const ::std::ffi::c_void, pcrlcontext: *const CRL_CONTEXT, dwadddisposition: u32, ppstorecontext: *mut *mut CRL_CONTEXT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -18634,6 +20367,7 @@ pub unsafe fn CertAddCRLContextToStore(hcertstore: *const ::std::ffi::c_void, pc
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertAddCRLLinkToStore(hcertstore: *const ::std::ffi::c_void, pcrlcontext: *const CRL_CONTEXT, dwadddisposition: u32, ppstorecontext: *mut *mut CRL_CONTEXT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -18648,6 +20382,7 @@ pub unsafe fn CertAddCRLLinkToStore(hcertstore: *const ::std::ffi::c_void, pcrlc
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertAddCTLContextToStore(hcertstore: *const ::std::ffi::c_void, pctlcontext: *const CTL_CONTEXT, dwadddisposition: u32, ppstorecontext: *mut *mut CTL_CONTEXT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -18662,6 +20397,7 @@ pub unsafe fn CertAddCTLContextToStore(hcertstore: *const ::std::ffi::c_void, pc
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertAddCTLLinkToStore(hcertstore: *const ::std::ffi::c_void, pctlcontext: *const CTL_CONTEXT, dwadddisposition: u32, ppstorecontext: *mut *mut CTL_CONTEXT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -18676,6 +20412,7 @@ pub unsafe fn CertAddCTLLinkToStore(hcertstore: *const ::std::ffi::c_void, pctlc
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertAddCertificateContextToStore(hcertstore: *const ::std::ffi::c_void, pcertcontext: *const CERT_CONTEXT, dwadddisposition: u32, ppstorecontext: *mut *mut CERT_CONTEXT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -18690,6 +20427,7 @@ pub unsafe fn CertAddCertificateContextToStore(hcertstore: *const ::std::ffi::c_
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertAddCertificateLinkToStore(hcertstore: *const ::std::ffi::c_void, pcertcontext: *const CERT_CONTEXT, dwadddisposition: u32, ppstorecontext: *mut *mut CERT_CONTEXT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -18704,6 +20442,7 @@ pub unsafe fn CertAddCertificateLinkToStore(hcertstore: *const ::std::ffi::c_voi
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertAddEncodedCRLToStore(hcertstore: *const ::std::ffi::c_void, dwcertencodingtype: u32, pbcrlencoded: *const u8, cbcrlencoded: u32, dwadddisposition: u32, ppcrlcontext: *mut *mut CRL_CONTEXT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -18718,6 +20457,7 @@ pub unsafe fn CertAddEncodedCRLToStore(hcertstore: *const ::std::ffi::c_void, dw
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertAddEncodedCTLToStore(hcertstore: *const ::std::ffi::c_void, dwmsgandcertencodingtype: u32, pbctlencoded: *const u8, cbctlencoded: u32, dwadddisposition: u32, ppctlcontext: *mut *mut CTL_CONTEXT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -18732,6 +20472,7 @@ pub unsafe fn CertAddEncodedCTLToStore(hcertstore: *const ::std::ffi::c_void, dw
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertAddEncodedCertificateToStore(hcertstore: *const ::std::ffi::c_void, dwcertencodingtype: u32, pbcertencoded: *const u8, cbcertencoded: u32, dwadddisposition: u32, ppcertcontext: *mut *mut CERT_CONTEXT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -18746,6 +20487,7 @@ pub unsafe fn CertAddEncodedCertificateToStore(hcertstore: *const ::std::ffi::c_
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertAddEncodedCertificateToSystemStoreA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(szcertstorename: Param0, pbcertencoded: *const u8, cbcertencoded: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -18760,6 +20502,7 @@ pub unsafe fn CertAddEncodedCertificateToSystemStoreA<'a, Param0: ::windows::run
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertAddEncodedCertificateToSystemStoreW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(szcertstorename: Param0, pbcertencoded: *const u8, cbcertencoded: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -18774,6 +20517,7 @@ pub unsafe fn CertAddEncodedCertificateToSystemStoreW<'a, Param0: ::windows::run
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertAddEnhancedKeyUsageIdentifier<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pcertcontext: *const CERT_CONTEXT, pszusageidentifier: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -18787,6 +20531,7 @@ pub unsafe fn CertAddEnhancedKeyUsageIdentifier<'a, Param1: ::windows::runtime::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[inline]
 pub unsafe fn CertAddRefServerOcspResponse(hserverocspresponse: *const ::std::ffi::c_void) {
     #[cfg(windows)]
@@ -18800,6 +20545,7 @@ pub unsafe fn CertAddRefServerOcspResponse(hserverocspresponse: *const ::std::ff
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[inline]
 pub unsafe fn CertAddRefServerOcspResponseContext(pserverocspresponsecontext: *const CERT_SERVER_OCSP_RESPONSE_CONTEXT) {
     #[cfg(windows)]
@@ -18814,6 +20560,7 @@ pub unsafe fn CertAddRefServerOcspResponseContext(pserverocspresponsecontext: *c
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertAddSerializedElementToStore(hcertstore: *const ::std::ffi::c_void, pbelement: *const u8, cbelement: u32, dwadddisposition: u32, dwflags: u32, dwcontexttypeflags: u32, pdwcontexttype: *mut u32, ppvcontext: *mut *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -18837,6 +20584,7 @@ pub unsafe fn CertAddSerializedElementToStore(hcertstore: *const ::std::ffi::c_v
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertAddStoreToCollection(hcollectionstore: *const ::std::ffi::c_void, hsiblingstore: *const ::std::ffi::c_void, dwupdateflags: u32, dwpriority: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -18851,6 +20599,7 @@ pub unsafe fn CertAddStoreToCollection(hcollectionstore: *const ::std::ffi::c_vo
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertAlgIdToOID(dwalgid: u32) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
@@ -18864,6 +20613,7 @@ pub unsafe fn CertAlgIdToOID(dwalgid: u32) -> super::super::Foundation::PSTR {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[inline]
 pub unsafe fn CertCloseServerOcspResponse(hserverocspresponse: *const ::std::ffi::c_void, dwflags: u32) {
     #[cfg(windows)]
@@ -18878,6 +20628,7 @@ pub unsafe fn CertCloseServerOcspResponse(hserverocspresponse: *const ::std::ffi
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertCloseStore(hcertstore: *const ::std::ffi::c_void, dwflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -18892,6 +20643,7 @@ pub unsafe fn CertCloseStore(hcertstore: *const ::std::ffi::c_void, dwflags: u32
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertCompareCertificate(dwcertencodingtype: u32, pcertid1: *const CERT_INFO, pcertid2: *const CERT_INFO) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -18906,6 +20658,7 @@ pub unsafe fn CertCompareCertificate(dwcertencodingtype: u32, pcertid1: *const C
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertCompareCertificateName(dwcertencodingtype: u32, pcertname1: *const CRYPTOAPI_BLOB, pcertname2: *const CRYPTOAPI_BLOB) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -18920,6 +20673,7 @@ pub unsafe fn CertCompareCertificateName(dwcertencodingtype: u32, pcertname1: *c
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertCompareIntegerBlob(pint1: *const CRYPTOAPI_BLOB, pint2: *const CRYPTOAPI_BLOB) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -18934,6 +20688,7 @@ pub unsafe fn CertCompareIntegerBlob(pint1: *const CRYPTOAPI_BLOB, pint2: *const
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertComparePublicKeyInfo(dwcertencodingtype: u32, ppublickey1: *const CERT_PUBLIC_KEY_INFO, ppublickey2: *const CERT_PUBLIC_KEY_INFO) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -18948,6 +20703,7 @@ pub unsafe fn CertComparePublicKeyInfo(dwcertencodingtype: u32, ppublickey1: *co
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertControlStore(hcertstore: *const ::std::ffi::c_void, dwflags: CERT_CONTROL_STORE_FLAGS, dwctrltype: u32, pvctrlpara: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -18962,6 +20718,7 @@ pub unsafe fn CertControlStore(hcertstore: *const ::std::ffi::c_void, dwflags: C
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertCreateCRLContext(dwcertencodingtype: u32, pbcrlencoded: *const u8, cbcrlencoded: u32) -> *mut CRL_CONTEXT {
     #[cfg(windows)]
@@ -18976,6 +20733,7 @@ pub unsafe fn CertCreateCRLContext(dwcertencodingtype: u32, pbcrlencoded: *const
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertCreateCTLContext(dwmsgandcertencodingtype: u32, pbctlencoded: *const u8, cbctlencoded: u32) -> *mut CTL_CONTEXT {
     #[cfg(windows)]
@@ -18990,6 +20748,7 @@ pub unsafe fn CertCreateCTLContext(dwmsgandcertencodingtype: u32, pbctlencoded: 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertCreateCTLEntryFromCertificateContextProperties(pcertcontext: *const CERT_CONTEXT, coptattr: u32, rgoptattr: *const CRYPT_ATTRIBUTE, dwflags: u32, pvreserved: *mut ::std::ffi::c_void, pctlentry: *mut CTL_ENTRY, pcbctlentry: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -19004,6 +20763,7 @@ pub unsafe fn CertCreateCTLEntryFromCertificateContextProperties(pcertcontext: *
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertCreateCertificateChainEngine(pconfig: *const CERT_CHAIN_ENGINE_CONFIG, phchainengine: *mut HCERTCHAINENGINE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -19018,6 +20778,7 @@ pub unsafe fn CertCreateCertificateChainEngine(pconfig: *const CERT_CHAIN_ENGINE
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertCreateCertificateContext(dwcertencodingtype: u32, pbcertencoded: *const u8, cbcertencoded: u32) -> *mut CERT_CONTEXT {
     #[cfg(windows)]
@@ -19032,6 +20793,7 @@ pub unsafe fn CertCreateCertificateContext(dwcertencodingtype: u32, pbcertencode
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertCreateContext(dwcontexttype: u32, dwencodingtype: u32, pbencoded: *const u8, cbencoded: u32, dwflags: u32, pcreatepara: *const CERT_CREATE_CONTEXT_PARA) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
@@ -19046,6 +20808,7 @@ pub unsafe fn CertCreateContext(dwcontexttype: u32, dwencodingtype: u32, pbencod
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertCreateSelfSignCertificate(hcryptprovorncryptkey: usize, psubjectissuerblob: *const CRYPTOAPI_BLOB, dwflags: CERT_CREATE_SELFSIGN_FLAGS, pkeyprovinfo: *const CRYPT_KEY_PROV_INFO, psignaturealgorithm: *const CRYPT_ALGORITHM_IDENTIFIER, pstarttime: *const super::super::Foundation::SYSTEMTIME, pendtime: *const super::super::Foundation::SYSTEMTIME, pextensions: *const CERT_EXTENSIONS) -> *mut CERT_CONTEXT {
     #[cfg(windows)]
@@ -19069,6 +20832,7 @@ pub unsafe fn CertCreateSelfSignCertificate(hcryptprovorncryptkey: usize, psubje
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertDeleteCRLFromStore(pcrlcontext: *const CRL_CONTEXT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -19083,6 +20847,7 @@ pub unsafe fn CertDeleteCRLFromStore(pcrlcontext: *const CRL_CONTEXT) -> super::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertDeleteCTLFromStore(pctlcontext: *const CTL_CONTEXT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -19097,6 +20862,7 @@ pub unsafe fn CertDeleteCTLFromStore(pctlcontext: *const CTL_CONTEXT) -> super::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertDeleteCertificateFromStore(pcertcontext: *const CERT_CONTEXT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -19111,6 +20877,7 @@ pub unsafe fn CertDeleteCertificateFromStore(pcertcontext: *const CERT_CONTEXT) 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertDuplicateCRLContext(pcrlcontext: *const CRL_CONTEXT) -> *mut CRL_CONTEXT {
     #[cfg(windows)]
@@ -19125,6 +20892,7 @@ pub unsafe fn CertDuplicateCRLContext(pcrlcontext: *const CRL_CONTEXT) -> *mut C
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertDuplicateCTLContext(pctlcontext: *const CTL_CONTEXT) -> *mut CTL_CONTEXT {
     #[cfg(windows)]
@@ -19139,6 +20907,7 @@ pub unsafe fn CertDuplicateCTLContext(pctlcontext: *const CTL_CONTEXT) -> *mut C
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertDuplicateCertificateChain(pchaincontext: *const CERT_CHAIN_CONTEXT) -> *mut CERT_CHAIN_CONTEXT {
     #[cfg(windows)]
@@ -19153,6 +20922,7 @@ pub unsafe fn CertDuplicateCertificateChain(pchaincontext: *const CERT_CHAIN_CON
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertDuplicateCertificateContext(pcertcontext: *const CERT_CONTEXT) -> *mut CERT_CONTEXT {
     #[cfg(windows)]
@@ -19166,6 +20936,7 @@ pub unsafe fn CertDuplicateCertificateContext(pcertcontext: *const CERT_CONTEXT)
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[inline]
 pub unsafe fn CertDuplicateStore(hcertstore: *const ::std::ffi::c_void) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
@@ -19180,6 +20951,7 @@ pub unsafe fn CertDuplicateStore(hcertstore: *const ::std::ffi::c_void) -> *mut 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertEnumCRLContextProperties(pcrlcontext: *const CRL_CONTEXT, dwpropid: u32) -> u32 {
     #[cfg(windows)]
@@ -19194,6 +20966,7 @@ pub unsafe fn CertEnumCRLContextProperties(pcrlcontext: *const CRL_CONTEXT, dwpr
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertEnumCRLsInStore(hcertstore: *const ::std::ffi::c_void, pprevcrlcontext: *const CRL_CONTEXT) -> *mut CRL_CONTEXT {
     #[cfg(windows)]
@@ -19208,6 +20981,7 @@ pub unsafe fn CertEnumCRLsInStore(hcertstore: *const ::std::ffi::c_void, pprevcr
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertEnumCTLContextProperties(pctlcontext: *const CTL_CONTEXT, dwpropid: u32) -> u32 {
     #[cfg(windows)]
@@ -19222,6 +20996,7 @@ pub unsafe fn CertEnumCTLContextProperties(pctlcontext: *const CTL_CONTEXT, dwpr
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertEnumCTLsInStore(hcertstore: *const ::std::ffi::c_void, pprevctlcontext: *const CTL_CONTEXT) -> *mut CTL_CONTEXT {
     #[cfg(windows)]
@@ -19236,6 +21011,7 @@ pub unsafe fn CertEnumCTLsInStore(hcertstore: *const ::std::ffi::c_void, pprevct
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertEnumCertificateContextProperties(pcertcontext: *const CERT_CONTEXT, dwpropid: u32) -> u32 {
     #[cfg(windows)]
@@ -19250,6 +21026,7 @@ pub unsafe fn CertEnumCertificateContextProperties(pcertcontext: *const CERT_CON
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertEnumCertificatesInStore(hcertstore: *const ::std::ffi::c_void, pprevcertcontext: *const CERT_CONTEXT) -> *mut CERT_CONTEXT {
     #[cfg(windows)]
@@ -19264,6 +21041,7 @@ pub unsafe fn CertEnumCertificatesInStore(hcertstore: *const ::std::ffi::c_void,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertEnumPhysicalStore(pvsystemstore: *const ::std::ffi::c_void, dwflags: u32, pvarg: *mut ::std::ffi::c_void, pfnenum: ::std::option::Option<PFN_CERT_ENUM_PHYSICAL_STORE>) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -19278,6 +21056,7 @@ pub unsafe fn CertEnumPhysicalStore(pvsystemstore: *const ::std::ffi::c_void, dw
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertEnumSubjectInSortedCTL(pctlcontext: *const CTL_CONTEXT, ppvnextsubject: *mut *mut ::std::ffi::c_void, psubjectidentifier: *mut CRYPTOAPI_BLOB, pencodedattributes: *mut CRYPTOAPI_BLOB) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -19292,6 +21071,7 @@ pub unsafe fn CertEnumSubjectInSortedCTL(pctlcontext: *const CTL_CONTEXT, ppvnex
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertEnumSystemStore(dwflags: u32, pvsystemstorelocationpara: *const ::std::ffi::c_void, pvarg: *mut ::std::ffi::c_void, pfnenum: ::std::option::Option<PFN_CERT_ENUM_SYSTEM_STORE>) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -19306,6 +21086,7 @@ pub unsafe fn CertEnumSystemStore(dwflags: u32, pvsystemstorelocationpara: *cons
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertEnumSystemStoreLocation(dwflags: u32, pvarg: *mut ::std::ffi::c_void, pfnenum: ::std::option::Option<PFN_CERT_ENUM_SYSTEM_STORE_LOCATION>) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -19320,6 +21101,7 @@ pub unsafe fn CertEnumSystemStoreLocation(dwflags: u32, pvarg: *mut ::std::ffi::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertFindAttribute<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszobjid: Param0, cattr: u32, rgattr: *const CRYPT_ATTRIBUTE) -> *mut CRYPT_ATTRIBUTE {
     #[cfg(windows)]
@@ -19334,6 +21116,7 @@ pub unsafe fn CertFindAttribute<'a, Param0: ::windows::runtime::IntoParam<'a, su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertFindCRLInStore(hcertstore: *const ::std::ffi::c_void, dwcertencodingtype: u32, dwfindflags: u32, dwfindtype: u32, pvfindpara: *const ::std::ffi::c_void, pprevcrlcontext: *const CRL_CONTEXT) -> *mut CRL_CONTEXT {
     #[cfg(windows)]
@@ -19348,6 +21131,7 @@ pub unsafe fn CertFindCRLInStore(hcertstore: *const ::std::ffi::c_void, dwcerten
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertFindCTLInStore(hcertstore: *const ::std::ffi::c_void, dwmsgandcertencodingtype: u32, dwfindflags: u32, dwfindtype: CERT_FIND_TYPE, pvfindpara: *const ::std::ffi::c_void, pprevctlcontext: *const CTL_CONTEXT) -> *mut CTL_CONTEXT {
     #[cfg(windows)]
@@ -19362,6 +21146,7 @@ pub unsafe fn CertFindCTLInStore(hcertstore: *const ::std::ffi::c_void, dwmsgand
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertFindCertificateInCRL(pcert: *const CERT_CONTEXT, pcrlcontext: *const CRL_CONTEXT, dwflags: u32, pvreserved: *mut ::std::ffi::c_void, ppcrlentry: *mut *mut CRL_ENTRY) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -19376,6 +21161,7 @@ pub unsafe fn CertFindCertificateInCRL(pcert: *const CERT_CONTEXT, pcrlcontext: 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertFindCertificateInStore(hcertstore: *const ::std::ffi::c_void, dwcertencodingtype: u32, dwfindflags: u32, dwfindtype: CERT_FIND_FLAGS, pvfindpara: *const ::std::ffi::c_void, pprevcertcontext: *const CERT_CONTEXT) -> *mut CERT_CONTEXT {
     #[cfg(windows)]
@@ -19390,6 +21176,7 @@ pub unsafe fn CertFindCertificateInStore(hcertstore: *const ::std::ffi::c_void, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertFindChainInStore(hcertstore: *const ::std::ffi::c_void, dwcertencodingtype: u32, dwfindflags: CERT_FIND_CHAIN_IN_STORE_FLAGS, dwfindtype: u32, pvfindpara: *const ::std::ffi::c_void, pprevchaincontext: *const CERT_CHAIN_CONTEXT) -> *mut CERT_CHAIN_CONTEXT {
     #[cfg(windows)]
@@ -19404,6 +21191,7 @@ pub unsafe fn CertFindChainInStore(hcertstore: *const ::std::ffi::c_void, dwcert
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertFindExtension<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszobjid: Param0, cextensions: u32, rgextensions: *const CERT_EXTENSION) -> *mut CERT_EXTENSION {
     #[cfg(windows)]
@@ -19418,6 +21206,7 @@ pub unsafe fn CertFindExtension<'a, Param0: ::windows::runtime::IntoParam<'a, su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertFindRDNAttr<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszobjid: Param0, pname: *const CERT_NAME_INFO) -> *mut CERT_RDN_ATTR {
     #[cfg(windows)]
@@ -19432,6 +21221,7 @@ pub unsafe fn CertFindRDNAttr<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertFindSubjectInCTL(dwencodingtype: u32, dwsubjecttype: u32, pvsubject: *const ::std::ffi::c_void, pctlcontext: *const CTL_CONTEXT, dwflags: u32) -> *mut CTL_ENTRY {
     #[cfg(windows)]
@@ -19446,6 +21236,7 @@ pub unsafe fn CertFindSubjectInCTL(dwencodingtype: u32, dwsubjecttype: u32, pvsu
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertFindSubjectInSortedCTL(psubjectidentifier: *const CRYPTOAPI_BLOB, pctlcontext: *const CTL_CONTEXT, dwflags: u32, pvreserved: *mut ::std::ffi::c_void, pencodedattributes: *mut CRYPTOAPI_BLOB) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -19460,6 +21251,7 @@ pub unsafe fn CertFindSubjectInSortedCTL(psubjectidentifier: *const CRYPTOAPI_BL
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertFreeCRLContext(pcrlcontext: *const CRL_CONTEXT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -19474,6 +21266,7 @@ pub unsafe fn CertFreeCRLContext(pcrlcontext: *const CRL_CONTEXT) -> super::supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertFreeCTLContext(pctlcontext: *const CTL_CONTEXT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -19488,6 +21281,7 @@ pub unsafe fn CertFreeCTLContext(pctlcontext: *const CTL_CONTEXT) -> super::supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertFreeCertificateChain(pchaincontext: *const CERT_CHAIN_CONTEXT) {
     #[cfg(windows)]
@@ -19501,6 +21295,7 @@ pub unsafe fn CertFreeCertificateChain(pchaincontext: *const CERT_CHAIN_CONTEXT)
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[inline]
 pub unsafe fn CertFreeCertificateChainEngine<'a, Param0: ::windows::runtime::IntoParam<'a, HCERTCHAINENGINE>>(hchainengine: Param0) {
     #[cfg(windows)]
@@ -19515,6 +21310,7 @@ pub unsafe fn CertFreeCertificateChainEngine<'a, Param0: ::windows::runtime::Int
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertFreeCertificateChainList(prgpselection: *const *const CERT_CHAIN_CONTEXT) {
     #[cfg(windows)]
@@ -19529,6 +21325,7 @@ pub unsafe fn CertFreeCertificateChainList(prgpselection: *const *const CERT_CHA
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertFreeCertificateContext(pcertcontext: *const CERT_CONTEXT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -19542,6 +21339,7 @@ pub unsafe fn CertFreeCertificateContext(pcertcontext: *const CERT_CONTEXT) -> s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[inline]
 pub unsafe fn CertFreeServerOcspResponseContext(pserverocspresponsecontext: *const CERT_SERVER_OCSP_RESPONSE_CONTEXT) {
     #[cfg(windows)]
@@ -19556,6 +21354,7 @@ pub unsafe fn CertFreeServerOcspResponseContext(pserverocspresponsecontext: *con
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertGetCRLContextProperty(pcrlcontext: *const CRL_CONTEXT, dwpropid: u32, pvdata: *mut ::std::ffi::c_void, pcbdata: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -19570,6 +21369,7 @@ pub unsafe fn CertGetCRLContextProperty(pcrlcontext: *const CRL_CONTEXT, dwpropi
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertGetCRLFromStore(hcertstore: *const ::std::ffi::c_void, pissuercontext: *const CERT_CONTEXT, pprevcrlcontext: *const CRL_CONTEXT, pdwflags: *mut u32) -> *mut CRL_CONTEXT {
     #[cfg(windows)]
@@ -19584,6 +21384,7 @@ pub unsafe fn CertGetCRLFromStore(hcertstore: *const ::std::ffi::c_void, pissuer
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertGetCTLContextProperty(pctlcontext: *const CTL_CONTEXT, dwpropid: u32, pvdata: *mut ::std::ffi::c_void, pcbdata: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -19598,6 +21399,7 @@ pub unsafe fn CertGetCTLContextProperty(pctlcontext: *const CTL_CONTEXT, dwpropi
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertGetCertificateChain<'a, Param0: ::windows::runtime::IntoParam<'a, HCERTCHAINENGINE>>(hchainengine: Param0, pcertcontext: *const CERT_CONTEXT, ptime: *const super::super::Foundation::FILETIME, hadditionalstore: *const ::std::ffi::c_void, pchainpara: *const CERT_CHAIN_PARA, dwflags: u32, pvreserved: *mut ::std::ffi::c_void, ppchaincontext: *mut *mut CERT_CHAIN_CONTEXT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -19621,6 +21423,7 @@ pub unsafe fn CertGetCertificateChain<'a, Param0: ::windows::runtime::IntoParam<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertGetCertificateContextProperty(pcertcontext: *const CERT_CONTEXT, dwpropid: u32, pvdata: *mut ::std::ffi::c_void, pcbdata: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -19635,6 +21438,7 @@ pub unsafe fn CertGetCertificateContextProperty(pcertcontext: *const CERT_CONTEX
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertGetEnhancedKeyUsage(pcertcontext: *const CERT_CONTEXT, dwflags: u32, pusage: *mut CTL_USAGE, pcbusage: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -19649,6 +21453,7 @@ pub unsafe fn CertGetEnhancedKeyUsage(pcertcontext: *const CERT_CONTEXT, dwflags
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertGetIntendedKeyUsage(dwcertencodingtype: u32, pcertinfo: *const CERT_INFO, pbkeyusage: *mut u8, cbkeyusage: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -19663,6 +21468,7 @@ pub unsafe fn CertGetIntendedKeyUsage(dwcertencodingtype: u32, pcertinfo: *const
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertGetIssuerCertificateFromStore(hcertstore: *const ::std::ffi::c_void, psubjectcontext: *const CERT_CONTEXT, pprevissuercontext: *const CERT_CONTEXT, pdwflags: *mut u32) -> *mut CERT_CONTEXT {
     #[cfg(windows)]
@@ -19677,6 +21483,7 @@ pub unsafe fn CertGetIssuerCertificateFromStore(hcertstore: *const ::std::ffi::c
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertGetNameStringA(pcertcontext: *const CERT_CONTEXT, dwtype: u32, dwflags: u32, pvtypepara: *const ::std::ffi::c_void, psznamestring: super::super::Foundation::PSTR, cchnamestring: u32) -> u32 {
     #[cfg(windows)]
@@ -19691,6 +21498,7 @@ pub unsafe fn CertGetNameStringA(pcertcontext: *const CERT_CONTEXT, dwtype: u32,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertGetNameStringW(pcertcontext: *const CERT_CONTEXT, dwtype: u32, dwflags: u32, pvtypepara: *const ::std::ffi::c_void, psznamestring: super::super::Foundation::PWSTR, cchnamestring: u32) -> u32 {
     #[cfg(windows)]
@@ -19705,6 +21513,7 @@ pub unsafe fn CertGetNameStringW(pcertcontext: *const CERT_CONTEXT, dwtype: u32,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertGetPublicKeyLength(dwcertencodingtype: u32, ppublickey: *const CERT_PUBLIC_KEY_INFO) -> u32 {
     #[cfg(windows)]
@@ -19718,6 +21527,7 @@ pub unsafe fn CertGetPublicKeyLength(dwcertencodingtype: u32, ppublickey: *const
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[inline]
 pub unsafe fn CertGetServerOcspResponseContext(hserverocspresponse: *const ::std::ffi::c_void, dwflags: u32, pvreserved: *mut ::std::ffi::c_void) -> *mut CERT_SERVER_OCSP_RESPONSE_CONTEXT {
     #[cfg(windows)]
@@ -19732,6 +21542,7 @@ pub unsafe fn CertGetServerOcspResponseContext(hserverocspresponse: *const ::std
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertGetStoreProperty(hcertstore: *const ::std::ffi::c_void, dwpropid: u32, pvdata: *mut ::std::ffi::c_void, pcbdata: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -19746,6 +21557,7 @@ pub unsafe fn CertGetStoreProperty(hcertstore: *const ::std::ffi::c_void, dwprop
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertGetSubjectCertificateFromStore(hcertstore: *const ::std::ffi::c_void, dwcertencodingtype: u32, pcertid: *const CERT_INFO) -> *mut CERT_CONTEXT {
     #[cfg(windows)]
@@ -19760,6 +21572,7 @@ pub unsafe fn CertGetSubjectCertificateFromStore(hcertstore: *const ::std::ffi::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertGetValidUsages(ccerts: u32, rghcerts: *const *const CERT_CONTEXT, cnumoids: *mut i32, rghoids: *mut super::super::Foundation::PSTR, pcboids: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -19774,6 +21587,7 @@ pub unsafe fn CertGetValidUsages(ccerts: u32, rghcerts: *const *const CERT_CONTE
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertIsRDNAttrsInCertificateName(dwcertencodingtype: u32, dwflags: u32, pcertname: *const CRYPTOAPI_BLOB, prdn: *const CERT_RDN) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -19788,6 +21602,7 @@ pub unsafe fn CertIsRDNAttrsInCertificateName(dwcertencodingtype: u32, dwflags: 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertIsStrongHashToSign<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pstrongsignpara: *const CERT_STRONG_SIGN_PARA, pwszcnghashalgid: Param1, psigningcert: *const CERT_CONTEXT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -19802,6 +21617,7 @@ pub unsafe fn CertIsStrongHashToSign<'a, Param1: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertIsValidCRLForCertificate(pcert: *const CERT_CONTEXT, pcrl: *const CRL_CONTEXT, dwflags: u32, pvreserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -19816,6 +21632,7 @@ pub unsafe fn CertIsValidCRLForCertificate(pcert: *const CERT_CONTEXT, pcrl: *co
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertIsWeakHash<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dwhashusetype: u32, pwszcnghashalgid: Param1, dwchainflags: u32, psignerchaincontext: *const CERT_CHAIN_CONTEXT, ptimestamp: *const super::super::Foundation::FILETIME, pwszfilename: Param5) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -19829,6 +21646,7 @@ pub unsafe fn CertIsWeakHash<'a, Param1: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CertKeyType(pub u32);
@@ -19879,6 +21697,7 @@ impl ::std::ops::Not for CertKeyType {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertNameToStrA(dwcertencodingtype: u32, pname: *const CRYPTOAPI_BLOB, dwstrtype: CERT_STRING_TYPE, psz: super::super::Foundation::PSTR, csz: u32) -> u32 {
     #[cfg(windows)]
@@ -19893,6 +21712,7 @@ pub unsafe fn CertNameToStrA(dwcertencodingtype: u32, pname: *const CRYPTOAPI_BL
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertNameToStrW(dwcertencodingtype: u32, pname: *const CRYPTOAPI_BLOB, dwstrtype: CERT_STRING_TYPE, psz: super::super::Foundation::PWSTR, csz: u32) -> u32 {
     #[cfg(windows)]
@@ -19907,6 +21727,7 @@ pub unsafe fn CertNameToStrW(dwcertencodingtype: u32, pname: *const CRYPTOAPI_BL
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertOIDToAlgId<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszobjid: Param0) -> u32 {
     #[cfg(windows)]
@@ -19921,6 +21742,7 @@ pub unsafe fn CertOIDToAlgId<'a, Param0: ::windows::runtime::IntoParam<'a, super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertOpenServerOcspResponse(pchaincontext: *const CERT_CHAIN_CONTEXT, dwflags: u32, popenpara: *const CERT_SERVER_OCSP_RESPONSE_OPEN_PARA) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
@@ -19935,6 +21757,7 @@ pub unsafe fn CertOpenServerOcspResponse(pchaincontext: *const CERT_CHAIN_CONTEX
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertOpenStore<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpszstoreprovider: Param0, dwencodingtype: CERT_QUERY_ENCODING_TYPE, hcryptprov: usize, dwflags: CERT_OPEN_STORE_FLAGS, pvpara: *const ::std::ffi::c_void) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
@@ -19949,6 +21772,7 @@ pub unsafe fn CertOpenStore<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertOpenSystemStoreA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hprov: usize, szsubsystemprotocol: Param1) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
@@ -19963,6 +21787,7 @@ pub unsafe fn CertOpenSystemStoreA<'a, Param1: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertOpenSystemStoreW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hprov: usize, szsubsystemprotocol: Param1) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
@@ -19977,6 +21802,7 @@ pub unsafe fn CertOpenSystemStoreW<'a, Param1: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertRDNValueToStrA(dwvaluetype: u32, pvalue: *const CRYPTOAPI_BLOB, psz: super::super::Foundation::PSTR, csz: u32) -> u32 {
     #[cfg(windows)]
@@ -19991,6 +21817,7 @@ pub unsafe fn CertRDNValueToStrA(dwvaluetype: u32, pvalue: *const CRYPTOAPI_BLOB
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertRDNValueToStrW(dwvaluetype: u32, pvalue: *const CRYPTOAPI_BLOB, psz: super::super::Foundation::PWSTR, csz: u32) -> u32 {
     #[cfg(windows)]
@@ -20005,6 +21832,7 @@ pub unsafe fn CertRDNValueToStrW(dwvaluetype: u32, pvalue: *const CRYPTOAPI_BLOB
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertRegisterPhysicalStore<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pvsystemstore: *const ::std::ffi::c_void, dwflags: u32, pwszstorename: Param2, pstoreinfo: *const CERT_PHYSICAL_STORE_INFO, pvreserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -20019,6 +21847,7 @@ pub unsafe fn CertRegisterPhysicalStore<'a, Param2: ::windows::runtime::IntoPara
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertRegisterSystemStore(pvsystemstore: *const ::std::ffi::c_void, dwflags: u32, pstoreinfo: *const CERT_SYSTEM_STORE_INFO, pvreserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -20033,6 +21862,7 @@ pub unsafe fn CertRegisterSystemStore(pvsystemstore: *const ::std::ffi::c_void, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertRemoveEnhancedKeyUsageIdentifier<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pcertcontext: *const CERT_CONTEXT, pszusageidentifier: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -20046,6 +21876,7 @@ pub unsafe fn CertRemoveEnhancedKeyUsageIdentifier<'a, Param1: ::windows::runtim
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[inline]
 pub unsafe fn CertRemoveStoreFromCollection(hcollectionstore: *const ::std::ffi::c_void, hsiblingstore: *const ::std::ffi::c_void) {
     #[cfg(windows)]
@@ -20060,6 +21891,7 @@ pub unsafe fn CertRemoveStoreFromCollection(hcollectionstore: *const ::std::ffi:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertResyncCertificateChainEngine<'a, Param0: ::windows::runtime::IntoParam<'a, HCERTCHAINENGINE>>(hchainengine: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -20074,6 +21906,7 @@ pub unsafe fn CertResyncCertificateChainEngine<'a, Param0: ::windows::runtime::I
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertRetrieveLogoOrBiometricInfo<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pcertcontext: *const CERT_CONTEXT, lpszlogoorbiometrictype: Param1, dwretrievalflags: u32, dwtimeout: u32, dwflags: u32, pvreserved: *mut ::std::ffi::c_void, ppbdata: *mut *mut u8, pcbdata: *mut u32, ppwszmimetype: *mut super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -20098,6 +21931,7 @@ pub unsafe fn CertRetrieveLogoOrBiometricInfo<'a, Param1: ::windows::runtime::In
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertSaveStore(hcertstore: *const ::std::ffi::c_void, dwencodingtype: CERT_QUERY_ENCODING_TYPE, dwsaveas: CERT_STORE_SAVE_AS, dwsaveto: CERT_STORE_SAVE_TO, pvsavetopara: *mut ::std::ffi::c_void, dwflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -20112,6 +21946,7 @@ pub unsafe fn CertSaveStore(hcertstore: *const ::std::ffi::c_void, dwencodingtyp
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertSelectCertificateChains(pselectioncontext: *const ::windows::runtime::GUID, dwflags: u32, pchainparameters: *const CERT_SELECT_CHAIN_PARA, ccriteria: u32, rgpcriteria: *const CERT_SELECT_CRITERIA, hstore: *const ::std::ffi::c_void, pcselection: *mut u32, pprgpselection: *mut *mut *mut CERT_CHAIN_CONTEXT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -20135,6 +21970,7 @@ pub unsafe fn CertSelectCertificateChains(pselectioncontext: *const ::windows::r
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertSelectionGetSerializedBlob(pcsi: *const CERT_SELECTUI_INPUT, ppoutbuffer: *mut *mut ::std::ffi::c_void, puloutbuffersize: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -20149,6 +21985,7 @@ pub unsafe fn CertSelectionGetSerializedBlob(pcsi: *const CERT_SELECTUI_INPUT, p
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertSerializeCRLStoreElement(pcrlcontext: *const CRL_CONTEXT, dwflags: u32, pbelement: *mut u8, pcbelement: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -20163,6 +22000,7 @@ pub unsafe fn CertSerializeCRLStoreElement(pcrlcontext: *const CRL_CONTEXT, dwfl
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertSerializeCTLStoreElement(pctlcontext: *const CTL_CONTEXT, dwflags: u32, pbelement: *mut u8, pcbelement: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -20177,6 +22015,7 @@ pub unsafe fn CertSerializeCTLStoreElement(pctlcontext: *const CTL_CONTEXT, dwfl
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertSerializeCertificateStoreElement(pcertcontext: *const CERT_CONTEXT, dwflags: u32, pbelement: *mut u8, pcbelement: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -20191,6 +22030,7 @@ pub unsafe fn CertSerializeCertificateStoreElement(pcertcontext: *const CERT_CON
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertSetCRLContextProperty(pcrlcontext: *const CRL_CONTEXT, dwpropid: u32, dwflags: u32, pvdata: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -20205,6 +22045,7 @@ pub unsafe fn CertSetCRLContextProperty(pcrlcontext: *const CRL_CONTEXT, dwpropi
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertSetCTLContextProperty(pctlcontext: *const CTL_CONTEXT, dwpropid: u32, dwflags: u32, pvdata: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -20219,6 +22060,7 @@ pub unsafe fn CertSetCTLContextProperty(pctlcontext: *const CTL_CONTEXT, dwpropi
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertSetCertificateContextPropertiesFromCTLEntry(pcertcontext: *const CERT_CONTEXT, pctlentry: *const CTL_ENTRY, dwflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -20233,6 +22075,7 @@ pub unsafe fn CertSetCertificateContextPropertiesFromCTLEntry(pcertcontext: *con
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertSetCertificateContextProperty(pcertcontext: *const CERT_CONTEXT, dwpropid: u32, dwflags: u32, pvdata: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -20247,6 +22090,7 @@ pub unsafe fn CertSetCertificateContextProperty(pcertcontext: *const CERT_CONTEX
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertSetEnhancedKeyUsage(pcertcontext: *const CERT_CONTEXT, pusage: *const CTL_USAGE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -20261,6 +22105,7 @@ pub unsafe fn CertSetEnhancedKeyUsage(pcertcontext: *const CERT_CONTEXT, pusage:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertSetStoreProperty(hcertstore: *const ::std::ffi::c_void, dwpropid: u32, dwflags: u32, pvdata: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -20275,6 +22120,7 @@ pub unsafe fn CertSetStoreProperty(hcertstore: *const ::std::ffi::c_void, dwprop
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertStrToNameA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(dwcertencodingtype: u32, pszx500: Param1, dwstrtype: CERT_STRING_TYPE, pvreserved: *mut ::std::ffi::c_void, pbencoded: *mut u8, pcbencoded: *mut u32, ppszerror: *mut super::super::Foundation::PSTR) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -20289,6 +22135,7 @@ pub unsafe fn CertStrToNameA<'a, Param1: ::windows::runtime::IntoParam<'a, super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertStrToNameW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dwcertencodingtype: u32, pszx500: Param1, dwstrtype: CERT_STRING_TYPE, pvreserved: *mut ::std::ffi::c_void, pbencoded: *mut u8, pcbencoded: *mut u32, ppszerror: *mut super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -20303,6 +22150,7 @@ pub unsafe fn CertStrToNameW<'a, Param1: ::windows::runtime::IntoParam<'a, super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertUnregisterPhysicalStore<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pvsystemstore: *const ::std::ffi::c_void, dwflags: u32, pwszstorename: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -20317,6 +22165,7 @@ pub unsafe fn CertUnregisterPhysicalStore<'a, Param2: ::windows::runtime::IntoPa
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertUnregisterSystemStore(pvsystemstore: *const ::std::ffi::c_void, dwflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -20331,6 +22180,7 @@ pub unsafe fn CertUnregisterSystemStore(pvsystemstore: *const ::std::ffi::c_void
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertVerifyCRLRevocation(dwcertencodingtype: u32, pcertid: *const CERT_INFO, ccrlinfo: u32, rgpcrlinfo: *const *const CRL_INFO) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -20345,6 +22195,7 @@ pub unsafe fn CertVerifyCRLRevocation(dwcertencodingtype: u32, pcertid: *const C
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertVerifyCRLTimeValidity(ptimetoverify: *const super::super::Foundation::FILETIME, pcrlinfo: *const CRL_INFO) -> i32 {
     #[cfg(windows)]
@@ -20359,6 +22210,7 @@ pub unsafe fn CertVerifyCRLTimeValidity(ptimetoverify: *const super::super::Foun
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertVerifyCTLUsage(dwencodingtype: u32, dwsubjecttype: u32, pvsubject: *const ::std::ffi::c_void, psubjectusage: *const CTL_USAGE, dwflags: u32, pverifyusagepara: *const CTL_VERIFY_USAGE_PARA, pverifyusagestatus: *mut CTL_VERIFY_USAGE_STATUS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -20373,6 +22225,7 @@ pub unsafe fn CertVerifyCTLUsage(dwencodingtype: u32, dwsubjecttype: u32, pvsubj
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertVerifyCertificateChainPolicy<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszpolicyoid: Param0, pchaincontext: *const CERT_CHAIN_CONTEXT, ppolicypara: *const CERT_CHAIN_POLICY_PARA, ppolicystatus: *mut CERT_CHAIN_POLICY_STATUS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -20387,6 +22240,7 @@ pub unsafe fn CertVerifyCertificateChainPolicy<'a, Param0: ::windows::runtime::I
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertVerifyRevocation(dwencodingtype: u32, dwrevtype: u32, ccontext: u32, rgpvcontext: *const *const ::std::ffi::c_void, dwflags: u32, prevpara: *const CERT_REVOCATION_PARA, prevstatus: *mut CERT_REVOCATION_STATUS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -20401,6 +22255,7 @@ pub unsafe fn CertVerifyRevocation(dwencodingtype: u32, dwrevtype: u32, ccontext
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertVerifySubjectCertificateContext(psubject: *const CERT_CONTEXT, pissuer: *const CERT_CONTEXT, pdwflags: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -20415,6 +22270,7 @@ pub unsafe fn CertVerifySubjectCertificateContext(psubject: *const CERT_CONTEXT,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertVerifyTimeValidity(ptimetoverify: *const super::super::Foundation::FILETIME, pcertinfo: *const CERT_INFO) -> i32 {
     #[cfg(windows)]
@@ -20429,6 +22285,7 @@ pub unsafe fn CertVerifyTimeValidity(ptimetoverify: *const super::super::Foundat
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CertVerifyValidityNesting(psubjectinfo: *const CERT_INFO, pissuerinfo: *const CERT_INFO) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -20442,6 +22299,7 @@ pub unsafe fn CertVerifyValidityNesting(psubjectinfo: *const CERT_INFO, pissueri
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[inline]
 pub unsafe fn CloseCryptoHandle(hcrypto: *const INFORMATIONCARD_CRYPTO_HANDLE) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -20456,6 +22314,7 @@ pub unsafe fn CloseCryptoHandle(hcrypto: *const INFORMATIONCARD_CRYPTO_HANDLE) -
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptAcquireCertificatePrivateKey(pcert: *const CERT_CONTEXT, dwflags: CRYPT_ACQUIRE_FLAGS, pvparameters: *const ::std::ffi::c_void, phcryptprovorncryptkey: *mut usize, pdwkeyspec: *mut CERT_KEY_SPEC, pfcallerfreeprovorncryptkey: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -20470,6 +22329,7 @@ pub unsafe fn CryptAcquireCertificatePrivateKey(pcert: *const CERT_CONTEXT, dwfl
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptAcquireContextA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(phprov: *mut usize, szcontainer: Param1, szprovider: Param2, dwprovtype: u32, dwflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -20484,6 +22344,7 @@ pub unsafe fn CryptAcquireContextA<'a, Param1: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptAcquireContextW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(phprov: *mut usize, szcontainer: Param1, szprovider: Param2, dwprovtype: u32, dwflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -20498,6 +22359,7 @@ pub unsafe fn CryptAcquireContextW<'a, Param1: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptBinaryToStringA(pbbinary: *const u8, cbbinary: u32, dwflags: CRYPT_STRING, pszstring: super::super::Foundation::PSTR, pcchstring: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -20512,6 +22374,7 @@ pub unsafe fn CryptBinaryToStringA(pbbinary: *const u8, cbbinary: u32, dwflags: 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptBinaryToStringW(pbbinary: *const u8, cbbinary: u32, dwflags: CRYPT_STRING, pszstring: super::super::Foundation::PWSTR, pcchstring: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -20526,6 +22389,7 @@ pub unsafe fn CryptBinaryToStringW(pbbinary: *const u8, cbbinary: u32, dwflags: 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptCloseAsyncHandle<'a, Param0: ::windows::runtime::IntoParam<'a, HCRYPTASYNC>>(hasync: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -20540,6 +22404,7 @@ pub unsafe fn CryptCloseAsyncHandle<'a, Param0: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptContextAddRef(hprov: usize, pdwreserved: *mut u32, dwflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -20554,6 +22419,7 @@ pub unsafe fn CryptContextAddRef(hprov: usize, pdwreserved: *mut u32, dwflags: u
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptCreateAsyncHandle(dwflags: u32, phasync: *mut HCRYPTASYNC) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -20568,6 +22434,7 @@ pub unsafe fn CryptCreateAsyncHandle(dwflags: u32, phasync: *mut HCRYPTASYNC) ->
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptCreateHash(hprov: usize, algid: u32, hkey: usize, dwflags: u32, phhash: *mut usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -20582,6 +22449,7 @@ pub unsafe fn CryptCreateHash(hprov: usize, algid: u32, hkey: usize, dwflags: u3
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptCreateKeyIdentifierFromCSP<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(dwcertencodingtype: u32, pszpubkeyoid: Param1, ppubkeystruc: *const PUBLICKEYSTRUC, cbpubkeystruc: u32, dwflags: u32, pvreserved: *mut ::std::ffi::c_void, pbhash: *mut u8, pcbhash: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -20605,6 +22473,7 @@ pub unsafe fn CryptCreateKeyIdentifierFromCSP<'a, Param1: ::windows::runtime::In
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptDecodeMessage(dwmsgtypeflags: u32, pdecryptpara: *const CRYPT_DECRYPT_MESSAGE_PARA, pverifypara: *const CRYPT_VERIFY_MESSAGE_PARA, dwsignerindex: u32, pbencodedblob: *const u8, cbencodedblob: u32, dwprevinnercontenttype: u32, pdwmsgtype: *mut u32, pdwinnercontenttype: *mut u32, pbdecoded: *mut u8, pcbdecoded: *mut u32, ppxchgcert: *mut *mut CERT_CONTEXT, ppsignercert: *mut *mut CERT_CONTEXT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -20633,6 +22502,7 @@ pub unsafe fn CryptDecodeMessage(dwmsgtypeflags: u32, pdecryptpara: *const CRYPT
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptDecodeObject<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(dwcertencodingtype: u32, lpszstructtype: Param1, pbencoded: *const u8, cbencoded: u32, dwflags: u32, pvstructinfo: *mut ::std::ffi::c_void, pcbstructinfo: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -20647,6 +22517,7 @@ pub unsafe fn CryptDecodeObject<'a, Param1: ::windows::runtime::IntoParam<'a, su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptDecodeObjectEx<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(dwcertencodingtype: u32, lpszstructtype: Param1, pbencoded: *const u8, cbencoded: u32, dwflags: u32, pdecodepara: *const CRYPT_DECODE_PARA, pvstructinfo: *mut ::std::ffi::c_void, pcbstructinfo: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -20670,6 +22541,7 @@ pub unsafe fn CryptDecodeObjectEx<'a, Param1: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptDecrypt<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hkey: usize, hhash: usize, r#final: Param2, dwflags: u32, pbdata: *mut u8, pdwdatalen: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -20684,6 +22556,7 @@ pub unsafe fn CryptDecrypt<'a, Param2: ::windows::runtime::IntoParam<'a, super::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptDecryptAndVerifyMessageSignature(pdecryptpara: *const CRYPT_DECRYPT_MESSAGE_PARA, pverifypara: *const CRYPT_VERIFY_MESSAGE_PARA, dwsignerindex: u32, pbencryptedblob: *const u8, cbencryptedblob: u32, pbdecrypted: *mut u8, pcbdecrypted: *mut u32, ppxchgcert: *mut *mut CERT_CONTEXT, ppsignercert: *mut *mut CERT_CONTEXT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -20708,6 +22581,7 @@ pub unsafe fn CryptDecryptAndVerifyMessageSignature(pdecryptpara: *const CRYPT_D
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptDecryptMessage(pdecryptpara: *const CRYPT_DECRYPT_MESSAGE_PARA, pbencryptedblob: *const u8, cbencryptedblob: u32, pbdecrypted: *mut u8, pcbdecrypted: *mut u32, ppxchgcert: *mut *mut CERT_CONTEXT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -20722,6 +22596,7 @@ pub unsafe fn CryptDecryptMessage(pdecryptpara: *const CRYPT_DECRYPT_MESSAGE_PAR
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptDeriveKey(hprov: usize, algid: u32, hbasedata: usize, dwflags: u32, phkey: *mut usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -20736,6 +22611,7 @@ pub unsafe fn CryptDeriveKey(hprov: usize, algid: u32, hbasedata: usize, dwflags
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptDestroyHash(hhash: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -20750,6 +22626,7 @@ pub unsafe fn CryptDestroyHash(hhash: usize) -> super::super::Foundation::BOOL {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptDestroyKey(hkey: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -20764,6 +22641,7 @@ pub unsafe fn CryptDestroyKey(hkey: usize) -> super::super::Foundation::BOOL {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptDuplicateHash(hhash: usize, pdwreserved: *mut u32, dwflags: u32, phhash: *mut usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -20778,6 +22656,7 @@ pub unsafe fn CryptDuplicateHash(hhash: usize, pdwreserved: *mut u32, dwflags: u
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptDuplicateKey(hkey: usize, pdwreserved: *mut u32, dwflags: u32, phkey: *mut usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -20792,6 +22671,7 @@ pub unsafe fn CryptDuplicateKey(hkey: usize, pdwreserved: *mut u32, dwflags: u32
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptEncodeObject<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(dwcertencodingtype: u32, lpszstructtype: Param1, pvstructinfo: *const ::std::ffi::c_void, pbencoded: *mut u8, pcbencoded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -20806,6 +22686,7 @@ pub unsafe fn CryptEncodeObject<'a, Param1: ::windows::runtime::IntoParam<'a, su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptEncodeObjectEx<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, lpszstructtype: Param1, pvstructinfo: *const ::std::ffi::c_void, dwflags: CRYPT_ENCODE_OBJECT_FLAGS, pencodepara: *const CRYPT_ENCODE_PARA, pvencoded: *mut ::std::ffi::c_void, pcbencoded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -20820,6 +22701,7 @@ pub unsafe fn CryptEncodeObjectEx<'a, Param1: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptEncrypt<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hkey: usize, hhash: usize, r#final: Param2, dwflags: u32, pbdata: *mut u8, pdwdatalen: *mut u32, dwbuflen: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -20834,6 +22716,7 @@ pub unsafe fn CryptEncrypt<'a, Param2: ::windows::runtime::IntoParam<'a, super::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptEncryptMessage(pencryptpara: *const CRYPT_ENCRYPT_MESSAGE_PARA, crecipientcert: u32, rgprecipientcert: *const *const CERT_CONTEXT, pbtobeencrypted: *const u8, cbtobeencrypted: u32, pbencryptedblob: *mut u8, pcbencryptedblob: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -20848,6 +22731,7 @@ pub unsafe fn CryptEncryptMessage(pencryptpara: *const CRYPT_ENCRYPT_MESSAGE_PAR
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptEnumKeyIdentifierProperties<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pkeyidentifier: *const CRYPTOAPI_BLOB, dwpropid: u32, dwflags: u32, pwszcomputername: Param3, pvreserved: *mut ::std::ffi::c_void, pvarg: *mut ::std::ffi::c_void, pfnenum: ::std::option::Option<PFN_CRYPT_ENUM_KEYID_PROP>) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -20862,6 +22746,7 @@ pub unsafe fn CryptEnumKeyIdentifierProperties<'a, Param3: ::windows::runtime::I
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptEnumOIDFunction<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(dwencodingtype: u32, pszfuncname: Param1, pszoid: Param2, dwflags: u32, pvarg: *mut ::std::ffi::c_void, pfnenumoidfunc: ::std::option::Option<PFN_CRYPT_ENUM_OID_FUNC>) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -20876,6 +22761,7 @@ pub unsafe fn CryptEnumOIDFunction<'a, Param1: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptEnumOIDInfo(dwgroupid: u32, dwflags: u32, pvarg: *mut ::std::ffi::c_void, pfnenumoidinfo: ::std::option::Option<PFN_CRYPT_ENUM_OID_INFO>) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -20890,6 +22776,7 @@ pub unsafe fn CryptEnumOIDInfo(dwgroupid: u32, dwflags: u32, pvarg: *mut ::std::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptEnumProviderTypesA(dwindex: u32, pdwreserved: *mut u32, dwflags: u32, pdwprovtype: *mut u32, sztypename: super::super::Foundation::PSTR, pcbtypename: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -20904,6 +22791,7 @@ pub unsafe fn CryptEnumProviderTypesA(dwindex: u32, pdwreserved: *mut u32, dwfla
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptEnumProviderTypesW(dwindex: u32, pdwreserved: *mut u32, dwflags: u32, pdwprovtype: *mut u32, sztypename: super::super::Foundation::PWSTR, pcbtypename: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -20918,6 +22806,7 @@ pub unsafe fn CryptEnumProviderTypesW(dwindex: u32, pdwreserved: *mut u32, dwfla
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptEnumProvidersA(dwindex: u32, pdwreserved: *mut u32, dwflags: u32, pdwprovtype: *mut u32, szprovname: super::super::Foundation::PSTR, pcbprovname: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -20932,6 +22821,7 @@ pub unsafe fn CryptEnumProvidersA(dwindex: u32, pdwreserved: *mut u32, dwflags: 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptEnumProvidersW(dwindex: u32, pdwreserved: *mut u32, dwflags: u32, pdwprovtype: *mut u32, szprovname: super::super::Foundation::PWSTR, pcbprovname: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -20946,6 +22836,7 @@ pub unsafe fn CryptEnumProvidersW(dwindex: u32, pdwreserved: *mut u32, dwflags: 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptExportKey(hkey: usize, hexpkey: usize, dwblobtype: u32, dwflags: CRYPT_KEY_FLAGS, pbdata: *mut u8, pdwdatalen: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -20960,6 +22851,7 @@ pub unsafe fn CryptExportKey(hkey: usize, hexpkey: usize, dwblobtype: u32, dwfla
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptExportPKCS8<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hcryptprov: usize, dwkeyspec: u32, pszprivatekeyobjid: Param2, dwflags: u32, pvauxinfo: *const ::std::ffi::c_void, pbprivatekeyblob: *mut u8, pcbprivatekeyblob: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -20974,6 +22866,7 @@ pub unsafe fn CryptExportPKCS8<'a, Param2: ::windows::runtime::IntoParam<'a, sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptExportPublicKeyInfo(hcryptprovorncryptkey: usize, dwkeyspec: u32, dwcertencodingtype: u32, pinfo: *mut CERT_PUBLIC_KEY_INFO, pcbinfo: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -20988,6 +22881,7 @@ pub unsafe fn CryptExportPublicKeyInfo(hcryptprovorncryptkey: usize, dwkeyspec: 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptExportPublicKeyInfoEx<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hcryptprovorncryptkey: usize, dwkeyspec: u32, dwcertencodingtype: u32, pszpublickeyobjid: Param3, dwflags: u32, pvauxinfo: *const ::std::ffi::c_void, pinfo: *mut CERT_PUBLIC_KEY_INFO, pcbinfo: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21011,6 +22905,7 @@ pub unsafe fn CryptExportPublicKeyInfoEx<'a, Param3: ::windows::runtime::IntoPar
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptExportPublicKeyInfoFromBCryptKeyHandle<'a, Param0: ::windows::runtime::IntoParam<'a, BCRYPT_KEY_HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hbcryptkey: Param0, dwcertencodingtype: u32, pszpublickeyobjid: Param2, dwflags: u32, pvauxinfo: *const ::std::ffi::c_void, pinfo: *mut CERT_PUBLIC_KEY_INFO, pcbinfo: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21025,6 +22920,7 @@ pub unsafe fn CryptExportPublicKeyInfoFromBCryptKeyHandle<'a, Param0: ::windows:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptFindCertificateKeyProvInfo(pcert: *const CERT_CONTEXT, dwflags: CRYPT_FIND_FLAGS, pvreserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21039,6 +22935,7 @@ pub unsafe fn CryptFindCertificateKeyProvInfo(pcert: *const CERT_CONTEXT, dwflag
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptFindLocalizedName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszcryptname: Param0) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
@@ -21053,6 +22950,7 @@ pub unsafe fn CryptFindLocalizedName<'a, Param0: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptFindOIDInfo(dwkeytype: u32, pvkey: *const ::std::ffi::c_void, dwgroupid: u32) -> *mut CRYPT_OID_INFO {
     #[cfg(windows)]
@@ -21067,6 +22965,7 @@ pub unsafe fn CryptFindOIDInfo(dwkeytype: u32, pvkey: *const ::std::ffi::c_void,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptFormatObject<'a, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(dwcertencodingtype: u32, dwformattype: u32, dwformatstrtype: u32, pformatstruct: *const ::std::ffi::c_void, lpszstructtype: Param4, pbencoded: *const u8, cbencoded: u32, pbformat: *mut ::std::ffi::c_void, pcbformat: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21091,6 +22990,7 @@ pub unsafe fn CryptFormatObject<'a, Param4: ::windows::runtime::IntoParam<'a, su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptFreeOIDFunctionAddress(hfuncaddr: *const ::std::ffi::c_void, dwflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21105,6 +23005,7 @@ pub unsafe fn CryptFreeOIDFunctionAddress(hfuncaddr: *const ::std::ffi::c_void, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptGenKey(hprov: usize, algid: u32, dwflags: CRYPT_KEY_FLAGS, phkey: *mut usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21119,6 +23020,7 @@ pub unsafe fn CryptGenKey(hprov: usize, algid: u32, dwflags: CRYPT_KEY_FLAGS, ph
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptGenRandom(hprov: usize, dwlen: u32, pbbuffer: *mut u8) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21133,6 +23035,7 @@ pub unsafe fn CryptGenRandom(hprov: usize, dwlen: u32, pbbuffer: *mut u8) -> sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptGetAsyncParam<'a, Param0: ::windows::runtime::IntoParam<'a, HCRYPTASYNC>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hasync: Param0, pszparamoid: Param1, ppvparam: *mut *mut ::std::ffi::c_void, ppfnfree: *mut ::std::option::Option<PFN_CRYPT_ASYNC_PARAM_FREE_FUNC>) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21147,6 +23050,7 @@ pub unsafe fn CryptGetAsyncParam<'a, Param0: ::windows::runtime::IntoParam<'a, H
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptGetDefaultOIDDllList(hfuncset: *const ::std::ffi::c_void, dwencodingtype: u32, pwszdlllist: super::super::Foundation::PWSTR, pcchdlllist: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21161,6 +23065,7 @@ pub unsafe fn CryptGetDefaultOIDDllList(hfuncset: *const ::std::ffi::c_void, dwe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptGetDefaultOIDFunctionAddress<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hfuncset: *const ::std::ffi::c_void, dwencodingtype: u32, pwszdll: Param2, dwflags: u32, ppvfuncaddr: *mut *mut ::std::ffi::c_void, phfuncaddr: *mut *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21175,6 +23080,7 @@ pub unsafe fn CryptGetDefaultOIDFunctionAddress<'a, Param2: ::windows::runtime::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptGetDefaultProviderA(dwprovtype: u32, pdwreserved: *mut u32, dwflags: u32, pszprovname: super::super::Foundation::PSTR, pcbprovname: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21189,6 +23095,7 @@ pub unsafe fn CryptGetDefaultProviderA(dwprovtype: u32, pdwreserved: *mut u32, d
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptGetDefaultProviderW(dwprovtype: u32, pdwreserved: *mut u32, dwflags: u32, pszprovname: super::super::Foundation::PWSTR, pcbprovname: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21203,6 +23110,7 @@ pub unsafe fn CryptGetDefaultProviderW(dwprovtype: u32, pdwreserved: *mut u32, d
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptGetHashParam(hhash: usize, dwparam: u32, pbdata: *mut u8, pdwdatalen: *mut u32, dwflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21217,6 +23125,7 @@ pub unsafe fn CryptGetHashParam(hhash: usize, dwparam: u32, pbdata: *mut u8, pdw
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptGetKeyIdentifierProperty<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pkeyidentifier: *const CRYPTOAPI_BLOB, dwpropid: u32, dwflags: u32, pwszcomputername: Param3, pvreserved: *mut ::std::ffi::c_void, pvdata: *mut ::std::ffi::c_void, pcbdata: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21231,6 +23140,7 @@ pub unsafe fn CryptGetKeyIdentifierProperty<'a, Param3: ::windows::runtime::Into
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptGetKeyParam(hkey: usize, dwparam: CRYPT_KEY_PARAM_ID, pbdata: *mut u8, pdwdatalen: *mut u32, dwflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21244,6 +23154,7 @@ pub unsafe fn CryptGetKeyParam(hkey: usize, dwparam: CRYPT_KEY_PARAM_ID, pbdata:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[inline]
 pub unsafe fn CryptGetMessageCertificates(dwmsgandcertencodingtype: u32, hcryptprov: usize, dwflags: u32, pbsignedblob: *const u8, cbsignedblob: u32) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
@@ -21257,6 +23168,7 @@ pub unsafe fn CryptGetMessageCertificates(dwmsgandcertencodingtype: u32, hcryptp
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[inline]
 pub unsafe fn CryptGetMessageSignerCount(dwmsgencodingtype: u32, pbsignedblob: *const u8, cbsignedblob: u32) -> i32 {
     #[cfg(windows)]
@@ -21271,6 +23183,7 @@ pub unsafe fn CryptGetMessageSignerCount(dwmsgencodingtype: u32, pbsignedblob: *
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptGetOIDFunctionAddress<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hfuncset: *const ::std::ffi::c_void, dwencodingtype: u32, pszoid: Param2, dwflags: u32, ppvfuncaddr: *mut *mut ::std::ffi::c_void, phfuncaddr: *mut *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21285,6 +23198,7 @@ pub unsafe fn CryptGetOIDFunctionAddress<'a, Param2: ::windows::runtime::IntoPar
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptGetOIDFunctionValue<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dwencodingtype: u32, pszfuncname: Param1, pszoid: Param2, pwszvaluename: Param3, pdwvaluetype: *mut u32, pbvaluedata: *mut u8, pcbvaluedata: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21299,6 +23213,7 @@ pub unsafe fn CryptGetOIDFunctionValue<'a, Param1: ::windows::runtime::IntoParam
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptGetObjectUrl<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszurloid: Param0, pvpara: *const ::std::ffi::c_void, dwflags: CRYPT_GET_URL_FLAGS, purlarray: *mut CRYPT_URL_ARRAY, pcburlarray: *mut u32, purlinfo: *mut CRYPT_URL_INFO, pcburlinfo: *mut u32, pvreserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21313,6 +23228,7 @@ pub unsafe fn CryptGetObjectUrl<'a, Param0: ::windows::runtime::IntoParam<'a, su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptGetProvParam(hprov: usize, dwparam: u32, pbdata: *mut u8, pdwdatalen: *mut u32, dwflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21327,6 +23243,7 @@ pub unsafe fn CryptGetProvParam(hprov: usize, dwparam: u32, pbdata: *mut u8, pdw
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptGetUserKey(hprov: usize, dwkeyspec: u32, phuserkey: *mut usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21341,6 +23258,7 @@ pub unsafe fn CryptGetUserKey(hprov: usize, dwkeyspec: u32, phuserkey: *mut usiz
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptHashCertificate(hcryptprov: usize, algid: u32, dwflags: u32, pbencoded: *const u8, cbencoded: u32, pbcomputedhash: *mut u8, pcbcomputedhash: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21355,6 +23273,7 @@ pub unsafe fn CryptHashCertificate(hcryptprov: usize, algid: u32, dwflags: u32, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptHashCertificate2<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszcnghashalgid: Param0, dwflags: u32, pvreserved: *mut ::std::ffi::c_void, pbencoded: *const u8, cbencoded: u32, pbcomputedhash: *mut u8, pcbcomputedhash: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21369,6 +23288,7 @@ pub unsafe fn CryptHashCertificate2<'a, Param0: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptHashData(hhash: usize, pbdata: *const u8, dwdatalen: u32, dwflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21383,6 +23303,7 @@ pub unsafe fn CryptHashData(hhash: usize, pbdata: *const u8, dwdatalen: u32, dwf
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptHashMessage<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(phashpara: *const CRYPT_HASH_MESSAGE_PARA, fdetachedhash: Param1, ctobehashed: u32, rgpbtobehashed: *const *const u8, rgcbtobehashed: *const u32, pbhashedblob: *mut u8, pcbhashedblob: *mut u32, pbcomputedhash: *mut u8, pcbcomputedhash: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21407,6 +23328,7 @@ pub unsafe fn CryptHashMessage<'a, Param1: ::windows::runtime::IntoParam<'a, sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptHashPublicKeyInfo(hcryptprov: usize, algid: u32, dwflags: u32, dwcertencodingtype: u32, pinfo: *const CERT_PUBLIC_KEY_INFO, pbcomputedhash: *mut u8, pcbcomputedhash: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21421,6 +23343,7 @@ pub unsafe fn CryptHashPublicKeyInfo(hcryptprov: usize, algid: u32, dwflags: u32
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptHashSessionKey(hhash: usize, hkey: usize, dwflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21435,6 +23358,7 @@ pub unsafe fn CryptHashSessionKey(hhash: usize, hkey: usize, dwflags: u32) -> su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptHashToBeSigned(hcryptprov: usize, dwcertencodingtype: u32, pbencoded: *const u8, cbencoded: u32, pbcomputedhash: *mut u8, pcbcomputedhash: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21449,6 +23373,7 @@ pub unsafe fn CryptHashToBeSigned(hcryptprov: usize, dwcertencodingtype: u32, pb
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptImportKey(hprov: usize, pbdata: *const u8, dwdatalen: u32, hpubkey: usize, dwflags: CRYPT_KEY_FLAGS, phkey: *mut usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21463,6 +23388,7 @@ pub unsafe fn CryptImportKey(hprov: usize, pbdata: *const u8, dwdatalen: u32, hp
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptImportPKCS8<'a, Param0: ::windows::runtime::IntoParam<'a, CRYPT_PKCS8_IMPORT_PARAMS>>(sprivatekeyandparams: Param0, dwflags: CRYPT_KEY_FLAGS, phcryptprov: *mut usize, pvauxinfo: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21477,6 +23403,7 @@ pub unsafe fn CryptImportPKCS8<'a, Param0: ::windows::runtime::IntoParam<'a, CRY
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptImportPublicKeyInfo(hcryptprov: usize, dwcertencodingtype: u32, pinfo: *const CERT_PUBLIC_KEY_INFO, phkey: *mut usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21491,6 +23418,7 @@ pub unsafe fn CryptImportPublicKeyInfo(hcryptprov: usize, dwcertencodingtype: u3
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptImportPublicKeyInfoEx(hcryptprov: usize, dwcertencodingtype: u32, pinfo: *const CERT_PUBLIC_KEY_INFO, aikeyalg: u32, dwflags: u32, pvauxinfo: *const ::std::ffi::c_void, phkey: *mut usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21505,6 +23433,7 @@ pub unsafe fn CryptImportPublicKeyInfoEx(hcryptprov: usize, dwcertencodingtype: 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptImportPublicKeyInfoEx2(dwcertencodingtype: u32, pinfo: *const CERT_PUBLIC_KEY_INFO, dwflags: CRYPT_IMPORT_PUBLIC_KEY_FLAGS, pvauxinfo: *const ::std::ffi::c_void, phkey: *mut BCRYPT_KEY_HANDLE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21519,6 +23448,7 @@ pub unsafe fn CryptImportPublicKeyInfoEx2(dwcertencodingtype: u32, pinfo: *const
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptInitOIDFunctionSet<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszfuncname: Param0, dwflags: u32) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
@@ -21533,6 +23463,7 @@ pub unsafe fn CryptInitOIDFunctionSet<'a, Param0: ::windows::runtime::IntoParam<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptInstallCancelRetrieval(pfncancel: ::std::option::Option<PFN_CRYPT_CANCEL_RETRIEVAL>, pvarg: *const ::std::ffi::c_void, dwflags: u32, pvreserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21547,6 +23478,7 @@ pub unsafe fn CryptInstallCancelRetrieval(pfncancel: ::std::option::Option<PFN_C
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptInstallDefaultContext(hcryptprov: usize, dwdefaulttype: CRYPT_DEFAULT_CONTEXT_TYPE, pvdefaultpara: *const ::std::ffi::c_void, dwflags: CRYPT_DEFAULT_CONTEXT_FLAGS, pvreserved: *mut ::std::ffi::c_void, phdefaultcontext: *mut *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21561,6 +23493,7 @@ pub unsafe fn CryptInstallDefaultContext(hcryptprov: usize, dwdefaulttype: CRYPT
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptInstallOIDFunctionAddress<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hmodule: Param0, dwencodingtype: u32, pszfuncname: Param2, cfuncentry: u32, rgfuncentry: *const CRYPT_OID_FUNC_ENTRY, dwflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21574,6 +23507,7 @@ pub unsafe fn CryptInstallOIDFunctionAddress<'a, Param0: ::windows::runtime::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[inline]
 pub unsafe fn CryptMemAlloc(cbsize: u32) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
@@ -21587,6 +23521,7 @@ pub unsafe fn CryptMemAlloc(cbsize: u32) -> *mut ::std::ffi::c_void {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[inline]
 pub unsafe fn CryptMemFree(pv: *const ::std::ffi::c_void) {
     #[cfg(windows)]
@@ -21600,6 +23535,7 @@ pub unsafe fn CryptMemFree(pv: *const ::std::ffi::c_void) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[inline]
 pub unsafe fn CryptMemRealloc(pv: *const ::std::ffi::c_void, cbsize: u32) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
@@ -21614,6 +23550,7 @@ pub unsafe fn CryptMemRealloc(pv: *const ::std::ffi::c_void, cbsize: u32) -> *mu
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptMsgCalculateEncodedLength<'a, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(dwmsgencodingtype: u32, dwflags: u32, dwmsgtype: u32, pvmsgencodeinfo: *const ::std::ffi::c_void, pszinnercontentobjid: Param4, cbdata: u32) -> u32 {
     #[cfg(windows)]
@@ -21628,6 +23565,7 @@ pub unsafe fn CryptMsgCalculateEncodedLength<'a, Param4: ::windows::runtime::Int
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptMsgClose(hcryptmsg: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21642,6 +23580,7 @@ pub unsafe fn CryptMsgClose(hcryptmsg: *const ::std::ffi::c_void) -> super::supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptMsgControl(hcryptmsg: *const ::std::ffi::c_void, dwflags: u32, dwctrltype: u32, pvctrlpara: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21656,6 +23595,7 @@ pub unsafe fn CryptMsgControl(hcryptmsg: *const ::std::ffi::c_void, dwflags: u32
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptMsgCountersign(hcryptmsg: *const ::std::ffi::c_void, dwindex: u32, ccountersigners: u32, rgcountersigners: *const CMSG_SIGNER_ENCODE_INFO) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21670,6 +23610,7 @@ pub unsafe fn CryptMsgCountersign(hcryptmsg: *const ::std::ffi::c_void, dwindex:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptMsgCountersignEncoded(dwencodingtype: u32, pbsignerinfo: *const u8, cbsignerinfo: u32, ccountersigners: u32, rgcountersigners: *const CMSG_SIGNER_ENCODE_INFO, pbcountersignature: *mut u8, pcbcountersignature: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21691,6 +23632,7 @@ pub unsafe fn CryptMsgCountersignEncoded(dwencodingtype: u32, pbsignerinfo: *con
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[inline]
 pub unsafe fn CryptMsgDuplicate(hcryptmsg: *const ::std::ffi::c_void) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
@@ -21705,6 +23647,7 @@ pub unsafe fn CryptMsgDuplicate(hcryptmsg: *const ::std::ffi::c_void) -> *mut ::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptMsgEncodeAndSignCTL(dwmsgencodingtype: u32, pctlinfo: *const CTL_INFO, psigninfo: *const CMSG_SIGNED_ENCODE_INFO, dwflags: u32, pbencoded: *mut u8, pcbencoded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21719,6 +23662,7 @@ pub unsafe fn CryptMsgEncodeAndSignCTL(dwmsgencodingtype: u32, pctlinfo: *const 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptMsgGetAndVerifySigner(hcryptmsg: *const ::std::ffi::c_void, csignerstore: u32, rghsignerstore: *const *const ::std::ffi::c_void, dwflags: u32, ppsigner: *mut *mut CERT_CONTEXT, pdwsignerindex: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21733,6 +23677,7 @@ pub unsafe fn CryptMsgGetAndVerifySigner(hcryptmsg: *const ::std::ffi::c_void, c
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptMsgGetParam(hcryptmsg: *const ::std::ffi::c_void, dwparamtype: u32, dwindex: u32, pvdata: *mut ::std::ffi::c_void, pcbdata: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21747,6 +23692,7 @@ pub unsafe fn CryptMsgGetParam(hcryptmsg: *const ::std::ffi::c_void, dwparamtype
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptMsgOpenToDecode(dwmsgencodingtype: u32, dwflags: u32, dwmsgtype: u32, hcryptprov: usize, precipientinfo: *mut CERT_INFO, pstreaminfo: *const CMSG_STREAM_INFO) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
@@ -21761,6 +23707,7 @@ pub unsafe fn CryptMsgOpenToDecode(dwmsgencodingtype: u32, dwflags: u32, dwmsgty
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptMsgOpenToEncode<'a, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(dwmsgencodingtype: u32, dwflags: u32, dwmsgtype: CRYPT_MSG_TYPE, pvmsgencodeinfo: *const ::std::ffi::c_void, pszinnercontentobjid: Param4, pstreaminfo: *const CMSG_STREAM_INFO) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
@@ -21775,6 +23722,7 @@ pub unsafe fn CryptMsgOpenToEncode<'a, Param4: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptMsgSignCTL(dwmsgencodingtype: u32, pbctlcontent: *const u8, cbctlcontent: u32, psigninfo: *const CMSG_SIGNED_ENCODE_INFO, dwflags: u32, pbencoded: *mut u8, pcbencoded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21789,6 +23737,7 @@ pub unsafe fn CryptMsgSignCTL(dwmsgencodingtype: u32, pbctlcontent: *const u8, c
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptMsgUpdate<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hcryptmsg: *const ::std::ffi::c_void, pbdata: *const u8, cbdata: u32, ffinal: Param3) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21803,6 +23752,7 @@ pub unsafe fn CryptMsgUpdate<'a, Param3: ::windows::runtime::IntoParam<'a, super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptMsgVerifyCountersignatureEncoded(hcryptprov: usize, dwencodingtype: u32, pbsignerinfo: *const u8, cbsignerinfo: u32, pbsignerinfocountersignature: *const u8, cbsignerinfocountersignature: u32, pcicountersigner: *const CERT_INFO) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21825,6 +23775,7 @@ pub unsafe fn CryptMsgVerifyCountersignatureEncoded(hcryptprov: usize, dwencodin
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptMsgVerifyCountersignatureEncodedEx(hcryptprov: usize, dwencodingtype: u32, pbsignerinfo: *const u8, cbsignerinfo: u32, pbsignerinfocountersignature: *const u8, cbsignerinfocountersignature: u32, dwsignertype: u32, pvsigner: *const ::std::ffi::c_void, dwflags: u32, pvextra: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21850,6 +23801,7 @@ pub unsafe fn CryptMsgVerifyCountersignatureEncodedEx(hcryptprov: usize, dwencod
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptProtectData<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pdatain: *const CRYPTOAPI_BLOB, szdatadescr: Param1, poptionalentropy: *const CRYPTOAPI_BLOB, pvreserved: *mut ::std::ffi::c_void, ppromptstruct: *const CRYPTPROTECT_PROMPTSTRUCT, dwflags: u32, pdataout: *mut CRYPTOAPI_BLOB) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21864,6 +23816,7 @@ pub unsafe fn CryptProtectData<'a, Param1: ::windows::runtime::IntoParam<'a, sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptProtectMemory(pdatain: *mut ::std::ffi::c_void, cbdatain: u32, dwflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21878,6 +23831,7 @@ pub unsafe fn CryptProtectMemory(pdatain: *mut ::std::ffi::c_void, cbdatain: u32
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptQueryObject(
     dwobjecttype: CERT_QUERY_OBJECT_TYPE,
@@ -21928,6 +23882,7 @@ pub unsafe fn CryptQueryObject(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptRegisterDefaultOIDFunction<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dwencodingtype: u32, pszfuncname: Param1, dwindex: u32, pwszdll: Param3) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21942,6 +23897,7 @@ pub unsafe fn CryptRegisterDefaultOIDFunction<'a, Param1: ::windows::runtime::In
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptRegisterOIDFunction<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(dwencodingtype: u32, pszfuncname: Param1, pszoid: Param2, pwszdll: Param3, pszoverridefuncname: Param4) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21956,6 +23912,7 @@ pub unsafe fn CryptRegisterOIDFunction<'a, Param1: ::windows::runtime::IntoParam
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptRegisterOIDInfo(pinfo: *const CRYPT_OID_INFO, dwflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21970,6 +23927,7 @@ pub unsafe fn CryptRegisterOIDInfo(pinfo: *const CRYPT_OID_INFO, dwflags: u32) -
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptReleaseContext(hprov: usize, dwflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21984,6 +23942,7 @@ pub unsafe fn CryptReleaseContext(hprov: usize, dwflags: u32) -> super::super::F
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptRetrieveObjectByUrlA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::runtime::IntoParam<'a, HCRYPTASYNC>>(
     pszurl: Param0,
@@ -22018,6 +23977,7 @@ pub unsafe fn CryptRetrieveObjectByUrlA<'a, Param0: ::windows::runtime::IntoPara
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptRetrieveObjectByUrlW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::runtime::IntoParam<'a, HCRYPTASYNC>>(
     pszurl: Param0,
@@ -22052,6 +24012,7 @@ pub unsafe fn CryptRetrieveObjectByUrlW<'a, Param0: ::windows::runtime::IntoPara
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptRetrieveTimeStamp<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(wszurl: Param0, dwretrievalflags: u32, dwtimeout: u32, pszhashid: Param3, ppara: *const CRYPT_TIMESTAMP_PARA, pbdata: *const u8, cbdata: u32, pptscontext: *mut *mut CRYPT_TIMESTAMP_CONTEXT, pptssigner: *mut *mut CERT_CONTEXT, phstore: *mut *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -22077,6 +24038,7 @@ pub unsafe fn CryptRetrieveTimeStamp<'a, Param0: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptSetAsyncParam<'a, Param0: ::windows::runtime::IntoParam<'a, HCRYPTASYNC>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hasync: Param0, pszparamoid: Param1, pvparam: *const ::std::ffi::c_void, pfnfree: ::std::option::Option<PFN_CRYPT_ASYNC_PARAM_FREE_FUNC>) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -22091,6 +24053,7 @@ pub unsafe fn CryptSetAsyncParam<'a, Param0: ::windows::runtime::IntoParam<'a, H
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptSetHashParam(hhash: usize, dwparam: CRYPT_SET_HASH_PARAM, pbdata: *const u8, dwflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -22105,6 +24068,7 @@ pub unsafe fn CryptSetHashParam(hhash: usize, dwparam: CRYPT_SET_HASH_PARAM, pbd
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptSetKeyIdentifierProperty<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pkeyidentifier: *const CRYPTOAPI_BLOB, dwpropid: u32, dwflags: u32, pwszcomputername: Param3, pvreserved: *mut ::std::ffi::c_void, pvdata: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -22119,6 +24083,7 @@ pub unsafe fn CryptSetKeyIdentifierProperty<'a, Param3: ::windows::runtime::Into
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptSetKeyParam(hkey: usize, dwparam: CRYPT_KEY_PARAM_ID, pbdata: *const u8, dwflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -22133,6 +24098,7 @@ pub unsafe fn CryptSetKeyParam(hkey: usize, dwparam: CRYPT_KEY_PARAM_ID, pbdata:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`, `Win32_System_Registry`*"]
 #[inline]
 pub unsafe fn CryptSetOIDFunctionValue<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dwencodingtype: u32, pszfuncname: Param1, pszoid: Param2, pwszvaluename: Param3, dwvaluetype: super::super::System::Registry::REG_VALUE_TYPE, pbvaluedata: *const u8, cbvaluedata: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -22147,6 +24113,7 @@ pub unsafe fn CryptSetOIDFunctionValue<'a, Param1: ::windows::runtime::IntoParam
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptSetProvParam(hprov: usize, dwparam: CRYPT_SET_PROV_PARAM_ID, pbdata: *const u8, dwflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -22161,6 +24128,7 @@ pub unsafe fn CryptSetProvParam(hprov: usize, dwparam: CRYPT_SET_PROV_PARAM_ID, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptSetProviderA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszprovname: Param0, dwprovtype: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -22175,6 +24143,7 @@ pub unsafe fn CryptSetProviderA<'a, Param0: ::windows::runtime::IntoParam<'a, su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptSetProviderExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszprovname: Param0, dwprovtype: u32, pdwreserved: *mut u32, dwflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -22189,6 +24158,7 @@ pub unsafe fn CryptSetProviderExA<'a, Param0: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptSetProviderExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszprovname: Param0, dwprovtype: u32, pdwreserved: *mut u32, dwflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -22203,6 +24173,7 @@ pub unsafe fn CryptSetProviderExW<'a, Param0: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptSetProviderW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszprovname: Param0, dwprovtype: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -22217,6 +24188,7 @@ pub unsafe fn CryptSetProviderW<'a, Param0: ::windows::runtime::IntoParam<'a, su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptSignAndEncodeCertificate<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hcryptprovorncryptkey: usize, dwkeyspec: CERT_KEY_SPEC, dwcertencodingtype: u32, lpszstructtype: Param3, pvstructinfo: *const ::std::ffi::c_void, psignaturealgorithm: *const CRYPT_ALGORITHM_IDENTIFIER, pvhashauxinfo: *const ::std::ffi::c_void, pbencoded: *mut u8, pcbencoded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -22241,6 +24213,7 @@ pub unsafe fn CryptSignAndEncodeCertificate<'a, Param3: ::windows::runtime::Into
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptSignAndEncryptMessage(psignpara: *const CRYPT_SIGN_MESSAGE_PARA, pencryptpara: *const CRYPT_ENCRYPT_MESSAGE_PARA, crecipientcert: u32, rgprecipientcert: *const *const CERT_CONTEXT, pbtobesignedandencrypted: *const u8, cbtobesignedandencrypted: u32, pbsignedandencryptedblob: *mut u8, pcbsignedandencryptedblob: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -22264,6 +24237,7 @@ pub unsafe fn CryptSignAndEncryptMessage(psignpara: *const CRYPT_SIGN_MESSAGE_PA
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptSignCertificate(hcryptprovorncryptkey: usize, dwkeyspec: u32, dwcertencodingtype: u32, pbencodedtobesigned: *const u8, cbencodedtobesigned: u32, psignaturealgorithm: *const CRYPT_ALGORITHM_IDENTIFIER, pvhashauxinfo: *const ::std::ffi::c_void, pbsignature: *mut u8, pcbsignature: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -22288,6 +24262,7 @@ pub unsafe fn CryptSignCertificate(hcryptprovorncryptkey: usize, dwkeyspec: u32,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptSignHashA<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hhash: usize, dwkeyspec: u32, szdescription: Param2, dwflags: u32, pbsignature: *mut u8, pdwsiglen: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -22302,6 +24277,7 @@ pub unsafe fn CryptSignHashA<'a, Param2: ::windows::runtime::IntoParam<'a, super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptSignHashW<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hhash: usize, dwkeyspec: u32, szdescription: Param2, dwflags: u32, pbsignature: *mut u8, pdwsiglen: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -22316,6 +24292,7 @@ pub unsafe fn CryptSignHashW<'a, Param2: ::windows::runtime::IntoParam<'a, super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptSignMessage<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(psignpara: *const CRYPT_SIGN_MESSAGE_PARA, fdetachedsignature: Param1, ctobesigned: u32, rgpbtobesigned: *const *const u8, rgcbtobesigned: *const u32, pbsignedblob: *mut u8, pcbsignedblob: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -22330,6 +24307,7 @@ pub unsafe fn CryptSignMessage<'a, Param1: ::windows::runtime::IntoParam<'a, sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptSignMessageWithKey(psignpara: *const CRYPT_KEY_SIGN_MESSAGE_PARA, pbtobesigned: *const u8, cbtobesigned: u32, pbsignedblob: *mut u8, pcbsignedblob: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -22344,6 +24322,7 @@ pub unsafe fn CryptSignMessageWithKey(psignpara: *const CRYPT_KEY_SIGN_MESSAGE_P
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptStringToBinaryA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszstring: Param0, cchstring: u32, dwflags: CRYPT_STRING, pbbinary: *mut u8, pcbbinary: *mut u32, pdwskip: *mut u32, pdwflags: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -22358,6 +24337,7 @@ pub unsafe fn CryptStringToBinaryA<'a, Param0: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptStringToBinaryW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszstring: Param0, cchstring: u32, dwflags: CRYPT_STRING, pbbinary: *mut u8, pcbbinary: *mut u32, pdwskip: *mut u32, pdwflags: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -22372,6 +24352,7 @@ pub unsafe fn CryptStringToBinaryW<'a, Param0: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptUIDlgCertMgr(pcryptuicertmgr: *const CRYPTUI_CERT_MGR_STRUCT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -22386,6 +24367,7 @@ pub unsafe fn CryptUIDlgCertMgr(pcryptuicertmgr: *const CRYPTUI_CERT_MGR_STRUCT)
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptUIDlgSelectCertificateFromStore<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcertstore: *const ::std::ffi::c_void, hwnd: Param1, pwsztitle: Param2, pwszdisplaystring: Param3, dwdontusecolumn: u32, dwflags: u32, pvreserved: *const ::std::ffi::c_void) -> *mut CERT_CONTEXT {
     #[cfg(windows)]
@@ -22400,6 +24382,7 @@ pub unsafe fn CryptUIDlgSelectCertificateFromStore<'a, Param1: ::windows::runtim
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip", feature = "Win32_Security_WinTrust", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_Security_Cryptography_Catalog`, `Win32_Security_Cryptography_Sip`, `Win32_Security_WinTrust`, `Win32_UI_Controls`, `Win32_UI_WindowsAndMessaging`*"]
 #[inline]
 pub unsafe fn CryptUIDlgViewCertificateA(pcertviewinfo: *const CRYPTUI_VIEWCERTIFICATE_STRUCTA, pfpropertieschanged: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -22414,6 +24397,7 @@ pub unsafe fn CryptUIDlgViewCertificateA(pcertviewinfo: *const CRYPTUI_VIEWCERTI
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip", feature = "Win32_Security_WinTrust", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_Security_Cryptography_Catalog`, `Win32_Security_Cryptography_Sip`, `Win32_Security_WinTrust`, `Win32_UI_Controls`, `Win32_UI_WindowsAndMessaging`*"]
 #[inline]
 pub unsafe fn CryptUIDlgViewCertificateW(pcertviewinfo: *const CRYPTUI_VIEWCERTIFICATE_STRUCTW, pfpropertieschanged: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -22428,6 +24412,7 @@ pub unsafe fn CryptUIDlgViewCertificateW(pcertviewinfo: *const CRYPTUI_VIEWCERTI
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptUIDlgViewContext<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dwcontexttype: u32, pvcontext: *const ::std::ffi::c_void, hwnd: Param2, pwsztitle: Param3, dwflags: u32, pvreserved: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -22442,6 +24427,7 @@ pub unsafe fn CryptUIDlgViewContext<'a, Param2: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptUIWizDigitalSign<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dwflags: u32, hwndparent: Param1, pwszwizardtitle: Param2, pdigitalsigninfo: *const CRYPTUI_WIZ_DIGITAL_SIGN_INFO, ppsigncontext: *mut *mut CRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -22456,6 +24442,7 @@ pub unsafe fn CryptUIWizDigitalSign<'a, Param1: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptUIWizExport<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dwflags: CRYPTUI_WIZ_FLAGS, hwndparent: Param1, pwszwizardtitle: Param2, pexportinfo: *const CRYPTUI_WIZ_EXPORT_INFO, pvoid: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -22470,6 +24457,7 @@ pub unsafe fn CryptUIWizExport<'a, Param1: ::windows::runtime::IntoParam<'a, sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptUIWizFreeDigitalSignContext(psigncontext: *const CRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -22484,6 +24472,7 @@ pub unsafe fn CryptUIWizFreeDigitalSignContext(psigncontext: *const CRYPTUI_WIZ_
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptUIWizImport<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dwflags: CRYPTUI_WIZ_FLAGS, hwndparent: Param1, pwszwizardtitle: Param2, pimportsrc: *const CRYPTUI_WIZ_IMPORT_SRC_INFO, hdestcertstore: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -22498,6 +24487,7 @@ pub unsafe fn CryptUIWizImport<'a, Param1: ::windows::runtime::IntoParam<'a, sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptUninstallCancelRetrieval(dwflags: u32, pvreserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -22512,6 +24502,7 @@ pub unsafe fn CryptUninstallCancelRetrieval(dwflags: u32, pvreserved: *mut ::std
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptUninstallDefaultContext(hdefaultcontext: *const ::std::ffi::c_void, dwflags: u32, pvreserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -22526,6 +24517,7 @@ pub unsafe fn CryptUninstallDefaultContext(hdefaultcontext: *const ::std::ffi::c
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptUnprotectData(pdatain: *const CRYPTOAPI_BLOB, ppszdatadescr: *mut super::super::Foundation::PWSTR, poptionalentropy: *const CRYPTOAPI_BLOB, pvreserved: *mut ::std::ffi::c_void, ppromptstruct: *const CRYPTPROTECT_PROMPTSTRUCT, dwflags: u32, pdataout: *mut CRYPTOAPI_BLOB) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -22540,6 +24532,7 @@ pub unsafe fn CryptUnprotectData(pdatain: *const CRYPTOAPI_BLOB, ppszdatadescr: 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptUnprotectMemory(pdatain: *mut ::std::ffi::c_void, cbdatain: u32, dwflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -22554,6 +24547,7 @@ pub unsafe fn CryptUnprotectMemory(pdatain: *mut ::std::ffi::c_void, cbdatain: u
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptUnregisterDefaultOIDFunction<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dwencodingtype: u32, pszfuncname: Param1, pwszdll: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -22568,6 +24562,7 @@ pub unsafe fn CryptUnregisterDefaultOIDFunction<'a, Param1: ::windows::runtime::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptUnregisterOIDFunction<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(dwencodingtype: u32, pszfuncname: Param1, pszoid: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -22582,6 +24577,7 @@ pub unsafe fn CryptUnregisterOIDFunction<'a, Param1: ::windows::runtime::IntoPar
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptUnregisterOIDInfo(pinfo: *const CRYPT_OID_INFO) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -22596,6 +24592,7 @@ pub unsafe fn CryptUnregisterOIDInfo(pinfo: *const CRYPT_OID_INFO) -> super::sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptUpdateProtectedState<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSID>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(poldsid: Param0, pwszoldpassword: Param1, dwflags: u32, pdwsuccesscount: *mut u32, pdwfailurecount: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -22610,6 +24607,7 @@ pub unsafe fn CryptUpdateProtectedState<'a, Param0: ::windows::runtime::IntoPara
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptVerifyCertificateSignature(hcryptprov: usize, dwcertencodingtype: u32, pbencoded: *const u8, cbencoded: u32, ppublickey: *const CERT_PUBLIC_KEY_INFO) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -22624,6 +24622,7 @@ pub unsafe fn CryptVerifyCertificateSignature(hcryptprov: usize, dwcertencodingt
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptVerifyCertificateSignatureEx(hcryptprov: usize, dwcertencodingtype: u32, dwsubjecttype: u32, pvsubject: *const ::std::ffi::c_void, dwissuertype: u32, pvissuer: *const ::std::ffi::c_void, dwflags: CRYPT_VERIFY_CERT_FLAGS, pvextra: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -22647,6 +24646,7 @@ pub unsafe fn CryptVerifyCertificateSignatureEx(hcryptprov: usize, dwcertencodin
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptVerifyDetachedMessageHash(phashpara: *const CRYPT_HASH_MESSAGE_PARA, pbdetachedhashblob: *const u8, cbdetachedhashblob: u32, ctobehashed: u32, rgpbtobehashed: *const *const u8, rgcbtobehashed: *const u32, pbcomputedhash: *mut u8, pcbcomputedhash: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -22670,6 +24670,7 @@ pub unsafe fn CryptVerifyDetachedMessageHash(phashpara: *const CRYPT_HASH_MESSAG
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptVerifyDetachedMessageSignature(pverifypara: *const CRYPT_VERIFY_MESSAGE_PARA, dwsignerindex: u32, pbdetachedsignblob: *const u8, cbdetachedsignblob: u32, ctobesigned: u32, rgpbtobesigned: *const *const u8, rgcbtobesigned: *const u32, ppsignercert: *mut *mut CERT_CONTEXT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -22693,6 +24694,7 @@ pub unsafe fn CryptVerifyDetachedMessageSignature(pverifypara: *const CRYPT_VERI
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptVerifyMessageHash(phashpara: *const CRYPT_HASH_MESSAGE_PARA, pbhashedblob: *const u8, cbhashedblob: u32, pbtobehashed: *mut u8, pcbtobehashed: *mut u32, pbcomputedhash: *mut u8, pcbcomputedhash: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -22707,6 +24709,7 @@ pub unsafe fn CryptVerifyMessageHash(phashpara: *const CRYPT_HASH_MESSAGE_PARA, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptVerifyMessageSignature(pverifypara: *const CRYPT_VERIFY_MESSAGE_PARA, dwsignerindex: u32, pbsignedblob: *const u8, cbsignedblob: u32, pbdecoded: *mut u8, pcbdecoded: *mut u32, ppsignercert: *mut *mut CERT_CONTEXT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -22721,6 +24724,7 @@ pub unsafe fn CryptVerifyMessageSignature(pverifypara: *const CRYPT_VERIFY_MESSA
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptVerifyMessageSignatureWithKey(pverifypara: *const CRYPT_KEY_VERIFY_MESSAGE_PARA, ppublickeyinfo: *const CERT_PUBLIC_KEY_INFO, pbsignedblob: *const u8, cbsignedblob: u32, pbdecoded: *mut u8, pcbdecoded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -22735,6 +24739,7 @@ pub unsafe fn CryptVerifyMessageSignatureWithKey(pverifypara: *const CRYPT_KEY_V
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptVerifySignatureA<'a, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hhash: usize, pbsignature: *const u8, dwsiglen: u32, hpubkey: usize, szdescription: Param4, dwflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -22749,6 +24754,7 @@ pub unsafe fn CryptVerifySignatureA<'a, Param4: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptVerifySignatureW<'a, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hhash: usize, pbsignature: *const u8, dwsiglen: u32, hpubkey: usize, szdescription: Param4, dwflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -22763,6 +24769,7 @@ pub unsafe fn CryptVerifySignatureW<'a, Param4: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptVerifyTimeStampSignature(pbtscontentinfo: *const u8, cbtscontentinfo: u32, pbdata: *const u8, cbdata: u32, hadditionalstore: *const ::std::ffi::c_void, pptscontext: *mut *mut CRYPT_TIMESTAMP_CONTEXT, pptssigner: *mut *mut CERT_CONTEXT, phstore: *mut *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -22786,6 +24793,7 @@ pub unsafe fn CryptVerifyTimeStampSignature(pbtscontentinfo: *const u8, cbtscont
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptXmlAddObject(hsignatureorobject: *const ::std::ffi::c_void, dwflags: u32, rgproperty: *const CRYPT_XML_PROPERTY, cproperty: u32, pencoded: *const CRYPT_XML_BLOB) -> ::windows::runtime::Result<*mut CRYPT_XML_OBJECT> {
     #[cfg(windows)]
@@ -22800,6 +24808,7 @@ pub unsafe fn CryptXmlAddObject(hsignatureorobject: *const ::std::ffi::c_void, d
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[inline]
 pub unsafe fn CryptXmlClose(hcryptxml: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -22814,6 +24823,7 @@ pub unsafe fn CryptXmlClose(hcryptxml: *const ::std::ffi::c_void) -> ::windows::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptXmlCreateReference<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
     hcryptxml: *const ::std::ffi::c_void,
@@ -22837,6 +24847,7 @@ pub unsafe fn CryptXmlCreateReference<'a, Param2: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[inline]
 pub unsafe fn CryptXmlDigestReference(hreference: *const ::std::ffi::c_void, dwflags: u32, pdataproviderin: *const CRYPT_XML_DATA_PROVIDER) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -22867,6 +24878,7 @@ pub type CryptXmlDllGetInterface = unsafe extern "system" fn(dwflags: u32, pmeth
 pub type CryptXmlDllSignData = unsafe extern "system" fn(psignaturemethod: *const CRYPT_XML_ALGORITHM, hcryptprovorncryptkey: usize, dwkeyspec: u32, pbinput: *const u8, cbinput: u32, pboutput: *mut u8, cboutput: u32, pcbresult: *mut u32) -> ::windows::runtime::HRESULT;
 #[cfg(feature = "Win32_Foundation")]
 pub type CryptXmlDllVerifySignature = unsafe extern "system" fn(psignaturemethod: *const CRYPT_XML_ALGORITHM, hkey: BCRYPT_KEY_HANDLE, pbinput: *const u8, cbinput: u32, pbsignature: *const u8, cbsignature: u32) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[inline]
 pub unsafe fn CryptXmlEncode(hcryptxml: *const ::std::ffi::c_void, dwcharset: CRYPT_XML_CHARSET, rgproperty: *const CRYPT_XML_PROPERTY, cproperty: u32, pvcallbackstate: *mut ::std::ffi::c_void, pfnwrite: ::std::option::Option<PFN_CRYPT_XML_WRITE_CALLBACK>) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -22881,6 +24893,7 @@ pub unsafe fn CryptXmlEncode(hcryptxml: *const ::std::ffi::c_void, dwcharset: CR
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptXmlEnumAlgorithmInfo(dwgroupid: u32, dwflags: u32, pvarg: *mut ::std::ffi::c_void, pfnenumalginfo: ::std::option::Option<PFN_CRYPT_XML_ENUM_ALG_INFO>) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -22895,6 +24908,7 @@ pub unsafe fn CryptXmlEnumAlgorithmInfo(dwgroupid: u32, dwflags: u32, pvarg: *mu
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptXmlFindAlgorithmInfo(dwfindbytype: u32, pvfindby: *const ::std::ffi::c_void, dwgroupid: u32, dwflags: u32) -> *mut CRYPT_XML_ALGORITHM_INFO {
     #[cfg(windows)]
@@ -22909,6 +24923,7 @@ pub unsafe fn CryptXmlFindAlgorithmInfo(dwfindbytype: u32, pvfindby: *const ::st
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptXmlGetAlgorithmInfo(pxmlalgorithm: *const CRYPT_XML_ALGORITHM, dwflags: CRYPT_XML_FLAGS) -> ::windows::runtime::Result<*mut CRYPT_XML_ALGORITHM_INFO> {
     #[cfg(windows)]
@@ -22924,6 +24939,7 @@ pub unsafe fn CryptXmlGetAlgorithmInfo(pxmlalgorithm: *const CRYPT_XML_ALGORITHM
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptXmlGetDocContext(hcryptxml: *const ::std::ffi::c_void) -> ::windows::runtime::Result<*mut CRYPT_XML_DOC_CTXT> {
     #[cfg(windows)]
@@ -22939,6 +24955,7 @@ pub unsafe fn CryptXmlGetDocContext(hcryptxml: *const ::std::ffi::c_void) -> ::w
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptXmlGetReference(hcryptxml: *const ::std::ffi::c_void) -> ::windows::runtime::Result<*mut CRYPT_XML_REFERENCE> {
     #[cfg(windows)]
@@ -22954,6 +24971,7 @@ pub unsafe fn CryptXmlGetReference(hcryptxml: *const ::std::ffi::c_void) -> ::wi
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptXmlGetSignature(hcryptxml: *const ::std::ffi::c_void) -> ::windows::runtime::Result<*mut CRYPT_XML_SIGNATURE> {
     #[cfg(windows)]
@@ -22968,6 +24986,7 @@ pub unsafe fn CryptXmlGetSignature(hcryptxml: *const ::std::ffi::c_void) -> ::wi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[inline]
 pub unsafe fn CryptXmlGetStatus(hcryptxml: *const ::std::ffi::c_void) -> ::windows::runtime::Result<CRYPT_XML_STATUS> {
     #[cfg(windows)]
@@ -22983,6 +25002,7 @@ pub unsafe fn CryptXmlGetStatus(hcryptxml: *const ::std::ffi::c_void) -> ::windo
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptXmlGetTransforms() -> ::windows::runtime::Result<*mut CRYPT_XML_TRANSFORM_CHAIN_CONFIG> {
     #[cfg(windows)]
@@ -22998,6 +25018,7 @@ pub unsafe fn CryptXmlGetTransforms() -> ::windows::runtime::Result<*mut CRYPT_X
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptXmlImportPublicKey(dwflags: CRYPT_XML_FLAGS, pkeyvalue: *const CRYPT_XML_KEY_VALUE) -> ::windows::runtime::Result<BCRYPT_KEY_HANDLE> {
     #[cfg(windows)]
@@ -23013,6 +25034,7 @@ pub unsafe fn CryptXmlImportPublicKey(dwflags: CRYPT_XML_FLAGS, pkeyvalue: *cons
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptXmlOpenToDecode(pconfig: *const CRYPT_XML_TRANSFORM_CHAIN_CONFIG, dwflags: CRYPT_XML_FLAGS, rgproperty: *const CRYPT_XML_PROPERTY, cproperty: u32, pencoded: *const CRYPT_XML_BLOB, phcryptxml: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -23027,6 +25049,7 @@ pub unsafe fn CryptXmlOpenToDecode(pconfig: *const CRYPT_XML_TRANSFORM_CHAIN_CON
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptXmlOpenToEncode<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pconfig: *const CRYPT_XML_TRANSFORM_CHAIN_CONFIG, dwflags: CRYPT_XML_FLAGS, wszid: Param2, rgproperty: *const CRYPT_XML_PROPERTY, cproperty: u32, pencoded: *const CRYPT_XML_BLOB, phsignature: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -23040,6 +25063,7 @@ pub unsafe fn CryptXmlOpenToEncode<'a, Param2: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[inline]
 pub unsafe fn CryptXmlSetHMACSecret(hsignature: *const ::std::ffi::c_void, pbsecret: *const u8, cbsecret: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -23054,6 +25078,7 @@ pub unsafe fn CryptXmlSetHMACSecret(hsignature: *const ::std::ffi::c_void, pbsec
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CryptXmlSign(hsignature: *const ::std::ffi::c_void, hkey: usize, dwkeyspec: CERT_KEY_SPEC, dwflags: CRYPT_XML_FLAGS, dwkeyinfospec: CRYPT_XML_KEYINFO_SPEC, pvkeyinfospec: *const ::std::ffi::c_void, psignaturemethod: *const CRYPT_XML_ALGORITHM, pcanonicalization: *const CRYPT_XML_ALGORITHM) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -23067,6 +25092,7 @@ pub unsafe fn CryptXmlSign(hsignature: *const ::std::ffi::c_void, hkey: usize, d
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[inline]
 pub unsafe fn CryptXmlVerifySignature<'a, Param1: ::windows::runtime::IntoParam<'a, BCRYPT_KEY_HANDLE>>(hsignature: *const ::std::ffi::c_void, hkey: Param1, dwflags: CRYPT_XML_FLAGS) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -23080,6 +25106,7 @@ pub unsafe fn CryptXmlVerifySignature<'a, Param1: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DSAFIPSVERSION_ENUM(pub i32);
@@ -23096,6 +25123,7 @@ unsafe impl ::windows::runtime::Abi for DSAFIPSVERSION_ENUM {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct DSSSEED {
     pub counter: u32,
     pub seed: [u8; 20],
@@ -23122,6 +25150,7 @@ unsafe impl ::windows::runtime::Abi for DSSSEED {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn Decrypt<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hcrypto: *const INFORMATIONCARD_CRYPTO_HANDLE, foaep: Param1, cbindata: u32, pindata: *const u8, pcboutdata: *mut u32, ppoutdata: *mut *mut u8) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -23135,6 +25164,7 @@ pub unsafe fn Decrypt<'a, Param1: ::windows::runtime::IntoParam<'a, super::super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct Direction(pub i32);
@@ -23149,6 +25179,7 @@ unsafe impl ::windows::runtime::Abi for Direction {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ECC_CURVE_ALG_ID_ENUM(pub i32);
@@ -23162,6 +25193,7 @@ unsafe impl ::windows::runtime::Abi for ECC_CURVE_ALG_ID_ENUM {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ECC_CURVE_TYPE_ENUM(pub i32);
@@ -23180,6 +25212,7 @@ unsafe impl ::windows::runtime::Abi for ECC_CURVE_TYPE_ENUM {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct ENDPOINTADDRESS {
     pub serviceUrl: super::super::Foundation::PWSTR,
     pub policyUrl: super::super::Foundation::PWSTR,
@@ -23215,6 +25248,7 @@ unsafe impl ::windows::runtime::Abi for ENDPOINTADDRESS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct ENDPOINTADDRESS2 {
     pub serviceUrl: super::super::Foundation::PWSTR,
     pub policyUrl: super::super::Foundation::PWSTR,
@@ -23250,6 +25284,7 @@ unsafe impl ::windows::runtime::Abi for ENDPOINTADDRESS2 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct EV_EXTRA_CERT_CHAIN_POLICY_PARA {
     pub cbSize: u32,
     pub dwRootProgramQualifierFlags: CERT_ROOT_PROGRAM_FLAGS,
@@ -23277,6 +25312,7 @@ unsafe impl ::windows::runtime::Abi for EV_EXTRA_CERT_CHAIN_POLICY_PARA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct EV_EXTRA_CERT_CHAIN_POLICY_STATUS {
     pub cbSize: u32,
     pub dwQualifiers: u32,
@@ -23303,36 +25339,66 @@ unsafe impl ::windows::runtime::Abi for EV_EXTRA_CERT_CHAIN_POLICY_STATUS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const EXPORT_PRIVATE_KEYS: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const E_ICARD_ARGUMENT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1073413883i32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const E_ICARD_COMMUNICATION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1073413888i32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const E_ICARD_DATA_ACCESS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1073413887i32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const E_ICARD_EXPORT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1073413886i32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const E_ICARD_FAIL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1073413867i32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const E_ICARD_FAILED_REQUIRED_CLAIMS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1073413756i32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const E_ICARD_IDENTITY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1073413885i32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const E_ICARD_IMPORT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1073413884i32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const E_ICARD_INFORMATIONCARD: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1073413881i32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const E_ICARD_INVALID_PROOF_KEY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1073413758i32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const E_ICARD_LOGOVALIDATION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1073413879i32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const E_ICARD_MISSING_APPLIESTO: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1073413759i32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const E_ICARD_PASSWORDVALIDATION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1073413878i32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const E_ICARD_POLICY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1073413877i32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const E_ICARD_PROCESSDIED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1073413876i32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const E_ICARD_REFRESH_REQUIRED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1073413760i32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const E_ICARD_REQUEST: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1073413882i32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const E_ICARD_SERVICE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1073413874i32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const E_ICARD_SERVICEBUSY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1073413875i32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const E_ICARD_SHUTTINGDOWN: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1073413873i32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const E_ICARD_STOREKEY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1073413880i32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const E_ICARD_STORE_IMPORT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1073413868i32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const E_ICARD_TOKENCREATION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1073413872i32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const E_ICARD_TRUSTEXCHANGE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1073413871i32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const E_ICARD_UI_INITIALIZATION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1073413862i32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const E_ICARD_UNKNOWN_REFERENCE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1073413757i32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const E_ICARD_UNTRUSTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1073413870i32 as _);
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const E_ICARD_USERCANCELLED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1073413869i32 as _);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn Encrypt<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hcrypto: *const INFORMATIONCARD_CRYPTO_HANDLE, foaep: Param1, cbindata: u32, pindata: *const u8, pcboutdata: *mut u32, ppoutdata: *mut *mut u8) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -23347,6 +25413,7 @@ pub unsafe fn Encrypt<'a, Param1: ::windows::runtime::IntoParam<'a, super::super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn FindCertsByIssuer<'a, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pcertchains: *mut CERT_CHAIN, pcbcertchains: *mut u32, pccertchains: *mut u32, pbencodedissuername: *const u8, cbencodedissuername: u32, pwszpurpose: Param5, dwkeyspec: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -23361,6 +25428,7 @@ pub unsafe fn FindCertsByIssuer<'a, Param5: ::windows::runtime::IntoParam<'a, su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn FreeToken(pallocmemory: *const GENERIC_XML_TOKEN) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -23377,6 +25445,7 @@ pub unsafe fn FreeToken(pallocmemory: *const GENERIC_XML_TOKEN) -> super::super:
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct GENERIC_XML_TOKEN {
     pub createDate: super::super::Foundation::FILETIME,
     pub expiryDate: super::super::Foundation::FILETIME,
@@ -23406,6 +25475,7 @@ unsafe impl ::windows::runtime::Abi for GENERIC_XML_TOKEN {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GenerateDerivedKey<'a, Param7: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcrypto: *const INFORMATIONCARD_CRYPTO_HANDLE, cblabel: u32, plabel: *const u8, cbnonce: u32, pnonce: *const u8, derivedkeylength: u32, offset: u32, algid: Param7, pcbkey: *mut u32, ppkey: *mut *mut u8) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -23431,6 +25501,7 @@ pub unsafe fn GenerateDerivedKey<'a, Param7: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[inline]
 pub unsafe fn GetBrowserToken(dwparamtype: u32, pparam: *const ::std::ffi::c_void, pcbtoken: *mut u32, pptoken: *mut *mut u8) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -23444,6 +25515,7 @@ pub unsafe fn GetBrowserToken(dwparamtype: u32, pparam: *const ::std::ffi::c_voi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[inline]
 pub unsafe fn GetCryptoTransform(hsymmetriccrypto: *const INFORMATIONCARD_CRYPTO_HANDLE, mode: u32, padding: PaddingMode, feedbacksize: u32, direction: Direction, cbiv: u32, piv: *const u8) -> ::windows::runtime::Result<*mut INFORMATIONCARD_CRYPTO_HANDLE> {
     #[cfg(windows)]
@@ -23458,6 +25530,7 @@ pub unsafe fn GetCryptoTransform(hsymmetriccrypto: *const INFORMATIONCARD_CRYPTO
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[inline]
 pub unsafe fn GetKeyedHash(hsymmetriccrypto: *const INFORMATIONCARD_CRYPTO_HANDLE) -> ::windows::runtime::Result<*mut INFORMATIONCARD_CRYPTO_HANDLE> {
     #[cfg(windows)]
@@ -23473,6 +25546,7 @@ pub unsafe fn GetKeyedHash(hsymmetriccrypto: *const INFORMATIONCARD_CRYPTO_HANDL
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetToken(cpolicychain: u32, ppolicychain: *const POLICY_ELEMENT, securitytoken: *mut *mut GENERIC_XML_TOKEN, phprooftokencrypto: *mut *mut INFORMATIONCARD_CRYPTO_HANDLE) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -23486,6 +25560,7 @@ pub unsafe fn GetToken(cpolicychain: u32, ppolicychain: *const POLICY_ELEMENT, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HASHALGORITHM_ENUM(pub i32);
@@ -23529,6 +25604,7 @@ unsafe impl ::windows::runtime::Abi for HCRYPTASYNC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct HMAC_Info {
     pub HashAlgid: u32,
     pub pbInnerString: *mut u8,
@@ -23557,10 +25633,15 @@ unsafe impl ::windows::runtime::Abi for HMAC_Info {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const HP_ALGID: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const HP_HASHSIZE: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const HP_TLS1PRF_LABEL: u32 = 6u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const HP_TLS1PRF_SEED: u32 = 7u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE(pub u32);
@@ -23606,6 +25687,7 @@ impl ::std::ops::Not for HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct HTTPSPolicyCallbackData {
     pub Anonymous: HTTPSPolicyCallbackData_0,
     pub dwAuthType: HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE,
@@ -23635,6 +25717,7 @@ unsafe impl ::windows::runtime::Abi for HTTPSPolicyCallbackData {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub union HTTPSPolicyCallbackData_0 {
     pub cbStruct: u32,
     pub cbSize: u32,
@@ -23655,6 +25738,7 @@ unsafe impl ::windows::runtime::Abi for HTTPSPolicyCallbackData_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HandleType(pub i32);
@@ -23673,6 +25757,7 @@ unsafe impl ::windows::runtime::Abi for HandleType {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[inline]
 pub unsafe fn HashCore(hcrypto: *const INFORMATIONCARD_CRYPTO_HANDLE, cbindata: u32, pindata: *const u8) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -23686,6 +25771,7 @@ pub unsafe fn HashCore(hcrypto: *const INFORMATIONCARD_CRYPTO_HANDLE, cbindata: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[inline]
 pub unsafe fn HashFinal(hcrypto: *const INFORMATIONCARD_CRYPTO_HANDLE, cbindata: u32, pindata: *const u8, pcboutdata: *mut u32, ppoutdata: *mut *mut u8) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -23699,91 +25785,112 @@ pub unsafe fn HashFinal(hcrypto: *const INFORMATIONCARD_CRYPTO_HANDLE, cbindata:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ICertSrvSetup(::windows::runtime::IUnknown);
 impl ICertSrvSetup {
+    #[doc = "*Required features: `Win32_Security_Cryptography`*"]
     pub unsafe fn CAErrorId(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
     pub unsafe fn CAErrorString(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_Security_Cryptography`*"]
     pub unsafe fn InitializeDefaults(&self, bserver: i16, bclient: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(bserver), ::std::mem::transmute(bclient)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetCASetupProperty(&self, propertyid: CASetupProperty) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(propertyid), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetCASetupProperty(&self, propertyid: CASetupProperty, ppropertyvalue: *const super::super::System::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(propertyid), ::std::mem::transmute(ppropertyvalue)).ok()
     }
+    #[doc = "*Required features: `Win32_Security_Cryptography`*"]
     pub unsafe fn IsPropertyEditable(&self, propertyid: CASetupProperty) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(propertyid), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetSupportedCATypes(&self) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetProviderNameList(&self) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetKeyLengthList<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrprovidername: Param0) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), bstrprovidername.into_param().abi(), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetHashAlgorithmList<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrprovidername: Param0) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), bstrprovidername.into_param().abi(), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetPrivateKeyContainerList<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrprovidername: Param0) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), bstrprovidername.into_param().abi(), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
+    #[doc = "*Required features: `Win32_Security_Cryptography`*"]
     pub unsafe fn GetExistingCACertificates(&self) -> ::windows::runtime::Result<ICertSrvSetupKeyInformationCollection> {
         let mut result__: <ICertSrvSetupKeyInformationCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ICertSrvSetupKeyInformationCollection>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
     pub unsafe fn CAImportPFX<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrfilename: Param0, bstrpasswd: Param1, boverwriteexistingkey: i16) -> ::windows::runtime::Result<ICertSrvSetupKeyInformation> {
         let mut result__: <ICertSrvSetupKeyInformation as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), bstrfilename.into_param().abi(), bstrpasswd.into_param().abi(), ::std::mem::transmute(boverwriteexistingkey), &mut result__).from_abi::<ICertSrvSetupKeyInformation>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
     pub unsafe fn SetCADistinguishedName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrcadn: Param0, bignoreunicode: i16, boverwriteexistingkey: i16, boverwriteexistingcainds: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), bstrcadn.into_param().abi(), ::std::mem::transmute(bignoreunicode), ::std::mem::transmute(boverwriteexistingkey), ::std::mem::transmute(boverwriteexistingcainds)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
     pub unsafe fn SetDatabaseInformation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdbdirectory: Param0, bstrlogdirectory: Param1, bstrsharedfolder: Param2, bforceoverwrite: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), bstrdbdirectory.into_param().abi(), bstrlogdirectory.into_param().abi(), bstrsharedfolder.into_param().abi(), ::std::mem::transmute(bforceoverwrite)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
     pub unsafe fn SetParentCAInformation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrcaconfiguration: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), bstrcaconfiguration.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
     pub unsafe fn SetWebCAInformation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrcaconfiguration: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), bstrcaconfiguration.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Security_Cryptography`*"]
     pub unsafe fn Install(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Security_Cryptography`*"]
     pub unsafe fn PreUnInstall(&self, bclientonly: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), ::std::mem::transmute(bclientonly)).ok()
     }
+    #[doc = "*Required features: `Win32_Security_Cryptography`*"]
     pub unsafe fn PostUnInstall(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self)).ok()
     }
@@ -23884,57 +25991,70 @@ pub struct ICertSrvSetup_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bclientonly: i16) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ICertSrvSetupKeyInformation(::windows::runtime::IUnknown);
 impl ICertSrvSetupKeyInformation {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
     pub unsafe fn ProviderName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
     pub unsafe fn SetProviderName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrval: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), bstrval.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Security_Cryptography`*"]
     pub unsafe fn Length(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_Security_Cryptography`*"]
     pub unsafe fn SetLength(&self, lval: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(lval)).ok()
     }
+    #[doc = "*Required features: `Win32_Security_Cryptography`*"]
     pub unsafe fn Existing(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_Security_Cryptography`*"]
     pub unsafe fn SetExisting(&self, bval: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(bval)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
     pub unsafe fn ContainerName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
     pub unsafe fn SetContainerName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrval: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), bstrval.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
     pub unsafe fn HashAlgorithm(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
     pub unsafe fn SetHashAlgorithm<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrval: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), bstrval.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn ExistingCACertificate(&self) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetExistingCACertificate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, varval: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), varval.into_param().abi()).ok()
     }
@@ -24022,23 +26142,28 @@ pub struct ICertSrvSetupKeyInformation_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, varval: ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
 );
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ICertSrvSetupKeyInformationCollection(::windows::runtime::IUnknown);
 impl ICertSrvSetupKeyInformationCollection {
+    #[doc = "*Required features: `Win32_Security_Cryptography`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
         let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Item(&self, index: i32) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
+    #[doc = "*Required features: `Win32_Security_Cryptography`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_Security_Cryptography`*"]
     pub unsafe fn Add<'a, Param0: ::windows::runtime::IntoParam<'a, ICertSrvSetupKeyInformation>>(&self, pikeyinformation: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), pikeyinformation.into_param().abi()).ok()
     }
@@ -24111,31 +26236,38 @@ pub struct ICertSrvSetupKeyInformationCollection_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pval: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pikeyinformation: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ICertificateEnrollmentPolicyServerSetup(::windows::runtime::IUnknown);
 impl ICertificateEnrollmentPolicyServerSetup {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
     pub unsafe fn ErrorString(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_Security_Cryptography`*"]
     pub unsafe fn InitializeInstallDefaults(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetProperty(&self, propertyid: CEPSetupProperty) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(propertyid), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetProperty(&self, propertyid: CEPSetupProperty, ppropertyvalue: *const super::super::System::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(propertyid), ::std::mem::transmute(ppropertyvalue)).ok()
     }
+    #[doc = "*Required features: `Win32_Security_Cryptography`*"]
     pub unsafe fn Install(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn UnInstall(&self, pauthkeybasedrenewal: *const super::super::System::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(pauthkeybasedrenewal)).ok()
     }
@@ -24213,35 +26345,43 @@ pub struct ICertificateEnrollmentPolicyServerSetup_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pauthkeybasedrenewal: *const ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
 );
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ICertificateEnrollmentServerSetup(::windows::runtime::IUnknown);
 impl ICertificateEnrollmentServerSetup {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
     pub unsafe fn ErrorString(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_Security_Cryptography`*"]
     pub unsafe fn InitializeInstallDefaults(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetProperty(&self, propertyid: CESSetupProperty) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(propertyid), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetProperty(&self, propertyid: CESSetupProperty, ppropertyvalue: *const super::super::System::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(propertyid), ::std::mem::transmute(ppropertyvalue)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
     pub unsafe fn SetApplicationPoolCredentials<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrusername: Param0, bstrpassword: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), bstrusername.into_param().abi(), bstrpassword.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Security_Cryptography`*"]
     pub unsafe fn Install(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn UnInstall(&self, pcaconfig: *const super::super::System::Com::VARIANT, pauthentication: *const super::super::System::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcaconfig), ::std::mem::transmute(pauthentication)).ok()
     }
@@ -24321,58 +26461,74 @@ pub struct ICertificateEnrollmentServerSetup_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcaconfig: *const ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pauthentication: *const ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
 );
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const IFX_RSA_KEYGEN_VUL_AFFECTED_LEVEL_1: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const IFX_RSA_KEYGEN_VUL_AFFECTED_LEVEL_2: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const IFX_RSA_KEYGEN_VUL_NOT_AFFECTED: u32 = 0u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMSCEPSetup(::windows::runtime::IUnknown);
 impl IMSCEPSetup {
+    #[doc = "*Required features: `Win32_Security_Cryptography`*"]
     pub unsafe fn MSCEPErrorId(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
     pub unsafe fn MSCEPErrorString(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_Security_Cryptography`*"]
     pub unsafe fn InitializeDefaults(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetMSCEPSetupProperty(&self, propertyid: MSCEPSetupProperty) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(propertyid), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetMSCEPSetupProperty(&self, propertyid: MSCEPSetupProperty, ppropertyvalue: *const super::super::System::Com::VARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(propertyid), ::std::mem::transmute(ppropertyvalue)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
     pub unsafe fn SetAccountInformation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrusername: Param0, bstrpassword: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), bstrusername.into_param().abi(), bstrpassword.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Security_Cryptography`*"]
     pub unsafe fn IsMSCEPStoreEmpty(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetProviderNameList(&self, bexchange: i16) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(bexchange), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetKeyLengthList<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bexchange: i16, bstrprovidername: Param1) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(bexchange), bstrprovidername.into_param().abi(), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
+    #[doc = "*Required features: `Win32_Security_Cryptography`*"]
     pub unsafe fn Install(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Security_Cryptography`*"]
     pub unsafe fn PreUnInstall(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Security_Cryptography`*"]
     pub unsafe fn PostUnInstall(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self)).ok()
     }
@@ -24461,6 +26617,7 @@ pub struct IMSCEPSetup_abi(
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct INFORMATIONCARD_ASYMMETRIC_CRYPTO_PARAMETERS {
     pub keySize: i32,
     pub keyExchangeAlgorithm: super::super::Foundation::PWSTR,
@@ -24495,6 +26652,7 @@ unsafe impl ::windows::runtime::Abi for INFORMATIONCARD_ASYMMETRIC_CRYPTO_PARAME
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct INFORMATIONCARD_CRYPTO_HANDLE {
     pub r#type: HandleType,
     pub expiration: i64,
@@ -24524,6 +26682,7 @@ unsafe impl ::windows::runtime::Abi for INFORMATIONCARD_CRYPTO_HANDLE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct INFORMATIONCARD_HASH_CRYPTO_PARAMETERS {
     pub hashSize: i32,
     pub transform: INFORMATIONCARD_TRANSFORM_CRYPTO_PARAMETERS,
@@ -24557,6 +26716,7 @@ unsafe impl ::windows::runtime::Abi for INFORMATIONCARD_HASH_CRYPTO_PARAMETERS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct INFORMATIONCARD_SYMMETRIC_CRYPTO_PARAMETERS {
     pub keySize: i32,
     pub blockSize: i32,
@@ -24586,6 +26746,7 @@ unsafe impl ::windows::runtime::Abi for INFORMATIONCARD_SYMMETRIC_CRYPTO_PARAMET
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct INFORMATIONCARD_TRANSFORM_CRYPTO_PARAMETERS {
     pub inputBlockSize: i32,
     pub outputBlockSize: i32,
@@ -24619,8 +26780,10 @@ unsafe impl ::windows::runtime::Abi for INFORMATIONCARD_TRANSFORM_CRYPTO_PARAMET
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const INTERNATIONAL_USAGE: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn ImportInformationCard<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(filename: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -24634,32 +26797,57 @@ pub unsafe fn ImportInformationCard<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const KDF_ALGORITHMID: u32 = 8u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const KDF_CONTEXT: u32 = 14u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const KDF_GENERIC_PARAMETER: u32 = 17u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const KDF_HASH_ALGORITHM: u32 = 0u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const KDF_HKDF_INFO: u32 = 20u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const KDF_HKDF_SALT: u32 = 19u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const KDF_HMAC_KEY: u32 = 3u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const KDF_ITERATION_COUNT: u32 = 16u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const KDF_KEYBITLENGTH: u32 = 18u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const KDF_LABEL: u32 = 13u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const KDF_PARTYUINFO: u32 = 9u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const KDF_PARTYVINFO: u32 = 10u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const KDF_SALT: u32 = 15u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const KDF_SECRET_APPEND: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const KDF_SECRET_HANDLE: u32 = 6u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const KDF_SECRET_PREPEND: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const KDF_SUPPPRIVINFO: u32 = 12u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const KDF_SUPPPUBINFO: u32 = 11u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const KDF_TLS_PRF_LABEL: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const KDF_TLS_PRF_PROTOCOL: u32 = 7u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const KDF_TLS_PRF_SEED: u32 = 5u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const KDF_USE_SECRET_AS_HMAC_KEY_FLAG: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const KEYSTATEBLOB: u32 = 12u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const KEY_LENGTH_MASK: u32 = 4294901760u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct KEY_TYPE_SUBTYPE {
     pub dwKeySpec: u32,
     pub Type: ::windows::runtime::GUID,
@@ -24686,46 +26874,87 @@ unsafe impl ::windows::runtime::Abi for KEY_TYPE_SUBTYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const KP_ADMIN_PIN: u32 = 31u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const KP_CLEAR_KEY: u32 = 27u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const KP_CLIENT_RANDOM: u32 = 21u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const KP_CMS_DH_KEY_INFO: u32 = 38u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const KP_CMS_KEY_INFO: u32 = 37u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const KP_EFFECTIVE_KEYLEN: u32 = 19u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const KP_G: u32 = 12u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const KP_HIGHEST_VERSION: u32 = 41u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const KP_INFO: u32 = 18u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const KP_IV: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const KP_KEYEXCHANGE_PIN: u32 = 32u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const KP_KEYVAL: u32 = 30u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const KP_MODE: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const KP_MODE_BITS: u32 = 5u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const KP_OAEP_PARAMS: u32 = 36u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const KP_P: u32 = 11u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const KP_PADDING: u32 = 3u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const KP_PIN_ID: u32 = 43u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const KP_PIN_INFO: u32 = 44u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const KP_PRECOMP_MD5: u32 = 24u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const KP_PRECOMP_SHA: u32 = 25u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const KP_PREHASH: u32 = 34u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const KP_PUB_EX_LEN: u32 = 28u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const KP_PUB_EX_VAL: u32 = 29u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const KP_PUB_PARAMS: u32 = 39u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const KP_Q: u32 = 13u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const KP_RA: u32 = 16u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const KP_RB: u32 = 17u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const KP_ROUNDS: u32 = 35u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const KP_RP: u32 = 23u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const KP_SCHANNEL_ALG: u32 = 20u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const KP_SERVER_RANDOM: u32 = 22u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const KP_SIGNATURE_PIN: u32 = 33u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const KP_VERIFY_PARAMS: u32 = 40u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const KP_X: u32 = 14u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const KP_Y: u32 = 15u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const MAXUIDLEN: u32 = 64u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const MICROSOFT_ROOT_CERT_CHAIN_POLICY_CHECK_APPLICATION_ROOT_FLAG: u32 = 131072u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const MICROSOFT_ROOT_CERT_CHAIN_POLICY_DISABLE_FLIGHT_ROOT_FLAG: u32 = 262144u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const MICROSOFT_ROOT_CERT_CHAIN_POLICY_ENABLE_TEST_ROOT_FLAG: u32 = 65536u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MSCEPSetupProperty(pub i32);
@@ -24752,6 +26981,7 @@ unsafe impl ::windows::runtime::Abi for MSCEPSetupProperty {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[inline]
 pub unsafe fn ManageCardSpace() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -24765,41 +26995,77 @@ pub unsafe fn ManageCardSpace() -> ::windows::runtime::Result<()> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPTBUFFER_ATTESTATIONSTATEMENT_BLOB: u32 = 51u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPTBUFFER_ATTESTATION_CLAIM_CHALLENGE_REQUIRED: u32 = 53u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPTBUFFER_ATTESTATION_CLAIM_TYPE: u32 = 52u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPTBUFFER_CERT_BLOB: u32 = 47u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPTBUFFER_CLAIM_IDBINDING_NONCE: u32 = 48u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPTBUFFER_CLAIM_KEYATTESTATION_NONCE: u32 = 49u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPTBUFFER_DATA: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPTBUFFER_ECC_CURVE_NAME: u32 = 60u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPTBUFFER_ECC_PARAMETERS: u32 = 61u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPTBUFFER_EMPTY: u32 = 0u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPTBUFFER_KEY_PROPERTY_FLAGS: u32 = 50u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPTBUFFER_PKCS_ALG_ID: u32 = 43u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPTBUFFER_PKCS_ALG_OID: u32 = 41u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPTBUFFER_PKCS_ALG_PARAM: u32 = 42u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPTBUFFER_PKCS_ATTRS: u32 = 44u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPTBUFFER_PKCS_KEY_NAME: u32 = 45u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPTBUFFER_PKCS_OID: u32 = 40u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPTBUFFER_PKCS_SECRET: u32 = 46u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPTBUFFER_PROTECTION_DESCRIPTOR_STRING: u32 = 3u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPTBUFFER_PROTECTION_FLAGS: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPTBUFFER_SSL_CLEAR_KEY: u32 = 23u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPTBUFFER_SSL_CLIENT_RANDOM: u32 = 20u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPTBUFFER_SSL_HIGHEST_VERSION: u32 = 22u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPTBUFFER_SSL_KEY_ARG_DATA: u32 = 24u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPTBUFFER_SSL_SERVER_RANDOM: u32 = 21u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPTBUFFER_SSL_SESSION_HASH: u32 = 25u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPTBUFFER_TPM_PLATFORM_CLAIM_NONCE: u32 = 81u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPTBUFFER_TPM_PLATFORM_CLAIM_PCR_MASK: u32 = 80u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPTBUFFER_TPM_PLATFORM_CLAIM_STATIC_CREATE: u32 = 82u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPTBUFFER_TPM_SEAL_NO_DA_PROTECTION: u32 = 73u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPTBUFFER_TPM_SEAL_PASSWORD: u32 = 70u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPTBUFFER_TPM_SEAL_POLICYINFO: u32 = 71u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPTBUFFER_TPM_SEAL_TICKET: u32 = 72u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPTBUFFER_VERSION: u32 = 0u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPTBUFFER_VSM_KEY_ATTESTATION_CLAIM_RESTRICTIONS: u32 = 54u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NCRYPT_ALGORITHM_NAME_CLASS(pub u32);
@@ -24845,6 +27111,7 @@ impl ::std::ops::Not for NCRYPT_ALGORITHM_NAME_CLASS {
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct NCRYPT_ALLOC_PARA {
     pub cbSize: u32,
     pub pfnAlloc: ::std::option::Option<PFN_NCRYPT_ALLOC>,
@@ -24871,24 +27138,41 @@ unsafe impl ::windows::runtime::Abi for NCRYPT_ALLOC_PARA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_ALLOW_ALL_USAGES: u32 = 16777215u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_ALLOW_ARCHIVING_FLAG: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_ALLOW_DECRYPT_FLAG: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_ALLOW_EXPORT_FLAG: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_ALLOW_KEY_AGREEMENT_FLAG: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_ALLOW_KEY_IMPORT_FLAG: u32 = 8u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_ALLOW_PLAINTEXT_ARCHIVING_FLAG: u32 = 8u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_ALLOW_PLAINTEXT_EXPORT_FLAG: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_ALLOW_SIGNING_FLAG: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_ALLOW_SILENT_KEY_ACCESS: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_ATTESTATION_FLAG: u32 = 32u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_AUTHORITY_KEY_FLAG: u32 = 256u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_CIPHER_BLOCK_PADDING_FLAG: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_CIPHER_KEY_BLOB_MAGIC: u32 = 1380470851u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_CIPHER_NO_PADDING_FLAG: u32 = 0u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_CIPHER_OTHER_PADDING_FLAG: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct NCRYPT_CIPHER_PADDING_INFO {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -24918,16 +27202,25 @@ unsafe impl ::windows::runtime::Abi for NCRYPT_CIPHER_PADDING_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_CLAIM_AUTHORITY_AND_SUBJECT: u32 = 3u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_CLAIM_AUTHORITY_ONLY: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_CLAIM_PLATFORM: u32 = 65536u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_CLAIM_SUBJECT_ONLY: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_CLAIM_UNKNOWN: u32 = 4096u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_CLAIM_VSM_KEY_ATTESTATION_STATEMENT: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_CLAIM_WEB_AUTH_SUBJECT_ONLY: u32 = 258u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_DO_NOT_FINALIZE_FLAG: u32 = 1024u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct NCRYPT_EXPORTED_ISOLATED_KEY_ENVELOPE {
     pub Header: NCRYPT_EXPORTED_ISOLATED_KEY_HEADER,
 }
@@ -24954,6 +27247,7 @@ unsafe impl ::windows::runtime::Abi for NCRYPT_EXPORTED_ISOLATED_KEY_ENVELOPE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct NCRYPT_EXPORTED_ISOLATED_KEY_HEADER {
     pub Version: u32,
     pub KeyUsage: u32,
@@ -24994,9 +27288,13 @@ unsafe impl ::windows::runtime::Abi for NCRYPT_EXPORTED_ISOLATED_KEY_HEADER {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_EXPORTED_ISOLATED_KEY_HEADER_CURRENT_VERSION: u32 = 0u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_EXPORTED_ISOLATED_KEY_HEADER_V0: u32 = 0u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_EXPORT_LEGACY_FLAG: u32 = 2048u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NCRYPT_FLAGS(pub u32);
@@ -25055,14 +27353,21 @@ impl ::std::ops::Not for NCRYPT_FLAGS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_IGNORE_DEVICE_STATE_FLAG: u32 = 4096u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_IMPL_HARDWARE_FLAG: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_IMPL_HARDWARE_RNG_FLAG: u32 = 16u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_IMPL_REMOVABLE_FLAG: u32 = 8u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_IMPL_SOFTWARE_FLAG: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_IMPL_VIRTUAL_ISOLATION_FLAG: u32 = 32u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct NCRYPT_ISOLATED_KEY_ATTESTED_ATTRIBUTES {
     pub Version: u32,
     pub Flags: u32,
@@ -25089,13 +27394,19 @@ unsafe impl ::windows::runtime::Abi for NCRYPT_ISOLATED_KEY_ATTESTED_ATTRIBUTES 
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_ISOLATED_KEY_ATTESTED_ATTRIBUTES_CURRENT_VERSION: u32 = 0u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_ISOLATED_KEY_ATTESTED_ATTRIBUTES_V0: u32 = 0u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_ISOLATED_KEY_FLAG_CREATED_IN_ISOLATION: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_ISOLATED_KEY_FLAG_IMPORT_ONLY: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_KDF_KEY_BLOB_MAGIC: u32 = 826688587u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct NCRYPT_KEY_ACCESS_POLICY_BLOB {
     pub dwVersion: u32,
     pub dwPolicyFlags: u32,
@@ -25123,10 +27434,13 @@ unsafe impl ::windows::runtime::Abi for NCRYPT_KEY_ACCESS_POLICY_BLOB {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_KEY_ACCESS_POLICY_VERSION: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_KEY_ATTEST_MAGIC: u32 = 1146110283u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct NCRYPT_KEY_ATTEST_PADDING_INFO {
     pub magic: u32,
     pub pbKeyBlob: *mut u8,
@@ -25157,6 +27471,7 @@ unsafe impl ::windows::runtime::Abi for NCRYPT_KEY_ATTEST_PADDING_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct NCRYPT_KEY_BLOB_HEADER {
     pub cbSize: u32,
     pub dwMagic: u32,
@@ -25184,15 +27499,25 @@ unsafe impl ::windows::runtime::Abi for NCRYPT_KEY_BLOB_HEADER {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_KEY_DERIVATION_INTERFACE: u32 = 7u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_KEY_DERIVATION_OPERATION: u32 = 64u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_KEY_PROTECTION_INTERFACE: u32 = 65540u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_MAX_ALG_ID_LENGTH: u32 = 512u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_MAX_KEY_NAME_LENGTH: u32 = 512u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_MAX_PROPERTY_DATA: u32 = 1048576u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_MAX_PROPERTY_NAME: u32 = 64u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_NAMED_DESCRIPTOR_FLAG: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_NO_CACHED_PASSWORD: u32 = 16384u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NCRYPT_OPERATION(pub u32);
@@ -25238,11 +27563,15 @@ impl ::std::ops::Not for NCRYPT_OPERATION {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_PAD_CIPHER_FLAG: u32 = 16u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_PCP_ENCRYPTION_KEY: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_PCP_HMACVERIFICATION_KEY: u32 = 16u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct NCRYPT_PCP_HMAC_AUTH_SIGNATURE_INFO {
     pub dwVersion: u32,
     pub iExpiration: i32,
@@ -25271,9 +27600,11 @@ unsafe impl ::windows::runtime::Abi for NCRYPT_PCP_HMAC_AUTH_SIGNATURE_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_PCP_IDENTITY_KEY: u32 = 8u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct NCRYPT_PCP_RAW_POLICYDIGEST {
     pub dwVersion: u32,
     pub cbDigest: u32,
@@ -25299,10 +27630,13 @@ unsafe impl ::windows::runtime::Abi for NCRYPT_PCP_RAW_POLICYDIGEST {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_PCP_SIGNATURE_KEY: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_PCP_STORAGE_KEY: u32 = 4u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct NCRYPT_PCP_TPM_FW_VERSION_INFO {
     pub major1: u16,
     pub major2: u16,
@@ -25330,13 +27664,19 @@ unsafe impl ::windows::runtime::Abi for NCRYPT_PCP_TPM_FW_VERSION_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_PIN_CACHE_APPLICATION_TICKET_BYTE_LENGTH: u32 = 90u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_PIN_CACHE_CLEAR_FOR_CALLING_PROCESS_OPTION: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_PIN_CACHE_DISABLE_DPL_FLAG: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_PIN_CACHE_REQUIRE_GESTURE_FLAG: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_PLATFORM_ATTEST_MAGIC: u32 = 1146110288u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct NCRYPT_PLATFORM_ATTEST_PADDING_INFO {
     pub magic: u32,
     pub pcrMask: u32,
@@ -25362,12 +27702,16 @@ unsafe impl ::windows::runtime::Abi for NCRYPT_PLATFORM_ATTEST_PADDING_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_PREFER_VIRTUAL_ISOLATION_FLAG: u32 = 65536u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_PROTECTED_KEY_BLOB_MAGIC: u32 = 1263817296u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_PROTECTION_INFO_TYPE_DESCRIPTOR_STRING: u32 = 1u32;
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct NCRYPT_PROTECT_STREAM_INFO {
     pub pfnStreamOutput: ::std::option::Option<PFNCryptStreamOutputCallback>,
     pub pvCallbackCtxt: *mut ::std::ffi::c_void,
@@ -25402,6 +27746,7 @@ unsafe impl ::windows::runtime::Abi for NCRYPT_PROTECT_STREAM_INFO {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct NCRYPT_PROTECT_STREAM_INFO_EX {
     pub pfnStreamOutput: ::std::option::Option<PFNCryptStreamOutputCallbackEx>,
     pub pvCallbackCtxt: *mut ::std::ffi::c_void,
@@ -25433,10 +27778,13 @@ unsafe impl ::windows::runtime::Abi for NCRYPT_PROTECT_STREAM_INFO_EX {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_PROTECT_TO_LOCAL_SYSTEM: u32 = 32768u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_SEALING_FLAG: u32 = 256u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct NCRYPT_SUPPORTED_LENGTHS {
     pub dwMinLength: u32,
     pub dwMaxLength: u32,
@@ -25464,9 +27812,11 @@ unsafe impl ::windows::runtime::Abi for NCRYPT_SUPPORTED_LENGTHS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_TPM12_PROVIDER: u32 = 65536u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct NCRYPT_TPM_LOADABLE_KEY_BLOB_HEADER {
     pub magic: u32,
     pub cbHeader: u32,
@@ -25495,10 +27845,13 @@ unsafe impl ::windows::runtime::Abi for NCRYPT_TPM_LOADABLE_KEY_BLOB_HEADER {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_TPM_LOADABLE_KEY_BLOB_MAGIC: u32 = 1297371211u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_TPM_PAD_PSS_IGNORE_SALT: u32 = 32u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct NCRYPT_TPM_PLATFORM_ATTESTATION_STATEMENT {
     pub Magic: u32,
     pub Version: u32,
@@ -25528,18 +27881,28 @@ unsafe impl ::windows::runtime::Abi for NCRYPT_TPM_PLATFORM_ATTESTATION_STATEMEN
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_TPM_PLATFORM_ATTESTATION_STATEMENT_CURRENT_VERSION: u32 = 0u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_TPM_PLATFORM_ATTESTATION_STATEMENT_V0: u32 = 0u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_TPM_PSS_SALT_SIZE_HASHSIZE: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_TPM_PSS_SALT_SIZE_MAXIMUM: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_TPM_PSS_SALT_SIZE_UNKNOWN: u32 = 0u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_TREAT_NIST_AS_GENERIC_ECC_FLAG: u32 = 8192u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_UI_APPCONTAINER_ACCESS_MEDIUM_FLAG: u32 = 8u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_UI_FINGERPRINT_PROTECTION_FLAG: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_UI_FORCE_HIGH_PROTECTION_FLAG: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct NCRYPT_UI_POLICY {
     pub dwVersion: u32,
     pub dwFlags: u32,
@@ -25574,11 +27937,15 @@ unsafe impl ::windows::runtime::Abi for NCRYPT_UI_POLICY {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_UI_PROTECT_KEY_FLAG: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_USE_PER_BOOT_KEY_FLAG: u32 = 262144u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_USE_VIRTUAL_ISOLATION_FLAG: u32 = 131072u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct NCRYPT_VSM_KEY_ATTESTATION_CLAIM_RESTRICTIONS {
     pub Version: u32,
     pub TrustletId: u64,
@@ -25608,10 +27975,13 @@ unsafe impl ::windows::runtime::Abi for NCRYPT_VSM_KEY_ATTESTATION_CLAIM_RESTRIC
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_VSM_KEY_ATTESTATION_CLAIM_RESTRICTIONS_CURRENT_VERSION: u32 = 0u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_VSM_KEY_ATTESTATION_CLAIM_RESTRICTIONS_V0: u32 = 0u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct NCRYPT_VSM_KEY_ATTESTATION_STATEMENT {
     pub Magic: u32,
     pub Version: u32,
@@ -25640,11 +28010,14 @@ unsafe impl ::windows::runtime::Abi for NCRYPT_VSM_KEY_ATTESTATION_STATEMENT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_VSM_KEY_ATTESTATION_STATEMENT_CURRENT_VERSION: u32 = 0u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_VSM_KEY_ATTESTATION_STATEMENT_V0: u32 = 0u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct NCryptAlgorithmName {
     pub pszName: super::super::Foundation::PWSTR,
     pub dwClass: NCRYPT_ALGORITHM_NAME_CLASS,
@@ -25678,6 +28051,7 @@ unsafe impl ::windows::runtime::Abi for NCryptAlgorithmName {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[inline]
 pub unsafe fn NCryptCloseProtectionDescriptor<'a, Param0: ::windows::runtime::IntoParam<'a, super::NCRYPT_DESCRIPTOR_HANDLE>>(hdescriptor: Param0) -> i32 {
     #[cfg(windows)]
@@ -25691,6 +28065,7 @@ pub unsafe fn NCryptCloseProtectionDescriptor<'a, Param0: ::windows::runtime::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[inline]
 pub unsafe fn NCryptCreateClaim(hsubjectkey: usize, hauthoritykey: usize, dwclaimtype: u32, pparameterlist: *const BCryptBufferDesc, pbclaimblob: *mut u8, cbclaimblob: u32, pcbresult: *mut u32, dwflags: u32) -> i32 {
     #[cfg(windows)]
@@ -25714,6 +28089,7 @@ pub unsafe fn NCryptCreateClaim(hsubjectkey: usize, hauthoritykey: usize, dwclai
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn NCryptCreatePersistedKey<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hprovider: usize, phkey: *mut usize, pszalgid: Param2, pszkeyname: Param3, dwlegacykeyspec: CERT_KEY_SPEC, dwflags: NCRYPT_FLAGS) -> i32 {
     #[cfg(windows)]
@@ -25728,6 +28104,7 @@ pub unsafe fn NCryptCreatePersistedKey<'a, Param2: ::windows::runtime::IntoParam
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn NCryptCreateProtectionDescriptor<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszdescriptorstring: Param0, dwflags: u32, phdescriptor: *mut super::NCRYPT_DESCRIPTOR_HANDLE) -> i32 {
     #[cfg(windows)]
@@ -25741,6 +28118,7 @@ pub unsafe fn NCryptCreateProtectionDescriptor<'a, Param0: ::windows::runtime::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[inline]
 pub unsafe fn NCryptDecrypt(hkey: usize, pbinput: *const u8, cbinput: u32, ppaddinginfo: *const ::std::ffi::c_void, pboutput: *mut u8, cboutput: u32, pcbresult: *mut u32, dwflags: NCRYPT_FLAGS) -> i32 {
     #[cfg(windows)]
@@ -25754,6 +28132,7 @@ pub unsafe fn NCryptDecrypt(hkey: usize, pbinput: *const u8, cbinput: u32, ppadd
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[inline]
 pub unsafe fn NCryptDeleteKey(hkey: usize, dwflags: u32) -> i32 {
     #[cfg(windows)]
@@ -25768,6 +28147,7 @@ pub unsafe fn NCryptDeleteKey(hkey: usize, dwflags: u32) -> i32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn NCryptDeriveKey<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hsharedsecret: usize, pwszkdf: Param1, pparameterlist: *const BCryptBufferDesc, pbderivedkey: *mut u8, cbderivedkey: u32, pcbresult: *mut u32, dwflags: u32) -> i32 {
     #[cfg(windows)]
@@ -25781,6 +28161,7 @@ pub unsafe fn NCryptDeriveKey<'a, Param1: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[inline]
 pub unsafe fn NCryptEncrypt(hkey: usize, pbinput: *const u8, cbinput: u32, ppaddinginfo: *const ::std::ffi::c_void, pboutput: *mut u8, cboutput: u32, pcbresult: *mut u32, dwflags: NCRYPT_FLAGS) -> i32 {
     #[cfg(windows)]
@@ -25795,6 +28176,7 @@ pub unsafe fn NCryptEncrypt(hkey: usize, pbinput: *const u8, cbinput: u32, ppadd
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn NCryptEnumAlgorithms(hprovider: usize, dwalgoperations: NCRYPT_OPERATION, pdwalgcount: *mut u32, ppalglist: *mut *mut NCryptAlgorithmName, dwflags: u32) -> i32 {
     #[cfg(windows)]
@@ -25809,6 +28191,7 @@ pub unsafe fn NCryptEnumAlgorithms(hprovider: usize, dwalgoperations: NCRYPT_OPE
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn NCryptEnumKeys<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hprovider: usize, pszscope: Param1, ppkeyname: *mut *mut NCryptKeyName, ppenumstate: *mut *mut ::std::ffi::c_void, dwflags: NCRYPT_FLAGS) -> i32 {
     #[cfg(windows)]
@@ -25823,6 +28206,7 @@ pub unsafe fn NCryptEnumKeys<'a, Param1: ::windows::runtime::IntoParam<'a, super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn NCryptEnumStorageProviders(pdwprovidercount: *mut u32, ppproviderlist: *mut *mut NCryptProviderName, dwflags: u32) -> i32 {
     #[cfg(windows)]
@@ -25837,6 +28221,7 @@ pub unsafe fn NCryptEnumStorageProviders(pdwprovidercount: *mut u32, ppproviderl
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn NCryptExportKey<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hkey: usize, hexportkey: usize, pszblobtype: Param2, pparameterlist: *const BCryptBufferDesc, pboutput: *mut u8, cboutput: u32, pcbresult: *mut u32, dwflags: NCRYPT_FLAGS) -> i32 {
     #[cfg(windows)]
@@ -25850,6 +28235,7 @@ pub unsafe fn NCryptExportKey<'a, Param2: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[inline]
 pub unsafe fn NCryptFinalizeKey(hkey: usize, dwflags: NCRYPT_FLAGS) -> i32 {
     #[cfg(windows)]
@@ -25863,6 +28249,7 @@ pub unsafe fn NCryptFinalizeKey(hkey: usize, dwflags: NCRYPT_FLAGS) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[inline]
 pub unsafe fn NCryptFreeBuffer(pvinput: *mut ::std::ffi::c_void) -> i32 {
     #[cfg(windows)]
@@ -25876,6 +28263,7 @@ pub unsafe fn NCryptFreeBuffer(pvinput: *mut ::std::ffi::c_void) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[inline]
 pub unsafe fn NCryptFreeObject(hobject: usize) -> i32 {
     #[cfg(windows)]
@@ -25890,6 +28278,7 @@ pub unsafe fn NCryptFreeObject(hobject: usize) -> i32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn NCryptGetProperty<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hobject: usize, pszproperty: Param1, pboutput: *mut u8, cboutput: u32, pcbresult: *mut u32, dwflags: super::OBJECT_SECURITY_INFORMATION) -> i32 {
     #[cfg(windows)]
@@ -25903,6 +28292,7 @@ pub unsafe fn NCryptGetProperty<'a, Param1: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[inline]
 pub unsafe fn NCryptGetProtectionDescriptorInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::NCRYPT_DESCRIPTOR_HANDLE>>(hdescriptor: Param0, pmempara: *const NCRYPT_ALLOC_PARA, dwinfotype: u32, ppvinfo: *mut *mut ::std::ffi::c_void) -> i32 {
     #[cfg(windows)]
@@ -25917,6 +28307,7 @@ pub unsafe fn NCryptGetProtectionDescriptorInfo<'a, Param0: ::windows::runtime::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn NCryptImportKey<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hprovider: usize, himportkey: usize, pszblobtype: Param2, pparameterlist: *const BCryptBufferDesc, phkey: *mut usize, pbdata: *const u8, cbdata: u32, dwflags: NCRYPT_FLAGS) -> i32 {
     #[cfg(windows)]
@@ -25931,6 +28322,7 @@ pub unsafe fn NCryptImportKey<'a, Param2: ::windows::runtime::IntoParam<'a, supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn NCryptIsAlgSupported<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hprovider: usize, pszalgid: Param1, dwflags: u32) -> i32 {
     #[cfg(windows)]
@@ -25945,6 +28337,7 @@ pub unsafe fn NCryptIsAlgSupported<'a, Param1: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn NCryptIsKeyHandle(hkey: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -25958,6 +28351,7 @@ pub unsafe fn NCryptIsKeyHandle(hkey: usize) -> super::super::Foundation::BOOL {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[inline]
 pub unsafe fn NCryptKeyDerivation(hkey: usize, pparameterlist: *const BCryptBufferDesc, pbderivedkey: *mut u8, cbderivedkey: u32, pcbresult: *mut u32, dwflags: u32) -> i32 {
     #[cfg(windows)]
@@ -25974,6 +28368,7 @@ pub unsafe fn NCryptKeyDerivation(hkey: usize, pparameterlist: *const BCryptBuff
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct NCryptKeyName {
     pub pszName: super::super::Foundation::PWSTR,
     pub pszAlgid: super::super::Foundation::PWSTR,
@@ -26008,6 +28403,7 @@ unsafe impl ::windows::runtime::Abi for NCryptKeyName {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn NCryptNotifyChangeKey(hprovider: usize, phevent: *mut super::super::Foundation::HANDLE, dwflags: NCRYPT_FLAGS) -> i32 {
     #[cfg(windows)]
@@ -26022,6 +28418,7 @@ pub unsafe fn NCryptNotifyChangeKey(hprovider: usize, phevent: *mut super::super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn NCryptOpenKey<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hprovider: usize, phkey: *mut usize, pszkeyname: Param2, dwlegacykeyspec: CERT_KEY_SPEC, dwflags: NCRYPT_FLAGS) -> i32 {
     #[cfg(windows)]
@@ -26036,6 +28433,7 @@ pub unsafe fn NCryptOpenKey<'a, Param2: ::windows::runtime::IntoParam<'a, super:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn NCryptOpenStorageProvider<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(phprovider: *mut usize, pszprovidername: Param1, dwflags: u32) -> i32 {
     #[cfg(windows)]
@@ -26050,6 +28448,7 @@ pub unsafe fn NCryptOpenStorageProvider<'a, Param1: ::windows::runtime::IntoPara
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn NCryptProtectSecret<'a, Param0: ::windows::runtime::IntoParam<'a, super::NCRYPT_DESCRIPTOR_HANDLE>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hdescriptor: Param0, dwflags: u32, pbdata: *const u8, cbdata: u32, pmempara: *const NCRYPT_ALLOC_PARA, hwnd: Param5, ppbprotectedblob: *mut *mut u8, pcbprotectedblob: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -26066,6 +28465,7 @@ pub unsafe fn NCryptProtectSecret<'a, Param0: ::windows::runtime::IntoParam<'a, 
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct NCryptProviderName {
     pub pszName: super::super::Foundation::PWSTR,
     pub pszComment: super::super::Foundation::PWSTR,
@@ -26098,6 +28498,7 @@ unsafe impl ::windows::runtime::Abi for NCryptProviderName {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn NCryptQueryProtectionDescriptorName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszname: Param0, pwszdescriptorstring: super::super::Foundation::PWSTR, pcdescriptorstring: *mut usize, dwflags: u32) -> i32 {
     #[cfg(windows)]
@@ -26112,6 +28513,7 @@ pub unsafe fn NCryptQueryProtectionDescriptorName<'a, Param0: ::windows::runtime
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn NCryptRegisterProtectionDescriptorName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszname: Param0, pwszdescriptorstring: Param1, dwflags: u32) -> i32 {
     #[cfg(windows)]
@@ -26125,6 +28527,7 @@ pub unsafe fn NCryptRegisterProtectionDescriptorName<'a, Param0: ::windows::runt
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[inline]
 pub unsafe fn NCryptSecretAgreement(hprivkey: usize, hpubkey: usize, phagreedsecret: *mut usize, dwflags: NCRYPT_FLAGS) -> i32 {
     #[cfg(windows)]
@@ -26139,6 +28542,7 @@ pub unsafe fn NCryptSecretAgreement(hprivkey: usize, hpubkey: usize, phagreedsec
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn NCryptSetProperty<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hobject: usize, pszproperty: Param1, pbinput: *const u8, cbinput: u32, dwflags: NCRYPT_FLAGS) -> i32 {
     #[cfg(windows)]
@@ -26152,6 +28556,7 @@ pub unsafe fn NCryptSetProperty<'a, Param1: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[inline]
 pub unsafe fn NCryptSignHash(hkey: usize, ppaddinginfo: *const ::std::ffi::c_void, pbhashvalue: *const u8, cbhashvalue: u32, pbsignature: *mut u8, cbsignature: u32, pcbresult: *mut u32, dwflags: NCRYPT_FLAGS) -> i32 {
     #[cfg(windows)]
@@ -26165,6 +28570,7 @@ pub unsafe fn NCryptSignHash(hkey: usize, ppaddinginfo: *const ::std::ffi::c_voi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[inline]
 pub unsafe fn NCryptStreamClose<'a, Param0: ::windows::runtime::IntoParam<'a, super::NCRYPT_STREAM_HANDLE>>(hstream: Param0) -> i32 {
     #[cfg(windows)]
@@ -26179,6 +28585,7 @@ pub unsafe fn NCryptStreamClose<'a, Param0: ::windows::runtime::IntoParam<'a, su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn NCryptStreamOpenToProtect<'a, Param0: ::windows::runtime::IntoParam<'a, super::NCRYPT_DESCRIPTOR_HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hdescriptor: Param0, dwflags: u32, hwnd: Param2, pstreaminfo: *const NCRYPT_PROTECT_STREAM_INFO, phstream: *mut super::NCRYPT_STREAM_HANDLE) -> i32 {
     #[cfg(windows)]
@@ -26193,6 +28600,7 @@ pub unsafe fn NCryptStreamOpenToProtect<'a, Param0: ::windows::runtime::IntoPara
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn NCryptStreamOpenToUnprotect<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(pstreaminfo: *const NCRYPT_PROTECT_STREAM_INFO, dwflags: u32, hwnd: Param2, phstream: *mut super::NCRYPT_STREAM_HANDLE) -> i32 {
     #[cfg(windows)]
@@ -26207,6 +28615,7 @@ pub unsafe fn NCryptStreamOpenToUnprotect<'a, Param2: ::windows::runtime::IntoPa
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn NCryptStreamOpenToUnprotectEx<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(pstreaminfo: *const NCRYPT_PROTECT_STREAM_INFO_EX, dwflags: u32, hwnd: Param2, phstream: *mut super::NCRYPT_STREAM_HANDLE) -> i32 {
     #[cfg(windows)]
@@ -26221,6 +28630,7 @@ pub unsafe fn NCryptStreamOpenToUnprotectEx<'a, Param2: ::windows::runtime::Into
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn NCryptStreamUpdate<'a, Param0: ::windows::runtime::IntoParam<'a, super::NCRYPT_STREAM_HANDLE>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hstream: Param0, pbdata: *const u8, cbdata: usize, ffinal: Param3) -> i32 {
     #[cfg(windows)]
@@ -26234,6 +28644,7 @@ pub unsafe fn NCryptStreamUpdate<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[inline]
 pub unsafe fn NCryptTranslateHandle(phprovider: *mut usize, phkey: *mut usize, hlegacyprov: usize, hlegacykey: usize, dwlegacykeyspec: CERT_KEY_SPEC, dwflags: u32) -> i32 {
     #[cfg(windows)]
@@ -26248,6 +28659,7 @@ pub unsafe fn NCryptTranslateHandle(phprovider: *mut usize, phkey: *mut usize, h
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn NCryptUnprotectSecret<'a, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(phdescriptor: *mut super::NCRYPT_DESCRIPTOR_HANDLE, dwflags: NCRYPT_FLAGS, pbprotectedblob: *const u8, cbprotectedblob: u32, pmempara: *const NCRYPT_ALLOC_PARA, hwnd: Param5, ppbdata: *mut *mut u8, pcbdata: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -26261,6 +28673,7 @@ pub unsafe fn NCryptUnprotectSecret<'a, Param5: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[inline]
 pub unsafe fn NCryptVerifyClaim(hsubjectkey: usize, hauthoritykey: usize, dwclaimtype: u32, pparameterlist: *const BCryptBufferDesc, pbclaimblob: *const u8, cbclaimblob: u32, poutput: *mut BCryptBufferDesc, dwflags: u32) -> i32 {
     #[cfg(windows)]
@@ -26283,6 +28696,7 @@ pub unsafe fn NCryptVerifyClaim(hsubjectkey: usize, hauthoritykey: usize, dwclai
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[inline]
 pub unsafe fn NCryptVerifySignature(hkey: usize, ppaddinginfo: *const ::std::ffi::c_void, pbhashvalue: *const u8, cbhashvalue: u32, pbsignature: *const u8, cbsignature: u32, dwflags: NCRYPT_FLAGS) -> i32 {
     #[cfg(windows)]
@@ -26296,19 +28710,30 @@ pub unsafe fn NCryptVerifySignature(hkey: usize, ppaddinginfo: *const ::std::ffi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NETSCAPE_SIGN_CA_CERT_TYPE: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NETSCAPE_SIGN_CERT_TYPE: u32 = 16u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NETSCAPE_SMIME_CA_CERT_TYPE: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NETSCAPE_SMIME_CERT_TYPE: u32 = 32u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NETSCAPE_SSL_CA_CERT_TYPE: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NETSCAPE_SSL_CLIENT_AUTH_CERT_TYPE: u32 = 128u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NETSCAPE_SSL_SERVER_AUTH_CERT_TYPE: u32 = 64u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const OCSP_BASIC_BY_KEY_RESPONDER_ID: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const OCSP_BASIC_BY_NAME_RESPONDER_ID: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const OCSP_BASIC_GOOD_CERT_STATUS: u32 = 0u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct OCSP_BASIC_RESPONSE_ENTRY {
     pub CertId: OCSP_CERT_ID,
     pub dwCertStatus: u32,
@@ -26342,6 +28767,7 @@ unsafe impl ::windows::runtime::Abi for OCSP_BASIC_RESPONSE_ENTRY {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub union OCSP_BASIC_RESPONSE_ENTRY_0 {
     pub pRevokedInfo: *mut OCSP_BASIC_REVOKED_INFO,
 }
@@ -26369,6 +28795,7 @@ unsafe impl ::windows::runtime::Abi for OCSP_BASIC_RESPONSE_ENTRY_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct OCSP_BASIC_RESPONSE_INFO {
     pub dwVersion: u32,
     pub dwResponderIdChoice: u32,
@@ -26402,6 +28829,7 @@ unsafe impl ::windows::runtime::Abi for OCSP_BASIC_RESPONSE_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub union OCSP_BASIC_RESPONSE_INFO_0 {
     pub ByNameResponderId: CRYPTOAPI_BLOB,
     pub ByKeyResponderId: CRYPTOAPI_BLOB,
@@ -26422,11 +28850,14 @@ unsafe impl ::windows::runtime::Abi for OCSP_BASIC_RESPONSE_INFO_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const OCSP_BASIC_RESPONSE_V1: u32 = 0u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const OCSP_BASIC_REVOKED_CERT_STATUS: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct OCSP_BASIC_REVOKED_INFO {
     pub RevocationDate: super::super::Foundation::FILETIME,
     pub dwCrlReasonCode: CERT_REVOCATION_STATUS_REASON,
@@ -26461,6 +28892,7 @@ unsafe impl ::windows::runtime::Abi for OCSP_BASIC_REVOKED_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct OCSP_BASIC_SIGNED_RESPONSE_INFO {
     pub ToBeSigned: CRYPTOAPI_BLOB,
     pub SignatureInfo: OCSP_SIGNATURE_INFO,
@@ -26492,10 +28924,12 @@ unsafe impl ::windows::runtime::Abi for OCSP_BASIC_SIGNED_RESPONSE_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const OCSP_BASIC_UNKNOWN_CERT_STATUS: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct OCSP_CERT_ID {
     pub HashAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub IssuerNameHash: CRYPTOAPI_BLOB,
@@ -26529,11 +28963,14 @@ unsafe impl ::windows::runtime::Abi for OCSP_CERT_ID {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const OCSP_INTERNAL_ERROR_RESPONSE: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const OCSP_MALFORMED_REQUEST_RESPONSE: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct OCSP_REQUEST_ENTRY {
     pub CertId: OCSP_CERT_ID,
     pub cExtension: u32,
@@ -26569,6 +29006,7 @@ unsafe impl ::windows::runtime::Abi for OCSP_REQUEST_ENTRY {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct OCSP_REQUEST_INFO {
     pub dwVersion: u32,
     pub pRequestorName: *mut CERT_ALT_NAME_ENTRY,
@@ -26604,10 +29042,12 @@ unsafe impl ::windows::runtime::Abi for OCSP_REQUEST_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const OCSP_REQUEST_V1: u32 = 0u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct OCSP_RESPONSE_INFO {
     pub dwStatus: u32,
     pub pszObjId: super::super::Foundation::PSTR,
@@ -26643,6 +29083,7 @@ unsafe impl ::windows::runtime::Abi for OCSP_RESPONSE_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct OCSP_SIGNATURE_INFO {
     pub SignatureAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub Signature: CRYPT_BIT_BLOB,
@@ -26679,6 +29120,7 @@ unsafe impl ::windows::runtime::Abi for OCSP_SIGNATURE_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct OCSP_SIGNED_REQUEST_INFO {
     pub ToBeSigned: CRYPTOAPI_BLOB,
     pub pOptionalSignatureInfo: *mut OCSP_SIGNATURE_INFO,
@@ -26710,10 +29152,15 @@ unsafe impl ::windows::runtime::Abi for OCSP_SIGNED_REQUEST_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const OCSP_SIG_REQUIRED_RESPONSE: u32 = 5u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const OCSP_SUCCESSFUL_RESPONSE: u32 = 0u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const OCSP_TRY_LATER_RESPONSE: u32 = 3u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const OCSP_UNAUTHORIZED_RESPONSE: u32 = 6u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const OPAQUEKEYBLOB: u32 = 9u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type PCRYPT_DECRYPT_PRIVATE_KEY_FUNC = unsafe extern "system" fn(algorithm: CRYPT_ALGORITHM_IDENTIFIER, encryptedprivatekey: CRYPTOAPI_BLOB, pbcleartextkey: *mut u8, pcbcleartextkey: *mut u32, pvoiddecryptfunc: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL;
@@ -26881,6 +29328,7 @@ pub type PFN_IMPORT_PUBLIC_KEY_INFO_EX2_FUNC = unsafe extern "system" fn(dwcerte
 pub type PFN_NCRYPT_ALLOC = unsafe extern "system" fn(cbsize: usize) -> *mut ::std::ffi::c_void;
 pub type PFN_NCRYPT_FREE = unsafe extern "system" fn(pv: *const ::std::ffi::c_void);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PFXExportCertStore<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hstore: *const ::std::ffi::c_void, ppfx: *mut CRYPTOAPI_BLOB, szpassword: Param2, dwflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -26895,6 +29343,7 @@ pub unsafe fn PFXExportCertStore<'a, Param2: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PFXExportCertStoreEx<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hstore: *const ::std::ffi::c_void, ppfx: *mut CRYPTOAPI_BLOB, szpassword: Param2, pvpara: *const ::std::ffi::c_void, dwflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -26909,6 +29358,7 @@ pub unsafe fn PFXExportCertStoreEx<'a, Param2: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PFXImportCertStore<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(ppfx: *const CRYPTOAPI_BLOB, szpassword: Param1, dwflags: CRYPT_KEY_FLAGS) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
@@ -26923,6 +29373,7 @@ pub unsafe fn PFXImportCertStore<'a, Param1: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PFXIsPFXBlob(ppfx: *const CRYPTOAPI_BLOB) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -26937,6 +29388,7 @@ pub unsafe fn PFXIsPFXBlob(ppfx: *const CRYPTOAPI_BLOB) -> super::super::Foundat
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PFXVerifyPassword<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(ppfx: *const CRYPTOAPI_BLOB, szpassword: Param1, dwflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -26950,21 +29402,34 @@ pub unsafe fn PFXVerifyPassword<'a, Param1: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PKCS12_DISABLE_ENCRYPT_CERTIFICATES: u32 = 256u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PKCS12_ENCRYPT_CERTIFICATES: u32 = 512u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PKCS12_EXPORT_ECC_CURVE_OID: u32 = 8192u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PKCS12_EXPORT_ECC_CURVE_PARAMETERS: u32 = 4096u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PKCS12_EXPORT_PBES2_PARAMS: u32 = 128u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PKCS12_EXPORT_RESERVED_MASK: u32 = 4294901760u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PKCS12_EXPORT_SILENT: u32 = 64u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PKCS12_IMPORT_RESERVED_MASK: u32 = 4294901760u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PKCS12_IMPORT_SILENT: u32 = 64u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PKCS12_ONLY_CERTIFICATES: u32 = 1024u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PKCS12_ONLY_CERTIFICATES_PROVIDER_TYPE: u32 = 0u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PKCS12_ONLY_NOT_ENCRYPTED_CERTIFICATES: u32 = 2048u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct PKCS12_PBES2_EXPORT_PARAMS {
     pub dwSize: u32,
     pub hNcryptDescriptor: *mut ::std::ffi::c_void,
@@ -26997,15 +29462,22 @@ unsafe impl ::windows::runtime::Abi for PKCS12_PBES2_EXPORT_PARAMS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PKCS12_PROTECT_TO_DOMAIN_SIDS: u32 = 32u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PKCS12_VIRTUAL_ISOLATION_KEY: u32 = 65536u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PKCS5_PADDING: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PKCS_7_NDR_ENCODING: u32 = 131072u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PKCS_RSA_SSA_PSS_TRAILER_FIELD_BC: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PLAINTEXTKEYBLOB: u32 = 8u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct POLICY_ELEMENT {
     pub targetEndpointAddress: super::super::Foundation::PWSTR,
     pub issuerEndpointAddress: super::super::Foundation::PWSTR,
@@ -27048,40 +29520,73 @@ unsafe impl ::windows::runtime::Abi for POLICY_ELEMENT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const POLICY_IGNORE_NON_CRITICAL_BC: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PP_ADMIN_PIN: u32 = 31u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PP_APPLI_CERT: u32 = 18u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PP_CERTCHAIN: u32 = 9u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PP_CHANGE_PASSWORD: u32 = 7u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PP_CONTAINER: u32 = 6u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PP_CONTEXT_INFO: u32 = 11u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PP_CRYPT_COUNT_KEY_USE: u32 = 41u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PP_DISMISS_PIN_UI_SEC: u32 = 49u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PP_ENUMALGS: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PP_ENUMALGS_EX: u32 = 22u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PP_ENUMCONTAINERS: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PP_ENUMELECTROOTS: u32 = 26u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PP_ENUMEX_SIGNING_PROT: u32 = 40u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PP_ENUMMANDROOTS: u32 = 25u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PP_IMPTYPE: u32 = 3u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PP_KEYSET_TYPE: u32 = 27u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PP_KEYSPEC: u32 = 39u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PP_KEYSTORAGE: u32 = 17u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PP_KEYX_KEYSIZE_INC: u32 = 35u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PP_KEY_TYPE_SUBTYPE: u32 = 10u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PP_NAME: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PP_PROVTYPE: u32 = 16u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PP_SESSION_KEYSIZE: u32 = 20u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PP_SGC_INFO: u32 = 37u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PP_SIG_KEYSIZE_INC: u32 = 34u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PP_SMARTCARD_GUID: u32 = 45u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PP_SMARTCARD_READER_ICON: u32 = 47u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PP_SYM_KEYSIZE: u32 = 19u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PP_UNIQUE_CONTAINER: u32 = 36u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PP_VERSION: u32 = 5u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PRIVATEKEYBLOB: u32 = 7u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct PRIVKEYVER3 {
     pub magic: u32,
     pub bitlenP: u32,
@@ -27111,16 +29616,24 @@ unsafe impl ::windows::runtime::Abi for PRIVKEYVER3 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PROV_DH_SCHANNEL: u32 = 18u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PROV_DSS: u32 = 3u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PROV_DSS_DH: u32 = 13u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PROV_EC_ECDSA_FULL: u32 = 16u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PROV_EC_ECDSA_SIG: u32 = 14u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PROV_EC_ECNRA_FULL: u32 = 17u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PROV_EC_ECNRA_SIG: u32 = 15u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct PROV_ENUMALGS {
     pub aiAlgid: u32,
     pub dwBitLen: u32,
@@ -27157,6 +29670,7 @@ unsafe impl ::windows::runtime::Abi for PROV_ENUMALGS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct PROV_ENUMALGS_EX {
     pub aiAlgid: u32,
     pub dwDefaultLen: u32,
@@ -27205,24 +29719,41 @@ unsafe impl ::windows::runtime::Abi for PROV_ENUMALGS_EX {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PROV_FORTEZZA: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PROV_INTEL_SEC: u32 = 22u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PROV_MS_EXCHANGE: u32 = 5u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PROV_REPLACE_OWF: u32 = 23u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PROV_RNG: u32 = 21u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PROV_RSA_AES: u32 = 24u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PROV_RSA_FULL: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PROV_RSA_SCHANNEL: u32 = 12u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PROV_RSA_SIG: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PROV_SPYRUS_LYNKS: u32 = 20u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PROV_SSL: u32 = 6u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PROV_STT_ACQ: u32 = 8u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PROV_STT_BRND: u32 = 9u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PROV_STT_ISS: u32 = 11u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PROV_STT_MER: u32 = 7u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PROV_STT_ROOT: u32 = 10u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct PUBKEY {
     pub magic: u32,
     pub bitlen: u32,
@@ -27250,6 +29781,7 @@ unsafe impl ::windows::runtime::Abi for PUBKEY {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct PUBKEYVER3 {
     pub magic: u32,
     pub bitlenP: u32,
@@ -27278,10 +29810,13 @@ unsafe impl ::windows::runtime::Abi for PUBKEYVER3 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PUBLICKEYBLOB: u32 = 6u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PUBLICKEYBLOBEX: u32 = 10u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct PUBLICKEYSTRUC {
     pub bType: u8,
     pub bVersion: u8,
@@ -27309,6 +29844,7 @@ unsafe impl ::windows::runtime::Abi for PUBLICKEYSTRUC {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PaddingMode(pub i32);
@@ -27328,10 +29864,12 @@ unsafe impl ::windows::runtime::Abi for PaddingMode {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const RANDOM_PADDING: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct RECIPIENTPOLICY {
     pub recipient: ENDPOINTADDRESS,
     pub issuer: ENDPOINTADDRESS,
@@ -27379,6 +29917,7 @@ unsafe impl ::windows::runtime::Abi for RECIPIENTPOLICY {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct RECIPIENTPOLICY2 {
     pub recipient: ENDPOINTADDRESS2,
     pub issuer: ENDPOINTADDRESS2,
@@ -27423,12 +29962,17 @@ unsafe impl ::windows::runtime::Abi for RECIPIENTPOLICY2 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const RECIPIENTPOLICYV1: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const RECIPIENTPOLICYV2: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const REPORT_NOT_ABLE_TO_EXPORT_PRIVATE_KEY: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const REPORT_NO_PRIVATE_KEY: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct ROOT_INFO_LUID {
     pub LowPart: u32,
     pub HighPart: i32,
@@ -27454,9 +29998,11 @@ unsafe impl ::windows::runtime::Abi for ROOT_INFO_LUID {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const RSA1024BIT_KEY: u32 = 67108864u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct RSAPUBKEY {
     pub magic: u32,
     pub bitlen: u32,
@@ -27485,6 +30031,7 @@ unsafe impl ::windows::runtime::Abi for RSAPUBKEY {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct SCHANNEL_ALG {
     pub dwUse: u32,
     pub Algid: u32,
@@ -27513,22 +30060,37 @@ unsafe impl ::windows::runtime::Abi for SCHANNEL_ALG {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const SCHANNEL_ENC_KEY: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const SCHANNEL_MAC_KEY: u32 = 0u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const SELCERT_ALGORITHM: u32 = 105u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const SELCERT_CERTLIST: u32 = 102u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const SELCERT_FINEPRINT: u32 = 101u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const SELCERT_ISSUED_TO: u32 = 103u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const SELCERT_PROPERTIES: u32 = 100u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const SELCERT_SERIAL_NUM: u32 = 106u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const SELCERT_THUMBPRINT: u32 = 107u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const SELCERT_VALIDITY: u32 = 104u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const SIGNATURE_RESOURCE_NUMBER: u32 = 666u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const SIMPLEBLOB: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const SITE_PIN_RULES_ALL_SUBDOMAINS_FLAG: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const SORTED_CTL_EXT_HASHED_SUBJECT_IDENTIFIER_FLAG: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct SSL_ECCKEY_BLOB {
     pub dwCurveType: u32,
     pub cbKey: u32,
@@ -27554,9 +30116,11 @@ unsafe impl ::windows::runtime::Abi for SSL_ECCKEY_BLOB {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const SSL_F12_ERROR_TEXT_LENGTH: u32 = 256u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct SSL_F12_EXTRA_CERT_CHAIN_POLICY_STATUS {
     pub cbSize: u32,
     pub dwErrorLevel: u32,
@@ -27585,10 +30149,12 @@ unsafe impl ::windows::runtime::Abi for SSL_F12_EXTRA_CERT_CHAIN_POLICY_STATUS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const SSL_HPKP_HEADER_COUNT: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct SSL_HPKP_HEADER_EXTRA_CERT_CHAIN_POLICY_PARA {
     pub cbSize: u32,
     pub dwReserved: u32,
@@ -27622,12 +30188,16 @@ unsafe impl ::windows::runtime::Abi for SSL_HPKP_HEADER_EXTRA_CERT_CHAIN_POLICY_
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const SSL_HPKP_PKP_HEADER_INDEX: u32 = 0u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const SSL_HPKP_PKP_RO_HEADER_INDEX: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const SSL_KEY_PIN_ERROR_TEXT_LENGTH: u32 = 512u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub struct SSL_KEY_PIN_EXTRA_CERT_CHAIN_POLICY_PARA {
     pub cbSize: u32,
     pub dwReserved: u32,
@@ -27662,6 +30232,7 @@ unsafe impl ::windows::runtime::Abi for SSL_KEY_PIN_EXTRA_CERT_CHAIN_POLICY_PARA
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct SSL_KEY_PIN_EXTRA_CERT_CHAIN_POLICY_STATUS {
     pub cbSize: u32,
     pub lError: i32,
@@ -27688,8 +30259,10 @@ unsafe impl ::windows::runtime::Abi for SSL_KEY_PIN_EXTRA_CERT_CHAIN_POLICY_STAT
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const SYMMETRICWRAPKEYBLOB: u32 = 11u32;
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SignHash<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcrypto: *const INFORMATIONCARD_CRYPTO_HANDLE, cbhash: u32, phash: *const u8, hashalgoid: Param3, pcbsig: *mut u32, ppsig: *mut *mut u8) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -27703,17 +30276,29 @@ pub unsafe fn SignHash<'a, Param3: ::windows::runtime::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const TIMESTAMP_DONT_HASH_DATA: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const TIMESTAMP_FAILURE_BAD_ALG: u32 = 0u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const TIMESTAMP_FAILURE_BAD_FORMAT: u32 = 5u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const TIMESTAMP_FAILURE_BAD_REQUEST: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const TIMESTAMP_FAILURE_EXTENSION_NOT_SUPPORTED: u32 = 16u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const TIMESTAMP_FAILURE_INFO_NOT_AVAILABLE: u32 = 17u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const TIMESTAMP_FAILURE_POLICY_NOT_SUPPORTED: u32 = 15u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const TIMESTAMP_FAILURE_SYSTEM_FAILURE: u32 = 25u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const TIMESTAMP_FAILURE_TIME_NOT_AVAILABLE: u32 = 14u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const TIMESTAMP_NO_AUTH_RETRIEVAL: u32 = 131072u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const TIMESTAMP_VERIFY_CONTEXT_SIGNATURE: u32 = 32u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[inline]
 pub unsafe fn TransformBlock(hcrypto: *const INFORMATIONCARD_CRYPTO_HANDLE, cbindata: u32, pindata: *const u8, pcboutdata: *mut u32, ppoutdata: *mut *mut u8) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -27727,6 +30312,7 @@ pub unsafe fn TransformBlock(hcrypto: *const INFORMATIONCARD_CRYPTO_HANDLE, cbin
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[inline]
 pub unsafe fn TransformFinalBlock(hcrypto: *const INFORMATIONCARD_CRYPTO_HANDLE, cbindata: u32, pindata: *const u8, pcboutdata: *mut u32, ppoutdata: *mut *mut u8) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -27740,9 +30326,12 @@ pub unsafe fn TransformFinalBlock(hcrypto: *const INFORMATIONCARD_CRYPTO_HANDLE,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const USAGE_MATCH_TYPE_AND: u32 = 0u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const USAGE_MATCH_TYPE_OR: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VerifyHash<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcrypto: *const INFORMATIONCARD_CRYPTO_HANDLE, cbhash: u32, phash: *const u8, hashalgoid: Param3, cbsig: u32, psig: *const u8) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
     #[cfg(windows)]
@@ -27757,10 +30346,13 @@ pub unsafe fn VerifyHash<'a, Param3: ::windows::runtime::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const X509_NDR_ENCODING: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const ZERO_PADDING: u32 = 3u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub struct __NCRYPT_PCP_TPM_WEB_AUTHN_ATTESTATION_STATEMENT {
     pub Magic: u32,
     pub Version: u32,

@@ -1,8 +1,10 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Storage_FileProperties`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct BasicProperties(::windows::runtime::IInspectable);
 impl BasicProperties {
+    #[doc = "*Required features: `Storage_FileProperties`*"]
     pub fn Size(&self) -> ::windows::runtime::Result<u64> {
         let this = self;
         unsafe {
@@ -11,6 +13,7 @@ impl BasicProperties {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Storage_FileProperties`, `Foundation`*"]
     pub fn DateModified(&self) -> ::windows::runtime::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -19,6 +22,7 @@ impl BasicProperties {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Storage_FileProperties`, `Foundation`*"]
     pub fn ItemDate(&self) -> ::windows::runtime::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -27,6 +31,7 @@ impl BasicProperties {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Storage_FileProperties`, `Foundation`, `Foundation_Collections`*"]
     pub fn RetrievePropertiesAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>>(&self, propertiestoretrieve: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>> {
         let this = &::windows::runtime::Interface::cast::<IStorageItemExtraProperties>(self)?;
         unsafe {
@@ -35,6 +40,7 @@ impl BasicProperties {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Storage_FileProperties`, `Foundation`, `Foundation_Collections`*"]
     pub fn SavePropertiesAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>>>(&self, propertiestosave: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows::runtime::Interface::cast::<IStorageItemExtraProperties>(self)?;
         unsafe {
@@ -43,6 +49,7 @@ impl BasicProperties {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Storage_FileProperties`, `Foundation`*"]
     pub fn SavePropertiesAsyncOverloadDefault(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows::runtime::Interface::cast::<IStorageItemExtraProperties>(self)?;
         unsafe {
@@ -123,11 +130,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, IStorageItemExtraProperties> for &Bas
         ::std::convert::TryInto::<IStorageItemExtraProperties>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
+#[doc = "*Required features: `Storage_FileProperties`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct DocumentProperties(::windows::runtime::IInspectable);
 impl DocumentProperties {
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Storage_FileProperties`, `Foundation_Collections`*"]
     pub fn Author(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -135,6 +144,7 @@ impl DocumentProperties {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_FileProperties`*"]
     pub fn Title(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -142,11 +152,13 @@ impl DocumentProperties {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_FileProperties`*"]
     pub fn SetTitle<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Storage_FileProperties`, `Foundation_Collections`*"]
     pub fn Keywords(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -154,6 +166,7 @@ impl DocumentProperties {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_FileProperties`*"]
     pub fn Comment(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -161,11 +174,13 @@ impl DocumentProperties {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_FileProperties`*"]
     pub fn SetComment<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Storage_FileProperties`, `Foundation`, `Foundation_Collections`*"]
     pub fn RetrievePropertiesAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>>(&self, propertiestoretrieve: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>> {
         let this = &::windows::runtime::Interface::cast::<IStorageItemExtraProperties>(self)?;
         unsafe {
@@ -174,6 +189,7 @@ impl DocumentProperties {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Storage_FileProperties`, `Foundation`, `Foundation_Collections`*"]
     pub fn SavePropertiesAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>>>(&self, propertiestosave: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows::runtime::Interface::cast::<IStorageItemExtraProperties>(self)?;
         unsafe {
@@ -182,6 +198,7 @@ impl DocumentProperties {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Storage_FileProperties`, `Foundation`*"]
     pub fn SavePropertiesAsyncOverloadDefault(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows::runtime::Interface::cast::<IStorageItemExtraProperties>(self)?;
         unsafe {
@@ -262,9 +279,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, IStorageItemExtraProperties> for &Doc
         ::std::convert::TryInto::<IStorageItemExtraProperties>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
+#[doc = "*Required features: `Storage_FileProperties`*"]
 pub struct GeotagHelper {}
 impl GeotagHelper {
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
+    #[doc = "*Required features: `Storage_FileProperties`, `Devices_Geolocation`, `Foundation`*"]
     pub fn GetGeotagAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::IStorageFile>>(file: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Devices::Geolocation::Geopoint>> {
         Self::IGeotagHelperStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -272,6 +291,7 @@ impl GeotagHelper {
         })
     }
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
+    #[doc = "*Required features: `Storage_FileProperties`, `Devices_Geolocation`, `Foundation`*"]
     pub fn SetGeotagFromGeolocatorAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::IStorageFile>, Param1: ::windows::runtime::IntoParam<'a, super::super::Devices::Geolocation::Geolocator>>(file: Param0, geolocator: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         Self::IGeotagHelperStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -279,6 +299,7 @@ impl GeotagHelper {
         })
     }
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
+    #[doc = "*Required features: `Storage_FileProperties`, `Devices_Geolocation`, `Foundation`*"]
     pub fn SetGeotagAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::IStorageFile>, Param1: ::windows::runtime::IntoParam<'a, super::super::Devices::Geolocation::Geopoint>>(file: Param0, geopoint: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         Self::IGeotagHelperStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -484,6 +505,7 @@ pub struct IStorageItemContentProperties_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Storage_FileProperties`*"]
 pub struct IStorageItemExtraProperties(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageItemExtraProperties {
     type Vtable = IStorageItemExtraProperties_abi;
@@ -491,6 +513,7 @@ unsafe impl ::windows::runtime::Interface for IStorageItemExtraProperties {
 }
 impl IStorageItemExtraProperties {
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Storage_FileProperties`, `Foundation`, `Foundation_Collections`*"]
     pub fn RetrievePropertiesAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>>(&self, propertiestoretrieve: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>> {
         let this = self;
         unsafe {
@@ -499,6 +522,7 @@ impl IStorageItemExtraProperties {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Storage_FileProperties`, `Foundation`, `Foundation_Collections`*"]
     pub fn SavePropertiesAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>>>(&self, propertiestosave: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -507,6 +531,7 @@ impl IStorageItemExtraProperties {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Storage_FileProperties`, `Foundation`*"]
     pub fn SavePropertiesAsyncOverloadDefault(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -642,10 +667,12 @@ pub struct IVideoProperties_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut VideoOrientation) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Storage_FileProperties`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ImageProperties(::windows::runtime::IInspectable);
 impl ImageProperties {
+    #[doc = "*Required features: `Storage_FileProperties`*"]
     pub fn Rating(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -653,11 +680,13 @@ impl ImageProperties {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_FileProperties`*"]
     pub fn SetRating(&self, value: u32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Storage_FileProperties`, `Foundation_Collections`*"]
     pub fn Keywords(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -666,6 +695,7 @@ impl ImageProperties {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Storage_FileProperties`, `Foundation`*"]
     pub fn DateTaken(&self) -> ::windows::runtime::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -674,10 +704,12 @@ impl ImageProperties {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Storage_FileProperties`, `Foundation`*"]
     pub fn SetDateTaken<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::DateTime>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Storage_FileProperties`*"]
     pub fn Width(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -685,6 +717,7 @@ impl ImageProperties {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_FileProperties`*"]
     pub fn Height(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -692,6 +725,7 @@ impl ImageProperties {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_FileProperties`*"]
     pub fn Title(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -699,11 +733,13 @@ impl ImageProperties {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_FileProperties`*"]
     pub fn SetTitle<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Storage_FileProperties`, `Foundation`*"]
     pub fn Latitude(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<f64>> {
         let this = self;
         unsafe {
@@ -712,6 +748,7 @@ impl ImageProperties {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Storage_FileProperties`, `Foundation`*"]
     pub fn Longitude(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<f64>> {
         let this = self;
         unsafe {
@@ -719,6 +756,7 @@ impl ImageProperties {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<f64>>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_FileProperties`*"]
     pub fn CameraManufacturer(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -726,10 +764,12 @@ impl ImageProperties {
             (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_FileProperties`*"]
     pub fn SetCameraManufacturer<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Storage_FileProperties`*"]
     pub fn CameraModel(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -737,10 +777,12 @@ impl ImageProperties {
             (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_FileProperties`*"]
     pub fn SetCameraModel<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Storage_FileProperties`*"]
     pub fn Orientation(&self) -> ::windows::runtime::Result<PhotoOrientation> {
         let this = self;
         unsafe {
@@ -749,6 +791,7 @@ impl ImageProperties {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Storage_FileProperties`, `Foundation_Collections`*"]
     pub fn PeopleNames(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -757,6 +800,7 @@ impl ImageProperties {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Storage_FileProperties`, `Foundation`, `Foundation_Collections`*"]
     pub fn RetrievePropertiesAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>>(&self, propertiestoretrieve: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>> {
         let this = &::windows::runtime::Interface::cast::<IStorageItemExtraProperties>(self)?;
         unsafe {
@@ -765,6 +809,7 @@ impl ImageProperties {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Storage_FileProperties`, `Foundation`, `Foundation_Collections`*"]
     pub fn SavePropertiesAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>>>(&self, propertiestosave: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows::runtime::Interface::cast::<IStorageItemExtraProperties>(self)?;
         unsafe {
@@ -773,6 +818,7 @@ impl ImageProperties {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Storage_FileProperties`, `Foundation`*"]
     pub fn SavePropertiesAsyncOverloadDefault(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows::runtime::Interface::cast::<IStorageItemExtraProperties>(self)?;
         unsafe {
@@ -853,10 +899,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, IStorageItemExtraProperties> for &Ima
         ::std::convert::TryInto::<IStorageItemExtraProperties>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
+#[doc = "*Required features: `Storage_FileProperties`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MusicProperties(::windows::runtime::IInspectable);
 impl MusicProperties {
+    #[doc = "*Required features: `Storage_FileProperties`*"]
     pub fn Album(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -864,10 +912,12 @@ impl MusicProperties {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_FileProperties`*"]
     pub fn SetAlbum<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Storage_FileProperties`*"]
     pub fn Artist(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -875,11 +925,13 @@ impl MusicProperties {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_FileProperties`*"]
     pub fn SetArtist<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Storage_FileProperties`, `Foundation_Collections`*"]
     pub fn Genre(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -887,6 +939,7 @@ impl MusicProperties {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_FileProperties`*"]
     pub fn TrackNumber(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -894,10 +947,12 @@ impl MusicProperties {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_FileProperties`*"]
     pub fn SetTrackNumber(&self, value: u32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Storage_FileProperties`*"]
     pub fn Title(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -905,10 +960,12 @@ impl MusicProperties {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_FileProperties`*"]
     pub fn SetTitle<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Storage_FileProperties`*"]
     pub fn Rating(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -916,11 +973,13 @@ impl MusicProperties {
             (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_FileProperties`*"]
     pub fn SetRating(&self, value: u32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Storage_FileProperties`, `Foundation`*"]
     pub fn Duration(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -928,6 +987,7 @@ impl MusicProperties {
             (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_FileProperties`*"]
     pub fn Bitrate(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -935,6 +995,7 @@ impl MusicProperties {
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_FileProperties`*"]
     pub fn AlbumArtist(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -942,11 +1003,13 @@ impl MusicProperties {
             (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_FileProperties`*"]
     pub fn SetAlbumArtist<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Storage_FileProperties`, `Foundation_Collections`*"]
     pub fn Composers(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -955,6 +1018,7 @@ impl MusicProperties {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Storage_FileProperties`, `Foundation_Collections`*"]
     pub fn Conductors(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -962,6 +1026,7 @@ impl MusicProperties {
             (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_FileProperties`*"]
     pub fn Subtitle(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -969,11 +1034,13 @@ impl MusicProperties {
             (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_FileProperties`*"]
     pub fn SetSubtitle<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Storage_FileProperties`, `Foundation_Collections`*"]
     pub fn Producers(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -981,6 +1048,7 @@ impl MusicProperties {
             (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_FileProperties`*"]
     pub fn Publisher(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -988,11 +1056,13 @@ impl MusicProperties {
             (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_FileProperties`*"]
     pub fn SetPublisher<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Storage_FileProperties`, `Foundation_Collections`*"]
     pub fn Writers(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -1000,6 +1070,7 @@ impl MusicProperties {
             (::windows::runtime::Interface::vtable(this).28)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_FileProperties`*"]
     pub fn Year(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -1007,11 +1078,13 @@ impl MusicProperties {
             (::windows::runtime::Interface::vtable(this).29)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_FileProperties`*"]
     pub fn SetYear(&self, value: u32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).30)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Storage_FileProperties`, `Foundation`, `Foundation_Collections`*"]
     pub fn RetrievePropertiesAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>>(&self, propertiestoretrieve: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>> {
         let this = &::windows::runtime::Interface::cast::<IStorageItemExtraProperties>(self)?;
         unsafe {
@@ -1020,6 +1093,7 @@ impl MusicProperties {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Storage_FileProperties`, `Foundation`, `Foundation_Collections`*"]
     pub fn SavePropertiesAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>>>(&self, propertiestosave: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows::runtime::Interface::cast::<IStorageItemExtraProperties>(self)?;
         unsafe {
@@ -1028,6 +1102,7 @@ impl MusicProperties {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Storage_FileProperties`, `Foundation`*"]
     pub fn SavePropertiesAsyncOverloadDefault(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows::runtime::Interface::cast::<IStorageItemExtraProperties>(self)?;
         unsafe {
@@ -1108,6 +1183,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IStorageItemExtraProperties> for &Mus
         ::std::convert::TryInto::<IStorageItemExtraProperties>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
+#[doc = "*Required features: `Storage_FileProperties`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PhotoOrientation(pub i32);
@@ -1134,6 +1210,7 @@ unsafe impl ::windows::runtime::Abi for PhotoOrientation {
 unsafe impl ::windows::runtime::RuntimeType for PhotoOrientation {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Storage.FileProperties.PhotoOrientation;i4)");
 }
+#[doc = "*Required features: `Storage_FileProperties`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PropertyPrefetchOptions(pub u32);
@@ -1185,11 +1262,13 @@ impl ::std::ops::Not for PropertyPrefetchOptions {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Storage_FileProperties`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct StorageItemContentProperties(::windows::runtime::IInspectable);
 impl StorageItemContentProperties {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Storage_FileProperties`, `Foundation`*"]
     pub fn GetMusicPropertiesAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<MusicProperties>> {
         let this = self;
         unsafe {
@@ -1198,6 +1277,7 @@ impl StorageItemContentProperties {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Storage_FileProperties`, `Foundation`*"]
     pub fn GetVideoPropertiesAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<VideoProperties>> {
         let this = self;
         unsafe {
@@ -1206,6 +1286,7 @@ impl StorageItemContentProperties {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Storage_FileProperties`, `Foundation`*"]
     pub fn GetImagePropertiesAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<ImageProperties>> {
         let this = self;
         unsafe {
@@ -1214,6 +1295,7 @@ impl StorageItemContentProperties {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Storage_FileProperties`, `Foundation`*"]
     pub fn GetDocumentPropertiesAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<DocumentProperties>> {
         let this = self;
         unsafe {
@@ -1222,6 +1304,7 @@ impl StorageItemContentProperties {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Storage_FileProperties`, `Foundation`, `Foundation_Collections`*"]
     pub fn RetrievePropertiesAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>>(&self, propertiestoretrieve: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>> {
         let this = &::windows::runtime::Interface::cast::<IStorageItemExtraProperties>(self)?;
         unsafe {
@@ -1230,6 +1313,7 @@ impl StorageItemContentProperties {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Storage_FileProperties`, `Foundation`, `Foundation_Collections`*"]
     pub fn SavePropertiesAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>>>(&self, propertiestosave: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows::runtime::Interface::cast::<IStorageItemExtraProperties>(self)?;
         unsafe {
@@ -1238,6 +1322,7 @@ impl StorageItemContentProperties {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Storage_FileProperties`, `Foundation`*"]
     pub fn SavePropertiesAsyncOverloadDefault(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows::runtime::Interface::cast::<IStorageItemExtraProperties>(self)?;
         unsafe {
@@ -1319,16 +1404,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, IStorageItemExtraProperties> for &Sto
     }
 }
 #[cfg(feature = "Storage_Streams")]
+#[doc = "*Required features: `Storage_FileProperties`, `Storage_Streams`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct StorageItemThumbnail(::windows::runtime::IInspectable);
 #[cfg(feature = "Storage_Streams")]
 impl StorageItemThumbnail {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Storage_FileProperties`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Storage_FileProperties`*"]
     pub fn OriginalWidth(&self) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<IThumbnailProperties>(self)?;
         unsafe {
@@ -1336,6 +1424,7 @@ impl StorageItemThumbnail {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_FileProperties`*"]
     pub fn OriginalHeight(&self) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<IThumbnailProperties>(self)?;
         unsafe {
@@ -1343,6 +1432,7 @@ impl StorageItemThumbnail {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_FileProperties`*"]
     pub fn ReturnedSmallerCachedSize(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IThumbnailProperties>(self)?;
         unsafe {
@@ -1350,6 +1440,7 @@ impl StorageItemThumbnail {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_FileProperties`*"]
     pub fn Type(&self) -> ::windows::runtime::Result<ThumbnailType> {
         let this = &::windows::runtime::Interface::cast::<IThumbnailProperties>(self)?;
         unsafe {
@@ -1358,6 +1449,7 @@ impl StorageItemThumbnail {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Storage_FileProperties`, `Storage_Streams`*"]
     pub fn ContentType(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<super::Streams::IContentTypeProvider>(self)?;
         unsafe {
@@ -1366,6 +1458,7 @@ impl StorageItemThumbnail {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Storage_FileProperties`, `Foundation`, `Storage_Streams`*"]
     pub fn ReadAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::Streams::IBuffer>>(&self, buffer: Param0, count: u32, options: super::Streams::InputStreamOptions) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Streams::IBuffer, u32>> {
         let this = &::windows::runtime::Interface::cast::<super::Streams::IInputStream>(self)?;
         unsafe {
@@ -1374,6 +1467,7 @@ impl StorageItemThumbnail {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Storage_FileProperties`, `Foundation`, `Storage_Streams`*"]
     pub fn WriteAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::Streams::IBuffer>>(&self, buffer: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>> {
         let this = &::windows::runtime::Interface::cast::<super::Streams::IOutputStream>(self)?;
         unsafe {
@@ -1382,6 +1476,7 @@ impl StorageItemThumbnail {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Storage_FileProperties`, `Foundation`, `Storage_Streams`*"]
     pub fn FlushAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows::runtime::Interface::cast::<super::Streams::IOutputStream>(self)?;
         unsafe {
@@ -1390,6 +1485,7 @@ impl StorageItemThumbnail {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Storage_FileProperties`, `Storage_Streams`*"]
     pub fn Size(&self) -> ::windows::runtime::Result<u64> {
         let this = &::windows::runtime::Interface::cast::<super::Streams::IRandomAccessStream>(self)?;
         unsafe {
@@ -1398,11 +1494,13 @@ impl StorageItemThumbnail {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Storage_FileProperties`, `Storage_Streams`*"]
     pub fn SetSize(&self, value: u64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::Streams::IRandomAccessStream>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Storage_FileProperties`, `Storage_Streams`*"]
     pub fn GetInputStreamAt(&self, position: u64) -> ::windows::runtime::Result<super::Streams::IInputStream> {
         let this = &::windows::runtime::Interface::cast::<super::Streams::IRandomAccessStream>(self)?;
         unsafe {
@@ -1411,6 +1509,7 @@ impl StorageItemThumbnail {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Storage_FileProperties`, `Storage_Streams`*"]
     pub fn GetOutputStreamAt(&self, position: u64) -> ::windows::runtime::Result<super::Streams::IOutputStream> {
         let this = &::windows::runtime::Interface::cast::<super::Streams::IRandomAccessStream>(self)?;
         unsafe {
@@ -1419,6 +1518,7 @@ impl StorageItemThumbnail {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Storage_FileProperties`, `Storage_Streams`*"]
     pub fn Position(&self) -> ::windows::runtime::Result<u64> {
         let this = &::windows::runtime::Interface::cast::<super::Streams::IRandomAccessStream>(self)?;
         unsafe {
@@ -1427,11 +1527,13 @@ impl StorageItemThumbnail {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Storage_FileProperties`, `Storage_Streams`*"]
     pub fn Seek(&self, position: u64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::Streams::IRandomAccessStream>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), position).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Storage_FileProperties`, `Storage_Streams`*"]
     pub fn CloneStream(&self) -> ::windows::runtime::Result<super::Streams::IRandomAccessStream> {
         let this = &::windows::runtime::Interface::cast::<super::Streams::IRandomAccessStream>(self)?;
         unsafe {
@@ -1440,6 +1542,7 @@ impl StorageItemThumbnail {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Storage_FileProperties`, `Storage_Streams`*"]
     pub fn CanRead(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<super::Streams::IRandomAccessStream>(self)?;
         unsafe {
@@ -1448,6 +1551,7 @@ impl StorageItemThumbnail {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Storage_FileProperties`, `Storage_Streams`*"]
     pub fn CanWrite(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<super::Streams::IRandomAccessStream>(self)?;
         unsafe {
@@ -1671,6 +1775,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::Streams::IRandomAccessStream> 
         ::std::convert::TryInto::<super::Streams::IRandomAccessStream>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
+#[doc = "*Required features: `Storage_FileProperties`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ThumbnailMode(pub i32);
@@ -1694,6 +1799,7 @@ unsafe impl ::windows::runtime::Abi for ThumbnailMode {
 unsafe impl ::windows::runtime::RuntimeType for ThumbnailMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Storage.FileProperties.ThumbnailMode;i4)");
 }
+#[doc = "*Required features: `Storage_FileProperties`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ThumbnailOptions(pub u32);
@@ -1743,6 +1849,7 @@ impl ::std::ops::Not for ThumbnailOptions {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Storage_FileProperties`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ThumbnailType(pub i32);
@@ -1762,6 +1869,7 @@ unsafe impl ::windows::runtime::Abi for ThumbnailType {
 unsafe impl ::windows::runtime::RuntimeType for ThumbnailType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Storage.FileProperties.ThumbnailType;i4)");
 }
+#[doc = "*Required features: `Storage_FileProperties`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct VideoOrientation(pub i32);
@@ -1783,10 +1891,12 @@ unsafe impl ::windows::runtime::Abi for VideoOrientation {
 unsafe impl ::windows::runtime::RuntimeType for VideoOrientation {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Storage.FileProperties.VideoOrientation;i4)");
 }
+#[doc = "*Required features: `Storage_FileProperties`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct VideoProperties(::windows::runtime::IInspectable);
 impl VideoProperties {
+    #[doc = "*Required features: `Storage_FileProperties`*"]
     pub fn Rating(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -1794,11 +1904,13 @@ impl VideoProperties {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_FileProperties`*"]
     pub fn SetRating(&self, value: u32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Storage_FileProperties`, `Foundation_Collections`*"]
     pub fn Keywords(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -1806,6 +1918,7 @@ impl VideoProperties {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_FileProperties`*"]
     pub fn Width(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -1813,6 +1926,7 @@ impl VideoProperties {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_FileProperties`*"]
     pub fn Height(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -1821,6 +1935,7 @@ impl VideoProperties {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Storage_FileProperties`, `Foundation`*"]
     pub fn Duration(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -1829,6 +1944,7 @@ impl VideoProperties {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Storage_FileProperties`, `Foundation`*"]
     pub fn Latitude(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<f64>> {
         let this = self;
         unsafe {
@@ -1837,6 +1953,7 @@ impl VideoProperties {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Storage_FileProperties`, `Foundation`*"]
     pub fn Longitude(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<f64>> {
         let this = self;
         unsafe {
@@ -1844,6 +1961,7 @@ impl VideoProperties {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<f64>>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_FileProperties`*"]
     pub fn Title(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1851,10 +1969,12 @@ impl VideoProperties {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_FileProperties`*"]
     pub fn SetTitle<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Storage_FileProperties`*"]
     pub fn Subtitle(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1862,11 +1982,13 @@ impl VideoProperties {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_FileProperties`*"]
     pub fn SetSubtitle<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Storage_FileProperties`, `Foundation_Collections`*"]
     pub fn Producers(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -1874,6 +1996,7 @@ impl VideoProperties {
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_FileProperties`*"]
     pub fn Publisher(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1881,11 +2004,13 @@ impl VideoProperties {
             (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_FileProperties`*"]
     pub fn SetPublisher<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Storage_FileProperties`, `Foundation_Collections`*"]
     pub fn Writers(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -1893,6 +2018,7 @@ impl VideoProperties {
             (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_FileProperties`*"]
     pub fn Year(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -1900,10 +2026,12 @@ impl VideoProperties {
             (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_FileProperties`*"]
     pub fn SetYear(&self, value: u32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Storage_FileProperties`*"]
     pub fn Bitrate(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -1912,6 +2040,7 @@ impl VideoProperties {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Storage_FileProperties`, `Foundation_Collections`*"]
     pub fn Directors(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -1919,6 +2048,7 @@ impl VideoProperties {
             (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>>(result__)
         }
     }
+    #[doc = "*Required features: `Storage_FileProperties`*"]
     pub fn Orientation(&self) -> ::windows::runtime::Result<VideoOrientation> {
         let this = self;
         unsafe {
@@ -1927,6 +2057,7 @@ impl VideoProperties {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Storage_FileProperties`, `Foundation`, `Foundation_Collections`*"]
     pub fn RetrievePropertiesAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>>(&self, propertiestoretrieve: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>> {
         let this = &::windows::runtime::Interface::cast::<IStorageItemExtraProperties>(self)?;
         unsafe {
@@ -1935,6 +2066,7 @@ impl VideoProperties {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Storage_FileProperties`, `Foundation`, `Foundation_Collections`*"]
     pub fn SavePropertiesAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>>>(&self, propertiestosave: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows::runtime::Interface::cast::<IStorageItemExtraProperties>(self)?;
         unsafe {
@@ -1943,6 +2075,7 @@ impl VideoProperties {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Storage_FileProperties`, `Foundation`*"]
     pub fn SavePropertiesAsyncOverloadDefault(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows::runtime::Interface::cast::<IStorageItemExtraProperties>(self)?;
         unsafe {

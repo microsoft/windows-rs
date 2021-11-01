@@ -996,10 +996,12 @@ pub struct IStoreVideo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Services_Store`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct StoreAcquireLicenseResult(::windows::runtime::IInspectable);
 impl StoreAcquireLicenseResult {
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn StorePackageLicense(&self) -> ::windows::runtime::Result<StorePackageLicense> {
         let this = self;
         unsafe {
@@ -1007,6 +1009,7 @@ impl StoreAcquireLicenseResult {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<StorePackageLicense>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn ExtendedError(&self) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
         let this = self;
         unsafe {
@@ -1067,10 +1070,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for StoreAcquireLicenseResult {}
 unsafe impl ::std::marker::Sync for StoreAcquireLicenseResult {}
+#[doc = "*Required features: `Services_Store`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct StoreAppLicense(::windows::runtime::IInspectable);
 impl StoreAppLicense {
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn SkuStoreId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1078,6 +1083,7 @@ impl StoreAppLicense {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn IsActive(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1085,6 +1091,7 @@ impl StoreAppLicense {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn IsTrial(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1093,6 +1100,7 @@ impl StoreAppLicense {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Services_Store`, `Foundation`*"]
     pub fn ExpirationDate(&self) -> ::windows::runtime::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -1100,6 +1108,7 @@ impl StoreAppLicense {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn ExtendedJsonData(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1108,6 +1117,7 @@ impl StoreAppLicense {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Services_Store`, `Foundation_Collections`*"]
     pub fn AddOnLicenses(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, StoreLicense>> {
         let this = self;
         unsafe {
@@ -1116,6 +1126,7 @@ impl StoreAppLicense {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Services_Store`, `Foundation`*"]
     pub fn TrialTimeRemaining(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -1123,6 +1134,7 @@ impl StoreAppLicense {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn IsTrialOwnedByThisUser(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1130,6 +1142,7 @@ impl StoreAppLicense {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn TrialUniqueId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1137,6 +1150,7 @@ impl StoreAppLicense {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn IsDiscLicense(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IStoreAppLicense2>(self)?;
         unsafe {
@@ -1197,10 +1211,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for StoreAppLicense {}
 unsafe impl ::std::marker::Sync for StoreAppLicense {}
+#[doc = "*Required features: `Services_Store`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct StoreAvailability(::windows::runtime::IInspectable);
 impl StoreAvailability {
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn StoreId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1209,6 +1225,7 @@ impl StoreAvailability {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Services_Store`, `Foundation`*"]
     pub fn EndDate(&self) -> ::windows::runtime::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -1216,6 +1233,7 @@ impl StoreAvailability {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn Price(&self) -> ::windows::runtime::Result<StorePrice> {
         let this = self;
         unsafe {
@@ -1223,6 +1241,7 @@ impl StoreAvailability {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<StorePrice>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn ExtendedJsonData(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1231,6 +1250,7 @@ impl StoreAvailability {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Services_Store`, `Foundation`*"]
     pub fn RequestPurchaseAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<StorePurchaseResult>> {
         let this = self;
         unsafe {
@@ -1239,6 +1259,7 @@ impl StoreAvailability {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Services_Store`, `Foundation`*"]
     pub fn RequestPurchaseWithPurchasePropertiesAsync<'a, Param0: ::windows::runtime::IntoParam<'a, StorePurchaseProperties>>(&self, storepurchaseproperties: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<StorePurchaseResult>> {
         let this = self;
         unsafe {
@@ -1299,10 +1320,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for StoreAvailability {}
 unsafe impl ::std::marker::Sync for StoreAvailability {}
+#[doc = "*Required features: `Services_Store`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct StoreCanAcquireLicenseResult(::windows::runtime::IInspectable);
 impl StoreCanAcquireLicenseResult {
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn ExtendedError(&self) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
         let this = self;
         unsafe {
@@ -1310,6 +1333,7 @@ impl StoreCanAcquireLicenseResult {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HRESULT>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn LicensableSku(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1317,6 +1341,7 @@ impl StoreCanAcquireLicenseResult {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<StoreCanLicenseStatus> {
         let this = self;
         unsafe {
@@ -1377,6 +1402,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for StoreCanAcquireLicenseResult {}
 unsafe impl ::std::marker::Sync for StoreCanAcquireLicenseResult {}
+#[doc = "*Required features: `Services_Store`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct StoreCanLicenseStatus(pub i32);
@@ -1399,10 +1425,12 @@ unsafe impl ::windows::runtime::Abi for StoreCanLicenseStatus {
 unsafe impl ::windows::runtime::RuntimeType for StoreCanLicenseStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreCanLicenseStatus;i4)");
 }
+#[doc = "*Required features: `Services_Store`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct StoreCollectionData(::windows::runtime::IInspectable);
 impl StoreCollectionData {
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn IsTrial(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1410,6 +1438,7 @@ impl StoreCollectionData {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn CampaignId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1417,6 +1446,7 @@ impl StoreCollectionData {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn DeveloperOfferId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1425,6 +1455,7 @@ impl StoreCollectionData {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Services_Store`, `Foundation`*"]
     pub fn AcquiredDate(&self) -> ::windows::runtime::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -1433,6 +1464,7 @@ impl StoreCollectionData {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Services_Store`, `Foundation`*"]
     pub fn StartDate(&self) -> ::windows::runtime::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -1441,6 +1473,7 @@ impl StoreCollectionData {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Services_Store`, `Foundation`*"]
     pub fn EndDate(&self) -> ::windows::runtime::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -1449,6 +1482,7 @@ impl StoreCollectionData {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Services_Store`, `Foundation`*"]
     pub fn TrialTimeRemaining(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -1456,6 +1490,7 @@ impl StoreCollectionData {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn ExtendedJsonData(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1516,10 +1551,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for StoreCollectionData {}
 unsafe impl ::std::marker::Sync for StoreCollectionData {}
+#[doc = "*Required features: `Services_Store`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct StoreConsumableResult(::windows::runtime::IInspectable);
 impl StoreConsumableResult {
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<StoreConsumableStatus> {
         let this = self;
         unsafe {
@@ -1527,6 +1564,7 @@ impl StoreConsumableResult {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<StoreConsumableStatus>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn TrackingId(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let this = self;
         unsafe {
@@ -1534,6 +1572,7 @@ impl StoreConsumableResult {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn BalanceRemaining(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -1541,6 +1580,7 @@ impl StoreConsumableResult {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn ExtendedError(&self) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
         let this = self;
         unsafe {
@@ -1601,6 +1641,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for StoreConsumableResult {}
 unsafe impl ::std::marker::Sync for StoreConsumableResult {}
+#[doc = "*Required features: `Services_Store`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct StoreConsumableStatus(pub i32);
@@ -1622,11 +1663,13 @@ unsafe impl ::windows::runtime::Abi for StoreConsumableStatus {
 unsafe impl ::windows::runtime::RuntimeType for StoreConsumableStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreConsumableStatus;i4)");
 }
+#[doc = "*Required features: `Services_Store`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct StoreContext(::windows::runtime::IInspectable);
 impl StoreContext {
     #[cfg(feature = "System")]
+    #[doc = "*Required features: `Services_Store`, `System`*"]
     pub fn User(&self) -> ::windows::runtime::Result<super::super::System::User> {
         let this = self;
         unsafe {
@@ -1635,6 +1678,7 @@ impl StoreContext {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Services_Store`, `Foundation`*"]
     pub fn OfflineLicensesChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<StoreContext, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1643,11 +1687,13 @@ impl StoreContext {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Services_Store`, `Foundation`*"]
     pub fn RemoveOfflineLicensesChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Services_Store`, `Foundation`*"]
     pub fn GetCustomerPurchaseIdAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, serviceticket: Param0, publisheruserid: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -1656,6 +1702,7 @@ impl StoreContext {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Services_Store`, `Foundation`*"]
     pub fn GetCustomerCollectionsIdAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, serviceticket: Param0, publisheruserid: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -1664,6 +1711,7 @@ impl StoreContext {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Services_Store`, `Foundation`*"]
     pub fn GetAppLicenseAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<StoreAppLicense>> {
         let this = self;
         unsafe {
@@ -1672,6 +1720,7 @@ impl StoreContext {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Services_Store`, `Foundation`*"]
     pub fn GetStoreProductForCurrentAppAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<StoreProductResult>> {
         let this = self;
         unsafe {
@@ -1680,6 +1729,7 @@ impl StoreContext {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Services_Store`, `Foundation`, `Foundation_Collections`*"]
     pub fn GetStoreProductsAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>>(&self, productkinds: Param0, storeids: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<StoreProductQueryResult>> {
         let this = self;
         unsafe {
@@ -1688,6 +1738,7 @@ impl StoreContext {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Services_Store`, `Foundation`, `Foundation_Collections`*"]
     pub fn GetAssociatedStoreProductsAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>>(&self, productkinds: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<StoreProductQueryResult>> {
         let this = self;
         unsafe {
@@ -1696,6 +1747,7 @@ impl StoreContext {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Services_Store`, `Foundation`, `Foundation_Collections`*"]
     pub fn GetAssociatedStoreProductsWithPagingAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>>(&self, productkinds: Param0, maxitemstoretrieveperpage: u32) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<StoreProductPagedQueryResult>> {
         let this = self;
         unsafe {
@@ -1704,6 +1756,7 @@ impl StoreContext {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Services_Store`, `Foundation`, `Foundation_Collections`*"]
     pub fn GetUserCollectionAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>>(&self, productkinds: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<StoreProductQueryResult>> {
         let this = self;
         unsafe {
@@ -1712,6 +1765,7 @@ impl StoreContext {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Services_Store`, `Foundation`, `Foundation_Collections`*"]
     pub fn GetUserCollectionWithPagingAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>>(&self, productkinds: Param0, maxitemstoretrieveperpage: u32) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<StoreProductPagedQueryResult>> {
         let this = self;
         unsafe {
@@ -1720,6 +1774,7 @@ impl StoreContext {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Services_Store`, `Foundation`*"]
     pub fn ReportConsumableFulfillmentAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, productstoreid: Param0, quantity: u32, trackingid: Param2) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<StoreConsumableResult>> {
         let this = self;
         unsafe {
@@ -1728,6 +1783,7 @@ impl StoreContext {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Services_Store`, `Foundation`*"]
     pub fn GetConsumableBalanceRemainingAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, productstoreid: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<StoreConsumableResult>> {
         let this = self;
         unsafe {
@@ -1736,6 +1792,7 @@ impl StoreContext {
         }
     }
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation"))]
+    #[doc = "*Required features: `Services_Store`, `ApplicationModel`, `Foundation`*"]
     pub fn AcquireStoreLicenseForOptionalPackageAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Package>>(&self, optionalpackage: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<StoreAcquireLicenseResult>> {
         let this = self;
         unsafe {
@@ -1744,6 +1801,7 @@ impl StoreContext {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Services_Store`, `Foundation`*"]
     pub fn RequestPurchaseAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, storeid: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<StorePurchaseResult>> {
         let this = self;
         unsafe {
@@ -1752,6 +1810,7 @@ impl StoreContext {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Services_Store`, `Foundation`*"]
     pub fn RequestPurchaseWithPurchasePropertiesAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, StorePurchaseProperties>>(&self, storeid: Param0, storepurchaseproperties: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<StorePurchaseResult>> {
         let this = self;
         unsafe {
@@ -1760,6 +1819,7 @@ impl StoreContext {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Services_Store`, `Foundation`, `Foundation_Collections`*"]
     pub fn GetAppAndOptionalStorePackageUpdatesAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<StorePackageUpdate>>> {
         let this = self;
         unsafe {
@@ -1768,6 +1828,7 @@ impl StoreContext {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Services_Store`, `Foundation`, `Foundation_Collections`*"]
     pub fn RequestDownloadStorePackageUpdatesAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<StorePackageUpdate>>>(&self, storepackageupdates: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>> {
         let this = self;
         unsafe {
@@ -1776,6 +1837,7 @@ impl StoreContext {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Services_Store`, `Foundation`, `Foundation_Collections`*"]
     pub fn RequestDownloadAndInstallStorePackageUpdatesAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<StorePackageUpdate>>>(&self, storepackageupdates: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>> {
         let this = self;
         unsafe {
@@ -1784,6 +1846,7 @@ impl StoreContext {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Services_Store`, `Foundation`, `Foundation_Collections`*"]
     pub fn RequestDownloadAndInstallStorePackagesAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>>(&self, storeids: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>> {
         let this = self;
         unsafe {
@@ -1791,6 +1854,7 @@ impl StoreContext {
             (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), storeids.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn GetDefault() -> ::windows::runtime::Result<StoreContext> {
         Self::IStoreContextStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1798,6 +1862,7 @@ impl StoreContext {
         })
     }
     #[cfg(feature = "System")]
+    #[doc = "*Required features: `Services_Store`, `System`*"]
     pub fn GetForUser<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::User>>(user: Param0) -> ::windows::runtime::Result<StoreContext> {
         Self::IStoreContextStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1805,6 +1870,7 @@ impl StoreContext {
         })
     }
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Services_Store`, `ApplicationModel`, `Foundation`, `Foundation_Collections`*"]
     pub fn FindStoreProductForPackageAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>, Param1: ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Package>>(&self, productkinds: Param0, package: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<StoreProductResult>> {
         let this = &::windows::runtime::Interface::cast::<IStoreContext2>(self)?;
         unsafe {
@@ -1812,6 +1878,7 @@ impl StoreContext {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), productkinds.into_param().abi(), package.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<StoreProductResult>>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn CanSilentlyDownloadStorePackageUpdates(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IStoreContext3>(self)?;
         unsafe {
@@ -1820,6 +1887,7 @@ impl StoreContext {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Services_Store`, `Foundation`, `Foundation_Collections`*"]
     pub fn TrySilentDownloadStorePackageUpdatesAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<StorePackageUpdate>>>(&self, storepackageupdates: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>> {
         let this = &::windows::runtime::Interface::cast::<IStoreContext3>(self)?;
         unsafe {
@@ -1828,6 +1896,7 @@ impl StoreContext {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Services_Store`, `Foundation`, `Foundation_Collections`*"]
     pub fn TrySilentDownloadAndInstallStorePackageUpdatesAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<StorePackageUpdate>>>(&self, storepackageupdates: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>> {
         let this = &::windows::runtime::Interface::cast::<IStoreContext3>(self)?;
         unsafe {
@@ -1836,6 +1905,7 @@ impl StoreContext {
         }
     }
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation"))]
+    #[doc = "*Required features: `Services_Store`, `ApplicationModel`, `Foundation`*"]
     pub fn CanAcquireStoreLicenseForOptionalPackageAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Package>>(&self, optionalpackage: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<StoreCanAcquireLicenseResult>> {
         let this = &::windows::runtime::Interface::cast::<IStoreContext3>(self)?;
         unsafe {
@@ -1844,6 +1914,7 @@ impl StoreContext {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Services_Store`, `Foundation`*"]
     pub fn CanAcquireStoreLicenseAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, productstoreid: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<StoreCanAcquireLicenseResult>> {
         let this = &::windows::runtime::Interface::cast::<IStoreContext3>(self)?;
         unsafe {
@@ -1852,6 +1923,7 @@ impl StoreContext {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Services_Store`, `Foundation`, `Foundation_Collections`*"]
     pub fn GetStoreProductsWithOptionsAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>, Param2: ::windows::runtime::IntoParam<'a, StoreProductOptions>>(
         &self,
         productkinds: Param0,
@@ -1865,6 +1937,7 @@ impl StoreContext {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Services_Store`, `Foundation`, `Foundation_Collections`*"]
     pub fn GetAssociatedStoreQueueItemsAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<StoreQueueItem>>> {
         let this = &::windows::runtime::Interface::cast::<IStoreContext3>(self)?;
         unsafe {
@@ -1873,6 +1946,7 @@ impl StoreContext {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Services_Store`, `Foundation`, `Foundation_Collections`*"]
     pub fn GetStoreQueueItemsAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>>(&self, storeids: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<StoreQueueItem>>> {
         let this = &::windows::runtime::Interface::cast::<IStoreContext3>(self)?;
         unsafe {
@@ -1881,6 +1955,7 @@ impl StoreContext {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Services_Store`, `Foundation`, `Foundation_Collections`*"]
     pub fn RequestDownloadAndInstallStorePackagesWithInstallOptionsAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>, Param1: ::windows::runtime::IntoParam<'a, StorePackageInstallOptions>>(&self, storeids: Param0, storepackageinstalloptions: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>> {
         let this = &::windows::runtime::Interface::cast::<IStoreContext3>(self)?;
         unsafe {
@@ -1889,6 +1964,7 @@ impl StoreContext {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Services_Store`, `Foundation`, `Foundation_Collections`*"]
     pub fn DownloadAndInstallStorePackagesAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>>(&self, storeids: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>> {
         let this = &::windows::runtime::Interface::cast::<IStoreContext3>(self)?;
         unsafe {
@@ -1897,6 +1973,7 @@ impl StoreContext {
         }
     }
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation"))]
+    #[doc = "*Required features: `Services_Store`, `ApplicationModel`, `Foundation`*"]
     pub fn RequestUninstallStorePackageAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Package>>(&self, package: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<StoreUninstallStorePackageResult>> {
         let this = &::windows::runtime::Interface::cast::<IStoreContext3>(self)?;
         unsafe {
@@ -1905,6 +1982,7 @@ impl StoreContext {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Services_Store`, `Foundation`*"]
     pub fn RequestUninstallStorePackageByStoreIdAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, storeid: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<StoreUninstallStorePackageResult>> {
         let this = &::windows::runtime::Interface::cast::<IStoreContext3>(self)?;
         unsafe {
@@ -1913,6 +1991,7 @@ impl StoreContext {
         }
     }
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation"))]
+    #[doc = "*Required features: `Services_Store`, `ApplicationModel`, `Foundation`*"]
     pub fn UninstallStorePackageAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Package>>(&self, package: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<StoreUninstallStorePackageResult>> {
         let this = &::windows::runtime::Interface::cast::<IStoreContext3>(self)?;
         unsafe {
@@ -1921,6 +2000,7 @@ impl StoreContext {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Services_Store`, `Foundation`*"]
     pub fn UninstallStorePackageByStoreIdAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, storeid: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<StoreUninstallStorePackageResult>> {
         let this = &::windows::runtime::Interface::cast::<IStoreContext3>(self)?;
         unsafe {
@@ -1929,6 +2009,7 @@ impl StoreContext {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Services_Store`, `Foundation`*"]
     pub fn RequestRateAndReviewAppAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<StoreRateAndReviewResult>> {
         let this = &::windows::runtime::Interface::cast::<IStoreContext4>(self)?;
         unsafe {
@@ -1937,6 +2018,7 @@ impl StoreContext {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Services_Store`, `Foundation`, `Foundation_Collections`*"]
     pub fn SetInstallOrderForAssociatedStoreQueueItemsAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<StoreQueueItem>>>(&self, items: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<StoreQueueItem>>> {
         let this = &::windows::runtime::Interface::cast::<IStoreContext4>(self)?;
         unsafe {
@@ -2004,6 +2086,7 @@ unsafe impl ::std::marker::Sync for StoreContext {}
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
 pub struct StoreContract(pub u8);
+#[doc = "*Required features: `Services_Store`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct StoreDurationUnit(pub i32);
@@ -2027,11 +2110,13 @@ unsafe impl ::windows::runtime::Abi for StoreDurationUnit {
 unsafe impl ::windows::runtime::RuntimeType for StoreDurationUnit {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreDurationUnit;i4)");
 }
+#[doc = "*Required features: `Services_Store`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct StoreImage(::windows::runtime::IInspectable);
 impl StoreImage {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Services_Store`, `Foundation`*"]
     pub fn Uri(&self) -> ::windows::runtime::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
@@ -2039,6 +2124,7 @@ impl StoreImage {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn ImagePurposeTag(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2046,6 +2132,7 @@ impl StoreImage {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn Width(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -2053,6 +2140,7 @@ impl StoreImage {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn Height(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -2060,6 +2148,7 @@ impl StoreImage {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn Caption(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2120,10 +2209,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for StoreImage {}
 unsafe impl ::std::marker::Sync for StoreImage {}
+#[doc = "*Required features: `Services_Store`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct StoreLicense(::windows::runtime::IInspectable);
 impl StoreLicense {
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn SkuStoreId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2131,6 +2222,7 @@ impl StoreLicense {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn IsActive(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -2139,6 +2231,7 @@ impl StoreLicense {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Services_Store`, `Foundation`*"]
     pub fn ExpirationDate(&self) -> ::windows::runtime::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -2146,6 +2239,7 @@ impl StoreLicense {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn ExtendedJsonData(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2153,6 +2247,7 @@ impl StoreLicense {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn InAppOfferToken(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2213,6 +2308,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for StoreLicense {}
 unsafe impl ::std::marker::Sync for StoreLicense {}
+#[doc = "*Required features: `Services_Store`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct StorePackageInstallOptions(::windows::runtime::IInspectable);
@@ -2224,6 +2320,7 @@ impl StorePackageInstallOptions {
         static mut SHARED: ::windows::runtime::FactoryCache<StorePackageInstallOptions, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn AllowForcedAppRestart(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -2231,6 +2328,7 @@ impl StorePackageInstallOptions {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn SetAllowForcedAppRestart(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
@@ -2288,11 +2386,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for StorePackageInstallOptions {}
 unsafe impl ::std::marker::Sync for StorePackageInstallOptions {}
+#[doc = "*Required features: `Services_Store`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct StorePackageLicense(::windows::runtime::IInspectable);
 impl StorePackageLicense {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Services_Store`, `Foundation`*"]
     pub fn LicenseLost<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<StorePackageLicense, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -2301,11 +2401,13 @@ impl StorePackageLicense {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Services_Store`, `Foundation`*"]
     pub fn RemoveLicenseLost<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "ApplicationModel")]
+    #[doc = "*Required features: `Services_Store`, `ApplicationModel`*"]
     pub fn Package(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Package> {
         let this = self;
         unsafe {
@@ -2313,6 +2415,7 @@ impl StorePackageLicense {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Package>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn IsValid(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -2320,11 +2423,13 @@ impl StorePackageLicense {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn ReleaseLicense(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Services_Store`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
@@ -2408,11 +2513,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> 
 }
 unsafe impl ::std::marker::Send for StorePackageLicense {}
 unsafe impl ::std::marker::Sync for StorePackageLicense {}
+#[doc = "*Required features: `Services_Store`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct StorePackageUpdate(::windows::runtime::IInspectable);
 impl StorePackageUpdate {
     #[cfg(feature = "ApplicationModel")]
+    #[doc = "*Required features: `Services_Store`, `ApplicationModel`*"]
     pub fn Package(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::Package> {
         let this = self;
         unsafe {
@@ -2420,6 +2527,7 @@ impl StorePackageUpdate {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Package>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn Mandatory(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -2480,10 +2588,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for StorePackageUpdate {}
 unsafe impl ::std::marker::Sync for StorePackageUpdate {}
+#[doc = "*Required features: `Services_Store`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct StorePackageUpdateResult(::windows::runtime::IInspectable);
 impl StorePackageUpdateResult {
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn OverallState(&self) -> ::windows::runtime::Result<StorePackageUpdateState> {
         let this = self;
         unsafe {
@@ -2492,6 +2602,7 @@ impl StorePackageUpdateResult {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Services_Store`, `Foundation_Collections`*"]
     pub fn StorePackageUpdateStatuses(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<StorePackageUpdateStatus>> {
         let this = self;
         unsafe {
@@ -2500,6 +2611,7 @@ impl StorePackageUpdateResult {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Services_Store`, `Foundation_Collections`*"]
     pub fn StoreQueueItems(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<StoreQueueItem>> {
         let this = &::windows::runtime::Interface::cast::<IStorePackageUpdateResult2>(self)?;
         unsafe {
@@ -2560,6 +2672,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for StorePackageUpdateResult {}
 unsafe impl ::std::marker::Sync for StorePackageUpdateResult {}
+#[doc = "*Required features: `Services_Store`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct StorePackageUpdateState(pub i32);
@@ -2588,6 +2701,7 @@ unsafe impl ::windows::runtime::RuntimeType for StorePackageUpdateState {
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
+#[doc = "*Required features: `Services_Store`*"]
 pub struct StorePackageUpdateStatus {
     pub PackageFamilyName: ::windows::runtime::HSTRING,
     pub PackageDownloadSizeInBytes: u64,
@@ -2627,10 +2741,12 @@ unsafe impl ::windows::runtime::Abi for StorePackageUpdateStatus {
 unsafe impl ::windows::runtime::RuntimeType for StorePackageUpdateStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Services.Store.StorePackageUpdateStatus;string;u8;u8;f8;f8;enum(Windows.Services.Store.StorePackageUpdateState;i4))");
 }
+#[doc = "*Required features: `Services_Store`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct StorePrice(::windows::runtime::IInspectable);
 impl StorePrice {
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn FormattedBasePrice(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2638,6 +2754,7 @@ impl StorePrice {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn FormattedPrice(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2645,6 +2762,7 @@ impl StorePrice {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn IsOnSale(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -2653,6 +2771,7 @@ impl StorePrice {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Services_Store`, `Foundation`*"]
     pub fn SaleEndDate(&self) -> ::windows::runtime::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -2660,6 +2779,7 @@ impl StorePrice {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn CurrencyCode(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2667,6 +2787,7 @@ impl StorePrice {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn FormattedRecurrencePrice(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2727,10 +2848,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for StorePrice {}
 unsafe impl ::std::marker::Sync for StorePrice {}
+#[doc = "*Required features: `Services_Store`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct StoreProduct(::windows::runtime::IInspectable);
 impl StoreProduct {
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn StoreId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2738,6 +2861,7 @@ impl StoreProduct {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn Language(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2745,6 +2869,7 @@ impl StoreProduct {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn Title(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2752,6 +2877,7 @@ impl StoreProduct {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn Description(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2759,6 +2885,7 @@ impl StoreProduct {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn ProductKind(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2766,6 +2893,7 @@ impl StoreProduct {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn HasDigitalDownload(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -2774,6 +2902,7 @@ impl StoreProduct {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Services_Store`, `Foundation_Collections`*"]
     pub fn Keywords(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -2782,6 +2911,7 @@ impl StoreProduct {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Services_Store`, `Foundation_Collections`*"]
     pub fn Images(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<StoreImage>> {
         let this = self;
         unsafe {
@@ -2790,6 +2920,7 @@ impl StoreProduct {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Services_Store`, `Foundation_Collections`*"]
     pub fn Videos(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<StoreVideo>> {
         let this = self;
         unsafe {
@@ -2798,6 +2929,7 @@ impl StoreProduct {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Services_Store`, `Foundation_Collections`*"]
     pub fn Skus(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<StoreSku>> {
         let this = self;
         unsafe {
@@ -2805,6 +2937,7 @@ impl StoreProduct {
             (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<StoreSku>>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn IsInUserCollection(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -2812,6 +2945,7 @@ impl StoreProduct {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn Price(&self) -> ::windows::runtime::Result<StorePrice> {
         let this = self;
         unsafe {
@@ -2819,6 +2953,7 @@ impl StoreProduct {
             (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<StorePrice>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn ExtendedJsonData(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2827,6 +2962,7 @@ impl StoreProduct {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Services_Store`, `Foundation`*"]
     pub fn LinkUri(&self) -> ::windows::runtime::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
@@ -2835,6 +2971,7 @@ impl StoreProduct {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Services_Store`, `Foundation`*"]
     pub fn GetIsAnySkuInstalledAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
@@ -2843,6 +2980,7 @@ impl StoreProduct {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Services_Store`, `Foundation`*"]
     pub fn RequestPurchaseAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<StorePurchaseResult>> {
         let this = self;
         unsafe {
@@ -2851,6 +2989,7 @@ impl StoreProduct {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Services_Store`, `Foundation`*"]
     pub fn RequestPurchaseWithPurchasePropertiesAsync<'a, Param0: ::windows::runtime::IntoParam<'a, StorePurchaseProperties>>(&self, storepurchaseproperties: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<StorePurchaseResult>> {
         let this = self;
         unsafe {
@@ -2858,6 +2997,7 @@ impl StoreProduct {
             (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), storepurchaseproperties.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn InAppOfferToken(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2918,6 +3058,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for StoreProduct {}
 unsafe impl ::std::marker::Sync for StoreProduct {}
+#[doc = "*Required features: `Services_Store`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct StoreProductOptions(::windows::runtime::IInspectable);
@@ -2930,6 +3071,7 @@ impl StoreProductOptions {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Services_Store`, `Foundation_Collections`*"]
     pub fn ActionFilters(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -2990,11 +3132,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for StoreProductOptions {}
 unsafe impl ::std::marker::Sync for StoreProductOptions {}
+#[doc = "*Required features: `Services_Store`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct StoreProductPagedQueryResult(::windows::runtime::IInspectable);
 impl StoreProductPagedQueryResult {
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Services_Store`, `Foundation_Collections`*"]
     pub fn Products(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, StoreProduct>> {
         let this = self;
         unsafe {
@@ -3002,6 +3146,7 @@ impl StoreProductPagedQueryResult {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, StoreProduct>>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn HasMoreResults(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -3009,6 +3154,7 @@ impl StoreProductPagedQueryResult {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn ExtendedError(&self) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
         let this = self;
         unsafe {
@@ -3017,6 +3163,7 @@ impl StoreProductPagedQueryResult {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Services_Store`, `Foundation`*"]
     pub fn GetNextAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<StoreProductPagedQueryResult>> {
         let this = self;
         unsafe {
@@ -3077,11 +3224,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for StoreProductPagedQueryResult {}
 unsafe impl ::std::marker::Sync for StoreProductPagedQueryResult {}
+#[doc = "*Required features: `Services_Store`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct StoreProductQueryResult(::windows::runtime::IInspectable);
 impl StoreProductQueryResult {
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Services_Store`, `Foundation_Collections`*"]
     pub fn Products(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, StoreProduct>> {
         let this = self;
         unsafe {
@@ -3089,6 +3238,7 @@ impl StoreProductQueryResult {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, StoreProduct>>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn ExtendedError(&self) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
         let this = self;
         unsafe {
@@ -3149,10 +3299,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for StoreProductQueryResult {}
 unsafe impl ::std::marker::Sync for StoreProductQueryResult {}
+#[doc = "*Required features: `Services_Store`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct StoreProductResult(::windows::runtime::IInspectable);
 impl StoreProductResult {
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn Product(&self) -> ::windows::runtime::Result<StoreProduct> {
         let this = self;
         unsafe {
@@ -3160,6 +3312,7 @@ impl StoreProductResult {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<StoreProduct>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn ExtendedError(&self) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
         let this = self;
         unsafe {
@@ -3220,6 +3373,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for StoreProductResult {}
 unsafe impl ::std::marker::Sync for StoreProductResult {}
+#[doc = "*Required features: `Services_Store`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct StorePurchaseProperties(::windows::runtime::IInspectable);
@@ -3231,6 +3385,7 @@ impl StorePurchaseProperties {
         static mut SHARED: ::windows::runtime::FactoryCache<StorePurchaseProperties, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -3238,10 +3393,12 @@ impl StorePurchaseProperties {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn ExtendedJsonData(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -3249,10 +3406,12 @@ impl StorePurchaseProperties {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn SetExtendedJsonData<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn Create<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(name: Param0) -> ::windows::runtime::Result<StorePurchaseProperties> {
         Self::IStorePurchasePropertiesFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -3316,10 +3475,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for StorePurchaseProperties {}
 unsafe impl ::std::marker::Sync for StorePurchaseProperties {}
+#[doc = "*Required features: `Services_Store`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct StorePurchaseResult(::windows::runtime::IInspectable);
 impl StorePurchaseResult {
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<StorePurchaseStatus> {
         let this = self;
         unsafe {
@@ -3327,6 +3488,7 @@ impl StorePurchaseResult {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<StorePurchaseStatus>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn ExtendedError(&self) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
         let this = self;
         unsafe {
@@ -3387,6 +3549,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for StorePurchaseResult {}
 unsafe impl ::std::marker::Sync for StorePurchaseResult {}
+#[doc = "*Required features: `Services_Store`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct StorePurchaseStatus(pub i32);
@@ -3409,10 +3572,12 @@ unsafe impl ::windows::runtime::Abi for StorePurchaseStatus {
 unsafe impl ::windows::runtime::RuntimeType for StorePurchaseStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StorePurchaseStatus;i4)");
 }
+#[doc = "*Required features: `Services_Store`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct StoreQueueItem(::windows::runtime::IInspectable);
 impl StoreQueueItem {
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn ProductId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -3420,6 +3585,7 @@ impl StoreQueueItem {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn PackageFamilyName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -3427,6 +3593,7 @@ impl StoreQueueItem {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn InstallKind(&self) -> ::windows::runtime::Result<StoreQueueItemKind> {
         let this = self;
         unsafe {
@@ -3434,6 +3601,7 @@ impl StoreQueueItem {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<StoreQueueItemKind>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn GetCurrentStatus(&self) -> ::windows::runtime::Result<StoreQueueItemStatus> {
         let this = self;
         unsafe {
@@ -3442,6 +3610,7 @@ impl StoreQueueItem {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Services_Store`, `Foundation`*"]
     pub fn Completed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<StoreQueueItem, StoreQueueItemCompletedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -3450,11 +3619,13 @@ impl StoreQueueItem {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Services_Store`, `Foundation`*"]
     pub fn RemoveCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Services_Store`, `Foundation`*"]
     pub fn StatusChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<StoreQueueItem, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -3463,11 +3634,13 @@ impl StoreQueueItem {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Services_Store`, `Foundation`*"]
     pub fn RemoveStatusChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Services_Store`, `Foundation`*"]
     pub fn CancelInstallAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows::runtime::Interface::cast::<IStoreQueueItem2>(self)?;
         unsafe {
@@ -3476,6 +3649,7 @@ impl StoreQueueItem {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Services_Store`, `Foundation`*"]
     pub fn PauseInstallAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows::runtime::Interface::cast::<IStoreQueueItem2>(self)?;
         unsafe {
@@ -3484,6 +3658,7 @@ impl StoreQueueItem {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Services_Store`, `Foundation`*"]
     pub fn ResumeInstallAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows::runtime::Interface::cast::<IStoreQueueItem2>(self)?;
         unsafe {
@@ -3544,10 +3719,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for StoreQueueItem {}
 unsafe impl ::std::marker::Sync for StoreQueueItem {}
+#[doc = "*Required features: `Services_Store`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct StoreQueueItemCompletedEventArgs(::windows::runtime::IInspectable);
 impl StoreQueueItemCompletedEventArgs {
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<StoreQueueItemStatus> {
         let this = self;
         unsafe {
@@ -3608,6 +3785,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for StoreQueueItemCompletedEventArgs {}
 unsafe impl ::std::marker::Sync for StoreQueueItemCompletedEventArgs {}
+#[doc = "*Required features: `Services_Store`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct StoreQueueItemExtendedState(pub i32);
@@ -3640,6 +3818,7 @@ unsafe impl ::windows::runtime::Abi for StoreQueueItemExtendedState {
 unsafe impl ::windows::runtime::RuntimeType for StoreQueueItemExtendedState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreQueueItemExtendedState;i4)");
 }
+#[doc = "*Required features: `Services_Store`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct StoreQueueItemKind(pub i32);
@@ -3660,6 +3839,7 @@ unsafe impl ::windows::runtime::Abi for StoreQueueItemKind {
 unsafe impl ::windows::runtime::RuntimeType for StoreQueueItemKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreQueueItemKind;i4)");
 }
+#[doc = "*Required features: `Services_Store`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct StoreQueueItemState(pub i32);
@@ -3682,10 +3862,12 @@ unsafe impl ::windows::runtime::Abi for StoreQueueItemState {
 unsafe impl ::windows::runtime::RuntimeType for StoreQueueItemState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreQueueItemState;i4)");
 }
+#[doc = "*Required features: `Services_Store`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct StoreQueueItemStatus(::windows::runtime::IInspectable);
 impl StoreQueueItemStatus {
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn PackageInstallState(&self) -> ::windows::runtime::Result<StoreQueueItemState> {
         let this = self;
         unsafe {
@@ -3693,6 +3875,7 @@ impl StoreQueueItemStatus {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<StoreQueueItemState>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn PackageInstallExtendedState(&self) -> ::windows::runtime::Result<StoreQueueItemExtendedState> {
         let this = self;
         unsafe {
@@ -3700,6 +3883,7 @@ impl StoreQueueItemStatus {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<StoreQueueItemExtendedState>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn UpdateStatus(&self) -> ::windows::runtime::Result<StorePackageUpdateStatus> {
         let this = self;
         unsafe {
@@ -3707,6 +3891,7 @@ impl StoreQueueItemStatus {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<StorePackageUpdateStatus>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn ExtendedError(&self) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
         let this = self;
         unsafe {
@@ -3767,10 +3952,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for StoreQueueItemStatus {}
 unsafe impl ::std::marker::Sync for StoreQueueItemStatus {}
+#[doc = "*Required features: `Services_Store`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct StoreRateAndReviewResult(::windows::runtime::IInspectable);
 impl StoreRateAndReviewResult {
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn ExtendedError(&self) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
         let this = self;
         unsafe {
@@ -3778,6 +3965,7 @@ impl StoreRateAndReviewResult {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HRESULT>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn ExtendedJsonData(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -3785,6 +3973,7 @@ impl StoreRateAndReviewResult {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn WasUpdated(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -3792,6 +3981,7 @@ impl StoreRateAndReviewResult {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<StoreRateAndReviewStatus> {
         let this = self;
         unsafe {
@@ -3852,6 +4042,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for StoreRateAndReviewResult {}
 unsafe impl ::std::marker::Sync for StoreRateAndReviewResult {}
+#[doc = "*Required features: `Services_Store`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct StoreRateAndReviewStatus(pub i32);
@@ -3873,9 +4064,11 @@ unsafe impl ::windows::runtime::Abi for StoreRateAndReviewStatus {
 unsafe impl ::windows::runtime::RuntimeType for StoreRateAndReviewStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreRateAndReviewStatus;i4)");
 }
+#[doc = "*Required features: `Services_Store`*"]
 pub struct StoreRequestHelper {}
 impl StoreRequestHelper {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Services_Store`, `Foundation`*"]
     pub fn SendRequestAsync<'a, Param0: ::windows::runtime::IntoParam<'a, StoreContext>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(context: Param0, requestkind: u32, parametersasjson: Param2) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<StoreSendRequestResult>> {
         Self::IStoreRequestHelperStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -3890,10 +4083,12 @@ impl StoreRequestHelper {
 impl ::windows::runtime::RuntimeName for StoreRequestHelper {
     const NAME: &'static str = "Windows.Services.Store.StoreRequestHelper";
 }
+#[doc = "*Required features: `Services_Store`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct StoreSendRequestResult(::windows::runtime::IInspectable);
 impl StoreSendRequestResult {
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn Response(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -3901,6 +4096,7 @@ impl StoreSendRequestResult {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn ExtendedError(&self) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
         let this = self;
         unsafe {
@@ -3909,6 +4105,7 @@ impl StoreSendRequestResult {
         }
     }
     #[cfg(feature = "Web_Http")]
+    #[doc = "*Required features: `Services_Store`, `Web_Http`*"]
     pub fn HttpStatusCode(&self) -> ::windows::runtime::Result<super::super::Web::Http::HttpStatusCode> {
         let this = &::windows::runtime::Interface::cast::<IStoreSendRequestResult2>(self)?;
         unsafe {
@@ -3969,10 +4166,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for StoreSendRequestResult {}
 unsafe impl ::std::marker::Sync for StoreSendRequestResult {}
+#[doc = "*Required features: `Services_Store`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct StoreSku(::windows::runtime::IInspectable);
 impl StoreSku {
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn StoreId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -3980,6 +4179,7 @@ impl StoreSku {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn Language(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -3987,6 +4187,7 @@ impl StoreSku {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn Title(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -3994,6 +4195,7 @@ impl StoreSku {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn Description(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -4001,6 +4203,7 @@ impl StoreSku {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn IsTrial(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -4008,6 +4211,7 @@ impl StoreSku {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn CustomDeveloperData(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -4016,6 +4220,7 @@ impl StoreSku {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Services_Store`, `Foundation_Collections`*"]
     pub fn Images(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<StoreImage>> {
         let this = self;
         unsafe {
@@ -4024,6 +4229,7 @@ impl StoreSku {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Services_Store`, `Foundation_Collections`*"]
     pub fn Videos(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<StoreVideo>> {
         let this = self;
         unsafe {
@@ -4032,6 +4238,7 @@ impl StoreSku {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Services_Store`, `Foundation_Collections`*"]
     pub fn Availabilities(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<StoreAvailability>> {
         let this = self;
         unsafe {
@@ -4039,6 +4246,7 @@ impl StoreSku {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<StoreAvailability>>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn Price(&self) -> ::windows::runtime::Result<StorePrice> {
         let this = self;
         unsafe {
@@ -4046,6 +4254,7 @@ impl StoreSku {
             (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<StorePrice>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn ExtendedJsonData(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -4053,6 +4262,7 @@ impl StoreSku {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn IsInUserCollection(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -4061,6 +4271,7 @@ impl StoreSku {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Services_Store`, `Foundation_Collections`*"]
     pub fn BundledSkus(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -4068,6 +4279,7 @@ impl StoreSku {
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn CollectionData(&self) -> ::windows::runtime::Result<StoreCollectionData> {
         let this = self;
         unsafe {
@@ -4076,6 +4288,7 @@ impl StoreSku {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Services_Store`, `Foundation`*"]
     pub fn GetIsInstalledAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
@@ -4084,6 +4297,7 @@ impl StoreSku {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Services_Store`, `Foundation`*"]
     pub fn RequestPurchaseAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<StorePurchaseResult>> {
         let this = self;
         unsafe {
@@ -4092,6 +4306,7 @@ impl StoreSku {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Services_Store`, `Foundation`*"]
     pub fn RequestPurchaseWithPurchasePropertiesAsync<'a, Param0: ::windows::runtime::IntoParam<'a, StorePurchaseProperties>>(&self, storepurchaseproperties: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<StorePurchaseResult>> {
         let this = self;
         unsafe {
@@ -4099,6 +4314,7 @@ impl StoreSku {
             (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), storepurchaseproperties.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn IsSubscription(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -4106,6 +4322,7 @@ impl StoreSku {
             (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn SubscriptionInfo(&self) -> ::windows::runtime::Result<StoreSubscriptionInfo> {
         let this = self;
         unsafe {
@@ -4166,10 +4383,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for StoreSku {}
 unsafe impl ::std::marker::Sync for StoreSku {}
+#[doc = "*Required features: `Services_Store`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct StoreSubscriptionInfo(::windows::runtime::IInspectable);
 impl StoreSubscriptionInfo {
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn BillingPeriod(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -4177,6 +4396,7 @@ impl StoreSubscriptionInfo {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn BillingPeriodUnit(&self) -> ::windows::runtime::Result<StoreDurationUnit> {
         let this = self;
         unsafe {
@@ -4184,6 +4404,7 @@ impl StoreSubscriptionInfo {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<StoreDurationUnit>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn HasTrialPeriod(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -4191,6 +4412,7 @@ impl StoreSubscriptionInfo {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn TrialPeriod(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -4198,6 +4420,7 @@ impl StoreSubscriptionInfo {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn TrialPeriodUnit(&self) -> ::windows::runtime::Result<StoreDurationUnit> {
         let this = self;
         unsafe {
@@ -4258,10 +4481,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for StoreSubscriptionInfo {}
 unsafe impl ::std::marker::Sync for StoreSubscriptionInfo {}
+#[doc = "*Required features: `Services_Store`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct StoreUninstallStorePackageResult(::windows::runtime::IInspectable);
 impl StoreUninstallStorePackageResult {
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn ExtendedError(&self) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
         let this = self;
         unsafe {
@@ -4269,6 +4494,7 @@ impl StoreUninstallStorePackageResult {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HRESULT>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<StoreUninstallStorePackageStatus> {
         let this = self;
         unsafe {
@@ -4329,6 +4555,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for StoreUninstallStorePackageResult {}
 unsafe impl ::std::marker::Sync for StoreUninstallStorePackageResult {}
+#[doc = "*Required features: `Services_Store`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct StoreUninstallStorePackageStatus(pub i32);
@@ -4351,11 +4578,13 @@ unsafe impl ::windows::runtime::Abi for StoreUninstallStorePackageStatus {
 unsafe impl ::windows::runtime::RuntimeType for StoreUninstallStorePackageStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreUninstallStorePackageStatus;i4)");
 }
+#[doc = "*Required features: `Services_Store`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct StoreVideo(::windows::runtime::IInspectable);
 impl StoreVideo {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Services_Store`, `Foundation`*"]
     pub fn Uri(&self) -> ::windows::runtime::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
@@ -4363,6 +4592,7 @@ impl StoreVideo {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn VideoPurposeTag(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -4370,6 +4600,7 @@ impl StoreVideo {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn Width(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -4377,6 +4608,7 @@ impl StoreVideo {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn Height(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -4384,6 +4616,7 @@ impl StoreVideo {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn Caption(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -4391,6 +4624,7 @@ impl StoreVideo {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Services_Store`*"]
     pub fn PreviewImage(&self) -> ::windows::runtime::Result<StoreImage> {
         let this = self;
         unsafe {

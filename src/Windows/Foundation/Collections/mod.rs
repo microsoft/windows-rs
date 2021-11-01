@@ -1,4 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Foundation_Collections`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CollectionChange(pub i32);
@@ -22,6 +23,7 @@ unsafe impl ::windows::runtime::RuntimeType for CollectionChange {
 }
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Foundation_Collections`*"]
 pub struct IIterable<T>(::windows::runtime::IInspectable, ::std::marker::PhantomData<T>)
 where
     T: ::windows::runtime::RuntimeType + 'static;
@@ -30,6 +32,7 @@ unsafe impl<T: ::windows::runtime::RuntimeType + 'static> ::windows::runtime::In
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_signature(<IIterable<T> as ::windows::runtime::RuntimeType>::SIGNATURE);
 }
 impl<T: ::windows::runtime::RuntimeType + 'static> IIterable<T> {
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn First(&self) -> ::windows::runtime::Result<IIterator<T>> {
         let this = self;
         unsafe {
@@ -111,6 +114,7 @@ where
     T: ::windows::runtime::RuntimeType + 'static;
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Foundation_Collections`*"]
 pub struct IIterator<T>(::windows::runtime::IInspectable, ::std::marker::PhantomData<T>)
 where
     T: ::windows::runtime::RuntimeType + 'static;
@@ -119,6 +123,7 @@ unsafe impl<T: ::windows::runtime::RuntimeType + 'static> ::windows::runtime::In
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_signature(<IIterator<T> as ::windows::runtime::RuntimeType>::SIGNATURE);
 }
 impl<T: ::windows::runtime::RuntimeType + 'static> IIterator<T> {
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn Current(&self) -> ::windows::runtime::Result<T> {
         let this = self;
         unsafe {
@@ -126,6 +131,7 @@ impl<T: ::windows::runtime::RuntimeType + 'static> IIterator<T> {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<T>(result__)
         }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn HasCurrent(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -133,6 +139,7 @@ impl<T: ::windows::runtime::RuntimeType + 'static> IIterator<T> {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn MoveNext(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -140,6 +147,7 @@ impl<T: ::windows::runtime::RuntimeType + 'static> IIterator<T> {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn GetMany(&self, items: &mut [<T as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -220,6 +228,7 @@ where
     T: ::windows::runtime::RuntimeType + 'static;
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Foundation_Collections`*"]
 pub struct IKeyValuePair<K, V>(::windows::runtime::IInspectable, ::std::marker::PhantomData<K>, ::std::marker::PhantomData<V>)
 where
     K: ::windows::runtime::RuntimeType + 'static,
@@ -229,6 +238,7 @@ unsafe impl<K: ::windows::runtime::RuntimeType + 'static, V: ::windows::runtime:
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_signature(<IKeyValuePair<K, V> as ::windows::runtime::RuntimeType>::SIGNATURE);
 }
 impl<K: ::windows::runtime::RuntimeType + 'static, V: ::windows::runtime::RuntimeType + 'static> IKeyValuePair<K, V> {
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn Key(&self) -> ::windows::runtime::Result<K> {
         let this = self;
         unsafe {
@@ -236,6 +246,7 @@ impl<K: ::windows::runtime::RuntimeType + 'static, V: ::windows::runtime::Runtim
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<K>(result__)
         }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn Value(&self) -> ::windows::runtime::Result<V> {
         let this = self;
         unsafe {
@@ -306,6 +317,7 @@ where
     V: ::windows::runtime::RuntimeType + 'static;
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Foundation_Collections`*"]
 pub struct IMap<K, V>(::windows::runtime::IInspectable, ::std::marker::PhantomData<K>, ::std::marker::PhantomData<V>)
 where
     K: ::windows::runtime::RuntimeType + 'static,
@@ -315,6 +327,7 @@ unsafe impl<K: ::windows::runtime::RuntimeType + 'static, V: ::windows::runtime:
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_signature(<IMap<K, V> as ::windows::runtime::RuntimeType>::SIGNATURE);
 }
 impl<K: ::windows::runtime::RuntimeType + 'static, V: ::windows::runtime::RuntimeType + 'static> IMap<K, V> {
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn Lookup<'a, Param0: ::windows::runtime::IntoParam<'a, K>>(&self, key: Param0) -> ::windows::runtime::Result<V> {
         let this = self;
         unsafe {
@@ -322,6 +335,7 @@ impl<K: ::windows::runtime::RuntimeType + 'static, V: ::windows::runtime::Runtim
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), key.into_param().abi(), &mut result__).from_abi::<V>(result__)
         }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn Size(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -329,6 +343,7 @@ impl<K: ::windows::runtime::RuntimeType + 'static, V: ::windows::runtime::Runtim
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn HasKey<'a, Param0: ::windows::runtime::IntoParam<'a, K>>(&self, key: Param0) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -336,6 +351,7 @@ impl<K: ::windows::runtime::RuntimeType + 'static, V: ::windows::runtime::Runtim
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), key.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn GetView(&self) -> ::windows::runtime::Result<IMapView<K, V>> {
         let this = self;
         unsafe {
@@ -343,6 +359,7 @@ impl<K: ::windows::runtime::RuntimeType + 'static, V: ::windows::runtime::Runtim
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IMapView<K, V>>(result__)
         }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn Insert<'a, Param0: ::windows::runtime::IntoParam<'a, K>, Param1: ::windows::runtime::IntoParam<'a, V>>(&self, key: Param0, value: Param1) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -350,14 +367,17 @@ impl<K: ::windows::runtime::RuntimeType + 'static, V: ::windows::runtime::Runtim
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), key.into_param().abi(), value.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn Remove<'a, Param0: ::windows::runtime::IntoParam<'a, K>>(&self, key: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), key.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn Clear(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn First(&self) -> ::windows::runtime::Result<IIterator<IKeyValuePair<K, V>>> {
         let this = &::windows::runtime::Interface::cast::<IIterable<IKeyValuePair<K, V>>>(self)?;
         unsafe {
@@ -471,6 +491,7 @@ where
     V: ::windows::runtime::RuntimeType + 'static;
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Foundation_Collections`*"]
 pub struct IMapChangedEventArgs<K>(::windows::runtime::IInspectable, ::std::marker::PhantomData<K>)
 where
     K: ::windows::runtime::RuntimeType + 'static;
@@ -479,6 +500,7 @@ unsafe impl<K: ::windows::runtime::RuntimeType + 'static> ::windows::runtime::In
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_signature(<IMapChangedEventArgs<K> as ::windows::runtime::RuntimeType>::SIGNATURE);
 }
 impl<K: ::windows::runtime::RuntimeType + 'static> IMapChangedEventArgs<K> {
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn CollectionChange(&self) -> ::windows::runtime::Result<CollectionChange> {
         let this = self;
         unsafe {
@@ -486,6 +508,7 @@ impl<K: ::windows::runtime::RuntimeType + 'static> IMapChangedEventArgs<K> {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<CollectionChange>(result__)
         }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn Key(&self) -> ::windows::runtime::Result<K> {
         let this = self;
         unsafe {
@@ -554,6 +577,7 @@ where
     K: ::windows::runtime::RuntimeType + 'static;
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Foundation_Collections`*"]
 pub struct IMapView<K, V>(::windows::runtime::IInspectable, ::std::marker::PhantomData<K>, ::std::marker::PhantomData<V>)
 where
     K: ::windows::runtime::RuntimeType + 'static,
@@ -563,6 +587,7 @@ unsafe impl<K: ::windows::runtime::RuntimeType + 'static, V: ::windows::runtime:
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_signature(<IMapView<K, V> as ::windows::runtime::RuntimeType>::SIGNATURE);
 }
 impl<K: ::windows::runtime::RuntimeType + 'static, V: ::windows::runtime::RuntimeType + 'static> IMapView<K, V> {
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn Lookup<'a, Param0: ::windows::runtime::IntoParam<'a, K>>(&self, key: Param0) -> ::windows::runtime::Result<V> {
         let this = self;
         unsafe {
@@ -570,6 +595,7 @@ impl<K: ::windows::runtime::RuntimeType + 'static, V: ::windows::runtime::Runtim
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), key.into_param().abi(), &mut result__).from_abi::<V>(result__)
         }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn Size(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -577,6 +603,7 @@ impl<K: ::windows::runtime::RuntimeType + 'static, V: ::windows::runtime::Runtim
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn HasKey<'a, Param0: ::windows::runtime::IntoParam<'a, K>>(&self, key: Param0) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -584,10 +611,12 @@ impl<K: ::windows::runtime::RuntimeType + 'static, V: ::windows::runtime::Runtim
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), key.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn Split(&self, first: &mut ::std::option::Option<IMapView<K, V>>, second: &mut ::std::option::Option<IMapView<K, V>>) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), first as *mut _ as _, second as *mut _ as _).ok() }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn First(&self) -> ::windows::runtime::Result<IIterator<IKeyValuePair<K, V>>> {
         let this = &::windows::runtime::Interface::cast::<IIterable<IKeyValuePair<K, V>>>(self)?;
         unsafe {
@@ -698,6 +727,7 @@ where
     V: ::windows::runtime::RuntimeType + 'static;
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Foundation_Collections`*"]
 pub struct IObservableMap<K, V>(::windows::runtime::IInspectable, ::std::marker::PhantomData<K>, ::std::marker::PhantomData<V>)
 where
     K: ::windows::runtime::RuntimeType + 'static,
@@ -707,6 +737,7 @@ unsafe impl<K: ::windows::runtime::RuntimeType + 'static, V: ::windows::runtime:
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_signature(<IObservableMap<K, V> as ::windows::runtime::RuntimeType>::SIGNATURE);
 }
 impl<K: ::windows::runtime::RuntimeType + 'static, V: ::windows::runtime::RuntimeType + 'static> IObservableMap<K, V> {
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn MapChanged<'a, Param0: ::windows::runtime::IntoParam<'a, MapChangedEventHandler<K, V>>>(&self, vhnd: Param0) -> ::windows::runtime::Result<super::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -714,10 +745,12 @@ impl<K: ::windows::runtime::RuntimeType + 'static, V: ::windows::runtime::Runtim
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), vhnd.into_param().abi(), &mut result__).from_abi::<super::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn RemoveMapChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn First(&self) -> ::windows::runtime::Result<IIterator<IKeyValuePair<K, V>>> {
         let this = &::windows::runtime::Interface::cast::<IIterable<IKeyValuePair<K, V>>>(self)?;
         unsafe {
@@ -725,6 +758,7 @@ impl<K: ::windows::runtime::RuntimeType + 'static, V: ::windows::runtime::Runtim
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IIterator<IKeyValuePair<K, V>>>(result__)
         }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn Lookup<'a, Param0: ::windows::runtime::IntoParam<'a, K>>(&self, key: Param0) -> ::windows::runtime::Result<V> {
         let this = &::windows::runtime::Interface::cast::<IMap<K, V>>(self)?;
         unsafe {
@@ -732,6 +766,7 @@ impl<K: ::windows::runtime::RuntimeType + 'static, V: ::windows::runtime::Runtim
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), key.into_param().abi(), &mut result__).from_abi::<V>(result__)
         }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn Size(&self) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<IMap<K, V>>(self)?;
         unsafe {
@@ -739,6 +774,7 @@ impl<K: ::windows::runtime::RuntimeType + 'static, V: ::windows::runtime::Runtim
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn HasKey<'a, Param0: ::windows::runtime::IntoParam<'a, K>>(&self, key: Param0) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IMap<K, V>>(self)?;
         unsafe {
@@ -746,6 +782,7 @@ impl<K: ::windows::runtime::RuntimeType + 'static, V: ::windows::runtime::Runtim
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), key.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn GetView(&self) -> ::windows::runtime::Result<IMapView<K, V>> {
         let this = &::windows::runtime::Interface::cast::<IMap<K, V>>(self)?;
         unsafe {
@@ -753,6 +790,7 @@ impl<K: ::windows::runtime::RuntimeType + 'static, V: ::windows::runtime::Runtim
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IMapView<K, V>>(result__)
         }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn Insert<'a, Param0: ::windows::runtime::IntoParam<'a, K>, Param1: ::windows::runtime::IntoParam<'a, V>>(&self, key: Param0, value: Param1) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IMap<K, V>>(self)?;
         unsafe {
@@ -760,10 +798,12 @@ impl<K: ::windows::runtime::RuntimeType + 'static, V: ::windows::runtime::Runtim
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), key.into_param().abi(), value.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn Remove<'a, Param0: ::windows::runtime::IntoParam<'a, K>>(&self, key: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IMap<K, V>>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), key.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn Clear(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IMap<K, V>>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this)).ok() }
@@ -891,6 +931,7 @@ where
     V: ::windows::runtime::RuntimeType + 'static;
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Foundation_Collections`*"]
 pub struct IObservableVector<T>(::windows::runtime::IInspectable, ::std::marker::PhantomData<T>)
 where
     T: ::windows::runtime::RuntimeType + 'static;
@@ -899,6 +940,7 @@ unsafe impl<T: ::windows::runtime::RuntimeType + 'static> ::windows::runtime::In
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_signature(<IObservableVector<T> as ::windows::runtime::RuntimeType>::SIGNATURE);
 }
 impl<T: ::windows::runtime::RuntimeType + 'static> IObservableVector<T> {
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn VectorChanged<'a, Param0: ::windows::runtime::IntoParam<'a, VectorChangedEventHandler<T>>>(&self, vhnd: Param0) -> ::windows::runtime::Result<super::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -906,10 +948,12 @@ impl<T: ::windows::runtime::RuntimeType + 'static> IObservableVector<T> {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), vhnd.into_param().abi(), &mut result__).from_abi::<super::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn RemoveVectorChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn First(&self) -> ::windows::runtime::Result<IIterator<T>> {
         let this = &::windows::runtime::Interface::cast::<IIterable<T>>(self)?;
         unsafe {
@@ -917,6 +961,7 @@ impl<T: ::windows::runtime::RuntimeType + 'static> IObservableVector<T> {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IIterator<T>>(result__)
         }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn GetAt(&self, index: u32) -> ::windows::runtime::Result<T> {
         let this = &::windows::runtime::Interface::cast::<IVector<T>>(self)?;
         unsafe {
@@ -924,6 +969,7 @@ impl<T: ::windows::runtime::RuntimeType + 'static> IObservableVector<T> {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), index, &mut result__).from_abi::<T>(result__)
         }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn Size(&self) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<IVector<T>>(self)?;
         unsafe {
@@ -931,6 +977,7 @@ impl<T: ::windows::runtime::RuntimeType + 'static> IObservableVector<T> {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn GetView(&self) -> ::windows::runtime::Result<IVectorView<T>> {
         let this = &::windows::runtime::Interface::cast::<IVector<T>>(self)?;
         unsafe {
@@ -938,6 +985,7 @@ impl<T: ::windows::runtime::RuntimeType + 'static> IObservableVector<T> {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IVectorView<T>>(result__)
         }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn IndexOf<'a, Param0: ::windows::runtime::IntoParam<'a, T>>(&self, value: Param0, index: &mut u32) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IVector<T>>(self)?;
         unsafe {
@@ -945,30 +993,37 @@ impl<T: ::windows::runtime::RuntimeType + 'static> IObservableVector<T> {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi(), index, &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn SetAt<'a, Param1: ::windows::runtime::IntoParam<'a, T>>(&self, index: u32, value: Param1) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IVector<T>>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), index, value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn InsertAt<'a, Param1: ::windows::runtime::IntoParam<'a, T>>(&self, index: u32, value: Param1) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IVector<T>>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), index, value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn RemoveAt(&self, index: u32) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IVector<T>>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), index).ok() }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn Append<'a, Param0: ::windows::runtime::IntoParam<'a, T>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IVector<T>>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn RemoveAtEnd(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IVector<T>>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn Clear(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IVector<T>>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn GetMany(&self, startindex: u32, items: &mut [<T as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<IVector<T>>(self)?;
         unsafe {
@@ -976,6 +1031,7 @@ impl<T: ::windows::runtime::RuntimeType + 'static> IObservableVector<T> {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), startindex, items.len() as u32, ::std::mem::transmute_copy(&items), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn ReplaceAll(&self, items: &[<T as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IVector<T>>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), items.len() as u32, ::std::mem::transmute(items.as_ptr())).ok() }
@@ -1101,12 +1157,14 @@ where
     T: ::windows::runtime::RuntimeType + 'static;
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Foundation_Collections`*"]
 pub struct IPropertySet(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPropertySet {
     type Vtable = IPropertySet_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2319707551, 62694, 17441, [172, 249, 29, 171, 41, 134, 130, 12]);
 }
 impl IPropertySet {
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn First(&self) -> ::windows::runtime::Result<IIterator<IKeyValuePair<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>> {
         let this = &::windows::runtime::Interface::cast::<IIterable<IKeyValuePair<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>>(self)?;
         unsafe {
@@ -1114,6 +1172,7 @@ impl IPropertySet {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IIterator<IKeyValuePair<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>>(result__)
         }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn Lookup<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, key: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<IMap<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>(self)?;
         unsafe {
@@ -1121,6 +1180,7 @@ impl IPropertySet {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), key.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn Size(&self) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<IMap<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>(self)?;
         unsafe {
@@ -1128,6 +1188,7 @@ impl IPropertySet {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn HasKey<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, key: Param0) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IMap<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>(self)?;
         unsafe {
@@ -1135,6 +1196,7 @@ impl IPropertySet {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), key.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn GetView(&self) -> ::windows::runtime::Result<IMapView<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>> {
         let this = &::windows::runtime::Interface::cast::<IMap<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>(self)?;
         unsafe {
@@ -1142,6 +1204,7 @@ impl IPropertySet {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IMapView<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>(result__)
         }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn Insert<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, key: Param0, value: Param1) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IMap<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>(self)?;
         unsafe {
@@ -1149,14 +1212,17 @@ impl IPropertySet {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), key.into_param().abi(), value.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn Remove<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, key: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IMap<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), key.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn Clear(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IMap<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn MapChanged<'a, Param0: ::windows::runtime::IntoParam<'a, MapChangedEventHandler<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>>(&self, vhnd: Param0) -> ::windows::runtime::Result<super::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<IObservableMap<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>(self)?;
         unsafe {
@@ -1164,6 +1230,7 @@ impl IPropertySet {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), vhnd.into_param().abi(), &mut result__).from_abi::<super::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn RemoveMapChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IObservableMap<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
@@ -1306,6 +1373,7 @@ pub struct IPropertySet_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Foundation_Collections`*"]
 pub struct IVector<T>(::windows::runtime::IInspectable, ::std::marker::PhantomData<T>)
 where
     T: ::windows::runtime::RuntimeType + 'static;
@@ -1314,6 +1382,7 @@ unsafe impl<T: ::windows::runtime::RuntimeType + 'static> ::windows::runtime::In
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_signature(<IVector<T> as ::windows::runtime::RuntimeType>::SIGNATURE);
 }
 impl<T: ::windows::runtime::RuntimeType + 'static> IVector<T> {
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn GetAt(&self, index: u32) -> ::windows::runtime::Result<T> {
         let this = self;
         unsafe {
@@ -1321,6 +1390,7 @@ impl<T: ::windows::runtime::RuntimeType + 'static> IVector<T> {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), index, &mut result__).from_abi::<T>(result__)
         }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn Size(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -1328,6 +1398,7 @@ impl<T: ::windows::runtime::RuntimeType + 'static> IVector<T> {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn GetView(&self) -> ::windows::runtime::Result<IVectorView<T>> {
         let this = self;
         unsafe {
@@ -1335,6 +1406,7 @@ impl<T: ::windows::runtime::RuntimeType + 'static> IVector<T> {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IVectorView<T>>(result__)
         }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn IndexOf<'a, Param0: ::windows::runtime::IntoParam<'a, T>>(&self, value: Param0, index: &mut u32) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1342,30 +1414,37 @@ impl<T: ::windows::runtime::RuntimeType + 'static> IVector<T> {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi(), index, &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn SetAt<'a, Param1: ::windows::runtime::IntoParam<'a, T>>(&self, index: u32, value: Param1) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), index, value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn InsertAt<'a, Param1: ::windows::runtime::IntoParam<'a, T>>(&self, index: u32, value: Param1) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), index, value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn RemoveAt(&self, index: u32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), index).ok() }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn Append<'a, Param0: ::windows::runtime::IntoParam<'a, T>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn RemoveAtEnd(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn Clear(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn GetMany(&self, startindex: u32, items: &mut [<T as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -1373,10 +1452,12 @@ impl<T: ::windows::runtime::RuntimeType + 'static> IVector<T> {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), startindex, items.len() as u32, ::std::mem::transmute_copy(&items), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn ReplaceAll(&self, items: &[<T as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), items.len() as u32, ::std::mem::transmute(items.as_ptr())).ok() }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn First(&self) -> ::windows::runtime::Result<IIterator<T>> {
         let this = &::windows::runtime::Interface::cast::<IIterable<T>>(self)?;
         unsafe {
@@ -1509,12 +1590,14 @@ where
     T: ::windows::runtime::RuntimeType + 'static;
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Foundation_Collections`*"]
 pub struct IVectorChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVectorChangedEventArgs {
     type Vtable = IVectorChangedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1465463775, 13566, 17536, [175, 21, 7, 105, 31, 61, 93, 155]);
 }
 impl IVectorChangedEventArgs {
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn CollectionChange(&self) -> ::windows::runtime::Result<CollectionChange> {
         let this = self;
         unsafe {
@@ -1522,6 +1605,7 @@ impl IVectorChangedEventArgs {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<CollectionChange>(result__)
         }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn Index(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -1587,6 +1671,7 @@ pub struct IVectorChangedEventArgs_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Foundation_Collections`*"]
 pub struct IVectorView<T>(::windows::runtime::IInspectable, ::std::marker::PhantomData<T>)
 where
     T: ::windows::runtime::RuntimeType + 'static;
@@ -1595,6 +1680,7 @@ unsafe impl<T: ::windows::runtime::RuntimeType + 'static> ::windows::runtime::In
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_signature(<IVectorView<T> as ::windows::runtime::RuntimeType>::SIGNATURE);
 }
 impl<T: ::windows::runtime::RuntimeType + 'static> IVectorView<T> {
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn GetAt(&self, index: u32) -> ::windows::runtime::Result<T> {
         let this = self;
         unsafe {
@@ -1602,6 +1688,7 @@ impl<T: ::windows::runtime::RuntimeType + 'static> IVectorView<T> {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), index, &mut result__).from_abi::<T>(result__)
         }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn Size(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -1609,6 +1696,7 @@ impl<T: ::windows::runtime::RuntimeType + 'static> IVectorView<T> {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn IndexOf<'a, Param0: ::windows::runtime::IntoParam<'a, T>>(&self, value: Param0, index: &mut u32) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1616,6 +1704,7 @@ impl<T: ::windows::runtime::RuntimeType + 'static> IVectorView<T> {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi(), index, &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn GetMany(&self, startindex: u32, items: &mut [<T as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -1623,6 +1712,7 @@ impl<T: ::windows::runtime::RuntimeType + 'static> IVectorView<T> {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), startindex, items.len() as u32, ::std::mem::transmute_copy(&items), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn First(&self) -> ::windows::runtime::Result<IIterator<T>> {
         let this = &::windows::runtime::Interface::cast::<IIterable<T>>(self)?;
         unsafe {
@@ -1745,6 +1835,7 @@ pub struct IVectorView_abi<T>(
 )
 where
     T: ::windows::runtime::RuntimeType + 'static;
+#[doc = "*Required features: `Foundation_Collections`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MapChangedEventHandler<K, V>(::windows::runtime::IUnknown, ::std::marker::PhantomData<K>, ::std::marker::PhantomData<V>)
@@ -1760,6 +1851,7 @@ impl<K: ::windows::runtime::RuntimeType + 'static, V: ::windows::runtime::Runtim
         };
         unsafe { std::mem::transmute(::std::boxed::Box::new(com)) }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, IObservableMap<K, V>>, Param1: ::windows::runtime::IntoParam<'a, IMapChangedEventArgs<K>>>(&self, sender: Param0, event: Param1) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).3)(::std::mem::transmute_copy(this), sender.into_param().abi(), event.into_param().abi()).ok() }
@@ -1832,6 +1924,7 @@ impl<K: ::windows::runtime::RuntimeType + 'static, V: ::windows::runtime::Runtim
         .into()
     }
 }
+#[doc = "*Required features: `Foundation_Collections`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PropertySet(::windows::runtime::IInspectable);
@@ -1843,6 +1936,7 @@ impl PropertySet {
         static mut SHARED: ::windows::runtime::FactoryCache<PropertySet, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn First(&self) -> ::windows::runtime::Result<IIterator<IKeyValuePair<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>> {
         let this = &::windows::runtime::Interface::cast::<IIterable<IKeyValuePair<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>>(self)?;
         unsafe {
@@ -1850,6 +1944,7 @@ impl PropertySet {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IIterator<IKeyValuePair<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>>(result__)
         }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn Lookup<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, key: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<IMap<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>(self)?;
         unsafe {
@@ -1857,6 +1952,7 @@ impl PropertySet {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), key.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn Size(&self) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<IMap<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>(self)?;
         unsafe {
@@ -1864,6 +1960,7 @@ impl PropertySet {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn HasKey<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, key: Param0) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IMap<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>(self)?;
         unsafe {
@@ -1871,6 +1968,7 @@ impl PropertySet {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), key.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn GetView(&self) -> ::windows::runtime::Result<IMapView<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>> {
         let this = &::windows::runtime::Interface::cast::<IMap<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>(self)?;
         unsafe {
@@ -1878,6 +1976,7 @@ impl PropertySet {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IMapView<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>(result__)
         }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn Insert<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, key: Param0, value: Param1) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IMap<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>(self)?;
         unsafe {
@@ -1885,14 +1984,17 @@ impl PropertySet {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), key.into_param().abi(), value.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn Remove<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, key: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IMap<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), key.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn Clear(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IMap<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn MapChanged<'a, Param0: ::windows::runtime::IntoParam<'a, MapChangedEventHandler<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>>(&self, vhnd: Param0) -> ::windows::runtime::Result<super::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<IObservableMap<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>(self)?;
         unsafe {
@@ -1900,6 +2002,7 @@ impl PropertySet {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), vhnd.into_param().abi(), &mut result__).from_abi::<super::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn RemoveMapChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IObservableMap<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
@@ -2059,6 +2162,7 @@ impl ::std::iter::IntoIterator for &PropertySet {
         self.First().unwrap()
     }
 }
+#[doc = "*Required features: `Foundation_Collections`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct StringMap(::windows::runtime::IInspectable);
@@ -2070,6 +2174,7 @@ impl StringMap {
         static mut SHARED: ::windows::runtime::FactoryCache<StringMap, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn Lookup<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, key: Param0) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2077,6 +2182,7 @@ impl StringMap {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), key.into_param().abi(), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn Size(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -2084,6 +2190,7 @@ impl StringMap {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn HasKey<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, key: Param0) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -2091,6 +2198,7 @@ impl StringMap {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), key.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn GetView(&self) -> ::windows::runtime::Result<IMapView<::windows::runtime::HSTRING, ::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -2098,6 +2206,7 @@ impl StringMap {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IMapView<::windows::runtime::HSTRING, ::windows::runtime::HSTRING>>(result__)
         }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn Insert<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, key: Param0, value: Param1) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -2105,14 +2214,17 @@ impl StringMap {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), key.into_param().abi(), value.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn Remove<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, key: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), key.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn Clear(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn First(&self) -> ::windows::runtime::Result<IIterator<IKeyValuePair<::windows::runtime::HSTRING, ::windows::runtime::HSTRING>>> {
         let this = &::windows::runtime::Interface::cast::<IIterable<IKeyValuePair<::windows::runtime::HSTRING, ::windows::runtime::HSTRING>>>(self)?;
         unsafe {
@@ -2120,6 +2232,7 @@ impl StringMap {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IIterator<IKeyValuePair<::windows::runtime::HSTRING, ::windows::runtime::HSTRING>>>(result__)
         }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn MapChanged<'a, Param0: ::windows::runtime::IntoParam<'a, MapChangedEventHandler<::windows::runtime::HSTRING, ::windows::runtime::HSTRING>>>(&self, vhnd: Param0) -> ::windows::runtime::Result<super::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<IObservableMap<::windows::runtime::HSTRING, ::windows::runtime::HSTRING>>(self)?;
         unsafe {
@@ -2127,6 +2240,7 @@ impl StringMap {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), vhnd.into_param().abi(), &mut result__).from_abi::<super::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn RemoveMapChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IObservableMap<::windows::runtime::HSTRING, ::windows::runtime::HSTRING>>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
@@ -2264,6 +2378,7 @@ impl ::std::iter::IntoIterator for &StringMap {
         self.First().unwrap()
     }
 }
+#[doc = "*Required features: `Foundation_Collections`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ValueSet(::windows::runtime::IInspectable);
@@ -2275,6 +2390,7 @@ impl ValueSet {
         static mut SHARED: ::windows::runtime::FactoryCache<ValueSet, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn First(&self) -> ::windows::runtime::Result<IIterator<IKeyValuePair<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>> {
         let this = &::windows::runtime::Interface::cast::<IIterable<IKeyValuePair<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>>(self)?;
         unsafe {
@@ -2282,6 +2398,7 @@ impl ValueSet {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IIterator<IKeyValuePair<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>>(result__)
         }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn Lookup<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, key: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<IMap<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>(self)?;
         unsafe {
@@ -2289,6 +2406,7 @@ impl ValueSet {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), key.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn Size(&self) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<IMap<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>(self)?;
         unsafe {
@@ -2296,6 +2414,7 @@ impl ValueSet {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn HasKey<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, key: Param0) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IMap<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>(self)?;
         unsafe {
@@ -2303,6 +2422,7 @@ impl ValueSet {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), key.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn GetView(&self) -> ::windows::runtime::Result<IMapView<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>> {
         let this = &::windows::runtime::Interface::cast::<IMap<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>(self)?;
         unsafe {
@@ -2310,6 +2430,7 @@ impl ValueSet {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<IMapView<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>(result__)
         }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn Insert<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, key: Param0, value: Param1) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IMap<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>(self)?;
         unsafe {
@@ -2317,14 +2438,17 @@ impl ValueSet {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), key.into_param().abi(), value.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn Remove<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, key: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IMap<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), key.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn Clear(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IMap<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn MapChanged<'a, Param0: ::windows::runtime::IntoParam<'a, MapChangedEventHandler<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>>(&self, vhnd: Param0) -> ::windows::runtime::Result<super::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<IObservableMap<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>(self)?;
         unsafe {
@@ -2332,6 +2456,7 @@ impl ValueSet {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), vhnd.into_param().abi(), &mut result__).from_abi::<super::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn RemoveMapChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IObservableMap<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
@@ -2491,6 +2616,7 @@ impl ::std::iter::IntoIterator for &ValueSet {
         self.First().unwrap()
     }
 }
+#[doc = "*Required features: `Foundation_Collections`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct VectorChangedEventHandler<T>(::windows::runtime::IUnknown, ::std::marker::PhantomData<T>)
@@ -2505,6 +2631,7 @@ impl<T: ::windows::runtime::RuntimeType + 'static> VectorChangedEventHandler<T> 
         };
         unsafe { std::mem::transmute(::std::boxed::Box::new(com)) }
     }
+    #[doc = "*Required features: `Foundation_Collections`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, IObservableVector<T>>, Param1: ::windows::runtime::IntoParam<'a, IVectorChangedEventArgs>>(&self, sender: Param0, event: Param1) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).3)(::std::mem::transmute_copy(this), sender.into_param().abi(), event.into_param().abi()).ok() }

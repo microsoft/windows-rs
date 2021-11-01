@@ -1,9 +1,11 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Devices_Display_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct DisplayAdapter(::windows::runtime::IInspectable);
 impl DisplayAdapter {
     #[cfg(feature = "Graphics")]
+    #[doc = "*Required features: `Devices_Display_Core`, `Graphics`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<super::super::super::Graphics::DisplayAdapterId> {
         let this = self;
         unsafe {
@@ -11,6 +13,7 @@ impl DisplayAdapter {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Graphics::DisplayAdapterId>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn DeviceInterfacePath(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -18,6 +21,7 @@ impl DisplayAdapter {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn SourceCount(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -25,6 +29,7 @@ impl DisplayAdapter {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn PciVendorId(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -32,6 +37,7 @@ impl DisplayAdapter {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn PciDeviceId(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -39,6 +45,7 @@ impl DisplayAdapter {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn PciSubSystemId(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -46,6 +53,7 @@ impl DisplayAdapter {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn PciRevision(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -54,6 +62,7 @@ impl DisplayAdapter {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Devices_Display_Core`, `Foundation_Collections`*"]
     pub fn Properties(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IMapView<::windows::runtime::GUID, ::windows::runtime::IInspectable>> {
         let this = self;
         unsafe {
@@ -62,6 +71,7 @@ impl DisplayAdapter {
         }
     }
     #[cfg(feature = "Graphics")]
+    #[doc = "*Required features: `Devices_Display_Core`, `Graphics`*"]
     pub fn FromId<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Graphics::DisplayAdapterId>>(id: Param0) -> ::windows::runtime::Result<DisplayAdapter> {
         Self::IDisplayAdapterStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -125,6 +135,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for DisplayAdapter {}
 unsafe impl ::std::marker::Sync for DisplayAdapter {}
+#[doc = "*Required features: `Devices_Display_Core`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DisplayBitsPerChannel(pub u32);
@@ -177,10 +188,12 @@ impl ::std::ops::Not for DisplayBitsPerChannel {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Devices_Display_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct DisplayDevice(::windows::runtime::IInspectable);
 impl DisplayDevice {
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn CreateScanoutSource<'a, Param0: ::windows::runtime::IntoParam<'a, DisplayTarget>>(&self, target: Param0) -> ::windows::runtime::Result<DisplaySource> {
         let this = self;
         unsafe {
@@ -188,6 +201,7 @@ impl DisplayDevice {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), target.into_param().abi(), &mut result__).from_abi::<DisplaySource>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn CreatePrimary<'a, Param0: ::windows::runtime::IntoParam<'a, DisplayTarget>, Param1: ::windows::runtime::IntoParam<'a, DisplayPrimaryDescription>>(&self, target: Param0, desc: Param1) -> ::windows::runtime::Result<DisplaySurface> {
         let this = self;
         unsafe {
@@ -195,6 +209,7 @@ impl DisplayDevice {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), target.into_param().abi(), desc.into_param().abi(), &mut result__).from_abi::<DisplaySurface>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn CreateTaskPool(&self) -> ::windows::runtime::Result<DisplayTaskPool> {
         let this = self;
         unsafe {
@@ -203,6 +218,7 @@ impl DisplayDevice {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Display_Core`, `Foundation`*"]
     pub fn CreatePeriodicFence<'a, Param0: ::windows::runtime::IntoParam<'a, DisplayTarget>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TimeSpan>>(&self, target: Param0, offsetfromvblank: Param1) -> ::windows::runtime::Result<DisplayFence> {
         let this = self;
         unsafe {
@@ -210,10 +226,12 @@ impl DisplayDevice {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), target.into_param().abi(), offsetfromvblank.into_param().abi(), &mut result__).from_abi::<DisplayFence>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn WaitForVBlank<'a, Param0: ::windows::runtime::IntoParam<'a, DisplaySource>>(&self, source: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), source.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn CreateSimpleScanout<'a, Param0: ::windows::runtime::IntoParam<'a, DisplaySource>, Param1: ::windows::runtime::IntoParam<'a, DisplaySurface>>(&self, psource: Param0, psurface: Param1, subresourceindex: u32, syncinterval: u32) -> ::windows::runtime::Result<DisplayScanout> {
         let this = self;
         unsafe {
@@ -221,6 +239,7 @@ impl DisplayDevice {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), psource.into_param().abi(), psurface.into_param().abi(), subresourceindex, syncinterval, &mut result__).from_abi::<DisplayScanout>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn IsCapabilitySupported(&self, capability: DisplayDeviceCapability) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -229,6 +248,7 @@ impl DisplayDevice {
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics"))]
+    #[doc = "*Required features: `Devices_Display_Core`, `Foundation_Collections`, `Graphics`*"]
     pub fn CreateSimpleScanoutWithDirtyRectsAndOptions<'a, Param0: ::windows::runtime::IntoParam<'a, DisplaySource>, Param1: ::windows::runtime::IntoParam<'a, DisplaySurface>, Param4: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<super::super::super::Graphics::RectInt32>>>(&self, source: Param0, surface: Param1, subresourceindex: u32, syncinterval: u32, dirtyrects: Param4, options: DisplayScanoutOptions) -> ::windows::runtime::Result<DisplayScanout> {
         let this = &::windows::runtime::Interface::cast::<IDisplayDevice2>(self)?;
         unsafe {
@@ -289,6 +309,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for DisplayDevice {}
 unsafe impl ::std::marker::Sync for DisplayDevice {}
+#[doc = "*Required features: `Devices_Display_Core`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DisplayDeviceCapability(pub i32);
@@ -307,6 +328,7 @@ unsafe impl ::windows::runtime::Abi for DisplayDeviceCapability {
 unsafe impl ::windows::runtime::RuntimeType for DisplayDeviceCapability {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayDeviceCapability;i4)");
 }
+#[doc = "*Required features: `Devices_Display_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct DisplayFence(::windows::runtime::IInspectable);
@@ -363,16 +385,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for DisplayFence {}
 unsafe impl ::std::marker::Sync for DisplayFence {}
+#[doc = "*Required features: `Devices_Display_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct DisplayManager(::windows::runtime::IInspectable);
 impl DisplayManager {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Display_Core`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Devices_Display_Core`, `Foundation_Collections`*"]
     pub fn GetCurrentTargets(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<DisplayTarget>> {
         let this = self;
         unsafe {
@@ -381,6 +406,7 @@ impl DisplayManager {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Devices_Display_Core`, `Foundation_Collections`*"]
     pub fn GetCurrentAdapters(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<DisplayAdapter>> {
         let this = self;
         unsafe {
@@ -388,6 +414,7 @@ impl DisplayManager {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<DisplayAdapter>>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn TryAcquireTarget<'a, Param0: ::windows::runtime::IntoParam<'a, DisplayTarget>>(&self, target: Param0) -> ::windows::runtime::Result<DisplayManagerResult> {
         let this = self;
         unsafe {
@@ -395,10 +422,12 @@ impl DisplayManager {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), target.into_param().abi(), &mut result__).from_abi::<DisplayManagerResult>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn ReleaseTarget<'a, Param0: ::windows::runtime::IntoParam<'a, DisplayTarget>>(&self, target: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), target.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn TryReadCurrentStateForAllTargets(&self) -> ::windows::runtime::Result<DisplayManagerResultWithState> {
         let this = self;
         unsafe {
@@ -407,6 +436,7 @@ impl DisplayManager {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Devices_Display_Core`, `Foundation_Collections`*"]
     pub fn TryAcquireTargetsAndReadCurrentState<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<DisplayTarget>>>(&self, targets: Param0) -> ::windows::runtime::Result<DisplayManagerResultWithState> {
         let this = self;
         unsafe {
@@ -415,6 +445,7 @@ impl DisplayManager {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Devices_Display_Core`, `Foundation_Collections`*"]
     pub fn TryAcquireTargetsAndCreateEmptyState<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<DisplayTarget>>>(&self, targets: Param0) -> ::windows::runtime::Result<DisplayManagerResultWithState> {
         let this = self;
         unsafe {
@@ -423,6 +454,7 @@ impl DisplayManager {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Devices_Display_Core`, `Foundation_Collections`*"]
     pub fn TryAcquireTargetsAndCreateSubstate<'a, Param0: ::windows::runtime::IntoParam<'a, DisplayState>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<DisplayTarget>>>(&self, existingstate: Param0, targets: Param1) -> ::windows::runtime::Result<DisplayManagerResultWithState> {
         let this = self;
         unsafe {
@@ -430,6 +462,7 @@ impl DisplayManager {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), existingstate.into_param().abi(), targets.into_param().abi(), &mut result__).from_abi::<DisplayManagerResultWithState>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn CreateDisplayDevice<'a, Param0: ::windows::runtime::IntoParam<'a, DisplayAdapter>>(&self, adapter: Param0) -> ::windows::runtime::Result<DisplayDevice> {
         let this = self;
         unsafe {
@@ -438,6 +471,7 @@ impl DisplayManager {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Display_Core`, `Foundation`*"]
     pub fn Enabled<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<DisplayManager, DisplayManagerEnabledEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -446,11 +480,13 @@ impl DisplayManager {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Display_Core`, `Foundation`*"]
     pub fn RemoveEnabled<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Display_Core`, `Foundation`*"]
     pub fn Disabled<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<DisplayManager, DisplayManagerDisabledEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -459,11 +495,13 @@ impl DisplayManager {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Display_Core`, `Foundation`*"]
     pub fn RemoveDisabled<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Display_Core`, `Foundation`*"]
     pub fn Changed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<DisplayManager, DisplayManagerChangedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -472,11 +510,13 @@ impl DisplayManager {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Display_Core`, `Foundation`*"]
     pub fn RemoveChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Display_Core`, `Foundation`*"]
     pub fn PathsFailedOrInvalidated<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<DisplayManager, DisplayManagerPathsFailedOrInvalidatedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -485,18 +525,22 @@ impl DisplayManager {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Display_Core`, `Foundation`*"]
     pub fn RemovePathsFailedOrInvalidated<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn Start(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn Stop(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn Create(options: DisplayManagerOptions) -> ::windows::runtime::Result<DisplayManager> {
         Self::IDisplayManagerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -586,10 +630,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::IClo
 }
 unsafe impl ::std::marker::Send for DisplayManager {}
 unsafe impl ::std::marker::Sync for DisplayManager {}
+#[doc = "*Required features: `Devices_Display_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct DisplayManagerChangedEventArgs(::windows::runtime::IInspectable);
 impl DisplayManagerChangedEventArgs {
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn Handled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -597,11 +643,13 @@ impl DisplayManagerChangedEventArgs {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn SetHandled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Display_Core`, `Foundation`*"]
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
@@ -662,10 +710,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for DisplayManagerChangedEventArgs {}
 unsafe impl ::std::marker::Sync for DisplayManagerChangedEventArgs {}
+#[doc = "*Required features: `Devices_Display_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct DisplayManagerDisabledEventArgs(::windows::runtime::IInspectable);
 impl DisplayManagerDisabledEventArgs {
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn Handled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -673,11 +723,13 @@ impl DisplayManagerDisabledEventArgs {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn SetHandled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Display_Core`, `Foundation`*"]
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
@@ -738,10 +790,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for DisplayManagerDisabledEventArgs {}
 unsafe impl ::std::marker::Sync for DisplayManagerDisabledEventArgs {}
+#[doc = "*Required features: `Devices_Display_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct DisplayManagerEnabledEventArgs(::windows::runtime::IInspectable);
 impl DisplayManagerEnabledEventArgs {
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn Handled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -749,11 +803,13 @@ impl DisplayManagerEnabledEventArgs {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn SetHandled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Display_Core`, `Foundation`*"]
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
@@ -814,6 +870,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for DisplayManagerEnabledEventArgs {}
 unsafe impl ::std::marker::Sync for DisplayManagerEnabledEventArgs {}
+#[doc = "*Required features: `Devices_Display_Core`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DisplayManagerOptions(pub u32);
@@ -862,10 +919,12 @@ impl ::std::ops::Not for DisplayManagerOptions {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Devices_Display_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct DisplayManagerPathsFailedOrInvalidatedEventArgs(::windows::runtime::IInspectable);
 impl DisplayManagerPathsFailedOrInvalidatedEventArgs {
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn Handled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -873,11 +932,13 @@ impl DisplayManagerPathsFailedOrInvalidatedEventArgs {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn SetHandled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Display_Core`, `Foundation`*"]
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
@@ -938,6 +999,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for DisplayManagerPathsFailedOrInvalidatedEventArgs {}
 unsafe impl ::std::marker::Sync for DisplayManagerPathsFailedOrInvalidatedEventArgs {}
+#[doc = "*Required features: `Devices_Display_Core`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DisplayManagerResult(pub i32);
@@ -960,10 +1022,12 @@ unsafe impl ::windows::runtime::Abi for DisplayManagerResult {
 unsafe impl ::windows::runtime::RuntimeType for DisplayManagerResult {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayManagerResult;i4)");
 }
+#[doc = "*Required features: `Devices_Display_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct DisplayManagerResultWithState(::windows::runtime::IInspectable);
 impl DisplayManagerResultWithState {
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn ErrorCode(&self) -> ::windows::runtime::Result<DisplayManagerResult> {
         let this = self;
         unsafe {
@@ -971,6 +1035,7 @@ impl DisplayManagerResultWithState {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<DisplayManagerResult>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn ExtendedErrorCode(&self) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
         let this = self;
         unsafe {
@@ -978,6 +1043,7 @@ impl DisplayManagerResultWithState {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HRESULT>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn State(&self) -> ::windows::runtime::Result<DisplayState> {
         let this = self;
         unsafe {
@@ -1038,11 +1104,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for DisplayManagerResultWithState {}
 unsafe impl ::std::marker::Sync for DisplayManagerResultWithState {}
+#[doc = "*Required features: `Devices_Display_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct DisplayModeInfo(::windows::runtime::IInspectable);
 impl DisplayModeInfo {
     #[cfg(feature = "Graphics")]
+    #[doc = "*Required features: `Devices_Display_Core`, `Graphics`*"]
     pub fn SourceResolution(&self) -> ::windows::runtime::Result<super::super::super::Graphics::SizeInt32> {
         let this = self;
         unsafe {
@@ -1050,6 +1118,7 @@ impl DisplayModeInfo {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Graphics::SizeInt32>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn IsStereo(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1058,6 +1127,7 @@ impl DisplayModeInfo {
         }
     }
     #[cfg(feature = "Graphics_DirectX")]
+    #[doc = "*Required features: `Devices_Display_Core`, `Graphics_DirectX`*"]
     pub fn SourcePixelFormat(&self) -> ::windows::runtime::Result<super::super::super::Graphics::DirectX::DirectXPixelFormat> {
         let this = self;
         unsafe {
@@ -1066,6 +1136,7 @@ impl DisplayModeInfo {
         }
     }
     #[cfg(feature = "Graphics")]
+    #[doc = "*Required features: `Devices_Display_Core`, `Graphics`*"]
     pub fn TargetResolution(&self) -> ::windows::runtime::Result<super::super::super::Graphics::SizeInt32> {
         let this = self;
         unsafe {
@@ -1074,6 +1145,7 @@ impl DisplayModeInfo {
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Devices_Display_Core`, `Foundation_Numerics`*"]
     pub fn PresentationRate(&self) -> ::windows::runtime::Result<DisplayPresentationRate> {
         let this = self;
         unsafe {
@@ -1081,6 +1153,7 @@ impl DisplayModeInfo {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<DisplayPresentationRate>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn IsInterlaced(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1088,6 +1161,7 @@ impl DisplayModeInfo {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn GetWireFormatSupportedBitsPerChannel(&self, encoding: DisplayWireFormatPixelEncoding) -> ::windows::runtime::Result<DisplayBitsPerChannel> {
         let this = self;
         unsafe {
@@ -1095,6 +1169,7 @@ impl DisplayModeInfo {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), encoding, &mut result__).from_abi::<DisplayBitsPerChannel>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn IsWireFormatSupported<'a, Param0: ::windows::runtime::IntoParam<'a, DisplayWireFormat>>(&self, wireformat: Param0) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1103,6 +1178,7 @@ impl DisplayModeInfo {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Devices_Display_Core`, `Foundation_Collections`*"]
     pub fn Properties(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IMapView<::windows::runtime::GUID, ::windows::runtime::IInspectable>> {
         let this = self;
         unsafe {
@@ -1111,6 +1187,7 @@ impl DisplayModeInfo {
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Devices_Display_Core`, `Foundation_Numerics`*"]
     pub fn PhysicalPresentationRate(&self) -> ::windows::runtime::Result<DisplayPresentationRate> {
         let this = &::windows::runtime::Interface::cast::<IDisplayModeInfo2>(self)?;
         unsafe {
@@ -1171,6 +1248,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for DisplayModeInfo {}
 unsafe impl ::std::marker::Sync for DisplayModeInfo {}
+#[doc = "*Required features: `Devices_Display_Core`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DisplayModeQueryOptions(pub u32);
@@ -1218,10 +1296,12 @@ impl ::std::ops::Not for DisplayModeQueryOptions {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Devices_Display_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct DisplayPath(::windows::runtime::IInspectable);
 impl DisplayPath {
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn View(&self) -> ::windows::runtime::Result<DisplayView> {
         let this = self;
         unsafe {
@@ -1229,6 +1309,7 @@ impl DisplayPath {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<DisplayView>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn Target(&self) -> ::windows::runtime::Result<DisplayTarget> {
         let this = self;
         unsafe {
@@ -1236,6 +1317,7 @@ impl DisplayPath {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<DisplayTarget>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<DisplayPathStatus> {
         let this = self;
         unsafe {
@@ -1244,6 +1326,7 @@ impl DisplayPath {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Graphics"))]
+    #[doc = "*Required features: `Devices_Display_Core`, `Foundation`, `Graphics`*"]
     pub fn SourceResolution(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IReference<super::super::super::Graphics::SizeInt32>> {
         let this = self;
         unsafe {
@@ -1252,11 +1335,13 @@ impl DisplayPath {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Graphics"))]
+    #[doc = "*Required features: `Devices_Display_Core`, `Foundation`, `Graphics`*"]
     pub fn SetSourceResolution<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::IReference<super::super::super::Graphics::SizeInt32>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Graphics_DirectX")]
+    #[doc = "*Required features: `Devices_Display_Core`, `Graphics_DirectX`*"]
     pub fn SourcePixelFormat(&self) -> ::windows::runtime::Result<super::super::super::Graphics::DirectX::DirectXPixelFormat> {
         let this = self;
         unsafe {
@@ -1265,10 +1350,12 @@ impl DisplayPath {
         }
     }
     #[cfg(feature = "Graphics_DirectX")]
+    #[doc = "*Required features: `Devices_Display_Core`, `Graphics_DirectX`*"]
     pub fn SetSourcePixelFormat(&self, value: super::super::super::Graphics::DirectX::DirectXPixelFormat) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn IsStereo(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1276,11 +1363,13 @@ impl DisplayPath {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn SetIsStereo(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Graphics"))]
+    #[doc = "*Required features: `Devices_Display_Core`, `Foundation`, `Graphics`*"]
     pub fn TargetResolution(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IReference<super::super::super::Graphics::SizeInt32>> {
         let this = self;
         unsafe {
@@ -1289,11 +1378,13 @@ impl DisplayPath {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Graphics"))]
+    #[doc = "*Required features: `Devices_Display_Core`, `Foundation`, `Graphics`*"]
     pub fn SetTargetResolution<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::IReference<super::super::super::Graphics::SizeInt32>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
+    #[doc = "*Required features: `Devices_Display_Core`, `Foundation`, `Foundation_Numerics`*"]
     pub fn PresentationRate(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IReference<DisplayPresentationRate>> {
         let this = self;
         unsafe {
@@ -1302,11 +1393,13 @@ impl DisplayPath {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
+    #[doc = "*Required features: `Devices_Display_Core`, `Foundation`, `Foundation_Numerics`*"]
     pub fn SetPresentationRate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::IReference<DisplayPresentationRate>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Display_Core`, `Foundation`*"]
     pub fn IsInterlaced(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IReference<bool>> {
         let this = self;
         unsafe {
@@ -1315,10 +1408,12 @@ impl DisplayPath {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Display_Core`, `Foundation`*"]
     pub fn SetIsInterlaced<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::IReference<bool>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn WireFormat(&self) -> ::windows::runtime::Result<DisplayWireFormat> {
         let this = self;
         unsafe {
@@ -1326,10 +1421,12 @@ impl DisplayPath {
             (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), &mut result__).from_abi::<DisplayWireFormat>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn SetWireFormat<'a, Param0: ::windows::runtime::IntoParam<'a, DisplayWireFormat>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn Rotation(&self) -> ::windows::runtime::Result<DisplayRotation> {
         let this = self;
         unsafe {
@@ -1337,10 +1434,12 @@ impl DisplayPath {
             (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), &mut result__).from_abi::<DisplayRotation>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn SetRotation(&self, value: DisplayRotation) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn Scaling(&self) -> ::windows::runtime::Result<DisplayPathScaling> {
         let this = self;
         unsafe {
@@ -1348,11 +1447,13 @@ impl DisplayPath {
             (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), &mut result__).from_abi::<DisplayPathScaling>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn SetScaling(&self, value: DisplayPathScaling) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Devices_Display_Core`, `Foundation_Collections`*"]
     pub fn FindModes(&self, flags: DisplayModeQueryOptions) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<DisplayModeInfo>> {
         let this = self;
         unsafe {
@@ -1360,11 +1461,13 @@ impl DisplayPath {
             (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this), flags, &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<DisplayModeInfo>>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn ApplyPropertiesFromMode<'a, Param0: ::windows::runtime::IntoParam<'a, DisplayModeInfo>>(&self, moderesult: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).28)(::std::mem::transmute_copy(this), moderesult.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Devices_Display_Core`, `Foundation_Collections`*"]
     pub fn Properties(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IMap<::windows::runtime::GUID, ::windows::runtime::IInspectable>> {
         let this = self;
         unsafe {
@@ -1373,6 +1476,7 @@ impl DisplayPath {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
+    #[doc = "*Required features: `Devices_Display_Core`, `Foundation`, `Foundation_Numerics`*"]
     pub fn PhysicalPresentationRate(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IReference<DisplayPresentationRate>> {
         let this = &::windows::runtime::Interface::cast::<IDisplayPath2>(self)?;
         unsafe {
@@ -1381,6 +1485,7 @@ impl DisplayPath {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
+    #[doc = "*Required features: `Devices_Display_Core`, `Foundation`, `Foundation_Numerics`*"]
     pub fn SetPhysicalPresentationRate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::IReference<DisplayPresentationRate>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IDisplayPath2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -1438,6 +1543,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for DisplayPath {}
 unsafe impl ::std::marker::Sync for DisplayPath {}
+#[doc = "*Required features: `Devices_Display_Core`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DisplayPathScaling(pub i32);
@@ -1461,6 +1567,7 @@ unsafe impl ::windows::runtime::Abi for DisplayPathScaling {
 unsafe impl ::windows::runtime::RuntimeType for DisplayPathScaling {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayPathScaling;i4)");
 }
+#[doc = "*Required features: `Devices_Display_Core`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DisplayPathStatus(pub i32);
@@ -1484,6 +1591,7 @@ unsafe impl ::windows::runtime::Abi for DisplayPathStatus {
 unsafe impl ::windows::runtime::RuntimeType for DisplayPathStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayPathStatus;i4)");
 }
+#[doc = "*Required features: `Devices_Display_Core`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DisplayPresentStatus(pub i32);
@@ -1510,6 +1618,7 @@ unsafe impl ::windows::runtime::RuntimeType for DisplayPresentStatus {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Foundation_Numerics")]
+#[doc = "*Required features: `Devices_Display_Core`, `Foundation_Numerics`*"]
 pub struct DisplayPresentationRate {
     pub VerticalSyncRate: super::super::super::Foundation::Numerics::Rational,
     pub VerticalSyncsPerPresentation: i32,
@@ -1545,10 +1654,12 @@ unsafe impl ::windows::runtime::Abi for DisplayPresentationRate {
 unsafe impl ::windows::runtime::RuntimeType for DisplayPresentationRate {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Devices.Display.Core.DisplayPresentationRate;struct(Windows.Foundation.Numerics.Rational;u4;u4);i4)");
 }
+#[doc = "*Required features: `Devices_Display_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct DisplayPrimaryDescription(::windows::runtime::IInspectable);
 impl DisplayPrimaryDescription {
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn Width(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -1556,6 +1667,7 @@ impl DisplayPrimaryDescription {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn Height(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -1564,6 +1676,7 @@ impl DisplayPrimaryDescription {
         }
     }
     #[cfg(feature = "Graphics_DirectX")]
+    #[doc = "*Required features: `Devices_Display_Core`, `Graphics_DirectX`*"]
     pub fn Format(&self) -> ::windows::runtime::Result<super::super::super::Graphics::DirectX::DirectXPixelFormat> {
         let this = self;
         unsafe {
@@ -1572,6 +1685,7 @@ impl DisplayPrimaryDescription {
         }
     }
     #[cfg(feature = "Graphics_DirectX")]
+    #[doc = "*Required features: `Devices_Display_Core`, `Graphics_DirectX`*"]
     pub fn ColorSpace(&self) -> ::windows::runtime::Result<super::super::super::Graphics::DirectX::DirectXColorSpace> {
         let this = self;
         unsafe {
@@ -1579,6 +1693,7 @@ impl DisplayPrimaryDescription {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Graphics::DirectX::DirectXColorSpace>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn IsStereo(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1587,6 +1702,7 @@ impl DisplayPrimaryDescription {
         }
     }
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
+    #[doc = "*Required features: `Devices_Display_Core`, `Graphics_DirectX_Direct3D11`*"]
     pub fn MultisampleDescription(&self) -> ::windows::runtime::Result<super::super::super::Graphics::DirectX::Direct3D11::Direct3DMultisampleDescription> {
         let this = self;
         unsafe {
@@ -1595,6 +1711,7 @@ impl DisplayPrimaryDescription {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Devices_Display_Core`, `Foundation_Collections`*"]
     pub fn Properties(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IMapView<::windows::runtime::GUID, ::windows::runtime::IInspectable>> {
         let this = self;
         unsafe {
@@ -1603,6 +1720,7 @@ impl DisplayPrimaryDescription {
         }
     }
     #[cfg(all(feature = "Graphics_DirectX", feature = "Graphics_DirectX_Direct3D11"))]
+    #[doc = "*Required features: `Devices_Display_Core`, `Graphics_DirectX`, `Graphics_DirectX_Direct3D11`*"]
     pub fn CreateInstance<'a, Param5: ::windows::runtime::IntoParam<'a, super::super::super::Graphics::DirectX::Direct3D11::Direct3DMultisampleDescription>>(width: u32, height: u32, pixelformat: super::super::super::Graphics::DirectX::DirectXPixelFormat, colorspace: super::super::super::Graphics::DirectX::DirectXColorSpace, isstereo: bool, multisampledescription: Param5) -> ::windows::runtime::Result<DisplayPrimaryDescription> {
         Self::IDisplayPrimaryDescriptionFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1610,6 +1728,7 @@ impl DisplayPrimaryDescription {
         })
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX", feature = "Graphics_DirectX_Direct3D11"))]
+    #[doc = "*Required features: `Devices_Display_Core`, `Foundation_Collections`, `Graphics_DirectX`, `Graphics_DirectX_Direct3D11`*"]
     pub fn CreateWithProperties<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::GUID, ::windows::runtime::IInspectable>>>, Param6: ::windows::runtime::IntoParam<'a, super::super::super::Graphics::DirectX::Direct3D11::Direct3DMultisampleDescription>>(
         extraproperties: Param0,
         width: u32,
@@ -1685,6 +1804,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for DisplayPrimaryDescription {}
 unsafe impl ::std::marker::Sync for DisplayPrimaryDescription {}
+#[doc = "*Required features: `Devices_Display_Core`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DisplayRotation(pub i32);
@@ -1706,6 +1826,7 @@ unsafe impl ::windows::runtime::Abi for DisplayRotation {
 unsafe impl ::windows::runtime::RuntimeType for DisplayRotation {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayRotation;i4)");
 }
+#[doc = "*Required features: `Devices_Display_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct DisplayScanout(::windows::runtime::IInspectable);
@@ -1762,6 +1883,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for DisplayScanout {}
 unsafe impl ::std::marker::Sync for DisplayScanout {}
+#[doc = "*Required features: `Devices_Display_Core`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DisplayScanoutOptions(pub u32);
@@ -1809,11 +1931,13 @@ impl ::std::ops::Not for DisplayScanoutOptions {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Devices_Display_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct DisplaySource(::windows::runtime::IInspectable);
 impl DisplaySource {
     #[cfg(feature = "Graphics")]
+    #[doc = "*Required features: `Devices_Display_Core`, `Graphics`*"]
     pub fn AdapterId(&self) -> ::windows::runtime::Result<super::super::super::Graphics::DisplayAdapterId> {
         let this = self;
         unsafe {
@@ -1821,6 +1945,7 @@ impl DisplaySource {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Graphics::DisplayAdapterId>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn SourceId(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -1829,6 +1954,7 @@ impl DisplaySource {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Devices_Display_Core`, `Storage_Streams`*"]
     pub fn GetMetadata<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, key: Param0) -> ::windows::runtime::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
@@ -1836,6 +1962,7 @@ impl DisplaySource {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), key.into_param().abi(), &mut result__).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<DisplaySourceStatus> {
         let this = &::windows::runtime::Interface::cast::<IDisplaySource2>(self)?;
         unsafe {
@@ -1844,6 +1971,7 @@ impl DisplaySource {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Display_Core`, `Foundation`*"]
     pub fn StatusChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<DisplaySource, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<IDisplaySource2>(self)?;
         unsafe {
@@ -1852,6 +1980,7 @@ impl DisplaySource {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Display_Core`, `Foundation`*"]
     pub fn RemoveStatusChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IDisplaySource2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
@@ -1909,6 +2038,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for DisplaySource {}
 unsafe impl ::std::marker::Sync for DisplaySource {}
+#[doc = "*Required features: `Devices_Display_Core`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DisplaySourceStatus(pub i32);
@@ -1931,10 +2061,12 @@ unsafe impl ::windows::runtime::Abi for DisplaySourceStatus {
 unsafe impl ::windows::runtime::RuntimeType for DisplaySourceStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplaySourceStatus;i4)");
 }
+#[doc = "*Required features: `Devices_Display_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct DisplayState(::windows::runtime::IInspectable);
 impl DisplayState {
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn IsReadOnly(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1942,6 +2074,7 @@ impl DisplayState {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn IsStale(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1950,6 +2083,7 @@ impl DisplayState {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Devices_Display_Core`, `Foundation_Collections`*"]
     pub fn Targets(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<DisplayTarget>> {
         let this = self;
         unsafe {
@@ -1958,6 +2092,7 @@ impl DisplayState {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Devices_Display_Core`, `Foundation_Collections`*"]
     pub fn Views(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<DisplayView>> {
         let this = self;
         unsafe {
@@ -1966,6 +2101,7 @@ impl DisplayState {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Devices_Display_Core`, `Foundation_Collections`*"]
     pub fn Properties(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IMap<::windows::runtime::GUID, ::windows::runtime::IInspectable>> {
         let this = self;
         unsafe {
@@ -1973,6 +2109,7 @@ impl DisplayState {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IMap<::windows::runtime::GUID, ::windows::runtime::IInspectable>>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn ConnectTarget<'a, Param0: ::windows::runtime::IntoParam<'a, DisplayTarget>>(&self, target: Param0) -> ::windows::runtime::Result<DisplayPath> {
         let this = self;
         unsafe {
@@ -1980,6 +2117,7 @@ impl DisplayState {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), target.into_param().abi(), &mut result__).from_abi::<DisplayPath>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn ConnectTargetToView<'a, Param0: ::windows::runtime::IntoParam<'a, DisplayTarget>, Param1: ::windows::runtime::IntoParam<'a, DisplayView>>(&self, target: Param0, view: Param1) -> ::windows::runtime::Result<DisplayPath> {
         let this = self;
         unsafe {
@@ -1987,6 +2125,7 @@ impl DisplayState {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), target.into_param().abi(), view.into_param().abi(), &mut result__).from_abi::<DisplayPath>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn CanConnectTargetToView<'a, Param0: ::windows::runtime::IntoParam<'a, DisplayTarget>, Param1: ::windows::runtime::IntoParam<'a, DisplayView>>(&self, target: Param0, view: Param1) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1994,6 +2133,7 @@ impl DisplayState {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), target.into_param().abi(), view.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn GetViewForTarget<'a, Param0: ::windows::runtime::IntoParam<'a, DisplayTarget>>(&self, target: Param0) -> ::windows::runtime::Result<DisplayView> {
         let this = self;
         unsafe {
@@ -2001,6 +2141,7 @@ impl DisplayState {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), target.into_param().abi(), &mut result__).from_abi::<DisplayView>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn GetPathForTarget<'a, Param0: ::windows::runtime::IntoParam<'a, DisplayTarget>>(&self, target: Param0) -> ::windows::runtime::Result<DisplayPath> {
         let this = self;
         unsafe {
@@ -2008,10 +2149,12 @@ impl DisplayState {
             (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), target.into_param().abi(), &mut result__).from_abi::<DisplayPath>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn DisconnectTarget<'a, Param0: ::windows::runtime::IntoParam<'a, DisplayTarget>>(&self, target: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), target.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn TryFunctionalize(&self, options: DisplayStateFunctionalizeOptions) -> ::windows::runtime::Result<DisplayStateOperationResult> {
         let this = self;
         unsafe {
@@ -2019,6 +2162,7 @@ impl DisplayState {
             (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), options, &mut result__).from_abi::<DisplayStateOperationResult>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn TryApply(&self, options: DisplayStateApplyOptions) -> ::windows::runtime::Result<DisplayStateOperationResult> {
         let this = self;
         unsafe {
@@ -2026,6 +2170,7 @@ impl DisplayState {
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), options, &mut result__).from_abi::<DisplayStateOperationResult>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn Clone(&self) -> ::windows::runtime::Result<DisplayState> {
         let this = self;
         unsafe {
@@ -2086,6 +2231,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for DisplayState {}
 unsafe impl ::std::marker::Sync for DisplayState {}
+#[doc = "*Required features: `Devices_Display_Core`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DisplayStateApplyOptions(pub u32);
@@ -2135,6 +2281,7 @@ impl ::std::ops::Not for DisplayStateApplyOptions {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Devices_Display_Core`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DisplayStateFunctionalizeOptions(pub u32);
@@ -2183,10 +2330,12 @@ impl ::std::ops::Not for DisplayStateFunctionalizeOptions {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Devices_Display_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct DisplayStateOperationResult(::windows::runtime::IInspectable);
 impl DisplayStateOperationResult {
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<DisplayStateOperationStatus> {
         let this = self;
         unsafe {
@@ -2194,6 +2343,7 @@ impl DisplayStateOperationResult {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<DisplayStateOperationStatus>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn ExtendedErrorCode(&self) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
         let this = self;
         unsafe {
@@ -2254,6 +2404,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for DisplayStateOperationResult {}
 unsafe impl ::std::marker::Sync for DisplayStateOperationResult {}
+#[doc = "*Required features: `Devices_Display_Core`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DisplayStateOperationStatus(pub i32);
@@ -2279,6 +2430,7 @@ unsafe impl ::windows::runtime::Abi for DisplayStateOperationStatus {
 unsafe impl ::windows::runtime::RuntimeType for DisplayStateOperationStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayStateOperationStatus;i4)");
 }
+#[doc = "*Required features: `Devices_Display_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct DisplaySurface(::windows::runtime::IInspectable);
@@ -2335,10 +2487,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for DisplaySurface {}
 unsafe impl ::std::marker::Sync for DisplaySurface {}
+#[doc = "*Required features: `Devices_Display_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct DisplayTarget(::windows::runtime::IInspectable);
 impl DisplayTarget {
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn Adapter(&self) -> ::windows::runtime::Result<DisplayAdapter> {
         let this = self;
         unsafe {
@@ -2346,6 +2500,7 @@ impl DisplayTarget {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<DisplayAdapter>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn DeviceInterfacePath(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2353,6 +2508,7 @@ impl DisplayTarget {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn AdapterRelativeId(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -2360,6 +2516,7 @@ impl DisplayTarget {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn IsConnected(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -2367,6 +2524,7 @@ impl DisplayTarget {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn IsVirtualModeEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -2374,6 +2532,7 @@ impl DisplayTarget {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn IsVirtualTopologyEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -2381,6 +2540,7 @@ impl DisplayTarget {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn UsageKind(&self) -> ::windows::runtime::Result<super::DisplayMonitorUsageKind> {
         let this = self;
         unsafe {
@@ -2388,6 +2548,7 @@ impl DisplayTarget {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DisplayMonitorUsageKind>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn MonitorPersistence(&self) -> ::windows::runtime::Result<DisplayTargetPersistence> {
         let this = self;
         unsafe {
@@ -2395,6 +2556,7 @@ impl DisplayTarget {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<DisplayTargetPersistence>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn StableMonitorId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2402,6 +2564,7 @@ impl DisplayTarget {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn TryGetMonitor(&self) -> ::windows::runtime::Result<super::DisplayMonitor> {
         let this = self;
         unsafe {
@@ -2410,6 +2573,7 @@ impl DisplayTarget {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Devices_Display_Core`, `Foundation_Collections`*"]
     pub fn Properties(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IMapView<::windows::runtime::GUID, ::windows::runtime::IInspectable>> {
         let this = self;
         unsafe {
@@ -2417,6 +2581,7 @@ impl DisplayTarget {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IMapView<::windows::runtime::GUID, ::windows::runtime::IInspectable>>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn IsStale(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -2424,6 +2589,7 @@ impl DisplayTarget {
             (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn IsSame<'a, Param0: ::windows::runtime::IntoParam<'a, DisplayTarget>>(&self, othertarget: Param0) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -2431,6 +2597,7 @@ impl DisplayTarget {
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), othertarget.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn IsEqual<'a, Param0: ::windows::runtime::IntoParam<'a, DisplayTarget>>(&self, othertarget: Param0) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -2491,6 +2658,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for DisplayTarget {}
 unsafe impl ::std::marker::Sync for DisplayTarget {}
+#[doc = "*Required features: `Devices_Display_Core`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DisplayTargetPersistence(pub i32);
@@ -2512,18 +2680,22 @@ unsafe impl ::windows::runtime::Abi for DisplayTargetPersistence {
 unsafe impl ::windows::runtime::RuntimeType for DisplayTargetPersistence {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayTargetPersistence;i4)");
 }
+#[doc = "*Required features: `Devices_Display_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct DisplayTask(::windows::runtime::IInspectable);
 impl DisplayTask {
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn SetScanout<'a, Param0: ::windows::runtime::IntoParam<'a, DisplayScanout>>(&self, scanout: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), scanout.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn SetWait<'a, Param0: ::windows::runtime::IntoParam<'a, DisplayFence>>(&self, readyfence: Param0, readyfencevalue: u64) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), readyfence.into_param().abi(), readyfencevalue).ok() }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn SetSignal<'a, Param1: ::windows::runtime::IntoParam<'a, DisplayFence>>(&self, signalkind: DisplayTaskSignalKind, fence: Param1) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IDisplayTask2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), signalkind, fence.into_param().abi()).ok() }
@@ -2581,10 +2753,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for DisplayTask {}
 unsafe impl ::std::marker::Sync for DisplayTask {}
+#[doc = "*Required features: `Devices_Display_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct DisplayTaskPool(::windows::runtime::IInspectable);
 impl DisplayTaskPool {
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn CreateTask(&self) -> ::windows::runtime::Result<DisplayTask> {
         let this = self;
         unsafe {
@@ -2593,10 +2767,12 @@ impl DisplayTaskPool {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn ExecuteTask<'a, Param0: ::windows::runtime::IntoParam<'a, DisplayTask>>(&self, task: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), task.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn TryExecuteTask<'a, Param0: ::windows::runtime::IntoParam<'a, DisplayTask>>(&self, task: Param0) -> ::windows::runtime::Result<DisplayTaskResult> {
         let this = &::windows::runtime::Interface::cast::<IDisplayTaskPool2>(self)?;
         unsafe {
@@ -2657,10 +2833,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for DisplayTaskPool {}
 unsafe impl ::std::marker::Sync for DisplayTaskPool {}
+#[doc = "*Required features: `Devices_Display_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct DisplayTaskResult(::windows::runtime::IInspectable);
 impl DisplayTaskResult {
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn PresentStatus(&self) -> ::windows::runtime::Result<DisplayPresentStatus> {
         let this = self;
         unsafe {
@@ -2668,6 +2846,7 @@ impl DisplayTaskResult {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<DisplayPresentStatus>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn PresentId(&self) -> ::windows::runtime::Result<u64> {
         let this = self;
         unsafe {
@@ -2675,6 +2854,7 @@ impl DisplayTaskResult {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn SourceStatus(&self) -> ::windows::runtime::Result<DisplaySourceStatus> {
         let this = self;
         unsafe {
@@ -2735,6 +2915,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for DisplayTaskResult {}
 unsafe impl ::std::marker::Sync for DisplayTaskResult {}
+#[doc = "*Required features: `Devices_Display_Core`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DisplayTaskSignalKind(pub i32);
@@ -2754,11 +2935,13 @@ unsafe impl ::windows::runtime::Abi for DisplayTaskSignalKind {
 unsafe impl ::windows::runtime::RuntimeType for DisplayTaskSignalKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayTaskSignalKind;i4)");
 }
+#[doc = "*Required features: `Devices_Display_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct DisplayView(::windows::runtime::IInspectable);
 impl DisplayView {
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Devices_Display_Core`, `Foundation_Collections`*"]
     pub fn Paths(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<DisplayPath>> {
         let this = self;
         unsafe {
@@ -2767,6 +2950,7 @@ impl DisplayView {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Graphics"))]
+    #[doc = "*Required features: `Devices_Display_Core`, `Foundation`, `Graphics`*"]
     pub fn ContentResolution(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IReference<super::super::super::Graphics::SizeInt32>> {
         let this = self;
         unsafe {
@@ -2775,15 +2959,18 @@ impl DisplayView {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Graphics"))]
+    #[doc = "*Required features: `Devices_Display_Core`, `Foundation`, `Graphics`*"]
     pub fn SetContentResolution<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::IReference<super::super::super::Graphics::SizeInt32>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn SetPrimaryPath<'a, Param0: ::windows::runtime::IntoParam<'a, DisplayPath>>(&self, path: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), path.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Devices_Display_Core`, `Foundation_Collections`*"]
     pub fn Properties(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IMap<::windows::runtime::GUID, ::windows::runtime::IInspectable>> {
         let this = self;
         unsafe {
@@ -2844,10 +3031,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for DisplayView {}
 unsafe impl ::std::marker::Sync for DisplayView {}
+#[doc = "*Required features: `Devices_Display_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct DisplayWireFormat(::windows::runtime::IInspectable);
 impl DisplayWireFormat {
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn PixelEncoding(&self) -> ::windows::runtime::Result<DisplayWireFormatPixelEncoding> {
         let this = self;
         unsafe {
@@ -2855,6 +3044,7 @@ impl DisplayWireFormat {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<DisplayWireFormatPixelEncoding>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn BitsPerChannel(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -2862,6 +3052,7 @@ impl DisplayWireFormat {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn ColorSpace(&self) -> ::windows::runtime::Result<DisplayWireFormatColorSpace> {
         let this = self;
         unsafe {
@@ -2869,6 +3060,7 @@ impl DisplayWireFormat {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<DisplayWireFormatColorSpace>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn Eotf(&self) -> ::windows::runtime::Result<DisplayWireFormatEotf> {
         let this = self;
         unsafe {
@@ -2876,6 +3068,7 @@ impl DisplayWireFormat {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<DisplayWireFormatEotf>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn HdrMetadata(&self) -> ::windows::runtime::Result<DisplayWireFormatHdrMetadata> {
         let this = self;
         unsafe {
@@ -2884,6 +3077,7 @@ impl DisplayWireFormat {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Devices_Display_Core`, `Foundation_Collections`*"]
     pub fn Properties(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IMapView<::windows::runtime::GUID, ::windows::runtime::IInspectable>> {
         let this = self;
         unsafe {
@@ -2891,6 +3085,7 @@ impl DisplayWireFormat {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IMapView<::windows::runtime::GUID, ::windows::runtime::IInspectable>>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Display_Core`*"]
     pub fn CreateInstance(pixelencoding: DisplayWireFormatPixelEncoding, bitsperchannel: i32, colorspace: DisplayWireFormatColorSpace, eotf: DisplayWireFormatEotf, hdrmetadata: DisplayWireFormatHdrMetadata) -> ::windows::runtime::Result<DisplayWireFormat> {
         Self::IDisplayWireFormatFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -2898,6 +3093,7 @@ impl DisplayWireFormat {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Devices_Display_Core`, `Foundation_Collections`*"]
     pub fn CreateWithProperties<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::GUID, ::windows::runtime::IInspectable>>>>(
         extraproperties: Param0,
         pixelencoding: DisplayWireFormatPixelEncoding,
@@ -2972,6 +3168,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for DisplayWireFormat {}
 unsafe impl ::std::marker::Sync for DisplayWireFormat {}
+#[doc = "*Required features: `Devices_Display_Core`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DisplayWireFormatColorSpace(pub i32);
@@ -2992,6 +3189,7 @@ unsafe impl ::windows::runtime::Abi for DisplayWireFormatColorSpace {
 unsafe impl ::windows::runtime::RuntimeType for DisplayWireFormatColorSpace {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayWireFormatColorSpace;i4)");
 }
+#[doc = "*Required features: `Devices_Display_Core`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DisplayWireFormatEotf(pub i32);
@@ -3011,6 +3209,7 @@ unsafe impl ::windows::runtime::Abi for DisplayWireFormatEotf {
 unsafe impl ::windows::runtime::RuntimeType for DisplayWireFormatEotf {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayWireFormatEotf;i4)");
 }
+#[doc = "*Required features: `Devices_Display_Core`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DisplayWireFormatHdrMetadata(pub i32);
@@ -3032,6 +3231,7 @@ unsafe impl ::windows::runtime::Abi for DisplayWireFormatHdrMetadata {
 unsafe impl ::windows::runtime::RuntimeType for DisplayWireFormatHdrMetadata {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayWireFormatHdrMetadata;i4)");
 }
+#[doc = "*Required features: `Devices_Display_Core`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DisplayWireFormatPixelEncoding(pub i32);

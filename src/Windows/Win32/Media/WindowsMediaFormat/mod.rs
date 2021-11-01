@@ -1,6 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub struct AM_WMT_EVENT_DATA {
     pub hrStatus: ::windows::runtime::HRESULT,
     pub pData: *mut ::std::ffi::c_void,
@@ -35,6 +36,7 @@ pub const CLSID_WMMUTEX_Presentation: ::windows::runtime::GUID = ::windows::runt
 pub const CLSID_WMMUTEX_Unknown: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3605146115, 13786, 4561, [144, 52, 0, 160, 201, 3, 73, 190]);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub struct DRM_COPY_OPL {
     pub wMinimumCopyLevel: u16,
     pub oplIdIncludes: DRM_OPL_OUTPUT_IDS,
@@ -63,6 +65,7 @@ unsafe impl ::windows::runtime::Abi for DRM_COPY_OPL {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub struct DRM_MINIMUM_OUTPUT_PROTECTION_LEVELS {
     pub wCompressedDigitalVideo: u16,
     pub wUncompressedDigitalVideo: u16,
@@ -99,6 +102,7 @@ unsafe impl ::windows::runtime::Abi for DRM_MINIMUM_OUTPUT_PROTECTION_LEVELS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub struct DRM_OPL_OUTPUT_IDS {
     pub cIds: u16,
     pub rgIds: *mut ::windows::runtime::GUID,
@@ -124,9 +128,11 @@ unsafe impl ::windows::runtime::Abi for DRM_OPL_OUTPUT_IDS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const DRM_OPL_TYPES: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub struct DRM_OUTPUT_PROTECTION {
     pub guidId: ::windows::runtime::GUID,
     pub bConfigData: u8,
@@ -154,6 +160,7 @@ unsafe impl ::windows::runtime::Abi for DRM_OUTPUT_PROTECTION {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub struct DRM_PLAY_OPL {
     pub minOPL: DRM_MINIMUM_OUTPUT_PROTECTION_LEVELS,
     pub oplIdReserved: DRM_OPL_OUTPUT_IDS,
@@ -182,6 +189,7 @@ unsafe impl ::windows::runtime::Abi for DRM_PLAY_OPL {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub struct DRM_VAL16 {
     pub val: [u8; 16],
 }
@@ -208,6 +216,7 @@ unsafe impl ::windows::runtime::Abi for DRM_VAL16 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub struct DRM_VIDEO_OUTPUT_PROTECTION_IDS {
     pub cEntries: u16,
     pub rgVop: *mut DRM_OUTPUT_PROTECTION,
@@ -233,10 +242,12 @@ unsafe impl ::windows::runtime::Abi for DRM_VIDEO_OUTPUT_PROTECTION_IDS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IAMWMBufferPass(::windows::runtime::IUnknown);
 impl IAMWMBufferPass {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetNotify<'a, Param0: ::windows::runtime::IntoParam<'a, IAMWMBufferPassCallback>>(&self, pcallback: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pcallback.into_param().abi()).ok()
     }
@@ -273,11 +284,13 @@ pub struct IAMWMBufferPass_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcallback: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IAMWMBufferPassCallback(::windows::runtime::IUnknown);
 impl IAMWMBufferPassCallback {
     #[cfg(feature = "Win32_Graphics_DirectShow")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Graphics_DirectShow`*"]
     pub unsafe fn Notify<'a, Param0: ::windows::runtime::IntoParam<'a, INSSBuffer3>, Param1: ::windows::runtime::IntoParam<'a, super::super::Graphics::DirectShow::IPin>>(&self, pnssbuffer3: Param0, ppin: Param1, prtstart: *const i64, prtend: *const i64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pnssbuffer3.into_param().abi(), ppin.into_param().abi(), ::std::mem::transmute(prtstart), ::std::mem::transmute(prtend)).ok()
     }
@@ -315,39 +328,48 @@ pub struct IAMWMBufferPassCallback_abi(
     #[cfg(feature = "Win32_Graphics_DirectShow")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pnssbuffer3: ::windows::runtime::RawPtr, ppin: ::windows::runtime::RawPtr, prtstart: *const i64, prtend: *const i64) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_DirectShow"))] usize,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct INSNetSourceCreator(::windows::runtime::IUnknown);
 impl INSNetSourceCreator {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn Initialize(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn CreateNetSource<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param4: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, pszstreamname: Param0, pmonitor: Param1, pdata: *const u8, pusercontext: Param3, pcallback: Param4, qwcontext: u64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pszstreamname.into_param().abi(), pmonitor.into_param().abi(), ::std::mem::transmute(pdata), pusercontext.into_param().abi(), pcallback.into_param().abi(), ::std::mem::transmute(qwcontext)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetNetSourceProperties<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszstreamname: Param0) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
         let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), pszstreamname.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetNetSourceSharedNamespace(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
         let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetNetSourceAdminInterface<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszstreamname: Param0) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
         let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), pszstreamname.into_param().abi(), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetNumProtocolsSupported(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetProtocolName(&self, dwprotocolnum: u32, pwszprotocolname: super::super::Foundation::PWSTR, pcchprotocolname: *mut u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwprotocolnum), ::std::mem::transmute(pwszprotocolname), ::std::mem::transmute(pcchprotocolname)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn Shutdown(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)).ok()
     }
@@ -395,25 +417,31 @@ pub struct INSNetSourceCreator_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct INSSBuffer(::windows::runtime::IUnknown);
 impl INSSBuffer {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetLength(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetLength(&self, dwlength: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwlength)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetMaxLength(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetBuffer(&self) -> ::windows::runtime::Result<*mut u8> {
         let mut result__: <*mut u8 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut u8>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetBufferAndLength(&self, ppdwbuffer: *mut *mut u8, pdwlength: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppdwbuffer), ::std::mem::transmute(pdwlength)).ok()
     }
@@ -454,32 +482,40 @@ pub struct INSSBuffer_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppdwbuffer: *mut *mut u8) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppdwbuffer: *mut *mut u8, pdwlength: *mut u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct INSSBuffer2(::windows::runtime::IUnknown);
 impl INSSBuffer2 {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetLength(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetLength(&self, dwlength: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwlength)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetMaxLength(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetBuffer(&self) -> ::windows::runtime::Result<*mut u8> {
         let mut result__: <*mut u8 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut u8>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetBufferAndLength(&self, ppdwbuffer: *mut *mut u8, pdwlength: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppdwbuffer), ::std::mem::transmute(pdwlength)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetSampleProperties(&self, cbproperties: u32) -> ::windows::runtime::Result<u8> {
         let mut result__: <u8 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(cbproperties), &mut result__).from_abi::<u8>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetSampleProperties(&self, cbproperties: u32, pbproperties: *const u8) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(cbproperties), ::std::mem::transmute(pbproperties)).ok()
     }
@@ -542,38 +578,48 @@ pub struct INSSBuffer2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, cbproperties: u32, pbproperties: *mut u8) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, cbproperties: u32, pbproperties: *const u8) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct INSSBuffer3(::windows::runtime::IUnknown);
 impl INSSBuffer3 {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetLength(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetLength(&self, dwlength: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwlength)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetMaxLength(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetBuffer(&self) -> ::windows::runtime::Result<*mut u8> {
         let mut result__: <*mut u8 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut u8>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetBufferAndLength(&self, ppdwbuffer: *mut *mut u8, pdwlength: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppdwbuffer), ::std::mem::transmute(pdwlength)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetSampleProperties(&self, cbproperties: u32) -> ::windows::runtime::Result<u8> {
         let mut result__: <u8 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(cbproperties), &mut result__).from_abi::<u8>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetSampleProperties(&self, cbproperties: u32, pbproperties: *const u8) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(cbproperties), ::std::mem::transmute(pbproperties)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetProperty<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, guidbufferproperty: Param0, pvbufferproperty: *const ::std::ffi::c_void, dwbufferpropertysize: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), guidbufferproperty.into_param().abi(), ::std::mem::transmute(pvbufferproperty), ::std::mem::transmute(dwbufferpropertysize)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetProperty<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, guidbufferproperty: Param0, pvbufferproperty: *mut ::std::ffi::c_void, pdwbufferpropertysize: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), guidbufferproperty.into_param().abi(), ::std::mem::transmute(pvbufferproperty), ::std::mem::transmute(pdwbufferpropertysize)).ok()
     }
@@ -658,45 +704,57 @@ pub struct INSSBuffer3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guidbufferproperty: ::windows::runtime::GUID, pvbufferproperty: *const ::std::ffi::c_void, dwbufferpropertysize: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guidbufferproperty: ::windows::runtime::GUID, pvbufferproperty: *mut ::std::ffi::c_void, pdwbufferpropertysize: *mut u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct INSSBuffer4(::windows::runtime::IUnknown);
 impl INSSBuffer4 {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetLength(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetLength(&self, dwlength: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwlength)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetMaxLength(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetBuffer(&self) -> ::windows::runtime::Result<*mut u8> {
         let mut result__: <*mut u8 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut u8>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetBufferAndLength(&self, ppdwbuffer: *mut *mut u8, pdwlength: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppdwbuffer), ::std::mem::transmute(pdwlength)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetSampleProperties(&self, cbproperties: u32) -> ::windows::runtime::Result<u8> {
         let mut result__: <u8 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(cbproperties), &mut result__).from_abi::<u8>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetSampleProperties(&self, cbproperties: u32, pbproperties: *const u8) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(cbproperties), ::std::mem::transmute(pbproperties)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetProperty<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, guidbufferproperty: Param0, pvbufferproperty: *const ::std::ffi::c_void, dwbufferpropertysize: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), guidbufferproperty.into_param().abi(), ::std::mem::transmute(pvbufferproperty), ::std::mem::transmute(dwbufferpropertysize)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetProperty<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, guidbufferproperty: Param0, pvbufferproperty: *mut ::std::ffi::c_void, pdwbufferpropertysize: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), guidbufferproperty.into_param().abi(), ::std::mem::transmute(pvbufferproperty), ::std::mem::transmute(pdwbufferpropertysize)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetPropertyCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetPropertyByIndex(&self, dwbufferpropertyindex: u32, pguidbufferproperty: *mut ::windows::runtime::GUID, pvbufferproperty: *mut ::std::ffi::c_void, pdwbufferpropertysize: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwbufferpropertyindex), ::std::mem::transmute(pguidbufferproperty), ::std::mem::transmute(pvbufferproperty), ::std::mem::transmute(pdwbufferpropertysize)).ok()
     }
@@ -803,21 +861,26 @@ pub struct INSSBuffer4_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcbufferproperties: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwbufferpropertyindex: u32, pguidbufferproperty: *mut ::windows::runtime::GUID, pvbufferproperty: *mut ::std::ffi::c_void, pdwbufferpropertysize: *mut u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMAddressAccess(::windows::runtime::IUnknown);
 impl IWMAddressAccess {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetAccessEntryCount(&self, aetype: WM_AETYPE) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(aetype), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetAccessEntry(&self, aetype: WM_AETYPE, dwentrynum: u32) -> ::windows::runtime::Result<WM_ADDRESS_ACCESSENTRY> {
         let mut result__: <WM_ADDRESS_ACCESSENTRY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(aetype), ::std::mem::transmute(dwentrynum), &mut result__).from_abi::<WM_ADDRESS_ACCESSENTRY>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn AddAccessEntry(&self, aetype: WM_AETYPE, paddraccessentry: *const WM_ADDRESS_ACCESSENTRY) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(aetype), ::std::mem::transmute(paddraccessentry)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn RemoveAccessEntry(&self, aetype: WM_AETYPE, dwentrynum: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(aetype), ::std::mem::transmute(dwentrynum)).ok()
     }
@@ -857,29 +920,36 @@ pub struct IWMAddressAccess_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, aetype: WM_AETYPE, paddraccessentry: *const WM_ADDRESS_ACCESSENTRY) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, aetype: WM_AETYPE, dwentrynum: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMAddressAccess2(::windows::runtime::IUnknown);
 impl IWMAddressAccess2 {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetAccessEntryCount(&self, aetype: WM_AETYPE) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(aetype), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetAccessEntry(&self, aetype: WM_AETYPE, dwentrynum: u32) -> ::windows::runtime::Result<WM_ADDRESS_ACCESSENTRY> {
         let mut result__: <WM_ADDRESS_ACCESSENTRY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(aetype), ::std::mem::transmute(dwentrynum), &mut result__).from_abi::<WM_ADDRESS_ACCESSENTRY>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn AddAccessEntry(&self, aetype: WM_AETYPE, paddraccessentry: *const WM_ADDRESS_ACCESSENTRY) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(aetype), ::std::mem::transmute(paddraccessentry)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn RemoveAccessEntry(&self, aetype: WM_AETYPE, dwentrynum: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(aetype), ::std::mem::transmute(dwentrynum)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetAccessEntryEx(&self, aetype: WM_AETYPE, dwentrynum: u32, pbstraddress: *mut super::super::Foundation::BSTR, pbstrmask: *mut super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(aetype), ::std::mem::transmute(dwentrynum), ::std::mem::transmute(pbstraddress), ::std::mem::transmute(pbstrmask)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn AddAccessEntryEx<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, aetype: WM_AETYPE, bstraddress: Param1, bstrmask: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(aetype), bstraddress.into_param().abi(), bstrmask.into_param().abi()).ok()
     }
@@ -943,18 +1013,22 @@ pub struct IWMAddressAccess2_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, aetype: WM_AETYPE, bstraddress: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrmask: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMAuthorizer(::windows::runtime::IUnknown);
 impl IWMAuthorizer {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetCertCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetCert(&self, dwindex: u32) -> ::windows::runtime::Result<*mut u8> {
         let mut result__: <*mut u8 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwindex), &mut result__).from_abi::<*mut u8>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetSharedData(&self, dwcertindex: u32, pbshareddata: *const u8, pbcert: *const u8) -> ::windows::runtime::Result<*mut u8> {
         let mut result__: <*mut u8 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwcertindex), ::std::mem::transmute(pbshareddata), ::std::mem::transmute(pbcert), &mut result__).from_abi::<*mut u8>(result__)
@@ -994,30 +1068,37 @@ pub struct IWMAuthorizer_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwindex: u32, ppbcertdata: *mut *mut u8) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwcertindex: u32, pbshareddata: *const u8, pbcert: *const u8, ppbshareddata: *mut *mut u8) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMBackupRestoreProps(::windows::runtime::IUnknown);
 impl IWMBackupRestoreProps {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetPropCount(&self) -> ::windows::runtime::Result<u16> {
         let mut result__: <u16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u16>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetPropByIndex(&self, windex: u16, pwszname: super::super::Foundation::PWSTR, pcchnamelen: *mut u16, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(windex), ::std::mem::transmute(pwszname), ::std::mem::transmute(pcchnamelen), ::std::mem::transmute(ptype), ::std::mem::transmute(pvalue), ::std::mem::transmute(pcblength)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetPropByName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszname: Param0, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), pszname.into_param().abi(), ::std::mem::transmute(ptype), ::std::mem::transmute(pvalue), ::std::mem::transmute(pcblength)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetProp<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszname: Param0, r#type: WMT_ATTR_DATATYPE, pvalue: *const u8, cblength: u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), pszname.into_param().abi(), ::std::mem::transmute(r#type), ::std::mem::transmute(pvalue), ::std::mem::transmute(cblength)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn RemoveProp<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pcwszname: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), pcwszname.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn RemoveAllProps(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
     }
@@ -1063,29 +1144,37 @@ pub struct IWMBackupRestoreProps_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMBandwidthSharing(::windows::runtime::IUnknown);
 impl IWMBandwidthSharing {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetStreams(&self, pwstreamnumarray: *mut u16, pcstreams: *mut u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwstreamnumarray), ::std::mem::transmute(pcstreams)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn AddStream(&self, wstreamnum: u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn RemoveStream(&self, wstreamnum: u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetType(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetType(&self, guidtype: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(guidtype)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetBandwidth(&self, pdwbitrate: *mut u32, pmsbufferwindow: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwbitrate), ::std::mem::transmute(pmsbufferwindow)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetBandwidth(&self, dwbitrate: u32, msbufferwindow: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwbitrate), ::std::mem::transmute(msbufferwindow)).ok()
     }
@@ -1148,14 +1237,17 @@ pub struct IWMBandwidthSharing_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwbitrate: *mut u32, pmsbufferwindow: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwbitrate: u32, msbufferwindow: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMClientConnections(::windows::runtime::IUnknown);
 impl IWMClientConnections {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetClientCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetClientProperties(&self, dwclientnum: u32) -> ::windows::runtime::Result<WM_CLIENT_PROPERTIES> {
         let mut result__: <WM_CLIENT_PROPERTIES as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwclientnum), &mut result__).from_abi::<WM_CLIENT_PROPERTIES>(result__)
@@ -1194,19 +1286,23 @@ pub struct IWMClientConnections_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcclients: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwclientnum: u32, pclientproperties: *mut WM_CLIENT_PROPERTIES) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMClientConnections2(::windows::runtime::IUnknown);
 impl IWMClientConnections2 {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetClientCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetClientProperties(&self, dwclientnum: u32) -> ::windows::runtime::Result<WM_CLIENT_PROPERTIES> {
         let mut result__: <WM_CLIENT_PROPERTIES as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwclientnum), &mut result__).from_abi::<WM_CLIENT_PROPERTIES>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetClientInfo(&self, dwclientnum: u32, pwsznetworkaddress: super::super::Foundation::PWSTR, pcchnetworkaddress: *mut u32, pwszport: super::super::Foundation::PWSTR, pcchport: *mut u32, pwszdnsname: super::super::Foundation::PWSTR, pcchdnsname: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwclientnum), ::std::mem::transmute(pwsznetworkaddress), ::std::mem::transmute(pcchnetworkaddress), ::std::mem::transmute(pwszport), ::std::mem::transmute(pcchport), ::std::mem::transmute(pwszdnsname), ::std::mem::transmute(pcchdnsname)).ok()
     }
@@ -1266,18 +1362,22 @@ pub struct IWMClientConnections2_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwclientnum: u32, pwsznetworkaddress: super::super::Foundation::PWSTR, pcchnetworkaddress: *mut u32, pwszport: super::super::Foundation::PWSTR, pcchport: *mut u32, pwszdnsname: super::super::Foundation::PWSTR, pcchdnsname: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMCodecAMVideoAccelerator(::windows::runtime::IUnknown);
 impl IWMCodecAMVideoAccelerator {
     #[cfg(feature = "Win32_Graphics_DirectShow")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Graphics_DirectShow`*"]
     pub unsafe fn SetAcceleratorInterface<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::DirectShow::IAMVideoAccelerator>>(&self, piamva: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), piamva.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectShow"))]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`, `Win32_Graphics_DirectShow`*"]
     pub unsafe fn NegotiateConnection(&self, pmediatype: *const super::super::Graphics::DirectShow::AM_MEDIA_TYPE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pmediatype)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetPlayerNotify<'a, Param0: ::windows::runtime::IntoParam<'a, IWMPlayerTimestampHook>>(&self, phook: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), phook.into_param().abi()).ok()
     }
@@ -1318,18 +1418,22 @@ pub struct IWMCodecAMVideoAccelerator_abi(
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectShow")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, phook: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMCodecInfo(::windows::runtime::IUnknown);
 impl IWMCodecInfo {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetCodecInfoCount(&self, guidtype: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(guidtype), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetCodecFormatCount(&self, guidtype: *const ::windows::runtime::GUID, dwcodecindex: u32) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(guidtype), ::std::mem::transmute(dwcodecindex), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetCodecFormat(&self, guidtype: *const ::windows::runtime::GUID, dwcodecindex: u32, dwformatindex: u32) -> ::windows::runtime::Result<IWMStreamConfig> {
         let mut result__: <IWMStreamConfig as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(guidtype), ::std::mem::transmute(dwcodecindex), ::std::mem::transmute(dwformatindex), &mut result__).from_abi::<IWMStreamConfig>(result__)
@@ -1369,27 +1473,33 @@ pub struct IWMCodecInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guidtype: *const ::windows::runtime::GUID, dwcodecindex: u32, pcformat: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guidtype: *const ::windows::runtime::GUID, dwcodecindex: u32, dwformatindex: u32, ppistreamconfig: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMCodecInfo2(::windows::runtime::IUnknown);
 impl IWMCodecInfo2 {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetCodecInfoCount(&self, guidtype: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(guidtype), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetCodecFormatCount(&self, guidtype: *const ::windows::runtime::GUID, dwcodecindex: u32) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(guidtype), ::std::mem::transmute(dwcodecindex), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetCodecFormat(&self, guidtype: *const ::windows::runtime::GUID, dwcodecindex: u32, dwformatindex: u32) -> ::windows::runtime::Result<IWMStreamConfig> {
         let mut result__: <IWMStreamConfig as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(guidtype), ::std::mem::transmute(dwcodecindex), ::std::mem::transmute(dwformatindex), &mut result__).from_abi::<IWMStreamConfig>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetCodecName(&self, guidtype: *const ::windows::runtime::GUID, dwcodecindex: u32, wszname: super::super::Foundation::PWSTR, pcchname: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(guidtype), ::std::mem::transmute(dwcodecindex), ::std::mem::transmute(wszname), ::std::mem::transmute(pcchname)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetCodecFormatDesc(&self, guidtype: *const ::windows::runtime::GUID, dwcodecindex: u32, dwformatindex: u32, ppistreamconfig: *mut ::std::option::Option<IWMStreamConfig>, wszdesc: super::super::Foundation::PWSTR, pcchdesc: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(guidtype), ::std::mem::transmute(dwcodecindex), ::std::mem::transmute(dwformatindex), ::std::mem::transmute(ppistreamconfig), ::std::mem::transmute(wszdesc), ::std::mem::transmute(pcchdesc)).ok()
     }
@@ -1452,43 +1562,53 @@ pub struct IWMCodecInfo2_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guidtype: *const ::windows::runtime::GUID, dwcodecindex: u32, dwformatindex: u32, ppistreamconfig: *mut ::windows::runtime::RawPtr, wszdesc: super::super::Foundation::PWSTR, pcchdesc: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMCodecInfo3(::windows::runtime::IUnknown);
 impl IWMCodecInfo3 {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetCodecInfoCount(&self, guidtype: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(guidtype), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetCodecFormatCount(&self, guidtype: *const ::windows::runtime::GUID, dwcodecindex: u32) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(guidtype), ::std::mem::transmute(dwcodecindex), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetCodecFormat(&self, guidtype: *const ::windows::runtime::GUID, dwcodecindex: u32, dwformatindex: u32) -> ::windows::runtime::Result<IWMStreamConfig> {
         let mut result__: <IWMStreamConfig as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(guidtype), ::std::mem::transmute(dwcodecindex), ::std::mem::transmute(dwformatindex), &mut result__).from_abi::<IWMStreamConfig>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetCodecName(&self, guidtype: *const ::windows::runtime::GUID, dwcodecindex: u32, wszname: super::super::Foundation::PWSTR, pcchname: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(guidtype), ::std::mem::transmute(dwcodecindex), ::std::mem::transmute(wszname), ::std::mem::transmute(pcchname)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetCodecFormatDesc(&self, guidtype: *const ::windows::runtime::GUID, dwcodecindex: u32, dwformatindex: u32, ppistreamconfig: *mut ::std::option::Option<IWMStreamConfig>, wszdesc: super::super::Foundation::PWSTR, pcchdesc: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(guidtype), ::std::mem::transmute(dwcodecindex), ::std::mem::transmute(dwformatindex), ::std::mem::transmute(ppistreamconfig), ::std::mem::transmute(wszdesc), ::std::mem::transmute(pcchdesc)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetCodecFormatProp<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, guidtype: *const ::windows::runtime::GUID, dwcodecindex: u32, dwformatindex: u32, pszname: Param3, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(guidtype), ::std::mem::transmute(dwcodecindex), ::std::mem::transmute(dwformatindex), pszname.into_param().abi(), ::std::mem::transmute(ptype), ::std::mem::transmute(pvalue), ::std::mem::transmute(pdwsize)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetCodecProp<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, guidtype: *const ::windows::runtime::GUID, dwcodecindex: u32, pszname: Param2, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(guidtype), ::std::mem::transmute(dwcodecindex), pszname.into_param().abi(), ::std::mem::transmute(ptype), ::std::mem::transmute(pvalue), ::std::mem::transmute(pdwsize)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetCodecEnumerationSetting<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, guidtype: *const ::windows::runtime::GUID, dwcodecindex: u32, pszname: Param2, r#type: WMT_ATTR_DATATYPE, pvalue: *const u8, dwsize: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(guidtype), ::std::mem::transmute(dwcodecindex), pszname.into_param().abi(), ::std::mem::transmute(r#type), ::std::mem::transmute(pvalue), ::std::mem::transmute(dwsize)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetCodecEnumerationSetting<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, guidtype: *const ::windows::runtime::GUID, dwcodecindex: u32, pszname: Param2, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(guidtype), ::std::mem::transmute(dwcodecindex), pszname.into_param().abi(), ::std::mem::transmute(ptype), ::std::mem::transmute(pvalue), ::std::mem::transmute(pdwsize)).ok()
     }
@@ -1579,14 +1699,17 @@ pub struct IWMCodecInfo3_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guidtype: *const ::windows::runtime::GUID, dwcodecindex: u32, pszname: super::super::Foundation::PWSTR, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMCodecVideoAccelerator(::windows::runtime::IUnknown);
 impl IWMCodecVideoAccelerator {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectShow"))]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`, `Win32_Graphics_DirectShow`*"]
     pub unsafe fn NegotiateConnection<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::DirectShow::IAMVideoAccelerator>>(&self, piamva: Param0, pmediatype: *const super::super::Graphics::DirectShow::AM_MEDIA_TYPE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), piamva.into_param().abi(), ::std::mem::transmute(pmediatype)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetPlayerNotify<'a, Param0: ::windows::runtime::IntoParam<'a, IWMPlayerTimestampHook>>(&self, phook: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), phook.into_param().abi()).ok()
     }
@@ -1625,11 +1748,13 @@ pub struct IWMCodecVideoAccelerator_abi(
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectShow")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, phook: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMCredentialCallback(::windows::runtime::IUnknown);
 impl IWMCredentialCallback {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn AcquireCredentials<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszrealm: Param0, pwszsite: Param1, pwszuser: super::super::Foundation::PWSTR, cchuser: u32, pwszpassword: super::super::Foundation::PWSTR, cchpassword: u32, hrstatus: ::windows::runtime::HRESULT, pdwflags: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pwszrealm.into_param().abi(), pwszsite.into_param().abi(), ::std::mem::transmute(pwszuser), ::std::mem::transmute(cchuser), ::std::mem::transmute(pwszpassword), ::std::mem::transmute(cchpassword), ::std::mem::transmute(hrstatus), ::std::mem::transmute(pdwflags)).ok()
     }
@@ -1667,11 +1792,13 @@ pub struct IWMCredentialCallback_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwszrealm: super::super::Foundation::PWSTR, pwszsite: super::super::Foundation::PWSTR, pwszuser: super::super::Foundation::PWSTR, cchuser: u32, pwszpassword: super::super::Foundation::PWSTR, cchpassword: u32, hrstatus: ::windows::runtime::HRESULT, pdwflags: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMDRMEditor(::windows::runtime::IUnknown);
 impl IWMDRMEditor {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetDRMProperty<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwstrname: Param0, pdwtype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pwstrname.into_param().abi(), ::std::mem::transmute(pdwtype), ::std::mem::transmute(pvalue), ::std::mem::transmute(pcblength)).ok()
     }
@@ -1709,14 +1836,17 @@ pub struct IWMDRMEditor_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwstrname: super::super::Foundation::PWSTR, pdwtype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMDRMMessageParser(::windows::runtime::IUnknown);
 impl IWMDRMMessageParser {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn ParseRegistrationReqMsg(&self, pbregistrationreqmsg: *const u8, cbregistrationreqmsg: u32, ppdevicecert: *mut ::std::option::Option<INSSBuffer>, pdeviceserialnumber: *mut DRM_VAL16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pbregistrationreqmsg), ::std::mem::transmute(cbregistrationreqmsg), ::std::mem::transmute(ppdevicecert), ::std::mem::transmute(pdeviceserialnumber)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn ParseLicenseRequestMsg(&self, pblicenserequestmsg: *const u8, cblicenserequestmsg: u32, ppdevicecert: *mut ::std::option::Option<INSSBuffer>, pdeviceserialnumber: *mut DRM_VAL16, pbstraction: *mut super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pblicenserequestmsg), ::std::mem::transmute(cblicenserequestmsg), ::std::mem::transmute(ppdevicecert), ::std::mem::transmute(pdeviceserialnumber), ::std::mem::transmute(pbstraction)).ok()
     }
@@ -1755,33 +1885,42 @@ pub struct IWMDRMMessageParser_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pblicenserequestmsg: *const u8, cblicenserequestmsg: u32, ppdevicecert: *mut ::windows::runtime::RawPtr, pdeviceserialnumber: *mut DRM_VAL16, pbstraction: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMDRMReader(::windows::runtime::IUnknown);
 impl IWMDRMReader {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn AcquireLicense(&self, dwflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwflags)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn CancelLicenseAcquisition(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn Individualize(&self, dwflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwflags)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn CancelIndividualization(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn MonitorLicenseAcquisition(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn CancelMonitorLicenseAcquisition(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetDRMProperty<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwstrname: Param0, dwtype: WMT_ATTR_DATATYPE, pvalue: *const u8, cblength: u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), pwstrname.into_param().abi(), ::std::mem::transmute(dwtype), ::std::mem::transmute(pvalue), ::std::mem::transmute(cblength)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetDRMProperty<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwstrname: Param0, pdwtype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), pwstrname.into_param().abi(), ::std::mem::transmute(pdwtype), ::std::mem::transmute(pvalue), ::std::mem::transmute(pcblength)).ok()
     }
@@ -1827,46 +1966,59 @@ pub struct IWMDRMReader_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwstrname: super::super::Foundation::PWSTR, pdwtype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMDRMReader2(::windows::runtime::IUnknown);
 impl IWMDRMReader2 {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn AcquireLicense(&self, dwflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwflags)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn CancelLicenseAcquisition(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn Individualize(&self, dwflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwflags)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn CancelIndividualization(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn MonitorLicenseAcquisition(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn CancelMonitorLicenseAcquisition(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetDRMProperty<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwstrname: Param0, dwtype: WMT_ATTR_DATATYPE, pvalue: *const u8, cblength: u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), pwstrname.into_param().abi(), ::std::mem::transmute(dwtype), ::std::mem::transmute(pvalue), ::std::mem::transmute(cblength)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetDRMProperty<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwstrname: Param0, pdwtype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), pwstrname.into_param().abi(), ::std::mem::transmute(pdwtype), ::std::mem::transmute(pvalue), ::std::mem::transmute(pcblength)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetEvaluateOutputLevelLicenses<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fevaluate: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), fevaluate.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetPlayOutputLevels(&self, pplayopl: *mut DRM_PLAY_OPL, pcblength: *mut u32, pdwminappcompliancelevel: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(pplayopl), ::std::mem::transmute(pcblength), ::std::mem::transmute(pdwminappcompliancelevel)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetCopyOutputLevels(&self, pcopyopl: *mut DRM_COPY_OPL, pcblength: *mut u32, pdwminappcompliancelevel: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcopyopl), ::std::mem::transmute(pcblength), ::std::mem::transmute(pdwminappcompliancelevel)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn TryNextLicense(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self)).ok()
     }
@@ -1937,49 +2089,63 @@ pub struct IWMDRMReader2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcopyopl: *mut DRM_COPY_OPL, pcblength: *mut u32, pdwminappcompliancelevel: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMDRMReader3(::windows::runtime::IUnknown);
 impl IWMDRMReader3 {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn AcquireLicense(&self, dwflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwflags)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn CancelLicenseAcquisition(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn Individualize(&self, dwflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwflags)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn CancelIndividualization(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn MonitorLicenseAcquisition(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn CancelMonitorLicenseAcquisition(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetDRMProperty<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwstrname: Param0, dwtype: WMT_ATTR_DATATYPE, pvalue: *const u8, cblength: u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), pwstrname.into_param().abi(), ::std::mem::transmute(dwtype), ::std::mem::transmute(pvalue), ::std::mem::transmute(cblength)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetDRMProperty<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwstrname: Param0, pdwtype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), pwstrname.into_param().abi(), ::std::mem::transmute(pdwtype), ::std::mem::transmute(pvalue), ::std::mem::transmute(pcblength)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetEvaluateOutputLevelLicenses<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fevaluate: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), fevaluate.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetPlayOutputLevels(&self, pplayopl: *mut DRM_PLAY_OPL, pcblength: *mut u32, pdwminappcompliancelevel: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(pplayopl), ::std::mem::transmute(pcblength), ::std::mem::transmute(pdwminappcompliancelevel)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetCopyOutputLevels(&self, pcopyopl: *mut DRM_COPY_OPL, pcblength: *mut u32, pdwminappcompliancelevel: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcopyopl), ::std::mem::transmute(pcblength), ::std::mem::transmute(pdwminappcompliancelevel)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn TryNextLicense(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetInclusionList(&self, ppguids: *mut *mut ::windows::runtime::GUID, pcguids: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppguids), ::std::mem::transmute(pcguids)).ok()
     }
@@ -2071,10 +2237,12 @@ pub struct IWMDRMReader3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppguids: *mut *mut ::windows::runtime::GUID, pcguids: *mut u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMDRMTranscryptionManager(::windows::runtime::IUnknown);
 impl IWMDRMTranscryptionManager {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn CreateTranscryptor(&self) -> ::windows::runtime::Result<IWMDRMTranscryptor> {
         let mut result__: <IWMDRMTranscryptor as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWMDRMTranscryptor>(result__)
@@ -2112,20 +2280,25 @@ pub struct IWMDRMTranscryptionManager_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pptranscryptor: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMDRMTranscryptor(::windows::runtime::IUnknown);
 impl IWMDRMTranscryptor {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param4: ::windows::runtime::IntoParam<'a, IWMStatusCallback>>(&self, bstrfilename: Param0, pblicenserequestmsg: *mut u8, cblicenserequestmsg: u32, pplicenseresponsemsg: *mut ::std::option::Option<INSSBuffer>, pcallback: Param4, pvcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), bstrfilename.into_param().abi(), ::std::mem::transmute(pblicenserequestmsg), ::std::mem::transmute(cblicenserequestmsg), ::std::mem::transmute(pplicenseresponsemsg), pcallback.into_param().abi(), ::std::mem::transmute(pvcontext)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn Seek(&self, hnstime: u64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(hnstime)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn Read(&self, pbdata: *const u8, pcbdata: *const u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(pbdata), ::std::mem::transmute(pcbdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn Close(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self)).ok()
     }
@@ -2166,35 +2339,44 @@ pub struct IWMDRMTranscryptor_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbdata: *const u8, pcbdata: *const u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMDRMTranscryptor2(::windows::runtime::IUnknown);
 impl IWMDRMTranscryptor2 {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param4: ::windows::runtime::IntoParam<'a, IWMStatusCallback>>(&self, bstrfilename: Param0, pblicenserequestmsg: *mut u8, cblicenserequestmsg: u32, pplicenseresponsemsg: *mut ::std::option::Option<INSSBuffer>, pcallback: Param4, pvcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), bstrfilename.into_param().abi(), ::std::mem::transmute(pblicenserequestmsg), ::std::mem::transmute(cblicenserequestmsg), ::std::mem::transmute(pplicenseresponsemsg), pcallback.into_param().abi(), ::std::mem::transmute(pvcontext)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn Seek(&self, hnstime: u64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(hnstime)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn Read(&self, pbdata: *const u8, pcbdata: *const u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(pbdata), ::std::mem::transmute(pcbdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn Close(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SeekEx<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, cnsstarttime: u64, cnsduration: u64, flrate: f32, fincludefileheader: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(cnsstarttime), ::std::mem::transmute(cnsduration), ::std::mem::transmute(flrate), fincludefileheader.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn ZeroAdjustTimestamps<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fenable: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), fenable.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetSeekStartTime(&self) -> ::windows::runtime::Result<u64> {
         let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u64>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetDuration(&self) -> ::windows::runtime::Result<u64> {
         let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u64>(result__)
@@ -2262,23 +2444,28 @@ pub struct IWMDRMTranscryptor2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcnstime: *mut u64) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcnsduration: *mut u64) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMDRMWriter(::windows::runtime::IUnknown);
 impl IWMDRMWriter {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GenerateKeySeed(&self, pwszkeyseed: super::super::Foundation::PWSTR, pcwchlength: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwszkeyseed), ::std::mem::transmute(pcwchlength)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GenerateKeyID(&self, pwszkeyid: super::super::Foundation::PWSTR, pcwchlength: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwszkeyid), ::std::mem::transmute(pcwchlength)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GenerateSigningKeyPair(&self, pwszprivkey: super::super::Foundation::PWSTR, pcwchprivkeylength: *mut u32, pwszpubkey: super::super::Foundation::PWSTR, pcwchpubkeylength: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwszprivkey), ::std::mem::transmute(pcwchprivkeylength), ::std::mem::transmute(pwszpubkey), ::std::mem::transmute(pcwchpubkeylength)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetDRMAttribute<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wstreamnum: u16, pszname: Param1, r#type: WMT_ATTR_DATATYPE, pvalue: *const u8, cblength: u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), pszname.into_param().abi(), ::std::mem::transmute(r#type), ::std::mem::transmute(pvalue), ::std::mem::transmute(cblength)).ok()
     }
@@ -2322,27 +2509,33 @@ pub struct IWMDRMWriter_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, wstreamnum: u16, pszname: super::super::Foundation::PWSTR, r#type: WMT_ATTR_DATATYPE, pvalue: *const u8, cblength: u16) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMDRMWriter2(::windows::runtime::IUnknown);
 impl IWMDRMWriter2 {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GenerateKeySeed(&self, pwszkeyseed: super::super::Foundation::PWSTR, pcwchlength: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwszkeyseed), ::std::mem::transmute(pcwchlength)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GenerateKeyID(&self, pwszkeyid: super::super::Foundation::PWSTR, pcwchlength: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwszkeyid), ::std::mem::transmute(pcwchlength)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GenerateSigningKeyPair(&self, pwszprivkey: super::super::Foundation::PWSTR, pcwchprivkeylength: *mut u32, pwszpubkey: super::super::Foundation::PWSTR, pcwchpubkeylength: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwszprivkey), ::std::mem::transmute(pcwchprivkeylength), ::std::mem::transmute(pwszpubkey), ::std::mem::transmute(pcwchpubkeylength)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetDRMAttribute<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wstreamnum: u16, pszname: Param1, r#type: WMT_ATTR_DATATYPE, pvalue: *const u8, cblength: u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), pszname.into_param().abi(), ::std::mem::transmute(r#type), ::std::mem::transmute(pvalue), ::std::mem::transmute(cblength)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetWMDRMNetEncryption<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fsamplesencrypted: Param0, pbkeyid: *const u8, cbkeyid: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), fsamplesencrypted.into_param().abi(), ::std::mem::transmute(pbkeyid), ::std::mem::transmute(cbkeyid)).ok()
     }
@@ -2408,30 +2601,37 @@ pub struct IWMDRMWriter2_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fsamplesencrypted: super::super::Foundation::BOOL, pbkeyid: *const u8, cbkeyid: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMDRMWriter3(::windows::runtime::IUnknown);
 impl IWMDRMWriter3 {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GenerateKeySeed(&self, pwszkeyseed: super::super::Foundation::PWSTR, pcwchlength: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwszkeyseed), ::std::mem::transmute(pcwchlength)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GenerateKeyID(&self, pwszkeyid: super::super::Foundation::PWSTR, pcwchlength: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwszkeyid), ::std::mem::transmute(pcwchlength)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GenerateSigningKeyPair(&self, pwszprivkey: super::super::Foundation::PWSTR, pcwchprivkeylength: *mut u32, pwszpubkey: super::super::Foundation::PWSTR, pcwchpubkeylength: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwszprivkey), ::std::mem::transmute(pcwchprivkeylength), ::std::mem::transmute(pwszpubkey), ::std::mem::transmute(pcwchpubkeylength)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetDRMAttribute<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wstreamnum: u16, pszname: Param1, r#type: WMT_ATTR_DATATYPE, pvalue: *const u8, cblength: u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), pszname.into_param().abi(), ::std::mem::transmute(r#type), ::std::mem::transmute(pvalue), ::std::mem::transmute(cblength)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetWMDRMNetEncryption<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fsamplesencrypted: Param0, pbkeyid: *const u8, cbkeyid: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), fsamplesencrypted.into_param().abi(), ::std::mem::transmute(pbkeyid), ::std::mem::transmute(cbkeyid)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetProtectStreamSamples(&self, pimportinitstruct: *const WMDRM_IMPORT_INIT_STRUCT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(pimportinitstruct)).ok()
     }
@@ -2518,29 +2718,36 @@ pub struct IWMDRMWriter3_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pimportinitstruct: *const WMDRM_IMPORT_INIT_STRUCT) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMDeviceRegistration(::windows::runtime::IUnknown);
 impl IWMDeviceRegistration {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn RegisterDevice<'a, Param3: ::windows::runtime::IntoParam<'a, DRM_VAL16>>(&self, dwregistertype: u32, pbcertificate: *const u8, cbcertificate: u32, serialnumber: Param3) -> ::windows::runtime::Result<IWMRegisteredDevice> {
         let mut result__: <IWMRegisteredDevice as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwregistertype), ::std::mem::transmute(pbcertificate), ::std::mem::transmute(cbcertificate), serialnumber.into_param().abi(), &mut result__).from_abi::<IWMRegisteredDevice>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn UnregisterDevice<'a, Param3: ::windows::runtime::IntoParam<'a, DRM_VAL16>>(&self, dwregistertype: u32, pbcertificate: *const u8, cbcertificate: u32, serialnumber: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwregistertype), ::std::mem::transmute(pbcertificate), ::std::mem::transmute(cbcertificate), serialnumber.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetRegistrationStats(&self, dwregistertype: u32) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwregistertype), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetFirstRegisteredDevice(&self, dwregistertype: u32) -> ::windows::runtime::Result<IWMRegisteredDevice> {
         let mut result__: <IWMRegisteredDevice as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwregistertype), &mut result__).from_abi::<IWMRegisteredDevice>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetNextRegisteredDevice(&self) -> ::windows::runtime::Result<IWMRegisteredDevice> {
         let mut result__: <IWMRegisteredDevice as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWMRegisteredDevice>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetRegisteredDeviceByID<'a, Param3: ::windows::runtime::IntoParam<'a, DRM_VAL16>>(&self, dwregistertype: u32, pbcertificate: *const u8, cbcertificate: u32, serialnumber: Param3) -> ::windows::runtime::Result<IWMRegisteredDevice> {
         let mut result__: <IWMRegisteredDevice as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwregistertype), ::std::mem::transmute(pbcertificate), ::std::mem::transmute(cbcertificate), serialnumber.into_param().abi(), &mut result__).from_abi::<IWMRegisteredDevice>(result__)
@@ -2583,10 +2790,12 @@ pub struct IWMDeviceRegistration_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppdevice: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwregistertype: u32, pbcertificate: *const u8, cbcertificate: u32, serialnumber: DRM_VAL16, ppdevice: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMGetSecureChannel(::windows::runtime::IUnknown);
 impl IWMGetSecureChannel {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetPeerSecureChannelInterface(&self) -> ::windows::runtime::Result<IWMSecureChannel> {
         let mut result__: <IWMSecureChannel as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWMSecureChannel>(result__)
@@ -2624,53 +2833,66 @@ pub struct IWMGetSecureChannel_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pppeer: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMHeaderInfo(::windows::runtime::IUnknown);
 impl IWMHeaderInfo {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetAttributeCount(&self, wstreamnum: u16) -> ::windows::runtime::Result<u16> {
         let mut result__: <u16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), &mut result__).from_abi::<u16>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetAttributeByIndex(&self, windex: u16, pwstreamnum: *mut u16, pwszname: super::super::Foundation::PWSTR, pcchnamelen: *mut u16, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(windex), ::std::mem::transmute(pwstreamnum), ::std::mem::transmute(pwszname), ::std::mem::transmute(pcchnamelen), ::std::mem::transmute(ptype), ::std::mem::transmute(pvalue), ::std::mem::transmute(pcblength)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetAttributeByName<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwstreamnum: *mut u16, pszname: Param1, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwstreamnum), pszname.into_param().abi(), ::std::mem::transmute(ptype), ::std::mem::transmute(pvalue), ::std::mem::transmute(pcblength)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetAttribute<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wstreamnum: u16, pszname: Param1, r#type: WMT_ATTR_DATATYPE, pvalue: *const u8, cblength: u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), pszname.into_param().abi(), ::std::mem::transmute(r#type), ::std::mem::transmute(pvalue), ::std::mem::transmute(cblength)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetMarkerCount(&self) -> ::windows::runtime::Result<u16> {
         let mut result__: <u16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u16>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetMarker(&self, windex: u16, pwszmarkername: super::super::Foundation::PWSTR, pcchmarkernamelen: *mut u16, pcnsmarkertime: *mut u64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(windex), ::std::mem::transmute(pwszmarkername), ::std::mem::transmute(pcchmarkernamelen), ::std::mem::transmute(pcnsmarkertime)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn AddMarker<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszmarkername: Param0, cnsmarkertime: u64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), pwszmarkername.into_param().abi(), ::std::mem::transmute(cnsmarkertime)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn RemoveMarker(&self, windex: u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(windex)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetScriptCount(&self) -> ::windows::runtime::Result<u16> {
         let mut result__: <u16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u16>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetScript(&self, windex: u16, pwsztype: super::super::Foundation::PWSTR, pcchtypelen: *mut u16, pwszcommand: super::super::Foundation::PWSTR, pcchcommandlen: *mut u16, pcnsscripttime: *mut u64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(windex), ::std::mem::transmute(pwsztype), ::std::mem::transmute(pcchtypelen), ::std::mem::transmute(pwszcommand), ::std::mem::transmute(pcchcommandlen), ::std::mem::transmute(pcnsscripttime)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn AddScript<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwsztype: Param0, pwszcommand: Param1, cnsscripttime: u64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), pwsztype.into_param().abi(), pwszcommand.into_param().abi(), ::std::mem::transmute(cnsscripttime)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn RemoveScript(&self, windex: u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(windex)).ok()
     }
@@ -2725,61 +2947,76 @@ pub struct IWMHeaderInfo_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, windex: u16) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMHeaderInfo2(::windows::runtime::IUnknown);
 impl IWMHeaderInfo2 {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetAttributeCount(&self, wstreamnum: u16) -> ::windows::runtime::Result<u16> {
         let mut result__: <u16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), &mut result__).from_abi::<u16>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetAttributeByIndex(&self, windex: u16, pwstreamnum: *mut u16, pwszname: super::super::Foundation::PWSTR, pcchnamelen: *mut u16, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(windex), ::std::mem::transmute(pwstreamnum), ::std::mem::transmute(pwszname), ::std::mem::transmute(pcchnamelen), ::std::mem::transmute(ptype), ::std::mem::transmute(pvalue), ::std::mem::transmute(pcblength)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetAttributeByName<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwstreamnum: *mut u16, pszname: Param1, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwstreamnum), pszname.into_param().abi(), ::std::mem::transmute(ptype), ::std::mem::transmute(pvalue), ::std::mem::transmute(pcblength)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetAttribute<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wstreamnum: u16, pszname: Param1, r#type: WMT_ATTR_DATATYPE, pvalue: *const u8, cblength: u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), pszname.into_param().abi(), ::std::mem::transmute(r#type), ::std::mem::transmute(pvalue), ::std::mem::transmute(cblength)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetMarkerCount(&self) -> ::windows::runtime::Result<u16> {
         let mut result__: <u16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u16>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetMarker(&self, windex: u16, pwszmarkername: super::super::Foundation::PWSTR, pcchmarkernamelen: *mut u16, pcnsmarkertime: *mut u64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(windex), ::std::mem::transmute(pwszmarkername), ::std::mem::transmute(pcchmarkernamelen), ::std::mem::transmute(pcnsmarkertime)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn AddMarker<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszmarkername: Param0, cnsmarkertime: u64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), pwszmarkername.into_param().abi(), ::std::mem::transmute(cnsmarkertime)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn RemoveMarker(&self, windex: u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(windex)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetScriptCount(&self) -> ::windows::runtime::Result<u16> {
         let mut result__: <u16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u16>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetScript(&self, windex: u16, pwsztype: super::super::Foundation::PWSTR, pcchtypelen: *mut u16, pwszcommand: super::super::Foundation::PWSTR, pcchcommandlen: *mut u16, pcnsscripttime: *mut u64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(windex), ::std::mem::transmute(pwsztype), ::std::mem::transmute(pcchtypelen), ::std::mem::transmute(pwszcommand), ::std::mem::transmute(pcchcommandlen), ::std::mem::transmute(pcnsscripttime)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn AddScript<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwsztype: Param0, pwszcommand: Param1, cnsscripttime: u64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), pwsztype.into_param().abi(), pwszcommand.into_param().abi(), ::std::mem::transmute(cnsscripttime)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn RemoveScript(&self, windex: u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(windex)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetCodecInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetCodecInfo(&self, windex: u32, pcchname: *mut u16, pwszname: super::super::Foundation::PWSTR, pcchdescription: *mut u16, pwszdescription: super::super::Foundation::PWSTR, pcodectype: *mut WMT_CODEC_INFO_TYPE, pcbcodecinfo: *mut u16, pbcodecinfo: *mut u8) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(
             ::std::mem::transmute_copy(self),
@@ -2868,61 +3105,76 @@ pub struct IWMHeaderInfo2_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, windex: u32, pcchname: *mut u16, pwszname: super::super::Foundation::PWSTR, pcchdescription: *mut u16, pwszdescription: super::super::Foundation::PWSTR, pcodectype: *mut WMT_CODEC_INFO_TYPE, pcbcodecinfo: *mut u16, pbcodecinfo: *mut u8) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMHeaderInfo3(::windows::runtime::IUnknown);
 impl IWMHeaderInfo3 {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetAttributeCount(&self, wstreamnum: u16) -> ::windows::runtime::Result<u16> {
         let mut result__: <u16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), &mut result__).from_abi::<u16>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetAttributeByIndex(&self, windex: u16, pwstreamnum: *mut u16, pwszname: super::super::Foundation::PWSTR, pcchnamelen: *mut u16, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(windex), ::std::mem::transmute(pwstreamnum), ::std::mem::transmute(pwszname), ::std::mem::transmute(pcchnamelen), ::std::mem::transmute(ptype), ::std::mem::transmute(pvalue), ::std::mem::transmute(pcblength)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetAttributeByName<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwstreamnum: *mut u16, pszname: Param1, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwstreamnum), pszname.into_param().abi(), ::std::mem::transmute(ptype), ::std::mem::transmute(pvalue), ::std::mem::transmute(pcblength)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetAttribute<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wstreamnum: u16, pszname: Param1, r#type: WMT_ATTR_DATATYPE, pvalue: *const u8, cblength: u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), pszname.into_param().abi(), ::std::mem::transmute(r#type), ::std::mem::transmute(pvalue), ::std::mem::transmute(cblength)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetMarkerCount(&self) -> ::windows::runtime::Result<u16> {
         let mut result__: <u16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u16>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetMarker(&self, windex: u16, pwszmarkername: super::super::Foundation::PWSTR, pcchmarkernamelen: *mut u16, pcnsmarkertime: *mut u64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(windex), ::std::mem::transmute(pwszmarkername), ::std::mem::transmute(pcchmarkernamelen), ::std::mem::transmute(pcnsmarkertime)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn AddMarker<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszmarkername: Param0, cnsmarkertime: u64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), pwszmarkername.into_param().abi(), ::std::mem::transmute(cnsmarkertime)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn RemoveMarker(&self, windex: u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(windex)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetScriptCount(&self) -> ::windows::runtime::Result<u16> {
         let mut result__: <u16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u16>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetScript(&self, windex: u16, pwsztype: super::super::Foundation::PWSTR, pcchtypelen: *mut u16, pwszcommand: super::super::Foundation::PWSTR, pcchcommandlen: *mut u16, pcnsscripttime: *mut u64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(windex), ::std::mem::transmute(pwsztype), ::std::mem::transmute(pcchtypelen), ::std::mem::transmute(pwszcommand), ::std::mem::transmute(pcchcommandlen), ::std::mem::transmute(pcnsscripttime)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn AddScript<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwsztype: Param0, pwszcommand: Param1, cnsscripttime: u64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), pwsztype.into_param().abi(), pwszcommand.into_param().abi(), ::std::mem::transmute(cnsscripttime)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn RemoveScript(&self, windex: u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(windex)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetCodecInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetCodecInfo(&self, windex: u32, pcchname: *mut u16, pwszname: super::super::Foundation::PWSTR, pcchdescription: *mut u16, pwszdescription: super::super::Foundation::PWSTR, pcodectype: *mut WMT_CODEC_INFO_TYPE, pcbcodecinfo: *mut u16, pbcodecinfo: *mut u8) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(
             ::std::mem::transmute_copy(self),
@@ -2937,29 +3189,36 @@ impl IWMHeaderInfo3 {
         )
         .ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetAttributeCountEx(&self, wstreamnum: u16) -> ::windows::runtime::Result<u16> {
         let mut result__: <u16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), &mut result__).from_abi::<u16>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetAttributeIndices<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wstreamnum: u16, pwszname: Param1, pwlangindex: *const u16, pwindices: *mut u16, pwcount: *mut u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), pwszname.into_param().abi(), ::std::mem::transmute(pwlangindex), ::std::mem::transmute(pwindices), ::std::mem::transmute(pwcount)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetAttributeByIndexEx(&self, wstreamnum: u16, windex: u16, pwszname: super::super::Foundation::PWSTR, pwnamelen: *mut u16, ptype: *mut WMT_ATTR_DATATYPE, pwlangindex: *mut u16, pvalue: *mut u8, pdwdatalength: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), ::std::mem::transmute(windex), ::std::mem::transmute(pwszname), ::std::mem::transmute(pwnamelen), ::std::mem::transmute(ptype), ::std::mem::transmute(pwlangindex), ::std::mem::transmute(pvalue), ::std::mem::transmute(pdwdatalength)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn ModifyAttribute(&self, wstreamnum: u16, windex: u16, r#type: WMT_ATTR_DATATYPE, wlangindex: u16, pvalue: *const u8, dwlength: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), ::std::mem::transmute(windex), ::std::mem::transmute(r#type), ::std::mem::transmute(wlangindex), ::std::mem::transmute(pvalue), ::std::mem::transmute(dwlength)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn AddAttribute<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wstreamnum: u16, pszname: Param1, pwindex: *mut u16, r#type: WMT_ATTR_DATATYPE, wlangindex: u16, pvalue: *const u8, dwlength: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), pszname.into_param().abi(), ::std::mem::transmute(pwindex), ::std::mem::transmute(r#type), ::std::mem::transmute(wlangindex), ::std::mem::transmute(pvalue), ::std::mem::transmute(dwlength)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn DeleteAttribute(&self, wstreamnum: u16, windex: u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), ::std::mem::transmute(windex)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn AddCodecInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszname: Param0, pwszdescription: Param1, codectype: WMT_CODEC_INFO_TYPE, cbcodecinfo: u16, pbcodecinfo: *const u8) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), pwszname.into_param().abi(), pwszdescription.into_param().abi(), ::std::mem::transmute(codectype), ::std::mem::transmute(cbcodecinfo), ::std::mem::transmute(pbcodecinfo)).ok()
     }
@@ -3068,11 +3327,13 @@ pub struct IWMHeaderInfo3_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwszname: super::super::Foundation::PWSTR, pwszdescription: super::super::Foundation::PWSTR, codectype: WMT_CODEC_INFO_TYPE, cbcodecinfo: u16, pbcodecinfo: *const u8) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMIStreamProps(::windows::runtime::IUnknown);
 impl IWMIStreamProps {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetProperty<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszname: Param0, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pszname.into_param().abi(), ::std::mem::transmute(ptype), ::std::mem::transmute(pvalue), ::std::mem::transmute(pdwsize)).ok()
     }
@@ -3110,15 +3371,18 @@ pub struct IWMIStreamProps_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pszname: super::super::Foundation::PWSTR, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMImageInfo(::windows::runtime::IUnknown);
 impl IWMImageInfo {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetImageCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetImage(&self, windex: u32, pcchmimetype: *mut u16, pwszmimetype: super::super::Foundation::PWSTR, pcchdescription: *mut u16, pwszdescription: super::super::Foundation::PWSTR, pimagetype: *mut u16, pcbimagedata: *mut u32, pbimagedata: *mut u8) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(
             ::std::mem::transmute_copy(self),
@@ -3168,14 +3432,17 @@ pub struct IWMImageInfo_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, windex: u32, pcchmimetype: *mut u16, pwszmimetype: super::super::Foundation::PWSTR, pcchdescription: *mut u16, pwszdescription: super::super::Foundation::PWSTR, pimagetype: *mut u16, pcbimagedata: *mut u32, pbimagedata: *mut u8) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMIndexer(::windows::runtime::IUnknown);
 impl IWMIndexer {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn StartIndexing<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, IWMStatusCallback>>(&self, pwszurl: Param0, pcallback: Param1, pvcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pwszurl.into_param().abi(), pcallback.into_param().abi(), ::std::mem::transmute(pvcontext)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn Cancel(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
@@ -3214,17 +3481,21 @@ pub struct IWMIndexer_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMIndexer2(::windows::runtime::IUnknown);
 impl IWMIndexer2 {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn StartIndexing<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, IWMStatusCallback>>(&self, pwszurl: Param0, pcallback: Param1, pvcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pwszurl.into_param().abi(), pcallback.into_param().abi(), ::std::mem::transmute(pvcontext)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn Cancel(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn Configure(&self, wstreamnum: u16, nindexertype: WMT_INDEXER_TYPE, pvinterval: *const ::std::ffi::c_void, pvindextype: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), ::std::mem::transmute(nindexertype), ::std::mem::transmute(pvinterval), ::std::mem::transmute(pvindextype)).ok()
     }
@@ -3284,27 +3555,33 @@ pub struct IWMIndexer2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, wstreamnum: u16, nindexertype: WMT_INDEXER_TYPE, pvinterval: *const ::std::ffi::c_void, pvindextype: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMInputMediaProps(::windows::runtime::IUnknown);
 impl IWMInputMediaProps {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetType(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetMediaType(&self, ptype: *mut WM_MEDIA_TYPE, pcbtype: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(ptype), ::std::mem::transmute(pcbtype)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetMediaType(&self, ptype: *const WM_MEDIA_TYPE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(ptype)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetConnectionName(&self, pwszname: super::super::Foundation::PWSTR, pcchname: *mut u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwszname), ::std::mem::transmute(pcchname)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetGroupName(&self, pwszname: super::super::Foundation::PWSTR, pcchname: *mut u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwszname), ::std::mem::transmute(pcchname)).ok()
     }
@@ -3369,19 +3646,23 @@ pub struct IWMInputMediaProps_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwszname: super::super::Foundation::PWSTR, pcchname: *mut u16) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMLanguageList(::windows::runtime::IUnknown);
 impl IWMLanguageList {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetLanguageCount(&self) -> ::windows::runtime::Result<u16> {
         let mut result__: <u16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u16>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetLanguageDetails(&self, windex: u16, pwszlanguagestring: super::super::Foundation::PWSTR, pcchlanguagestringlength: *mut u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(windex), ::std::mem::transmute(pwszlanguagestring), ::std::mem::transmute(pcchlanguagestringlength)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn AddLanguageByRFC1766String<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszlanguagestring: Param0) -> ::windows::runtime::Result<u16> {
         let mut result__: <u16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), pwszlanguagestring.into_param().abi(), &mut result__).from_abi::<u16>(result__)
@@ -3423,13 +3704,16 @@ pub struct IWMLanguageList_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwszlanguagestring: super::super::Foundation::PWSTR, pwindex: *mut u16) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMLicenseBackup(::windows::runtime::IUnknown);
 impl IWMLicenseBackup {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn BackupLicenses<'a, Param1: ::windows::runtime::IntoParam<'a, IWMStatusCallback>>(&self, dwflags: u32, pcallback: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwflags), pcallback.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn CancelLicenseBackup(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
@@ -3467,13 +3751,16 @@ pub struct IWMLicenseBackup_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwflags: u32, pcallback: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMLicenseRestore(::windows::runtime::IUnknown);
 impl IWMLicenseRestore {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn RestoreLicenses<'a, Param1: ::windows::runtime::IntoParam<'a, IWMStatusCallback>>(&self, dwflags: u32, pcallback: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwflags), pcallback.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn CancelLicenseRestore(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
@@ -3511,13 +3798,16 @@ pub struct IWMLicenseRestore_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwflags: u32, pcallback: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMLicenseRevocationAgent(::windows::runtime::IUnknown);
 impl IWMLicenseRevocationAgent {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetLRBChallenge(&self, pmachineid: *const u8, dwmachineidlength: u32, pchallenge: *const u8, dwchallengelength: u32, pchallengeoutput: *mut u8, pdwchallengeoutputlength: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pmachineid), ::std::mem::transmute(dwmachineidlength), ::std::mem::transmute(pchallenge), ::std::mem::transmute(dwchallengelength), ::std::mem::transmute(pchallengeoutput), ::std::mem::transmute(pdwchallengeoutputlength)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn ProcessLRB(&self, psignedlrb: *const u8, dwsignedlrblength: u32, psignedack: *mut u8, pdwsignedacklength: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(psignedlrb), ::std::mem::transmute(dwsignedlrblength), ::std::mem::transmute(psignedack), ::std::mem::transmute(pdwsignedacklength)).ok()
     }
@@ -3555,19 +3845,23 @@ pub struct IWMLicenseRevocationAgent_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pmachineid: *const u8, dwmachineidlength: u32, pchallenge: *const u8, dwchallengelength: u32, pchallengeoutput: *mut u8, pdwchallengeoutputlength: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, psignedlrb: *const u8, dwsignedlrblength: u32, psignedack: *mut u8, pdwsignedacklength: *mut u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMMediaProps(::windows::runtime::IUnknown);
 impl IWMMediaProps {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetType(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetMediaType(&self, ptype: *mut WM_MEDIA_TYPE, pcbtype: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(ptype), ::std::mem::transmute(pcbtype)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetMediaType(&self, ptype: *const WM_MEDIA_TYPE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(ptype)).ok()
     }
@@ -3608,17 +3902,21 @@ pub struct IWMMediaProps_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ptype: *const ::std::mem::ManuallyDrop<WM_MEDIA_TYPE>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMMetadataEditor(::windows::runtime::IUnknown);
 impl IWMMetadataEditor {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn Open<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszfilename: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pwszfilename.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn Close(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn Flush(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
@@ -3658,21 +3956,26 @@ pub struct IWMMetadataEditor_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMMetadataEditor2(::windows::runtime::IUnknown);
 impl IWMMetadataEditor2 {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn Open<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszfilename: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pwszfilename.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn Close(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn Flush(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn OpenEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszfilename: Param0, dwdesiredaccess: u32, dwsharemode: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), pwszfilename.into_param().abi(), ::std::mem::transmute(dwdesiredaccess), ::std::mem::transmute(dwsharemode)).ok()
     }
@@ -3734,23 +4037,29 @@ pub struct IWMMetadataEditor2_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwszfilename: super::super::Foundation::PWSTR, dwdesiredaccess: u32, dwsharemode: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMMutualExclusion(::windows::runtime::IUnknown);
 impl IWMMutualExclusion {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetStreams(&self, pwstreamnumarray: *mut u16, pcstreams: *mut u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwstreamnumarray), ::std::mem::transmute(pcstreams)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn AddStream(&self, wstreamnum: u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn RemoveStream(&self, wstreamnum: u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetType(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetType(&self, guidtype: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(guidtype)).ok()
     }
@@ -3811,58 +4120,74 @@ pub struct IWMMutualExclusion_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pguidtype: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guidtype: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMMutualExclusion2(::windows::runtime::IUnknown);
 impl IWMMutualExclusion2 {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetStreams(&self, pwstreamnumarray: *mut u16, pcstreams: *mut u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwstreamnumarray), ::std::mem::transmute(pcstreams)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn AddStream(&self, wstreamnum: u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn RemoveStream(&self, wstreamnum: u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetType(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetType(&self, guidtype: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(guidtype)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetName(&self, pwszname: super::super::Foundation::PWSTR, pcchname: *mut u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwszname), ::std::mem::transmute(pcchname)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszname: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), pwszname.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetRecordCount(&self) -> ::windows::runtime::Result<u16> {
         let mut result__: <u16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u16>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn AddRecord(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn RemoveRecord(&self, wrecordnumber: u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(wrecordnumber)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetRecordName(&self, wrecordnumber: u16, pwszrecordname: super::super::Foundation::PWSTR, pcchrecordname: *mut u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(wrecordnumber), ::std::mem::transmute(pwszrecordname), ::std::mem::transmute(pcchrecordname)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetRecordName<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wrecordnumber: u16, pwszrecordname: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(wrecordnumber), pwszrecordname.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetStreamsForRecord(&self, wrecordnumber: u16, pwstreamnumarray: *mut u16, pcstreams: *mut u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(wrecordnumber), ::std::mem::transmute(pwstreamnumarray), ::std::mem::transmute(pcstreams)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn AddStreamForRecord(&self, wrecordnumber: u16, wstreamnumber: u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(wrecordnumber), ::std::mem::transmute(wstreamnumber)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn RemoveStreamForRecord(&self, wrecordnumber: u16, wstreamnumber: u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(wrecordnumber), ::std::mem::transmute(wstreamnumber)).ok()
     }
@@ -3957,27 +4282,33 @@ pub struct IWMMutualExclusion2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, wrecordnumber: u16, wstreamnumber: u16) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, wrecordnumber: u16, wstreamnumber: u16) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMOutputMediaProps(::windows::runtime::IUnknown);
 impl IWMOutputMediaProps {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetType(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetMediaType(&self, ptype: *mut WM_MEDIA_TYPE, pcbtype: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(ptype), ::std::mem::transmute(pcbtype)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetMediaType(&self, ptype: *const WM_MEDIA_TYPE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(ptype)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetStreamGroupName(&self, pwszname: super::super::Foundation::PWSTR, pcchname: *mut u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwszname), ::std::mem::transmute(pcchname)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetConnectionName(&self, pwszname: super::super::Foundation::PWSTR, pcchname: *mut u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwszname), ::std::mem::transmute(pcchname)).ok()
     }
@@ -4042,14 +4373,17 @@ pub struct IWMOutputMediaProps_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwszname: super::super::Foundation::PWSTR, pcchname: *mut u16) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMPacketSize(::windows::runtime::IUnknown);
 impl IWMPacketSize {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetMaxPacketSize(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetMaxPacketSize(&self, dwmaxpacketsize: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwmaxpacketsize)).ok()
     }
@@ -4087,21 +4421,26 @@ pub struct IWMPacketSize_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwmaxpacketsize: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwmaxpacketsize: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMPacketSize2(::windows::runtime::IUnknown);
 impl IWMPacketSize2 {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetMaxPacketSize(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetMaxPacketSize(&self, dwmaxpacketsize: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwmaxpacketsize)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetMinPacketSize(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetMinPacketSize(&self, dwminpacketsize: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwminpacketsize)).ok()
     }
@@ -4161,10 +4500,12 @@ pub struct IWMPacketSize2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwminpacketsize: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwminpacketsize: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMPlayerHook(::windows::runtime::IUnknown);
 impl IWMPlayerHook {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn PreDecode(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)).ok()
     }
@@ -4201,10 +4542,12 @@ pub struct IWMPlayerHook_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMPlayerTimestampHook(::windows::runtime::IUnknown);
 impl IWMPlayerTimestampHook {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn MapTimestamp(&self, rtin: i64) -> ::windows::runtime::Result<i64> {
         let mut result__: <i64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(rtin), &mut result__).from_abi::<i64>(result__)
@@ -4242,72 +4585,91 @@ pub struct IWMPlayerTimestampHook_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rtin: i64, prtout: *mut i64) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMProfile(::windows::runtime::IUnknown);
 impl IWMProfile {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetVersion(&self) -> ::windows::runtime::Result<WMT_VERSION> {
         let mut result__: <WMT_VERSION as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<WMT_VERSION>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetName(&self, pwszname: super::super::Foundation::PWSTR, pcchname: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwszname), ::std::mem::transmute(pcchname)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszname: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), pwszname.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetDescription(&self, pwszdescription: super::super::Foundation::PWSTR, pcchdescription: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwszdescription), ::std::mem::transmute(pcchdescription)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetDescription<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszdescription: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), pwszdescription.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetStreamCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetStream(&self, dwstreamindex: u32) -> ::windows::runtime::Result<IWMStreamConfig> {
         let mut result__: <IWMStreamConfig as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwstreamindex), &mut result__).from_abi::<IWMStreamConfig>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetStreamByNumber(&self, wstreamnum: u16) -> ::windows::runtime::Result<IWMStreamConfig> {
         let mut result__: <IWMStreamConfig as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), &mut result__).from_abi::<IWMStreamConfig>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn RemoveStream<'a, Param0: ::windows::runtime::IntoParam<'a, IWMStreamConfig>>(&self, pconfig: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), pconfig.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn RemoveStreamByNumber(&self, wstreamnum: u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn AddStream<'a, Param0: ::windows::runtime::IntoParam<'a, IWMStreamConfig>>(&self, pconfig: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), pconfig.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn ReconfigStream<'a, Param0: ::windows::runtime::IntoParam<'a, IWMStreamConfig>>(&self, pconfig: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), pconfig.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn CreateNewStream(&self, guidstreamtype: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<IWMStreamConfig> {
         let mut result__: <IWMStreamConfig as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(guidstreamtype), &mut result__).from_abi::<IWMStreamConfig>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetMutualExclusionCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetMutualExclusion(&self, dwmeindex: u32) -> ::windows::runtime::Result<IWMMutualExclusion> {
         let mut result__: <IWMMutualExclusion as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwmeindex), &mut result__).from_abi::<IWMMutualExclusion>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn RemoveMutualExclusion<'a, Param0: ::windows::runtime::IntoParam<'a, IWMMutualExclusion>>(&self, pme: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), pme.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn AddMutualExclusion<'a, Param0: ::windows::runtime::IntoParam<'a, IWMMutualExclusion>>(&self, pme: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), pme.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn CreateNewMutualExclusion(&self) -> ::windows::runtime::Result<IWMMutualExclusion> {
         let mut result__: <IWMMutualExclusion as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWMMutualExclusion>(result__)
@@ -4366,76 +4728,96 @@ pub struct IWMProfile_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pme: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppme: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMProfile2(::windows::runtime::IUnknown);
 impl IWMProfile2 {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetVersion(&self) -> ::windows::runtime::Result<WMT_VERSION> {
         let mut result__: <WMT_VERSION as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<WMT_VERSION>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetName(&self, pwszname: super::super::Foundation::PWSTR, pcchname: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwszname), ::std::mem::transmute(pcchname)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszname: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), pwszname.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetDescription(&self, pwszdescription: super::super::Foundation::PWSTR, pcchdescription: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwszdescription), ::std::mem::transmute(pcchdescription)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetDescription<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszdescription: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), pwszdescription.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetStreamCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetStream(&self, dwstreamindex: u32) -> ::windows::runtime::Result<IWMStreamConfig> {
         let mut result__: <IWMStreamConfig as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwstreamindex), &mut result__).from_abi::<IWMStreamConfig>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetStreamByNumber(&self, wstreamnum: u16) -> ::windows::runtime::Result<IWMStreamConfig> {
         let mut result__: <IWMStreamConfig as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), &mut result__).from_abi::<IWMStreamConfig>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn RemoveStream<'a, Param0: ::windows::runtime::IntoParam<'a, IWMStreamConfig>>(&self, pconfig: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), pconfig.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn RemoveStreamByNumber(&self, wstreamnum: u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn AddStream<'a, Param0: ::windows::runtime::IntoParam<'a, IWMStreamConfig>>(&self, pconfig: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), pconfig.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn ReconfigStream<'a, Param0: ::windows::runtime::IntoParam<'a, IWMStreamConfig>>(&self, pconfig: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), pconfig.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn CreateNewStream(&self, guidstreamtype: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<IWMStreamConfig> {
         let mut result__: <IWMStreamConfig as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(guidstreamtype), &mut result__).from_abi::<IWMStreamConfig>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetMutualExclusionCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetMutualExclusion(&self, dwmeindex: u32) -> ::windows::runtime::Result<IWMMutualExclusion> {
         let mut result__: <IWMMutualExclusion as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwmeindex), &mut result__).from_abi::<IWMMutualExclusion>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn RemoveMutualExclusion<'a, Param0: ::windows::runtime::IntoParam<'a, IWMMutualExclusion>>(&self, pme: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), pme.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn AddMutualExclusion<'a, Param0: ::windows::runtime::IntoParam<'a, IWMMutualExclusion>>(&self, pme: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), pme.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn CreateNewMutualExclusion(&self) -> ::windows::runtime::Result<IWMMutualExclusion> {
         let mut result__: <IWMMutualExclusion as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWMMutualExclusion>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetProfileID(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
@@ -4515,119 +4897,151 @@ pub struct IWMProfile2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppme: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pguidid: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMProfile3(::windows::runtime::IUnknown);
 impl IWMProfile3 {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetVersion(&self) -> ::windows::runtime::Result<WMT_VERSION> {
         let mut result__: <WMT_VERSION as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<WMT_VERSION>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetName(&self, pwszname: super::super::Foundation::PWSTR, pcchname: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwszname), ::std::mem::transmute(pcchname)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszname: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), pwszname.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetDescription(&self, pwszdescription: super::super::Foundation::PWSTR, pcchdescription: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwszdescription), ::std::mem::transmute(pcchdescription)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetDescription<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszdescription: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), pwszdescription.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetStreamCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetStream(&self, dwstreamindex: u32) -> ::windows::runtime::Result<IWMStreamConfig> {
         let mut result__: <IWMStreamConfig as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwstreamindex), &mut result__).from_abi::<IWMStreamConfig>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetStreamByNumber(&self, wstreamnum: u16) -> ::windows::runtime::Result<IWMStreamConfig> {
         let mut result__: <IWMStreamConfig as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), &mut result__).from_abi::<IWMStreamConfig>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn RemoveStream<'a, Param0: ::windows::runtime::IntoParam<'a, IWMStreamConfig>>(&self, pconfig: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), pconfig.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn RemoveStreamByNumber(&self, wstreamnum: u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn AddStream<'a, Param0: ::windows::runtime::IntoParam<'a, IWMStreamConfig>>(&self, pconfig: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), pconfig.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn ReconfigStream<'a, Param0: ::windows::runtime::IntoParam<'a, IWMStreamConfig>>(&self, pconfig: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), pconfig.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn CreateNewStream(&self, guidstreamtype: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<IWMStreamConfig> {
         let mut result__: <IWMStreamConfig as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(guidstreamtype), &mut result__).from_abi::<IWMStreamConfig>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetMutualExclusionCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetMutualExclusion(&self, dwmeindex: u32) -> ::windows::runtime::Result<IWMMutualExclusion> {
         let mut result__: <IWMMutualExclusion as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwmeindex), &mut result__).from_abi::<IWMMutualExclusion>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn RemoveMutualExclusion<'a, Param0: ::windows::runtime::IntoParam<'a, IWMMutualExclusion>>(&self, pme: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), pme.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn AddMutualExclusion<'a, Param0: ::windows::runtime::IntoParam<'a, IWMMutualExclusion>>(&self, pme: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), pme.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn CreateNewMutualExclusion(&self) -> ::windows::runtime::Result<IWMMutualExclusion> {
         let mut result__: <IWMMutualExclusion as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWMMutualExclusion>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetProfileID(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetStorageFormat(&self) -> ::windows::runtime::Result<WMT_STORAGE_FORMAT> {
         let mut result__: <WMT_STORAGE_FORMAT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), &mut result__).from_abi::<WMT_STORAGE_FORMAT>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetStorageFormat(&self, nstorageformat: WMT_STORAGE_FORMAT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), ::std::mem::transmute(nstorageformat)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetBandwidthSharingCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetBandwidthSharing(&self, dwbsindex: u32) -> ::windows::runtime::Result<IWMBandwidthSharing> {
         let mut result__: <IWMBandwidthSharing as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwbsindex), &mut result__).from_abi::<IWMBandwidthSharing>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn RemoveBandwidthSharing<'a, Param0: ::windows::runtime::IntoParam<'a, IWMBandwidthSharing>>(&self, pbs: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), pbs.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn AddBandwidthSharing<'a, Param0: ::windows::runtime::IntoParam<'a, IWMBandwidthSharing>>(&self, pbs: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), pbs.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn CreateNewBandwidthSharing(&self) -> ::windows::runtime::Result<IWMBandwidthSharing> {
         let mut result__: <IWMBandwidthSharing as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWMBandwidthSharing>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetStreamPrioritization(&self) -> ::windows::runtime::Result<IWMStreamPrioritization> {
         let mut result__: <IWMStreamPrioritization as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWMStreamPrioritization>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetStreamPrioritization<'a, Param0: ::windows::runtime::IntoParam<'a, IWMStreamPrioritization>>(&self, psp: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), psp.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn RemoveStreamPrioritization(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn CreateNewStreamPrioritization(&self) -> ::windows::runtime::Result<IWMStreamPrioritization> {
         let mut result__: <IWMStreamPrioritization as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).32)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWMStreamPrioritization>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetExpectedPacketCount(&self, msduration: u64) -> ::windows::runtime::Result<u64> {
         let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).33)(::std::mem::transmute_copy(self), ::std::mem::transmute(msduration), &mut result__).from_abi::<u64>(result__)
@@ -4739,31 +5153,38 @@ pub struct IWMProfile3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppsp: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, msduration: u64, pcpackets: *mut u64) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMProfileManager(::windows::runtime::IUnknown);
 impl IWMProfileManager {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn CreateEmptyProfile(&self, dwversion: WMT_VERSION) -> ::windows::runtime::Result<IWMProfile> {
         let mut result__: <IWMProfile as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwversion), &mut result__).from_abi::<IWMProfile>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn LoadProfileByID(&self, guidprofile: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<IWMProfile> {
         let mut result__: <IWMProfile as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(guidprofile), &mut result__).from_abi::<IWMProfile>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn LoadProfileByData<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszprofile: Param0) -> ::windows::runtime::Result<IWMProfile> {
         let mut result__: <IWMProfile as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), pwszprofile.into_param().abi(), &mut result__).from_abi::<IWMProfile>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SaveProfile<'a, Param0: ::windows::runtime::IntoParam<'a, IWMProfile>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, piwmprofile: Param0, pwszprofile: Param1, pdwlength: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), piwmprofile.into_param().abi(), pwszprofile.into_param().abi(), ::std::mem::transmute(pdwlength)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetSystemProfileCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn LoadSystemProfile(&self, dwprofileindex: u32) -> ::windows::runtime::Result<IWMProfile> {
         let mut result__: <IWMProfile as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwprofileindex), &mut result__).from_abi::<IWMProfile>(result__)
@@ -4808,38 +5229,47 @@ pub struct IWMProfileManager_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcprofiles: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwprofileindex: u32, ppprofile: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMProfileManager2(::windows::runtime::IUnknown);
 impl IWMProfileManager2 {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn CreateEmptyProfile(&self, dwversion: WMT_VERSION) -> ::windows::runtime::Result<IWMProfile> {
         let mut result__: <IWMProfile as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwversion), &mut result__).from_abi::<IWMProfile>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn LoadProfileByID(&self, guidprofile: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<IWMProfile> {
         let mut result__: <IWMProfile as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(guidprofile), &mut result__).from_abi::<IWMProfile>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn LoadProfileByData<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszprofile: Param0) -> ::windows::runtime::Result<IWMProfile> {
         let mut result__: <IWMProfile as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), pwszprofile.into_param().abi(), &mut result__).from_abi::<IWMProfile>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SaveProfile<'a, Param0: ::windows::runtime::IntoParam<'a, IWMProfile>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, piwmprofile: Param0, pwszprofile: Param1, pdwlength: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), piwmprofile.into_param().abi(), pwszprofile.into_param().abi(), ::std::mem::transmute(pdwlength)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetSystemProfileCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn LoadSystemProfile(&self, dwprofileindex: u32) -> ::windows::runtime::Result<IWMProfile> {
         let mut result__: <IWMProfile as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwprofileindex), &mut result__).from_abi::<IWMProfile>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetSystemProfileVersion(&self, pdwversion: *mut WMT_VERSION) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwversion)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetSystemProfileVersion(&self, dwversion: WMT_VERSION) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwversion)).ok()
     }
@@ -4905,13 +5335,16 @@ pub struct IWMProfileManager2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwversion: *mut WMT_VERSION) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwversion: WMT_VERSION) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMProfileManagerLanguage(::windows::runtime::IUnknown);
 impl IWMProfileManagerLanguage {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetUserLanguageID(&self, wlangid: *mut u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(wlangid)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetUserLanguageID(&self, wlangid: u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(wlangid)).ok()
     }
@@ -4949,28 +5382,35 @@ pub struct IWMProfileManagerLanguage_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, wlangid: *mut u16) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, wlangid: u16) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMPropertyVault(::windows::runtime::IUnknown);
 impl IWMPropertyVault {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetPropertyCount(&self, pdwcount: *const u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwcount)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetPropertyByName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszname: Param0, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pszname.into_param().abi(), ::std::mem::transmute(ptype), ::std::mem::transmute(pvalue), ::std::mem::transmute(pdwsize)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetProperty<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszname: Param0, ptype: WMT_ATTR_DATATYPE, pvalue: *const u8, dwsize: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), pszname.into_param().abi(), ::std::mem::transmute(ptype), ::std::mem::transmute(pvalue), ::std::mem::transmute(dwsize)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetPropertyByIndex(&self, dwindex: u32, pszname: super::super::Foundation::PWSTR, pdwnamelen: *mut u32, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwindex), ::std::mem::transmute(pszname), ::std::mem::transmute(pdwnamelen), ::std::mem::transmute(ptype), ::std::mem::transmute(pvalue), ::std::mem::transmute(pdwsize)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn CopyPropertiesFrom<'a, Param0: ::windows::runtime::IntoParam<'a, IWMPropertyVault>>(&self, piwmpropertyvault: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), piwmpropertyvault.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn Clear(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
     }
@@ -5015,10 +5455,12 @@ pub struct IWMPropertyVault_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, piwmpropertyvault: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMProximityDetection(::windows::runtime::IUnknown);
 impl IWMProximityDetection {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn StartDetection<'a, Param6: ::windows::runtime::IntoParam<'a, IWMStatusCallback>>(&self, pbregistrationmsg: *const u8, cbregistrationmsg: u32, pblocaladdress: *const u8, cblocaladdress: u32, dwextraportsallowed: u32, ppregistrationresponsemsg: *mut ::std::option::Option<INSSBuffer>, pcallback: Param6, pvcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(
             ::std::mem::transmute_copy(self),
@@ -5066,45 +5508,57 @@ pub struct IWMProximityDetection_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbregistrationmsg: *const u8, cbregistrationmsg: u32, pblocaladdress: *const u8, cblocaladdress: u32, dwextraportsallowed: u32, ppregistrationresponsemsg: *mut ::windows::runtime::RawPtr, pcallback: ::windows::runtime::RawPtr, pvcontext: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMReader(::windows::runtime::IUnknown);
 impl IWMReader {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn Open<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, IWMReaderCallback>>(&self, pwszurl: Param0, pcallback: Param1, pvcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pwszurl.into_param().abi(), pcallback.into_param().abi(), ::std::mem::transmute(pvcontext)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn Close(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetOutputCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetOutputProps(&self, dwoutputnum: u32) -> ::windows::runtime::Result<IWMOutputMediaProps> {
         let mut result__: <IWMOutputMediaProps as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoutputnum), &mut result__).from_abi::<IWMOutputMediaProps>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetOutputProps<'a, Param1: ::windows::runtime::IntoParam<'a, IWMOutputMediaProps>>(&self, dwoutputnum: u32, poutput: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoutputnum), poutput.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetOutputFormatCount(&self, dwoutputnumber: u32) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoutputnumber), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetOutputFormat(&self, dwoutputnumber: u32, dwformatnumber: u32) -> ::windows::runtime::Result<IWMOutputMediaProps> {
         let mut result__: <IWMOutputMediaProps as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoutputnumber), ::std::mem::transmute(dwformatnumber), &mut result__).from_abi::<IWMOutputMediaProps>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn Start(&self, cnsstart: u64, cnsduration: u64, frate: f32, pvcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(cnsstart), ::std::mem::transmute(cnsduration), ::std::mem::transmute(frate), ::std::mem::transmute(pvcontext)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn Stop(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn Pause(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn Resume(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self)).ok()
     }
@@ -5152,14 +5606,17 @@ pub struct IWMReader_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMReaderAccelerator(::windows::runtime::IUnknown);
 impl IWMReaderAccelerator {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetCodecInterface(&self, dwoutputnum: u32, riid: *const ::windows::runtime::GUID, ppvcodecinterface: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoutputnum), ::std::mem::transmute(riid), ::std::mem::transmute(ppvcodecinterface)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn Notify(&self, dwoutputnum: u32, psubtype: *const WM_MEDIA_TYPE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoutputnum), ::std::mem::transmute(psubtype)).ok()
     }
@@ -5198,89 +5655,110 @@ pub struct IWMReaderAccelerator_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwoutputnum: u32, psubtype: *const ::std::mem::ManuallyDrop<WM_MEDIA_TYPE>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMReaderAdvanced(::windows::runtime::IUnknown);
 impl IWMReaderAdvanced {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetUserProvidedClock<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fuserclock: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), fuserclock.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetUserProvidedClock(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn DeliverTime(&self, cnstime: u64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(cnstime)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetManualStreamSelection<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fselection: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), fselection.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetManualStreamSelection(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetStreamsSelected(&self, cstreamcount: u16, pwstreamnumbers: *const u16, pselections: *const WMT_STREAM_SELECTION) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(cstreamcount), ::std::mem::transmute(pwstreamnumbers), ::std::mem::transmute(pselections)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetStreamSelected(&self, wstreamnum: u16) -> ::windows::runtime::Result<WMT_STREAM_SELECTION> {
         let mut result__: <WMT_STREAM_SELECTION as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), &mut result__).from_abi::<WMT_STREAM_SELECTION>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetReceiveSelectionCallbacks<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fgetcallbacks: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), fgetcallbacks.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetReceiveSelectionCallbacks(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetReceiveStreamSamples<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, wstreamnum: u16, freceivestreamsamples: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), freceivestreamsamples.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetReceiveStreamSamples(&self, wstreamnum: u16) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetAllocateForOutput<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, dwoutputnum: u32, fallocate: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoutputnum), fallocate.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetAllocateForOutput(&self, dwoutputnum: u32) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoutputnum), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetAllocateForStream<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, wstreamnum: u16, fallocate: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), fallocate.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetAllocateForStream(&self, dwsreamnum: u16) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwsreamnum), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetStatistics(&self, pstatistics: *mut WM_READER_STATISTICS) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(pstatistics)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetClientInfo(&self, pclientinfo: *const WM_READER_CLIENTINFO) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(pclientinfo)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetMaxOutputSampleSize(&self, dwoutput: u32) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoutput), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetMaxStreamSampleSize(&self, wstream: u16) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstream), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn NotifyLateDelivery(&self, cnslateness: u64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(cnslateness)).ok()
     }
@@ -5349,144 +5827,180 @@ pub struct IWMReaderAdvanced_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, wstream: u16, pcbmax: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, cnslateness: u64) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMReaderAdvanced2(::windows::runtime::IUnknown);
 impl IWMReaderAdvanced2 {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetUserProvidedClock<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fuserclock: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), fuserclock.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetUserProvidedClock(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn DeliverTime(&self, cnstime: u64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(cnstime)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetManualStreamSelection<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fselection: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), fselection.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetManualStreamSelection(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetStreamsSelected(&self, cstreamcount: u16, pwstreamnumbers: *const u16, pselections: *const WMT_STREAM_SELECTION) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(cstreamcount), ::std::mem::transmute(pwstreamnumbers), ::std::mem::transmute(pselections)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetStreamSelected(&self, wstreamnum: u16) -> ::windows::runtime::Result<WMT_STREAM_SELECTION> {
         let mut result__: <WMT_STREAM_SELECTION as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), &mut result__).from_abi::<WMT_STREAM_SELECTION>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetReceiveSelectionCallbacks<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fgetcallbacks: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), fgetcallbacks.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetReceiveSelectionCallbacks(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetReceiveStreamSamples<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, wstreamnum: u16, freceivestreamsamples: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), freceivestreamsamples.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetReceiveStreamSamples(&self, wstreamnum: u16) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetAllocateForOutput<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, dwoutputnum: u32, fallocate: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoutputnum), fallocate.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetAllocateForOutput(&self, dwoutputnum: u32) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoutputnum), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetAllocateForStream<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, wstreamnum: u16, fallocate: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), fallocate.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetAllocateForStream(&self, dwsreamnum: u16) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwsreamnum), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetStatistics(&self, pstatistics: *mut WM_READER_STATISTICS) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(pstatistics)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetClientInfo(&self, pclientinfo: *const WM_READER_CLIENTINFO) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(pclientinfo)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetMaxOutputSampleSize(&self, dwoutput: u32) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoutput), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetMaxStreamSampleSize(&self, wstream: u16) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstream), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn NotifyLateDelivery(&self, cnslateness: u64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(cnslateness)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetPlayMode(&self, mode: WMT_PLAY_MODE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), ::std::mem::transmute(mode)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetPlayMode(&self) -> ::windows::runtime::Result<WMT_PLAY_MODE> {
         let mut result__: <WMT_PLAY_MODE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), &mut result__).from_abi::<WMT_PLAY_MODE>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetBufferProgress(&self, pdwpercent: *mut u32, pcnsbuffering: *mut u64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwpercent), ::std::mem::transmute(pcnsbuffering)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetDownloadProgress(&self, pdwpercent: *mut u32, pqwbytesdownloaded: *mut u64, pcnsdownload: *mut u64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwpercent), ::std::mem::transmute(pqwbytesdownloaded), ::std::mem::transmute(pcnsdownload)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetSaveAsProgress(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SaveFileAs<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszfilename: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), pwszfilename.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetProtocolName(&self, pwszprotocol: super::super::Foundation::PWSTR, pcchprotocol: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwszprotocol), ::std::mem::transmute(pcchprotocol)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn StartAtMarker(&self, wmarkerindex: u16, cnsduration: u64, frate: f32, pvcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), ::std::mem::transmute(wmarkerindex), ::std::mem::transmute(cnsduration), ::std::mem::transmute(frate), ::std::mem::transmute(pvcontext)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetOutputSetting<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, dwoutputnum: u32, pszname: Param1, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoutputnum), pszname.into_param().abi(), ::std::mem::transmute(ptype), ::std::mem::transmute(pvalue), ::std::mem::transmute(pcblength)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetOutputSetting<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, dwoutputnum: u32, pszname: Param1, r#type: WMT_ATTR_DATATYPE, pvalue: *const u8, cblength: u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).32)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoutputnum), pszname.into_param().abi(), ::std::mem::transmute(r#type), ::std::mem::transmute(pvalue), ::std::mem::transmute(cblength)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn Preroll(&self, cnsstart: u64, cnsduration: u64, frate: f32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).33)(::std::mem::transmute_copy(self), ::std::mem::transmute(cnsstart), ::std::mem::transmute(cnsduration), ::std::mem::transmute(frate)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetLogClientID<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, flogclientid: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).34)(::std::mem::transmute_copy(self), flogclientid.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetLogClientID(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).35)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn StopBuffering(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).36)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_System_Com`*"]
     pub unsafe fn OpenStream<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>, Param1: ::windows::runtime::IntoParam<'a, IWMReaderCallback>>(&self, pstream: Param0, pcallback: Param1, pvcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).37)(::std::mem::transmute_copy(self), pstream.into_param().abi(), pcallback.into_param().abi(), ::std::mem::transmute(pvcontext)).ok()
     }
@@ -5597,150 +6111,188 @@ pub struct IWMReaderAdvanced2_abi(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pstream: ::windows::runtime::RawPtr, pcallback: ::windows::runtime::RawPtr, pvcontext: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMReaderAdvanced3(::windows::runtime::IUnknown);
 impl IWMReaderAdvanced3 {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetUserProvidedClock<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fuserclock: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), fuserclock.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetUserProvidedClock(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn DeliverTime(&self, cnstime: u64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(cnstime)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetManualStreamSelection<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fselection: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), fselection.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetManualStreamSelection(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetStreamsSelected(&self, cstreamcount: u16, pwstreamnumbers: *const u16, pselections: *const WMT_STREAM_SELECTION) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(cstreamcount), ::std::mem::transmute(pwstreamnumbers), ::std::mem::transmute(pselections)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetStreamSelected(&self, wstreamnum: u16) -> ::windows::runtime::Result<WMT_STREAM_SELECTION> {
         let mut result__: <WMT_STREAM_SELECTION as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), &mut result__).from_abi::<WMT_STREAM_SELECTION>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetReceiveSelectionCallbacks<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fgetcallbacks: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), fgetcallbacks.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetReceiveSelectionCallbacks(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetReceiveStreamSamples<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, wstreamnum: u16, freceivestreamsamples: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), freceivestreamsamples.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetReceiveStreamSamples(&self, wstreamnum: u16) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetAllocateForOutput<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, dwoutputnum: u32, fallocate: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoutputnum), fallocate.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetAllocateForOutput(&self, dwoutputnum: u32) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoutputnum), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetAllocateForStream<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, wstreamnum: u16, fallocate: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), fallocate.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetAllocateForStream(&self, dwsreamnum: u16) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwsreamnum), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetStatistics(&self, pstatistics: *mut WM_READER_STATISTICS) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(pstatistics)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetClientInfo(&self, pclientinfo: *const WM_READER_CLIENTINFO) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(pclientinfo)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetMaxOutputSampleSize(&self, dwoutput: u32) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoutput), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetMaxStreamSampleSize(&self, wstream: u16) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstream), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn NotifyLateDelivery(&self, cnslateness: u64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(cnslateness)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetPlayMode(&self, mode: WMT_PLAY_MODE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), ::std::mem::transmute(mode)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetPlayMode(&self) -> ::windows::runtime::Result<WMT_PLAY_MODE> {
         let mut result__: <WMT_PLAY_MODE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), &mut result__).from_abi::<WMT_PLAY_MODE>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetBufferProgress(&self, pdwpercent: *mut u32, pcnsbuffering: *mut u64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwpercent), ::std::mem::transmute(pcnsbuffering)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetDownloadProgress(&self, pdwpercent: *mut u32, pqwbytesdownloaded: *mut u64, pcnsdownload: *mut u64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwpercent), ::std::mem::transmute(pqwbytesdownloaded), ::std::mem::transmute(pcnsdownload)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetSaveAsProgress(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SaveFileAs<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszfilename: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), pwszfilename.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetProtocolName(&self, pwszprotocol: super::super::Foundation::PWSTR, pcchprotocol: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwszprotocol), ::std::mem::transmute(pcchprotocol)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn StartAtMarker(&self, wmarkerindex: u16, cnsduration: u64, frate: f32, pvcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), ::std::mem::transmute(wmarkerindex), ::std::mem::transmute(cnsduration), ::std::mem::transmute(frate), ::std::mem::transmute(pvcontext)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetOutputSetting<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, dwoutputnum: u32, pszname: Param1, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoutputnum), pszname.into_param().abi(), ::std::mem::transmute(ptype), ::std::mem::transmute(pvalue), ::std::mem::transmute(pcblength)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetOutputSetting<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, dwoutputnum: u32, pszname: Param1, r#type: WMT_ATTR_DATATYPE, pvalue: *const u8, cblength: u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).32)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoutputnum), pszname.into_param().abi(), ::std::mem::transmute(r#type), ::std::mem::transmute(pvalue), ::std::mem::transmute(cblength)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn Preroll(&self, cnsstart: u64, cnsduration: u64, frate: f32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).33)(::std::mem::transmute_copy(self), ::std::mem::transmute(cnsstart), ::std::mem::transmute(cnsduration), ::std::mem::transmute(frate)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetLogClientID<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, flogclientid: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).34)(::std::mem::transmute_copy(self), flogclientid.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetLogClientID(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).35)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn StopBuffering(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).36)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_System_Com`*"]
     pub unsafe fn OpenStream<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>, Param1: ::windows::runtime::IntoParam<'a, IWMReaderCallback>>(&self, pstream: Param0, pcallback: Param1, pvcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).37)(::std::mem::transmute_copy(self), pstream.into_param().abi(), pcallback.into_param().abi(), ::std::mem::transmute(pvcontext)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn StopNetStreaming(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).38)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn StartAtPosition(&self, wstreamnum: u16, pvoffsetstart: *const ::std::ffi::c_void, pvduration: *const ::std::ffi::c_void, dwoffsetformat: WMT_OFFSET_FORMAT, frate: f32, pvcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).39)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), ::std::mem::transmute(pvoffsetstart), ::std::mem::transmute(pvduration), ::std::mem::transmute(dwoffsetformat), ::std::mem::transmute(frate), ::std::mem::transmute(pvcontext)).ok()
     }
@@ -5873,186 +6425,233 @@ pub struct IWMReaderAdvanced3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, wstreamnum: u16, pvoffsetstart: *const ::std::ffi::c_void, pvduration: *const ::std::ffi::c_void, dwoffsetformat: WMT_OFFSET_FORMAT, frate: f32, pvcontext: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMReaderAdvanced4(::windows::runtime::IUnknown);
 impl IWMReaderAdvanced4 {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetUserProvidedClock<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fuserclock: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), fuserclock.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetUserProvidedClock(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn DeliverTime(&self, cnstime: u64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(cnstime)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetManualStreamSelection<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fselection: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), fselection.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetManualStreamSelection(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetStreamsSelected(&self, cstreamcount: u16, pwstreamnumbers: *const u16, pselections: *const WMT_STREAM_SELECTION) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(cstreamcount), ::std::mem::transmute(pwstreamnumbers), ::std::mem::transmute(pselections)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetStreamSelected(&self, wstreamnum: u16) -> ::windows::runtime::Result<WMT_STREAM_SELECTION> {
         let mut result__: <WMT_STREAM_SELECTION as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), &mut result__).from_abi::<WMT_STREAM_SELECTION>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetReceiveSelectionCallbacks<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fgetcallbacks: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), fgetcallbacks.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetReceiveSelectionCallbacks(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetReceiveStreamSamples<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, wstreamnum: u16, freceivestreamsamples: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), freceivestreamsamples.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetReceiveStreamSamples(&self, wstreamnum: u16) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetAllocateForOutput<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, dwoutputnum: u32, fallocate: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoutputnum), fallocate.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetAllocateForOutput(&self, dwoutputnum: u32) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoutputnum), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetAllocateForStream<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, wstreamnum: u16, fallocate: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), fallocate.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetAllocateForStream(&self, dwsreamnum: u16) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwsreamnum), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetStatistics(&self, pstatistics: *mut WM_READER_STATISTICS) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(pstatistics)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetClientInfo(&self, pclientinfo: *const WM_READER_CLIENTINFO) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(pclientinfo)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetMaxOutputSampleSize(&self, dwoutput: u32) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoutput), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetMaxStreamSampleSize(&self, wstream: u16) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstream), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn NotifyLateDelivery(&self, cnslateness: u64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(cnslateness)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetPlayMode(&self, mode: WMT_PLAY_MODE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), ::std::mem::transmute(mode)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetPlayMode(&self) -> ::windows::runtime::Result<WMT_PLAY_MODE> {
         let mut result__: <WMT_PLAY_MODE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), &mut result__).from_abi::<WMT_PLAY_MODE>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetBufferProgress(&self, pdwpercent: *mut u32, pcnsbuffering: *mut u64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwpercent), ::std::mem::transmute(pcnsbuffering)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetDownloadProgress(&self, pdwpercent: *mut u32, pqwbytesdownloaded: *mut u64, pcnsdownload: *mut u64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwpercent), ::std::mem::transmute(pqwbytesdownloaded), ::std::mem::transmute(pcnsdownload)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetSaveAsProgress(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SaveFileAs<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszfilename: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), pwszfilename.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetProtocolName(&self, pwszprotocol: super::super::Foundation::PWSTR, pcchprotocol: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwszprotocol), ::std::mem::transmute(pcchprotocol)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn StartAtMarker(&self, wmarkerindex: u16, cnsduration: u64, frate: f32, pvcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), ::std::mem::transmute(wmarkerindex), ::std::mem::transmute(cnsduration), ::std::mem::transmute(frate), ::std::mem::transmute(pvcontext)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetOutputSetting<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, dwoutputnum: u32, pszname: Param1, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoutputnum), pszname.into_param().abi(), ::std::mem::transmute(ptype), ::std::mem::transmute(pvalue), ::std::mem::transmute(pcblength)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetOutputSetting<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, dwoutputnum: u32, pszname: Param1, r#type: WMT_ATTR_DATATYPE, pvalue: *const u8, cblength: u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).32)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoutputnum), pszname.into_param().abi(), ::std::mem::transmute(r#type), ::std::mem::transmute(pvalue), ::std::mem::transmute(cblength)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn Preroll(&self, cnsstart: u64, cnsduration: u64, frate: f32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).33)(::std::mem::transmute_copy(self), ::std::mem::transmute(cnsstart), ::std::mem::transmute(cnsduration), ::std::mem::transmute(frate)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetLogClientID<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, flogclientid: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).34)(::std::mem::transmute_copy(self), flogclientid.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetLogClientID(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).35)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn StopBuffering(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).36)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_System_Com`*"]
     pub unsafe fn OpenStream<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>, Param1: ::windows::runtime::IntoParam<'a, IWMReaderCallback>>(&self, pstream: Param0, pcallback: Param1, pvcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).37)(::std::mem::transmute_copy(self), pstream.into_param().abi(), pcallback.into_param().abi(), ::std::mem::transmute(pvcontext)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn StopNetStreaming(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).38)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn StartAtPosition(&self, wstreamnum: u16, pvoffsetstart: *const ::std::ffi::c_void, pvduration: *const ::std::ffi::c_void, dwoffsetformat: WMT_OFFSET_FORMAT, frate: f32, pvcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).39)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), ::std::mem::transmute(pvoffsetstart), ::std::mem::transmute(pvduration), ::std::mem::transmute(dwoffsetformat), ::std::mem::transmute(frate), ::std::mem::transmute(pvcontext)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetLanguageCount(&self, dwoutputnum: u32) -> ::windows::runtime::Result<u16> {
         let mut result__: <u16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).40)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoutputnum), &mut result__).from_abi::<u16>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetLanguage(&self, dwoutputnum: u32, wlanguage: u16, pwszlanguagestring: super::super::Foundation::PWSTR, pcchlanguagestringlength: *mut u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).41)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoutputnum), ::std::mem::transmute(wlanguage), ::std::mem::transmute(pwszlanguagestring), ::std::mem::transmute(pcchlanguagestringlength)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetMaxSpeedFactor(&self) -> ::windows::runtime::Result<f64> {
         let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).42)(::std::mem::transmute_copy(self), &mut result__).from_abi::<f64>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn IsUsingFastCache(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).43)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn AddLogParam<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wsznamespace: Param0, wszname: Param1, wszvalue: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).44)(::std::mem::transmute_copy(self), wsznamespace.into_param().abi(), wszname.into_param().abi(), wszvalue.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SendLogParams(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).45)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn CanSaveFileAs(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).46)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn CancelSaveFileAs(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).47)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetURL(&self, pwszurl: super::super::Foundation::PWSTR, pcchurl: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).48)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwszurl), ::std::mem::transmute(pcchurl)).ok()
     }
@@ -6219,189 +6818,237 @@ pub struct IWMReaderAdvanced4_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwszurl: super::super::Foundation::PWSTR, pcchurl: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMReaderAdvanced5(::windows::runtime::IUnknown);
 impl IWMReaderAdvanced5 {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetUserProvidedClock<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fuserclock: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), fuserclock.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetUserProvidedClock(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn DeliverTime(&self, cnstime: u64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(cnstime)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetManualStreamSelection<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fselection: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), fselection.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetManualStreamSelection(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetStreamsSelected(&self, cstreamcount: u16, pwstreamnumbers: *const u16, pselections: *const WMT_STREAM_SELECTION) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(cstreamcount), ::std::mem::transmute(pwstreamnumbers), ::std::mem::transmute(pselections)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetStreamSelected(&self, wstreamnum: u16) -> ::windows::runtime::Result<WMT_STREAM_SELECTION> {
         let mut result__: <WMT_STREAM_SELECTION as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), &mut result__).from_abi::<WMT_STREAM_SELECTION>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetReceiveSelectionCallbacks<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fgetcallbacks: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), fgetcallbacks.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetReceiveSelectionCallbacks(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetReceiveStreamSamples<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, wstreamnum: u16, freceivestreamsamples: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), freceivestreamsamples.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetReceiveStreamSamples(&self, wstreamnum: u16) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetAllocateForOutput<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, dwoutputnum: u32, fallocate: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoutputnum), fallocate.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetAllocateForOutput(&self, dwoutputnum: u32) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoutputnum), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetAllocateForStream<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, wstreamnum: u16, fallocate: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), fallocate.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetAllocateForStream(&self, dwsreamnum: u16) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwsreamnum), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetStatistics(&self, pstatistics: *mut WM_READER_STATISTICS) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(pstatistics)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetClientInfo(&self, pclientinfo: *const WM_READER_CLIENTINFO) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(pclientinfo)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetMaxOutputSampleSize(&self, dwoutput: u32) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoutput), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetMaxStreamSampleSize(&self, wstream: u16) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstream), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn NotifyLateDelivery(&self, cnslateness: u64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(cnslateness)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetPlayMode(&self, mode: WMT_PLAY_MODE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), ::std::mem::transmute(mode)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetPlayMode(&self) -> ::windows::runtime::Result<WMT_PLAY_MODE> {
         let mut result__: <WMT_PLAY_MODE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), &mut result__).from_abi::<WMT_PLAY_MODE>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetBufferProgress(&self, pdwpercent: *mut u32, pcnsbuffering: *mut u64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwpercent), ::std::mem::transmute(pcnsbuffering)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetDownloadProgress(&self, pdwpercent: *mut u32, pqwbytesdownloaded: *mut u64, pcnsdownload: *mut u64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwpercent), ::std::mem::transmute(pqwbytesdownloaded), ::std::mem::transmute(pcnsdownload)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetSaveAsProgress(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SaveFileAs<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszfilename: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), pwszfilename.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetProtocolName(&self, pwszprotocol: super::super::Foundation::PWSTR, pcchprotocol: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwszprotocol), ::std::mem::transmute(pcchprotocol)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn StartAtMarker(&self, wmarkerindex: u16, cnsduration: u64, frate: f32, pvcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), ::std::mem::transmute(wmarkerindex), ::std::mem::transmute(cnsduration), ::std::mem::transmute(frate), ::std::mem::transmute(pvcontext)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetOutputSetting<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, dwoutputnum: u32, pszname: Param1, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoutputnum), pszname.into_param().abi(), ::std::mem::transmute(ptype), ::std::mem::transmute(pvalue), ::std::mem::transmute(pcblength)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetOutputSetting<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, dwoutputnum: u32, pszname: Param1, r#type: WMT_ATTR_DATATYPE, pvalue: *const u8, cblength: u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).32)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoutputnum), pszname.into_param().abi(), ::std::mem::transmute(r#type), ::std::mem::transmute(pvalue), ::std::mem::transmute(cblength)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn Preroll(&self, cnsstart: u64, cnsduration: u64, frate: f32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).33)(::std::mem::transmute_copy(self), ::std::mem::transmute(cnsstart), ::std::mem::transmute(cnsduration), ::std::mem::transmute(frate)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetLogClientID<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, flogclientid: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).34)(::std::mem::transmute_copy(self), flogclientid.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetLogClientID(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).35)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn StopBuffering(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).36)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_System_Com`*"]
     pub unsafe fn OpenStream<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>, Param1: ::windows::runtime::IntoParam<'a, IWMReaderCallback>>(&self, pstream: Param0, pcallback: Param1, pvcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).37)(::std::mem::transmute_copy(self), pstream.into_param().abi(), pcallback.into_param().abi(), ::std::mem::transmute(pvcontext)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn StopNetStreaming(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).38)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn StartAtPosition(&self, wstreamnum: u16, pvoffsetstart: *const ::std::ffi::c_void, pvduration: *const ::std::ffi::c_void, dwoffsetformat: WMT_OFFSET_FORMAT, frate: f32, pvcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).39)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), ::std::mem::transmute(pvoffsetstart), ::std::mem::transmute(pvduration), ::std::mem::transmute(dwoffsetformat), ::std::mem::transmute(frate), ::std::mem::transmute(pvcontext)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetLanguageCount(&self, dwoutputnum: u32) -> ::windows::runtime::Result<u16> {
         let mut result__: <u16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).40)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoutputnum), &mut result__).from_abi::<u16>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetLanguage(&self, dwoutputnum: u32, wlanguage: u16, pwszlanguagestring: super::super::Foundation::PWSTR, pcchlanguagestringlength: *mut u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).41)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoutputnum), ::std::mem::transmute(wlanguage), ::std::mem::transmute(pwszlanguagestring), ::std::mem::transmute(pcchlanguagestringlength)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetMaxSpeedFactor(&self) -> ::windows::runtime::Result<f64> {
         let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).42)(::std::mem::transmute_copy(self), &mut result__).from_abi::<f64>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn IsUsingFastCache(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).43)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn AddLogParam<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wsznamespace: Param0, wszname: Param1, wszvalue: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).44)(::std::mem::transmute_copy(self), wsznamespace.into_param().abi(), wszname.into_param().abi(), wszvalue.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SendLogParams(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).45)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn CanSaveFileAs(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).46)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn CancelSaveFileAs(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).47)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetURL(&self, pwszurl: super::super::Foundation::PWSTR, pcchurl: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).48)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwszurl), ::std::mem::transmute(pcchurl)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetPlayerHook<'a, Param1: ::windows::runtime::IntoParam<'a, IWMPlayerHook>>(&self, dwoutputnum: u32, phook: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).49)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoutputnum), phook.into_param().abi()).ok()
     }
@@ -6589,192 +7236,241 @@ pub struct IWMReaderAdvanced5_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwoutputnum: u32, phook: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMReaderAdvanced6(::windows::runtime::IUnknown);
 impl IWMReaderAdvanced6 {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetUserProvidedClock<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fuserclock: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), fuserclock.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetUserProvidedClock(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn DeliverTime(&self, cnstime: u64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(cnstime)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetManualStreamSelection<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fselection: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), fselection.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetManualStreamSelection(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetStreamsSelected(&self, cstreamcount: u16, pwstreamnumbers: *const u16, pselections: *const WMT_STREAM_SELECTION) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(cstreamcount), ::std::mem::transmute(pwstreamnumbers), ::std::mem::transmute(pselections)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetStreamSelected(&self, wstreamnum: u16) -> ::windows::runtime::Result<WMT_STREAM_SELECTION> {
         let mut result__: <WMT_STREAM_SELECTION as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), &mut result__).from_abi::<WMT_STREAM_SELECTION>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetReceiveSelectionCallbacks<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fgetcallbacks: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), fgetcallbacks.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetReceiveSelectionCallbacks(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetReceiveStreamSamples<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, wstreamnum: u16, freceivestreamsamples: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), freceivestreamsamples.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetReceiveStreamSamples(&self, wstreamnum: u16) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetAllocateForOutput<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, dwoutputnum: u32, fallocate: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoutputnum), fallocate.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetAllocateForOutput(&self, dwoutputnum: u32) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoutputnum), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetAllocateForStream<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, wstreamnum: u16, fallocate: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), fallocate.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetAllocateForStream(&self, dwsreamnum: u16) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwsreamnum), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetStatistics(&self, pstatistics: *mut WM_READER_STATISTICS) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(pstatistics)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetClientInfo(&self, pclientinfo: *const WM_READER_CLIENTINFO) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(pclientinfo)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetMaxOutputSampleSize(&self, dwoutput: u32) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoutput), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetMaxStreamSampleSize(&self, wstream: u16) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstream), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn NotifyLateDelivery(&self, cnslateness: u64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(cnslateness)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetPlayMode(&self, mode: WMT_PLAY_MODE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), ::std::mem::transmute(mode)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetPlayMode(&self) -> ::windows::runtime::Result<WMT_PLAY_MODE> {
         let mut result__: <WMT_PLAY_MODE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), &mut result__).from_abi::<WMT_PLAY_MODE>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetBufferProgress(&self, pdwpercent: *mut u32, pcnsbuffering: *mut u64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwpercent), ::std::mem::transmute(pcnsbuffering)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetDownloadProgress(&self, pdwpercent: *mut u32, pqwbytesdownloaded: *mut u64, pcnsdownload: *mut u64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwpercent), ::std::mem::transmute(pqwbytesdownloaded), ::std::mem::transmute(pcnsdownload)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetSaveAsProgress(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SaveFileAs<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszfilename: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), pwszfilename.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetProtocolName(&self, pwszprotocol: super::super::Foundation::PWSTR, pcchprotocol: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwszprotocol), ::std::mem::transmute(pcchprotocol)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn StartAtMarker(&self, wmarkerindex: u16, cnsduration: u64, frate: f32, pvcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), ::std::mem::transmute(wmarkerindex), ::std::mem::transmute(cnsduration), ::std::mem::transmute(frate), ::std::mem::transmute(pvcontext)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetOutputSetting<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, dwoutputnum: u32, pszname: Param1, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoutputnum), pszname.into_param().abi(), ::std::mem::transmute(ptype), ::std::mem::transmute(pvalue), ::std::mem::transmute(pcblength)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetOutputSetting<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, dwoutputnum: u32, pszname: Param1, r#type: WMT_ATTR_DATATYPE, pvalue: *const u8, cblength: u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).32)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoutputnum), pszname.into_param().abi(), ::std::mem::transmute(r#type), ::std::mem::transmute(pvalue), ::std::mem::transmute(cblength)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn Preroll(&self, cnsstart: u64, cnsduration: u64, frate: f32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).33)(::std::mem::transmute_copy(self), ::std::mem::transmute(cnsstart), ::std::mem::transmute(cnsduration), ::std::mem::transmute(frate)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetLogClientID<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, flogclientid: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).34)(::std::mem::transmute_copy(self), flogclientid.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetLogClientID(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).35)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn StopBuffering(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).36)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_System_Com`*"]
     pub unsafe fn OpenStream<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>, Param1: ::windows::runtime::IntoParam<'a, IWMReaderCallback>>(&self, pstream: Param0, pcallback: Param1, pvcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).37)(::std::mem::transmute_copy(self), pstream.into_param().abi(), pcallback.into_param().abi(), ::std::mem::transmute(pvcontext)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn StopNetStreaming(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).38)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn StartAtPosition(&self, wstreamnum: u16, pvoffsetstart: *const ::std::ffi::c_void, pvduration: *const ::std::ffi::c_void, dwoffsetformat: WMT_OFFSET_FORMAT, frate: f32, pvcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).39)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), ::std::mem::transmute(pvoffsetstart), ::std::mem::transmute(pvduration), ::std::mem::transmute(dwoffsetformat), ::std::mem::transmute(frate), ::std::mem::transmute(pvcontext)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetLanguageCount(&self, dwoutputnum: u32) -> ::windows::runtime::Result<u16> {
         let mut result__: <u16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).40)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoutputnum), &mut result__).from_abi::<u16>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetLanguage(&self, dwoutputnum: u32, wlanguage: u16, pwszlanguagestring: super::super::Foundation::PWSTR, pcchlanguagestringlength: *mut u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).41)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoutputnum), ::std::mem::transmute(wlanguage), ::std::mem::transmute(pwszlanguagestring), ::std::mem::transmute(pcchlanguagestringlength)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetMaxSpeedFactor(&self) -> ::windows::runtime::Result<f64> {
         let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).42)(::std::mem::transmute_copy(self), &mut result__).from_abi::<f64>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn IsUsingFastCache(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).43)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn AddLogParam<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wsznamespace: Param0, wszname: Param1, wszvalue: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).44)(::std::mem::transmute_copy(self), wsznamespace.into_param().abi(), wszname.into_param().abi(), wszvalue.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SendLogParams(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).45)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn CanSaveFileAs(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).46)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn CancelSaveFileAs(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).47)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetURL(&self, pwszurl: super::super::Foundation::PWSTR, pcchurl: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).48)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwszurl), ::std::mem::transmute(pcchurl)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetPlayerHook<'a, Param1: ::windows::runtime::IntoParam<'a, IWMPlayerHook>>(&self, dwoutputnum: u32, phook: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).49)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoutputnum), phook.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetProtectStreamSamples(&self, pbcertificate: *const u8, cbcertificate: u32, dwcertificatetype: u32, dwflags: u32, pbinitializationvector: *mut u8, pcbinitializationvector: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).50)(::std::mem::transmute_copy(self), ::std::mem::transmute(pbcertificate), ::std::mem::transmute(cbcertificate), ::std::mem::transmute(dwcertificatetype), ::std::mem::transmute(dwflags), ::std::mem::transmute(pbinitializationvector), ::std::mem::transmute(pcbinitializationvector)).ok()
     }
@@ -6983,13 +7679,16 @@ pub struct IWMReaderAdvanced6_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwoutputnum: u32, phook: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbcertificate: *const u8, cbcertificate: u32, dwcertificatetype: u32, dwflags: u32, pbinitializationvector: *mut u8, pcbinitializationvector: *mut u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMReaderAllocatorEx(::windows::runtime::IUnknown);
 impl IWMReaderAllocatorEx {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn AllocateForStreamEx(&self, wstreamnum: u16, cbbuffer: u32, ppbuffer: *mut ::std::option::Option<INSSBuffer>, dwflags: u32, cnssampletime: u64, cnssampleduration: u64, pvcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), ::std::mem::transmute(cbbuffer), ::std::mem::transmute(ppbuffer), ::std::mem::transmute(dwflags), ::std::mem::transmute(cnssampletime), ::std::mem::transmute(cnssampleduration), ::std::mem::transmute(pvcontext)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn AllocateForOutputEx(&self, dwoutputnum: u32, cbbuffer: u32, ppbuffer: *mut ::std::option::Option<INSSBuffer>, dwflags: u32, cnssampletime: u64, cnssampleduration: u64, pvcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoutputnum), ::std::mem::transmute(cbbuffer), ::std::mem::transmute(ppbuffer), ::std::mem::transmute(dwflags), ::std::mem::transmute(cnssampletime), ::std::mem::transmute(cnssampleduration), ::std::mem::transmute(pvcontext)).ok()
     }
@@ -7027,13 +7726,16 @@ pub struct IWMReaderAllocatorEx_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, wstreamnum: u16, cbbuffer: u32, ppbuffer: *mut ::windows::runtime::RawPtr, dwflags: u32, cnssampletime: u64, cnssampleduration: u64, pvcontext: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwoutputnum: u32, cbbuffer: u32, ppbuffer: *mut ::windows::runtime::RawPtr, dwflags: u32, cnssampletime: u64, cnssampleduration: u64, pvcontext: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMReaderCallback(::windows::runtime::IUnknown);
 impl IWMReaderCallback {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn OnStatus(&self, status: WMT_STATUS, hr: ::windows::runtime::HRESULT, dwtype: WMT_ATTR_DATATYPE, pvalue: *const u8, pvcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(status), ::std::mem::transmute(hr), ::std::mem::transmute(dwtype), ::std::mem::transmute(pvalue), ::std::mem::transmute(pvcontext)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn OnSample<'a, Param4: ::windows::runtime::IntoParam<'a, INSSBuffer>>(&self, dwoutputnum: u32, cnssampletime: u64, cnssampleduration: u64, dwflags: u32, psample: Param4, pvcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoutputnum), ::std::mem::transmute(cnssampletime), ::std::mem::transmute(cnssampleduration), ::std::mem::transmute(dwflags), psample.into_param().abi(), ::std::mem::transmute(pvcontext)).ok()
     }
@@ -7091,26 +7793,33 @@ pub struct IWMReaderCallback_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, status: WMT_STATUS, hr: ::windows::runtime::HRESULT, dwtype: WMT_ATTR_DATATYPE, pvalue: *const u8, pvcontext: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwoutputnum: u32, cnssampletime: u64, cnssampleduration: u64, dwflags: u32, psample: ::windows::runtime::RawPtr, pvcontext: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMReaderCallbackAdvanced(::windows::runtime::IUnknown);
 impl IWMReaderCallbackAdvanced {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn OnStreamSample<'a, Param4: ::windows::runtime::IntoParam<'a, INSSBuffer>>(&self, wstreamnum: u16, cnssampletime: u64, cnssampleduration: u64, dwflags: u32, psample: Param4, pvcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), ::std::mem::transmute(cnssampletime), ::std::mem::transmute(cnssampleduration), ::std::mem::transmute(dwflags), psample.into_param().abi(), ::std::mem::transmute(pvcontext)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn OnTime(&self, cnscurrenttime: u64, pvcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(cnscurrenttime), ::std::mem::transmute(pvcontext)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn OnStreamSelection(&self, wstreamcount: u16, pstreamnumbers: *const u16, pselections: *const WMT_STREAM_SELECTION, pvcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamcount), ::std::mem::transmute(pstreamnumbers), ::std::mem::transmute(pselections), ::std::mem::transmute(pvcontext)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn OnOutputPropsChanged(&self, dwoutputnum: u32, pmediatype: *const WM_MEDIA_TYPE, pvcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoutputnum), ::std::mem::transmute(pmediatype), ::std::mem::transmute(pvcontext)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn AllocateForStream(&self, wstreamnum: u16, cbbuffer: u32, ppbuffer: *mut ::std::option::Option<INSSBuffer>, pvcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), ::std::mem::transmute(cbbuffer), ::std::mem::transmute(ppbuffer), ::std::mem::transmute(pvcontext)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn AllocateForOutput(&self, dwoutputnum: u32, cbbuffer: u32, ppbuffer: *mut ::std::option::Option<INSSBuffer>, pvcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoutputnum), ::std::mem::transmute(cbbuffer), ::std::mem::transmute(ppbuffer), ::std::mem::transmute(pvcontext)).ok()
     }
@@ -7153,141 +7862,175 @@ pub struct IWMReaderCallbackAdvanced_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, wstreamnum: u16, cbbuffer: u32, ppbuffer: *mut ::windows::runtime::RawPtr, pvcontext: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwoutputnum: u32, cbbuffer: u32, ppbuffer: *mut ::windows::runtime::RawPtr, pvcontext: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMReaderNetworkConfig(::windows::runtime::IUnknown);
 impl IWMReaderNetworkConfig {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetBufferingTime(&self) -> ::windows::runtime::Result<u64> {
         let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u64>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetBufferingTime(&self, cnsbufferingtime: u64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(cnsbufferingtime)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetUDPPortRanges(&self, prangearray: *mut WM_PORT_NUMBER_RANGE, pcranges: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(prangearray), ::std::mem::transmute(pcranges)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetUDPPortRanges(&self, prangearray: *const WM_PORT_NUMBER_RANGE, cranges: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(prangearray), ::std::mem::transmute(cranges)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetProxySettings<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszprotocol: Param0) -> ::windows::runtime::Result<WMT_PROXY_SETTINGS> {
         let mut result__: <WMT_PROXY_SETTINGS as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), pwszprotocol.into_param().abi(), &mut result__).from_abi::<WMT_PROXY_SETTINGS>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetProxySettings<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszprotocol: Param0, proxysetting: WMT_PROXY_SETTINGS) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), pwszprotocol.into_param().abi(), ::std::mem::transmute(proxysetting)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetProxyHostName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszprotocol: Param0, pwszhostname: super::super::Foundation::PWSTR, pcchhostname: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), pwszprotocol.into_param().abi(), ::std::mem::transmute(pwszhostname), ::std::mem::transmute(pcchhostname)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetProxyHostName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszprotocol: Param0, pwszhostname: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), pwszprotocol.into_param().abi(), pwszhostname.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetProxyPort<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszprotocol: Param0) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), pwszprotocol.into_param().abi(), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetProxyPort<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszprotocol: Param0, dwport: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), pwszprotocol.into_param().abi(), ::std::mem::transmute(dwport)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetProxyExceptionList<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszprotocol: Param0, pwszexceptionlist: super::super::Foundation::PWSTR, pcchexceptionlist: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), pwszprotocol.into_param().abi(), ::std::mem::transmute(pwszexceptionlist), ::std::mem::transmute(pcchexceptionlist)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetProxyExceptionList<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszprotocol: Param0, pwszexceptionlist: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), pwszprotocol.into_param().abi(), pwszexceptionlist.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetProxyBypassForLocal<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszprotocol: Param0) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), pwszprotocol.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetProxyBypassForLocal<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pwszprotocol: Param0, fbypassforlocal: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), pwszprotocol.into_param().abi(), fbypassforlocal.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetForceRerunAutoProxyDetection(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetForceRerunAutoProxyDetection<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fforcererundetection: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), fforcererundetection.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetEnableMulticast(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetEnableMulticast<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fenablemulticast: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), fenablemulticast.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetEnableHTTP(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetEnableHTTP<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fenablehttp: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), fenablehttp.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetEnableUDP(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetEnableUDP<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fenableudp: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), fenableudp.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetEnableTCP(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetEnableTCP<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fenabletcp: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), fenabletcp.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn ResetProtocolRollover(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetConnectionBandwidth(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetConnectionBandwidth(&self, dwconnectionbandwidth: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwconnectionbandwidth)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetNumProtocolsSupported(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetSupportedProtocolName(&self, dwprotocolnum: u32, pwszprotocolname: super::super::Foundation::PWSTR, pcchprotocolname: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwprotocolnum), ::std::mem::transmute(pwszprotocolname), ::std::mem::transmute(pcchprotocolname)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn AddLoggingUrl<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszurl: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).32)(::std::mem::transmute_copy(self), pwszurl.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetLoggingUrl(&self, dwindex: u32, pwszurl: super::super::Foundation::PWSTR, pcchurl: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).33)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwindex), ::std::mem::transmute(pwszurl), ::std::mem::transmute(pcchurl)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetLoggingUrlCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).34)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn ResetLoggingUrlList(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).35)(::std::mem::transmute_copy(self)).ok()
     }
@@ -7379,194 +8122,241 @@ pub struct IWMReaderNetworkConfig_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwurlcount: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMReaderNetworkConfig2(::windows::runtime::IUnknown);
 impl IWMReaderNetworkConfig2 {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetBufferingTime(&self) -> ::windows::runtime::Result<u64> {
         let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u64>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetBufferingTime(&self, cnsbufferingtime: u64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(cnsbufferingtime)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetUDPPortRanges(&self, prangearray: *mut WM_PORT_NUMBER_RANGE, pcranges: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(prangearray), ::std::mem::transmute(pcranges)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetUDPPortRanges(&self, prangearray: *const WM_PORT_NUMBER_RANGE, cranges: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(prangearray), ::std::mem::transmute(cranges)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetProxySettings<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszprotocol: Param0) -> ::windows::runtime::Result<WMT_PROXY_SETTINGS> {
         let mut result__: <WMT_PROXY_SETTINGS as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), pwszprotocol.into_param().abi(), &mut result__).from_abi::<WMT_PROXY_SETTINGS>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetProxySettings<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszprotocol: Param0, proxysetting: WMT_PROXY_SETTINGS) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), pwszprotocol.into_param().abi(), ::std::mem::transmute(proxysetting)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetProxyHostName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszprotocol: Param0, pwszhostname: super::super::Foundation::PWSTR, pcchhostname: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), pwszprotocol.into_param().abi(), ::std::mem::transmute(pwszhostname), ::std::mem::transmute(pcchhostname)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetProxyHostName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszprotocol: Param0, pwszhostname: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), pwszprotocol.into_param().abi(), pwszhostname.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetProxyPort<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszprotocol: Param0) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), pwszprotocol.into_param().abi(), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetProxyPort<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszprotocol: Param0, dwport: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), pwszprotocol.into_param().abi(), ::std::mem::transmute(dwport)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetProxyExceptionList<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszprotocol: Param0, pwszexceptionlist: super::super::Foundation::PWSTR, pcchexceptionlist: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), pwszprotocol.into_param().abi(), ::std::mem::transmute(pwszexceptionlist), ::std::mem::transmute(pcchexceptionlist)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetProxyExceptionList<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszprotocol: Param0, pwszexceptionlist: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), pwszprotocol.into_param().abi(), pwszexceptionlist.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetProxyBypassForLocal<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszprotocol: Param0) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), pwszprotocol.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetProxyBypassForLocal<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pwszprotocol: Param0, fbypassforlocal: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), pwszprotocol.into_param().abi(), fbypassforlocal.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetForceRerunAutoProxyDetection(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetForceRerunAutoProxyDetection<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fforcererundetection: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), fforcererundetection.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetEnableMulticast(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetEnableMulticast<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fenablemulticast: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), fenablemulticast.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetEnableHTTP(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetEnableHTTP<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fenablehttp: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), fenablehttp.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetEnableUDP(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetEnableUDP<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fenableudp: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), fenableudp.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetEnableTCP(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetEnableTCP<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fenabletcp: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), fenabletcp.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn ResetProtocolRollover(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetConnectionBandwidth(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetConnectionBandwidth(&self, dwconnectionbandwidth: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwconnectionbandwidth)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetNumProtocolsSupported(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetSupportedProtocolName(&self, dwprotocolnum: u32, pwszprotocolname: super::super::Foundation::PWSTR, pcchprotocolname: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwprotocolnum), ::std::mem::transmute(pwszprotocolname), ::std::mem::transmute(pcchprotocolname)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn AddLoggingUrl<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszurl: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).32)(::std::mem::transmute_copy(self), pwszurl.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetLoggingUrl(&self, dwindex: u32, pwszurl: super::super::Foundation::PWSTR, pcchurl: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).33)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwindex), ::std::mem::transmute(pwszurl), ::std::mem::transmute(pcchurl)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetLoggingUrlCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).34)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn ResetLoggingUrlList(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).35)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetEnableContentCaching(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).36)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetEnableContentCaching<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fenablecontentcaching: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).37)(::std::mem::transmute_copy(self), fenablecontentcaching.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetEnableFastCache(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).38)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetEnableFastCache<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fenablefastcache: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).39)(::std::mem::transmute_copy(self), fenablefastcache.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetAcceleratedStreamingDuration(&self) -> ::windows::runtime::Result<u64> {
         let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).40)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u64>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetAcceleratedStreamingDuration(&self, cnsaccelduration: u64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).41)(::std::mem::transmute_copy(self), ::std::mem::transmute(cnsaccelduration)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetAutoReconnectLimit(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).42)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetAutoReconnectLimit(&self, dwautoreconnectlimit: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).43)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwautoreconnectlimit)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetEnableResends(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).44)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetEnableResends<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fenableresends: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).45)(::std::mem::transmute_copy(self), fenableresends.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetEnableThinning(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).46)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetEnableThinning<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fenablethinning: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).47)(::std::mem::transmute_copy(self), fenablethinning.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetMaxNetPacketSize(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).48)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
@@ -7700,21 +8490,26 @@ pub struct IWMReaderNetworkConfig2_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwmaxnetpacketsize: *mut u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMReaderPlaylistBurn(::windows::runtime::IUnknown);
 impl IWMReaderPlaylistBurn {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn InitPlaylistBurn<'a, Param2: ::windows::runtime::IntoParam<'a, IWMStatusCallback>>(&self, cfiles: u32, ppwszfilenames: *const super::super::Foundation::PWSTR, pcallback: Param2, pvcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(cfiles), ::std::mem::transmute(ppwszfilenames), pcallback.into_param().abi(), ::std::mem::transmute(pvcontext)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetInitResults(&self, cfiles: u32) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
         let mut result__: <::windows::runtime::HRESULT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(cfiles), &mut result__).from_abi::<::windows::runtime::HRESULT>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn Cancel(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn EndPlaylistBurn(&self, hrburnresult: ::windows::runtime::HRESULT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(hrburnresult)).ok()
     }
@@ -7755,17 +8550,21 @@ pub struct IWMReaderPlaylistBurn_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hrburnresult: ::windows::runtime::HRESULT) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMReaderStreamClock(::windows::runtime::IUnknown);
 impl IWMReaderStreamClock {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetTime(&self, pcnsnow: *const u64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcnsnow)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetTimer(&self, cnswhen: u64, pvparam: *const ::std::ffi::c_void) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(cnswhen), ::std::mem::transmute(pvparam), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn KillTimer(&self, dwtimerid: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwtimerid)).ok()
     }
@@ -7804,14 +8603,17 @@ pub struct IWMReaderStreamClock_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, cnswhen: u64, pvparam: *const ::std::ffi::c_void, pdwtimerid: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwtimerid: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMReaderTimecode(::windows::runtime::IUnknown);
 impl IWMReaderTimecode {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetTimecodeRangeCount(&self, wstreamnum: u16) -> ::windows::runtime::Result<u16> {
         let mut result__: <u16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), &mut result__).from_abi::<u16>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetTimecodeRangeBounds(&self, wstreamnum: u16, wrangenum: u16, pstarttimecode: *mut u32, pendtimecode: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), ::std::mem::transmute(wrangenum), ::std::mem::transmute(pstarttimecode), ::std::mem::transmute(pendtimecode)).ok()
     }
@@ -7849,10 +8651,12 @@ pub struct IWMReaderTimecode_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, wstreamnum: u16, pwrangecount: *mut u16) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, wstreamnum: u16, wrangenum: u16, pstarttimecode: *mut u32, pendtimecode: *mut u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMReaderTypeNegotiation(::windows::runtime::IUnknown);
 impl IWMReaderTypeNegotiation {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn TryOutputProps<'a, Param1: ::windows::runtime::IntoParam<'a, IWMOutputMediaProps>>(&self, dwoutputnum: u32, poutput: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoutputnum), poutput.into_param().abi()).ok()
     }
@@ -7889,13 +8693,16 @@ pub struct IWMReaderTypeNegotiation_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwoutputnum: u32, poutput: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMRegisterCallback(::windows::runtime::IUnknown);
 impl IWMRegisterCallback {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn Advise<'a, Param0: ::windows::runtime::IntoParam<'a, IWMStatusCallback>>(&self, pcallback: Param0, pvcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pcallback.into_param().abi(), ::std::mem::transmute(pvcontext)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn Unadvise<'a, Param0: ::windows::runtime::IntoParam<'a, IWMStatusCallback>>(&self, pcallback: Param0, pvcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pcallback.into_param().abi(), ::std::mem::transmute(pvcontext)).ok()
     }
@@ -7933,66 +8740,81 @@ pub struct IWMRegisterCallback_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcallback: ::windows::runtime::RawPtr, pvcontext: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcallback: ::windows::runtime::RawPtr, pvcontext: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMRegisteredDevice(::windows::runtime::IUnknown);
 impl IWMRegisteredDevice {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetDeviceSerialNumber(&self) -> ::windows::runtime::Result<DRM_VAL16> {
         let mut result__: <DRM_VAL16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<DRM_VAL16>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetDeviceCertificate(&self) -> ::windows::runtime::Result<INSSBuffer> {
         let mut result__: <INSSBuffer as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<INSSBuffer>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetDeviceType(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetAttributeCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetAttributeByIndex(&self, dwindex: u32, pbstrname: *mut super::super::Foundation::BSTR, pbstrvalue: *mut super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwindex), ::std::mem::transmute(pbstrname), ::std::mem::transmute(pbstrvalue)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetAttributeByName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), bstrname.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetAttributeByName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0, bstrvalue: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), bstrname.into_param().abi(), bstrvalue.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn Approve<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fapprove: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), fapprove.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn IsValid(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn IsApproved(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn IsWmdrmCompliant(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn IsOpened(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn Open(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn Close(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self)).ok()
     }
@@ -8050,14 +8872,17 @@ pub struct IWMRegisteredDevice_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMSBufferAllocator(::windows::runtime::IUnknown);
 impl IWMSBufferAllocator {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn AllocateBuffer(&self, dwmaxbuffersize: u32) -> ::windows::runtime::Result<INSSBuffer> {
         let mut result__: <INSSBuffer as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwmaxbuffersize), &mut result__).from_abi::<INSSBuffer>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn AllocatePageSizeBuffer(&self, dwmaxbuffersize: u32) -> ::windows::runtime::Result<INSSBuffer> {
         let mut result__: <INSSBuffer as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwmaxbuffersize), &mut result__).from_abi::<INSSBuffer>(result__)
@@ -8096,19 +8921,23 @@ pub struct IWMSBufferAllocator_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwmaxbuffersize: u32, ppbuffer: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwmaxbuffersize: u32, ppbuffer: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMSInternalAdminNetSource(::windows::runtime::IUnknown);
 impl IWMSInternalAdminNetSource {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param2: ::windows::runtime::IntoParam<'a, INSNetSourceCreator>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, psharednamespace: Param0, pnamespacenode: Param1, pnetsourcecreator: Param2, fembeddedinserver: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), psharednamespace.into_param().abi(), pnamespacenode.into_param().abi(), pnetsourcecreator.into_param().abi(), fembeddedinserver.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetNetSourceCreator(&self) -> ::windows::runtime::Result<INSNetSourceCreator> {
         let mut result__: <INSNetSourceCreator as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<INSNetSourceCreator>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetCredentials<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(
         &self,
         bstrrealm: Param0,
@@ -8120,31 +8949,39 @@ impl IWMSInternalAdminNetSource {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), bstrrealm.into_param().abi(), bstrname.into_param().abi(), bstrpassword.into_param().abi(), fpersist.into_param().abi(), fconfirmedgood.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetCredentials<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrrealm: Param0, pbstrname: *mut super::super::Foundation::BSTR, pbstrpassword: *mut super::super::Foundation::BSTR, pfconfirmedgood: *mut super::super::Foundation::BOOL) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), bstrrealm.into_param().abi(), ::std::mem::transmute(pbstrname), ::std::mem::transmute(pbstrpassword), ::std::mem::transmute(pfconfirmedgood)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn DeleteCredentials<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrrealm: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), bstrrealm.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetCredentialFlags(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetCredentialFlags(&self, dwflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn FindProxyForURL<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrprotocol: Param0, bstrhost: Param1, pfproxyenabled: *mut super::super::Foundation::BOOL, pbstrproxyserver: *mut super::super::Foundation::BSTR, pdwproxyport: *mut u32, pdwproxycontext: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), bstrprotocol.into_param().abi(), bstrhost.into_param().abi(), ::std::mem::transmute(pfproxyenabled), ::std::mem::transmute(pbstrproxyserver), ::std::mem::transmute(pdwproxyport), ::std::mem::transmute(pdwproxycontext)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn RegisterProxyFailure(&self, hrparam: ::windows::runtime::HRESULT, dwproxycontext: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(hrparam), ::std::mem::transmute(dwproxycontext)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn ShutdownProxyContext(&self, dwproxycontext: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwproxycontext)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn IsUsingIE(&self, dwproxycontext: u32) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwproxycontext), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
@@ -8198,11 +9035,13 @@ pub struct IWMSInternalAdminNetSource_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwproxycontext: u32, pfisusingie: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMSInternalAdminNetSource2(::windows::runtime::IUnknown);
 impl IWMSInternalAdminNetSource2 {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetCredentialsEx<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>,
@@ -8225,6 +9064,7 @@ impl IWMSInternalAdminNetSource2 {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), bstrrealm.into_param().abi(), bstrurl.into_param().abi(), fproxy.into_param().abi(), bstrname.into_param().abi(), bstrpassword.into_param().abi(), fpersist.into_param().abi(), fconfirmedgood.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetCredentialsEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(
         &self,
         bstrrealm: Param0,
@@ -8238,10 +9078,12 @@ impl IWMSInternalAdminNetSource2 {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), bstrrealm.into_param().abi(), bstrurl.into_param().abi(), fproxy.into_param().abi(), ::std::mem::transmute(pdwurlpolicy), ::std::mem::transmute(pbstrname), ::std::mem::transmute(pbstrpassword), ::std::mem::transmute(pfconfirmedgood)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn DeleteCredentialsEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bstrrealm: Param0, bstrurl: Param1, fproxy: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), bstrrealm.into_param().abi(), bstrurl.into_param().abi(), fproxy.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn FindProxyForURLEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(
         &self,
         bstrprotocol: Param0,
@@ -8315,11 +9157,13 @@ pub struct IWMSInternalAdminNetSource2_abi(
     pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bstrprotocol: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrhost: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrurl: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, pfproxyenabled: *mut super::super::Foundation::BOOL, pbstrproxyserver: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, pdwproxyport: *mut u32, pdwproxycontext: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMSInternalAdminNetSource3(::windows::runtime::IUnknown);
 impl IWMSInternalAdminNetSource3 {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetCredentialsEx<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>,
@@ -8342,6 +9186,7 @@ impl IWMSInternalAdminNetSource3 {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), bstrrealm.into_param().abi(), bstrurl.into_param().abi(), fproxy.into_param().abi(), bstrname.into_param().abi(), bstrpassword.into_param().abi(), fpersist.into_param().abi(), fconfirmedgood.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetCredentialsEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(
         &self,
         bstrrealm: Param0,
@@ -8355,10 +9200,12 @@ impl IWMSInternalAdminNetSource3 {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), bstrrealm.into_param().abi(), bstrurl.into_param().abi(), fproxy.into_param().abi(), ::std::mem::transmute(pdwurlpolicy), ::std::mem::transmute(pbstrname), ::std::mem::transmute(pbstrpassword), ::std::mem::transmute(pfconfirmedgood)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn DeleteCredentialsEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bstrrealm: Param0, bstrurl: Param1, fproxy: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), bstrrealm.into_param().abi(), bstrurl.into_param().abi(), fproxy.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn FindProxyForURLEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(
         &self,
         bstrprotocol: Param0,
@@ -8371,11 +9218,13 @@ impl IWMSInternalAdminNetSource3 {
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), bstrprotocol.into_param().abi(), bstrhost.into_param().abi(), bstrurl.into_param().abi(), ::std::mem::transmute(pfproxyenabled), ::std::mem::transmute(pbstrproxyserver), ::std::mem::transmute(pdwproxyport), ::std::mem::transmute(pdwproxycontext)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetNetSourceCreator2(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
         let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn FindProxyForURLEx2<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(
         &self,
         bstrprotocol: Param0,
@@ -8388,18 +9237,22 @@ impl IWMSInternalAdminNetSource3 {
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), bstrprotocol.into_param().abi(), bstrhost.into_param().abi(), bstrurl.into_param().abi(), ::std::mem::transmute(pfproxyenabled), ::std::mem::transmute(pbstrproxyserver), ::std::mem::transmute(pdwproxyport), ::std::mem::transmute(pqwproxycontext)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn RegisterProxyFailure2(&self, hrparam: ::windows::runtime::HRESULT, qwproxycontext: u64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(hrparam), ::std::mem::transmute(qwproxycontext)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn ShutdownProxyContext2(&self, qwproxycontext: u64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(qwproxycontext)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn IsUsingIE2(&self, qwproxycontext: u64) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(qwproxycontext), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetCredentialsEx2<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>,
@@ -8424,6 +9277,7 @@ impl IWMSInternalAdminNetSource3 {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), bstrrealm.into_param().abi(), bstrurl.into_param().abi(), fproxy.into_param().abi(), bstrname.into_param().abi(), bstrpassword.into_param().abi(), fpersist.into_param().abi(), fconfirmedgood.into_param().abi(), fcleartextauthentication.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetCredentialsEx2<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(
         &self,
         bstrrealm: Param0,
@@ -8563,54 +9417,69 @@ pub struct IWMSInternalAdminNetSource3_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMSecureChannel(::windows::runtime::IUnknown);
 impl IWMSecureChannel {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetCertCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetCert(&self, dwindex: u32) -> ::windows::runtime::Result<*mut u8> {
         let mut result__: <*mut u8 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwindex), &mut result__).from_abi::<*mut u8>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetSharedData(&self, dwcertindex: u32, pbshareddata: *const u8, pbcert: *const u8) -> ::windows::runtime::Result<*mut u8> {
         let mut result__: <*mut u8 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwcertindex), ::std::mem::transmute(pbshareddata), ::std::mem::transmute(pbcert), &mut result__).from_abi::<*mut u8>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn WMSC_AddCertificate<'a, Param0: ::windows::runtime::IntoParam<'a, IWMAuthorizer>>(&self, pcert: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), pcert.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn WMSC_AddSignature(&self, pbcertsig: *const u8, cbcertsig: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(pbcertsig), ::std::mem::transmute(cbcertsig)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn WMSC_Connect<'a, Param0: ::windows::runtime::IntoParam<'a, IWMSecureChannel>>(&self, potherside: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), potherside.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn WMSC_IsConnected(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn WMSC_Disconnect(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn WMSC_GetValidCertificate(&self, ppbcertificate: *mut *mut u8, pdwsignature: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppbcertificate), ::std::mem::transmute(pdwsignature)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn WMSC_Encrypt(&self, pbdata: *const u8, cbdata: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(pbdata), ::std::mem::transmute(cbdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn WMSC_Decrypt(&self, pbdata: *const u8, cbdata: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(pbdata), ::std::mem::transmute(cbdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn WMSC_Lock(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn WMSC_Unlock(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn WMSC_SetSharedData(&self, dwcertindex: u32, pbshareddata: *const u8) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwcertindex), ::std::mem::transmute(pbshareddata)).ok()
     }
@@ -8681,10 +9550,12 @@ pub struct IWMSecureChannel_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwcertindex: u32, pbshareddata: *const u8) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMStatusCallback(::windows::runtime::IUnknown);
 impl IWMStatusCallback {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn OnStatus(&self, status: WMT_STATUS, hr: ::windows::runtime::HRESULT, dwtype: WMT_ATTR_DATATYPE, pvalue: *const u8, pvcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(status), ::std::mem::transmute(hr), ::std::mem::transmute(dwtype), ::std::mem::transmute(pvalue), ::std::mem::transmute(pvcontext)).ok()
     }
@@ -8721,48 +9592,60 @@ pub struct IWMStatusCallback_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, status: WMT_STATUS, hr: ::windows::runtime::HRESULT, dwtype: WMT_ATTR_DATATYPE, pvalue: *const u8, pvcontext: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMStreamConfig(::windows::runtime::IUnknown);
 impl IWMStreamConfig {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetStreamType(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetStreamNumber(&self) -> ::windows::runtime::Result<u16> {
         let mut result__: <u16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u16>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetStreamNumber(&self, wstreamnum: u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetStreamName(&self, pwszstreamname: super::super::Foundation::PWSTR, pcchstreamname: *mut u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwszstreamname), ::std::mem::transmute(pcchstreamname)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetStreamName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszstreamname: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), pwszstreamname.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetConnectionName(&self, pwszinputname: super::super::Foundation::PWSTR, pcchinputname: *mut u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwszinputname), ::std::mem::transmute(pcchinputname)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetConnectionName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszinputname: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), pwszinputname.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetBitrate(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetBitrate(&self, pdwbitrate: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwbitrate)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetBufferWindow(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetBufferWindow(&self, msbufferwindow: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(msbufferwindow)).ok()
     }
@@ -8813,68 +9696,86 @@ pub struct IWMStreamConfig_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pmsbufferwindow: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, msbufferwindow: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMStreamConfig2(::windows::runtime::IUnknown);
 impl IWMStreamConfig2 {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetStreamType(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetStreamNumber(&self) -> ::windows::runtime::Result<u16> {
         let mut result__: <u16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u16>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetStreamNumber(&self, wstreamnum: u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetStreamName(&self, pwszstreamname: super::super::Foundation::PWSTR, pcchstreamname: *mut u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwszstreamname), ::std::mem::transmute(pcchstreamname)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetStreamName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszstreamname: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), pwszstreamname.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetConnectionName(&self, pwszinputname: super::super::Foundation::PWSTR, pcchinputname: *mut u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwszinputname), ::std::mem::transmute(pcchinputname)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetConnectionName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszinputname: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), pwszinputname.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetBitrate(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetBitrate(&self, pdwbitrate: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwbitrate)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetBufferWindow(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetBufferWindow(&self, msbufferwindow: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(msbufferwindow)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetTransportType(&self) -> ::windows::runtime::Result<WMT_TRANSPORT_TYPE> {
         let mut result__: <WMT_TRANSPORT_TYPE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<WMT_TRANSPORT_TYPE>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetTransportType(&self, ntransporttype: WMT_TRANSPORT_TYPE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(ntransporttype)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn AddDataUnitExtension<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, guidextensionsystemid: Param0, cbextensiondatasize: u16, pbextensionsysteminfo: *const u8, cbextensionsysteminfo: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), guidextensionsystemid.into_param().abi(), ::std::mem::transmute(cbextensiondatasize), ::std::mem::transmute(pbextensionsysteminfo), ::std::mem::transmute(cbextensionsysteminfo)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetDataUnitExtensionCount(&self) -> ::windows::runtime::Result<u16> {
         let mut result__: <u16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u16>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetDataUnitExtension(&self, wdataunitextensionnumber: u16, pguidextensionsystemid: *mut ::windows::runtime::GUID, pcbextensiondatasize: *mut u16, pbextensionsysteminfo: *mut u8, pcbextensionsysteminfo: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(wdataunitextensionnumber), ::std::mem::transmute(pguidextensionsystemid), ::std::mem::transmute(pcbextensiondatasize), ::std::mem::transmute(pbextensionsysteminfo), ::std::mem::transmute(pcbextensionsysteminfo)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn RemoveAllDataUnitExtensions(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self)).ok()
     }
@@ -8951,76 +9852,96 @@ pub struct IWMStreamConfig2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, wdataunitextensionnumber: u16, pguidextensionsystemid: *mut ::windows::runtime::GUID, pcbextensiondatasize: *mut u16, pbextensionsysteminfo: *mut u8, pcbextensionsysteminfo: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMStreamConfig3(::windows::runtime::IUnknown);
 impl IWMStreamConfig3 {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetStreamType(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetStreamNumber(&self) -> ::windows::runtime::Result<u16> {
         let mut result__: <u16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u16>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetStreamNumber(&self, wstreamnum: u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetStreamName(&self, pwszstreamname: super::super::Foundation::PWSTR, pcchstreamname: *mut u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwszstreamname), ::std::mem::transmute(pcchstreamname)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetStreamName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszstreamname: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), pwszstreamname.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetConnectionName(&self, pwszinputname: super::super::Foundation::PWSTR, pcchinputname: *mut u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwszinputname), ::std::mem::transmute(pcchinputname)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetConnectionName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszinputname: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), pwszinputname.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetBitrate(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetBitrate(&self, pdwbitrate: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwbitrate)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetBufferWindow(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetBufferWindow(&self, msbufferwindow: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(msbufferwindow)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetTransportType(&self) -> ::windows::runtime::Result<WMT_TRANSPORT_TYPE> {
         let mut result__: <WMT_TRANSPORT_TYPE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<WMT_TRANSPORT_TYPE>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetTransportType(&self, ntransporttype: WMT_TRANSPORT_TYPE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(ntransporttype)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn AddDataUnitExtension<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, guidextensionsystemid: Param0, cbextensiondatasize: u16, pbextensionsysteminfo: *const u8, cbextensionsysteminfo: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), guidextensionsystemid.into_param().abi(), ::std::mem::transmute(cbextensiondatasize), ::std::mem::transmute(pbextensionsysteminfo), ::std::mem::transmute(cbextensionsysteminfo)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetDataUnitExtensionCount(&self) -> ::windows::runtime::Result<u16> {
         let mut result__: <u16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u16>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetDataUnitExtension(&self, wdataunitextensionnumber: u16, pguidextensionsystemid: *mut ::windows::runtime::GUID, pcbextensiondatasize: *mut u16, pbextensionsysteminfo: *mut u8, pcbextensionsysteminfo: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(wdataunitextensionnumber), ::std::mem::transmute(pguidextensionsystemid), ::std::mem::transmute(pcbextensiondatasize), ::std::mem::transmute(pbextensionsysteminfo), ::std::mem::transmute(pcbextensionsysteminfo)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn RemoveAllDataUnitExtensions(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetLanguage(&self, pwszlanguagestring: super::super::Foundation::PWSTR, pcchlanguagestringlength: *mut u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwszlanguagestring), ::std::mem::transmute(pcchlanguagestringlength)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetLanguage<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszlanguagestring: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), pwszlanguagestring.into_param().abi()).ok()
     }
@@ -9121,16 +10042,20 @@ pub struct IWMStreamConfig3_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwszlanguagestring: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMStreamList(::windows::runtime::IUnknown);
 impl IWMStreamList {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetStreams(&self, pwstreamnumarray: *mut u16, pcstreams: *mut u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwstreamnumarray), ::std::mem::transmute(pcstreams)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn AddStream(&self, wstreamnum: u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn RemoveStream(&self, wstreamnum: u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum)).ok()
     }
@@ -9169,15 +10094,18 @@ pub struct IWMStreamList_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, wstreamnum: u16) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, wstreamnum: u16) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMStreamPrioritization(::windows::runtime::IUnknown);
 impl IWMStreamPrioritization {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetPriorityRecords(&self, precordarray: *mut WM_STREAM_PRIORITY_RECORD, pcrecords: *mut u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(precordarray), ::std::mem::transmute(pcrecords)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetPriorityRecords(&self, precordarray: *const WM_STREAM_PRIORITY_RECORD, crecords: u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(precordarray), ::std::mem::transmute(crecords)).ok()
     }
@@ -9217,86 +10145,108 @@ pub struct IWMStreamPrioritization_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, precordarray: *const WM_STREAM_PRIORITY_RECORD, crecords: u16) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMSyncReader(::windows::runtime::IUnknown);
 impl IWMSyncReader {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn Open<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszfilename: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pwszfilename.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn Close(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetRange(&self, cnsstarttime: u64, cnsduration: i64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(cnsstarttime), ::std::mem::transmute(cnsduration)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetRangeByFrame(&self, wstreamnum: u16, qwframenumber: u64, cframestoread: i64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), ::std::mem::transmute(qwframenumber), ::std::mem::transmute(cframestoread)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetNextSample(&self, wstreamnum: u16, ppsample: *mut ::std::option::Option<INSSBuffer>, pcnssampletime: *mut u64, pcnsduration: *mut u64, pdwflags: *mut u32, pdwoutputnum: *mut u32, pwstreamnum: *mut u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), ::std::mem::transmute(ppsample), ::std::mem::transmute(pcnssampletime), ::std::mem::transmute(pcnsduration), ::std::mem::transmute(pdwflags), ::std::mem::transmute(pdwoutputnum), ::std::mem::transmute(pwstreamnum)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetStreamsSelected(&self, cstreamcount: u16, pwstreamnumbers: *const u16, pselections: *const WMT_STREAM_SELECTION) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(cstreamcount), ::std::mem::transmute(pwstreamnumbers), ::std::mem::transmute(pselections)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetStreamSelected(&self, wstreamnum: u16) -> ::windows::runtime::Result<WMT_STREAM_SELECTION> {
         let mut result__: <WMT_STREAM_SELECTION as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), &mut result__).from_abi::<WMT_STREAM_SELECTION>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetReadStreamSamples<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, wstreamnum: u16, fcompressed: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), fcompressed.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetReadStreamSamples(&self, wstreamnum: u16) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetOutputSetting<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, dwoutputnum: u32, pszname: Param1, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoutputnum), pszname.into_param().abi(), ::std::mem::transmute(ptype), ::std::mem::transmute(pvalue), ::std::mem::transmute(pcblength)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetOutputSetting<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, dwoutputnum: u32, pszname: Param1, r#type: WMT_ATTR_DATATYPE, pvalue: *const u8, cblength: u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoutputnum), pszname.into_param().abi(), ::std::mem::transmute(r#type), ::std::mem::transmute(pvalue), ::std::mem::transmute(cblength)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetOutputCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetOutputProps(&self, dwoutputnum: u32) -> ::windows::runtime::Result<IWMOutputMediaProps> {
         let mut result__: <IWMOutputMediaProps as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoutputnum), &mut result__).from_abi::<IWMOutputMediaProps>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetOutputProps<'a, Param1: ::windows::runtime::IntoParam<'a, IWMOutputMediaProps>>(&self, dwoutputnum: u32, poutput: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoutputnum), poutput.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetOutputFormatCount(&self, dwoutputnum: u32) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoutputnum), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetOutputFormat(&self, dwoutputnum: u32, dwformatnum: u32) -> ::windows::runtime::Result<IWMOutputMediaProps> {
         let mut result__: <IWMOutputMediaProps as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoutputnum), ::std::mem::transmute(dwformatnum), &mut result__).from_abi::<IWMOutputMediaProps>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetOutputNumberForStream(&self, wstreamnum: u16) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetStreamNumberForOutput(&self, dwoutputnum: u32) -> ::windows::runtime::Result<u16> {
         let mut result__: <u16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoutputnum), &mut result__).from_abi::<u16>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetMaxOutputSampleSize(&self, dwoutput: u32) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoutput), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetMaxStreamSampleSize(&self, wstream: u16) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstream), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_System_Com`*"]
     pub unsafe fn OpenStream<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>>(&self, pstream: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), pstream.into_param().abi()).ok()
     }
@@ -9359,106 +10309,134 @@ pub struct IWMSyncReader_abi(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pstream: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMSyncReader2(::windows::runtime::IUnknown);
 impl IWMSyncReader2 {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn Open<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszfilename: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pwszfilename.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn Close(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetRange(&self, cnsstarttime: u64, cnsduration: i64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(cnsstarttime), ::std::mem::transmute(cnsduration)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetRangeByFrame(&self, wstreamnum: u16, qwframenumber: u64, cframestoread: i64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), ::std::mem::transmute(qwframenumber), ::std::mem::transmute(cframestoread)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetNextSample(&self, wstreamnum: u16, ppsample: *mut ::std::option::Option<INSSBuffer>, pcnssampletime: *mut u64, pcnsduration: *mut u64, pdwflags: *mut u32, pdwoutputnum: *mut u32, pwstreamnum: *mut u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), ::std::mem::transmute(ppsample), ::std::mem::transmute(pcnssampletime), ::std::mem::transmute(pcnsduration), ::std::mem::transmute(pdwflags), ::std::mem::transmute(pdwoutputnum), ::std::mem::transmute(pwstreamnum)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetStreamsSelected(&self, cstreamcount: u16, pwstreamnumbers: *const u16, pselections: *const WMT_STREAM_SELECTION) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(cstreamcount), ::std::mem::transmute(pwstreamnumbers), ::std::mem::transmute(pselections)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetStreamSelected(&self, wstreamnum: u16) -> ::windows::runtime::Result<WMT_STREAM_SELECTION> {
         let mut result__: <WMT_STREAM_SELECTION as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), &mut result__).from_abi::<WMT_STREAM_SELECTION>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetReadStreamSamples<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, wstreamnum: u16, fcompressed: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), fcompressed.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetReadStreamSamples(&self, wstreamnum: u16) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetOutputSetting<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, dwoutputnum: u32, pszname: Param1, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoutputnum), pszname.into_param().abi(), ::std::mem::transmute(ptype), ::std::mem::transmute(pvalue), ::std::mem::transmute(pcblength)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetOutputSetting<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, dwoutputnum: u32, pszname: Param1, r#type: WMT_ATTR_DATATYPE, pvalue: *const u8, cblength: u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoutputnum), pszname.into_param().abi(), ::std::mem::transmute(r#type), ::std::mem::transmute(pvalue), ::std::mem::transmute(cblength)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetOutputCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetOutputProps(&self, dwoutputnum: u32) -> ::windows::runtime::Result<IWMOutputMediaProps> {
         let mut result__: <IWMOutputMediaProps as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoutputnum), &mut result__).from_abi::<IWMOutputMediaProps>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetOutputProps<'a, Param1: ::windows::runtime::IntoParam<'a, IWMOutputMediaProps>>(&self, dwoutputnum: u32, poutput: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoutputnum), poutput.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetOutputFormatCount(&self, dwoutputnum: u32) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoutputnum), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetOutputFormat(&self, dwoutputnum: u32, dwformatnum: u32) -> ::windows::runtime::Result<IWMOutputMediaProps> {
         let mut result__: <IWMOutputMediaProps as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoutputnum), ::std::mem::transmute(dwformatnum), &mut result__).from_abi::<IWMOutputMediaProps>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetOutputNumberForStream(&self, wstreamnum: u16) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetStreamNumberForOutput(&self, dwoutputnum: u32) -> ::windows::runtime::Result<u16> {
         let mut result__: <u16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoutputnum), &mut result__).from_abi::<u16>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetMaxOutputSampleSize(&self, dwoutput: u32) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoutput), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetMaxStreamSampleSize(&self, wstream: u16) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstream), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_System_Com`*"]
     pub unsafe fn OpenStream<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>>(&self, pstream: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), pstream.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetRangeByTimecode(&self, wstreamnum: u16, pstart: *const WMT_TIMECODE_EXTENSION_DATA, pend: *const WMT_TIMECODE_EXTENSION_DATA) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), ::std::mem::transmute(pstart), ::std::mem::transmute(pend)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetRangeByFrameEx(&self, wstreamnum: u16, qwframenumber: u64, cframestoread: i64) -> ::windows::runtime::Result<u64> {
         let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), ::std::mem::transmute(qwframenumber), ::std::mem::transmute(cframestoread), &mut result__).from_abi::<u64>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetAllocateForOutput<'a, Param1: ::windows::runtime::IntoParam<'a, IWMReaderAllocatorEx>>(&self, dwoutputnum: u32, pallocator: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoutputnum), pallocator.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetAllocateForOutput(&self, dwoutputnum: u32) -> ::windows::runtime::Result<IWMReaderAllocatorEx> {
         let mut result__: <IWMReaderAllocatorEx as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoutputnum), &mut result__).from_abi::<IWMReaderAllocatorEx>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetAllocateForStream<'a, Param1: ::windows::runtime::IntoParam<'a, IWMReaderAllocatorEx>>(&self, wstreamnum: u16, pallocator: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), pallocator.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetAllocateForStream(&self, dwsreamnum: u16) -> ::windows::runtime::Result<IWMReaderAllocatorEx> {
         let mut result__: <IWMReaderAllocatorEx as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwsreamnum), &mut result__).from_abi::<IWMReaderAllocatorEx>(result__)
@@ -9548,33 +10526,41 @@ pub struct IWMSyncReader2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, wstreamnum: u16, pallocator: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwsreamnum: u16, ppallocator: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMVideoMediaProps(::windows::runtime::IUnknown);
 impl IWMVideoMediaProps {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetType(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetMediaType(&self, ptype: *mut WM_MEDIA_TYPE, pcbtype: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(ptype), ::std::mem::transmute(pcbtype)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetMediaType(&self, ptype: *const WM_MEDIA_TYPE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(ptype)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetMaxKeyFrameSpacing(&self) -> ::windows::runtime::Result<i64> {
         let mut result__: <i64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i64>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetMaxKeyFrameSpacing(&self, lltime: i64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(lltime)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetQuality(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetQuality(&self, dwquality: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwquality)).ok()
     }
@@ -9639,15 +10625,18 @@ pub struct IWMVideoMediaProps_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwquality: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwquality: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMWatermarkInfo(::windows::runtime::IUnknown);
 impl IWMWatermarkInfo {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetWatermarkEntryCount(&self, wmettype: WMT_WATERMARK_ENTRY_TYPE) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(wmettype), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetWatermarkEntry(&self, wmettype: WMT_WATERMARK_ENTRY_TYPE, dwentrynum: u32) -> ::windows::runtime::Result<WMT_WATERMARK_ENTRY> {
         let mut result__: <WMT_WATERMARK_ENTRY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(wmettype), ::std::mem::transmute(dwentrynum), &mut result__).from_abi::<WMT_WATERMARK_ENTRY>(result__)
@@ -9687,52 +10676,66 @@ pub struct IWMWatermarkInfo_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, wmettype: WMT_WATERMARK_ENTRY_TYPE, dwentrynum: u32, pentry: *mut WMT_WATERMARK_ENTRY) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMWriter(::windows::runtime::IUnknown);
 impl IWMWriter {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetProfileByID(&self, guidprofile: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(guidprofile)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetProfile<'a, Param0: ::windows::runtime::IntoParam<'a, IWMProfile>>(&self, pprofile: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pprofile.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetOutputFilename<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszfilename: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), pwszfilename.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetInputCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetInputProps(&self, dwinputnum: u32) -> ::windows::runtime::Result<IWMInputMediaProps> {
         let mut result__: <IWMInputMediaProps as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwinputnum), &mut result__).from_abi::<IWMInputMediaProps>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetInputProps<'a, Param1: ::windows::runtime::IntoParam<'a, IWMInputMediaProps>>(&self, dwinputnum: u32, pinput: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwinputnum), pinput.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetInputFormatCount(&self, dwinputnumber: u32) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwinputnumber), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetInputFormat(&self, dwinputnumber: u32, dwformatnumber: u32) -> ::windows::runtime::Result<IWMInputMediaProps> {
         let mut result__: <IWMInputMediaProps as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwinputnumber), ::std::mem::transmute(dwformatnumber), &mut result__).from_abi::<IWMInputMediaProps>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn BeginWriting(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn EndWriting(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn AllocateSample(&self, dwsamplesize: u32) -> ::windows::runtime::Result<INSSBuffer> {
         let mut result__: <INSSBuffer as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwsamplesize), &mut result__).from_abi::<INSSBuffer>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn WriteSample<'a, Param3: ::windows::runtime::IntoParam<'a, INSSBuffer>>(&self, dwinputnum: u32, cnssampletime: u64, dwflags: u32, psample: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwinputnum), ::std::mem::transmute(cnssampletime), ::std::mem::transmute(dwflags), psample.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn Flush(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self)).ok()
     }
@@ -9782,47 +10785,59 @@ pub struct IWMWriter_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwinputnum: u32, cnssampletime: u64, dwflags: u32, psample: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMWriterAdvanced(::windows::runtime::IUnknown);
 impl IWMWriterAdvanced {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetSinkCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetSink(&self, dwsinknum: u32) -> ::windows::runtime::Result<IWMWriterSink> {
         let mut result__: <IWMWriterSink as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwsinknum), &mut result__).from_abi::<IWMWriterSink>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn AddSink<'a, Param0: ::windows::runtime::IntoParam<'a, IWMWriterSink>>(&self, psink: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), psink.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn RemoveSink<'a, Param0: ::windows::runtime::IntoParam<'a, IWMWriterSink>>(&self, psink: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), psink.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn WriteStreamSample<'a, Param5: ::windows::runtime::IntoParam<'a, INSSBuffer>>(&self, wstreamnum: u16, cnssampletime: u64, mssamplesendtime: u32, cnssampleduration: u64, dwflags: u32, psample: Param5) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), ::std::mem::transmute(cnssampletime), ::std::mem::transmute(mssamplesendtime), ::std::mem::transmute(cnssampleduration), ::std::mem::transmute(dwflags), psample.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetLiveSource<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fislivesource: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), fislivesource.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn IsRealTime(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetWriterTime(&self) -> ::windows::runtime::Result<u64> {
         let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u64>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetStatistics(&self, wstreamnum: u16) -> ::windows::runtime::Result<WM_WRITER_STATISTICS> {
         let mut result__: <WM_WRITER_STATISTICS as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), &mut result__).from_abi::<WM_WRITER_STATISTICS>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetSyncTolerance(&self, mswindow: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(mswindow)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetSyncTolerance(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
@@ -9872,56 +10887,70 @@ pub struct IWMWriterAdvanced_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, mswindow: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pmswindow: *mut u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMWriterAdvanced2(::windows::runtime::IUnknown);
 impl IWMWriterAdvanced2 {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetSinkCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetSink(&self, dwsinknum: u32) -> ::windows::runtime::Result<IWMWriterSink> {
         let mut result__: <IWMWriterSink as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwsinknum), &mut result__).from_abi::<IWMWriterSink>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn AddSink<'a, Param0: ::windows::runtime::IntoParam<'a, IWMWriterSink>>(&self, psink: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), psink.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn RemoveSink<'a, Param0: ::windows::runtime::IntoParam<'a, IWMWriterSink>>(&self, psink: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), psink.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn WriteStreamSample<'a, Param5: ::windows::runtime::IntoParam<'a, INSSBuffer>>(&self, wstreamnum: u16, cnssampletime: u64, mssamplesendtime: u32, cnssampleduration: u64, dwflags: u32, psample: Param5) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), ::std::mem::transmute(cnssampletime), ::std::mem::transmute(mssamplesendtime), ::std::mem::transmute(cnssampleduration), ::std::mem::transmute(dwflags), psample.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetLiveSource<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fislivesource: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), fislivesource.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn IsRealTime(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetWriterTime(&self) -> ::windows::runtime::Result<u64> {
         let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u64>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetStatistics(&self, wstreamnum: u16) -> ::windows::runtime::Result<WM_WRITER_STATISTICS> {
         let mut result__: <WM_WRITER_STATISTICS as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), &mut result__).from_abi::<WM_WRITER_STATISTICS>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetSyncTolerance(&self, mswindow: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(mswindow)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetSyncTolerance(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetInputSetting<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, dwinputnum: u32, pszname: Param1, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwinputnum), pszname.into_param().abi(), ::std::mem::transmute(ptype), ::std::mem::transmute(pvalue), ::std::mem::transmute(pcblength)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetInputSetting<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, dwinputnum: u32, pszname: Param1, r#type: WMT_ATTR_DATATYPE, pvalue: *const u8, cblength: u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwinputnum), pszname.into_param().abi(), ::std::mem::transmute(r#type), ::std::mem::transmute(pvalue), ::std::mem::transmute(cblength)).ok()
     }
@@ -9994,63 +11023,79 @@ pub struct IWMWriterAdvanced2_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwinputnum: u32, pszname: super::super::Foundation::PWSTR, r#type: WMT_ATTR_DATATYPE, pvalue: *const u8, cblength: u16) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMWriterAdvanced3(::windows::runtime::IUnknown);
 impl IWMWriterAdvanced3 {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetSinkCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetSink(&self, dwsinknum: u32) -> ::windows::runtime::Result<IWMWriterSink> {
         let mut result__: <IWMWriterSink as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwsinknum), &mut result__).from_abi::<IWMWriterSink>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn AddSink<'a, Param0: ::windows::runtime::IntoParam<'a, IWMWriterSink>>(&self, psink: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), psink.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn RemoveSink<'a, Param0: ::windows::runtime::IntoParam<'a, IWMWriterSink>>(&self, psink: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), psink.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn WriteStreamSample<'a, Param5: ::windows::runtime::IntoParam<'a, INSSBuffer>>(&self, wstreamnum: u16, cnssampletime: u64, mssamplesendtime: u32, cnssampleduration: u64, dwflags: u32, psample: Param5) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), ::std::mem::transmute(cnssampletime), ::std::mem::transmute(mssamplesendtime), ::std::mem::transmute(cnssampleduration), ::std::mem::transmute(dwflags), psample.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetLiveSource<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fislivesource: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), fislivesource.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn IsRealTime(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetWriterTime(&self) -> ::windows::runtime::Result<u64> {
         let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u64>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetStatistics(&self, wstreamnum: u16) -> ::windows::runtime::Result<WM_WRITER_STATISTICS> {
         let mut result__: <WM_WRITER_STATISTICS as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), &mut result__).from_abi::<WM_WRITER_STATISTICS>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetSyncTolerance(&self, mswindow: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(mswindow)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetSyncTolerance(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetInputSetting<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, dwinputnum: u32, pszname: Param1, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwinputnum), pszname.into_param().abi(), ::std::mem::transmute(ptype), ::std::mem::transmute(pvalue), ::std::mem::transmute(pcblength)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetInputSetting<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, dwinputnum: u32, pszname: Param1, r#type: WMT_ATTR_DATATYPE, pvalue: *const u8, cblength: u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwinputnum), pszname.into_param().abi(), ::std::mem::transmute(r#type), ::std::mem::transmute(pvalue), ::std::mem::transmute(cblength)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetStatisticsEx(&self, wstreamnum: u16) -> ::windows::runtime::Result<WM_WRITER_STATISTICS_EX> {
         let mut result__: <WM_WRITER_STATISTICS_EX as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), &mut result__).from_abi::<WM_WRITER_STATISTICS_EX>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetNonBlocking(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self)).ok()
     }
@@ -10145,29 +11190,36 @@ pub struct IWMWriterAdvanced3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, wstreamnum: u16, pstats: *mut WM_WRITER_STATISTICS_EX) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMWriterFileSink(::windows::runtime::IUnknown);
 impl IWMWriterFileSink {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn OnHeader<'a, Param0: ::windows::runtime::IntoParam<'a, INSSBuffer>>(&self, pheader: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pheader.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn IsRealTime(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn AllocateDataUnit(&self, cbdataunit: u32) -> ::windows::runtime::Result<INSSBuffer> {
         let mut result__: <INSSBuffer as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(cbdataunit), &mut result__).from_abi::<INSSBuffer>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn OnDataUnit<'a, Param0: ::windows::runtime::IntoParam<'a, INSSBuffer>>(&self, pdataunit: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), pdataunit.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn OnEndWriting(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn Open<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszfilename: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), pwszfilename.into_param().abi()).ok()
     }
@@ -10231,55 +11283,69 @@ pub struct IWMWriterFileSink_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwszfilename: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMWriterFileSink2(::windows::runtime::IUnknown);
 impl IWMWriterFileSink2 {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn OnHeader<'a, Param0: ::windows::runtime::IntoParam<'a, INSSBuffer>>(&self, pheader: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pheader.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn IsRealTime(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn AllocateDataUnit(&self, cbdataunit: u32) -> ::windows::runtime::Result<INSSBuffer> {
         let mut result__: <INSSBuffer as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(cbdataunit), &mut result__).from_abi::<INSSBuffer>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn OnDataUnit<'a, Param0: ::windows::runtime::IntoParam<'a, INSSBuffer>>(&self, pdataunit: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), pdataunit.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn OnEndWriting(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn Open<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszfilename: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), pwszfilename.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn Start(&self, cnsstarttime: u64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(cnsstarttime)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn Stop(&self, cnsstoptime: u64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(cnsstoptime)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn IsStopped(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetFileDuration(&self) -> ::windows::runtime::Result<u64> {
         let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u64>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetFileSize(&self) -> ::windows::runtime::Result<u64> {
         let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u64>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn Close(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn IsClosed(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
@@ -10373,88 +11439,110 @@ pub struct IWMWriterFileSink2_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pfclosed: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMWriterFileSink3(::windows::runtime::IUnknown);
 impl IWMWriterFileSink3 {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn OnHeader<'a, Param0: ::windows::runtime::IntoParam<'a, INSSBuffer>>(&self, pheader: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pheader.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn IsRealTime(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn AllocateDataUnit(&self, cbdataunit: u32) -> ::windows::runtime::Result<INSSBuffer> {
         let mut result__: <INSSBuffer as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(cbdataunit), &mut result__).from_abi::<INSSBuffer>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn OnDataUnit<'a, Param0: ::windows::runtime::IntoParam<'a, INSSBuffer>>(&self, pdataunit: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), pdataunit.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn OnEndWriting(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn Open<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszfilename: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), pwszfilename.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn Start(&self, cnsstarttime: u64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(cnsstarttime)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn Stop(&self, cnsstoptime: u64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(cnsstoptime)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn IsStopped(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetFileDuration(&self) -> ::windows::runtime::Result<u64> {
         let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u64>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetFileSize(&self) -> ::windows::runtime::Result<u64> {
         let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u64>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn Close(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn IsClosed(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetAutoIndexing<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fdoautoindexing: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), fdoautoindexing.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetAutoIndexing(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetControlStream<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, wstreamnumber: u16, fshouldcontrolstartandstop: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnumber), fshouldcontrolstartandstop.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetMode(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn OnDataUnitEx(&self, pfilesinkdataunit: *const WMT_FILESINK_DATA_UNIT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(pfilesinkdataunit)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetUnbufferedIO<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, funbufferedio: Param0, frestrictmemusage: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), funbufferedio.into_param().abi(), frestrictmemusage.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetUnbufferedIO(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn CompleteOperations(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self)).ok()
     }
@@ -10580,52 +11668,66 @@ pub struct IWMWriterFileSink3_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMWriterNetworkSink(::windows::runtime::IUnknown);
 impl IWMWriterNetworkSink {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn OnHeader<'a, Param0: ::windows::runtime::IntoParam<'a, INSSBuffer>>(&self, pheader: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pheader.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn IsRealTime(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn AllocateDataUnit(&self, cbdataunit: u32) -> ::windows::runtime::Result<INSSBuffer> {
         let mut result__: <INSSBuffer as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(cbdataunit), &mut result__).from_abi::<INSSBuffer>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn OnDataUnit<'a, Param0: ::windows::runtime::IntoParam<'a, INSSBuffer>>(&self, pdataunit: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), pdataunit.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn OnEndWriting(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetMaximumClients(&self, dwmaxclients: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwmaxclients)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetMaximumClients(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetNetworkProtocol(&self, protocol: WMT_NET_PROTOCOL) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(protocol)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetNetworkProtocol(&self) -> ::windows::runtime::Result<WMT_NET_PROTOCOL> {
         let mut result__: <WMT_NET_PROTOCOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<WMT_NET_PROTOCOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetHostURL(&self, pwszurl: super::super::Foundation::PWSTR, pcchurl: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwszurl), ::std::mem::transmute(pcchurl)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn Open(&self, pdwportnum: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwportnum)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn Disconnect(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn Close(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self)).ok()
     }
@@ -10696,42 +11798,52 @@ pub struct IWMWriterNetworkSink_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMWriterPostView(::windows::runtime::IUnknown);
 impl IWMWriterPostView {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetPostViewCallback<'a, Param0: ::windows::runtime::IntoParam<'a, IWMWriterPostViewCallback>>(&self, pcallback: Param0, pvcontext: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pcallback.into_param().abi(), ::std::mem::transmute(pvcontext)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetReceivePostViewSamples<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, wstreamnum: u16, freceivepostviewsamples: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), freceivepostviewsamples.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetReceivePostViewSamples(&self, wstreamnum: u16) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetPostViewProps(&self, wstreamnumber: u16) -> ::windows::runtime::Result<IWMMediaProps> {
         let mut result__: <IWMMediaProps as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnumber), &mut result__).from_abi::<IWMMediaProps>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetPostViewProps<'a, Param1: ::windows::runtime::IntoParam<'a, IWMMediaProps>>(&self, wstreamnumber: u16, poutput: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnumber), poutput.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetPostViewFormatCount(&self, wstreamnumber: u16) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnumber), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetPostViewFormat(&self, wstreamnumber: u16, dwformatnumber: u32) -> ::windows::runtime::Result<IWMMediaProps> {
         let mut result__: <IWMMediaProps as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnumber), ::std::mem::transmute(dwformatnumber), &mut result__).from_abi::<IWMMediaProps>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn SetAllocateForPostView<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, wstreamnumber: u16, fallocate: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnumber), fallocate.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn GetAllocateForPostView(&self, wstreamnumber: u16) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnumber), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
@@ -10781,16 +11893,20 @@ pub struct IWMWriterPostView_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, wstreamnumber: u16, pfallocate: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMWriterPostViewCallback(::windows::runtime::IUnknown);
 impl IWMWriterPostViewCallback {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn OnStatus(&self, status: WMT_STATUS, hr: ::windows::runtime::HRESULT, dwtype: WMT_ATTR_DATATYPE, pvalue: *const u8, pvcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(status), ::std::mem::transmute(hr), ::std::mem::transmute(dwtype), ::std::mem::transmute(pvalue), ::std::mem::transmute(pvcontext)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn OnPostViewSample<'a, Param4: ::windows::runtime::IntoParam<'a, INSSBuffer>>(&self, wstreamnumber: u16, cnssampletime: u64, cnssampleduration: u64, dwflags: u32, psample: Param4, pvcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnumber), ::std::mem::transmute(cnssampletime), ::std::mem::transmute(cnssampleduration), ::std::mem::transmute(dwflags), psample.into_param().abi(), ::std::mem::transmute(pvcontext)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn AllocateForPostView(&self, wstreamnum: u16, cbbuffer: u32, ppbuffer: *mut ::std::option::Option<INSSBuffer>, pvcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(wstreamnum), ::std::mem::transmute(cbbuffer), ::std::mem::transmute(ppbuffer), ::std::mem::transmute(pvcontext)).ok()
     }
@@ -10849,23 +11965,29 @@ pub struct IWMWriterPostViewCallback_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, wstreamnumber: u16, cnssampletime: u64, cnssampleduration: u64, dwflags: u32, psample: ::windows::runtime::RawPtr, pvcontext: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, wstreamnum: u16, cbbuffer: u32, ppbuffer: *mut ::windows::runtime::RawPtr, pvcontext: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMWriterPreprocess(::windows::runtime::IUnknown);
 impl IWMWriterPreprocess {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn GetMaxPreprocessingPasses(&self, dwinputnum: u32, dwflags: u32) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwinputnum), ::std::mem::transmute(dwflags), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn SetNumPreprocessingPasses(&self, dwinputnum: u32, dwflags: u32, dwnumpasses: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwinputnum), ::std::mem::transmute(dwflags), ::std::mem::transmute(dwnumpasses)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn BeginPreprocessingPass(&self, dwinputnum: u32, dwflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwinputnum), ::std::mem::transmute(dwflags)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn PreprocessSample<'a, Param3: ::windows::runtime::IntoParam<'a, INSSBuffer>>(&self, dwinputnum: u32, cnssampletime: u64, dwflags: u32, psample: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwinputnum), ::std::mem::transmute(cnssampletime), ::std::mem::transmute(dwflags), psample.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn EndPreprocessingPass(&self, dwinputnum: u32, dwflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwinputnum), ::std::mem::transmute(dwflags)).ok()
     }
@@ -10906,35 +12028,44 @@ pub struct IWMWriterPreprocess_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwinputnum: u32, cnssampletime: u64, dwflags: u32, psample: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwinputnum: u32, dwflags: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMWriterPushSink(::windows::runtime::IUnknown);
 impl IWMWriterPushSink {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn OnHeader<'a, Param0: ::windows::runtime::IntoParam<'a, INSSBuffer>>(&self, pheader: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pheader.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn IsRealTime(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn AllocateDataUnit(&self, cbdataunit: u32) -> ::windows::runtime::Result<INSSBuffer> {
         let mut result__: <INSSBuffer as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(cbdataunit), &mut result__).from_abi::<INSSBuffer>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn OnDataUnit<'a, Param0: ::windows::runtime::IntoParam<'a, INSSBuffer>>(&self, pdataunit: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), pdataunit.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn OnEndWriting(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn Connect<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pwszurl: Param0, pwsztemplateurl: Param1, fautodestroy: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), pwszurl.into_param().abi(), pwsztemplateurl.into_param().abi(), fautodestroy.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn Disconnect(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn EndSession(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)).ok()
     }
@@ -11000,25 +12131,31 @@ pub struct IWMWriterPushSink_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMWriterSink(::windows::runtime::IUnknown);
 impl IWMWriterSink {
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn OnHeader<'a, Param0: ::windows::runtime::IntoParam<'a, INSSBuffer>>(&self, pheader: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pheader.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
     pub unsafe fn IsRealTime(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn AllocateDataUnit(&self, cbdataunit: u32) -> ::windows::runtime::Result<INSSBuffer> {
         let mut result__: <INSSBuffer as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(cbdataunit), &mut result__).from_abi::<INSSBuffer>(result__)
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn OnDataUnit<'a, Param0: ::windows::runtime::IntoParam<'a, INSSBuffer>>(&self, pdataunit: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), pdataunit.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
     pub unsafe fn OnEndWriting(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)).ok()
     }
@@ -11060,6 +12197,7 @@ pub struct IWMWriterSink_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdataunit: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NETSOURCE_URLCREDPOLICY_SETTINGS(pub i32);
@@ -11075,6 +12213,7 @@ unsafe impl ::windows::runtime::Abi for NETSOURCE_URLCREDPOLICY_SETTINGS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WEBSTREAM_SAMPLE_TYPE(pub i32);
@@ -11089,6 +12228,7 @@ unsafe impl ::windows::runtime::Abi for WEBSTREAM_SAMPLE_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[inline]
 pub unsafe fn WMCreateBackupRestorer<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(pcallback: Param0) -> ::windows::runtime::Result<IWMLicenseBackup> {
     #[cfg(windows)]
@@ -11103,6 +12243,7 @@ pub unsafe fn WMCreateBackupRestorer<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[inline]
 pub unsafe fn WMCreateEditor() -> ::windows::runtime::Result<IWMMetadataEditor> {
     #[cfg(windows)]
@@ -11117,6 +12258,7 @@ pub unsafe fn WMCreateEditor() -> ::windows::runtime::Result<IWMMetadataEditor> 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[inline]
 pub unsafe fn WMCreateIndexer() -> ::windows::runtime::Result<IWMIndexer> {
     #[cfg(windows)]
@@ -11131,6 +12273,7 @@ pub unsafe fn WMCreateIndexer() -> ::windows::runtime::Result<IWMIndexer> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[inline]
 pub unsafe fn WMCreateProfileManager() -> ::windows::runtime::Result<IWMProfileManager> {
     #[cfg(windows)]
@@ -11145,6 +12288,7 @@ pub unsafe fn WMCreateProfileManager() -> ::windows::runtime::Result<IWMProfileM
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[inline]
 pub unsafe fn WMCreateReader<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(punkcert: Param0, dwrights: u32) -> ::windows::runtime::Result<IWMReader> {
     #[cfg(windows)]
@@ -11159,6 +12303,7 @@ pub unsafe fn WMCreateReader<'a, Param0: ::windows::runtime::IntoParam<'a, ::win
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[inline]
 pub unsafe fn WMCreateSyncReader<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(punkcert: Param0, dwrights: u32) -> ::windows::runtime::Result<IWMSyncReader> {
     #[cfg(windows)]
@@ -11173,6 +12318,7 @@ pub unsafe fn WMCreateSyncReader<'a, Param0: ::windows::runtime::IntoParam<'a, :
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[inline]
 pub unsafe fn WMCreateWriter<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(punkcert: Param0) -> ::windows::runtime::Result<IWMWriter> {
     #[cfg(windows)]
@@ -11187,6 +12333,7 @@ pub unsafe fn WMCreateWriter<'a, Param0: ::windows::runtime::IntoParam<'a, ::win
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[inline]
 pub unsafe fn WMCreateWriterFileSink() -> ::windows::runtime::Result<IWMWriterFileSink> {
     #[cfg(windows)]
@@ -11201,6 +12348,7 @@ pub unsafe fn WMCreateWriterFileSink() -> ::windows::runtime::Result<IWMWriterFi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[inline]
 pub unsafe fn WMCreateWriterNetworkSink() -> ::windows::runtime::Result<IWMWriterNetworkSink> {
     #[cfg(windows)]
@@ -11215,6 +12363,7 @@ pub unsafe fn WMCreateWriterNetworkSink() -> ::windows::runtime::Result<IWMWrite
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[inline]
 pub unsafe fn WMCreateWriterPushSink() -> ::windows::runtime::Result<IWMWriterPushSink> {
     #[cfg(windows)]
@@ -11231,6 +12380,7 @@ pub unsafe fn WMCreateWriterPushSink() -> ::windows::runtime::Result<IWMWriterPu
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub struct WMDRM_IMPORT_INIT_STRUCT {
     pub dwVersion: u32,
     pub cbEncryptedSessionKeyMessage: u32,
@@ -11265,6 +12415,7 @@ unsafe impl ::windows::runtime::Abi for WMDRM_IMPORT_INIT_STRUCT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const WMDRM_IMPORT_INIT_STRUCT_DEFINED: u32 = 1u32;
 pub const WMFORMAT_MPEG2Video: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3765272803, 56134, 4559, [180, 209, 0, 128, 95, 108, 187, 234]);
 pub const WMFORMAT_Script: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1552224498, 57022, 19623, [187, 165, 240, 122, 16, 79, 141, 255]);
@@ -11272,6 +12423,7 @@ pub const WMFORMAT_VideoInfo: ::windows::runtime::GUID = ::windows::runtime::GUI
 pub const WMFORMAT_WaveFormatEx: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(89694081, 50006, 4558, [191, 1, 0, 170, 0, 85, 89, 90]);
 pub const WMFORMAT_WebStream: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3659426579, 33625, 16464, [179, 152, 56, 142, 150, 91, 240, 12]);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WMIsContentProtected<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszfilename: Param0, pfisprotected: *mut super::super::Foundation::BOOL) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -11336,6 +12488,7 @@ pub const WMMEDIATYPE_Video: ::windows::runtime::GUID = ::windows::runtime::GUID
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 pub struct WMMPEG2VIDEOINFO {
     pub hdr: WMVIDEOINFOHEADER2,
     pub dwStartTimeCode: u32,
@@ -11382,6 +12535,7 @@ unsafe impl ::windows::runtime::Abi for WMMPEG2VIDEOINFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub struct WMSCRIPTFORMAT {
     pub scriptType: ::windows::runtime::GUID,
 }
@@ -11407,6 +12561,7 @@ unsafe impl ::windows::runtime::Abi for WMSCRIPTFORMAT {
     type DefaultType = Self;
 }
 pub const WMSCRIPTTYPE_TwoStrings: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2196998768, 49823, 4561, [151, 173, 0, 160, 201, 94, 168, 80]);
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WMT_ATTR_DATATYPE(pub i32);
@@ -11426,6 +12581,7 @@ unsafe impl ::windows::runtime::Abi for WMT_ATTR_DATATYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WMT_ATTR_IMAGETYPE(pub i32);
@@ -11443,6 +12599,7 @@ unsafe impl ::windows::runtime::Abi for WMT_ATTR_IMAGETYPE {
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub struct WMT_BUFFER_SEGMENT {
     pub pBuffer: ::std::option::Option<INSSBuffer>,
     pub cbOffset: u32,
@@ -11469,6 +12626,7 @@ unsafe impl ::windows::runtime::Abi for WMT_BUFFER_SEGMENT {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WMT_CODEC_INFO_TYPE(pub i32);
@@ -11486,6 +12644,7 @@ unsafe impl ::windows::runtime::Abi for WMT_CODEC_INFO_TYPE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub struct WMT_COLORSPACEINFO_EXTENSION_DATA {
     pub ucColorPrimaries: u8,
     pub ucColorTransferChar: u8,
@@ -11512,6 +12671,7 @@ unsafe impl ::windows::runtime::Abi for WMT_COLORSPACEINFO_EXTENSION_DATA {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WMT_CREDENTIAL_FLAGS(pub i32);
@@ -11531,6 +12691,7 @@ unsafe impl ::windows::runtime::Abi for WMT_CREDENTIAL_FLAGS {
 }
 pub const WMT_DMOCATEGORY_AUDIO_WATERMARK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1696734298, 64117, 19257, [181, 12, 6, 195, 54, 182, 163, 239]);
 pub const WMT_DMOCATEGORY_VIDEO_WATERMARK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(410831138, 36604, 17412, [157, 175, 99, 244, 131, 13, 241, 188]);
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WMT_DRMLA_TRUST(pub i32);
@@ -11548,6 +12709,7 @@ unsafe impl ::windows::runtime::Abi for WMT_DRMLA_TRUST {
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub struct WMT_FILESINK_DATA_UNIT {
     pub packetHeaderBuffer: WMT_BUFFER_SEGMENT,
     pub cPayloads: u32,
@@ -11582,6 +12744,7 @@ unsafe impl ::windows::runtime::Abi for WMT_FILESINK_DATA_UNIT {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WMT_FILESINK_MODE(pub i32);
@@ -11597,6 +12760,7 @@ unsafe impl ::windows::runtime::Abi for WMT_FILESINK_MODE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WMT_IMAGE_TYPE(pub i32);
@@ -11613,6 +12777,7 @@ unsafe impl ::windows::runtime::Abi for WMT_IMAGE_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WMT_INDEXER_TYPE(pub i32);
@@ -11628,6 +12793,7 @@ unsafe impl ::windows::runtime::Abi for WMT_INDEXER_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WMT_INDEX_TYPE(pub i32);
@@ -11643,6 +12809,7 @@ unsafe impl ::windows::runtime::Abi for WMT_INDEX_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WMT_MUSICSPEECH_CLASS_MODE(pub i32);
@@ -11658,6 +12825,7 @@ unsafe impl ::windows::runtime::Abi for WMT_MUSICSPEECH_CLASS_MODE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WMT_NET_PROTOCOL(pub i32);
@@ -11671,6 +12839,7 @@ unsafe impl ::windows::runtime::Abi for WMT_NET_PROTOCOL {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WMT_OFFSET_FORMAT(pub i32);
@@ -11690,6 +12859,7 @@ unsafe impl ::windows::runtime::Abi for WMT_OFFSET_FORMAT {
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub struct WMT_PAYLOAD_FRAGMENT {
     pub dwPayloadIndex: u32,
     pub segmentData: WMT_BUFFER_SEGMENT,
@@ -11715,6 +12885,7 @@ unsafe impl ::windows::runtime::Abi for WMT_PAYLOAD_FRAGMENT {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WMT_PLAY_MODE(pub i32);
@@ -11731,6 +12902,7 @@ unsafe impl ::windows::runtime::Abi for WMT_PLAY_MODE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WMT_PROXY_SETTINGS(pub i32);
@@ -11748,6 +12920,7 @@ unsafe impl ::windows::runtime::Abi for WMT_PROXY_SETTINGS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WMT_RIGHTS(pub i32);
@@ -11770,6 +12943,7 @@ unsafe impl ::windows::runtime::Abi for WMT_RIGHTS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WMT_STATUS(pub i32);
@@ -11835,6 +13009,7 @@ unsafe impl ::windows::runtime::Abi for WMT_STATUS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WMT_STORAGE_FORMAT(pub i32);
@@ -11849,6 +13024,7 @@ unsafe impl ::windows::runtime::Abi for WMT_STORAGE_FORMAT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WMT_STREAM_SELECTION(pub i32);
@@ -11866,6 +13042,7 @@ unsafe impl ::windows::runtime::Abi for WMT_STREAM_SELECTION {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(2))]
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub struct WMT_TIMECODE_EXTENSION_DATA {
     pub wRange: u16,
     pub dwTimecode: u32,
@@ -11888,6 +13065,7 @@ unsafe impl ::windows::runtime::Abi for WMT_TIMECODE_EXTENSION_DATA {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WMT_TIMECODE_FRAMERATE(pub i32);
@@ -11904,6 +13082,7 @@ unsafe impl ::windows::runtime::Abi for WMT_TIMECODE_FRAMERATE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WMT_TRANSPORT_TYPE(pub i32);
@@ -11918,6 +13097,7 @@ unsafe impl ::windows::runtime::Abi for WMT_TRANSPORT_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WMT_VERSION(pub i32);
@@ -11934,11 +13114,15 @@ unsafe impl ::windows::runtime::Abi for WMT_VERSION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const WMT_VIDEOIMAGE_INTEGER_DENOMINATOR: i32 = 65536i32;
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const WMT_VIDEOIMAGE_MAGIC_NUMBER: u32 = 491406834u32;
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const WMT_VIDEOIMAGE_MAGIC_NUMBER_2: u32 = 491406835u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub struct WMT_VIDEOIMAGE_SAMPLE {
     pub dwMagic: u32,
     pub cbStruct: u32,
@@ -12028,6 +13212,7 @@ unsafe impl ::windows::runtime::Abi for WMT_VIDEOIMAGE_SAMPLE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
 pub struct WMT_VIDEOIMAGE_SAMPLE2 {
     pub dwMagic: u32,
     pub dwStructSize: u32,
@@ -12138,34 +13323,60 @@ unsafe impl ::windows::runtime::Abi for WMT_VIDEOIMAGE_SAMPLE2 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const WMT_VIDEOIMAGE_SAMPLE_ADV_BLENDING: u32 = 8u32;
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const WMT_VIDEOIMAGE_SAMPLE_BLENDING: u32 = 4u32;
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const WMT_VIDEOIMAGE_SAMPLE_INPUT_FRAME: u32 = 1u32;
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const WMT_VIDEOIMAGE_SAMPLE_MOTION: u32 = 1u32;
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const WMT_VIDEOIMAGE_SAMPLE_OUTPUT_FRAME: u32 = 2u32;
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const WMT_VIDEOIMAGE_SAMPLE_ROTATION: u32 = 2u32;
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const WMT_VIDEOIMAGE_SAMPLE_USES_CURRENT_INPUT_FRAME: u32 = 4u32;
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const WMT_VIDEOIMAGE_SAMPLE_USES_PREVIOUS_INPUT_FRAME: u32 = 8u32;
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const WMT_VIDEOIMAGE_TRANSITION_BOW_TIE: u32 = 11u32;
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const WMT_VIDEOIMAGE_TRANSITION_CIRCLE: u32 = 12u32;
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const WMT_VIDEOIMAGE_TRANSITION_CROSS_FADE: u32 = 13u32;
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const WMT_VIDEOIMAGE_TRANSITION_DIAGONAL: u32 = 14u32;
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const WMT_VIDEOIMAGE_TRANSITION_DIAMOND: u32 = 15u32;
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const WMT_VIDEOIMAGE_TRANSITION_FADE_TO_COLOR: u32 = 16u32;
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const WMT_VIDEOIMAGE_TRANSITION_FILLED_V: u32 = 17u32;
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const WMT_VIDEOIMAGE_TRANSITION_FLIP: u32 = 18u32;
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const WMT_VIDEOIMAGE_TRANSITION_INSET: u32 = 19u32;
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const WMT_VIDEOIMAGE_TRANSITION_IRIS: u32 = 20u32;
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const WMT_VIDEOIMAGE_TRANSITION_PAGE_ROLL: u32 = 21u32;
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const WMT_VIDEOIMAGE_TRANSITION_RECTANGLE: u32 = 23u32;
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const WMT_VIDEOIMAGE_TRANSITION_REVEAL: u32 = 24u32;
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const WMT_VIDEOIMAGE_TRANSITION_SLIDE: u32 = 27u32;
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const WMT_VIDEOIMAGE_TRANSITION_SPLIT: u32 = 29u32;
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const WMT_VIDEOIMAGE_TRANSITION_STAR: u32 = 30u32;
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const WMT_VIDEOIMAGE_TRANSITION_WHEEL: u32 = 31u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
 pub struct WMT_WATERMARK_ENTRY {
     pub wmetType: WMT_WATERMARK_ENTRY_TYPE,
     pub clsid: ::windows::runtime::GUID,
@@ -12199,6 +13410,7 @@ unsafe impl ::windows::runtime::Abi for WMT_WATERMARK_ENTRY {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WMT_WATERMARK_ENTRY_TYPE(pub i32);
@@ -12215,6 +13427,7 @@ unsafe impl ::windows::runtime::Abi for WMT_WATERMARK_ENTRY_TYPE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub struct WMT_WEBSTREAM_FORMAT {
     pub cbSize: u16,
     pub cbSampleHeaderFixedData: u16,
@@ -12244,6 +13457,7 @@ unsafe impl ::windows::runtime::Abi for WMT_WEBSTREAM_FORMAT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub struct WMT_WEBSTREAM_SAMPLE_HEADER {
     pub cbLength: u16,
     pub wPart: u16,
@@ -12275,6 +13489,7 @@ unsafe impl ::windows::runtime::Abi for WMT_WEBSTREAM_SAMPLE_HEADER {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 pub struct WMVIDEOINFOHEADER {
     pub rcSource: super::super::Foundation::RECT,
     pub rcTarget: super::super::Foundation::RECT,
@@ -12313,6 +13528,7 @@ unsafe impl ::windows::runtime::Abi for WMVIDEOINFOHEADER {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 pub struct WMVIDEOINFOHEADER2 {
     pub rcSource: super::super::Foundation::RECT,
     pub rcTarget: super::super::Foundation::RECT,
@@ -12380,6 +13596,7 @@ unsafe impl ::windows::runtime::Abi for WMVIDEOINFOHEADER2 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub struct WM_ADDRESS_ACCESSENTRY {
     pub dwIPAddress: u32,
     pub dwMask: u32,
@@ -12405,6 +13622,7 @@ unsafe impl ::windows::runtime::Abi for WM_ADDRESS_ACCESSENTRY {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WM_AETYPE(pub i32);
@@ -12421,6 +13639,7 @@ unsafe impl ::windows::runtime::Abi for WM_AETYPE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub struct WM_CLIENT_PROPERTIES {
     pub dwIPAddress: u32,
     pub dwPort: u32,
@@ -12449,6 +13668,7 @@ unsafe impl ::windows::runtime::Abi for WM_CLIENT_PROPERTIES {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
 pub struct WM_CLIENT_PROPERTIES_EX {
     pub cbSize: u32,
     pub pwszIPAddress: super::super::Foundation::PWSTR,
@@ -12482,12 +13702,19 @@ unsafe impl ::windows::runtime::Abi for WM_CLIENT_PROPERTIES_EX {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const WM_CL_INTERLACED420: u32 = 0u32;
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const WM_CL_PROGRESSIVE420: u32 = 1u32;
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const WM_CT_BOTTOM_FIELD_FIRST: u32 = 32u32;
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const WM_CT_INTERLACED: u32 = 128u32;
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const WM_CT_REPEAT_FIRST_FIELD: u32 = 16u32;
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const WM_CT_TOP_FIELD_FIRST: u32 = 64u32;
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WM_DM_INTERLACED_TYPE(pub i32);
@@ -12506,6 +13733,7 @@ unsafe impl ::windows::runtime::Abi for WM_DM_INTERLACED_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WM_DM_IT_FIRST_FRAME_COHERENCY(pub i32);
@@ -12531,6 +13759,7 @@ unsafe impl ::windows::runtime::Abi for WM_DM_IT_FIRST_FRAME_COHERENCY {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub struct WM_LEAKY_BUCKET_PAIR {
     pub dwBitrate: u32,
     pub msBufferWindow: u32,
@@ -12551,11 +13780,14 @@ unsafe impl ::windows::runtime::Abi for WM_LEAKY_BUCKET_PAIR {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const WM_MAX_STREAMS: u32 = 63u32;
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const WM_MAX_VIDEO_STREAMS: u32 = 63u32;
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
 pub struct WM_MEDIA_TYPE {
     pub majortype: ::windows::runtime::GUID,
     pub subtype: ::windows::runtime::GUID,
@@ -12607,6 +13839,7 @@ unsafe impl ::windows::runtime::Abi for WM_MEDIA_TYPE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
 pub struct WM_PICTURE {
     pub pwszMIMEType: super::super::Foundation::PWSTR,
     pub bPictureType: u8,
@@ -12635,6 +13868,7 @@ unsafe impl ::windows::runtime::Abi for WM_PICTURE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WM_PLAYBACK_DRC_LEVEL(pub i32);
@@ -12652,6 +13886,7 @@ unsafe impl ::windows::runtime::Abi for WM_PLAYBACK_DRC_LEVEL {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub struct WM_PORT_NUMBER_RANGE {
     pub wPortBegin: u16,
     pub wPortEnd: u16,
@@ -12680,6 +13915,7 @@ unsafe impl ::windows::runtime::Abi for WM_PORT_NUMBER_RANGE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
 pub struct WM_READER_CLIENTINFO {
     pub cbSize: u32,
     pub wszLang: super::super::Foundation::PWSTR,
@@ -12730,6 +13966,7 @@ unsafe impl ::windows::runtime::Abi for WM_READER_CLIENTINFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub struct WM_READER_STATISTICS {
     pub cbSize: u32,
     pub dwBandwidth: u32,
@@ -12759,6 +13996,7 @@ unsafe impl ::windows::runtime::Abi for WM_READER_STATISTICS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WM_SFEX_TYPE(pub i32);
@@ -12773,6 +14011,7 @@ unsafe impl ::windows::runtime::Abi for WM_SFEX_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WM_SF_TYPE(pub i32);
@@ -12791,6 +14030,7 @@ unsafe impl ::windows::runtime::Abi for WM_SF_TYPE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(2))]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
 pub struct WM_STREAM_PRIORITY_RECORD {
     pub wStreamNumber: u16,
     pub fMandatory: super::super::Foundation::BOOL,
@@ -12818,6 +14058,7 @@ unsafe impl ::windows::runtime::Abi for WM_STREAM_PRIORITY_RECORD {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub struct WM_STREAM_TYPE_INFO {
     pub guidMajorType: ::windows::runtime::GUID,
     pub cbFormat: u32,
@@ -12841,6 +14082,7 @@ unsafe impl ::windows::runtime::Abi for WM_STREAM_TYPE_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
 pub struct WM_SYNCHRONISED_LYRICS {
     pub bTimeStampFormat: u8,
     pub bContentType: u8,
@@ -12879,15 +14121,22 @@ pub const WM_SampleExtensionGUID_SampleDuration: ::windows::runtime::GUID = ::wi
 pub const WM_SampleExtensionGUID_SampleProtectionSalt: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1409539822, 47598, 17295, [170, 131, 56, 4, 153, 126, 86, 157]);
 pub const WM_SampleExtensionGUID_Timecode: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(966104556, 34407, 20013, [143, 219, 152, 129, 76, 231, 108, 30]);
 pub const WM_SampleExtensionGUID_UserDataInfo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1932244218, 30910, 17737, [153, 189, 2, 219, 26, 85, 183, 168]);
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const WM_SampleExtension_ChromaLocation_Size: u32 = 1u32;
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const WM_SampleExtension_ColorSpaceInfo_Size: u32 = 3u32;
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const WM_SampleExtension_ContentType_Size: u32 = 1u32;
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const WM_SampleExtension_PixelAspectRatio_Size: u32 = 2u32;
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const WM_SampleExtension_SampleDuration_Size: u32 = 2u32;
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const WM_SampleExtension_Timecode_Size: u32 = 14u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
 pub struct WM_USER_TEXT {
     pub pwszDescription: super::super::Foundation::PWSTR,
     pub pwszText: super::super::Foundation::PWSTR,
@@ -12916,6 +14165,7 @@ unsafe impl ::windows::runtime::Abi for WM_USER_TEXT {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
 pub struct WM_USER_WEB_URL {
     pub pwszDescription: super::super::Foundation::PWSTR,
     pub pwszURL: super::super::Foundation::PWSTR,
@@ -12943,6 +14193,7 @@ unsafe impl ::windows::runtime::Abi for WM_USER_WEB_URL {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub struct WM_WRITER_STATISTICS {
     pub qwSampleCount: u64,
     pub qwByteCount: u64,
@@ -12998,6 +14249,7 @@ unsafe impl ::windows::runtime::Abi for WM_WRITER_STATISTICS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub struct WM_WRITER_STATISTICS_EX {
     pub dwBitratePlusOverhead: u32,
     pub dwCurrentSampleDropRateInQueue: u32,
@@ -13042,6 +14294,7 @@ unsafe impl ::windows::runtime::Abi for WM_WRITER_STATISTICS_EX {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct _AM_ASFWRITERCONFIG_PARAM(pub i32);
@@ -13057,228 +14310,453 @@ unsafe impl ::windows::runtime::Abi for _AM_ASFWRITERCONFIG_PARAM {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_dwWMContentAttributes: u32 = 5u32;
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_dwWMNSCAttributes: u32 = 5u32;
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_dwWMSpecialAttributes: u32 = 20u32;
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszASFLeakyBucketPairs: &'static str = "ASFLeakyBucketPairs";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszAllowInterlacedOutput: &'static str = "AllowInterlacedOutput";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszAverageLevel: &'static str = "AverageLevel";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszBufferAverage: &'static str = "Buffer Average";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszComplexity: &'static str = "_COMPLEXITYEX";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszComplexityLive: &'static str = "_COMPLEXITYEXLIVE";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszComplexityMax: &'static str = "_COMPLEXITYEXMAX";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszComplexityOffline: &'static str = "_COMPLEXITYEXOFFLINE";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszDecoderComplexityRequested: &'static str = "_DECODERCOMPLEXITYPROFILE";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszDedicatedDeliveryThread: &'static str = "DedicatedDeliveryThread";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszDeinterlaceMode: &'static str = "DeinterlaceMode";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszDeliverOnReceive: &'static str = "DeliverOnReceive";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszDeviceConformanceTemplate: &'static str = "DeviceConformanceTemplate";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszDynamicRangeControl: &'static str = "DynamicRangeControl";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszEDL: &'static str = "_EDL";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszEarlyDataDelivery: &'static str = "EarlyDataDelivery";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszEnableDiscreteOutput: &'static str = "EnableDiscreteOutput";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszEnableFrameInterpolation: &'static str = "EnableFrameInterpolation";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszEnableWMAProSPDIFOutput: &'static str = "EnableWMAProSPDIFOutput";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszFailSeekOnError: &'static str = "FailSeekOnError";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszFixedFrameRate: &'static str = "FixedFrameRate";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszFold6To2Channels3: &'static str = "Fold6To2Channels3";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszFoldToChannelsTemplate: &'static str = "Fold%luTo%luChannels%lu";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszInitialPatternForInverseTelecine: &'static str = "InitialPatternForInverseTelecine";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszInterlacedCoding: &'static str = "InterlacedCoding";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszIsVBRSupported: &'static str = "_ISVBRSUPPORTED";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszJPEGCompressionQuality: &'static str = "JPEGCompressionQuality";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszJustInTimeDecode: &'static str = "JustInTimeDecode";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszMixedClassMode: &'static str = "MixedClassMode";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszMusicClassMode: &'static str = "MusicClassMode";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszMusicSpeechClassMode: &'static str = "MusicSpeechClassMode";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszNeedsPreviousSample: &'static str = "NeedsPreviousSample";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszNumPasses: &'static str = "_PASSESUSED";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszOriginalSourceFormatTag: &'static str = "_SOURCEFORMATTAG";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszOriginalWaveFormat: &'static str = "_ORIGINALWAVEFORMAT";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszPeakValue: &'static str = "PeakValue";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszPermitSeeksBeyondEndOfStream: &'static str = "PermitSeeksBeyondEndOfStream";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszReloadIndexOnSeek: &'static str = "ReloadIndexOnSeek";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszScrambledAudio: &'static str = "ScrambledAudio";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszSingleOutputBuffer: &'static str = "SingleOutputBuffer";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszSoftwareScaling: &'static str = "SoftwareScaling";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszSourceBufferTime: &'static str = "SourceBufferTime";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszSourceMaxBytesAtOnce: &'static str = "SourceMaxBytesAtOnce";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszSpeakerConfig: &'static str = "SpeakerConfig";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszSpeechCaps: &'static str = "SpeechFormatCap";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszSpeechClassMode: &'static str = "SpeechClassMode";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszStreamLanguage: &'static str = "StreamLanguage";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszStreamNumIndexObjects: &'static str = "StreamNumIndexObjects";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszUsePacketAtSeekPoint: &'static str = "UsePacketAtSeekPoint";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszVBRBitrateMax: &'static str = "_RMAX";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszVBRBufferWindowMax: &'static str = "_BMAX";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszVBREnabled: &'static str = "_VBRENABLED";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszVBRPeak: &'static str = "VBR Peak";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszVBRQuality: &'static str = "_VBRQUALITY";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszVideoSampleDurations: &'static str = "VideoSampleDurations";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMADID: &'static str = "WM/ADID";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMASFPacketCount: &'static str = "WM/ASFPacketCount";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMASFSecurityObjectsSize: &'static str = "WM/ASFSecurityObjectsSize";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMAlbumArtist: &'static str = "WM/AlbumArtist";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMAlbumArtistSort: &'static str = "WM/AlbumArtistSort";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMAlbumCoverURL: &'static str = "WM/AlbumCoverURL";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMAlbumTitle: &'static str = "WM/AlbumTitle";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMAlbumTitleSort: &'static str = "WM/AlbumTitleSort";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMAspectRatioX: &'static str = "AspectRatioX";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMAspectRatioY: &'static str = "AspectRatioY";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMAudioFileURL: &'static str = "WM/AudioFileURL";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMAudioSourceURL: &'static str = "WM/AudioSourceURL";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMAuthor: &'static str = "Author";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMAuthorSort: &'static str = "AuthorSort";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMAuthorURL: &'static str = "WM/AuthorURL";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMBannerImageData: &'static str = "BannerImageData";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMBannerImageType: &'static str = "BannerImageType";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMBannerImageURL: &'static str = "BannerImageURL";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMBeatsPerMinute: &'static str = "WM/BeatsPerMinute";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMBitrate: &'static str = "Bitrate";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMBroadcast: &'static str = "Broadcast";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMCategory: &'static str = "WM/Category";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMCodec: &'static str = "WM/Codec";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMComposer: &'static str = "WM/Composer";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMComposerSort: &'static str = "WM/ComposerSort";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMConductor: &'static str = "WM/Conductor";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMContainerFormat: &'static str = "WM/ContainerFormat";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMContentDistributor: &'static str = "WM/ContentDistributor";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMContentGroupDescription: &'static str = "WM/ContentGroupDescription";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMCopyright: &'static str = "Copyright";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMCopyrightURL: &'static str = "CopyrightURL";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMCurrentBitrate: &'static str = "CurrentBitrate";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMDRM: &'static str = "WM/DRM";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMDRM_ContentID: &'static str = "DRM_ContentID";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMDRM_Flags: &'static str = "DRM_Flags";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMDRM_HeaderSignPrivKey: &'static str = "DRM_HeaderSignPrivKey";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMDRM_IndividualizedVersion: &'static str = "DRM_IndividualizedVersion";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMDRM_KeyID: &'static str = "DRM_KeyID";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMDRM_KeySeed: &'static str = "DRM_KeySeed";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMDRM_LASignatureCert: &'static str = "DRM_LASignatureCert";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMDRM_LASignatureLicSrvCert: &'static str = "DRM_LASignatureLicSrvCert";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMDRM_LASignaturePrivKey: &'static str = "DRM_LASignaturePrivKey";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMDRM_LASignatureRootCert: &'static str = "DRM_LASignatureRootCert";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMDRM_Level: &'static str = "DRM_Level";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMDRM_LicenseAcqURL: &'static str = "DRM_LicenseAcqURL";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMDRM_SourceID: &'static str = "DRM_SourceID";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMDRM_V1LicenseAcqURL: &'static str = "DRM_V1LicenseAcqURL";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMDVDID: &'static str = "WM/DVDID";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMDescription: &'static str = "Description";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMDirector: &'static str = "WM/Director";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMDuration: &'static str = "Duration";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMEncodedBy: &'static str = "WM/EncodedBy";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMEncodingSettings: &'static str = "WM/EncodingSettings";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMEncodingTime: &'static str = "WM/EncodingTime";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMEpisodeNumber: &'static str = "WM/EpisodeNumber";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMFileSize: &'static str = "FileSize";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMGenre: &'static str = "WM/Genre";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMGenreID: &'static str = "WM/GenreID";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMHasArbitraryDataStream: &'static str = "HasArbitraryDataStream";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMHasAttachedImages: &'static str = "HasAttachedImages";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMHasAudio: &'static str = "HasAudio";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMHasFileTransferStream: &'static str = "HasFileTransferStream";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMHasImage: &'static str = "HasImage";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMHasScript: &'static str = "HasScript";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMHasVideo: &'static str = "HasVideo";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMISAN: &'static str = "WM/ISAN";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMISRC: &'static str = "WM/ISRC";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMInitialKey: &'static str = "WM/InitialKey";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMIsCompilation: &'static str = "WM/IsCompilation";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMIsVBR: &'static str = "IsVBR";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMLanguage: &'static str = "WM/Language";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMLyrics: &'static str = "WM/Lyrics";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMLyrics_Synchronised: &'static str = "WM/Lyrics_Synchronised";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMMCDI: &'static str = "WM/MCDI";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMMediaClassPrimaryID: &'static str = "WM/MediaClassPrimaryID";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMMediaClassSecondaryID: &'static str = "WM/MediaClassSecondaryID";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMMediaCredits: &'static str = "WM/MediaCredits";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMMediaIsDelay: &'static str = "WM/MediaIsDelay";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMMediaIsFinale: &'static str = "WM/MediaIsFinale";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMMediaIsLive: &'static str = "WM/MediaIsLive";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMMediaIsPremiere: &'static str = "WM/MediaIsPremiere";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMMediaIsRepeat: &'static str = "WM/MediaIsRepeat";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMMediaIsSAP: &'static str = "WM/MediaIsSAP";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMMediaIsStereo: &'static str = "WM/MediaIsStereo";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMMediaIsSubtitled: &'static str = "WM/MediaIsSubtitled";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMMediaIsTape: &'static str = "WM/MediaIsTape";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMMediaNetworkAffiliation: &'static str = "WM/MediaNetworkAffiliation";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMMediaOriginalBroadcastDateTime: &'static str = "WM/MediaOriginalBroadcastDateTime";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMMediaOriginalChannel: &'static str = "WM/MediaOriginalChannel";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMMediaStationCallSign: &'static str = "WM/MediaStationCallSign";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMMediaStationName: &'static str = "WM/MediaStationName";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMModifiedBy: &'static str = "WM/ModifiedBy";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMMood: &'static str = "WM/Mood";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMNSCAddress: &'static str = "NSC_Address";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMNSCDescription: &'static str = "NSC_Description";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMNSCEmail: &'static str = "NSC_Email";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMNSCName: &'static str = "NSC_Name";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMNSCPhone: &'static str = "NSC_Phone";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMNumberOfFrames: &'static str = "NumberOfFrames";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMOptimalBitrate: &'static str = "OptimalBitrate";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMOriginalAlbumTitle: &'static str = "WM/OriginalAlbumTitle";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMOriginalArtist: &'static str = "WM/OriginalArtist";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMOriginalFilename: &'static str = "WM/OriginalFilename";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMOriginalLyricist: &'static str = "WM/OriginalLyricist";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMOriginalReleaseTime: &'static str = "WM/OriginalReleaseTime";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMOriginalReleaseYear: &'static str = "WM/OriginalReleaseYear";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMParentalRating: &'static str = "WM/ParentalRating";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMParentalRatingReason: &'static str = "WM/ParentalRatingReason";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMPartOfSet: &'static str = "WM/PartOfSet";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMPeakBitrate: &'static str = "WM/PeakBitrate";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMPeriod: &'static str = "WM/Period";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMPicture: &'static str = "WM/Picture";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMPlaylistDelay: &'static str = "WM/PlaylistDelay";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMProducer: &'static str = "WM/Producer";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMPromotionURL: &'static str = "WM/PromotionURL";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMProtected: &'static str = "Is_Protected";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMProtectionType: &'static str = "WM/ProtectionType";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMProvider: &'static str = "WM/Provider";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMProviderCopyright: &'static str = "WM/ProviderCopyright";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMProviderRating: &'static str = "WM/ProviderRating";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMProviderStyle: &'static str = "WM/ProviderStyle";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMPublisher: &'static str = "WM/Publisher";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMRadioStationName: &'static str = "WM/RadioStationName";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMRadioStationOwner: &'static str = "WM/RadioStationOwner";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMRating: &'static str = "Rating";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMSeasonNumber: &'static str = "WM/SeasonNumber";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMSeekable: &'static str = "Seekable";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMSharedUserRating: &'static str = "WM/SharedUserRating";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMSignature_Name: &'static str = "Signature_Name";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMSkipBackward: &'static str = "Can_Skip_Backward";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMSkipForward: &'static str = "Can_Skip_Forward";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMStreamTypeInfo: &'static str = "WM/StreamTypeInfo";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMStridable: &'static str = "Stridable";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMSubTitle: &'static str = "WM/SubTitle";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMSubTitleDescription: &'static str = "WM/SubTitleDescription";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMSubscriptionContentID: &'static str = "WM/SubscriptionContentID";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMText: &'static str = "WM/Text";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMTitle: &'static str = "Title";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMTitleSort: &'static str = "TitleSort";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMToolName: &'static str = "WM/ToolName";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMToolVersion: &'static str = "WM/ToolVersion";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMTrack: &'static str = "WM/Track";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMTrackNumber: &'static str = "WM/TrackNumber";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMTrusted: &'static str = "Is_Trusted";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMUniqueFileIdentifier: &'static str = "WM/UniqueFileIdentifier";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMUse_Advanced_DRM: &'static str = "Use_Advanced_DRM";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMUse_DRM: &'static str = "Use_DRM";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMUserWebURL: &'static str = "WM/UserWebURL";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMVideoClosedCaptioning: &'static str = "WM/VideoClosedCaptioning";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMVideoFrameRate: &'static str = "WM/VideoFrameRate";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMVideoHeight: &'static str = "WM/VideoHeight";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMVideoWidth: &'static str = "WM/VideoWidth";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMWMADRCAverageReference: &'static str = "WM/WMADRCAverageReference";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMWMADRCAverageTarget: &'static str = "WM/WMADRCAverageTarget";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMWMADRCPeakReference: &'static str = "WM/WMADRCPeakReference";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMWMADRCPeakTarget: &'static str = "WM/WMADRCPeakTarget";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMWMCPDistributor: &'static str = "WM/WMCPDistributor";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMWMCPDistributorID: &'static str = "WM/WMCPDistributorID";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMWMCollectionGroupID: &'static str = "WM/WMCollectionGroupID";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMWMCollectionID: &'static str = "WM/WMCollectionID";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMWMContentID: &'static str = "WM/WMContentID";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMWMShadowFileSourceDRMType: &'static str = "WM/WMShadowFileSourceDRMType";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMWMShadowFileSourceFileType: &'static str = "WM/WMShadowFileSourceFileType";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMWriter: &'static str = "WM/Writer";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWMYear: &'static str = "WM/Year";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWatermarkCLSID: &'static str = "WatermarkCLSID";
+#[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_wszWatermarkConfig: &'static str = "WatermarkConfig";

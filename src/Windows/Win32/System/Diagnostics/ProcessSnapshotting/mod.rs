@@ -27,6 +27,7 @@ unsafe impl ::windows::runtime::Abi for HPSSWALK {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Diagnostics_ProcessSnapshotting`*"]
 pub struct PSS_ALLOCATOR {
     pub Context: *mut ::std::ffi::c_void,
     pub AllocRoutine: isize,
@@ -55,6 +56,7 @@ unsafe impl ::windows::runtime::Abi for PSS_ALLOCATOR {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Diagnostics_ProcessSnapshotting`*"]
 pub struct PSS_AUXILIARY_PAGES_INFORMATION {
     pub AuxPagesCaptured: u32,
 }
@@ -82,6 +84,7 @@ unsafe impl ::windows::runtime::Abi for PSS_AUXILIARY_PAGES_INFORMATION {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Memory"))]
+#[doc = "*Required features: `Win32_System_Diagnostics_ProcessSnapshotting`, `Win32_Foundation`, `Win32_System_Memory`*"]
 pub struct PSS_AUXILIARY_PAGE_ENTRY {
     pub Address: *mut ::std::ffi::c_void,
     pub BasicInformation: super::super::Memory::MEMORY_BASIC_INFORMATION,
@@ -116,6 +119,7 @@ unsafe impl ::windows::runtime::Abi for PSS_AUXILIARY_PAGE_ENTRY {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Diagnostics_ProcessSnapshotting`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PSS_CAPTURE_FLAGS(pub u32);
@@ -178,6 +182,7 @@ impl ::std::ops::Not for PSS_CAPTURE_FLAGS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_System_Diagnostics_ProcessSnapshotting`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PSS_DUPLICATE_FLAGS(pub u32);
@@ -223,6 +228,7 @@ impl ::std::ops::Not for PSS_DUPLICATE_FLAGS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Diagnostics_ProcessSnapshotting`, `Win32_Foundation`*"]
 pub struct PSS_HANDLE_ENTRY {
     pub Handle: super::super::super::Foundation::HANDLE,
     pub Flags: PSS_HANDLE_FLAGS,
@@ -265,6 +271,7 @@ unsafe impl ::windows::runtime::Abi for PSS_HANDLE_ENTRY {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Diagnostics_ProcessSnapshotting`, `Win32_Foundation`*"]
 pub union PSS_HANDLE_ENTRY_0 {
     pub Process: PSS_HANDLE_ENTRY_0_2,
     pub Thread: PSS_HANDLE_ENTRY_0_5,
@@ -297,6 +304,7 @@ unsafe impl ::windows::runtime::Abi for PSS_HANDLE_ENTRY_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Diagnostics_ProcessSnapshotting`, `Win32_Foundation`*"]
 pub struct PSS_HANDLE_ENTRY_0_0 {
     pub ManualReset: super::super::super::Foundation::BOOL,
     pub Signaled: super::super::super::Foundation::BOOL,
@@ -331,6 +339,7 @@ unsafe impl ::windows::runtime::Abi for PSS_HANDLE_ENTRY_0_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Diagnostics_ProcessSnapshotting`, `Win32_Foundation`*"]
 pub struct PSS_HANDLE_ENTRY_0_1 {
     pub CurrentCount: i32,
     pub Abandoned: super::super::super::Foundation::BOOL,
@@ -366,6 +375,7 @@ unsafe impl ::windows::runtime::Abi for PSS_HANDLE_ENTRY_0_1 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Diagnostics_ProcessSnapshotting`*"]
 pub struct PSS_HANDLE_ENTRY_0_2 {
     pub ExitStatus: u32,
     pub PebBaseAddress: *mut ::std::ffi::c_void,
@@ -406,6 +416,7 @@ unsafe impl ::windows::runtime::Abi for PSS_HANDLE_ENTRY_0_2 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Diagnostics_ProcessSnapshotting`*"]
 pub struct PSS_HANDLE_ENTRY_0_3 {
     pub BaseAddress: *mut ::std::ffi::c_void,
     pub AllocationAttributes: u32,
@@ -434,6 +445,7 @@ unsafe impl ::windows::runtime::Abi for PSS_HANDLE_ENTRY_0_3 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Diagnostics_ProcessSnapshotting`*"]
 pub struct PSS_HANDLE_ENTRY_0_4 {
     pub CurrentCount: i32,
     pub MaximumCount: i32,
@@ -461,6 +473,7 @@ unsafe impl ::windows::runtime::Abi for PSS_HANDLE_ENTRY_0_4 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Diagnostics_ProcessSnapshotting`*"]
 pub struct PSS_HANDLE_ENTRY_0_5 {
     pub ExitStatus: u32,
     pub TebBaseAddress: *mut ::std::ffi::c_void,
@@ -501,6 +514,7 @@ unsafe impl ::windows::runtime::Abi for PSS_HANDLE_ENTRY_0_5 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Diagnostics_ProcessSnapshotting`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PSS_HANDLE_FLAGS(pub u32);
@@ -548,6 +562,7 @@ impl ::std::ops::Not for PSS_HANDLE_FLAGS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Diagnostics_ProcessSnapshotting`*"]
 pub struct PSS_HANDLE_INFORMATION {
     pub HandlesCaptured: u32,
 }
@@ -575,6 +590,7 @@ unsafe impl ::windows::runtime::Abi for PSS_HANDLE_INFORMATION {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Diagnostics_ProcessSnapshotting`, `Win32_Foundation`*"]
 pub struct PSS_HANDLE_TRACE_INFORMATION {
     pub SectionHandle: super::super::super::Foundation::HANDLE,
     pub Size: u32,
@@ -606,6 +622,7 @@ unsafe impl ::windows::runtime::Abi for PSS_HANDLE_TRACE_INFORMATION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Diagnostics_ProcessSnapshotting`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PSS_OBJECT_TYPE(pub i32);
@@ -627,6 +644,7 @@ unsafe impl ::windows::runtime::Abi for PSS_OBJECT_TYPE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Diagnostics_ProcessSnapshotting`*"]
 pub struct PSS_PERFORMANCE_COUNTERS {
     pub TotalCycleCount: u64,
     pub TotalWallClockPeriod: u64,
@@ -686,7 +704,9 @@ unsafe impl ::windows::runtime::Abi for PSS_PERFORMANCE_COUNTERS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Diagnostics_ProcessSnapshotting`*"]
 pub const PSS_PERF_RESOLUTION: u32 = 1000000u32;
+#[doc = "*Required features: `Win32_System_Diagnostics_ProcessSnapshotting`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PSS_PROCESS_FLAGS(pub u32);
@@ -736,6 +756,7 @@ impl ::std::ops::Not for PSS_PROCESS_FLAGS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Diagnostics_ProcessSnapshotting`, `Win32_Foundation`*"]
 pub struct PSS_PROCESS_INFORMATION {
     pub ExitStatus: u32,
     pub PebBaseAddress: *mut ::std::ffi::c_void,
@@ -843,6 +864,7 @@ unsafe impl ::windows::runtime::Abi for PSS_PROCESS_INFORMATION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Diagnostics_ProcessSnapshotting`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PSS_QUERY_INFORMATION_CLASS(pub i32);
@@ -866,6 +888,7 @@ unsafe impl ::windows::runtime::Abi for PSS_QUERY_INFORMATION_CLASS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemServices"))]
+#[doc = "*Required features: `Win32_System_Diagnostics_ProcessSnapshotting`, `Win32_Foundation`, `Win32_System_Diagnostics_Debug`, `Win32_System_SystemServices`*"]
 pub struct PSS_THREAD_ENTRY {
     pub ExitStatus: u32,
     pub TebBaseAddress: *mut ::std::ffi::c_void,
@@ -952,6 +975,7 @@ unsafe impl ::windows::runtime::Abi for PSS_THREAD_ENTRY {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Diagnostics_ProcessSnapshotting`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PSS_THREAD_FLAGS(pub u32);
@@ -996,6 +1020,7 @@ impl ::std::ops::Not for PSS_THREAD_FLAGS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Diagnostics_ProcessSnapshotting`*"]
 pub struct PSS_THREAD_INFORMATION {
     pub ThreadsCaptured: u32,
     pub ContextLength: u32,
@@ -1024,6 +1049,7 @@ unsafe impl ::windows::runtime::Abi for PSS_THREAD_INFORMATION {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Diagnostics_ProcessSnapshotting`, `Win32_Foundation`*"]
 pub struct PSS_VA_CLONE_INFORMATION {
     pub VaCloneHandle: super::super::super::Foundation::HANDLE,
 }
@@ -1057,6 +1083,7 @@ unsafe impl ::windows::runtime::Abi for PSS_VA_CLONE_INFORMATION {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Diagnostics_ProcessSnapshotting`, `Win32_Foundation`*"]
 pub struct PSS_VA_SPACE_ENTRY {
     pub BaseAddress: *mut ::std::ffi::c_void,
     pub AllocationBase: *mut ::std::ffi::c_void,
@@ -1127,6 +1154,7 @@ unsafe impl ::windows::runtime::Abi for PSS_VA_SPACE_ENTRY {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Diagnostics_ProcessSnapshotting`*"]
 pub struct PSS_VA_SPACE_INFORMATION {
     pub RegionCount: u32,
 }
@@ -1151,6 +1179,7 @@ unsafe impl ::windows::runtime::Abi for PSS_VA_SPACE_INFORMATION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Diagnostics_ProcessSnapshotting`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PSS_WALK_INFORMATION_CLASS(pub i32);
@@ -1168,6 +1197,7 @@ unsafe impl ::windows::runtime::Abi for PSS_WALK_INFORMATION_CLASS {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Diagnostics_ProcessSnapshotting`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PssCaptureSnapshot<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(processhandle: Param0, captureflags: PSS_CAPTURE_FLAGS, threadcontextflags: u32, snapshothandle: *mut HPSS) -> u32 {
     #[cfg(windows)]
@@ -1182,6 +1212,7 @@ pub unsafe fn PssCaptureSnapshot<'a, Param0: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Diagnostics_ProcessSnapshotting`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PssDuplicateSnapshot<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, HPSS>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(sourceprocesshandle: Param0, snapshothandle: Param1, targetprocesshandle: Param2, targetsnapshothandle: *mut HPSS, flags: PSS_DUPLICATE_FLAGS) -> u32 {
     #[cfg(windows)]
@@ -1196,6 +1227,7 @@ pub unsafe fn PssDuplicateSnapshot<'a, Param0: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Diagnostics_ProcessSnapshotting`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PssFreeSnapshot<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, HPSS>>(processhandle: Param0, snapshothandle: Param1) -> u32 {
     #[cfg(windows)]
@@ -1209,6 +1241,7 @@ pub unsafe fn PssFreeSnapshot<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Diagnostics_ProcessSnapshotting`*"]
 #[inline]
 pub unsafe fn PssQuerySnapshot<'a, Param0: ::windows::runtime::IntoParam<'a, HPSS>>(snapshothandle: Param0, informationclass: PSS_QUERY_INFORMATION_CLASS, buffer: *mut ::std::ffi::c_void, bufferlength: u32) -> u32 {
     #[cfg(windows)]
@@ -1222,6 +1255,7 @@ pub unsafe fn PssQuerySnapshot<'a, Param0: ::windows::runtime::IntoParam<'a, HPS
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Diagnostics_ProcessSnapshotting`*"]
 #[inline]
 pub unsafe fn PssWalkMarkerCreate(allocator: *const PSS_ALLOCATOR, walkmarkerhandle: *mut HPSSWALK) -> u32 {
     #[cfg(windows)]
@@ -1235,6 +1269,7 @@ pub unsafe fn PssWalkMarkerCreate(allocator: *const PSS_ALLOCATOR, walkmarkerhan
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Diagnostics_ProcessSnapshotting`*"]
 #[inline]
 pub unsafe fn PssWalkMarkerFree<'a, Param0: ::windows::runtime::IntoParam<'a, HPSSWALK>>(walkmarkerhandle: Param0) -> u32 {
     #[cfg(windows)]
@@ -1248,6 +1283,7 @@ pub unsafe fn PssWalkMarkerFree<'a, Param0: ::windows::runtime::IntoParam<'a, HP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Diagnostics_ProcessSnapshotting`*"]
 #[inline]
 pub unsafe fn PssWalkMarkerGetPosition<'a, Param0: ::windows::runtime::IntoParam<'a, HPSSWALK>>(walkmarkerhandle: Param0, position: *mut usize) -> u32 {
     #[cfg(windows)]
@@ -1261,6 +1297,7 @@ pub unsafe fn PssWalkMarkerGetPosition<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Diagnostics_ProcessSnapshotting`*"]
 #[inline]
 pub unsafe fn PssWalkMarkerSeekToBeginning<'a, Param0: ::windows::runtime::IntoParam<'a, HPSSWALK>>(walkmarkerhandle: Param0) -> u32 {
     #[cfg(windows)]
@@ -1274,6 +1311,7 @@ pub unsafe fn PssWalkMarkerSeekToBeginning<'a, Param0: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Diagnostics_ProcessSnapshotting`*"]
 #[inline]
 pub unsafe fn PssWalkMarkerSetPosition<'a, Param0: ::windows::runtime::IntoParam<'a, HPSSWALK>>(walkmarkerhandle: Param0, position: usize) -> u32 {
     #[cfg(windows)]
@@ -1287,6 +1325,7 @@ pub unsafe fn PssWalkMarkerSetPosition<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Diagnostics_ProcessSnapshotting`*"]
 #[inline]
 pub unsafe fn PssWalkSnapshot<'a, Param0: ::windows::runtime::IntoParam<'a, HPSS>, Param2: ::windows::runtime::IntoParam<'a, HPSSWALK>>(snapshothandle: Param0, informationclass: PSS_WALK_INFORMATION_CLASS, walkmarkerhandle: Param2, buffer: *mut ::std::ffi::c_void, bufferlength: u32) -> u32 {
     #[cfg(windows)]

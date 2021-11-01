@@ -290,10 +290,12 @@ pub struct IVoiceCommandUserMessage_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `ApplicationModel_VoiceCommands`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct VoiceCommand(::windows::runtime::IInspectable);
 impl VoiceCommand {
+    #[doc = "*Required features: `ApplicationModel_VoiceCommands`*"]
     pub fn CommandName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -302,6 +304,7 @@ impl VoiceCommand {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_VoiceCommands`, `Foundation_Collections`*"]
     pub fn Properties(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>>> {
         let this = self;
         unsafe {
@@ -310,6 +313,7 @@ impl VoiceCommand {
         }
     }
     #[cfg(feature = "Media_SpeechRecognition")]
+    #[doc = "*Required features: `ApplicationModel_VoiceCommands`, `Media_SpeechRecognition`*"]
     pub fn SpeechRecognitionResult(&self) -> ::windows::runtime::Result<super::super::Media::SpeechRecognition::SpeechRecognitionResult> {
         let this = self;
         unsafe {
@@ -370,10 +374,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for VoiceCommand {}
 unsafe impl ::std::marker::Sync for VoiceCommand {}
+#[doc = "*Required features: `ApplicationModel_VoiceCommands`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct VoiceCommandCompletedEventArgs(::windows::runtime::IInspectable);
 impl VoiceCommandCompletedEventArgs {
+    #[doc = "*Required features: `ApplicationModel_VoiceCommands`*"]
     pub fn Reason(&self) -> ::windows::runtime::Result<VoiceCommandCompletionReason> {
         let this = self;
         unsafe {
@@ -434,6 +440,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for VoiceCommandCompletedEventArgs {}
 unsafe impl ::std::marker::Sync for VoiceCommandCompletedEventArgs {}
+#[doc = "*Required features: `ApplicationModel_VoiceCommands`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct VoiceCommandCompletionReason(pub i32);
@@ -458,10 +465,12 @@ unsafe impl ::windows::runtime::Abi for VoiceCommandCompletionReason {
 unsafe impl ::windows::runtime::RuntimeType for VoiceCommandCompletionReason {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.VoiceCommands.VoiceCommandCompletionReason;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_VoiceCommands`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct VoiceCommandConfirmationResult(::windows::runtime::IInspectable);
 impl VoiceCommandConfirmationResult {
+    #[doc = "*Required features: `ApplicationModel_VoiceCommands`*"]
     pub fn Confirmed(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -522,6 +531,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for VoiceCommandConfirmationResult {}
 unsafe impl ::std::marker::Sync for VoiceCommandConfirmationResult {}
+#[doc = "*Required features: `ApplicationModel_VoiceCommands`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct VoiceCommandContentTile(::windows::runtime::IInspectable);
@@ -533,6 +543,7 @@ impl VoiceCommandContentTile {
         static mut SHARED: ::windows::runtime::FactoryCache<VoiceCommandContentTile, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `ApplicationModel_VoiceCommands`*"]
     pub fn Title(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -540,10 +551,12 @@ impl VoiceCommandContentTile {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_VoiceCommands`*"]
     pub fn SetTitle<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_VoiceCommands`*"]
     pub fn TextLine1(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -551,10 +564,12 @@ impl VoiceCommandContentTile {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_VoiceCommands`*"]
     pub fn SetTextLine1<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_VoiceCommands`*"]
     pub fn TextLine2(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -562,10 +577,12 @@ impl VoiceCommandContentTile {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_VoiceCommands`*"]
     pub fn SetTextLine2<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_VoiceCommands`*"]
     pub fn TextLine3(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -573,11 +590,13 @@ impl VoiceCommandContentTile {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_VoiceCommands`*"]
     pub fn SetTextLine3<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Storage")]
+    #[doc = "*Required features: `ApplicationModel_VoiceCommands`, `Storage`*"]
     pub fn Image(&self) -> ::windows::runtime::Result<super::super::Storage::IStorageFile> {
         let this = self;
         unsafe {
@@ -586,10 +605,12 @@ impl VoiceCommandContentTile {
         }
     }
     #[cfg(feature = "Storage")]
+    #[doc = "*Required features: `ApplicationModel_VoiceCommands`, `Storage`*"]
     pub fn SetImage<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::IStorageFile>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_VoiceCommands`*"]
     pub fn AppContext(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = self;
         unsafe {
@@ -597,10 +618,12 @@ impl VoiceCommandContentTile {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_VoiceCommands`*"]
     pub fn SetAppContext<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_VoiceCommands`*"]
     pub fn AppLaunchArgument(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -608,10 +631,12 @@ impl VoiceCommandContentTile {
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_VoiceCommands`*"]
     pub fn SetAppLaunchArgument<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_VoiceCommands`*"]
     pub fn ContentTileType(&self) -> ::windows::runtime::Result<VoiceCommandContentTileType> {
         let this = self;
         unsafe {
@@ -619,6 +644,7 @@ impl VoiceCommandContentTile {
             (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), &mut result__).from_abi::<VoiceCommandContentTileType>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_VoiceCommands`*"]
     pub fn SetContentTileType(&self, value: VoiceCommandContentTileType) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), value).ok() }
@@ -676,6 +702,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for VoiceCommandContentTile {}
 unsafe impl ::std::marker::Sync for VoiceCommandContentTile {}
+#[doc = "*Required features: `ApplicationModel_VoiceCommands`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct VoiceCommandContentTileType(pub i32);
@@ -701,10 +728,12 @@ unsafe impl ::windows::runtime::Abi for VoiceCommandContentTileType {
 unsafe impl ::windows::runtime::RuntimeType for VoiceCommandContentTileType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.VoiceCommands.VoiceCommandContentTileType;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_VoiceCommands`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct VoiceCommandDefinition(::windows::runtime::IInspectable);
 impl VoiceCommandDefinition {
+    #[doc = "*Required features: `ApplicationModel_VoiceCommands`*"]
     pub fn Language(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -712,6 +741,7 @@ impl VoiceCommandDefinition {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_VoiceCommands`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -720,6 +750,7 @@ impl VoiceCommandDefinition {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `ApplicationModel_VoiceCommands`, `Foundation`, `Foundation_Collections`*"]
     pub fn SetPhraseListAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>>(&self, phraselistname: Param0, phraselist: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -780,9 +811,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for VoiceCommandDefinition {}
 unsafe impl ::std::marker::Sync for VoiceCommandDefinition {}
+#[doc = "*Required features: `ApplicationModel_VoiceCommands`*"]
 pub struct VoiceCommandDefinitionManager {}
 impl VoiceCommandDefinitionManager {
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
+    #[doc = "*Required features: `ApplicationModel_VoiceCommands`, `Foundation`, `Storage`*"]
     pub fn InstallCommandDefinitionsFromStorageFileAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::StorageFile>>(file: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         Self::IVoiceCommandDefinitionManagerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -790,6 +823,7 @@ impl VoiceCommandDefinitionManager {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_VoiceCommands`, `Foundation_Collections`*"]
     pub fn InstalledCommandDefinitions() -> ::windows::runtime::Result<super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, VoiceCommandDefinition>> {
         Self::IVoiceCommandDefinitionManagerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -804,10 +838,12 @@ impl VoiceCommandDefinitionManager {
 impl ::windows::runtime::RuntimeName for VoiceCommandDefinitionManager {
     const NAME: &'static str = "Windows.ApplicationModel.VoiceCommands.VoiceCommandDefinitionManager";
 }
+#[doc = "*Required features: `ApplicationModel_VoiceCommands`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct VoiceCommandDisambiguationResult(::windows::runtime::IInspectable);
 impl VoiceCommandDisambiguationResult {
+    #[doc = "*Required features: `ApplicationModel_VoiceCommands`*"]
     pub fn SelectedItem(&self) -> ::windows::runtime::Result<VoiceCommandContentTile> {
         let this = self;
         unsafe {
@@ -868,10 +904,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for VoiceCommandDisambiguationResult {}
 unsafe impl ::std::marker::Sync for VoiceCommandDisambiguationResult {}
+#[doc = "*Required features: `ApplicationModel_VoiceCommands`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct VoiceCommandResponse(::windows::runtime::IInspectable);
 impl VoiceCommandResponse {
+    #[doc = "*Required features: `ApplicationModel_VoiceCommands`*"]
     pub fn Message(&self) -> ::windows::runtime::Result<VoiceCommandUserMessage> {
         let this = self;
         unsafe {
@@ -879,10 +917,12 @@ impl VoiceCommandResponse {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<VoiceCommandUserMessage>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_VoiceCommands`*"]
     pub fn SetMessage<'a, Param0: ::windows::runtime::IntoParam<'a, VoiceCommandUserMessage>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_VoiceCommands`*"]
     pub fn RepeatMessage(&self) -> ::windows::runtime::Result<VoiceCommandUserMessage> {
         let this = self;
         unsafe {
@@ -890,10 +930,12 @@ impl VoiceCommandResponse {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<VoiceCommandUserMessage>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_VoiceCommands`*"]
     pub fn SetRepeatMessage<'a, Param0: ::windows::runtime::IntoParam<'a, VoiceCommandUserMessage>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_VoiceCommands`*"]
     pub fn AppLaunchArgument(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -901,11 +943,13 @@ impl VoiceCommandResponse {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_VoiceCommands`*"]
     pub fn SetAppLaunchArgument<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_VoiceCommands`, `Foundation_Collections`*"]
     pub fn VoiceCommandContentTiles(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<VoiceCommandContentTile>> {
         let this = self;
         unsafe {
@@ -913,12 +957,14 @@ impl VoiceCommandResponse {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<VoiceCommandContentTile>>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_VoiceCommands`*"]
     pub fn MaxSupportedVoiceCommandContentTiles() -> ::windows::runtime::Result<u32> {
         Self::IVoiceCommandResponseStatics(|this| unsafe {
             let mut result__: u32 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: `ApplicationModel_VoiceCommands`*"]
     pub fn CreateResponse<'a, Param0: ::windows::runtime::IntoParam<'a, VoiceCommandUserMessage>>(usermessage: Param0) -> ::windows::runtime::Result<VoiceCommandResponse> {
         Self::IVoiceCommandResponseStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -926,12 +972,14 @@ impl VoiceCommandResponse {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_VoiceCommands`, `Foundation_Collections`*"]
     pub fn CreateResponseWithTiles<'a, Param0: ::windows::runtime::IntoParam<'a, VoiceCommandUserMessage>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<VoiceCommandContentTile>>>(message: Param0, contenttiles: Param1) -> ::windows::runtime::Result<VoiceCommandResponse> {
         Self::IVoiceCommandResponseStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), message.into_param().abi(), contenttiles.into_param().abi(), &mut result__).from_abi::<VoiceCommandResponse>(result__)
         })
     }
+    #[doc = "*Required features: `ApplicationModel_VoiceCommands`*"]
     pub fn CreateResponseForPrompt<'a, Param0: ::windows::runtime::IntoParam<'a, VoiceCommandUserMessage>, Param1: ::windows::runtime::IntoParam<'a, VoiceCommandUserMessage>>(message: Param0, repeatmessage: Param1) -> ::windows::runtime::Result<VoiceCommandResponse> {
         Self::IVoiceCommandResponseStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -939,6 +987,7 @@ impl VoiceCommandResponse {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_VoiceCommands`, `Foundation_Collections`*"]
     pub fn CreateResponseForPromptWithTiles<'a, Param0: ::windows::runtime::IntoParam<'a, VoiceCommandUserMessage>, Param1: ::windows::runtime::IntoParam<'a, VoiceCommandUserMessage>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<VoiceCommandContentTile>>>(message: Param0, repeatmessage: Param1, contenttiles: Param2) -> ::windows::runtime::Result<VoiceCommandResponse> {
         Self::IVoiceCommandResponseStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1002,11 +1051,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for VoiceCommandResponse {}
 unsafe impl ::std::marker::Sync for VoiceCommandResponse {}
+#[doc = "*Required features: `ApplicationModel_VoiceCommands`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct VoiceCommandServiceConnection(::windows::runtime::IInspectable);
 impl VoiceCommandServiceConnection {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_VoiceCommands`, `Foundation`*"]
     pub fn GetVoiceCommandAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<VoiceCommand>> {
         let this = self;
         unsafe {
@@ -1015,6 +1066,7 @@ impl VoiceCommandServiceConnection {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_VoiceCommands`, `Foundation`*"]
     pub fn RequestConfirmationAsync<'a, Param0: ::windows::runtime::IntoParam<'a, VoiceCommandResponse>>(&self, response: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<VoiceCommandConfirmationResult>> {
         let this = self;
         unsafe {
@@ -1023,6 +1075,7 @@ impl VoiceCommandServiceConnection {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_VoiceCommands`, `Foundation`*"]
     pub fn RequestDisambiguationAsync<'a, Param0: ::windows::runtime::IntoParam<'a, VoiceCommandResponse>>(&self, response: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<VoiceCommandDisambiguationResult>> {
         let this = self;
         unsafe {
@@ -1031,6 +1084,7 @@ impl VoiceCommandServiceConnection {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_VoiceCommands`, `Foundation`*"]
     pub fn ReportProgressAsync<'a, Param0: ::windows::runtime::IntoParam<'a, VoiceCommandResponse>>(&self, response: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -1039,6 +1093,7 @@ impl VoiceCommandServiceConnection {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_VoiceCommands`, `Foundation`*"]
     pub fn ReportSuccessAsync<'a, Param0: ::windows::runtime::IntoParam<'a, VoiceCommandResponse>>(&self, response: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -1047,6 +1102,7 @@ impl VoiceCommandServiceConnection {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_VoiceCommands`, `Foundation`*"]
     pub fn ReportFailureAsync<'a, Param0: ::windows::runtime::IntoParam<'a, VoiceCommandResponse>>(&self, response: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -1055,6 +1111,7 @@ impl VoiceCommandServiceConnection {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_VoiceCommands`, `Foundation`*"]
     pub fn RequestAppLaunchAsync<'a, Param0: ::windows::runtime::IntoParam<'a, VoiceCommandResponse>>(&self, response: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -1063,6 +1120,7 @@ impl VoiceCommandServiceConnection {
         }
     }
     #[cfg(feature = "Globalization")]
+    #[doc = "*Required features: `ApplicationModel_VoiceCommands`, `Globalization`*"]
     pub fn Language(&self) -> ::windows::runtime::Result<super::super::Globalization::Language> {
         let this = self;
         unsafe {
@@ -1071,6 +1129,7 @@ impl VoiceCommandServiceConnection {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_VoiceCommands`, `Foundation`*"]
     pub fn VoiceCommandCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<VoiceCommandServiceConnection, VoiceCommandCompletedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1079,11 +1138,13 @@ impl VoiceCommandServiceConnection {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_VoiceCommands`, `Foundation`*"]
     pub fn RemoveVoiceCommandCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "ApplicationModel_AppService")]
+    #[doc = "*Required features: `ApplicationModel_VoiceCommands`, `ApplicationModel_AppService`*"]
     pub fn FromAppServiceTriggerDetails<'a, Param0: ::windows::runtime::IntoParam<'a, super::AppService::AppServiceTriggerDetails>>(triggerdetails: Param0) -> ::windows::runtime::Result<VoiceCommandServiceConnection> {
         Self::IVoiceCommandServiceConnectionStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1147,6 +1208,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for VoiceCommandServiceConnection {}
 unsafe impl ::std::marker::Sync for VoiceCommandServiceConnection {}
+#[doc = "*Required features: `ApplicationModel_VoiceCommands`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct VoiceCommandUserMessage(::windows::runtime::IInspectable);
@@ -1158,6 +1220,7 @@ impl VoiceCommandUserMessage {
         static mut SHARED: ::windows::runtime::FactoryCache<VoiceCommandUserMessage, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `ApplicationModel_VoiceCommands`*"]
     pub fn DisplayMessage(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1165,10 +1228,12 @@ impl VoiceCommandUserMessage {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_VoiceCommands`*"]
     pub fn SetDisplayMessage<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_VoiceCommands`*"]
     pub fn SpokenMessage(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1176,6 +1241,7 @@ impl VoiceCommandUserMessage {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_VoiceCommands`*"]
     pub fn SetSpokenMessage<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }

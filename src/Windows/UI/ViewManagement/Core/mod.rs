@@ -1,9 +1,11 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `UI_ViewManagement_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CoreFrameworkInputView(::windows::runtime::IInspectable);
 impl CoreFrameworkInputView {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_ViewManagement_Core`, `Foundation`*"]
     pub fn PrimaryViewAnimationStarting<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<CoreFrameworkInputView, CoreFrameworkInputViewAnimationStartingEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -12,11 +14,13 @@ impl CoreFrameworkInputView {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_ViewManagement_Core`, `Foundation`*"]
     pub fn RemovePrimaryViewAnimationStarting<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_ViewManagement_Core`, `Foundation`*"]
     pub fn OcclusionsChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<CoreFrameworkInputView, CoreFrameworkInputViewOcclusionsChangedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -25,16 +29,19 @@ impl CoreFrameworkInputView {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_ViewManagement_Core`, `Foundation`*"]
     pub fn RemoveOcclusionsChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_ViewManagement_Core`*"]
     pub fn GetForUIContext<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::UIContext>>(context: Param0) -> ::windows::runtime::Result<CoreFrameworkInputView> {
         Self::ICoreFrameworkInputViewStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), context.into_param().abi(), &mut result__).from_abi::<CoreFrameworkInputView>(result__)
         })
     }
+    #[doc = "*Required features: `UI_ViewManagement_Core`*"]
     pub fn GetForCurrentView() -> ::windows::runtime::Result<CoreFrameworkInputView> {
         Self::ICoreFrameworkInputViewStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -98,11 +105,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for CoreFrameworkInputView {}
 unsafe impl ::std::marker::Sync for CoreFrameworkInputView {}
+#[doc = "*Required features: `UI_ViewManagement_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CoreFrameworkInputViewAnimationStartingEventArgs(::windows::runtime::IInspectable);
 impl CoreFrameworkInputViewAnimationStartingEventArgs {
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_ViewManagement_Core`, `Foundation_Collections`*"]
     pub fn Occlusions(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<CoreInputViewOcclusion>> {
         let this = self;
         unsafe {
@@ -110,6 +119,7 @@ impl CoreFrameworkInputViewAnimationStartingEventArgs {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<CoreInputViewOcclusion>>(result__)
         }
     }
+    #[doc = "*Required features: `UI_ViewManagement_Core`*"]
     pub fn FrameworkAnimationRecommended(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -118,6 +128,7 @@ impl CoreFrameworkInputViewAnimationStartingEventArgs {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_ViewManagement_Core`, `Foundation`*"]
     pub fn AnimationDuration(&self) -> ::windows::runtime::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -178,11 +189,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for CoreFrameworkInputViewAnimationStartingEventArgs {}
 unsafe impl ::std::marker::Sync for CoreFrameworkInputViewAnimationStartingEventArgs {}
+#[doc = "*Required features: `UI_ViewManagement_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CoreFrameworkInputViewOcclusionsChangedEventArgs(::windows::runtime::IInspectable);
 impl CoreFrameworkInputViewOcclusionsChangedEventArgs {
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_ViewManagement_Core`, `Foundation_Collections`*"]
     pub fn Occlusions(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<CoreInputViewOcclusion>> {
         let this = self;
         unsafe {
@@ -190,6 +203,7 @@ impl CoreFrameworkInputViewOcclusionsChangedEventArgs {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<CoreInputViewOcclusion>>(result__)
         }
     }
+    #[doc = "*Required features: `UI_ViewManagement_Core`*"]
     pub fn Handled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -250,11 +264,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for CoreFrameworkInputViewOcclusionsChangedEventArgs {}
 unsafe impl ::std::marker::Sync for CoreFrameworkInputViewOcclusionsChangedEventArgs {}
+#[doc = "*Required features: `UI_ViewManagement_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CoreInputView(::windows::runtime::IInspectable);
 impl CoreInputView {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_ViewManagement_Core`, `Foundation`*"]
     pub fn OcclusionsChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<CoreInputView, CoreInputViewOcclusionsChangedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -263,11 +279,13 @@ impl CoreInputView {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_ViewManagement_Core`, `Foundation`*"]
     pub fn RemoveOcclusionsChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_ViewManagement_Core`, `Foundation_Collections`*"]
     pub fn GetCoreInputViewOcclusions(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<CoreInputViewOcclusion>> {
         let this = self;
         unsafe {
@@ -275,6 +293,7 @@ impl CoreInputView {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<CoreInputViewOcclusion>>(result__)
         }
     }
+    #[doc = "*Required features: `UI_ViewManagement_Core`*"]
     pub fn TryShowPrimaryView(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -282,6 +301,7 @@ impl CoreInputView {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_ViewManagement_Core`*"]
     pub fn TryHidePrimaryView(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -289,6 +309,7 @@ impl CoreInputView {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_ViewManagement_Core`*"]
     pub fn GetForCurrentView() -> ::windows::runtime::Result<CoreInputView> {
         Self::ICoreInputViewStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -296,6 +317,7 @@ impl CoreInputView {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_ViewManagement_Core`, `Foundation`*"]
     pub fn XYFocusTransferringFromPrimaryView<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<CoreInputView, CoreInputViewTransferringXYFocusEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<ICoreInputView2>(self)?;
         unsafe {
@@ -304,11 +326,13 @@ impl CoreInputView {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_ViewManagement_Core`, `Foundation`*"]
     pub fn RemoveXYFocusTransferringFromPrimaryView<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ICoreInputView2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_ViewManagement_Core`, `Foundation`*"]
     pub fn XYFocusTransferredToPrimaryView<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<CoreInputView, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<ICoreInputView2>(self)?;
         unsafe {
@@ -317,11 +341,13 @@ impl CoreInputView {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_ViewManagement_Core`, `Foundation`*"]
     pub fn RemoveXYFocusTransferredToPrimaryView<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ICoreInputView2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_ViewManagement_Core`, `Foundation`*"]
     pub fn TryTransferXYFocusToPrimaryView<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Rect>>(&self, origin: Param0, direction: CoreInputViewXYFocusTransferDirection) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ICoreInputView2>(self)?;
         unsafe {
@@ -329,6 +355,7 @@ impl CoreInputView {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), origin.into_param().abi(), direction, &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_ViewManagement_Core`*"]
     pub fn TryShow(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ICoreInputView3>(self)?;
         unsafe {
@@ -336,6 +363,7 @@ impl CoreInputView {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_ViewManagement_Core`*"]
     pub fn TryShowWithKind(&self, r#type: CoreInputViewKind) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ICoreInputView3>(self)?;
         unsafe {
@@ -343,6 +371,7 @@ impl CoreInputView {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), r#type, &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_ViewManagement_Core`*"]
     pub fn TryHide(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ICoreInputView3>(self)?;
         unsafe {
@@ -350,6 +379,7 @@ impl CoreInputView {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_ViewManagement_Core`*"]
     pub fn GetForUIContext<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::UIContext>>(context: Param0) -> ::windows::runtime::Result<CoreInputView> {
         Self::ICoreInputViewStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -357,6 +387,7 @@ impl CoreInputView {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_ViewManagement_Core`, `Foundation`*"]
     pub fn PrimaryViewShowing<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<CoreInputView, CoreInputViewShowingEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<ICoreInputView4>(self)?;
         unsafe {
@@ -365,11 +396,13 @@ impl CoreInputView {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_ViewManagement_Core`, `Foundation`*"]
     pub fn RemovePrimaryViewShowing<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ICoreInputView4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_ViewManagement_Core`, `Foundation`*"]
     pub fn PrimaryViewHiding<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<CoreInputView, CoreInputViewHidingEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<ICoreInputView4>(self)?;
         unsafe {
@@ -378,10 +411,12 @@ impl CoreInputView {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_ViewManagement_Core`, `Foundation`*"]
     pub fn RemovePrimaryViewHiding<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ICoreInputView4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_ViewManagement_Core`*"]
     pub fn IsKindSupported(&self, r#type: CoreInputViewKind) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ICoreInputView5>(self)?;
         unsafe {
@@ -390,6 +425,7 @@ impl CoreInputView {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_ViewManagement_Core`, `Foundation`*"]
     pub fn SupportedKindsChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<CoreInputView, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<ICoreInputView5>(self)?;
         unsafe {
@@ -398,11 +434,13 @@ impl CoreInputView {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_ViewManagement_Core`, `Foundation`*"]
     pub fn RemoveSupportedKindsChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ICoreInputView5>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_ViewManagement_Core`, `Foundation`*"]
     pub fn PrimaryViewAnimationStarting<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<CoreInputView, CoreInputViewAnimationStartingEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<ICoreInputView5>(self)?;
         unsafe {
@@ -411,6 +449,7 @@ impl CoreInputView {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_ViewManagement_Core`, `Foundation`*"]
     pub fn RemovePrimaryViewAnimationStarting<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ICoreInputView5>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
@@ -476,11 +515,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for CoreInputView {}
 unsafe impl ::std::marker::Sync for CoreInputView {}
+#[doc = "*Required features: `UI_ViewManagement_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CoreInputViewAnimationStartingEventArgs(::windows::runtime::IInspectable);
 impl CoreInputViewAnimationStartingEventArgs {
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_ViewManagement_Core`, `Foundation_Collections`*"]
     pub fn Occlusions(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<CoreInputViewOcclusion>> {
         let this = self;
         unsafe {
@@ -488,6 +529,7 @@ impl CoreInputViewAnimationStartingEventArgs {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<CoreInputViewOcclusion>>(result__)
         }
     }
+    #[doc = "*Required features: `UI_ViewManagement_Core`*"]
     pub fn Handled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -495,11 +537,13 @@ impl CoreInputViewAnimationStartingEventArgs {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_ViewManagement_Core`*"]
     pub fn SetHandled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_ViewManagement_Core`, `Foundation`*"]
     pub fn AnimationDuration(&self) -> ::windows::runtime::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -560,10 +604,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for CoreInputViewAnimationStartingEventArgs {}
 unsafe impl ::std::marker::Sync for CoreInputViewAnimationStartingEventArgs {}
+#[doc = "*Required features: `UI_ViewManagement_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CoreInputViewHidingEventArgs(::windows::runtime::IInspectable);
 impl CoreInputViewHidingEventArgs {
+    #[doc = "*Required features: `UI_ViewManagement_Core`*"]
     pub fn TryCancel(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -624,6 +670,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for CoreInputViewHidingEventArgs {}
 unsafe impl ::std::marker::Sync for CoreInputViewHidingEventArgs {}
+#[doc = "*Required features: `UI_ViewManagement_Core`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CoreInputViewKind(pub i32);
@@ -648,11 +695,13 @@ unsafe impl ::windows::runtime::Abi for CoreInputViewKind {
 unsafe impl ::windows::runtime::RuntimeType for CoreInputViewKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.Core.CoreInputViewKind;i4)");
 }
+#[doc = "*Required features: `UI_ViewManagement_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CoreInputViewOcclusion(::windows::runtime::IInspectable);
 impl CoreInputViewOcclusion {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_ViewManagement_Core`, `Foundation`*"]
     pub fn OccludingRect(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Rect> {
         let this = self;
         unsafe {
@@ -660,6 +709,7 @@ impl CoreInputViewOcclusion {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Rect>(result__)
         }
     }
+    #[doc = "*Required features: `UI_ViewManagement_Core`*"]
     pub fn OcclusionKind(&self) -> ::windows::runtime::Result<CoreInputViewOcclusionKind> {
         let this = self;
         unsafe {
@@ -720,6 +770,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for CoreInputViewOcclusion {}
 unsafe impl ::std::marker::Sync for CoreInputViewOcclusion {}
+#[doc = "*Required features: `UI_ViewManagement_Core`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CoreInputViewOcclusionKind(pub i32);
@@ -740,11 +791,13 @@ unsafe impl ::windows::runtime::Abi for CoreInputViewOcclusionKind {
 unsafe impl ::windows::runtime::RuntimeType for CoreInputViewOcclusionKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.Core.CoreInputViewOcclusionKind;i4)");
 }
+#[doc = "*Required features: `UI_ViewManagement_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CoreInputViewOcclusionsChangedEventArgs(::windows::runtime::IInspectable);
 impl CoreInputViewOcclusionsChangedEventArgs {
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_ViewManagement_Core`, `Foundation_Collections`*"]
     pub fn Occlusions(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<CoreInputViewOcclusion>> {
         let this = self;
         unsafe {
@@ -752,6 +805,7 @@ impl CoreInputViewOcclusionsChangedEventArgs {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<CoreInputViewOcclusion>>(result__)
         }
     }
+    #[doc = "*Required features: `UI_ViewManagement_Core`*"]
     pub fn Handled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -759,6 +813,7 @@ impl CoreInputViewOcclusionsChangedEventArgs {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_ViewManagement_Core`*"]
     pub fn SetHandled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value).ok() }
@@ -816,10 +871,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for CoreInputViewOcclusionsChangedEventArgs {}
 unsafe impl ::std::marker::Sync for CoreInputViewOcclusionsChangedEventArgs {}
+#[doc = "*Required features: `UI_ViewManagement_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CoreInputViewShowingEventArgs(::windows::runtime::IInspectable);
 impl CoreInputViewShowingEventArgs {
+    #[doc = "*Required features: `UI_ViewManagement_Core`*"]
     pub fn TryCancel(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -880,11 +937,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for CoreInputViewShowingEventArgs {}
 unsafe impl ::std::marker::Sync for CoreInputViewShowingEventArgs {}
+#[doc = "*Required features: `UI_ViewManagement_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CoreInputViewTransferringXYFocusEventArgs(::windows::runtime::IInspectable);
 impl CoreInputViewTransferringXYFocusEventArgs {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_ViewManagement_Core`, `Foundation`*"]
     pub fn Origin(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Rect> {
         let this = self;
         unsafe {
@@ -892,6 +951,7 @@ impl CoreInputViewTransferringXYFocusEventArgs {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Rect>(result__)
         }
     }
+    #[doc = "*Required features: `UI_ViewManagement_Core`*"]
     pub fn Direction(&self) -> ::windows::runtime::Result<CoreInputViewXYFocusTransferDirection> {
         let this = self;
         unsafe {
@@ -899,10 +959,12 @@ impl CoreInputViewTransferringXYFocusEventArgs {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<CoreInputViewXYFocusTransferDirection>(result__)
         }
     }
+    #[doc = "*Required features: `UI_ViewManagement_Core`*"]
     pub fn SetTransferHandled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_ViewManagement_Core`*"]
     pub fn TransferHandled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -910,10 +972,12 @@ impl CoreInputViewTransferringXYFocusEventArgs {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_ViewManagement_Core`*"]
     pub fn SetKeepPrimaryViewVisible(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_ViewManagement_Core`*"]
     pub fn KeepPrimaryViewVisible(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -974,6 +1038,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for CoreInputViewTransferringXYFocusEventArgs {}
 unsafe impl ::std::marker::Sync for CoreInputViewTransferringXYFocusEventArgs {}
+#[doc = "*Required features: `UI_ViewManagement_Core`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CoreInputViewXYFocusTransferDirection(pub i32);
@@ -1424,31 +1489,38 @@ pub struct IUISettingsControllerStatics_abi(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: `UI_ViewManagement_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct UISettingsController(::windows::runtime::IInspectable);
 impl UISettingsController {
+    #[doc = "*Required features: `UI_ViewManagement_Core`*"]
     pub fn SetAdvancedEffectsEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_ViewManagement_Core`*"]
     pub fn SetAnimationsEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_ViewManagement_Core`*"]
     pub fn SetAutoHideScrollBars(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_ViewManagement_Core`*"]
     pub fn SetMessageDuration(&self, value: u32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_ViewManagement_Core`*"]
     pub fn SetTextScaleFactor(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_ViewManagement_Core`, `Foundation`*"]
     pub fn RequestDefaultAsync() -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<UISettingsController>> {
         Self::IUISettingsControllerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();

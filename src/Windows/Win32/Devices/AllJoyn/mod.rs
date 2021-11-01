@@ -1,40 +1,76 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 pub const ALLJOYN_BIG_ENDIAN: u8 = 66u8;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 pub const ALLJOYN_CRED_CERT_CHAIN: u16 = 4u16;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 pub const ALLJOYN_CRED_EXPIRATION: u16 = 32u16;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 pub const ALLJOYN_CRED_LOGON_ENTRY: u16 = 16u16;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 pub const ALLJOYN_CRED_NEW_PASSWORD: u16 = 4097u16;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 pub const ALLJOYN_CRED_ONE_TIME_PWD: u16 = 8193u16;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 pub const ALLJOYN_CRED_PASSWORD: u16 = 1u16;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 pub const ALLJOYN_CRED_PRIVATE_KEY: u16 = 8u16;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 pub const ALLJOYN_CRED_USER_NAME: u16 = 2u16;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 pub const ALLJOYN_DISCONNECTED: u32 = 4u32;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 pub const ALLJOYN_LITTLE_ENDIAN: u8 = 108u8;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 pub const ALLJOYN_MEMBER_ANNOTATE_DEPRECATED: u8 = 2u8;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 pub const ALLJOYN_MEMBER_ANNOTATE_GLOBAL_BROADCAST: u8 = 32u8;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 pub const ALLJOYN_MEMBER_ANNOTATE_NO_REPLY: u8 = 1u8;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 pub const ALLJOYN_MEMBER_ANNOTATE_SESSIONCAST: u8 = 4u8;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 pub const ALLJOYN_MEMBER_ANNOTATE_SESSIONLESS: u8 = 8u8;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 pub const ALLJOYN_MEMBER_ANNOTATE_UNICAST: u8 = 16u8;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 pub const ALLJOYN_MESSAGE_DEFAULT_TIMEOUT: u32 = 25000u32;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 pub const ALLJOYN_MESSAGE_FLAG_ALLOW_REMOTE_MSG: u32 = 4u32;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 pub const ALLJOYN_MESSAGE_FLAG_AUTO_START: u32 = 2u32;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 pub const ALLJOYN_MESSAGE_FLAG_ENCRYPTED: u32 = 128u32;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 pub const ALLJOYN_MESSAGE_FLAG_GLOBAL_BROADCAST: u32 = 32u32;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 pub const ALLJOYN_MESSAGE_FLAG_NO_REPLY_EXPECTED: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 pub const ALLJOYN_MESSAGE_FLAG_SESSIONLESS: u32 = 16u32;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 pub const ALLJOYN_PROP_ACCESS_READ: u8 = 1u8;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 pub const ALLJOYN_PROP_ACCESS_RW: u8 = 3u8;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 pub const ALLJOYN_PROP_ACCESS_WRITE: u8 = 2u8;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 pub const ALLJOYN_PROXIMITY_ANY: u32 = 255u32;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 pub const ALLJOYN_PROXIMITY_NETWORK: u32 = 2u32;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 pub const ALLJOYN_PROXIMITY_PHYSICAL: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 pub const ALLJOYN_READ_READY: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 pub const ALLJOYN_TRAFFIC_TYPE_MESSAGES: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 pub const ALLJOYN_TRAFFIC_TYPE_RAW_RELIABLE: u32 = 4u32;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 pub const ALLJOYN_TRAFFIC_TYPE_RAW_UNRELIABLE: u32 = 2u32;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 pub const ALLJOYN_WRITE_READY: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn AllJoynAcceptBusConnection<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(serverbushandle: Param0, abortevent: Param1) -> u32 {
     #[cfg(windows)]
@@ -49,6 +85,7 @@ pub unsafe fn AllJoynAcceptBusConnection<'a, Param0: ::windows::runtime::IntoPar
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn AllJoynCloseBusHandle<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(bushandle: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -63,6 +100,7 @@ pub unsafe fn AllJoynCloseBusHandle<'a, Param0: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn AllJoynConnectToBus<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(connectionspec: Param0) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
@@ -77,6 +115,7 @@ pub unsafe fn AllJoynConnectToBus<'a, Param0: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`, `Win32_Security`*"]
 #[inline]
 pub unsafe fn AllJoynCreateBus(outbuffersize: u32, inbuffersize: u32, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
@@ -91,6 +130,7 @@ pub unsafe fn AllJoynCreateBus(outbuffersize: u32, inbuffersize: u32, lpsecurity
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn AllJoynEnumEvents<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(connectedbushandle: Param0, eventtoreset: Param1, eventtypes: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -105,6 +145,7 @@ pub unsafe fn AllJoynEnumEvents<'a, Param0: ::windows::runtime::IntoParam<'a, su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn AllJoynEventSelect<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(connectedbushandle: Param0, eventhandle: Param1, eventtypes: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -119,6 +160,7 @@ pub unsafe fn AllJoynEventSelect<'a, Param0: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn AllJoynReceiveFromBus<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(connectedbushandle: Param0, buffer: *mut ::std::ffi::c_void, bytestoread: u32, bytestransferred: *mut u32, reserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -133,6 +175,7 @@ pub unsafe fn AllJoynReceiveFromBus<'a, Param0: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn AllJoynSendToBus<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(connectedbushandle: Param0, buffer: *const ::std::ffi::c_void, bytestowrite: u32, bytestransferred: *mut u32, reserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -146,8 +189,10 @@ pub unsafe fn AllJoynSendToBus<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 pub const QCC_FALSE: u32 = 0u32;
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn QCC_StatusText(status: QStatus) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
@@ -161,7 +206,9 @@ pub unsafe fn QCC_StatusText(status: QStatus) -> super::super::Foundation::PSTR 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 pub const QCC_TRUE: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct QStatus(pub i32);
@@ -580,6 +627,7 @@ pub struct _alljoyn_abouticonobj_handle(pub u8);
 pub struct _alljoyn_abouticonproxy_handle(pub u8);
 #[cfg(feature = "Win32_Foundation")]
 pub type alljoyn_about_announced_ptr = unsafe extern "system" fn(context: *const ::std::ffi::c_void, busname: super::super::Foundation::PSTR, version: u16, port: u16, objectdescriptionarg: alljoyn_msgarg, aboutdataarg: alljoyn_msgarg);
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct alljoyn_about_announceflag(pub i32);
@@ -608,6 +656,7 @@ unsafe impl ::windows::runtime::Abi for alljoyn_aboutdata {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_aboutdata_create<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(defaultlanguage: Param0) -> alljoyn_aboutdata {
     #[cfg(windows)]
@@ -621,6 +670,7 @@ pub unsafe fn alljoyn_aboutdata_create<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_aboutdata_create_empty() -> alljoyn_aboutdata {
     #[cfg(windows)]
@@ -635,6 +685,7 @@ pub unsafe fn alljoyn_aboutdata_create_empty() -> alljoyn_aboutdata {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_aboutdata_create_full<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(arg: Param0, language: Param1) -> alljoyn_aboutdata {
     #[cfg(windows)]
@@ -649,6 +700,7 @@ pub unsafe fn alljoyn_aboutdata_create_full<'a, Param0: ::windows::runtime::Into
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_aboutdata_createfrommsgarg<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_aboutdata>, Param1: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(data: Param0, arg: Param1, language: Param2) -> QStatus {
     #[cfg(windows)]
@@ -663,6 +715,7 @@ pub unsafe fn alljoyn_aboutdata_createfrommsgarg<'a, Param0: ::windows::runtime:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_aboutdata_createfromxml<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_aboutdata>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(data: Param0, aboutdataxml: Param1) -> QStatus {
     #[cfg(windows)]
@@ -676,6 +729,7 @@ pub unsafe fn alljoyn_aboutdata_createfromxml<'a, Param0: ::windows::runtime::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_aboutdata_destroy<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_aboutdata>>(data: Param0) {
     #[cfg(windows)]
@@ -690,6 +744,7 @@ pub unsafe fn alljoyn_aboutdata_destroy<'a, Param0: ::windows::runtime::IntoPara
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_aboutdata_getaboutdata<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_aboutdata>, Param1: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(data: Param0, msgarg: Param1, language: Param2) -> QStatus {
     #[cfg(windows)]
@@ -703,6 +758,7 @@ pub unsafe fn alljoyn_aboutdata_getaboutdata<'a, Param0: ::windows::runtime::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_aboutdata_getajsoftwareversion<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_aboutdata>>(data: Param0, ajsoftwareversion: *mut *mut i8) -> QStatus {
     #[cfg(windows)]
@@ -716,6 +772,7 @@ pub unsafe fn alljoyn_aboutdata_getajsoftwareversion<'a, Param0: ::windows::runt
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_aboutdata_getannouncedaboutdata<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_aboutdata>, Param1: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(data: Param0, msgarg: Param1) -> QStatus {
     #[cfg(windows)]
@@ -729,6 +786,7 @@ pub unsafe fn alljoyn_aboutdata_getannouncedaboutdata<'a, Param0: ::windows::run
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_aboutdata_getappid<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_aboutdata>>(data: Param0, appid: *mut *mut u8, num: *mut usize) -> QStatus {
     #[cfg(windows)]
@@ -743,6 +801,7 @@ pub unsafe fn alljoyn_aboutdata_getappid<'a, Param0: ::windows::runtime::IntoPar
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_aboutdata_getappname<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_aboutdata>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(data: Param0, appname: *mut *mut i8, language: Param2) -> QStatus {
     #[cfg(windows)]
@@ -756,6 +815,7 @@ pub unsafe fn alljoyn_aboutdata_getappname<'a, Param0: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_aboutdata_getdateofmanufacture<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_aboutdata>>(data: Param0, dateofmanufacture: *mut *mut i8) -> QStatus {
     #[cfg(windows)]
@@ -769,6 +829,7 @@ pub unsafe fn alljoyn_aboutdata_getdateofmanufacture<'a, Param0: ::windows::runt
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_aboutdata_getdefaultlanguage<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_aboutdata>>(data: Param0, defaultlanguage: *mut *mut i8) -> QStatus {
     #[cfg(windows)]
@@ -783,6 +844,7 @@ pub unsafe fn alljoyn_aboutdata_getdefaultlanguage<'a, Param0: ::windows::runtim
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_aboutdata_getdescription<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_aboutdata>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(data: Param0, description: *mut *mut i8, language: Param2) -> QStatus {
     #[cfg(windows)]
@@ -796,6 +858,7 @@ pub unsafe fn alljoyn_aboutdata_getdescription<'a, Param0: ::windows::runtime::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_aboutdata_getdeviceid<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_aboutdata>>(data: Param0, deviceid: *mut *mut i8) -> QStatus {
     #[cfg(windows)]
@@ -810,6 +873,7 @@ pub unsafe fn alljoyn_aboutdata_getdeviceid<'a, Param0: ::windows::runtime::Into
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_aboutdata_getdevicename<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_aboutdata>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(data: Param0, devicename: *mut *mut i8, language: Param2) -> QStatus {
     #[cfg(windows)]
@@ -824,6 +888,7 @@ pub unsafe fn alljoyn_aboutdata_getdevicename<'a, Param0: ::windows::runtime::In
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_aboutdata_getfield<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_aboutdata>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(data: Param0, name: Param1, value: *mut alljoyn_msgarg, language: Param3) -> QStatus {
     #[cfg(windows)]
@@ -837,6 +902,7 @@ pub unsafe fn alljoyn_aboutdata_getfield<'a, Param0: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_aboutdata_getfields<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_aboutdata>>(data: Param0, fields: *const *const i8, num_fields: usize) -> usize {
     #[cfg(windows)]
@@ -851,6 +917,7 @@ pub unsafe fn alljoyn_aboutdata_getfields<'a, Param0: ::windows::runtime::IntoPa
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_aboutdata_getfieldsignature<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_aboutdata>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(data: Param0, fieldname: Param1) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
@@ -864,6 +931,7 @@ pub unsafe fn alljoyn_aboutdata_getfieldsignature<'a, Param0: ::windows::runtime
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_aboutdata_gethardwareversion<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_aboutdata>>(data: Param0, hardwareversion: *mut *mut i8) -> QStatus {
     #[cfg(windows)]
@@ -878,6 +946,7 @@ pub unsafe fn alljoyn_aboutdata_gethardwareversion<'a, Param0: ::windows::runtim
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_aboutdata_getmanufacturer<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_aboutdata>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(data: Param0, manufacturer: *mut *mut i8, language: Param2) -> QStatus {
     #[cfg(windows)]
@@ -891,6 +960,7 @@ pub unsafe fn alljoyn_aboutdata_getmanufacturer<'a, Param0: ::windows::runtime::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_aboutdata_getmodelnumber<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_aboutdata>>(data: Param0, modelnumber: *mut *mut i8) -> QStatus {
     #[cfg(windows)]
@@ -904,6 +974,7 @@ pub unsafe fn alljoyn_aboutdata_getmodelnumber<'a, Param0: ::windows::runtime::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_aboutdata_getsoftwareversion<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_aboutdata>>(data: Param0, softwareversion: *mut *mut i8) -> QStatus {
     #[cfg(windows)]
@@ -917,6 +988,7 @@ pub unsafe fn alljoyn_aboutdata_getsoftwareversion<'a, Param0: ::windows::runtim
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_aboutdata_getsupportedlanguages<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_aboutdata>>(data: Param0, languagetags: *const *const i8, num: usize) -> usize {
     #[cfg(windows)]
@@ -930,6 +1002,7 @@ pub unsafe fn alljoyn_aboutdata_getsupportedlanguages<'a, Param0: ::windows::run
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_aboutdata_getsupporturl<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_aboutdata>>(data: Param0, supporturl: *mut *mut i8) -> QStatus {
     #[cfg(windows)]
@@ -944,6 +1017,7 @@ pub unsafe fn alljoyn_aboutdata_getsupporturl<'a, Param0: ::windows::runtime::In
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_aboutdata_isfieldannounced<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_aboutdata>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(data: Param0, fieldname: Param1) -> u8 {
     #[cfg(windows)]
@@ -958,6 +1032,7 @@ pub unsafe fn alljoyn_aboutdata_isfieldannounced<'a, Param0: ::windows::runtime:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_aboutdata_isfieldlocalized<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_aboutdata>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(data: Param0, fieldname: Param1) -> u8 {
     #[cfg(windows)]
@@ -972,6 +1047,7 @@ pub unsafe fn alljoyn_aboutdata_isfieldlocalized<'a, Param0: ::windows::runtime:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_aboutdata_isfieldrequired<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_aboutdata>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(data: Param0, fieldname: Param1) -> u8 {
     #[cfg(windows)]
@@ -986,6 +1062,7 @@ pub unsafe fn alljoyn_aboutdata_isfieldrequired<'a, Param0: ::windows::runtime::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_aboutdata_isvalid<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_aboutdata>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(data: Param0, language: Param1) -> u8 {
     #[cfg(windows)]
@@ -999,6 +1076,7 @@ pub unsafe fn alljoyn_aboutdata_isvalid<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_aboutdata_setappid<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_aboutdata>>(data: Param0, appid: *const u8, num: usize) -> QStatus {
     #[cfg(windows)]
@@ -1013,6 +1091,7 @@ pub unsafe fn alljoyn_aboutdata_setappid<'a, Param0: ::windows::runtime::IntoPar
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_aboutdata_setappid_fromstring<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_aboutdata>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(data: Param0, appid: Param1) -> QStatus {
     #[cfg(windows)]
@@ -1027,6 +1106,7 @@ pub unsafe fn alljoyn_aboutdata_setappid_fromstring<'a, Param0: ::windows::runti
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_aboutdata_setappname<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_aboutdata>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(data: Param0, appname: Param1, language: Param2) -> QStatus {
     #[cfg(windows)]
@@ -1041,6 +1121,7 @@ pub unsafe fn alljoyn_aboutdata_setappname<'a, Param0: ::windows::runtime::IntoP
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_aboutdata_setdateofmanufacture<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_aboutdata>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(data: Param0, dateofmanufacture: Param1) -> QStatus {
     #[cfg(windows)]
@@ -1055,6 +1136,7 @@ pub unsafe fn alljoyn_aboutdata_setdateofmanufacture<'a, Param0: ::windows::runt
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_aboutdata_setdefaultlanguage<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_aboutdata>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(data: Param0, defaultlanguage: Param1) -> QStatus {
     #[cfg(windows)]
@@ -1069,6 +1151,7 @@ pub unsafe fn alljoyn_aboutdata_setdefaultlanguage<'a, Param0: ::windows::runtim
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_aboutdata_setdescription<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_aboutdata>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(data: Param0, description: Param1, language: Param2) -> QStatus {
     #[cfg(windows)]
@@ -1083,6 +1166,7 @@ pub unsafe fn alljoyn_aboutdata_setdescription<'a, Param0: ::windows::runtime::I
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_aboutdata_setdeviceid<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_aboutdata>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(data: Param0, deviceid: Param1) -> QStatus {
     #[cfg(windows)]
@@ -1097,6 +1181,7 @@ pub unsafe fn alljoyn_aboutdata_setdeviceid<'a, Param0: ::windows::runtime::Into
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_aboutdata_setdevicename<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_aboutdata>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(data: Param0, devicename: Param1, language: Param2) -> QStatus {
     #[cfg(windows)]
@@ -1111,6 +1196,7 @@ pub unsafe fn alljoyn_aboutdata_setdevicename<'a, Param0: ::windows::runtime::In
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_aboutdata_setfield<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_aboutdata>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(data: Param0, name: Param1, value: Param2, language: Param3) -> QStatus {
     #[cfg(windows)]
@@ -1125,6 +1211,7 @@ pub unsafe fn alljoyn_aboutdata_setfield<'a, Param0: ::windows::runtime::IntoPar
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_aboutdata_sethardwareversion<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_aboutdata>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(data: Param0, hardwareversion: Param1) -> QStatus {
     #[cfg(windows)]
@@ -1139,6 +1226,7 @@ pub unsafe fn alljoyn_aboutdata_sethardwareversion<'a, Param0: ::windows::runtim
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_aboutdata_setmanufacturer<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_aboutdata>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(data: Param0, manufacturer: Param1, language: Param2) -> QStatus {
     #[cfg(windows)]
@@ -1153,6 +1241,7 @@ pub unsafe fn alljoyn_aboutdata_setmanufacturer<'a, Param0: ::windows::runtime::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_aboutdata_setmodelnumber<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_aboutdata>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(data: Param0, modelnumber: Param1) -> QStatus {
     #[cfg(windows)]
@@ -1167,6 +1256,7 @@ pub unsafe fn alljoyn_aboutdata_setmodelnumber<'a, Param0: ::windows::runtime::I
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_aboutdata_setsoftwareversion<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_aboutdata>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(data: Param0, softwareversion: Param1) -> QStatus {
     #[cfg(windows)]
@@ -1181,6 +1271,7 @@ pub unsafe fn alljoyn_aboutdata_setsoftwareversion<'a, Param0: ::windows::runtim
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_aboutdata_setsupportedlanguage<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_aboutdata>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(data: Param0, language: Param1) -> QStatus {
     #[cfg(windows)]
@@ -1195,6 +1286,7 @@ pub unsafe fn alljoyn_aboutdata_setsupportedlanguage<'a, Param0: ::windows::runt
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_aboutdata_setsupporturl<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_aboutdata>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(data: Param0, supporturl: Param1) -> QStatus {
     #[cfg(windows)]
@@ -1224,6 +1316,7 @@ unsafe impl ::windows::runtime::Abi for alljoyn_aboutdatalistener {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 pub struct alljoyn_aboutdatalistener_callbacks {
     pub about_datalistener_getaboutdata: ::std::option::Option<alljoyn_aboutdatalistener_getaboutdata_ptr>,
     pub about_datalistener_getannouncedaboutdata: ::std::option::Option<alljoyn_aboutdatalistener_getannouncedaboutdata_ptr>,
@@ -1256,6 +1349,7 @@ unsafe impl ::windows::runtime::Abi for alljoyn_aboutdatalistener_callbacks {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_aboutdatalistener_create(callbacks: *const alljoyn_aboutdatalistener_callbacks, context: *const ::std::ffi::c_void) -> alljoyn_aboutdatalistener {
     #[cfg(windows)]
@@ -1269,6 +1363,7 @@ pub unsafe fn alljoyn_aboutdatalistener_create(callbacks: *const alljoyn_aboutda
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_aboutdatalistener_destroy<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_aboutdatalistener>>(listener: Param0) {
     #[cfg(windows)]
@@ -1285,6 +1380,7 @@ pub unsafe fn alljoyn_aboutdatalistener_destroy<'a, Param0: ::windows::runtime::
 #[cfg(feature = "Win32_Foundation")]
 pub type alljoyn_aboutdatalistener_getaboutdata_ptr = unsafe extern "system" fn(context: *const ::std::ffi::c_void, msgarg: alljoyn_msgarg, language: super::super::Foundation::PSTR) -> QStatus;
 pub type alljoyn_aboutdatalistener_getannouncedaboutdata_ptr = unsafe extern "system" fn(context: *const ::std::ffi::c_void, msgarg: alljoyn_msgarg) -> QStatus;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_abouticon_clear(icon: *mut _alljoyn_abouticon_handle) {
     #[cfg(windows)]
@@ -1298,6 +1394,7 @@ pub unsafe fn alljoyn_abouticon_clear(icon: *mut _alljoyn_abouticon_handle) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_abouticon_create() -> *mut _alljoyn_abouticon_handle {
     #[cfg(windows)]
@@ -1311,6 +1408,7 @@ pub unsafe fn alljoyn_abouticon_create() -> *mut _alljoyn_abouticon_handle {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_abouticon_destroy(icon: *mut _alljoyn_abouticon_handle) {
     #[cfg(windows)]
@@ -1324,6 +1422,7 @@ pub unsafe fn alljoyn_abouticon_destroy(icon: *mut _alljoyn_abouticon_handle) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_abouticon_getcontent(icon: *mut _alljoyn_abouticon_handle, data: *const *const u8, size: *mut usize) {
     #[cfg(windows)]
@@ -1337,6 +1436,7 @@ pub unsafe fn alljoyn_abouticon_getcontent(icon: *mut _alljoyn_abouticon_handle,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_abouticon_geturl(icon: *mut _alljoyn_abouticon_handle, r#type: *const *const i8, url: *const *const i8) {
     #[cfg(windows)]
@@ -1351,6 +1451,7 @@ pub unsafe fn alljoyn_abouticon_geturl(icon: *mut _alljoyn_abouticon_handle, r#t
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_abouticon_setcontent<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(icon: *mut _alljoyn_abouticon_handle, r#type: Param1, data: *mut u8, csize: usize, ownsdata: u8) -> QStatus {
     #[cfg(windows)]
@@ -1364,6 +1465,7 @@ pub unsafe fn alljoyn_abouticon_setcontent<'a, Param1: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_abouticon_setcontent_frommsgarg<'a, Param1: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(icon: *mut _alljoyn_abouticon_handle, arg: Param1) -> QStatus {
     #[cfg(windows)]
@@ -1378,6 +1480,7 @@ pub unsafe fn alljoyn_abouticon_setcontent_frommsgarg<'a, Param1: ::windows::run
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_abouticon_seturl<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(icon: *mut _alljoyn_abouticon_handle, r#type: Param1, url: Param2) -> QStatus {
     #[cfg(windows)]
@@ -1391,6 +1494,7 @@ pub unsafe fn alljoyn_abouticon_seturl<'a, Param1: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_abouticonobj_create<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>>(bus: Param0, icon: *mut _alljoyn_abouticon_handle) -> *mut _alljoyn_abouticonobj_handle {
     #[cfg(windows)]
@@ -1404,6 +1508,7 @@ pub unsafe fn alljoyn_abouticonobj_create<'a, Param0: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_abouticonobj_destroy(icon: *mut _alljoyn_abouticonobj_handle) {
     #[cfg(windows)]
@@ -1418,6 +1523,7 @@ pub unsafe fn alljoyn_abouticonobj_destroy(icon: *mut _alljoyn_abouticonobj_hand
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_abouticonproxy_create<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, busname: Param1, sessionid: u32) -> *mut _alljoyn_abouticonproxy_handle {
     #[cfg(windows)]
@@ -1431,6 +1537,7 @@ pub unsafe fn alljoyn_abouticonproxy_create<'a, Param0: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_abouticonproxy_destroy(proxy: *mut _alljoyn_abouticonproxy_handle) {
     #[cfg(windows)]
@@ -1444,6 +1551,7 @@ pub unsafe fn alljoyn_abouticonproxy_destroy(proxy: *mut _alljoyn_abouticonproxy
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_abouticonproxy_geticon(proxy: *mut _alljoyn_abouticonproxy_handle, icon: *mut _alljoyn_abouticon_handle) -> QStatus {
     #[cfg(windows)]
@@ -1457,6 +1565,7 @@ pub unsafe fn alljoyn_abouticonproxy_geticon(proxy: *mut _alljoyn_abouticonproxy
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_abouticonproxy_getversion(proxy: *mut _alljoyn_abouticonproxy_handle, version: *mut u16) -> QStatus {
     #[cfg(windows)]
@@ -1486,6 +1595,7 @@ unsafe impl ::windows::runtime::Abi for alljoyn_aboutlistener {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 pub struct alljoyn_aboutlistener_callback {
     pub about_listener_announced: ::std::option::Option<alljoyn_about_announced_ptr>,
 }
@@ -1517,6 +1627,7 @@ unsafe impl ::windows::runtime::Abi for alljoyn_aboutlistener_callback {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_aboutlistener_create(callback: *const alljoyn_aboutlistener_callback, context: *const ::std::ffi::c_void) -> alljoyn_aboutlistener {
     #[cfg(windows)]
@@ -1530,6 +1641,7 @@ pub unsafe fn alljoyn_aboutlistener_create(callback: *const alljoyn_aboutlistene
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_aboutlistener_destroy<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_aboutlistener>>(listener: Param0) {
     #[cfg(windows)]
@@ -1556,6 +1668,7 @@ unsafe impl ::windows::runtime::Abi for alljoyn_aboutobj {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_aboutobj_announce<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_aboutobj>, Param2: ::windows::runtime::IntoParam<'a, alljoyn_aboutdata>>(obj: Param0, sessionport: u16, aboutdata: Param2) -> QStatus {
     #[cfg(windows)]
@@ -1569,6 +1682,7 @@ pub unsafe fn alljoyn_aboutobj_announce<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_aboutobj_announce_using_datalistener<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_aboutobj>, Param2: ::windows::runtime::IntoParam<'a, alljoyn_aboutdatalistener>>(obj: Param0, sessionport: u16, aboutlistener: Param2) -> QStatus {
     #[cfg(windows)]
@@ -1582,6 +1696,7 @@ pub unsafe fn alljoyn_aboutobj_announce_using_datalistener<'a, Param0: ::windows
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_aboutobj_create<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>>(bus: Param0, isannounced: alljoyn_about_announceflag) -> alljoyn_aboutobj {
     #[cfg(windows)]
@@ -1595,6 +1710,7 @@ pub unsafe fn alljoyn_aboutobj_create<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_aboutobj_destroy<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_aboutobj>>(obj: Param0) {
     #[cfg(windows)]
@@ -1608,6 +1724,7 @@ pub unsafe fn alljoyn_aboutobj_destroy<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_aboutobj_unannounce<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_aboutobj>>(obj: Param0) -> QStatus {
     #[cfg(windows)]
@@ -1634,6 +1751,7 @@ unsafe impl ::windows::runtime::Abi for alljoyn_aboutobjectdescription {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_aboutobjectdescription_clear<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_aboutobjectdescription>>(description: Param0) {
     #[cfg(windows)]
@@ -1647,6 +1765,7 @@ pub unsafe fn alljoyn_aboutobjectdescription_clear<'a, Param0: ::windows::runtim
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_aboutobjectdescription_create() -> alljoyn_aboutobjectdescription {
     #[cfg(windows)]
@@ -1660,6 +1779,7 @@ pub unsafe fn alljoyn_aboutobjectdescription_create() -> alljoyn_aboutobjectdesc
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_aboutobjectdescription_create_full<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(arg: Param0) -> alljoyn_aboutobjectdescription {
     #[cfg(windows)]
@@ -1673,6 +1793,7 @@ pub unsafe fn alljoyn_aboutobjectdescription_create_full<'a, Param0: ::windows::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_aboutobjectdescription_createfrommsgarg<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_aboutobjectdescription>, Param1: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(description: Param0, arg: Param1) -> QStatus {
     #[cfg(windows)]
@@ -1686,6 +1807,7 @@ pub unsafe fn alljoyn_aboutobjectdescription_createfrommsgarg<'a, Param0: ::wind
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_aboutobjectdescription_destroy<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_aboutobjectdescription>>(description: Param0) {
     #[cfg(windows)]
@@ -1700,6 +1822,7 @@ pub unsafe fn alljoyn_aboutobjectdescription_destroy<'a, Param0: ::windows::runt
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_aboutobjectdescription_getinterfacepaths<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_aboutobjectdescription>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(description: Param0, interfacename: Param1, paths: *const *const i8, numpaths: usize) -> usize {
     #[cfg(windows)]
@@ -1714,6 +1837,7 @@ pub unsafe fn alljoyn_aboutobjectdescription_getinterfacepaths<'a, Param0: ::win
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_aboutobjectdescription_getinterfaces<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_aboutobjectdescription>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(description: Param0, path: Param1, interfaces: *const *const i8, numinterfaces: usize) -> usize {
     #[cfg(windows)]
@@ -1727,6 +1851,7 @@ pub unsafe fn alljoyn_aboutobjectdescription_getinterfaces<'a, Param0: ::windows
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_aboutobjectdescription_getmsgarg<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_aboutobjectdescription>, Param1: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(description: Param0, msgarg: Param1) -> QStatus {
     #[cfg(windows)]
@@ -1740,6 +1865,7 @@ pub unsafe fn alljoyn_aboutobjectdescription_getmsgarg<'a, Param0: ::windows::ru
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_aboutobjectdescription_getpaths<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_aboutobjectdescription>>(description: Param0, paths: *const *const i8, numpaths: usize) -> usize {
     #[cfg(windows)]
@@ -1754,6 +1880,7 @@ pub unsafe fn alljoyn_aboutobjectdescription_getpaths<'a, Param0: ::windows::run
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_aboutobjectdescription_hasinterface<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_aboutobjectdescription>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(description: Param0, interfacename: Param1) -> u8 {
     #[cfg(windows)]
@@ -1768,6 +1895,7 @@ pub unsafe fn alljoyn_aboutobjectdescription_hasinterface<'a, Param0: ::windows:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_aboutobjectdescription_hasinterfaceatpath<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_aboutobjectdescription>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(description: Param0, path: Param1, interfacename: Param2) -> u8 {
     #[cfg(windows)]
@@ -1782,6 +1910,7 @@ pub unsafe fn alljoyn_aboutobjectdescription_hasinterfaceatpath<'a, Param0: ::wi
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_aboutobjectdescription_haspath<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_aboutobjectdescription>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(description: Param0, path: Param1) -> u8 {
     #[cfg(windows)]
@@ -1809,6 +1938,7 @@ unsafe impl ::windows::runtime::Abi for alljoyn_aboutproxy {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_aboutproxy_create<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, busname: Param1, sessionid: u32) -> alljoyn_aboutproxy {
     #[cfg(windows)]
@@ -1822,6 +1952,7 @@ pub unsafe fn alljoyn_aboutproxy_create<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_aboutproxy_destroy<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_aboutproxy>>(proxy: Param0) {
     #[cfg(windows)]
@@ -1836,6 +1967,7 @@ pub unsafe fn alljoyn_aboutproxy_destroy<'a, Param0: ::windows::runtime::IntoPar
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_aboutproxy_getaboutdata<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_aboutproxy>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(proxy: Param0, language: Param1, data: Param2) -> QStatus {
     #[cfg(windows)]
@@ -1849,6 +1981,7 @@ pub unsafe fn alljoyn_aboutproxy_getaboutdata<'a, Param0: ::windows::runtime::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_aboutproxy_getobjectdescription<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_aboutproxy>, Param1: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(proxy: Param0, objectdesc: Param1) -> QStatus {
     #[cfg(windows)]
@@ -1862,6 +1995,7 @@ pub unsafe fn alljoyn_aboutproxy_getobjectdescription<'a, Param0: ::windows::run
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_aboutproxy_getversion<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_aboutproxy>>(proxy: Param0, version: *mut u16) -> QStatus {
     #[cfg(windows)]
@@ -1875,6 +2009,7 @@ pub unsafe fn alljoyn_aboutproxy_getversion<'a, Param0: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct alljoyn_applicationstate(pub i32);
@@ -1906,6 +2041,7 @@ unsafe impl ::windows::runtime::Abi for alljoyn_applicationstatelistener {
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 pub struct alljoyn_applicationstatelistener_callbacks {
     pub state: ::std::option::Option<alljoyn_applicationstatelistener_state_ptr>,
 }
@@ -1930,6 +2066,7 @@ unsafe impl ::windows::runtime::Abi for alljoyn_applicationstatelistener_callbac
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_applicationstatelistener_create(callbacks: *const alljoyn_applicationstatelistener_callbacks, context: *mut ::std::ffi::c_void) -> alljoyn_applicationstatelistener {
     #[cfg(windows)]
@@ -1943,6 +2080,7 @@ pub unsafe fn alljoyn_applicationstatelistener_create(callbacks: *const alljoyn_
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_applicationstatelistener_destroy<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_applicationstatelistener>>(listener: Param0) {
     #[cfg(windows)]
@@ -1975,6 +2113,7 @@ pub type alljoyn_authlistener_authenticationcomplete_ptr = unsafe extern "system
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 pub struct alljoyn_authlistener_callbacks {
     pub request_credentials: ::std::option::Option<alljoyn_authlistener_requestcredentials_ptr>,
     pub verify_credentials: ::std::option::Option<alljoyn_authlistener_verifycredentials_ptr>,
@@ -2009,6 +2148,7 @@ unsafe impl ::windows::runtime::Abi for alljoyn_authlistener_callbacks {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_authlistener_create(callbacks: *const alljoyn_authlistener_callbacks, context: *const ::std::ffi::c_void) -> alljoyn_authlistener {
     #[cfg(windows)]
@@ -2022,6 +2162,7 @@ pub unsafe fn alljoyn_authlistener_create(callbacks: *const alljoyn_authlistener
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_authlistener_destroy<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_authlistener>>(listener: Param0) {
     #[cfg(windows)]
@@ -2039,6 +2180,7 @@ pub unsafe fn alljoyn_authlistener_destroy<'a, Param0: ::windows::runtime::IntoP
 pub type alljoyn_authlistener_requestcredentials_ptr = unsafe extern "system" fn(context: *const ::std::ffi::c_void, authmechanism: super::super::Foundation::PSTR, peername: super::super::Foundation::PSTR, authcount: u16, username: super::super::Foundation::PSTR, credmask: u16, credentials: alljoyn_credentials) -> i32;
 #[cfg(feature = "Win32_Foundation")]
 pub type alljoyn_authlistener_requestcredentialsasync_ptr = unsafe extern "system" fn(context: *const ::std::ffi::c_void, listener: alljoyn_authlistener, authmechanism: super::super::Foundation::PSTR, peername: super::super::Foundation::PSTR, authcount: u16, username: super::super::Foundation::PSTR, credmask: u16, authcontext: *mut ::std::ffi::c_void) -> QStatus;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_authlistener_requestcredentialsresponse<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_authlistener>, Param3: ::windows::runtime::IntoParam<'a, alljoyn_credentials>>(listener: Param0, authcontext: *mut ::std::ffi::c_void, accept: i32, credentials: Param3) -> QStatus {
     #[cfg(windows)]
@@ -2053,6 +2195,7 @@ pub unsafe fn alljoyn_authlistener_requestcredentialsresponse<'a, Param0: ::wind
     unimplemented!("Unsupported target OS");
 }
 pub type alljoyn_authlistener_securityviolation_ptr = unsafe extern "system" fn(context: *const ::std::ffi::c_void, status: QStatus, msg: alljoyn_message);
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_authlistener_setsharedsecret<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_authlistener>>(listener: Param0, sharedsecret: *const u8, sharedsecretsize: usize) -> QStatus {
     #[cfg(windows)]
@@ -2070,6 +2213,7 @@ pub unsafe fn alljoyn_authlistener_setsharedsecret<'a, Param0: ::windows::runtim
 pub type alljoyn_authlistener_verifycredentials_ptr = unsafe extern "system" fn(context: *const ::std::ffi::c_void, authmechanism: super::super::Foundation::PSTR, peername: super::super::Foundation::PSTR, credentials: alljoyn_credentials) -> i32;
 #[cfg(feature = "Win32_Foundation")]
 pub type alljoyn_authlistener_verifycredentialsasync_ptr = unsafe extern "system" fn(context: *const ::std::ffi::c_void, listener: alljoyn_authlistener, authmechanism: super::super::Foundation::PSTR, peername: super::super::Foundation::PSTR, credentials: alljoyn_credentials, authcontext: *mut ::std::ffi::c_void) -> QStatus;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_authlistener_verifycredentialsresponse<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_authlistener>>(listener: Param0, authcontext: *mut ::std::ffi::c_void, accept: i32) -> QStatus {
     #[cfg(windows)]
@@ -2086,6 +2230,7 @@ pub unsafe fn alljoyn_authlistener_verifycredentialsresponse<'a, Param0: ::windo
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 pub struct alljoyn_authlistenerasync_callbacks {
     pub request_credentials: ::std::option::Option<alljoyn_authlistener_requestcredentialsasync_ptr>,
     pub verify_credentials: ::std::option::Option<alljoyn_authlistener_verifycredentialsasync_ptr>,
@@ -2120,6 +2265,7 @@ unsafe impl ::windows::runtime::Abi for alljoyn_authlistenerasync_callbacks {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_authlistenerasync_create(callbacks: *const alljoyn_authlistenerasync_callbacks, context: *const ::std::ffi::c_void) -> alljoyn_authlistener {
     #[cfg(windows)]
@@ -2133,6 +2279,7 @@ pub unsafe fn alljoyn_authlistenerasync_create(callbacks: *const alljoyn_authlis
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_authlistenerasync_destroy<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_authlistener>>(listener: Param0) {
     #[cfg(windows)]
@@ -2160,6 +2307,7 @@ unsafe impl ::windows::runtime::Abi for alljoyn_autopinger {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_autopinger_adddestination<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_autopinger>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(autopinger: Param0, group: Param1, destination: Param2) -> QStatus {
     #[cfg(windows)]
@@ -2174,6 +2322,7 @@ pub unsafe fn alljoyn_autopinger_adddestination<'a, Param0: ::windows::runtime::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_autopinger_addpinggroup<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_autopinger>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, alljoyn_pinglistener>>(autopinger: Param0, group: Param1, listener: Param2, pinginterval: u32) {
     #[cfg(windows)]
@@ -2187,6 +2336,7 @@ pub unsafe fn alljoyn_autopinger_addpinggroup<'a, Param0: ::windows::runtime::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_autopinger_create<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>>(bus: Param0) -> alljoyn_autopinger {
     #[cfg(windows)]
@@ -2204,6 +2354,7 @@ pub unsafe fn alljoyn_autopinger_create<'a, Param0: ::windows::runtime::IntoPara
 pub type alljoyn_autopinger_destination_found_ptr = unsafe extern "system" fn(context: *const ::std::ffi::c_void, group: super::super::Foundation::PSTR, destination: super::super::Foundation::PSTR);
 #[cfg(feature = "Win32_Foundation")]
 pub type alljoyn_autopinger_destination_lost_ptr = unsafe extern "system" fn(context: *const ::std::ffi::c_void, group: super::super::Foundation::PSTR, destination: super::super::Foundation::PSTR);
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_autopinger_destroy<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_autopinger>>(autopinger: Param0) {
     #[cfg(windows)]
@@ -2217,6 +2368,7 @@ pub unsafe fn alljoyn_autopinger_destroy<'a, Param0: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_autopinger_pause<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_autopinger>>(autopinger: Param0) {
     #[cfg(windows)]
@@ -2231,6 +2383,7 @@ pub unsafe fn alljoyn_autopinger_pause<'a, Param0: ::windows::runtime::IntoParam
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_autopinger_removedestination<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_autopinger>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(autopinger: Param0, group: Param1, destination: Param2, removeall: i32) -> QStatus {
     #[cfg(windows)]
@@ -2245,6 +2398,7 @@ pub unsafe fn alljoyn_autopinger_removedestination<'a, Param0: ::windows::runtim
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_autopinger_removepinggroup<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_autopinger>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(autopinger: Param0, group: Param1) {
     #[cfg(windows)]
@@ -2258,6 +2412,7 @@ pub unsafe fn alljoyn_autopinger_removepinggroup<'a, Param0: ::windows::runtime:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_autopinger_resume<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_autopinger>>(autopinger: Param0) {
     #[cfg(windows)]
@@ -2272,6 +2427,7 @@ pub unsafe fn alljoyn_autopinger_resume<'a, Param0: ::windows::runtime::IntoPara
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_autopinger_setpinginterval<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_autopinger>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(autopinger: Param0, group: Param1, pinginterval: u32) -> QStatus {
     #[cfg(windows)]
@@ -2299,6 +2455,7 @@ unsafe impl ::windows::runtime::Abi for alljoyn_busattachment {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_addlogonentry<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, authmechanism: Param1, username: Param2, password: Param3) -> QStatus {
     #[cfg(windows)]
@@ -2313,6 +2470,7 @@ pub unsafe fn alljoyn_busattachment_addlogonentry<'a, Param0: ::windows::runtime
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_addmatch<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, rule: Param1) -> QStatus {
     #[cfg(windows)]
@@ -2327,6 +2485,7 @@ pub unsafe fn alljoyn_busattachment_addmatch<'a, Param0: ::windows::runtime::Int
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_advertisename<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, name: Param1, transports: u16) -> QStatus {
     #[cfg(windows)]
@@ -2340,6 +2499,7 @@ pub unsafe fn alljoyn_busattachment_advertisename<'a, Param0: ::windows::runtime
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_bindsessionport<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>, Param2: ::windows::runtime::IntoParam<'a, alljoyn_sessionopts>, Param3: ::windows::runtime::IntoParam<'a, alljoyn_sessionportlistener>>(bus: Param0, sessionport: *mut u16, opts: Param2, listener: Param3) -> QStatus {
     #[cfg(windows)]
@@ -2354,6 +2514,7 @@ pub unsafe fn alljoyn_busattachment_bindsessionport<'a, Param0: ::windows::runti
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_canceladvertisename<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, name: Param1, transports: u16) -> QStatus {
     #[cfg(windows)]
@@ -2368,6 +2529,7 @@ pub unsafe fn alljoyn_busattachment_canceladvertisename<'a, Param0: ::windows::r
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_cancelfindadvertisedname<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, nameprefix: Param1) -> QStatus {
     #[cfg(windows)]
@@ -2382,6 +2544,7 @@ pub unsafe fn alljoyn_busattachment_cancelfindadvertisedname<'a, Param0: ::windo
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_cancelfindadvertisednamebytransport<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, nameprefix: Param1, transports: u16) -> QStatus {
     #[cfg(windows)]
@@ -2396,6 +2559,7 @@ pub unsafe fn alljoyn_busattachment_cancelfindadvertisednamebytransport<'a, Para
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_cancelwhoimplements_interface<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, implementsinterface: Param1) -> QStatus {
     #[cfg(windows)]
@@ -2409,6 +2573,7 @@ pub unsafe fn alljoyn_busattachment_cancelwhoimplements_interface<'a, Param0: ::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_cancelwhoimplements_interfaces<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>>(bus: Param0, implementsinterfaces: *const *const i8, numberinterfaces: usize) -> QStatus {
     #[cfg(windows)]
@@ -2423,6 +2588,7 @@ pub unsafe fn alljoyn_busattachment_cancelwhoimplements_interfaces<'a, Param0: :
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_clearkeys<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, guid: Param1) -> QStatus {
     #[cfg(windows)]
@@ -2436,6 +2602,7 @@ pub unsafe fn alljoyn_busattachment_clearkeys<'a, Param0: ::windows::runtime::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_clearkeystore<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>>(bus: Param0) {
     #[cfg(windows)]
@@ -2450,6 +2617,7 @@ pub unsafe fn alljoyn_busattachment_clearkeystore<'a, Param0: ::windows::runtime
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_connect<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, connectspec: Param1) -> QStatus {
     #[cfg(windows)]
@@ -2464,6 +2632,7 @@ pub unsafe fn alljoyn_busattachment_connect<'a, Param0: ::windows::runtime::Into
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_create<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(applicationname: Param0, allowremotemessages: i32) -> alljoyn_busattachment {
     #[cfg(windows)]
@@ -2478,6 +2647,7 @@ pub unsafe fn alljoyn_busattachment_create<'a, Param0: ::windows::runtime::IntoP
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_create_concurrency<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(applicationname: Param0, allowremotemessages: i32, concurrency: u32) -> alljoyn_busattachment {
     #[cfg(windows)]
@@ -2492,6 +2662,7 @@ pub unsafe fn alljoyn_busattachment_create_concurrency<'a, Param0: ::windows::ru
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_createinterface<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, name: Param1, iface: *mut alljoyn_interfacedescription) -> QStatus {
     #[cfg(windows)]
@@ -2506,6 +2677,7 @@ pub unsafe fn alljoyn_busattachment_createinterface<'a, Param0: ::windows::runti
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_createinterface_secure<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, name: Param1, iface: *mut alljoyn_interfacedescription, secpolicy: alljoyn_interfacedescription_securitypolicy) -> QStatus {
     #[cfg(windows)]
@@ -2520,6 +2692,7 @@ pub unsafe fn alljoyn_busattachment_createinterface_secure<'a, Param0: ::windows
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_createinterfacesfromxml<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, xml: Param1) -> QStatus {
     #[cfg(windows)]
@@ -2534,6 +2707,7 @@ pub unsafe fn alljoyn_busattachment_createinterfacesfromxml<'a, Param0: ::window
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_deletedefaultkeystore<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(applicationname: Param0) -> QStatus {
     #[cfg(windows)]
@@ -2547,6 +2721,7 @@ pub unsafe fn alljoyn_busattachment_deletedefaultkeystore<'a, Param0: ::windows:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_deleteinterface<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::runtime::IntoParam<'a, alljoyn_interfacedescription>>(bus: Param0, iface: Param1) -> QStatus {
     #[cfg(windows)]
@@ -2560,6 +2735,7 @@ pub unsafe fn alljoyn_busattachment_deleteinterface<'a, Param0: ::windows::runti
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_destroy<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>>(bus: Param0) {
     #[cfg(windows)]
@@ -2574,6 +2750,7 @@ pub unsafe fn alljoyn_busattachment_destroy<'a, Param0: ::windows::runtime::Into
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_disconnect<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, unused: Param1) -> QStatus {
     #[cfg(windows)]
@@ -2587,6 +2764,7 @@ pub unsafe fn alljoyn_busattachment_disconnect<'a, Param0: ::windows::runtime::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_enableconcurrentcallbacks<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>>(bus: Param0) {
     #[cfg(windows)]
@@ -2601,6 +2779,7 @@ pub unsafe fn alljoyn_busattachment_enableconcurrentcallbacks<'a, Param0: ::wind
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_enablepeersecurity<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, alljoyn_authlistener>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, authmechanisms: Param1, listener: Param2, keystorefilename: Param3, isshared: i32) -> QStatus {
     #[cfg(windows)]
@@ -2615,6 +2794,7 @@ pub unsafe fn alljoyn_busattachment_enablepeersecurity<'a, Param0: ::windows::ru
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_enablepeersecuritywithpermissionconfigurationlistener<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, alljoyn_authlistener>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::runtime::IntoParam<'a, alljoyn_permissionconfigurationlistener>>(
     bus: Param0,
@@ -2636,6 +2816,7 @@ pub unsafe fn alljoyn_busattachment_enablepeersecuritywithpermissionconfiguratio
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_findadvertisedname<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, nameprefix: Param1) -> QStatus {
     #[cfg(windows)]
@@ -2650,6 +2831,7 @@ pub unsafe fn alljoyn_busattachment_findadvertisedname<'a, Param0: ::windows::ru
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_findadvertisednamebytransport<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, nameprefix: Param1, transports: u16) -> QStatus {
     #[cfg(windows)]
@@ -2663,6 +2845,7 @@ pub unsafe fn alljoyn_busattachment_findadvertisednamebytransport<'a, Param0: ::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_getalljoyndebugobj<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>>(bus: Param0) -> alljoyn_proxybusobject {
     #[cfg(windows)]
@@ -2676,6 +2859,7 @@ pub unsafe fn alljoyn_busattachment_getalljoyndebugobj<'a, Param0: ::windows::ru
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_getalljoynproxyobj<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>>(bus: Param0) -> alljoyn_proxybusobject {
     #[cfg(windows)]
@@ -2689,6 +2873,7 @@ pub unsafe fn alljoyn_busattachment_getalljoynproxyobj<'a, Param0: ::windows::ru
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_getconcurrency<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>>(bus: Param0) -> u32 {
     #[cfg(windows)]
@@ -2703,6 +2888,7 @@ pub unsafe fn alljoyn_busattachment_getconcurrency<'a, Param0: ::windows::runtim
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_getconnectspec<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>>(bus: Param0) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
@@ -2716,6 +2902,7 @@ pub unsafe fn alljoyn_busattachment_getconnectspec<'a, Param0: ::windows::runtim
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_getdbusproxyobj<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>>(bus: Param0) -> alljoyn_proxybusobject {
     #[cfg(windows)]
@@ -2730,6 +2917,7 @@ pub unsafe fn alljoyn_busattachment_getdbusproxyobj<'a, Param0: ::windows::runti
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_getglobalguidstring<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>>(bus: Param0) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
@@ -2744,6 +2932,7 @@ pub unsafe fn alljoyn_busattachment_getglobalguidstring<'a, Param0: ::windows::r
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_getinterface<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, name: Param1) -> alljoyn_interfacedescription {
     #[cfg(windows)]
@@ -2757,6 +2946,7 @@ pub unsafe fn alljoyn_busattachment_getinterface<'a, Param0: ::windows::runtime:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_getinterfaces<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>>(bus: Param0, ifaces: *const alljoyn_interfacedescription, numifaces: usize) -> usize {
     #[cfg(windows)]
@@ -2771,6 +2961,7 @@ pub unsafe fn alljoyn_busattachment_getinterfaces<'a, Param0: ::windows::runtime
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_getkeyexpiration<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, guid: Param1, timeout: *mut u32) -> QStatus {
     #[cfg(windows)]
@@ -2785,6 +2976,7 @@ pub unsafe fn alljoyn_busattachment_getkeyexpiration<'a, Param0: ::windows::runt
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_getpeerguid<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, name: Param1, guid: Param2, guidsz: *mut usize) -> QStatus {
     #[cfg(windows)]
@@ -2798,6 +2990,7 @@ pub unsafe fn alljoyn_busattachment_getpeerguid<'a, Param0: ::windows::runtime::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_getpermissionconfigurator<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>>(bus: Param0) -> alljoyn_permissionconfigurator {
     #[cfg(windows)]
@@ -2811,6 +3004,7 @@ pub unsafe fn alljoyn_busattachment_getpermissionconfigurator<'a, Param0: ::wind
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_gettimestamp() -> u32 {
     #[cfg(windows)]
@@ -2825,6 +3019,7 @@ pub unsafe fn alljoyn_busattachment_gettimestamp() -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_getuniquename<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>>(bus: Param0) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
@@ -2838,6 +3033,7 @@ pub unsafe fn alljoyn_busattachment_getuniquename<'a, Param0: ::windows::runtime
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_isconnected<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>>(bus: Param0) -> i32 {
     #[cfg(windows)]
@@ -2851,6 +3047,7 @@ pub unsafe fn alljoyn_busattachment_isconnected<'a, Param0: ::windows::runtime::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_ispeersecurityenabled<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>>(bus: Param0) -> i32 {
     #[cfg(windows)]
@@ -2864,6 +3061,7 @@ pub unsafe fn alljoyn_busattachment_ispeersecurityenabled<'a, Param0: ::windows:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_isstarted<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>>(bus: Param0) -> i32 {
     #[cfg(windows)]
@@ -2877,6 +3075,7 @@ pub unsafe fn alljoyn_busattachment_isstarted<'a, Param0: ::windows::runtime::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_isstopping<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>>(bus: Param0) -> i32 {
     #[cfg(windows)]
@@ -2890,6 +3089,7 @@ pub unsafe fn alljoyn_busattachment_isstopping<'a, Param0: ::windows::runtime::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_join<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>>(bus: Param0) -> QStatus {
     #[cfg(windows)]
@@ -2904,6 +3104,7 @@ pub unsafe fn alljoyn_busattachment_join<'a, Param0: ::windows::runtime::IntoPar
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_joinsession<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, alljoyn_sessionlistener>, Param5: ::windows::runtime::IntoParam<'a, alljoyn_sessionopts>>(bus: Param0, sessionhost: Param1, sessionport: u16, listener: Param3, sessionid: *mut u32, opts: Param5) -> QStatus {
     #[cfg(windows)]
@@ -2918,6 +3119,7 @@ pub unsafe fn alljoyn_busattachment_joinsession<'a, Param0: ::windows::runtime::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_joinsessionasync<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, alljoyn_sessionlistener>, Param4: ::windows::runtime::IntoParam<'a, alljoyn_sessionopts>>(
     bus: Param0,
@@ -2940,6 +3142,7 @@ pub unsafe fn alljoyn_busattachment_joinsessionasync<'a, Param0: ::windows::runt
     unimplemented!("Unsupported target OS");
 }
 pub type alljoyn_busattachment_joinsessioncb_ptr = unsafe extern "system" fn(status: QStatus, sessionid: u32, opts: alljoyn_sessionopts, context: *mut ::std::ffi::c_void);
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_leavesession<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>>(bus: Param0, sessionid: u32) -> QStatus {
     #[cfg(windows)]
@@ -2954,6 +3157,7 @@ pub unsafe fn alljoyn_busattachment_leavesession<'a, Param0: ::windows::runtime:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_namehasowner<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, name: Param1, hasowner: *mut i32) -> QStatus {
     #[cfg(windows)]
@@ -2968,6 +3172,7 @@ pub unsafe fn alljoyn_busattachment_namehasowner<'a, Param0: ::windows::runtime:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_ping<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, name: Param1, timeout: u32) -> QStatus {
     #[cfg(windows)]
@@ -2981,6 +3186,7 @@ pub unsafe fn alljoyn_busattachment_ping<'a, Param0: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_registeraboutlistener<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::runtime::IntoParam<'a, alljoyn_aboutlistener>>(bus: Param0, aboutlistener: Param1) {
     #[cfg(windows)]
@@ -2994,6 +3200,7 @@ pub unsafe fn alljoyn_busattachment_registeraboutlistener<'a, Param0: ::windows:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_registerapplicationstatelistener<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::runtime::IntoParam<'a, alljoyn_applicationstatelistener>>(bus: Param0, listener: Param1) -> QStatus {
     #[cfg(windows)]
@@ -3007,6 +3214,7 @@ pub unsafe fn alljoyn_busattachment_registerapplicationstatelistener<'a, Param0:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_registerbuslistener<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::runtime::IntoParam<'a, alljoyn_buslistener>>(bus: Param0, listener: Param1) {
     #[cfg(windows)]
@@ -3020,6 +3228,7 @@ pub unsafe fn alljoyn_busattachment_registerbuslistener<'a, Param0: ::windows::r
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_registerbusobject<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::runtime::IntoParam<'a, alljoyn_busobject>>(bus: Param0, obj: Param1) -> QStatus {
     #[cfg(windows)]
@@ -3033,6 +3242,7 @@ pub unsafe fn alljoyn_busattachment_registerbusobject<'a, Param0: ::windows::run
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_registerbusobject_secure<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::runtime::IntoParam<'a, alljoyn_busobject>>(bus: Param0, obj: Param1) -> QStatus {
     #[cfg(windows)]
@@ -3046,6 +3256,7 @@ pub unsafe fn alljoyn_busattachment_registerbusobject_secure<'a, Param0: ::windo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_registerkeystorelistener<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::runtime::IntoParam<'a, alljoyn_keystorelistener>>(bus: Param0, listener: Param1) -> QStatus {
     #[cfg(windows)]
@@ -3060,6 +3271,7 @@ pub unsafe fn alljoyn_busattachment_registerkeystorelistener<'a, Param0: ::windo
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_registersignalhandler<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>, Param2: ::windows::runtime::IntoParam<'a, alljoyn_interfacedescription_member>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, signal_handler: ::std::option::Option<alljoyn_messagereceiver_signalhandler_ptr>, member: Param2, srcpath: Param3) -> QStatus {
     #[cfg(windows)]
@@ -3074,6 +3286,7 @@ pub unsafe fn alljoyn_busattachment_registersignalhandler<'a, Param0: ::windows:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_registersignalhandlerwithrule<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>, Param2: ::windows::runtime::IntoParam<'a, alljoyn_interfacedescription_member>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, signal_handler: ::std::option::Option<alljoyn_messagereceiver_signalhandler_ptr>, member: Param2, matchrule: Param3) -> QStatus {
     #[cfg(windows)]
@@ -3088,6 +3301,7 @@ pub unsafe fn alljoyn_busattachment_registersignalhandlerwithrule<'a, Param0: ::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_releasename<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, name: Param1) -> QStatus {
     #[cfg(windows)]
@@ -3101,6 +3315,7 @@ pub unsafe fn alljoyn_busattachment_releasename<'a, Param0: ::windows::runtime::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_reloadkeystore<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>>(bus: Param0) -> QStatus {
     #[cfg(windows)]
@@ -3115,6 +3330,7 @@ pub unsafe fn alljoyn_busattachment_reloadkeystore<'a, Param0: ::windows::runtim
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_removematch<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, rule: Param1) -> QStatus {
     #[cfg(windows)]
@@ -3129,6 +3345,7 @@ pub unsafe fn alljoyn_busattachment_removematch<'a, Param0: ::windows::runtime::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_removesessionmember<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, sessionid: u32, membername: Param2) -> QStatus {
     #[cfg(windows)]
@@ -3143,6 +3360,7 @@ pub unsafe fn alljoyn_busattachment_removesessionmember<'a, Param0: ::windows::r
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_requestname<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, requestedname: Param1, flags: u32) -> QStatus {
     #[cfg(windows)]
@@ -3157,6 +3375,7 @@ pub unsafe fn alljoyn_busattachment_requestname<'a, Param0: ::windows::runtime::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_secureconnection<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, name: Param1, forceauth: i32) -> QStatus {
     #[cfg(windows)]
@@ -3171,6 +3390,7 @@ pub unsafe fn alljoyn_busattachment_secureconnection<'a, Param0: ::windows::runt
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_secureconnectionasync<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, name: Param1, forceauth: i32) -> QStatus {
     #[cfg(windows)]
@@ -3185,6 +3405,7 @@ pub unsafe fn alljoyn_busattachment_secureconnectionasync<'a, Param0: ::windows:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_setdaemondebug<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, module: Param1, level: u32) -> QStatus {
     #[cfg(windows)]
@@ -3199,6 +3420,7 @@ pub unsafe fn alljoyn_busattachment_setdaemondebug<'a, Param0: ::windows::runtim
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_setkeyexpiration<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, guid: Param1, timeout: u32) -> QStatus {
     #[cfg(windows)]
@@ -3212,6 +3434,7 @@ pub unsafe fn alljoyn_busattachment_setkeyexpiration<'a, Param0: ::windows::runt
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_setlinktimeout<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>>(bus: Param0, sessionid: u32, linktimeout: *mut u32) -> QStatus {
     #[cfg(windows)]
@@ -3225,6 +3448,7 @@ pub unsafe fn alljoyn_busattachment_setlinktimeout<'a, Param0: ::windows::runtim
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_setlinktimeoutasync<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>>(bus: Param0, sessionid: u32, linktimeout: u32, callback: ::std::option::Option<alljoyn_busattachment_setlinktimeoutcb_ptr>, context: *mut ::std::ffi::c_void) -> QStatus {
     #[cfg(windows)]
@@ -3239,6 +3463,7 @@ pub unsafe fn alljoyn_busattachment_setlinktimeoutasync<'a, Param0: ::windows::r
     unimplemented!("Unsupported target OS");
 }
 pub type alljoyn_busattachment_setlinktimeoutcb_ptr = unsafe extern "system" fn(status: QStatus, timeout: u32, context: *mut ::std::ffi::c_void);
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_setsessionlistener<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>, Param2: ::windows::runtime::IntoParam<'a, alljoyn_sessionlistener>>(bus: Param0, sessionid: u32, listener: Param2) -> QStatus {
     #[cfg(windows)]
@@ -3252,6 +3477,7 @@ pub unsafe fn alljoyn_busattachment_setsessionlistener<'a, Param0: ::windows::ru
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_start<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>>(bus: Param0) -> QStatus {
     #[cfg(windows)]
@@ -3265,6 +3491,7 @@ pub unsafe fn alljoyn_busattachment_start<'a, Param0: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_stop<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>>(bus: Param0) -> QStatus {
     #[cfg(windows)]
@@ -3278,6 +3505,7 @@ pub unsafe fn alljoyn_busattachment_stop<'a, Param0: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_unbindsessionport<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>>(bus: Param0, sessionport: u16) -> QStatus {
     #[cfg(windows)]
@@ -3291,6 +3519,7 @@ pub unsafe fn alljoyn_busattachment_unbindsessionport<'a, Param0: ::windows::run
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_unregisteraboutlistener<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::runtime::IntoParam<'a, alljoyn_aboutlistener>>(bus: Param0, aboutlistener: Param1) {
     #[cfg(windows)]
@@ -3304,6 +3533,7 @@ pub unsafe fn alljoyn_busattachment_unregisteraboutlistener<'a, Param0: ::window
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_unregisterallaboutlisteners<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>>(bus: Param0) {
     #[cfg(windows)]
@@ -3317,6 +3547,7 @@ pub unsafe fn alljoyn_busattachment_unregisterallaboutlisteners<'a, Param0: ::wi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_unregisterallhandlers<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>>(bus: Param0) -> QStatus {
     #[cfg(windows)]
@@ -3330,6 +3561,7 @@ pub unsafe fn alljoyn_busattachment_unregisterallhandlers<'a, Param0: ::windows:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_unregisterapplicationstatelistener<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::runtime::IntoParam<'a, alljoyn_applicationstatelistener>>(bus: Param0, listener: Param1) -> QStatus {
     #[cfg(windows)]
@@ -3343,6 +3575,7 @@ pub unsafe fn alljoyn_busattachment_unregisterapplicationstatelistener<'a, Param
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_unregisterbuslistener<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::runtime::IntoParam<'a, alljoyn_buslistener>>(bus: Param0, listener: Param1) {
     #[cfg(windows)]
@@ -3356,6 +3589,7 @@ pub unsafe fn alljoyn_busattachment_unregisterbuslistener<'a, Param0: ::windows:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_unregisterbusobject<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::runtime::IntoParam<'a, alljoyn_busobject>>(bus: Param0, object: Param1) {
     #[cfg(windows)]
@@ -3370,6 +3604,7 @@ pub unsafe fn alljoyn_busattachment_unregisterbusobject<'a, Param0: ::windows::r
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_unregistersignalhandler<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>, Param2: ::windows::runtime::IntoParam<'a, alljoyn_interfacedescription_member>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, signal_handler: ::std::option::Option<alljoyn_messagereceiver_signalhandler_ptr>, member: Param2, srcpath: Param3) -> QStatus {
     #[cfg(windows)]
@@ -3384,6 +3619,7 @@ pub unsafe fn alljoyn_busattachment_unregistersignalhandler<'a, Param0: ::window
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_unregistersignalhandlerwithrule<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>, Param2: ::windows::runtime::IntoParam<'a, alljoyn_interfacedescription_member>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, signal_handler: ::std::option::Option<alljoyn_messagereceiver_signalhandler_ptr>, member: Param2, matchrule: Param3) -> QStatus {
     #[cfg(windows)]
@@ -3398,6 +3634,7 @@ pub unsafe fn alljoyn_busattachment_unregistersignalhandlerwithrule<'a, Param0: 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_whoimplements_interface<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, implementsinterface: Param1) -> QStatus {
     #[cfg(windows)]
@@ -3411,6 +3648,7 @@ pub unsafe fn alljoyn_busattachment_whoimplements_interface<'a, Param0: ::window
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_busattachment_whoimplements_interfaces<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>>(bus: Param0, implementsinterfaces: *const *const i8, numberinterfaces: usize) -> QStatus {
     #[cfg(windows)]
@@ -3444,6 +3682,7 @@ pub type alljoyn_buslistener_bus_stopping_ptr = unsafe extern "system" fn(contex
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 pub struct alljoyn_buslistener_callbacks {
     pub listener_registered: ::std::option::Option<alljoyn_buslistener_listener_registered_ptr>,
     pub listener_unregistered: ::std::option::Option<alljoyn_buslistener_listener_unregistered_ptr>,
@@ -3489,6 +3728,7 @@ unsafe impl ::windows::runtime::Abi for alljoyn_buslistener_callbacks {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_buslistener_create(callbacks: *const alljoyn_buslistener_callbacks, context: *const ::std::ffi::c_void) -> alljoyn_buslistener {
     #[cfg(windows)]
@@ -3502,6 +3742,7 @@ pub unsafe fn alljoyn_buslistener_create(callbacks: *const alljoyn_buslistener_c
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_buslistener_destroy<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_buslistener>>(listener: Param0) {
     #[cfg(windows)]
@@ -3536,6 +3777,7 @@ unsafe impl ::windows::runtime::Abi for alljoyn_busobject {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_busobject_addinterface<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busobject>, Param1: ::windows::runtime::IntoParam<'a, alljoyn_interfacedescription>>(bus: Param0, iface: Param1) -> QStatus {
     #[cfg(windows)]
@@ -3549,6 +3791,7 @@ pub unsafe fn alljoyn_busobject_addinterface<'a, Param0: ::windows::runtime::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_busobject_addinterface_announced<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busobject>, Param1: ::windows::runtime::IntoParam<'a, alljoyn_interfacedescription>>(bus: Param0, iface: Param1) -> QStatus {
     #[cfg(windows)]
@@ -3563,6 +3806,7 @@ pub unsafe fn alljoyn_busobject_addinterface_announced<'a, Param0: ::windows::ru
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_busobject_addmethodhandler<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busobject>, Param1: ::windows::runtime::IntoParam<'a, alljoyn_interfacedescription_member>>(bus: Param0, member: Param1, handler: ::std::option::Option<alljoyn_messagereceiver_methodhandler_ptr>, context: *mut ::std::ffi::c_void) -> QStatus {
     #[cfg(windows)]
@@ -3577,6 +3821,7 @@ pub unsafe fn alljoyn_busobject_addmethodhandler<'a, Param0: ::windows::runtime:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_busobject_addmethodhandlers<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busobject>>(bus: Param0, entries: *const alljoyn_busobject_methodentry, numentries: usize) -> QStatus {
     #[cfg(windows)]
@@ -3593,6 +3838,7 @@ pub unsafe fn alljoyn_busobject_addmethodhandlers<'a, Param0: ::windows::runtime
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 pub struct alljoyn_busobject_callbacks {
     pub property_get: ::std::option::Option<alljoyn_busobject_prop_get_ptr>,
     pub property_set: ::std::option::Option<alljoyn_busobject_prop_set_ptr>,
@@ -3626,6 +3872,7 @@ unsafe impl ::windows::runtime::Abi for alljoyn_busobject_callbacks {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_busobject_cancelsessionlessmessage<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busobject>, Param1: ::windows::runtime::IntoParam<'a, alljoyn_message>>(bus: Param0, msg: Param1) -> QStatus {
     #[cfg(windows)]
@@ -3639,6 +3886,7 @@ pub unsafe fn alljoyn_busobject_cancelsessionlessmessage<'a, Param0: ::windows::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_busobject_cancelsessionlessmessage_serial<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busobject>>(bus: Param0, serialnumber: u32) -> QStatus {
     #[cfg(windows)]
@@ -3653,6 +3901,7 @@ pub unsafe fn alljoyn_busobject_cancelsessionlessmessage_serial<'a, Param0: ::wi
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_busobject_create<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(path: Param0, isplaceholder: i32, callbacks_in: *const alljoyn_busobject_callbacks, context_in: *const ::std::ffi::c_void) -> alljoyn_busobject {
     #[cfg(windows)]
@@ -3666,6 +3915,7 @@ pub unsafe fn alljoyn_busobject_create<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_busobject_destroy<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busobject>>(bus: Param0) {
     #[cfg(windows)]
@@ -3680,6 +3930,7 @@ pub unsafe fn alljoyn_busobject_destroy<'a, Param0: ::windows::runtime::IntoPara
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_busobject_emitpropertieschanged<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busobject>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, ifcname: Param1, propnames: *const *const i8, numprops: usize, id: u32) {
     #[cfg(windows)]
@@ -3694,6 +3945,7 @@ pub unsafe fn alljoyn_busobject_emitpropertieschanged<'a, Param0: ::windows::run
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_busobject_emitpropertychanged<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busobject>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(bus: Param0, ifcname: Param1, propname: Param2, val: Param3, id: u32) {
     #[cfg(windows)]
@@ -3707,6 +3959,7 @@ pub unsafe fn alljoyn_busobject_emitpropertychanged<'a, Param0: ::windows::runti
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_busobject_getannouncedinterfacenames<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busobject>>(bus: Param0, interfaces: *const *const i8, numinterfaces: usize) -> usize {
     #[cfg(windows)]
@@ -3720,6 +3973,7 @@ pub unsafe fn alljoyn_busobject_getannouncedinterfacenames<'a, Param0: ::windows
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_busobject_getbusattachment<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busobject>>(bus: Param0) -> alljoyn_busattachment {
     #[cfg(windows)]
@@ -3734,6 +3988,7 @@ pub unsafe fn alljoyn_busobject_getbusattachment<'a, Param0: ::windows::runtime:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_busobject_getname<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busobject>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, buffer: Param1, buffersz: usize) -> usize {
     #[cfg(windows)]
@@ -3748,6 +4003,7 @@ pub unsafe fn alljoyn_busobject_getname<'a, Param0: ::windows::runtime::IntoPara
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_busobject_getpath<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busobject>>(bus: Param0) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
@@ -3761,6 +4017,7 @@ pub unsafe fn alljoyn_busobject_getpath<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_busobject_issecure<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busobject>>(bus: Param0) -> i32 {
     #[cfg(windows)]
@@ -3777,6 +4034,7 @@ pub unsafe fn alljoyn_busobject_issecure<'a, Param0: ::windows::runtime::IntoPar
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 pub struct alljoyn_busobject_methodentry {
     pub member: *mut alljoyn_interfacedescription_member,
     pub method_handler: ::std::option::Option<alljoyn_messagereceiver_methodhandler_ptr>,
@@ -3808,6 +4066,7 @@ unsafe impl ::windows::runtime::Abi for alljoyn_busobject_methodentry {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_busobject_methodreply_args<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busobject>, Param1: ::windows::runtime::IntoParam<'a, alljoyn_message>, Param2: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(bus: Param0, msg: Param1, args: Param2, numargs: usize) -> QStatus {
     #[cfg(windows)]
@@ -3822,6 +4081,7 @@ pub unsafe fn alljoyn_busobject_methodreply_args<'a, Param0: ::windows::runtime:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_busobject_methodreply_err<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busobject>, Param1: ::windows::runtime::IntoParam<'a, alljoyn_message>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, msg: Param1, error: Param2, errormessage: Param3) -> QStatus {
     #[cfg(windows)]
@@ -3835,6 +4095,7 @@ pub unsafe fn alljoyn_busobject_methodreply_err<'a, Param0: ::windows::runtime::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_busobject_methodreply_status<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busobject>, Param1: ::windows::runtime::IntoParam<'a, alljoyn_message>>(bus: Param0, msg: Param1, status: QStatus) -> QStatus {
     #[cfg(windows)]
@@ -3853,6 +4114,7 @@ pub type alljoyn_busobject_object_registration_ptr = unsafe extern "system" fn(c
 pub type alljoyn_busobject_prop_get_ptr = unsafe extern "system" fn(context: *const ::std::ffi::c_void, ifcname: super::super::Foundation::PSTR, propname: super::super::Foundation::PSTR, val: alljoyn_msgarg) -> QStatus;
 #[cfg(feature = "Win32_Foundation")]
 pub type alljoyn_busobject_prop_set_ptr = unsafe extern "system" fn(context: *const ::std::ffi::c_void, ifcname: super::super::Foundation::PSTR, propname: super::super::Foundation::PSTR, val: alljoyn_msgarg) -> QStatus;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_busobject_setannounceflag<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busobject>, Param1: ::windows::runtime::IntoParam<'a, alljoyn_interfacedescription>>(bus: Param0, iface: Param1, isannounced: alljoyn_about_announceflag) -> QStatus {
     #[cfg(windows)]
@@ -3867,6 +4129,7 @@ pub unsafe fn alljoyn_busobject_setannounceflag<'a, Param0: ::windows::runtime::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_busobject_signal<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busobject>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, alljoyn_interfacedescription_member>, Param4: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>, Param8: ::windows::runtime::IntoParam<'a, alljoyn_message>>(
     bus: Param0,
@@ -3892,6 +4155,7 @@ pub unsafe fn alljoyn_busobject_signal<'a, Param0: ::windows::runtime::IntoParam
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 pub struct alljoyn_certificateid {
     pub serial: *mut u8,
     pub serialLen: usize,
@@ -3922,6 +4186,7 @@ unsafe impl ::windows::runtime::Abi for alljoyn_certificateid {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 pub struct alljoyn_certificateidarray {
     pub count: usize,
     pub ids: *mut alljoyn_certificateid,
@@ -3947,6 +4212,7 @@ unsafe impl ::windows::runtime::Abi for alljoyn_certificateidarray {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct alljoyn_claimcapability_masks(pub i32);
@@ -3962,6 +4228,7 @@ unsafe impl ::windows::runtime::Abi for alljoyn_claimcapability_masks {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct alljoyn_claimcapabilityadditionalinfo_masks(pub i32);
@@ -3989,6 +4256,7 @@ unsafe impl ::windows::runtime::Abi for alljoyn_credentials {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_credentials_clear<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_credentials>>(cred: Param0) {
     #[cfg(windows)]
@@ -4002,6 +4270,7 @@ pub unsafe fn alljoyn_credentials_clear<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_credentials_create() -> alljoyn_credentials {
     #[cfg(windows)]
@@ -4015,6 +4284,7 @@ pub unsafe fn alljoyn_credentials_create() -> alljoyn_credentials {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_credentials_destroy<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_credentials>>(cred: Param0) {
     #[cfg(windows)]
@@ -4029,6 +4299,7 @@ pub unsafe fn alljoyn_credentials_destroy<'a, Param0: ::windows::runtime::IntoPa
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_credentials_getcertchain<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_credentials>>(cred: Param0) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
@@ -4042,6 +4313,7 @@ pub unsafe fn alljoyn_credentials_getcertchain<'a, Param0: ::windows::runtime::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_credentials_getexpiration<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_credentials>>(cred: Param0) -> u32 {
     #[cfg(windows)]
@@ -4056,6 +4328,7 @@ pub unsafe fn alljoyn_credentials_getexpiration<'a, Param0: ::windows::runtime::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_credentials_getlogonentry<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_credentials>>(cred: Param0) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
@@ -4070,6 +4343,7 @@ pub unsafe fn alljoyn_credentials_getlogonentry<'a, Param0: ::windows::runtime::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_credentials_getpassword<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_credentials>>(cred: Param0) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
@@ -4084,6 +4358,7 @@ pub unsafe fn alljoyn_credentials_getpassword<'a, Param0: ::windows::runtime::In
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_credentials_getprivateKey<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_credentials>>(cred: Param0) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
@@ -4098,6 +4373,7 @@ pub unsafe fn alljoyn_credentials_getprivateKey<'a, Param0: ::windows::runtime::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_credentials_getusername<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_credentials>>(cred: Param0) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
@@ -4111,6 +4387,7 @@ pub unsafe fn alljoyn_credentials_getusername<'a, Param0: ::windows::runtime::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_credentials_isset<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_credentials>>(cred: Param0, creds: u16) -> i32 {
     #[cfg(windows)]
@@ -4125,6 +4402,7 @@ pub unsafe fn alljoyn_credentials_isset<'a, Param0: ::windows::runtime::IntoPara
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_credentials_setcertchain<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_credentials>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(cred: Param0, certchain: Param1) {
     #[cfg(windows)]
@@ -4138,6 +4416,7 @@ pub unsafe fn alljoyn_credentials_setcertchain<'a, Param0: ::windows::runtime::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_credentials_setexpiration<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_credentials>>(cred: Param0, expiration: u32) {
     #[cfg(windows)]
@@ -4152,6 +4431,7 @@ pub unsafe fn alljoyn_credentials_setexpiration<'a, Param0: ::windows::runtime::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_credentials_setlogonentry<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_credentials>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(cred: Param0, logonentry: Param1) {
     #[cfg(windows)]
@@ -4166,6 +4446,7 @@ pub unsafe fn alljoyn_credentials_setlogonentry<'a, Param0: ::windows::runtime::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_credentials_setpassword<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_credentials>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(cred: Param0, pwd: Param1) {
     #[cfg(windows)]
@@ -4180,6 +4461,7 @@ pub unsafe fn alljoyn_credentials_setpassword<'a, Param0: ::windows::runtime::In
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_credentials_setprivatekey<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_credentials>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(cred: Param0, pk: Param1) {
     #[cfg(windows)]
@@ -4194,6 +4476,7 @@ pub unsafe fn alljoyn_credentials_setprivatekey<'a, Param0: ::windows::runtime::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_credentials_setusername<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_credentials>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(cred: Param0, username: Param1) {
     #[cfg(windows)]
@@ -4208,6 +4491,7 @@ pub unsafe fn alljoyn_credentials_setusername<'a, Param0: ::windows::runtime::In
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_getbuildinfo() -> super::super::Foundation::PSTR {
     #[cfg(windows)]
@@ -4221,6 +4505,7 @@ pub unsafe fn alljoyn_getbuildinfo() -> super::super::Foundation::PSTR {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_getnumericversion() -> u32 {
     #[cfg(windows)]
@@ -4235,6 +4520,7 @@ pub unsafe fn alljoyn_getnumericversion() -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_getversion() -> super::super::Foundation::PSTR {
     #[cfg(windows)]
@@ -4248,6 +4534,7 @@ pub unsafe fn alljoyn_getversion() -> super::super::Foundation::PSTR {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_init() -> QStatus {
     #[cfg(windows)]
@@ -4274,6 +4561,7 @@ unsafe impl ::windows::runtime::Abi for alljoyn_interfacedescription {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_interfacedescription_activate<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_interfacedescription>>(iface: Param0) {
     #[cfg(windows)]
@@ -4288,6 +4576,7 @@ pub unsafe fn alljoyn_interfacedescription_activate<'a, Param0: ::windows::runti
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_interfacedescription_addannotation<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(iface: Param0, name: Param1, value: Param2) -> QStatus {
     #[cfg(windows)]
@@ -4302,6 +4591,7 @@ pub unsafe fn alljoyn_interfacedescription_addannotation<'a, Param0: ::windows::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_interfacedescription_addargannotation<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(
     iface: Param0,
@@ -4322,6 +4612,7 @@ pub unsafe fn alljoyn_interfacedescription_addargannotation<'a, Param0: ::window
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_interfacedescription_addmember<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_interfacedescription>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(
     iface: Param0,
@@ -4344,6 +4635,7 @@ pub unsafe fn alljoyn_interfacedescription_addmember<'a, Param0: ::windows::runt
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_interfacedescription_addmemberannotation<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(iface: Param0, member: Param1, name: Param2, value: Param3) -> QStatus {
     #[cfg(windows)]
@@ -4358,6 +4650,7 @@ pub unsafe fn alljoyn_interfacedescription_addmemberannotation<'a, Param0: ::win
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_interfacedescription_addmethod<
     'a,
@@ -4388,6 +4681,7 @@ pub unsafe fn alljoyn_interfacedescription_addmethod<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_interfacedescription_addproperty<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(iface: Param0, name: Param1, signature: Param2, access: u8) -> QStatus {
     #[cfg(windows)]
@@ -4402,6 +4696,7 @@ pub unsafe fn alljoyn_interfacedescription_addproperty<'a, Param0: ::windows::ru
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_interfacedescription_addpropertyannotation<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(iface: Param0, property: Param1, name: Param2, value: Param3) -> QStatus {
     #[cfg(windows)]
@@ -4416,6 +4711,7 @@ pub unsafe fn alljoyn_interfacedescription_addpropertyannotation<'a, Param0: ::w
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_interfacedescription_addsignal<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(
     iface: Param0,
@@ -4436,6 +4732,7 @@ pub unsafe fn alljoyn_interfacedescription_addsignal<'a, Param0: ::windows::runt
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_interfacedescription_eql<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::runtime::IntoParam<'a, alljoyn_interfacedescription>>(one: Param0, other: Param1) -> i32 {
     #[cfg(windows)]
@@ -4450,6 +4747,7 @@ pub unsafe fn alljoyn_interfacedescription_eql<'a, Param0: ::windows::runtime::I
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_interfacedescription_getannotation<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(iface: Param0, name: Param1, value: Param2, value_size: *mut usize) -> i32 {
     #[cfg(windows)]
@@ -4464,6 +4762,7 @@ pub unsafe fn alljoyn_interfacedescription_getannotation<'a, Param0: ::windows::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_interfacedescription_getannotationatindex<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_interfacedescription>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(iface: Param0, index: usize, name: Param2, name_size: *mut usize, value: Param4, value_size: *mut usize) {
     #[cfg(windows)]
@@ -4477,6 +4776,7 @@ pub unsafe fn alljoyn_interfacedescription_getannotationatindex<'a, Param0: ::wi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_interfacedescription_getannotationscount<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_interfacedescription>>(iface: Param0) -> usize {
     #[cfg(windows)]
@@ -4491,6 +4791,7 @@ pub unsafe fn alljoyn_interfacedescription_getannotationscount<'a, Param0: ::win
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_interfacedescription_getargdescriptionforlanguage<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(
     iface: Param0,
@@ -4512,6 +4813,7 @@ pub unsafe fn alljoyn_interfacedescription_getargdescriptionforlanguage<'a, Para
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_interfacedescription_getdescriptionforlanguage<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(iface: Param0, description: Param1, maxlanguagelength: usize, languagetag: Param3) -> usize {
     #[cfg(windows)]
@@ -4525,6 +4827,7 @@ pub unsafe fn alljoyn_interfacedescription_getdescriptionforlanguage<'a, Param0:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_interfacedescription_getdescriptionlanguages<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_interfacedescription>>(iface: Param0, languages: *const *const i8, size: usize) -> usize {
     #[cfg(windows)]
@@ -4539,6 +4842,7 @@ pub unsafe fn alljoyn_interfacedescription_getdescriptionlanguages<'a, Param0: :
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_interfacedescription_getdescriptionlanguages2<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(iface: Param0, languages: Param1, languagessize: usize) -> usize {
     #[cfg(windows)]
@@ -4553,6 +4857,7 @@ pub unsafe fn alljoyn_interfacedescription_getdescriptionlanguages2<'a, Param0: 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_interfacedescription_getdescriptiontranslationcallback<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_interfacedescription>>(iface: Param0) -> ::std::option::Option<alljoyn_interfacedescription_translation_callback_ptr> {
     #[cfg(windows)]
@@ -4567,6 +4872,7 @@ pub unsafe fn alljoyn_interfacedescription_getdescriptiontranslationcallback<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_interfacedescription_getmember<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(iface: Param0, name: Param1, member: *mut alljoyn_interfacedescription_member) -> i32 {
     #[cfg(windows)]
@@ -4581,6 +4887,7 @@ pub unsafe fn alljoyn_interfacedescription_getmember<'a, Param0: ::windows::runt
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_interfacedescription_getmemberannotation<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(iface: Param0, member: Param1, name: Param2, value: Param3, value_size: *mut usize) -> i32 {
     #[cfg(windows)]
@@ -4595,6 +4902,7 @@ pub unsafe fn alljoyn_interfacedescription_getmemberannotation<'a, Param0: ::win
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_interfacedescription_getmemberargannotation<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(
     iface: Param0,
@@ -4616,6 +4924,7 @@ pub unsafe fn alljoyn_interfacedescription_getmemberargannotation<'a, Param0: ::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_interfacedescription_getmemberdescriptionforlanguage<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(iface: Param0, member: Param1, description: Param2, maxlanguagelength: usize, languagetag: Param4) -> usize {
     #[cfg(windows)]
@@ -4630,6 +4939,7 @@ pub unsafe fn alljoyn_interfacedescription_getmemberdescriptionforlanguage<'a, P
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_interfacedescription_getmembers<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_interfacedescription>>(iface: Param0, members: *mut alljoyn_interfacedescription_member, nummembers: usize) -> usize {
     #[cfg(windows)]
@@ -4644,6 +4954,7 @@ pub unsafe fn alljoyn_interfacedescription_getmembers<'a, Param0: ::windows::run
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_interfacedescription_getmethod<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(iface: Param0, name: Param1, member: *mut alljoyn_interfacedescription_member) -> i32 {
     #[cfg(windows)]
@@ -4658,6 +4969,7 @@ pub unsafe fn alljoyn_interfacedescription_getmethod<'a, Param0: ::windows::runt
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_interfacedescription_getname<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_interfacedescription>>(iface: Param0) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
@@ -4672,6 +4984,7 @@ pub unsafe fn alljoyn_interfacedescription_getname<'a, Param0: ::windows::runtim
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_interfacedescription_getproperties<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_interfacedescription>>(iface: Param0, props: *mut alljoyn_interfacedescription_property, numprops: usize) -> usize {
     #[cfg(windows)]
@@ -4686,6 +4999,7 @@ pub unsafe fn alljoyn_interfacedescription_getproperties<'a, Param0: ::windows::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_interfacedescription_getproperty<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(iface: Param0, name: Param1, property: *mut alljoyn_interfacedescription_property) -> i32 {
     #[cfg(windows)]
@@ -4700,6 +5014,7 @@ pub unsafe fn alljoyn_interfacedescription_getproperty<'a, Param0: ::windows::ru
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_interfacedescription_getpropertyannotation<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(iface: Param0, property: Param1, name: Param2, value: Param3, str_size: *mut usize) -> i32 {
     #[cfg(windows)]
@@ -4714,6 +5029,7 @@ pub unsafe fn alljoyn_interfacedescription_getpropertyannotation<'a, Param0: ::w
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_interfacedescription_getpropertydescriptionforlanguage<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(iface: Param0, property: Param1, description: Param2, maxlanguagelength: usize, languagetag: Param4) -> usize {
     #[cfg(windows)]
@@ -4727,6 +5043,7 @@ pub unsafe fn alljoyn_interfacedescription_getpropertydescriptionforlanguage<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_interfacedescription_getsecuritypolicy<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_interfacedescription>>(iface: Param0) -> alljoyn_interfacedescription_securitypolicy {
     #[cfg(windows)]
@@ -4741,6 +5058,7 @@ pub unsafe fn alljoyn_interfacedescription_getsecuritypolicy<'a, Param0: ::windo
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_interfacedescription_getsignal<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(iface: Param0, name: Param1, member: *mut alljoyn_interfacedescription_member) -> i32 {
     #[cfg(windows)]
@@ -4754,6 +5072,7 @@ pub unsafe fn alljoyn_interfacedescription_getsignal<'a, Param0: ::windows::runt
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_interfacedescription_hasdescription<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_interfacedescription>>(iface: Param0) -> i32 {
     #[cfg(windows)]
@@ -4768,6 +5087,7 @@ pub unsafe fn alljoyn_interfacedescription_hasdescription<'a, Param0: ::windows:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_interfacedescription_hasmember<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(iface: Param0, name: Param1, insig: Param2, outsig: Param3) -> i32 {
     #[cfg(windows)]
@@ -4781,6 +5101,7 @@ pub unsafe fn alljoyn_interfacedescription_hasmember<'a, Param0: ::windows::runt
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_interfacedescription_hasproperties<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_interfacedescription>>(iface: Param0) -> i32 {
     #[cfg(windows)]
@@ -4795,6 +5116,7 @@ pub unsafe fn alljoyn_interfacedescription_hasproperties<'a, Param0: ::windows::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_interfacedescription_hasproperty<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(iface: Param0, name: Param1) -> i32 {
     #[cfg(windows)]
@@ -4809,6 +5131,7 @@ pub unsafe fn alljoyn_interfacedescription_hasproperty<'a, Param0: ::windows::ru
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_interfacedescription_introspect<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(iface: Param0, str: Param1, buf: usize, indent: usize) -> usize {
     #[cfg(windows)]
@@ -4822,6 +5145,7 @@ pub unsafe fn alljoyn_interfacedescription_introspect<'a, Param0: ::windows::run
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_interfacedescription_issecure<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_interfacedescription>>(iface: Param0) -> i32 {
     #[cfg(windows)]
@@ -4838,6 +5162,7 @@ pub unsafe fn alljoyn_interfacedescription_issecure<'a, Param0: ::windows::runti
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 pub struct alljoyn_interfacedescription_member {
     pub iface: alljoyn_interfacedescription,
     pub memberType: alljoyn_messagetype,
@@ -4883,6 +5208,7 @@ unsafe impl ::windows::runtime::Abi for alljoyn_interfacedescription_member {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_interfacedescription_member_eql<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_interfacedescription_member>, Param1: ::windows::runtime::IntoParam<'a, alljoyn_interfacedescription_member>>(one: Param0, other: Param1) -> i32 {
     #[cfg(windows)]
@@ -4897,6 +5223,7 @@ pub unsafe fn alljoyn_interfacedescription_member_eql<'a, Param0: ::windows::run
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_interfacedescription_member_getannotation<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_interfacedescription_member>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(member: Param0, name: Param1, value: Param2, value_size: *mut usize) -> i32 {
     #[cfg(windows)]
@@ -4911,6 +5238,7 @@ pub unsafe fn alljoyn_interfacedescription_member_getannotation<'a, Param0: ::wi
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_interfacedescription_member_getannotationatindex<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_interfacedescription_member>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(member: Param0, index: usize, name: Param2, name_size: *mut usize, value: Param4, value_size: *mut usize) {
     #[cfg(windows)]
@@ -4925,6 +5253,7 @@ pub unsafe fn alljoyn_interfacedescription_member_getannotationatindex<'a, Param
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_interfacedescription_member_getannotationscount<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_interfacedescription_member>>(member: Param0) -> usize {
     #[cfg(windows)]
@@ -4939,6 +5268,7 @@ pub unsafe fn alljoyn_interfacedescription_member_getannotationscount<'a, Param0
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_interfacedescription_member_getargannotation<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_interfacedescription_member>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(member: Param0, argname: Param1, name: Param2, value: Param3, value_size: *mut usize) -> i32 {
     #[cfg(windows)]
@@ -4953,6 +5283,7 @@ pub unsafe fn alljoyn_interfacedescription_member_getargannotation<'a, Param0: :
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_interfacedescription_member_getargannotationatindex<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_interfacedescription_member>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(
     member: Param0,
@@ -4975,6 +5306,7 @@ pub unsafe fn alljoyn_interfacedescription_member_getargannotationatindex<'a, Pa
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_interfacedescription_member_getargannotationscount<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_interfacedescription_member>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(member: Param0, argname: Param1) -> usize {
     #[cfg(windows)]
@@ -4991,6 +5323,7 @@ pub unsafe fn alljoyn_interfacedescription_member_getargannotationscount<'a, Par
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 pub struct alljoyn_interfacedescription_property {
     pub name: super::super::Foundation::PSTR,
     pub signature: super::super::Foundation::PSTR,
@@ -5025,6 +5358,7 @@ unsafe impl ::windows::runtime::Abi for alljoyn_interfacedescription_property {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_interfacedescription_property_eql<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_interfacedescription_property>, Param1: ::windows::runtime::IntoParam<'a, alljoyn_interfacedescription_property>>(one: Param0, other: Param1) -> i32 {
     #[cfg(windows)]
@@ -5039,6 +5373,7 @@ pub unsafe fn alljoyn_interfacedescription_property_eql<'a, Param0: ::windows::r
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_interfacedescription_property_getannotation<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_interfacedescription_property>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(property: Param0, name: Param1, value: Param2, value_size: *mut usize) -> i32 {
     #[cfg(windows)]
@@ -5053,6 +5388,7 @@ pub unsafe fn alljoyn_interfacedescription_property_getannotation<'a, Param0: ::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_interfacedescription_property_getannotationatindex<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_interfacedescription_property>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(property: Param0, index: usize, name: Param2, name_size: *mut usize, value: Param4, value_size: *mut usize) {
     #[cfg(windows)]
@@ -5067,6 +5403,7 @@ pub unsafe fn alljoyn_interfacedescription_property_getannotationatindex<'a, Par
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_interfacedescription_property_getannotationscount<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_interfacedescription_property>>(property: Param0) -> usize {
     #[cfg(windows)]
@@ -5080,6 +5417,7 @@ pub unsafe fn alljoyn_interfacedescription_property_getannotationscount<'a, Para
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct alljoyn_interfacedescription_securitypolicy(pub i32);
@@ -5096,6 +5434,7 @@ unsafe impl ::windows::runtime::Abi for alljoyn_interfacedescription_securitypol
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_interfacedescription_setargdescription<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(iface: Param0, member: Param1, argname: Param2, description: Param3) -> QStatus {
     #[cfg(windows)]
@@ -5110,6 +5449,7 @@ pub unsafe fn alljoyn_interfacedescription_setargdescription<'a, Param0: ::windo
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_interfacedescription_setargdescriptionforlanguage<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(
     iface: Param0,
@@ -5130,6 +5470,7 @@ pub unsafe fn alljoyn_interfacedescription_setargdescriptionforlanguage<'a, Para
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_interfacedescription_setdescription<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(iface: Param0, description: Param1) {
     #[cfg(windows)]
@@ -5144,6 +5485,7 @@ pub unsafe fn alljoyn_interfacedescription_setdescription<'a, Param0: ::windows:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_interfacedescription_setdescriptionforlanguage<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(iface: Param0, description: Param1, languagetag: Param2) -> QStatus {
     #[cfg(windows)]
@@ -5158,6 +5500,7 @@ pub unsafe fn alljoyn_interfacedescription_setdescriptionforlanguage<'a, Param0:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_interfacedescription_setdescriptionlanguage<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(iface: Param0, language: Param1) {
     #[cfg(windows)]
@@ -5172,6 +5515,7 @@ pub unsafe fn alljoyn_interfacedescription_setdescriptionlanguage<'a, Param0: ::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_interfacedescription_setdescriptiontranslationcallback<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_interfacedescription>>(iface: Param0, translationcallback: ::std::option::Option<alljoyn_interfacedescription_translation_callback_ptr>) {
     #[cfg(windows)]
@@ -5186,6 +5530,7 @@ pub unsafe fn alljoyn_interfacedescription_setdescriptiontranslationcallback<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_interfacedescription_setmemberdescription<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(iface: Param0, member: Param1, description: Param2) -> QStatus {
     #[cfg(windows)]
@@ -5200,6 +5545,7 @@ pub unsafe fn alljoyn_interfacedescription_setmemberdescription<'a, Param0: ::wi
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_interfacedescription_setmemberdescriptionforlanguage<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(iface: Param0, member: Param1, description: Param2, languagetag: Param3) -> QStatus {
     #[cfg(windows)]
@@ -5214,6 +5560,7 @@ pub unsafe fn alljoyn_interfacedescription_setmemberdescriptionforlanguage<'a, P
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_interfacedescription_setpropertydescription<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(iface: Param0, name: Param1, description: Param2) -> QStatus {
     #[cfg(windows)]
@@ -5228,6 +5575,7 @@ pub unsafe fn alljoyn_interfacedescription_setpropertydescription<'a, Param0: ::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_interfacedescription_setpropertydescriptionforlanguage<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(iface: Param0, name: Param1, description: Param2, languagetag: Param3) -> QStatus {
     #[cfg(windows)]
@@ -5272,6 +5620,7 @@ unsafe impl ::windows::runtime::Abi for alljoyn_keystorelistener {
 pub type alljoyn_keystorelistener_acquireexclusivelock_ptr = unsafe extern "system" fn(context: *const ::std::ffi::c_void, listener: alljoyn_keystorelistener) -> QStatus;
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 pub struct alljoyn_keystorelistener_callbacks {
     pub load_request: ::std::option::Option<alljoyn_keystorelistener_loadrequest_ptr>,
     pub store_request: ::std::option::Option<alljoyn_keystorelistener_storerequest_ptr>,
@@ -5297,6 +5646,7 @@ unsafe impl ::windows::runtime::Abi for alljoyn_keystorelistener_callbacks {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_keystorelistener_create(callbacks: *const alljoyn_keystorelistener_callbacks, context: *const ::std::ffi::c_void) -> alljoyn_keystorelistener {
     #[cfg(windows)]
@@ -5310,6 +5660,7 @@ pub unsafe fn alljoyn_keystorelistener_create(callbacks: *const alljoyn_keystore
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_keystorelistener_destroy<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_keystorelistener>>(listener: Param0) {
     #[cfg(windows)]
@@ -5324,6 +5675,7 @@ pub unsafe fn alljoyn_keystorelistener_destroy<'a, Param0: ::windows::runtime::I
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_keystorelistener_getkeys<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_keystorelistener>, Param1: ::windows::runtime::IntoParam<'a, alljoyn_keystore>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(listener: Param0, keystore: Param1, sink: Param2, sink_sz: *mut usize) -> QStatus {
     #[cfg(windows)]
@@ -5339,6 +5691,7 @@ pub unsafe fn alljoyn_keystorelistener_getkeys<'a, Param0: ::windows::runtime::I
 }
 pub type alljoyn_keystorelistener_loadrequest_ptr = unsafe extern "system" fn(context: *const ::std::ffi::c_void, listener: alljoyn_keystorelistener, keystore: alljoyn_keystore) -> QStatus;
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_keystorelistener_putkeys<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_keystorelistener>, Param1: ::windows::runtime::IntoParam<'a, alljoyn_keystore>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(listener: Param0, keystore: Param1, source: Param2, password: Param3) -> QStatus {
     #[cfg(windows)]
@@ -5356,6 +5709,7 @@ pub type alljoyn_keystorelistener_releaseexclusivelock_ptr = unsafe extern "syst
 pub type alljoyn_keystorelistener_storerequest_ptr = unsafe extern "system" fn(context: *const ::std::ffi::c_void, listener: alljoyn_keystorelistener, keystore: alljoyn_keystore) -> QStatus;
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 pub struct alljoyn_keystorelistener_with_synchronization_callbacks {
     pub load_request: ::std::option::Option<alljoyn_keystorelistener_loadrequest_ptr>,
     pub store_request: ::std::option::Option<alljoyn_keystorelistener_storerequest_ptr>,
@@ -5383,6 +5737,7 @@ unsafe impl ::windows::runtime::Abi for alljoyn_keystorelistener_with_synchroniz
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_keystorelistener_with_synchronization_create(callbacks: *const alljoyn_keystorelistener_with_synchronization_callbacks, context: *mut ::std::ffi::c_void) -> alljoyn_keystorelistener {
     #[cfg(windows)]
@@ -5398,6 +5753,7 @@ pub unsafe fn alljoyn_keystorelistener_with_synchronization_create(callbacks: *c
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 pub struct alljoyn_manifestarray {
     pub count: usize,
     pub xmls: *mut *mut i8,
@@ -5436,6 +5792,7 @@ unsafe impl ::windows::runtime::Abi for alljoyn_message {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_message_create<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>>(bus: Param0) -> alljoyn_message {
     #[cfg(windows)]
@@ -5450,6 +5807,7 @@ pub unsafe fn alljoyn_message_create<'a, Param0: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_message_description<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_message>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(msg: Param0, str: Param1, buf: usize) -> usize {
     #[cfg(windows)]
@@ -5463,6 +5821,7 @@ pub unsafe fn alljoyn_message_description<'a, Param0: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_message_destroy<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_message>>(msg: Param0) {
     #[cfg(windows)]
@@ -5476,6 +5835,7 @@ pub unsafe fn alljoyn_message_destroy<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_message_eql<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_message>, Param1: ::windows::runtime::IntoParam<'a, alljoyn_message>>(one: Param0, other: Param1) -> i32 {
     #[cfg(windows)]
@@ -5489,6 +5849,7 @@ pub unsafe fn alljoyn_message_eql<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_message_getarg<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_message>>(msg: Param0, argn: usize) -> alljoyn_msgarg {
     #[cfg(windows)]
@@ -5502,6 +5863,7 @@ pub unsafe fn alljoyn_message_getarg<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_message_getargs<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_message>>(msg: Param0, numargs: *mut usize, args: *mut alljoyn_msgarg) {
     #[cfg(windows)]
@@ -5516,6 +5878,7 @@ pub unsafe fn alljoyn_message_getargs<'a, Param0: ::windows::runtime::IntoParam<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_message_getauthmechanism<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_message>>(msg: Param0) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
@@ -5529,6 +5892,7 @@ pub unsafe fn alljoyn_message_getauthmechanism<'a, Param0: ::windows::runtime::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_message_getcallserial<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_message>>(msg: Param0) -> u32 {
     #[cfg(windows)]
@@ -5542,6 +5906,7 @@ pub unsafe fn alljoyn_message_getcallserial<'a, Param0: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_message_getcompressiontoken<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_message>>(msg: Param0) -> u32 {
     #[cfg(windows)]
@@ -5556,6 +5921,7 @@ pub unsafe fn alljoyn_message_getcompressiontoken<'a, Param0: ::windows::runtime
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_message_getdestination<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_message>>(msg: Param0) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
@@ -5570,6 +5936,7 @@ pub unsafe fn alljoyn_message_getdestination<'a, Param0: ::windows::runtime::Int
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_message_geterrorname<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_message>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(msg: Param0, errormessage: Param1, errormessage_size: *mut usize) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
@@ -5583,6 +5950,7 @@ pub unsafe fn alljoyn_message_geterrorname<'a, Param0: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_message_getflags<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_message>>(msg: Param0) -> u8 {
     #[cfg(windows)]
@@ -5597,6 +5965,7 @@ pub unsafe fn alljoyn_message_getflags<'a, Param0: ::windows::runtime::IntoParam
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_message_getinterface<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_message>>(msg: Param0) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
@@ -5611,6 +5980,7 @@ pub unsafe fn alljoyn_message_getinterface<'a, Param0: ::windows::runtime::IntoP
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_message_getmembername<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_message>>(msg: Param0) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
@@ -5625,6 +5995,7 @@ pub unsafe fn alljoyn_message_getmembername<'a, Param0: ::windows::runtime::Into
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_message_getobjectpath<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_message>>(msg: Param0) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
@@ -5639,6 +6010,7 @@ pub unsafe fn alljoyn_message_getobjectpath<'a, Param0: ::windows::runtime::Into
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_message_getreceiveendpointname<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_message>>(msg: Param0) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
@@ -5652,6 +6024,7 @@ pub unsafe fn alljoyn_message_getreceiveendpointname<'a, Param0: ::windows::runt
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_message_getreplyserial<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_message>>(msg: Param0) -> u32 {
     #[cfg(windows)]
@@ -5666,6 +6039,7 @@ pub unsafe fn alljoyn_message_getreplyserial<'a, Param0: ::windows::runtime::Int
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_message_getsender<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_message>>(msg: Param0) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
@@ -5679,6 +6053,7 @@ pub unsafe fn alljoyn_message_getsender<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_message_getsessionid<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_message>>(msg: Param0) -> u32 {
     #[cfg(windows)]
@@ -5693,6 +6068,7 @@ pub unsafe fn alljoyn_message_getsessionid<'a, Param0: ::windows::runtime::IntoP
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_message_getsignature<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_message>>(msg: Param0) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
@@ -5706,6 +6082,7 @@ pub unsafe fn alljoyn_message_getsignature<'a, Param0: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_message_gettimestamp<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_message>>(msg: Param0) -> u32 {
     #[cfg(windows)]
@@ -5719,6 +6096,7 @@ pub unsafe fn alljoyn_message_gettimestamp<'a, Param0: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_message_gettype<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_message>>(msg: Param0) -> alljoyn_messagetype {
     #[cfg(windows)]
@@ -5732,6 +6110,7 @@ pub unsafe fn alljoyn_message_gettype<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_message_isbroadcastsignal<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_message>>(msg: Param0) -> i32 {
     #[cfg(windows)]
@@ -5745,6 +6124,7 @@ pub unsafe fn alljoyn_message_isbroadcastsignal<'a, Param0: ::windows::runtime::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_message_isencrypted<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_message>>(msg: Param0) -> i32 {
     #[cfg(windows)]
@@ -5758,6 +6138,7 @@ pub unsafe fn alljoyn_message_isencrypted<'a, Param0: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_message_isexpired<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_message>>(msg: Param0, tillexpirems: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -5771,6 +6152,7 @@ pub unsafe fn alljoyn_message_isexpired<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_message_isglobalbroadcast<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_message>>(msg: Param0) -> i32 {
     #[cfg(windows)]
@@ -5784,6 +6166,7 @@ pub unsafe fn alljoyn_message_isglobalbroadcast<'a, Param0: ::windows::runtime::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_message_issessionless<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_message>>(msg: Param0) -> i32 {
     #[cfg(windows)]
@@ -5797,6 +6180,7 @@ pub unsafe fn alljoyn_message_issessionless<'a, Param0: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_message_isunreliable<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_message>>(msg: Param0) -> i32 {
     #[cfg(windows)]
@@ -5811,6 +6195,7 @@ pub unsafe fn alljoyn_message_isunreliable<'a, Param0: ::windows::runtime::IntoP
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_message_parseargs<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_message>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(msg: Param0, signature: Param1) -> QStatus {
     #[cfg(windows)]
@@ -5824,6 +6209,7 @@ pub unsafe fn alljoyn_message_parseargs<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_message_setendianess(endian: i8) {
     #[cfg(windows)]
@@ -5838,6 +6224,7 @@ pub unsafe fn alljoyn_message_setendianess(endian: i8) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_message_tostring<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_message>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(msg: Param0, str: Param1, buf: usize) -> usize {
     #[cfg(windows)]
@@ -5856,6 +6243,7 @@ pub type alljoyn_messagereceiver_methodhandler_ptr = unsafe extern "system" fn(b
 pub type alljoyn_messagereceiver_replyhandler_ptr = unsafe extern "system" fn(message: alljoyn_message, context: *mut ::std::ffi::c_void);
 #[cfg(feature = "Win32_Foundation")]
 pub type alljoyn_messagereceiver_signalhandler_ptr = unsafe extern "system" fn(member: *const alljoyn_interfacedescription_member, srcpath: super::super::Foundation::PSTR, message: alljoyn_message);
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct alljoyn_messagetype(pub i32);
@@ -5886,6 +6274,7 @@ unsafe impl ::windows::runtime::Abi for alljoyn_msgarg {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_array_create(size: usize) -> alljoyn_msgarg {
     #[cfg(windows)]
@@ -5899,6 +6288,7 @@ pub unsafe fn alljoyn_msgarg_array_create(size: usize) -> alljoyn_msgarg {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_array_element<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, index: usize) -> alljoyn_msgarg {
     #[cfg(windows)]
@@ -5913,6 +6303,7 @@ pub unsafe fn alljoyn_msgarg_array_element<'a, Param0: ::windows::runtime::IntoP
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_array_get<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(args: Param0, numargs: usize, signature: Param2) -> QStatus {
     #[cfg(windows)]
@@ -5927,6 +6318,7 @@ pub unsafe fn alljoyn_msgarg_array_get<'a, Param0: ::windows::runtime::IntoParam
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_array_set<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(args: Param0, numargs: *mut usize, signature: Param2) -> QStatus {
     #[cfg(windows)]
@@ -5941,6 +6333,7 @@ pub unsafe fn alljoyn_msgarg_array_set<'a, Param0: ::windows::runtime::IntoParam
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_array_set_offset<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(args: Param0, argoffset: usize, numargs: *mut usize, signature: Param3) -> QStatus {
     #[cfg(windows)]
@@ -5955,6 +6348,7 @@ pub unsafe fn alljoyn_msgarg_array_set_offset<'a, Param0: ::windows::runtime::In
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_array_signature<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(values: Param0, numvalues: usize, str: Param2, buf: usize) -> usize {
     #[cfg(windows)]
@@ -5969,6 +6363,7 @@ pub unsafe fn alljoyn_msgarg_array_signature<'a, Param0: ::windows::runtime::Int
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_array_tostring<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(args: Param0, numargs: usize, str: Param2, buf: usize, indent: usize) -> usize {
     #[cfg(windows)]
@@ -5982,6 +6377,7 @@ pub unsafe fn alljoyn_msgarg_array_tostring<'a, Param0: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_clear<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(arg: Param0) {
     #[cfg(windows)]
@@ -5995,6 +6391,7 @@ pub unsafe fn alljoyn_msgarg_clear<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_clone<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>, Param1: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(destination: Param0, source: Param1) {
     #[cfg(windows)]
@@ -6008,6 +6405,7 @@ pub unsafe fn alljoyn_msgarg_clone<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_copy<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(source: Param0) -> alljoyn_msgarg {
     #[cfg(windows)]
@@ -6021,6 +6419,7 @@ pub unsafe fn alljoyn_msgarg_copy<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_create() -> alljoyn_msgarg {
     #[cfg(windows)]
@@ -6035,6 +6434,7 @@ pub unsafe fn alljoyn_msgarg_create() -> alljoyn_msgarg {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_create_and_set<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(signature: Param0) -> alljoyn_msgarg {
     #[cfg(windows)]
@@ -6048,6 +6448,7 @@ pub unsafe fn alljoyn_msgarg_create_and_set<'a, Param0: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_destroy<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(arg: Param0) {
     #[cfg(windows)]
@@ -6061,6 +6462,7 @@ pub unsafe fn alljoyn_msgarg_destroy<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_equal<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>, Param1: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(lhv: Param0, rhv: Param1) -> i32 {
     #[cfg(windows)]
@@ -6075,6 +6477,7 @@ pub unsafe fn alljoyn_msgarg_equal<'a, Param0: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_get<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(arg: Param0, signature: Param1) -> QStatus {
     #[cfg(windows)]
@@ -6088,6 +6491,7 @@ pub unsafe fn alljoyn_msgarg_get<'a, Param0: ::windows::runtime::IntoParam<'a, a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_get_array_element<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, index: usize, element: *mut alljoyn_msgarg) {
     #[cfg(windows)]
@@ -6102,6 +6506,7 @@ pub unsafe fn alljoyn_msgarg_get_array_element<'a, Param0: ::windows::runtime::I
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_get_array_elementsignature<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, index: usize) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
@@ -6115,6 +6520,7 @@ pub unsafe fn alljoyn_msgarg_get_array_elementsignature<'a, Param0: ::windows::r
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_get_array_numberofelements<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(arg: Param0) -> usize {
     #[cfg(windows)]
@@ -6128,6 +6534,7 @@ pub unsafe fn alljoyn_msgarg_get_array_numberofelements<'a, Param0: ::windows::r
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_get_bool<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, b: *mut i32) -> QStatus {
     #[cfg(windows)]
@@ -6141,6 +6548,7 @@ pub unsafe fn alljoyn_msgarg_get_bool<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_get_bool_array<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, length: *mut usize, ab: *mut i32) -> QStatus {
     #[cfg(windows)]
@@ -6154,6 +6562,7 @@ pub unsafe fn alljoyn_msgarg_get_bool_array<'a, Param0: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_get_double<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, d: *mut f64) -> QStatus {
     #[cfg(windows)]
@@ -6167,6 +6576,7 @@ pub unsafe fn alljoyn_msgarg_get_double<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_get_double_array<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, length: *mut usize, ad: *mut f64) -> QStatus {
     #[cfg(windows)]
@@ -6180,6 +6590,7 @@ pub unsafe fn alljoyn_msgarg_get_double_array<'a, Param0: ::windows::runtime::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_get_int16<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, n: *mut i16) -> QStatus {
     #[cfg(windows)]
@@ -6193,6 +6604,7 @@ pub unsafe fn alljoyn_msgarg_get_int16<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_get_int16_array<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, length: *mut usize, an: *mut i16) -> QStatus {
     #[cfg(windows)]
@@ -6206,6 +6618,7 @@ pub unsafe fn alljoyn_msgarg_get_int16_array<'a, Param0: ::windows::runtime::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_get_int32<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, i: *mut i32) -> QStatus {
     #[cfg(windows)]
@@ -6219,6 +6632,7 @@ pub unsafe fn alljoyn_msgarg_get_int32<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_get_int32_array<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, length: *mut usize, ai: *mut i32) -> QStatus {
     #[cfg(windows)]
@@ -6232,6 +6646,7 @@ pub unsafe fn alljoyn_msgarg_get_int32_array<'a, Param0: ::windows::runtime::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_get_int64<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, x: *mut i64) -> QStatus {
     #[cfg(windows)]
@@ -6245,6 +6660,7 @@ pub unsafe fn alljoyn_msgarg_get_int64<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_get_int64_array<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, length: *mut usize, ax: *mut i64) -> QStatus {
     #[cfg(windows)]
@@ -6258,6 +6674,7 @@ pub unsafe fn alljoyn_msgarg_get_int64_array<'a, Param0: ::windows::runtime::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_get_objectpath<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, o: *mut *mut i8) -> QStatus {
     #[cfg(windows)]
@@ -6271,6 +6688,7 @@ pub unsafe fn alljoyn_msgarg_get_objectpath<'a, Param0: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_get_signature<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, g: *mut *mut i8) -> QStatus {
     #[cfg(windows)]
@@ -6284,6 +6702,7 @@ pub unsafe fn alljoyn_msgarg_get_signature<'a, Param0: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_get_string<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, s: *mut *mut i8) -> QStatus {
     #[cfg(windows)]
@@ -6297,6 +6716,7 @@ pub unsafe fn alljoyn_msgarg_get_string<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_get_uint16<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, q: *mut u16) -> QStatus {
     #[cfg(windows)]
@@ -6310,6 +6730,7 @@ pub unsafe fn alljoyn_msgarg_get_uint16<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_get_uint16_array<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, length: *mut usize, aq: *mut u16) -> QStatus {
     #[cfg(windows)]
@@ -6323,6 +6744,7 @@ pub unsafe fn alljoyn_msgarg_get_uint16_array<'a, Param0: ::windows::runtime::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_get_uint32<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, u: *mut u32) -> QStatus {
     #[cfg(windows)]
@@ -6336,6 +6758,7 @@ pub unsafe fn alljoyn_msgarg_get_uint32<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_get_uint32_array<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, length: *mut usize, au: *mut u32) -> QStatus {
     #[cfg(windows)]
@@ -6349,6 +6772,7 @@ pub unsafe fn alljoyn_msgarg_get_uint32_array<'a, Param0: ::windows::runtime::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_get_uint64<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, t: *mut u64) -> QStatus {
     #[cfg(windows)]
@@ -6362,6 +6786,7 @@ pub unsafe fn alljoyn_msgarg_get_uint64<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_get_uint64_array<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, length: *mut usize, at: *mut u64) -> QStatus {
     #[cfg(windows)]
@@ -6375,6 +6800,7 @@ pub unsafe fn alljoyn_msgarg_get_uint64_array<'a, Param0: ::windows::runtime::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_get_uint8<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, y: *mut u8) -> QStatus {
     #[cfg(windows)]
@@ -6388,6 +6814,7 @@ pub unsafe fn alljoyn_msgarg_get_uint8<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_get_uint8_array<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, length: *mut usize, ay: *mut u8) -> QStatus {
     #[cfg(windows)]
@@ -6401,6 +6828,7 @@ pub unsafe fn alljoyn_msgarg_get_uint8_array<'a, Param0: ::windows::runtime::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_get_variant<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>, Param1: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, v: Param1) -> QStatus {
     #[cfg(windows)]
@@ -6415,6 +6843,7 @@ pub unsafe fn alljoyn_msgarg_get_variant<'a, Param0: ::windows::runtime::IntoPar
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_get_variant_array<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(arg: Param0, signature: Param1, length: *mut usize, av: *mut alljoyn_msgarg) -> QStatus {
     #[cfg(windows)]
@@ -6429,6 +6858,7 @@ pub unsafe fn alljoyn_msgarg_get_variant_array<'a, Param0: ::windows::runtime::I
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_getdictelement<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(arg: Param0, elemsig: Param1) -> QStatus {
     #[cfg(windows)]
@@ -6442,6 +6872,7 @@ pub unsafe fn alljoyn_msgarg_getdictelement<'a, Param0: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_getkey<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(arg: Param0) -> alljoyn_msgarg {
     #[cfg(windows)]
@@ -6455,6 +6886,7 @@ pub unsafe fn alljoyn_msgarg_getkey<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_getmember<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, index: usize) -> alljoyn_msgarg {
     #[cfg(windows)]
@@ -6468,6 +6900,7 @@ pub unsafe fn alljoyn_msgarg_getmember<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_getnummembers<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(arg: Param0) -> usize {
     #[cfg(windows)]
@@ -6481,6 +6914,7 @@ pub unsafe fn alljoyn_msgarg_getnummembers<'a, Param0: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_gettype<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(arg: Param0) -> alljoyn_typeid {
     #[cfg(windows)]
@@ -6494,6 +6928,7 @@ pub unsafe fn alljoyn_msgarg_gettype<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_getvalue<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(arg: Param0) -> alljoyn_msgarg {
     #[cfg(windows)]
@@ -6508,6 +6943,7 @@ pub unsafe fn alljoyn_msgarg_getvalue<'a, Param0: ::windows::runtime::IntoParam<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_hassignature<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(arg: Param0, signature: Param1) -> i32 {
     #[cfg(windows)]
@@ -6522,6 +6958,7 @@ pub unsafe fn alljoyn_msgarg_hassignature<'a, Param0: ::windows::runtime::IntoPa
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_set<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(arg: Param0, signature: Param1) -> QStatus {
     #[cfg(windows)]
@@ -6536,6 +6973,7 @@ pub unsafe fn alljoyn_msgarg_set<'a, Param0: ::windows::runtime::IntoParam<'a, a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_set_and_stabilize<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(arg: Param0, signature: Param1) -> QStatus {
     #[cfg(windows)]
@@ -6549,6 +6987,7 @@ pub unsafe fn alljoyn_msgarg_set_and_stabilize<'a, Param0: ::windows::runtime::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_set_bool<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, b: i32) -> QStatus {
     #[cfg(windows)]
@@ -6562,6 +7001,7 @@ pub unsafe fn alljoyn_msgarg_set_bool<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_set_bool_array<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, length: usize, ab: *mut i32) -> QStatus {
     #[cfg(windows)]
@@ -6575,6 +7015,7 @@ pub unsafe fn alljoyn_msgarg_set_bool_array<'a, Param0: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_set_double<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, d: f64) -> QStatus {
     #[cfg(windows)]
@@ -6588,6 +7029,7 @@ pub unsafe fn alljoyn_msgarg_set_double<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_set_double_array<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, length: usize, ad: *mut f64) -> QStatus {
     #[cfg(windows)]
@@ -6601,6 +7043,7 @@ pub unsafe fn alljoyn_msgarg_set_double_array<'a, Param0: ::windows::runtime::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_set_int16<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, n: i16) -> QStatus {
     #[cfg(windows)]
@@ -6614,6 +7057,7 @@ pub unsafe fn alljoyn_msgarg_set_int16<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_set_int16_array<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, length: usize, an: *mut i16) -> QStatus {
     #[cfg(windows)]
@@ -6627,6 +7071,7 @@ pub unsafe fn alljoyn_msgarg_set_int16_array<'a, Param0: ::windows::runtime::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_set_int32<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, i: i32) -> QStatus {
     #[cfg(windows)]
@@ -6640,6 +7085,7 @@ pub unsafe fn alljoyn_msgarg_set_int32<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_set_int32_array<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, length: usize, ai: *mut i32) -> QStatus {
     #[cfg(windows)]
@@ -6653,6 +7099,7 @@ pub unsafe fn alljoyn_msgarg_set_int32_array<'a, Param0: ::windows::runtime::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_set_int64<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, x: i64) -> QStatus {
     #[cfg(windows)]
@@ -6666,6 +7113,7 @@ pub unsafe fn alljoyn_msgarg_set_int64<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_set_int64_array<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, length: usize, ax: *mut i64) -> QStatus {
     #[cfg(windows)]
@@ -6680,6 +7128,7 @@ pub unsafe fn alljoyn_msgarg_set_int64_array<'a, Param0: ::windows::runtime::Int
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_set_objectpath<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(arg: Param0, o: Param1) -> QStatus {
     #[cfg(windows)]
@@ -6693,6 +7142,7 @@ pub unsafe fn alljoyn_msgarg_set_objectpath<'a, Param0: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_set_objectpath_array<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, length: usize, ao: *const *const i8) -> QStatus {
     #[cfg(windows)]
@@ -6707,6 +7157,7 @@ pub unsafe fn alljoyn_msgarg_set_objectpath_array<'a, Param0: ::windows::runtime
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_set_signature<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(arg: Param0, g: Param1) -> QStatus {
     #[cfg(windows)]
@@ -6720,6 +7171,7 @@ pub unsafe fn alljoyn_msgarg_set_signature<'a, Param0: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_set_signature_array<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, length: usize, ag: *const *const i8) -> QStatus {
     #[cfg(windows)]
@@ -6734,6 +7186,7 @@ pub unsafe fn alljoyn_msgarg_set_signature_array<'a, Param0: ::windows::runtime:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_set_string<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(arg: Param0, s: Param1) -> QStatus {
     #[cfg(windows)]
@@ -6747,6 +7200,7 @@ pub unsafe fn alljoyn_msgarg_set_string<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_set_string_array<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, length: usize, r#as: *const *const i8) -> QStatus {
     #[cfg(windows)]
@@ -6760,6 +7214,7 @@ pub unsafe fn alljoyn_msgarg_set_string_array<'a, Param0: ::windows::runtime::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_set_uint16<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, q: u16) -> QStatus {
     #[cfg(windows)]
@@ -6773,6 +7228,7 @@ pub unsafe fn alljoyn_msgarg_set_uint16<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_set_uint16_array<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, length: usize, aq: *mut u16) -> QStatus {
     #[cfg(windows)]
@@ -6786,6 +7242,7 @@ pub unsafe fn alljoyn_msgarg_set_uint16_array<'a, Param0: ::windows::runtime::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_set_uint32<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, u: u32) -> QStatus {
     #[cfg(windows)]
@@ -6799,6 +7256,7 @@ pub unsafe fn alljoyn_msgarg_set_uint32<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_set_uint32_array<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, length: usize, au: *mut u32) -> QStatus {
     #[cfg(windows)]
@@ -6812,6 +7270,7 @@ pub unsafe fn alljoyn_msgarg_set_uint32_array<'a, Param0: ::windows::runtime::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_set_uint64<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, t: u64) -> QStatus {
     #[cfg(windows)]
@@ -6825,6 +7284,7 @@ pub unsafe fn alljoyn_msgarg_set_uint64<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_set_uint64_array<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, length: usize, at: *mut u64) -> QStatus {
     #[cfg(windows)]
@@ -6838,6 +7298,7 @@ pub unsafe fn alljoyn_msgarg_set_uint64_array<'a, Param0: ::windows::runtime::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_set_uint8<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, y: u8) -> QStatus {
     #[cfg(windows)]
@@ -6851,6 +7312,7 @@ pub unsafe fn alljoyn_msgarg_set_uint8<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_set_uint8_array<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, length: usize, ay: *mut u8) -> QStatus {
     #[cfg(windows)]
@@ -6864,6 +7326,7 @@ pub unsafe fn alljoyn_msgarg_set_uint8_array<'a, Param0: ::windows::runtime::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_setdictentry<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>, Param1: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>, Param2: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, key: Param1, value: Param2) -> QStatus {
     #[cfg(windows)]
@@ -6877,6 +7340,7 @@ pub unsafe fn alljoyn_msgarg_setdictentry<'a, Param0: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_setstruct<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>, Param1: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(arg: Param0, struct_members: Param1, num_members: usize) -> QStatus {
     #[cfg(windows)]
@@ -6891,6 +7355,7 @@ pub unsafe fn alljoyn_msgarg_setstruct<'a, Param0: ::windows::runtime::IntoParam
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_signature<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(arg: Param0, str: Param1, buf: usize) -> usize {
     #[cfg(windows)]
@@ -6904,6 +7369,7 @@ pub unsafe fn alljoyn_msgarg_signature<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_stabilize<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(arg: Param0) {
     #[cfg(windows)]
@@ -6918,6 +7384,7 @@ pub unsafe fn alljoyn_msgarg_stabilize<'a, Param0: ::windows::runtime::IntoParam
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_msgarg_tostring<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(arg: Param0, str: Param1, buf: usize, indent: usize) -> usize {
     #[cfg(windows)]
@@ -6944,6 +7411,7 @@ unsafe impl ::windows::runtime::Abi for alljoyn_observer {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_observer_create<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>>(bus: Param0, mandatoryinterfaces: *const *const i8, nummandatoryinterfaces: usize) -> alljoyn_observer {
     #[cfg(windows)]
@@ -6957,6 +7425,7 @@ pub unsafe fn alljoyn_observer_create<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_observer_destroy<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_observer>>(observer: Param0) {
     #[cfg(windows)]
@@ -6971,6 +7440,7 @@ pub unsafe fn alljoyn_observer_destroy<'a, Param0: ::windows::runtime::IntoParam
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_observer_get<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_observer>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(observer: Param0, uniquebusname: Param1, objectpath: Param2) -> alljoyn_proxybusobject_ref {
     #[cfg(windows)]
@@ -6984,6 +7454,7 @@ pub unsafe fn alljoyn_observer_get<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_observer_getfirst<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_observer>>(observer: Param0) -> alljoyn_proxybusobject_ref {
     #[cfg(windows)]
@@ -6997,6 +7468,7 @@ pub unsafe fn alljoyn_observer_getfirst<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_observer_getnext<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_observer>, Param1: ::windows::runtime::IntoParam<'a, alljoyn_proxybusobject_ref>>(observer: Param0, proxyref: Param1) -> alljoyn_proxybusobject_ref {
     #[cfg(windows)]
@@ -7012,6 +7484,7 @@ pub unsafe fn alljoyn_observer_getnext<'a, Param0: ::windows::runtime::IntoParam
 }
 pub type alljoyn_observer_object_discovered_ptr = unsafe extern "system" fn(context: *const ::std::ffi::c_void, proxyref: alljoyn_proxybusobject_ref);
 pub type alljoyn_observer_object_lost_ptr = unsafe extern "system" fn(context: *const ::std::ffi::c_void, proxyref: alljoyn_proxybusobject_ref);
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_observer_registerlistener<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_observer>, Param1: ::windows::runtime::IntoParam<'a, alljoyn_observerlistener>>(observer: Param0, listener: Param1, triggeronexisting: i32) {
     #[cfg(windows)]
@@ -7025,6 +7498,7 @@ pub unsafe fn alljoyn_observer_registerlistener<'a, Param0: ::windows::runtime::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_observer_unregisteralllisteners<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_observer>>(observer: Param0) {
     #[cfg(windows)]
@@ -7038,6 +7512,7 @@ pub unsafe fn alljoyn_observer_unregisteralllisteners<'a, Param0: ::windows::run
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_observer_unregisterlistener<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_observer>, Param1: ::windows::runtime::IntoParam<'a, alljoyn_observerlistener>>(observer: Param0, listener: Param1) {
     #[cfg(windows)]
@@ -7066,6 +7541,7 @@ unsafe impl ::windows::runtime::Abi for alljoyn_observerlistener {
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 pub struct alljoyn_observerlistener_callback {
     pub object_discovered: ::std::option::Option<alljoyn_observer_object_discovered_ptr>,
     pub object_lost: ::std::option::Option<alljoyn_observer_object_lost_ptr>,
@@ -7091,6 +7567,7 @@ unsafe impl ::windows::runtime::Abi for alljoyn_observerlistener_callback {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_observerlistener_create(callback: *const alljoyn_observerlistener_callback, context: *const ::std::ffi::c_void) -> alljoyn_observerlistener {
     #[cfg(windows)]
@@ -7104,6 +7581,7 @@ pub unsafe fn alljoyn_observerlistener_create(callback: *const alljoyn_observerl
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_observerlistener_destroy<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_observerlistener>>(listener: Param0) {
     #[cfg(windows)]
@@ -7118,6 +7596,7 @@ pub unsafe fn alljoyn_observerlistener_destroy<'a, Param0: ::windows::runtime::I
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_passwordmanager_setcredentials<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(authmechanism: Param0, password: Param1) -> QStatus {
     #[cfg(windows)]
@@ -7146,6 +7625,7 @@ unsafe impl ::windows::runtime::Abi for alljoyn_permissionconfigurationlistener 
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 pub struct alljoyn_permissionconfigurationlistener_callbacks {
     pub factory_reset: ::std::option::Option<alljoyn_permissionconfigurationlistener_factoryreset_ptr>,
     pub policy_changed: ::std::option::Option<alljoyn_permissionconfigurationlistener_policychanged_ptr>,
@@ -7173,6 +7653,7 @@ unsafe impl ::windows::runtime::Abi for alljoyn_permissionconfigurationlistener_
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_permissionconfigurationlistener_create(callbacks: *const alljoyn_permissionconfigurationlistener_callbacks, context: *const ::std::ffi::c_void) -> alljoyn_permissionconfigurationlistener {
     #[cfg(windows)]
@@ -7186,6 +7667,7 @@ pub unsafe fn alljoyn_permissionconfigurationlistener_create(callbacks: *const a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_permissionconfigurationlistener_destroy<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_permissionconfigurationlistener>>(listener: Param0) {
     #[cfg(windows)]
@@ -7216,6 +7698,7 @@ unsafe impl ::windows::runtime::Abi for alljoyn_permissionconfigurator {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_permissionconfigurator_certificatechain_destroy(certificatechain: *mut i8) {
     #[cfg(windows)]
@@ -7229,6 +7712,7 @@ pub unsafe fn alljoyn_permissionconfigurator_certificatechain_destroy(certificat
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_permissionconfigurator_certificateid_cleanup(certificateid: *mut alljoyn_certificateid) {
     #[cfg(windows)]
@@ -7242,6 +7726,7 @@ pub unsafe fn alljoyn_permissionconfigurator_certificateid_cleanup(certificateid
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_permissionconfigurator_certificateidarray_cleanup(certificateidarray: *mut alljoyn_certificateidarray) {
     #[cfg(windows)]
@@ -7255,6 +7740,7 @@ pub unsafe fn alljoyn_permissionconfigurator_certificateidarray_cleanup(certific
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_permissionconfigurator_claim<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_permissionconfigurator>>(configurator: Param0, cakey: *mut i8, identitycertificatechain: *mut i8, groupid: *const u8, groupsize: usize, groupauthority: *mut i8, manifestsxmls: *mut *mut i8, manifestscount: usize) -> QStatus {
     #[cfg(windows)]
@@ -7277,6 +7763,7 @@ pub unsafe fn alljoyn_permissionconfigurator_claim<'a, Param0: ::windows::runtim
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_permissionconfigurator_endmanagement<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_permissionconfigurator>>(configurator: Param0) -> QStatus {
     #[cfg(windows)]
@@ -7290,6 +7777,7 @@ pub unsafe fn alljoyn_permissionconfigurator_endmanagement<'a, Param0: ::windows
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_permissionconfigurator_getapplicationstate<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_permissionconfigurator>>(configurator: Param0, state: *mut alljoyn_applicationstate) -> QStatus {
     #[cfg(windows)]
@@ -7303,6 +7791,7 @@ pub unsafe fn alljoyn_permissionconfigurator_getapplicationstate<'a, Param0: ::w
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_permissionconfigurator_getclaimcapabilities<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_permissionconfigurator>>(configurator: Param0, claimcapabilities: *mut u16) -> QStatus {
     #[cfg(windows)]
@@ -7316,6 +7805,7 @@ pub unsafe fn alljoyn_permissionconfigurator_getclaimcapabilities<'a, Param0: ::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_permissionconfigurator_getclaimcapabilitiesadditionalinfo<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_permissionconfigurator>>(configurator: Param0, additionalinfo: *mut u16) -> QStatus {
     #[cfg(windows)]
@@ -7329,6 +7819,7 @@ pub unsafe fn alljoyn_permissionconfigurator_getclaimcapabilitiesadditionalinfo<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_permissionconfigurator_getdefaultclaimcapabilities() -> u16 {
     #[cfg(windows)]
@@ -7342,6 +7833,7 @@ pub unsafe fn alljoyn_permissionconfigurator_getdefaultclaimcapabilities() -> u1
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_permissionconfigurator_getdefaultpolicy<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_permissionconfigurator>>(configurator: Param0, policyxml: *mut *mut i8) -> QStatus {
     #[cfg(windows)]
@@ -7355,6 +7847,7 @@ pub unsafe fn alljoyn_permissionconfigurator_getdefaultpolicy<'a, Param0: ::wind
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_permissionconfigurator_getidentity<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_permissionconfigurator>>(configurator: Param0, identitycertificatechain: *mut *mut i8) -> QStatus {
     #[cfg(windows)]
@@ -7368,6 +7861,7 @@ pub unsafe fn alljoyn_permissionconfigurator_getidentity<'a, Param0: ::windows::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_permissionconfigurator_getidentitycertificateid<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_permissionconfigurator>>(configurator: Param0, certificateid: *mut alljoyn_certificateid) -> QStatus {
     #[cfg(windows)]
@@ -7381,6 +7875,7 @@ pub unsafe fn alljoyn_permissionconfigurator_getidentitycertificateid<'a, Param0
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_permissionconfigurator_getmanifests<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_permissionconfigurator>>(configurator: Param0, manifestarray: *mut alljoyn_manifestarray) -> QStatus {
     #[cfg(windows)]
@@ -7394,6 +7889,7 @@ pub unsafe fn alljoyn_permissionconfigurator_getmanifests<'a, Param0: ::windows:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_permissionconfigurator_getmanifesttemplate<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_permissionconfigurator>>(configurator: Param0, manifesttemplatexml: *mut *mut i8) -> QStatus {
     #[cfg(windows)]
@@ -7407,6 +7903,7 @@ pub unsafe fn alljoyn_permissionconfigurator_getmanifesttemplate<'a, Param0: ::w
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_permissionconfigurator_getmembershipsummaries<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_permissionconfigurator>>(configurator: Param0, certificateids: *mut alljoyn_certificateidarray) -> QStatus {
     #[cfg(windows)]
@@ -7420,6 +7917,7 @@ pub unsafe fn alljoyn_permissionconfigurator_getmembershipsummaries<'a, Param0: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_permissionconfigurator_getpolicy<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_permissionconfigurator>>(configurator: Param0, policyxml: *mut *mut i8) -> QStatus {
     #[cfg(windows)]
@@ -7433,6 +7931,7 @@ pub unsafe fn alljoyn_permissionconfigurator_getpolicy<'a, Param0: ::windows::ru
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_permissionconfigurator_getpublickey<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_permissionconfigurator>>(configurator: Param0, publickey: *mut *mut i8) -> QStatus {
     #[cfg(windows)]
@@ -7446,6 +7945,7 @@ pub unsafe fn alljoyn_permissionconfigurator_getpublickey<'a, Param0: ::windows:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_permissionconfigurator_installmanifests<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_permissionconfigurator>>(configurator: Param0, manifestsxmls: *mut *mut i8, manifestscount: usize, append: i32) -> QStatus {
     #[cfg(windows)]
@@ -7459,6 +7959,7 @@ pub unsafe fn alljoyn_permissionconfigurator_installmanifests<'a, Param0: ::wind
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_permissionconfigurator_installmembership<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_permissionconfigurator>>(configurator: Param0, membershipcertificatechain: *mut i8) -> QStatus {
     #[cfg(windows)]
@@ -7472,6 +7973,7 @@ pub unsafe fn alljoyn_permissionconfigurator_installmembership<'a, Param0: ::win
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_permissionconfigurator_manifestarray_cleanup(manifestarray: *mut alljoyn_manifestarray) {
     #[cfg(windows)]
@@ -7485,6 +7987,7 @@ pub unsafe fn alljoyn_permissionconfigurator_manifestarray_cleanup(manifestarray
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_permissionconfigurator_manifesttemplate_destroy(manifesttemplatexml: *mut i8) {
     #[cfg(windows)]
@@ -7498,6 +8001,7 @@ pub unsafe fn alljoyn_permissionconfigurator_manifesttemplate_destroy(manifestte
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_permissionconfigurator_policy_destroy(policyxml: *mut i8) {
     #[cfg(windows)]
@@ -7511,6 +8015,7 @@ pub unsafe fn alljoyn_permissionconfigurator_policy_destroy(policyxml: *mut i8) 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_permissionconfigurator_publickey_destroy(publickey: *mut i8) {
     #[cfg(windows)]
@@ -7524,6 +8029,7 @@ pub unsafe fn alljoyn_permissionconfigurator_publickey_destroy(publickey: *mut i
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_permissionconfigurator_removemembership<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_permissionconfigurator>>(configurator: Param0, serial: *const u8, seriallen: usize, issuerpublickey: *mut i8, issueraki: *const u8, issuerakilen: usize) -> QStatus {
     #[cfg(windows)]
@@ -7537,6 +8043,7 @@ pub unsafe fn alljoyn_permissionconfigurator_removemembership<'a, Param0: ::wind
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_permissionconfigurator_reset<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_permissionconfigurator>>(configurator: Param0) -> QStatus {
     #[cfg(windows)]
@@ -7550,6 +8057,7 @@ pub unsafe fn alljoyn_permissionconfigurator_reset<'a, Param0: ::windows::runtim
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_permissionconfigurator_resetpolicy<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_permissionconfigurator>>(configurator: Param0) -> QStatus {
     #[cfg(windows)]
@@ -7563,6 +8071,7 @@ pub unsafe fn alljoyn_permissionconfigurator_resetpolicy<'a, Param0: ::windows::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_permissionconfigurator_setapplicationstate<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_permissionconfigurator>>(configurator: Param0, state: alljoyn_applicationstate) -> QStatus {
     #[cfg(windows)]
@@ -7576,6 +8085,7 @@ pub unsafe fn alljoyn_permissionconfigurator_setapplicationstate<'a, Param0: ::w
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_permissionconfigurator_setclaimcapabilities<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_permissionconfigurator>>(configurator: Param0, claimcapabilities: u16) -> QStatus {
     #[cfg(windows)]
@@ -7589,6 +8099,7 @@ pub unsafe fn alljoyn_permissionconfigurator_setclaimcapabilities<'a, Param0: ::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_permissionconfigurator_setclaimcapabilitiesadditionalinfo<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_permissionconfigurator>>(configurator: Param0, additionalinfo: u16) -> QStatus {
     #[cfg(windows)]
@@ -7602,6 +8113,7 @@ pub unsafe fn alljoyn_permissionconfigurator_setclaimcapabilitiesadditionalinfo<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_permissionconfigurator_setmanifesttemplatefromxml<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_permissionconfigurator>>(configurator: Param0, manifesttemplatexml: *mut i8) -> QStatus {
     #[cfg(windows)]
@@ -7615,6 +8127,7 @@ pub unsafe fn alljoyn_permissionconfigurator_setmanifesttemplatefromxml<'a, Para
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_permissionconfigurator_startmanagement<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_permissionconfigurator>>(configurator: Param0) -> QStatus {
     #[cfg(windows)]
@@ -7628,6 +8141,7 @@ pub unsafe fn alljoyn_permissionconfigurator_startmanagement<'a, Param0: ::windo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_permissionconfigurator_updateidentity<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_permissionconfigurator>>(configurator: Param0, identitycertificatechain: *mut i8, manifestsxmls: *mut *mut i8, manifestscount: usize) -> QStatus {
     #[cfg(windows)]
@@ -7641,6 +8155,7 @@ pub unsafe fn alljoyn_permissionconfigurator_updateidentity<'a, Param0: ::window
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_permissionconfigurator_updatepolicy<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_permissionconfigurator>>(configurator: Param0, policyxml: *mut i8) -> QStatus {
     #[cfg(windows)]
@@ -7670,6 +8185,7 @@ unsafe impl ::windows::runtime::Abi for alljoyn_pinglistener {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 pub struct alljoyn_pinglistener_callback {
     pub destination_found: ::std::option::Option<alljoyn_autopinger_destination_found_ptr>,
     pub destination_lost: ::std::option::Option<alljoyn_autopinger_destination_lost_ptr>,
@@ -7702,6 +8218,7 @@ unsafe impl ::windows::runtime::Abi for alljoyn_pinglistener_callback {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_pinglistener_create(callback: *const alljoyn_pinglistener_callback, context: *const ::std::ffi::c_void) -> alljoyn_pinglistener {
     #[cfg(windows)]
@@ -7715,6 +8232,7 @@ pub unsafe fn alljoyn_pinglistener_create(callback: *const alljoyn_pinglistener_
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_pinglistener_destroy<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_pinglistener>>(listener: Param0) {
     #[cfg(windows)]
@@ -7741,6 +8259,7 @@ unsafe impl ::windows::runtime::Abi for alljoyn_proxybusobject {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_proxybusobject_addchild<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_proxybusobject>, Param1: ::windows::runtime::IntoParam<'a, alljoyn_proxybusobject>>(proxyobj: Param0, child: Param1) -> QStatus {
     #[cfg(windows)]
@@ -7754,6 +8273,7 @@ pub unsafe fn alljoyn_proxybusobject_addchild<'a, Param0: ::windows::runtime::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_proxybusobject_addinterface<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_proxybusobject>, Param1: ::windows::runtime::IntoParam<'a, alljoyn_interfacedescription>>(proxyobj: Param0, iface: Param1) -> QStatus {
     #[cfg(windows)]
@@ -7768,6 +8288,7 @@ pub unsafe fn alljoyn_proxybusobject_addinterface<'a, Param0: ::windows::runtime
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_proxybusobject_addinterface_by_name<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_proxybusobject>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(proxyobj: Param0, name: Param1) -> QStatus {
     #[cfg(windows)]
@@ -7781,6 +8302,7 @@ pub unsafe fn alljoyn_proxybusobject_addinterface_by_name<'a, Param0: ::windows:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_proxybusobject_copy<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_proxybusobject>>(source: Param0) -> alljoyn_proxybusobject {
     #[cfg(windows)]
@@ -7795,6 +8317,7 @@ pub unsafe fn alljoyn_proxybusobject_copy<'a, Param0: ::windows::runtime::IntoPa
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_proxybusobject_create<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, service: Param1, path: Param2, sessionid: u32) -> alljoyn_proxybusobject {
     #[cfg(windows)]
@@ -7809,6 +8332,7 @@ pub unsafe fn alljoyn_proxybusobject_create<'a, Param0: ::windows::runtime::Into
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_proxybusobject_create_secure<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, service: Param1, path: Param2, sessionid: u32) -> alljoyn_proxybusobject {
     #[cfg(windows)]
@@ -7822,6 +8346,7 @@ pub unsafe fn alljoyn_proxybusobject_create_secure<'a, Param0: ::windows::runtim
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_proxybusobject_destroy<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_proxybusobject>>(proxyobj: Param0) {
     #[cfg(windows)]
@@ -7835,6 +8360,7 @@ pub unsafe fn alljoyn_proxybusobject_destroy<'a, Param0: ::windows::runtime::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_proxybusobject_enablepropertycaching<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_proxybusobject>>(proxyobj: Param0) {
     #[cfg(windows)]
@@ -7849,6 +8375,7 @@ pub unsafe fn alljoyn_proxybusobject_enablepropertycaching<'a, Param0: ::windows
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_proxybusobject_getallproperties<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_proxybusobject>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(proxyobj: Param0, iface: Param1, values: Param2) -> QStatus {
     #[cfg(windows)]
@@ -7863,6 +8390,7 @@ pub unsafe fn alljoyn_proxybusobject_getallproperties<'a, Param0: ::windows::run
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_proxybusobject_getallpropertiesasync<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_proxybusobject>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(proxyobj: Param0, iface: Param1, callback: ::std::option::Option<alljoyn_proxybusobject_listener_getallpropertiescb_ptr>, timeout: u32, context: *mut ::std::ffi::c_void) -> QStatus {
     #[cfg(windows)]
@@ -7877,6 +8405,7 @@ pub unsafe fn alljoyn_proxybusobject_getallpropertiesasync<'a, Param0: ::windows
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_proxybusobject_getchild<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_proxybusobject>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(proxyobj: Param0, path: Param1) -> alljoyn_proxybusobject {
     #[cfg(windows)]
@@ -7890,6 +8419,7 @@ pub unsafe fn alljoyn_proxybusobject_getchild<'a, Param0: ::windows::runtime::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_proxybusobject_getchildren<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_proxybusobject>>(proxyobj: Param0, children: *mut alljoyn_proxybusobject, numchildren: usize) -> usize {
     #[cfg(windows)]
@@ -7904,6 +8434,7 @@ pub unsafe fn alljoyn_proxybusobject_getchildren<'a, Param0: ::windows::runtime:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_proxybusobject_getinterface<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_proxybusobject>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(proxyobj: Param0, iface: Param1) -> alljoyn_interfacedescription {
     #[cfg(windows)]
@@ -7917,6 +8448,7 @@ pub unsafe fn alljoyn_proxybusobject_getinterface<'a, Param0: ::windows::runtime
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_proxybusobject_getinterfaces<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_proxybusobject>>(proxyobj: Param0, ifaces: *const alljoyn_interfacedescription, numifaces: usize) -> usize {
     #[cfg(windows)]
@@ -7931,6 +8463,7 @@ pub unsafe fn alljoyn_proxybusobject_getinterfaces<'a, Param0: ::windows::runtim
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_proxybusobject_getpath<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_proxybusobject>>(proxyobj: Param0) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
@@ -7945,6 +8478,7 @@ pub unsafe fn alljoyn_proxybusobject_getpath<'a, Param0: ::windows::runtime::Int
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_proxybusobject_getproperty<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_proxybusobject>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(proxyobj: Param0, iface: Param1, property: Param2, value: Param3) -> QStatus {
     #[cfg(windows)]
@@ -7959,6 +8493,7 @@ pub unsafe fn alljoyn_proxybusobject_getproperty<'a, Param0: ::windows::runtime:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_proxybusobject_getpropertyasync<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_proxybusobject>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(proxyobj: Param0, iface: Param1, property: Param2, callback: ::std::option::Option<alljoyn_proxybusobject_listener_getpropertycb_ptr>, timeout: u32, context: *mut ::std::ffi::c_void) -> QStatus {
     #[cfg(windows)]
@@ -7973,6 +8508,7 @@ pub unsafe fn alljoyn_proxybusobject_getpropertyasync<'a, Param0: ::windows::run
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_proxybusobject_getservicename<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_proxybusobject>>(proxyobj: Param0) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
@@ -7986,6 +8522,7 @@ pub unsafe fn alljoyn_proxybusobject_getservicename<'a, Param0: ::windows::runti
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_proxybusobject_getsessionid<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_proxybusobject>>(proxyobj: Param0) -> u32 {
     #[cfg(windows)]
@@ -8000,6 +8537,7 @@ pub unsafe fn alljoyn_proxybusobject_getsessionid<'a, Param0: ::windows::runtime
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_proxybusobject_getuniquename<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_proxybusobject>>(proxyobj: Param0) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
@@ -8014,6 +8552,7 @@ pub unsafe fn alljoyn_proxybusobject_getuniquename<'a, Param0: ::windows::runtim
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_proxybusobject_implementsinterface<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_proxybusobject>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(proxyobj: Param0, iface: Param1) -> i32 {
     #[cfg(windows)]
@@ -8027,6 +8566,7 @@ pub unsafe fn alljoyn_proxybusobject_implementsinterface<'a, Param0: ::windows::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_proxybusobject_introspectremoteobject<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_proxybusobject>>(proxyobj: Param0) -> QStatus {
     #[cfg(windows)]
@@ -8040,6 +8580,7 @@ pub unsafe fn alljoyn_proxybusobject_introspectremoteobject<'a, Param0: ::window
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_proxybusobject_introspectremoteobjectasync<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_proxybusobject>>(proxyobj: Param0, callback: ::std::option::Option<alljoyn_proxybusobject_listener_introspectcb_ptr>, context: *mut ::std::ffi::c_void) -> QStatus {
     #[cfg(windows)]
@@ -8053,6 +8594,7 @@ pub unsafe fn alljoyn_proxybusobject_introspectremoteobjectasync<'a, Param0: ::w
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_proxybusobject_issecure<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_proxybusobject>>(proxyobj: Param0) -> i32 {
     #[cfg(windows)]
@@ -8066,6 +8608,7 @@ pub unsafe fn alljoyn_proxybusobject_issecure<'a, Param0: ::windows::runtime::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_proxybusobject_isvalid<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_proxybusobject>>(proxyobj: Param0) -> i32 {
     #[cfg(windows)]
@@ -8086,6 +8629,7 @@ pub type alljoyn_proxybusobject_listener_introspectcb_ptr = unsafe extern "syste
 pub type alljoyn_proxybusobject_listener_propertieschanged_ptr = unsafe extern "system" fn(obj: alljoyn_proxybusobject, ifacename: super::super::Foundation::PSTR, changed: alljoyn_msgarg, invalidated: alljoyn_msgarg, context: *mut ::std::ffi::c_void);
 pub type alljoyn_proxybusobject_listener_setpropertycb_ptr = unsafe extern "system" fn(status: QStatus, obj: alljoyn_proxybusobject, context: *mut ::std::ffi::c_void);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_proxybusobject_methodcall<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_proxybusobject>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>, Param5: ::windows::runtime::IntoParam<'a, alljoyn_message>>(
     proxyobj: Param0,
@@ -8109,6 +8653,7 @@ pub unsafe fn alljoyn_proxybusobject_methodcall<'a, Param0: ::windows::runtime::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_proxybusobject_methodcall_member<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_proxybusobject>, Param1: ::windows::runtime::IntoParam<'a, alljoyn_interfacedescription_member>, Param2: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>, Param4: ::windows::runtime::IntoParam<'a, alljoyn_message>>(proxyobj: Param0, method: Param1, args: Param2, numargs: usize, replymsg: Param4, timeout: u32, flags: u8) -> QStatus {
     #[cfg(windows)]
@@ -8123,6 +8668,7 @@ pub unsafe fn alljoyn_proxybusobject_methodcall_member<'a, Param0: ::windows::ru
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_proxybusobject_methodcall_member_noreply<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_proxybusobject>, Param1: ::windows::runtime::IntoParam<'a, alljoyn_interfacedescription_member>, Param2: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(proxyobj: Param0, method: Param1, args: Param2, numargs: usize, flags: u8) -> QStatus {
     #[cfg(windows)]
@@ -8137,6 +8683,7 @@ pub unsafe fn alljoyn_proxybusobject_methodcall_member_noreply<'a, Param0: ::win
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_proxybusobject_methodcall_noreply<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_proxybusobject>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(proxyobj: Param0, ifacename: Param1, methodname: Param2, args: Param3, numargs: usize, flags: u8) -> QStatus {
     #[cfg(windows)]
@@ -8151,6 +8698,7 @@ pub unsafe fn alljoyn_proxybusobject_methodcall_noreply<'a, Param0: ::windows::r
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_proxybusobject_methodcallasync<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_proxybusobject>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(
     proxyobj: Param0,
@@ -8185,6 +8733,7 @@ pub unsafe fn alljoyn_proxybusobject_methodcallasync<'a, Param0: ::windows::runt
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_proxybusobject_methodcallasync_member<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_proxybusobject>, Param1: ::windows::runtime::IntoParam<'a, alljoyn_interfacedescription_member>, Param3: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(proxyobj: Param0, method: Param1, replyfunc: ::std::option::Option<alljoyn_messagereceiver_replyhandler_ptr>, args: Param3, numargs: usize, context: *mut ::std::ffi::c_void, timeout: u32, flags: u8) -> QStatus {
     #[cfg(windows)]
@@ -8199,6 +8748,7 @@ pub unsafe fn alljoyn_proxybusobject_methodcallasync_member<'a, Param0: ::window
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_proxybusobject_parsexml<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_proxybusobject>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(proxyobj: Param0, xml: Param1, identifier: Param2) -> QStatus {
     #[cfg(windows)]
@@ -8225,6 +8775,7 @@ unsafe impl ::windows::runtime::Abi for alljoyn_proxybusobject_ref {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_proxybusobject_ref_create<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_proxybusobject>>(proxy: Param0) -> alljoyn_proxybusobject_ref {
     #[cfg(windows)]
@@ -8238,6 +8789,7 @@ pub unsafe fn alljoyn_proxybusobject_ref_create<'a, Param0: ::windows::runtime::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_proxybusobject_ref_decref<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_proxybusobject_ref>>(r#ref: Param0) {
     #[cfg(windows)]
@@ -8251,6 +8803,7 @@ pub unsafe fn alljoyn_proxybusobject_ref_decref<'a, Param0: ::windows::runtime::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_proxybusobject_ref_get<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_proxybusobject_ref>>(r#ref: Param0) -> alljoyn_proxybusobject {
     #[cfg(windows)]
@@ -8264,6 +8817,7 @@ pub unsafe fn alljoyn_proxybusobject_ref_get<'a, Param0: ::windows::runtime::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_proxybusobject_ref_incref<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_proxybusobject_ref>>(r#ref: Param0) {
     #[cfg(windows)]
@@ -8278,6 +8832,7 @@ pub unsafe fn alljoyn_proxybusobject_ref_incref<'a, Param0: ::windows::runtime::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_proxybusobject_registerpropertieschangedlistener<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_proxybusobject>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(proxyobj: Param0, iface: Param1, properties: *const *const i8, numproperties: usize, callback: ::std::option::Option<alljoyn_proxybusobject_listener_propertieschanged_ptr>, context: *mut ::std::ffi::c_void) -> QStatus {
     #[cfg(windows)]
@@ -8292,6 +8847,7 @@ pub unsafe fn alljoyn_proxybusobject_registerpropertieschangedlistener<'a, Param
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_proxybusobject_removechild<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_proxybusobject>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(proxyobj: Param0, path: Param1) -> QStatus {
     #[cfg(windows)]
@@ -8305,6 +8861,7 @@ pub unsafe fn alljoyn_proxybusobject_removechild<'a, Param0: ::windows::runtime:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_proxybusobject_secureconnection<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_proxybusobject>>(proxyobj: Param0, forceauth: i32) -> QStatus {
     #[cfg(windows)]
@@ -8318,6 +8875,7 @@ pub unsafe fn alljoyn_proxybusobject_secureconnection<'a, Param0: ::windows::run
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_proxybusobject_secureconnectionasync<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_proxybusobject>>(proxyobj: Param0, forceauth: i32) -> QStatus {
     #[cfg(windows)]
@@ -8332,6 +8890,7 @@ pub unsafe fn alljoyn_proxybusobject_secureconnectionasync<'a, Param0: ::windows
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_proxybusobject_setproperty<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_proxybusobject>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(proxyobj: Param0, iface: Param1, property: Param2, value: Param3) -> QStatus {
     #[cfg(windows)]
@@ -8346,6 +8905,7 @@ pub unsafe fn alljoyn_proxybusobject_setproperty<'a, Param0: ::windows::runtime:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_proxybusobject_setpropertyasync<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_proxybusobject>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, alljoyn_msgarg>>(
     proxyobj: Param0,
@@ -8368,6 +8928,7 @@ pub unsafe fn alljoyn_proxybusobject_setpropertyasync<'a, Param0: ::windows::run
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_proxybusobject_unregisterpropertieschangedlistener<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_proxybusobject>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(proxyobj: Param0, iface: Param1, callback: ::std::option::Option<alljoyn_proxybusobject_listener_propertieschanged_ptr>) -> QStatus {
     #[cfg(windows)]
@@ -8381,6 +8942,7 @@ pub unsafe fn alljoyn_proxybusobject_unregisterpropertieschangedlistener<'a, Par
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_routerinit() -> QStatus {
     #[cfg(windows)]
@@ -8394,6 +8956,7 @@ pub unsafe fn alljoyn_routerinit() -> QStatus {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_routerinitwithconfig(configxml: *mut i8) -> QStatus {
     #[cfg(windows)]
@@ -8407,6 +8970,7 @@ pub unsafe fn alljoyn_routerinitwithconfig(configxml: *mut i8) -> QStatus {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_routershutdown() -> QStatus {
     #[cfg(windows)]
@@ -8433,6 +8997,7 @@ unsafe impl ::windows::runtime::Abi for alljoyn_securityapplicationproxy {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_securityapplicationproxy_claim<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_securityapplicationproxy>>(proxy: Param0, cakey: *mut i8, identitycertificatechain: *mut i8, groupid: *const u8, groupsize: usize, groupauthority: *mut i8, manifestsxmls: *mut *mut i8, manifestscount: usize) -> QStatus {
     #[cfg(windows)]
@@ -8455,6 +9020,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_claim<'a, Param0: ::windows::runt
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_securityapplicationproxy_computemanifestdigest(unsignedmanifestxml: *mut i8, identitycertificatepem: *mut i8, digest: *mut *mut u8, digestsize: *mut usize) -> QStatus {
     #[cfg(windows)]
@@ -8468,6 +9034,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_computemanifestdigest(unsignedman
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_securityapplicationproxy_create<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_busattachment>>(bus: Param0, appbusname: *mut i8, sessionid: u32) -> alljoyn_securityapplicationproxy {
     #[cfg(windows)]
@@ -8481,6 +9048,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_create<'a, Param0: ::windows::run
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_securityapplicationproxy_destroy<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_securityapplicationproxy>>(proxy: Param0) {
     #[cfg(windows)]
@@ -8494,6 +9062,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_destroy<'a, Param0: ::windows::ru
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_securityapplicationproxy_digest_destroy(digest: *mut u8) {
     #[cfg(windows)]
@@ -8507,6 +9076,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_digest_destroy(digest: *mut u8) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_securityapplicationproxy_eccpublickey_destroy(eccpublickey: *mut i8) {
     #[cfg(windows)]
@@ -8520,6 +9090,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_eccpublickey_destroy(eccpublickey
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_securityapplicationproxy_endmanagement<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_securityapplicationproxy>>(proxy: Param0) -> QStatus {
     #[cfg(windows)]
@@ -8533,6 +9104,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_endmanagement<'a, Param0: ::windo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_securityapplicationproxy_getapplicationstate<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_securityapplicationproxy>>(proxy: Param0, applicationstate: *mut alljoyn_applicationstate) -> QStatus {
     #[cfg(windows)]
@@ -8546,6 +9118,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_getapplicationstate<'a, Param0: :
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_securityapplicationproxy_getclaimcapabilities<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_securityapplicationproxy>>(proxy: Param0, capabilities: *mut u16) -> QStatus {
     #[cfg(windows)]
@@ -8559,6 +9132,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_getclaimcapabilities<'a, Param0: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_securityapplicationproxy_getclaimcapabilitiesadditionalinfo<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_securityapplicationproxy>>(proxy: Param0, additionalinfo: *mut u16) -> QStatus {
     #[cfg(windows)]
@@ -8572,6 +9146,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_getclaimcapabilitiesadditionalinf
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_securityapplicationproxy_getdefaultpolicy<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_securityapplicationproxy>>(proxy: Param0, policyxml: *mut *mut i8) -> QStatus {
     #[cfg(windows)]
@@ -8585,6 +9160,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_getdefaultpolicy<'a, Param0: ::wi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_securityapplicationproxy_geteccpublickey<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_securityapplicationproxy>>(proxy: Param0, eccpublickey: *mut *mut i8) -> QStatus {
     #[cfg(windows)]
@@ -8598,6 +9174,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_geteccpublickey<'a, Param0: ::win
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_securityapplicationproxy_getmanifesttemplate<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_securityapplicationproxy>>(proxy: Param0, manifesttemplatexml: *mut *mut i8) -> QStatus {
     #[cfg(windows)]
@@ -8611,6 +9188,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_getmanifesttemplate<'a, Param0: :
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_securityapplicationproxy_getpermissionmanagementsessionport() -> u16 {
     #[cfg(windows)]
@@ -8624,6 +9202,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_getpermissionmanagementsessionpor
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_securityapplicationproxy_getpolicy<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_securityapplicationproxy>>(proxy: Param0, policyxml: *mut *mut i8) -> QStatus {
     #[cfg(windows)]
@@ -8637,6 +9216,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_getpolicy<'a, Param0: ::windows::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_securityapplicationproxy_installmembership<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_securityapplicationproxy>>(proxy: Param0, membershipcertificatechain: *mut i8) -> QStatus {
     #[cfg(windows)]
@@ -8650,6 +9230,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_installmembership<'a, Param0: ::w
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_securityapplicationproxy_manifest_destroy(signedmanifestxml: *mut i8) {
     #[cfg(windows)]
@@ -8663,6 +9244,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_manifest_destroy(signedmanifestxm
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_securityapplicationproxy_manifesttemplate_destroy(manifesttemplatexml: *mut i8) {
     #[cfg(windows)]
@@ -8676,6 +9258,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_manifesttemplate_destroy(manifest
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_securityapplicationproxy_policy_destroy(policyxml: *mut i8) {
     #[cfg(windows)]
@@ -8689,6 +9272,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_policy_destroy(policyxml: *mut i8
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_securityapplicationproxy_reset<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_securityapplicationproxy>>(proxy: Param0) -> QStatus {
     #[cfg(windows)]
@@ -8702,6 +9286,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_reset<'a, Param0: ::windows::runt
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_securityapplicationproxy_resetpolicy<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_securityapplicationproxy>>(proxy: Param0) -> QStatus {
     #[cfg(windows)]
@@ -8715,6 +9300,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_resetpolicy<'a, Param0: ::windows
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_securityapplicationproxy_setmanifestsignature(unsignedmanifestxml: *mut i8, identitycertificatepem: *mut i8, signature: *const u8, signaturesize: usize, signedmanifestxml: *mut *mut i8) -> QStatus {
     #[cfg(windows)]
@@ -8728,6 +9314,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_setmanifestsignature(unsignedmani
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_securityapplicationproxy_signmanifest(unsignedmanifestxml: *mut i8, identitycertificatepem: *mut i8, signingprivatekeypem: *mut i8, signedmanifestxml: *mut *mut i8) -> QStatus {
     #[cfg(windows)]
@@ -8741,6 +9328,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_signmanifest(unsignedmanifestxml:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_securityapplicationproxy_startmanagement<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_securityapplicationproxy>>(proxy: Param0) -> QStatus {
     #[cfg(windows)]
@@ -8754,6 +9342,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_startmanagement<'a, Param0: ::win
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_securityapplicationproxy_updateidentity<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_securityapplicationproxy>>(proxy: Param0, identitycertificatechain: *mut i8, manifestsxmls: *mut *mut i8, manifestscount: usize) -> QStatus {
     #[cfg(windows)]
@@ -8767,6 +9356,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_updateidentity<'a, Param0: ::wind
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_securityapplicationproxy_updatepolicy<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_securityapplicationproxy>>(proxy: Param0, policyxml: *mut i8) -> QStatus {
     #[cfg(windows)]
@@ -8796,6 +9386,7 @@ unsafe impl ::windows::runtime::Abi for alljoyn_sessionlistener {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 pub struct alljoyn_sessionlistener_callbacks {
     pub session_lost: ::std::option::Option<alljoyn_sessionlistener_sessionlost_ptr>,
     pub session_member_added: ::std::option::Option<alljoyn_sessionlistener_sessionmemberadded_ptr>,
@@ -8829,6 +9420,7 @@ unsafe impl ::windows::runtime::Abi for alljoyn_sessionlistener_callbacks {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_sessionlistener_create(callbacks: *const alljoyn_sessionlistener_callbacks, context: *const ::std::ffi::c_void) -> alljoyn_sessionlistener {
     #[cfg(windows)]
@@ -8842,6 +9434,7 @@ pub unsafe fn alljoyn_sessionlistener_create(callbacks: *const alljoyn_sessionli
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_sessionlistener_destroy<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_sessionlistener>>(listener: Param0) {
     #[cfg(windows)]
@@ -8860,6 +9453,7 @@ pub type alljoyn_sessionlistener_sessionlost_ptr = unsafe extern "system" fn(con
 pub type alljoyn_sessionlistener_sessionmemberadded_ptr = unsafe extern "system" fn(context: *const ::std::ffi::c_void, sessionid: u32, uniquename: super::super::Foundation::PSTR);
 #[cfg(feature = "Win32_Foundation")]
 pub type alljoyn_sessionlistener_sessionmemberremoved_ptr = unsafe extern "system" fn(context: *const ::std::ffi::c_void, sessionid: u32, uniquename: super::super::Foundation::PSTR);
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct alljoyn_sessionlostreason(pub i32);
@@ -8891,6 +9485,7 @@ unsafe impl ::windows::runtime::Abi for alljoyn_sessionopts {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_sessionopts_cmp<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_sessionopts>, Param1: ::windows::runtime::IntoParam<'a, alljoyn_sessionopts>>(one: Param0, other: Param1) -> i32 {
     #[cfg(windows)]
@@ -8904,6 +9499,7 @@ pub unsafe fn alljoyn_sessionopts_cmp<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_sessionopts_create(traffic: u8, ismultipoint: i32, proximity: u8, transports: u16) -> alljoyn_sessionopts {
     #[cfg(windows)]
@@ -8917,6 +9513,7 @@ pub unsafe fn alljoyn_sessionopts_create(traffic: u8, ismultipoint: i32, proximi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_sessionopts_destroy<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_sessionopts>>(opts: Param0) {
     #[cfg(windows)]
@@ -8930,6 +9527,7 @@ pub unsafe fn alljoyn_sessionopts_destroy<'a, Param0: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_sessionopts_get_multipoint<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_sessionopts>>(opts: Param0) -> i32 {
     #[cfg(windows)]
@@ -8943,6 +9541,7 @@ pub unsafe fn alljoyn_sessionopts_get_multipoint<'a, Param0: ::windows::runtime:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_sessionopts_get_proximity<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_sessionopts>>(opts: Param0) -> u8 {
     #[cfg(windows)]
@@ -8956,6 +9555,7 @@ pub unsafe fn alljoyn_sessionopts_get_proximity<'a, Param0: ::windows::runtime::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_sessionopts_get_traffic<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_sessionopts>>(opts: Param0) -> u8 {
     #[cfg(windows)]
@@ -8969,6 +9569,7 @@ pub unsafe fn alljoyn_sessionopts_get_traffic<'a, Param0: ::windows::runtime::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_sessionopts_get_transports<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_sessionopts>>(opts: Param0) -> u16 {
     #[cfg(windows)]
@@ -8982,6 +9583,7 @@ pub unsafe fn alljoyn_sessionopts_get_transports<'a, Param0: ::windows::runtime:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_sessionopts_iscompatible<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_sessionopts>, Param1: ::windows::runtime::IntoParam<'a, alljoyn_sessionopts>>(one: Param0, other: Param1) -> i32 {
     #[cfg(windows)]
@@ -8995,6 +9597,7 @@ pub unsafe fn alljoyn_sessionopts_iscompatible<'a, Param0: ::windows::runtime::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_sessionopts_set_multipoint<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_sessionopts>>(opts: Param0, ismultipoint: i32) {
     #[cfg(windows)]
@@ -9008,6 +9611,7 @@ pub unsafe fn alljoyn_sessionopts_set_multipoint<'a, Param0: ::windows::runtime:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_sessionopts_set_proximity<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_sessionopts>>(opts: Param0, proximity: u8) {
     #[cfg(windows)]
@@ -9021,6 +9625,7 @@ pub unsafe fn alljoyn_sessionopts_set_proximity<'a, Param0: ::windows::runtime::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_sessionopts_set_traffic<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_sessionopts>>(opts: Param0, traffic: u8) {
     #[cfg(windows)]
@@ -9034,6 +9639,7 @@ pub unsafe fn alljoyn_sessionopts_set_traffic<'a, Param0: ::windows::runtime::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_sessionopts_set_transports<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_sessionopts>>(opts: Param0, transports: u16) {
     #[cfg(windows)]
@@ -9065,6 +9671,7 @@ pub type alljoyn_sessionportlistener_acceptsessionjoiner_ptr = unsafe extern "sy
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 pub struct alljoyn_sessionportlistener_callbacks {
     pub accept_session_joiner: ::std::option::Option<alljoyn_sessionportlistener_acceptsessionjoiner_ptr>,
     pub session_joined: ::std::option::Option<alljoyn_sessionportlistener_sessionjoined_ptr>,
@@ -9097,6 +9704,7 @@ unsafe impl ::windows::runtime::Abi for alljoyn_sessionportlistener_callbacks {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn alljoyn_sessionportlistener_create(callbacks: *const alljoyn_sessionportlistener_callbacks, context: *const ::std::ffi::c_void) -> alljoyn_sessionportlistener {
     #[cfg(windows)]
@@ -9110,6 +9718,7 @@ pub unsafe fn alljoyn_sessionportlistener_create(callbacks: *const alljoyn_sessi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_sessionportlistener_destroy<'a, Param0: ::windows::runtime::IntoParam<'a, alljoyn_sessionportlistener>>(listener: Param0) {
     #[cfg(windows)]
@@ -9125,6 +9734,7 @@ pub unsafe fn alljoyn_sessionportlistener_destroy<'a, Param0: ::windows::runtime
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type alljoyn_sessionportlistener_sessionjoined_ptr = unsafe extern "system" fn(context: *const ::std::ffi::c_void, sessionport: u16, id: u32, joiner: super::super::Foundation::PSTR);
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_shutdown() -> QStatus {
     #[cfg(windows)]
@@ -9138,6 +9748,7 @@ pub unsafe fn alljoyn_shutdown() -> QStatus {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct alljoyn_typeid(pub i32);
@@ -9182,6 +9793,7 @@ unsafe impl ::windows::runtime::Abi for alljoyn_typeid {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_unity_deferred_callbacks_process() -> i32 {
     #[cfg(windows)]
@@ -9195,6 +9807,7 @@ pub unsafe fn alljoyn_unity_deferred_callbacks_process() -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
 pub unsafe fn alljoyn_unity_set_deferred_callback_mainthread_only(mainthread_only: i32) {
     #[cfg(windows)]

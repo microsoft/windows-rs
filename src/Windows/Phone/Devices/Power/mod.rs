@@ -1,8 +1,10 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Phone_Devices_Power`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct Battery(::windows::runtime::IInspectable);
 impl Battery {
+    #[doc = "*Required features: `Phone_Devices_Power`*"]
     pub fn RemainingChargePercent(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -11,6 +13,7 @@ impl Battery {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Phone_Devices_Power`, `Foundation`*"]
     pub fn RemainingDischargeTime(&self) -> ::windows::runtime::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -19,6 +22,7 @@ impl Battery {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Phone_Devices_Power`, `Foundation`*"]
     pub fn RemainingChargePercentChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventHandler<::windows::runtime::IInspectable>>>(&self, changehandler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -27,10 +31,12 @@ impl Battery {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Phone_Devices_Power`, `Foundation`*"]
     pub fn RemoveRemainingChargePercentChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Phone_Devices_Power`*"]
     pub fn GetDefault() -> ::windows::runtime::Result<Battery> {
         Self::IBatteryStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();

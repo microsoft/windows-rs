@@ -1,7 +1,9 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Phone_PersonalInformation_Provisioning`*"]
 pub struct ContactPartnerProvisioningManager {}
 impl ContactPartnerProvisioningManager {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Phone_PersonalInformation_Provisioning`, `Foundation`*"]
     pub fn AssociateNetworkAccountAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::ContactStore>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(store: Param0, networkname: Param1, networkaccountid: Param2) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         Self::IContactPartnerProvisioningManagerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -9,6 +11,7 @@ impl ContactPartnerProvisioningManager {
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Phone_PersonalInformation_Provisioning`, `Foundation`, `Storage_Streams`*"]
     pub fn ImportVcardToSystemAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Storage::Streams::IInputStream>>(stream: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         Self::IContactPartnerProvisioningManagerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -16,6 +19,7 @@ impl ContactPartnerProvisioningManager {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Phone_PersonalInformation_Provisioning`, `Foundation`*"]
     pub fn AssociateSocialNetworkAccountAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::ContactStore>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(store: Param0, networkname: Param1, networkaccountid: Param2) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         Self::IContactPartnerProvisioningManagerStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -99,9 +103,11 @@ pub struct IMessagePartnerProvisioningManagerStatics_abi(
     pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, incoming: bool, read: bool, subject: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, sender: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, recipients: ::windows::runtime::RawPtr, deliverytime: super::super::super::Foundation::DateTime, attachments: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
+#[doc = "*Required features: `Phone_PersonalInformation_Provisioning`*"]
 pub struct MessagePartnerProvisioningManager {}
 impl MessagePartnerProvisioningManager {
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Phone_PersonalInformation_Provisioning`, `Foundation`, `Foundation_Collections`*"]
     pub fn ImportSmsToSystemAsync<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param4: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>>, Param5: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::DateTime>>(
         incoming: bool,
         read: bool,
@@ -116,6 +122,7 @@ impl MessagePartnerProvisioningManager {
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Phone_PersonalInformation_Provisioning`, `Foundation`, `Foundation_Collections`*"]
     pub fn ImportMmsToSystemAsync<
         'a,
         Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,

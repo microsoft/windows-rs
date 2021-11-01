@@ -1,8 +1,11 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const ASSERT_ALTERNATE: u32 = 9u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const ASSERT_PRIMARY: u32 = 8u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct ASYNC_DUPLICATE_EXTENTS_STATUS {
     pub Version: u32,
     pub State: DUPLICATE_EXTENTS_STATE,
@@ -39,9 +42,11 @@ unsafe impl ::windows::runtime::Abi for ASYNC_DUPLICATE_EXTENTS_STATUS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const ATAPI_ID_CMD: u32 = 161u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct BIN_COUNT {
     pub BinRange: BIN_RANGE,
     pub BinCount: u32,
@@ -69,6 +74,7 @@ unsafe impl ::windows::runtime::Abi for BIN_COUNT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct BIN_RANGE {
     pub StartValue: i64,
     pub Length: i64,
@@ -96,6 +102,7 @@ unsafe impl ::windows::runtime::Abi for BIN_RANGE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct BIN_RESULTS {
     pub NumberOfBins: u32,
     pub BinCounts: [BIN_COUNT; 1],
@@ -121,6 +128,7 @@ unsafe impl ::windows::runtime::Abi for BIN_RESULTS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct BIN_TYPES(pub i32);
@@ -137,6 +145,7 @@ unsafe impl ::windows::runtime::Abi for BIN_TYPES {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct BOOT_AREA_INFO {
     pub BootSectorCount: u32,
     pub BootSectors: [BOOT_AREA_INFO_0; 2],
@@ -164,6 +173,7 @@ unsafe impl ::windows::runtime::Abi for BOOT_AREA_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct BOOT_AREA_INFO_0 {
     pub Offset: i64,
 }
@@ -190,6 +200,7 @@ unsafe impl ::windows::runtime::Abi for BOOT_AREA_INFO_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct BULK_SECURITY_TEST_DATA {
     pub DesiredAccess: u32,
     pub SecurityIds: [u32; 1],
@@ -215,10 +226,15 @@ unsafe impl ::windows::runtime::Abi for BULK_SECURITY_TEST_DATA {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const CAP_ATAPI_ID_CMD: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const CAP_ATA_ID_CMD: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const CAP_SMART_CMD: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const CDB_SIZE: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CHANGER_DEVICE_PROBLEM_TYPE(pub i32);
@@ -247,6 +263,7 @@ unsafe impl ::windows::runtime::Abi for CHANGER_DEVICE_PROBLEM_TYPE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct CHANGER_ELEMENT {
     pub ElementType: ELEMENT_TYPE,
     pub ElementAddress: u32,
@@ -274,6 +291,7 @@ unsafe impl ::windows::runtime::Abi for CHANGER_ELEMENT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct CHANGER_ELEMENT_LIST {
     pub Element: CHANGER_ELEMENT,
     pub NumberOfElements: u32,
@@ -301,6 +319,7 @@ unsafe impl ::windows::runtime::Abi for CHANGER_ELEMENT_LIST {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct CHANGER_ELEMENT_STATUS {
     pub Element: CHANGER_ELEMENT,
     pub SrcElementAddress: CHANGER_ELEMENT,
@@ -345,6 +364,7 @@ unsafe impl ::windows::runtime::Abi for CHANGER_ELEMENT_STATUS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct CHANGER_ELEMENT_STATUS_EX {
     pub Element: CHANGER_ELEMENT,
     pub SrcElementAddress: CHANGER_ELEMENT,
@@ -404,6 +424,7 @@ unsafe impl ::windows::runtime::Abi for CHANGER_ELEMENT_STATUS_EX {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CHANGER_ELEMENT_STATUS_FLAGS(pub u32);
@@ -461,6 +482,7 @@ impl ::std::ops::Not for CHANGER_ELEMENT_STATUS_FLAGS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Foundation`*"]
 pub struct CHANGER_EXCHANGE_MEDIUM {
     pub Transport: CHANGER_ELEMENT,
     pub Source: CHANGER_ELEMENT,
@@ -496,6 +518,7 @@ unsafe impl ::windows::runtime::Abi for CHANGER_EXCHANGE_MEDIUM {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CHANGER_FEATURES(pub u32);
@@ -568,6 +591,7 @@ impl ::std::ops::Not for CHANGER_FEATURES {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Foundation`*"]
 pub struct CHANGER_INITIALIZE_ELEMENT_STATUS {
     pub ElementList: CHANGER_ELEMENT_LIST,
     pub BarCodeScan: super::super::Foundation::BOOLEAN,
@@ -602,6 +626,7 @@ unsafe impl ::windows::runtime::Abi for CHANGER_INITIALIZE_ELEMENT_STATUS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Foundation`*"]
 pub struct CHANGER_MOVE_MEDIUM {
     pub Transport: CHANGER_ELEMENT,
     pub Source: CHANGER_ELEMENT,
@@ -637,6 +662,7 @@ unsafe impl ::windows::runtime::Abi for CHANGER_MOVE_MEDIUM {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct CHANGER_PRODUCT_DATA {
     pub VendorId: [u8; 8],
     pub ProductId: [u8; 16],
@@ -668,6 +694,7 @@ unsafe impl ::windows::runtime::Abi for CHANGER_PRODUCT_DATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Foundation`*"]
 pub struct CHANGER_READ_ELEMENT_STATUS {
     pub ElementList: CHANGER_ELEMENT_LIST,
     pub VolumeTagInfo: super::super::Foundation::BOOLEAN,
@@ -699,9 +726,11 @@ unsafe impl ::windows::runtime::Abi for CHANGER_READ_ELEMENT_STATUS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const CHANGER_RESERVED_BIT: u32 = 2147483648u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct CHANGER_SEND_VOLUME_TAG_INFORMATION {
     pub StartingElement: CHANGER_ELEMENT,
     pub ActionCode: u32,
@@ -730,6 +759,7 @@ unsafe impl ::windows::runtime::Abi for CHANGER_SEND_VOLUME_TAG_INFORMATION {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct CHANGER_SET_ACCESS {
     pub Element: CHANGER_ELEMENT,
     pub Control: u32,
@@ -758,6 +788,7 @@ unsafe impl ::windows::runtime::Abi for CHANGER_SET_ACCESS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Foundation`*"]
 pub struct CHANGER_SET_POSITION {
     pub Transport: CHANGER_ELEMENT,
     pub Destination: CHANGER_ELEMENT,
@@ -790,18 +821,29 @@ unsafe impl ::windows::runtime::Abi for CHANGER_SET_POSITION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const CHANGER_TO_DRIVE: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const CHANGER_TO_IEPORT: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const CHANGER_TO_SLOT: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const CHANGER_TO_TRANSPORT: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const CHECKSUM_TYPE_CRC32: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const CHECKSUM_TYPE_CRC64: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const CHECKSUM_TYPE_ECC: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const CHECKSUM_TYPE_FIRST_UNUSED_TYPE: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const CHECKSUM_TYPE_NONE: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const CHECKSUM_TYPE_UNCHANGED: i32 = -1i32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct CLASS_MEDIA_CHANGE_CONTEXT {
     pub MediaChangeCount: u32,
     pub NewState: u32,
@@ -829,6 +871,7 @@ unsafe impl ::windows::runtime::Abi for CLASS_MEDIA_CHANGE_CONTEXT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct CLUSTER_RANGE {
     pub StartingCluster: i64,
     pub ClusterCount: i64,
@@ -854,18 +897,29 @@ unsafe impl ::windows::runtime::Abi for CLUSTER_RANGE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const CONTAINER_ROOT_INFO_FLAG_BIND_DO_NOT_MAP_NAME: u32 = 256u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const CONTAINER_ROOT_INFO_FLAG_BIND_EXCEPTION_ROOT: u32 = 128u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const CONTAINER_ROOT_INFO_FLAG_BIND_ROOT: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const CONTAINER_ROOT_INFO_FLAG_BIND_TARGET_ROOT: u32 = 64u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const CONTAINER_ROOT_INFO_FLAG_LAYER_ROOT: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const CONTAINER_ROOT_INFO_FLAG_SCRATCH_ROOT: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const CONTAINER_ROOT_INFO_FLAG_UNION_LAYER_ROOT: u32 = 512u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const CONTAINER_ROOT_INFO_FLAG_VIRTUALIZATION_EXCEPTION_ROOT: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const CONTAINER_ROOT_INFO_FLAG_VIRTUALIZATION_ROOT: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const CONTAINER_ROOT_INFO_FLAG_VIRTUALIZATION_TARGET_ROOT: u32 = 8u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct CONTAINER_ROOT_INFO_INPUT {
     pub Flags: u32,
 }
@@ -892,6 +946,7 @@ unsafe impl ::windows::runtime::Abi for CONTAINER_ROOT_INFO_INPUT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct CONTAINER_ROOT_INFO_OUTPUT {
     pub ContainerRootIdLength: u16,
     pub ContainerRootId: [u8; 1],
@@ -917,9 +972,11 @@ unsafe impl ::windows::runtime::Abi for CONTAINER_ROOT_INFO_OUTPUT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const CONTAINER_ROOT_INFO_VALID_FLAGS: u32 = 1023u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct CONTAINER_VOLUME_STATE {
     pub Flags: u32,
 }
@@ -944,12 +1001,17 @@ unsafe impl ::windows::runtime::Abi for CONTAINER_VOLUME_STATE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const CONTAINER_VOLUME_STATE_HOSTING_CONTAINER: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const COPYFILE_SIS_FLAGS: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const COPYFILE_SIS_LINK: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const COPYFILE_SIS_REPLACE: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct CREATE_DISK {
     pub PartitionStyle: PARTITION_STYLE,
     pub Anonymous: CREATE_DISK_0,
@@ -972,6 +1034,7 @@ unsafe impl ::windows::runtime::Abi for CREATE_DISK {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub union CREATE_DISK_0 {
     pub Mbr: CREATE_DISK_MBR,
     pub Gpt: CREATE_DISK_GPT,
@@ -994,6 +1057,7 @@ unsafe impl ::windows::runtime::Abi for CREATE_DISK_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct CREATE_DISK_GPT {
     pub DiskId: ::windows::runtime::GUID,
     pub MaxPartitionCount: u32,
@@ -1021,6 +1085,7 @@ unsafe impl ::windows::runtime::Abi for CREATE_DISK_GPT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct CREATE_DISK_MBR {
     pub Signature: u32,
 }
@@ -1047,6 +1112,7 @@ unsafe impl ::windows::runtime::Abi for CREATE_DISK_MBR {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct CREATE_USN_JOURNAL_DATA {
     pub MaximumSize: u64,
     pub AllocationDelta: u64,
@@ -1072,6 +1138,7 @@ unsafe impl ::windows::runtime::Abi for CREATE_USN_JOURNAL_DATA {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CSVFS_DISK_CONNECTIVITY(pub i32);
@@ -1088,6 +1155,7 @@ unsafe impl ::windows::runtime::Abi for CSVFS_DISK_CONNECTIVITY {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CSV_CONTROL_OP(pub i32);
@@ -1120,6 +1188,7 @@ unsafe impl ::windows::runtime::Abi for CSV_CONTROL_OP {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct CSV_CONTROL_PARAM {
     pub Operation: CSV_CONTROL_OP,
     pub Unused: i64,
@@ -1145,10 +1214,12 @@ unsafe impl ::windows::runtime::Abi for CSV_CONTROL_PARAM {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const CSV_INVALID_DEVICE_NUMBER: u32 = 4294967295u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Foundation`*"]
 pub struct CSV_IS_OWNED_BY_CSVFS {
     pub OwnedByCSVFS: super::super::Foundation::BOOLEAN,
 }
@@ -1179,9 +1250,11 @@ unsafe impl ::windows::runtime::Abi for CSV_IS_OWNED_BY_CSVFS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const CSV_MGMTLOCK_CHECK_VOLUME_REDIRECTED: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct CSV_MGMT_LOCK {
     pub Flags: u32,
 }
@@ -1208,6 +1281,7 @@ unsafe impl ::windows::runtime::Abi for CSV_MGMT_LOCK {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct CSV_NAMESPACE_INFO {
     pub Version: u32,
     pub DeviceNumber: u32,
@@ -1237,6 +1311,7 @@ unsafe impl ::windows::runtime::Abi for CSV_NAMESPACE_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct CSV_QUERY_FILE_REVISION {
     pub FileId: i64,
     pub FileRevision: [i64; 3],
@@ -1265,6 +1340,7 @@ unsafe impl ::windows::runtime::Abi for CSV_QUERY_FILE_REVISION {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Storage_FileSystem`*"]
 pub struct CSV_QUERY_FILE_REVISION_FILE_ID_128 {
     pub FileId: super::super::Storage::FileSystem::FILE_ID_128,
     pub FileRevision: [i64; 3],
@@ -1298,6 +1374,7 @@ unsafe impl ::windows::runtime::Abi for CSV_QUERY_FILE_REVISION_FILE_ID_128 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct CSV_QUERY_MDS_PATH {
     pub MdsNodeId: u32,
     pub DsNodeId: u32,
@@ -1325,11 +1402,15 @@ unsafe impl ::windows::runtime::Abi for CSV_QUERY_MDS_PATH {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const CSV_QUERY_MDS_PATH_FLAG_CSV_DIRECT_IO_ENABLED: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const CSV_QUERY_MDS_PATH_FLAG_SMB_BYPASS_CSV_ENABLED: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const CSV_QUERY_MDS_PATH_FLAG_STORAGE_ON_THIS_NODE_IS_CONNECTED: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct CSV_QUERY_MDS_PATH_V2 {
     pub Version: i64,
     pub RequiredSize: u32,
@@ -1376,10 +1457,12 @@ unsafe impl ::windows::runtime::Abi for CSV_QUERY_MDS_PATH_V2 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const CSV_QUERY_MDS_PATH_V2_VERSION_1: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Foundation`*"]
 pub struct CSV_QUERY_REDIRECT_STATE {
     pub MdsNodeId: u32,
     pub DsNodeId: u32,
@@ -1414,6 +1497,7 @@ unsafe impl ::windows::runtime::Abi for CSV_QUERY_REDIRECT_STATE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct CSV_QUERY_VETO_FILE_DIRECT_IO_OUTPUT {
     pub VetoedFromAltitudeIntegral: u64,
     pub VetoedFromAltitudeDecimal: u64,
@@ -1442,6 +1526,7 @@ unsafe impl ::windows::runtime::Abi for CSV_QUERY_VETO_FILE_DIRECT_IO_OUTPUT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct CSV_QUERY_VOLUME_ID {
     pub VolumeId: ::windows::runtime::GUID,
 }
@@ -1469,6 +1554,7 @@ unsafe impl ::windows::runtime::Abi for CSV_QUERY_VOLUME_ID {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Foundation`*"]
 pub struct CSV_QUERY_VOLUME_REDIRECT_STATE {
     pub MdsNodeId: u32,
     pub DsNodeId: u32,
@@ -1505,6 +1591,7 @@ unsafe impl ::windows::runtime::Abi for CSV_QUERY_VOLUME_REDIRECT_STATE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct CSV_SET_VOLUME_ID {
     pub VolumeId: ::windows::runtime::GUID,
 }
@@ -1529,12 +1616,16 @@ unsafe impl ::windows::runtime::Abi for CSV_SET_VOLUME_ID {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const DAX_ALLOC_ALIGNMENT_FLAG_FALLBACK_SPECIFIED: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const DAX_ALLOC_ALIGNMENT_FLAG_MANDATORY: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const DDUMP_FLAG_DATA_READ_FROM_DEVICE: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Foundation`*"]
 pub struct DECRYPTION_STATUS_BUFFER {
     pub NoEncryptedStreams: super::super::Foundation::BOOLEAN,
 }
@@ -1567,6 +1658,7 @@ unsafe impl ::windows::runtime::Abi for DECRYPTION_STATUS_BUFFER {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct DELETE_USN_JOURNAL_DATA {
     pub UsnJournalID: u64,
     pub DeleteFlags: USN_DELETE_FLAGS,
@@ -1592,6 +1684,7 @@ unsafe impl ::windows::runtime::Abi for DELETE_USN_JOURNAL_DATA {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DETECTION_TYPE(pub i32);
@@ -1607,11 +1700,15 @@ unsafe impl ::windows::runtime::Abi for DETECTION_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const DEVICEDUMP_CAP_PRIVATE_SECTION: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const DEVICEDUMP_CAP_RESTRICTED_SECTION: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const DEVICEDUMP_MAX_IDSTRING: u32 = 32u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct DEVICEDUMP_PRIVATE_SUBSECTION {
     pub dwFlags: u32,
     pub GPLogId: GP_LOG_PAGE_DESCRIPTOR,
@@ -1636,6 +1733,7 @@ unsafe impl ::windows::runtime::Abi for DEVICEDUMP_PRIVATE_SUBSECTION {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Foundation`*"]
 pub struct DEVICEDUMP_PUBLIC_SUBSECTION {
     pub dwFlags: u32,
     pub GPLogTable: [GP_LOG_PAGE_DESCRIPTOR; 16],
@@ -1665,6 +1763,7 @@ unsafe impl ::windows::runtime::Abi for DEVICEDUMP_PUBLIC_SUBSECTION {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct DEVICEDUMP_RESTRICTED_SUBSECTION {
     pub bData: [u8; 1],
 }
@@ -1691,6 +1790,7 @@ unsafe impl ::windows::runtime::Abi for DEVICEDUMP_RESTRICTED_SUBSECTION {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct DEVICEDUMP_SECTION_HEADER {
     pub guidDeviceDataId: ::windows::runtime::GUID,
     pub sOrganizationID: [u8; 16],
@@ -1720,6 +1820,7 @@ unsafe impl ::windows::runtime::Abi for DEVICEDUMP_SECTION_HEADER {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct DEVICEDUMP_STORAGEDEVICE_DATA {
     pub Descriptor: DEVICEDUMP_STRUCTURE_VERSION,
     pub SectionHeader: DEVICEDUMP_SECTION_HEADER,
@@ -1747,6 +1848,7 @@ unsafe impl ::windows::runtime::Abi for DEVICEDUMP_STORAGEDEVICE_DATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct DEVICEDUMP_STORAGESTACK_PUBLIC_DUMP {
     pub Descriptor: DEVICEDUMP_STRUCTURE_VERSION,
     pub dwReasonForCollection: u32,
@@ -1772,6 +1874,7 @@ unsafe impl ::windows::runtime::Abi for DEVICEDUMP_STORAGESTACK_PUBLIC_DUMP {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD {
     pub Cdb: [u8; 16],
     pub Command: [u8; 16],
@@ -1799,6 +1902,7 @@ unsafe impl ::windows::runtime::Abi for DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_REC
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub union DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0 {
     pub ExternalStack: DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0_1,
     pub AtaPort: DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0_0,
@@ -1822,6 +1926,7 @@ unsafe impl ::windows::runtime::Abi for DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_REC
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0_0 {
     pub dwAtaPortSpecific: u32,
 }
@@ -1843,6 +1948,7 @@ unsafe impl ::windows::runtime::Abi for DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_REC
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0_1 {
     pub dwReserved: u32,
 }
@@ -1864,6 +1970,7 @@ unsafe impl ::windows::runtime::Abi for DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_REC
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0_2 {
     pub SrbTag: u32,
 }
@@ -1885,6 +1992,7 @@ unsafe impl ::windows::runtime::Abi for DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_REC
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct DEVICEDUMP_STRUCTURE_VERSION {
     pub dwSignature: u32,
     pub dwVersion: u32,
@@ -1906,9 +2014,11 @@ unsafe impl ::windows::runtime::Abi for DEVICEDUMP_STRUCTURE_VERSION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const DEVICEDUMP_STRUCTURE_VERSION_V1: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct DEVICEDUMP_SUBSECTION_POINTER {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -1932,6 +2042,7 @@ unsafe impl ::windows::runtime::Abi for DEVICEDUMP_SUBSECTION_POINTER {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct DEVICE_COPY_OFFLOAD_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
@@ -1990,6 +2101,7 @@ unsafe impl ::windows::runtime::Abi for DEVICE_COPY_OFFLOAD_DESCRIPTOR {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct DEVICE_DATA_SET_LBP_STATE_PARAMETERS {
     pub Version: u32,
     pub Size: u32,
@@ -2017,9 +2129,11 @@ unsafe impl ::windows::runtime::Abi for DEVICE_DATA_SET_LBP_STATE_PARAMETERS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const DEVICE_DATA_SET_LBP_STATE_PARAMETERS_VERSION_V1: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct DEVICE_DATA_SET_LB_PROVISIONING_STATE {
     pub Size: u32,
     pub Version: u32,
@@ -2060,6 +2174,7 @@ unsafe impl ::windows::runtime::Abi for DEVICE_DATA_SET_LB_PROVISIONING_STATE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct DEVICE_DATA_SET_LB_PROVISIONING_STATE_V2 {
     pub Size: u32,
     pub Version: u32,
@@ -2100,6 +2215,7 @@ unsafe impl ::windows::runtime::Abi for DEVICE_DATA_SET_LB_PROVISIONING_STATE_V2
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct DEVICE_DATA_SET_RANGE {
     pub StartingOffset: i64,
     pub LengthInBytes: u64,
@@ -2127,6 +2243,7 @@ unsafe impl ::windows::runtime::Abi for DEVICE_DATA_SET_RANGE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct DEVICE_DATA_SET_REPAIR_OUTPUT {
     pub ParityExtent: DEVICE_DATA_SET_RANGE,
 }
@@ -2153,6 +2270,7 @@ unsafe impl ::windows::runtime::Abi for DEVICE_DATA_SET_REPAIR_OUTPUT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct DEVICE_DATA_SET_REPAIR_PARAMETERS {
     pub NumberOfRepairCopies: u32,
     pub SourceCopy: u32,
@@ -2181,6 +2299,7 @@ unsafe impl ::windows::runtime::Abi for DEVICE_DATA_SET_REPAIR_PARAMETERS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct DEVICE_DATA_SET_SCRUB_EX_OUTPUT {
     pub BytesProcessed: u64,
     pub BytesRepaired: u64,
@@ -2211,6 +2330,7 @@ unsafe impl ::windows::runtime::Abi for DEVICE_DATA_SET_SCRUB_EX_OUTPUT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct DEVICE_DATA_SET_SCRUB_OUTPUT {
     pub BytesProcessed: u64,
     pub BytesRepaired: u64,
@@ -2239,6 +2359,7 @@ unsafe impl ::windows::runtime::Abi for DEVICE_DATA_SET_SCRUB_OUTPUT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct DEVICE_DATA_SET_TOPOLOGY_ID_QUERY_OUTPUT {
     pub TopologyRangeBytes: u64,
     pub TopologyId: [u8; 16],
@@ -2266,6 +2387,7 @@ unsafe impl ::windows::runtime::Abi for DEVICE_DATA_SET_TOPOLOGY_ID_QUERY_OUTPUT
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct DEVICE_DSM_CONVERSION_OUTPUT {
     pub Version: u32,
     pub Source: ::windows::runtime::GUID,
@@ -2294,6 +2416,7 @@ unsafe impl ::windows::runtime::Abi for DEVICE_DSM_CONVERSION_OUTPUT {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Foundation`*"]
 pub struct DEVICE_DSM_DEFINITION {
     pub Action: u32,
     pub SingleRange: super::super::Foundation::BOOLEAN,
@@ -2338,17 +2461,27 @@ unsafe impl ::windows::runtime::Abi for DEVICE_DSM_DEFINITION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const DEVICE_DSM_FLAG_ALLOCATION_CONSOLIDATEABLE_ONLY: u32 = 1073741824u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const DEVICE_DSM_FLAG_ENTIRE_DATA_SET_RANGE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const DEVICE_DSM_FLAG_PHYSICAL_ADDRESSES_OMIT_TOTAL_RANGES: u32 = 268435456u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const DEVICE_DSM_FLAG_REPAIR_INPUT_TOPOLOGY_ID_PRESENT: u32 = 1073741824u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const DEVICE_DSM_FLAG_REPAIR_OUTPUT_PARITY_EXTENT: u32 = 536870912u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const DEVICE_DSM_FLAG_SCRUB_OUTPUT_PARITY_EXTENT: u32 = 536870912u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const DEVICE_DSM_FLAG_SCRUB_SKIP_IN_SYNC: u32 = 268435456u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const DEVICE_DSM_FLAG_TRIM_BYPASS_RZAT: u32 = 1073741824u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const DEVICE_DSM_FLAG_TRIM_NOT_FS_ALLOCATED: u32 = 2147483648u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct DEVICE_DSM_FREE_SPACE_OUTPUT {
     pub Version: u32,
     pub FreeSpace: u64,
@@ -2376,6 +2509,7 @@ unsafe impl ::windows::runtime::Abi for DEVICE_DSM_FREE_SPACE_OUTPUT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct DEVICE_DSM_LOST_QUERY_OUTPUT {
     pub Version: u32,
     pub Size: u32,
@@ -2406,6 +2540,7 @@ unsafe impl ::windows::runtime::Abi for DEVICE_DSM_LOST_QUERY_OUTPUT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct DEVICE_DSM_LOST_QUERY_PARAMETERS {
     pub Version: u32,
     pub Granularity: u64,
@@ -2433,6 +2568,7 @@ unsafe impl ::windows::runtime::Abi for DEVICE_DSM_LOST_QUERY_PARAMETERS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct DEVICE_DSM_NOTIFICATION_PARAMETERS {
     pub Size: u32,
     pub Flags: u32,
@@ -2460,10 +2596,13 @@ unsafe impl ::windows::runtime::Abi for DEVICE_DSM_NOTIFICATION_PARAMETERS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const DEVICE_DSM_NOTIFY_FLAG_BEGIN: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const DEVICE_DSM_NOTIFY_FLAG_END: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct DEVICE_DSM_NVCACHE_CHANGE_PRIORITY_PARAMETERS {
     pub Size: u32,
     pub TargetPriority: u8,
@@ -2492,6 +2631,7 @@ unsafe impl ::windows::runtime::Abi for DEVICE_DSM_NVCACHE_CHANGE_PRIORITY_PARAM
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct DEVICE_DSM_OFFLOAD_READ_PARAMETERS {
     pub Flags: u32,
     pub TimeToLive: u32,
@@ -2520,6 +2660,7 @@ unsafe impl ::windows::runtime::Abi for DEVICE_DSM_OFFLOAD_READ_PARAMETERS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct DEVICE_DSM_OFFLOAD_WRITE_PARAMETERS {
     pub Flags: u32,
     pub Reserved: u32,
@@ -2542,9 +2683,11 @@ unsafe impl ::windows::runtime::Abi for DEVICE_DSM_OFFLOAD_WRITE_PARAMETERS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const DEVICE_DSM_PARAMETERS_V1: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct DEVICE_DSM_PHYSICAL_ADDRESSES_OUTPUT {
     pub Version: u32,
     pub Flags: u32,
@@ -2573,10 +2716,13 @@ unsafe impl ::windows::runtime::Abi for DEVICE_DSM_PHYSICAL_ADDRESSES_OUTPUT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const DEVICE_DSM_PHYSICAL_ADDRESSES_OUTPUT_V1: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const DEVICE_DSM_PHYSICAL_ADDRESSES_OUTPUT_VERSION_V1: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct DEVICE_DSM_RANGE_ERROR_INFO {
     pub Version: u32,
     pub Flags: u32,
@@ -2600,11 +2746,14 @@ unsafe impl ::windows::runtime::Abi for DEVICE_DSM_RANGE_ERROR_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const DEVICE_DSM_RANGE_ERROR_INFO_VERSION_V1: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const DEVICE_DSM_RANGE_ERROR_OUTPUT_V1: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Foundation`*"]
 pub struct DEVICE_DSM_REPORT_ZONES_DATA {
     pub Size: u32,
     pub ZoneCount: u32,
@@ -2641,6 +2790,7 @@ unsafe impl ::windows::runtime::Abi for DEVICE_DSM_REPORT_ZONES_DATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct DEVICE_DSM_REPORT_ZONES_PARAMETERS {
     pub Size: u32,
     pub ReportOption: u8,
@@ -2670,6 +2820,7 @@ unsafe impl ::windows::runtime::Abi for DEVICE_DSM_REPORT_ZONES_PARAMETERS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct DEVICE_DSM_TIERING_QUERY_INPUT {
     pub Version: u32,
     pub Size: u32,
@@ -2700,6 +2851,7 @@ unsafe impl ::windows::runtime::Abi for DEVICE_DSM_TIERING_QUERY_INPUT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct DEVICE_DSM_TIERING_QUERY_OUTPUT {
     pub Version: u32,
     pub Size: u32,
@@ -2742,6 +2894,7 @@ unsafe impl ::windows::runtime::Abi for DEVICE_DSM_TIERING_QUERY_OUTPUT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct DEVICE_INTERNAL_STATUS_DATA {
     pub Version: u32,
     pub Size: u32,
@@ -2801,6 +2954,7 @@ unsafe impl ::windows::runtime::Abi for DEVICE_INTERNAL_STATUS_DATA {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE(pub i32);
@@ -2818,6 +2972,7 @@ unsafe impl ::windows::runtime::Abi for DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DEVICE_INTERNAL_STATUS_DATA_SET(pub i32);
@@ -2838,6 +2993,7 @@ unsafe impl ::windows::runtime::Abi for DEVICE_INTERNAL_STATUS_DATA_SET {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct DEVICE_LB_PROVISIONING_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
@@ -2880,6 +3036,7 @@ unsafe impl ::windows::runtime::Abi for DEVICE_LB_PROVISIONING_DESCRIPTOR {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct DEVICE_LOCATION {
     pub Socket: u32,
     pub Slot: u32,
@@ -2905,6 +3062,7 @@ unsafe impl ::windows::runtime::Abi for DEVICE_LOCATION {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub union DEVICE_LOCATION_0 {
     pub Anonymous1: DEVICE_LOCATION_0_0,
     pub Anonymous2: DEVICE_LOCATION_0_1,
@@ -2927,6 +3085,7 @@ unsafe impl ::windows::runtime::Abi for DEVICE_LOCATION_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct DEVICE_LOCATION_0_0 {
     pub Channel: u32,
     pub Device: u32,
@@ -2954,6 +3113,7 @@ unsafe impl ::windows::runtime::Abi for DEVICE_LOCATION_0_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct DEVICE_LOCATION_0_1 {
     pub Target: u32,
     pub Lun: u32,
@@ -2981,6 +3141,7 @@ unsafe impl ::windows::runtime::Abi for DEVICE_LOCATION_0_1 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct DEVICE_MANAGE_DATA_SET_ATTRIBUTES {
     pub Size: u32,
     pub Action: u32,
@@ -3021,6 +3182,7 @@ unsafe impl ::windows::runtime::Abi for DEVICE_MANAGE_DATA_SET_ATTRIBUTES {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct DEVICE_MANAGE_DATA_SET_ATTRIBUTES_OUTPUT {
     pub Size: u32,
     pub Action: u32,
@@ -3066,6 +3228,7 @@ unsafe impl ::windows::runtime::Abi for DEVICE_MANAGE_DATA_SET_ATTRIBUTES_OUTPUT
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Storage_FileSystem`*"]
 pub struct DEVICE_MEDIA_INFO {
     pub DeviceSpecific: DEVICE_MEDIA_INFO_0,
 }
@@ -3093,6 +3256,7 @@ unsafe impl ::windows::runtime::Abi for DEVICE_MEDIA_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Storage_FileSystem`*"]
 pub union DEVICE_MEDIA_INFO_0 {
     pub DiskInfo: DEVICE_MEDIA_INFO_0_0,
     pub RemovableDiskInfo: DEVICE_MEDIA_INFO_0_1,
@@ -3121,6 +3285,7 @@ unsafe impl ::windows::runtime::Abi for DEVICE_MEDIA_INFO_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct DEVICE_MEDIA_INFO_0_0 {
     pub Cylinders: i64,
     pub MediaType: STORAGE_MEDIA_TYPE,
@@ -3161,6 +3326,7 @@ unsafe impl ::windows::runtime::Abi for DEVICE_MEDIA_INFO_0_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct DEVICE_MEDIA_INFO_0_1 {
     pub Cylinders: i64,
     pub MediaType: STORAGE_MEDIA_TYPE,
@@ -3202,6 +3368,7 @@ unsafe impl ::windows::runtime::Abi for DEVICE_MEDIA_INFO_0_1 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Storage_FileSystem`*"]
 pub struct DEVICE_MEDIA_INFO_0_2 {
     pub MediaType: STORAGE_MEDIA_TYPE,
     pub MediaCharacteristics: u32,
@@ -3232,6 +3399,7 @@ unsafe impl ::windows::runtime::Abi for DEVICE_MEDIA_INFO_0_2 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub union DEVICE_MEDIA_INFO_0_2_0 {
     pub ScsiInformation: DEVICE_MEDIA_INFO_0_2_0_0,
 }
@@ -3253,6 +3421,7 @@ unsafe impl ::windows::runtime::Abi for DEVICE_MEDIA_INFO_0_2_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct DEVICE_MEDIA_INFO_0_2_0_0 {
     pub MediumType: u8,
     pub DensityCode: u8,
@@ -3281,6 +3450,7 @@ unsafe impl ::windows::runtime::Abi for DEVICE_MEDIA_INFO_0_2_0_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Foundation`*"]
 pub struct DEVICE_POWER_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
@@ -3343,6 +3513,7 @@ unsafe impl ::windows::runtime::Abi for DEVICE_POWER_DESCRIPTOR {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Foundation`*"]
 pub struct DEVICE_SEEK_PENALTY_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
@@ -3377,6 +3548,7 @@ unsafe impl ::windows::runtime::Abi for DEVICE_SEEK_PENALTY_DESCRIPTOR {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct DEVICE_STORAGE_ADDRESS_RANGE {
     pub StartAddress: i64,
     pub LengthInBytes: u64,
@@ -3402,9 +3574,11 @@ unsafe impl ::windows::runtime::Abi for DEVICE_STORAGE_ADDRESS_RANGE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const DEVICE_STORAGE_NO_ERRORS: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct DEVICE_STORAGE_RANGE_ATTRIBUTES {
     pub LengthInBytes: u64,
     pub Anonymous: DEVICE_STORAGE_RANGE_ATTRIBUTES_0,
@@ -3428,6 +3602,7 @@ unsafe impl ::windows::runtime::Abi for DEVICE_STORAGE_RANGE_ATTRIBUTES {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub union DEVICE_STORAGE_RANGE_ATTRIBUTES_0 {
     pub AllFlags: u32,
     pub Anonymous: DEVICE_STORAGE_RANGE_ATTRIBUTES_0_0,
@@ -3450,6 +3625,7 @@ unsafe impl ::windows::runtime::Abi for DEVICE_STORAGE_RANGE_ATTRIBUTES_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct DEVICE_STORAGE_RANGE_ATTRIBUTES_0_0 {
     pub _bitfield: u32,
 }
@@ -3477,6 +3653,7 @@ unsafe impl ::windows::runtime::Abi for DEVICE_STORAGE_RANGE_ATTRIBUTES_0_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Foundation`*"]
 pub struct DEVICE_TRIM_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
@@ -3512,6 +3689,7 @@ unsafe impl ::windows::runtime::Abi for DEVICE_TRIM_DESCRIPTOR {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Foundation`*"]
 pub struct DEVICE_WRITE_AGGREGATION_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
@@ -3545,52 +3723,65 @@ unsafe impl ::windows::runtime::Abi for DEVICE_WRITE_AGGREGATION_DESCRIPTOR {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Storage_Disk_Number: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(1293860584, 2051, 18292, [152, 66, 183, 125, 181, 2, 101, 233]),
     pid: 5u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Storage_Gpt_Name: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(1293860584, 2051, 18292, [152, 66, 183, 125, 181, 2, 101, 233]),
     pid: 9u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Storage_Gpt_Type: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(1293860584, 2051, 18292, [152, 66, 183, 125, 181, 2, 101, 233]),
     pid: 8u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Storage_Mbr_Type: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(1293860584, 2051, 18292, [152, 66, 183, 125, 181, 2, 101, 233]),
     pid: 7u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Storage_Partition_Number: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(1293860584, 2051, 18292, [152, 66, 183, 125, 181, 2, 101, 233]),
     pid: 6u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Storage_Portable: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(1293860584, 2051, 18292, [152, 66, 183, 125, 181, 2, 101, 233]),
     pid: 2u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Storage_Removable_Media: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(1293860584, 2051, 18292, [152, 66, 183, 125, 181, 2, 101, 233]),
     pid: 3u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_System_PropertiesSystem`*"]
 pub const DEVPKEY_Storage_System_Critical: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows::runtime::GUID::from_values(1293860584, 2051, 18292, [152, 66, 183, 125, 181, 2, 101, 233]),
     pid: 4u32,
 };
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const DISABLE_SMART: u32 = 217u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const DISK_ATTRIBUTE_OFFLINE: u64 = 1u64;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const DISK_ATTRIBUTE_READ_ONLY: u64 = 2u64;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const DISK_BINNING: u32 = 3u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Foundation`*"]
 pub struct DISK_CACHE_INFORMATION {
     pub ParametersSavable: super::super::Foundation::BOOLEAN,
     pub ReadCacheEnabled: super::super::Foundation::BOOLEAN,
@@ -3624,6 +3815,7 @@ unsafe impl ::windows::runtime::Abi for DISK_CACHE_INFORMATION {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub union DISK_CACHE_INFORMATION_0 {
     pub ScalarPrefetch: DISK_CACHE_INFORMATION_0_1,
     pub BlockPrefetch: DISK_CACHE_INFORMATION_0_0,
@@ -3646,6 +3838,7 @@ unsafe impl ::windows::runtime::Abi for DISK_CACHE_INFORMATION_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct DISK_CACHE_INFORMATION_0_0 {
     pub Minimum: u16,
     pub Maximum: u16,
@@ -3673,6 +3866,7 @@ unsafe impl ::windows::runtime::Abi for DISK_CACHE_INFORMATION_0_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct DISK_CACHE_INFORMATION_0_1 {
     pub Minimum: u16,
     pub Maximum: u16,
@@ -3699,6 +3893,7 @@ unsafe impl ::windows::runtime::Abi for DISK_CACHE_INFORMATION_0_1 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DISK_CACHE_RETENTION_PRIORITY(pub i32);
@@ -3716,6 +3911,7 @@ unsafe impl ::windows::runtime::Abi for DISK_CACHE_RETENTION_PRIORITY {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct DISK_CONTROLLER_NUMBER {
     pub ControllerNumber: u32,
     pub DiskNumber: u32,
@@ -3743,6 +3939,7 @@ unsafe impl ::windows::runtime::Abi for DISK_CONTROLLER_NUMBER {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct DISK_DETECTION_INFO {
     pub SizeOfDetectInfo: u32,
     pub DetectionType: DETECTION_TYPE,
@@ -3766,6 +3963,7 @@ unsafe impl ::windows::runtime::Abi for DISK_DETECTION_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub union DISK_DETECTION_INFO_0 {
     pub Anonymous: DISK_DETECTION_INFO_0_0,
 }
@@ -3787,6 +3985,7 @@ unsafe impl ::windows::runtime::Abi for DISK_DETECTION_INFO_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct DISK_DETECTION_INFO_0_0 {
     pub Int13: DISK_INT13_INFO,
     pub ExInt13: DISK_EX_INT13_INFO,
@@ -3814,6 +4013,7 @@ unsafe impl ::windows::runtime::Abi for DISK_DETECTION_INFO_0_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct DISK_EXTENT {
     pub DiskNumber: u32,
     pub StartingOffset: i64,
@@ -3842,6 +4042,7 @@ unsafe impl ::windows::runtime::Abi for DISK_EXTENT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct DISK_EX_INT13_INFO {
     pub ExBufferSize: u16,
     pub ExFlags: u16,
@@ -3884,6 +4085,7 @@ unsafe impl ::windows::runtime::Abi for DISK_EX_INT13_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct DISK_GEOMETRY {
     pub Cylinders: i64,
     pub MediaType: MEDIA_TYPE,
@@ -3914,6 +4116,7 @@ unsafe impl ::windows::runtime::Abi for DISK_GEOMETRY {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct DISK_GEOMETRY_EX {
     pub Geometry: DISK_GEOMETRY,
     pub DiskSize: i64,
@@ -3942,6 +4145,7 @@ unsafe impl ::windows::runtime::Abi for DISK_GEOMETRY_EX {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct DISK_GROW_PARTITION {
     pub PartitionNumber: u32,
     pub BytesToGrow: i64,
@@ -3969,6 +4173,7 @@ unsafe impl ::windows::runtime::Abi for DISK_GROW_PARTITION {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct DISK_HISTOGRAM {
     pub DiskSize: i64,
     pub Start: i64,
@@ -4017,6 +4222,7 @@ unsafe impl ::windows::runtime::Abi for DISK_HISTOGRAM {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct DISK_INT13_INFO {
     pub DriveSelect: u16,
     pub MaxCylinders: u32,
@@ -4047,6 +4253,7 @@ unsafe impl ::windows::runtime::Abi for DISK_INT13_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct DISK_LOGGING {
     pub Function: u8,
     pub BufferAddress: *mut ::std::ffi::c_void,
@@ -4073,11 +4280,15 @@ unsafe impl ::windows::runtime::Abi for DISK_LOGGING {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const DISK_LOGGING_DUMP: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const DISK_LOGGING_START: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const DISK_LOGGING_STOP: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct DISK_PARTITION_INFO {
     pub SizeOfPartitionInfo: u32,
     pub PartitionStyle: PARTITION_STYLE,
@@ -4101,6 +4312,7 @@ unsafe impl ::windows::runtime::Abi for DISK_PARTITION_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub union DISK_PARTITION_INFO_0 {
     pub Mbr: DISK_PARTITION_INFO_0_1,
     pub Gpt: DISK_PARTITION_INFO_0_0,
@@ -4123,6 +4335,7 @@ unsafe impl ::windows::runtime::Abi for DISK_PARTITION_INFO_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct DISK_PARTITION_INFO_0_0 {
     pub DiskId: ::windows::runtime::GUID,
 }
@@ -4149,6 +4362,7 @@ unsafe impl ::windows::runtime::Abi for DISK_PARTITION_INFO_0_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct DISK_PARTITION_INFO_0_1 {
     pub Signature: u32,
     pub CheckSum: u32,
@@ -4176,6 +4390,7 @@ unsafe impl ::windows::runtime::Abi for DISK_PARTITION_INFO_0_1 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct DISK_PERFORMANCE {
     pub BytesRead: i64,
     pub BytesWritten: i64,
@@ -4227,6 +4442,7 @@ unsafe impl ::windows::runtime::Abi for DISK_PERFORMANCE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Foundation`*"]
 pub struct DISK_RECORD {
     pub ByteOffset: i64,
     pub StartTime: i64,
@@ -4273,6 +4489,7 @@ unsafe impl ::windows::runtime::Abi for DISK_RECORD {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct DRIVERSTATUS {
     pub bDriverError: u8,
     pub bIDEError: u8,
@@ -4298,6 +4515,7 @@ unsafe impl ::windows::runtime::Abi for DRIVERSTATUS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Foundation`*"]
 pub struct DRIVE_LAYOUT_INFORMATION {
     pub PartitionCount: u32,
     pub Signature: u32,
@@ -4333,6 +4551,7 @@ unsafe impl ::windows::runtime::Abi for DRIVE_LAYOUT_INFORMATION {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Foundation`*"]
 pub struct DRIVE_LAYOUT_INFORMATION_EX {
     pub PartitionStyle: u32,
     pub PartitionCount: u32,
@@ -4362,6 +4581,7 @@ unsafe impl ::windows::runtime::Abi for DRIVE_LAYOUT_INFORMATION_EX {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub union DRIVE_LAYOUT_INFORMATION_EX_0 {
     pub Mbr: DRIVE_LAYOUT_INFORMATION_MBR,
     pub Gpt: DRIVE_LAYOUT_INFORMATION_GPT,
@@ -4384,6 +4604,7 @@ unsafe impl ::windows::runtime::Abi for DRIVE_LAYOUT_INFORMATION_EX_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct DRIVE_LAYOUT_INFORMATION_GPT {
     pub DiskId: ::windows::runtime::GUID,
     pub StartingUsableOffset: i64,
@@ -4413,6 +4634,7 @@ unsafe impl ::windows::runtime::Abi for DRIVE_LAYOUT_INFORMATION_GPT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct DRIVE_LAYOUT_INFORMATION_MBR {
     pub Signature: u32,
     pub CheckSum: u32,
@@ -4441,6 +4663,7 @@ unsafe impl ::windows::runtime::Abi for DRIVE_LAYOUT_INFORMATION_MBR {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Foundation`*"]
 pub struct DUPLICATE_EXTENTS_DATA {
     pub FileHandle: super::super::Foundation::HANDLE,
     pub SourceFileOffset: i64,
@@ -4476,6 +4699,7 @@ unsafe impl ::windows::runtime::Abi for DUPLICATE_EXTENTS_DATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct DUPLICATE_EXTENTS_DATA32 {
     pub FileHandle: u32,
     pub SourceFileOffset: i64,
@@ -4506,6 +4730,7 @@ unsafe impl ::windows::runtime::Abi for DUPLICATE_EXTENTS_DATA32 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Foundation`*"]
 pub struct DUPLICATE_EXTENTS_DATA_EX {
     pub Size: usize,
     pub FileHandle: super::super::Foundation::HANDLE,
@@ -4543,6 +4768,7 @@ unsafe impl ::windows::runtime::Abi for DUPLICATE_EXTENTS_DATA_EX {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct DUPLICATE_EXTENTS_DATA_EX32 {
     pub Size: u32,
     pub FileHandle: u32,
@@ -4572,8 +4798,11 @@ unsafe impl ::windows::runtime::Abi for DUPLICATE_EXTENTS_DATA_EX32 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const DUPLICATE_EXTENTS_DATA_EX_ASYNC: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const DUPLICATE_EXTENTS_DATA_EX_SOURCE_ATOMIC: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DUPLICATE_EXTENTS_STATE(pub i32);
@@ -4589,8 +4818,11 @@ unsafe impl ::windows::runtime::Abi for DUPLICATE_EXTENTS_STATE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const DeviceDsmActionFlag_NonDestructive: u32 = 2147483648u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const EFS_TRACKED_OFFSET_HEADER_FLAG: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ELEMENT_TYPE(pub i32);
@@ -4611,11 +4843,15 @@ unsafe impl ::windows::runtime::Abi for ELEMENT_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const ENABLE_DISABLE_AUTOSAVE: u32 = 210u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const ENABLE_DISABLE_AUTO_OFFLINE: u32 = 219u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const ENABLE_SMART: u32 = 216u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct ENCRYPTED_DATA_INFO {
     pub StartingFileOffset: u64,
     pub OutputBufferOffset: u32,
@@ -4672,9 +4908,11 @@ unsafe impl ::windows::runtime::Abi for ENCRYPTED_DATA_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const ENCRYPTED_DATA_INFO_SPARSE_FILE: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct ENCRYPTION_BUFFER {
     pub EncryptionOperation: u32,
     pub Private: [u8; 1],
@@ -4700,9 +4938,11 @@ unsafe impl ::windows::runtime::Abi for ENCRYPTION_BUFFER {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const ENCRYPTION_FORMAT_DEFAULT: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct ENCRYPTION_KEY_CTRL_INPUT {
     pub HeaderSize: u32,
     pub StructureSize: u32,
@@ -4741,17 +4981,27 @@ unsafe impl ::windows::runtime::Abi for ENCRYPTION_KEY_CTRL_INPUT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const ERROR_DRIVE_NOT_INSTALLED: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const ERROR_HISTORY_DIRECTORY_ENTRY_DEFAULT_COUNT: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const ERROR_INIT_STATUS_NEEDED: u32 = 17u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const ERROR_LABEL_QUESTIONABLE: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const ERROR_LABEL_UNREADABLE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const ERROR_SLOT_NOT_PRESENT: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const ERROR_TRAY_MALFUNCTION: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const ERROR_UNHANDLED_ERROR: u32 = 4294967295u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const EXECUTE_OFFLINE_DIAGS: u32 = 212u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct EXFAT_STATISTICS {
     pub CreateHits: u32,
     pub SuccessfulCreates: u32,
@@ -4796,6 +5046,7 @@ unsafe impl ::windows::runtime::Abi for EXFAT_STATISTICS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct EXTENDED_ENCRYPTED_DATA_INFO {
     pub ExtendedCode: u32,
     pub Length: u32,
@@ -4823,9 +5074,11 @@ unsafe impl ::windows::runtime::Abi for EXTENDED_ENCRYPTED_DATA_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const EXTEND_IEPORT: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct FAT_STATISTICS {
     pub CreateHits: u32,
     pub SuccessfulCreates: u32,
@@ -4870,6 +5123,7 @@ unsafe impl ::windows::runtime::Abi for FAT_STATISTICS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct FILESYSTEM_STATISTICS {
     pub FileSystemType: FILESYSTEM_STATISTICS_TYPE,
     pub Version: u16,
@@ -4940,6 +5194,7 @@ unsafe impl ::windows::runtime::Abi for FILESYSTEM_STATISTICS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct FILESYSTEM_STATISTICS_EX {
     pub FileSystemType: FILESYSTEM_STATISTICS_TYPE,
     pub Version: u16,
@@ -5008,6 +5263,7 @@ unsafe impl ::windows::runtime::Abi for FILESYSTEM_STATISTICS_EX {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FILESYSTEM_STATISTICS_TYPE(pub u16);
@@ -5023,9 +5279,11 @@ unsafe impl ::windows::runtime::Abi for FILESYSTEM_STATISTICS_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILESYSTEM_STATISTICS_TYPE_REFS: u32 = 4u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct FILE_ALLOCATED_RANGE_BUFFER {
     pub FileOffset: i64,
     pub Length: i64,
@@ -5051,10 +5309,13 @@ unsafe impl ::windows::runtime::Abi for FILE_ALLOCATED_RANGE_BUFFER {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_ANY_ACCESS: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_CLEAR_ENCRYPTION: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct FILE_DESIRED_STORAGE_CLASS_INFORMATION {
     pub Class: FILE_STORAGE_TIER_CLASS,
     pub Flags: u32,
@@ -5080,92 +5341,177 @@ unsafe impl ::windows::runtime::Abi for FILE_DESIRED_STORAGE_CLASS_INFORMATION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_8042_PORT: u32 = 39u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_ACPI: u32 = 50u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_BATTERY: u32 = 41u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_BEEP: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_BIOMETRIC: u32 = 68u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_BLUETOOTH: u32 = 65u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_BUS_EXTENDER: u32 = 42u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_CD_ROM_FILE_SYSTEM: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_CHANGER: u32 = 48u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_CONSOLE: u32 = 80u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_CONTROLLER: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_CRYPT_PROVIDER: u32 = 63u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_DATALINK: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_DEVAPI: u32 = 71u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_DFS: u32 = 6u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_DFS_FILE_SYSTEM: u32 = 53u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_DFS_VOLUME: u32 = 54u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_DISK_FILE_SYSTEM: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_EHSTOR: u32 = 70u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_EVENT_COLLECTOR: u32 = 95u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_FILE_SYSTEM: u32 = 9u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_FIPS: u32 = 58u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_FULLSCREEN_VIDEO: u32 = 52u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_GPIO: u32 = 72u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_HOLOGRAPHIC: u32 = 91u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_INFINIBAND: u32 = 59u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_INPORT_PORT: u32 = 10u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_KEYBOARD: u32 = 11u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_KS: u32 = 47u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_KSEC: u32 = 57u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_MAILSLOT: u32 = 12u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_MASS_STORAGE: u32 = 45u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_MIDI_IN: u32 = 13u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_MIDI_OUT: u32 = 14u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_MODEM: u32 = 43u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_MOUSE: u32 = 15u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_MT_COMPOSITE: u32 = 66u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_MT_TRANSPORT: u32 = 67u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_MULTI_UNC_PROVIDER: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_NAMED_PIPE: u32 = 17u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_NETWORK: u32 = 18u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_NETWORK_BROWSER: u32 = 19u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_NETWORK_FILE_SYSTEM: u32 = 20u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_NETWORK_REDIRECTOR: u32 = 40u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_NFP: u32 = 81u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_NULL: u32 = 21u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_NVDIMM: u32 = 90u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_PARALLEL_PORT: u32 = 22u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_PERSISTENT_MEMORY: u32 = 89u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_PHYSICAL_NETCARD: u32 = 23u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_PMI: u32 = 69u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_POINT_OF_SERVICE: u32 = 84u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_PRINTER: u32 = 24u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_PRM: u32 = 94u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_SCANNER: u32 = 25u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_SCREEN: u32 = 28u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_SDFXHCI: u32 = 92u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_SERENUM: u32 = 55u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_SERIAL_MOUSE_PORT: u32 = 26u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_SERIAL_PORT: u32 = 27u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_SMB: u32 = 46u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_SOUND: u32 = 29u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_SOUNDWIRE: u32 = 97u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_STORAGE_REPLICATION: u32 = 85u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_STREAMS: u32 = 30u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_SYSENV: u32 = 82u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_TAPE_FILE_SYSTEM: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_TERMSRV: u32 = 56u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_TRANSPORT: u32 = 33u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_TRUST_ENV: u32 = 86u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_UCM: u32 = 87u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_UCMTCPCI: u32 = 88u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_UCMUCSI: u32 = 93u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_UNKNOWN: u32 = 34u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_USB4: u32 = 96u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_USBEX: u32 = 73u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_VDM: u32 = 44u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_VIDEO: u32 = 35u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_VIRTUAL_BLOCK: u32 = 83u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_VIRTUAL_DISK: u32 = 36u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_VMBUS: u32 = 62u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_WAVE_IN: u32 = 37u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_WAVE_OUT: u32 = 38u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_DEVICE_WPD: u32 = 64u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct FILE_FS_PERSISTENT_VOLUME_INFORMATION {
     pub VolumeFlags: u32,
     pub FlagMask: u32,
@@ -5193,51 +5539,95 @@ unsafe impl ::windows::runtime::Abi for FILE_FS_PERSISTENT_VOLUME_INFORMATION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_INITIATE_REPAIR_HINT1_ATTRIBUTE_NON_RESIDENT: u64 = 137438953472u64;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_INITIATE_REPAIR_HINT1_ATTRIBUTE_NOT_FOUND: u64 = 4096u64;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_INITIATE_REPAIR_HINT1_ATTRIBUTE_TOO_SMALL: u64 = 68719476736u64;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_INITIATE_REPAIR_HINT1_CLUSTERS_ALREADY_IN_USE: u64 = 32768u64;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_INITIATE_REPAIR_HINT1_DENY_DEFRAG: u64 = 274877906944u64;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_INITIATE_REPAIR_HINT1_FILE_RECORD_IS_BASE_RECORD: u64 = 524288u64;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_INITIATE_REPAIR_HINT1_FILE_RECORD_NOT_BASE_RECORD: u64 = 8u64;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_INITIATE_REPAIR_HINT1_FILE_RECORD_NOT_EXIST: u64 = 4u64;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_INITIATE_REPAIR_HINT1_FILE_RECORD_NOT_IN_USE: u64 = 1u64;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_INITIATE_REPAIR_HINT1_FILE_RECORD_NOT_ORPHAN: u64 = 262144u64;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_INITIATE_REPAIR_HINT1_FILE_RECORD_REUSED: u64 = 2u64;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_INITIATE_REPAIR_HINT1_INDEX_ENTRY_MISMATCH: u64 = 1099511627776u64;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_INITIATE_REPAIR_HINT1_INVALID_ARRAY_LENGTH_COUNT: u64 = 1048576u64;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_INITIATE_REPAIR_HINT1_INVALID_LCN: u64 = 4294967296u64;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_INITIATE_REPAIR_HINT1_INVALID_ORPHAN_RECOVERY_NAME: u64 = 2199023255552u64;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_INITIATE_REPAIR_HINT1_INVALID_PARENT: u64 = 8388608u64;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_INITIATE_REPAIR_HINT1_INVALID_RUN_LENGTH: u64 = 131072u64;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_INITIATE_REPAIR_HINT1_INVALID_VCN: u64 = 8589934592u64;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_INITIATE_REPAIR_HINT1_LCN_NOT_EXIST: u64 = 65536u64;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_INITIATE_REPAIR_HINT1_MULTIPLE_FILE_NAME_ATTRIBUTES: u64 = 4398046511104u64;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_INITIATE_REPAIR_HINT1_NAME_CONFLICT: u64 = 17179869184u64;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_INITIATE_REPAIR_HINT1_NOTHING_WRONG: u64 = 2048u64;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_INITIATE_REPAIR_HINT1_NOT_IMPLEMENTED: u64 = 32u64;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_INITIATE_REPAIR_HINT1_ORPHAN: u64 = 34359738368u64;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_INITIATE_REPAIR_HINT1_ORPHAN_GENERATED: u64 = 512u64;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_INITIATE_REPAIR_HINT1_OUT_OF_GENERIC_NAMES: u64 = 1073741824u64;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_INITIATE_REPAIR_HINT1_OUT_OF_RESOURCE: u64 = 2147483648u64;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_INITIATE_REPAIR_HINT1_PARENT_FILE_RECORD_NOT_BASE_RECORD: u64 = 134217728u64;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_INITIATE_REPAIR_HINT1_PARENT_FILE_RECORD_NOT_EXIST: u64 = 67108864u64;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_INITIATE_REPAIR_HINT1_PARENT_FILE_RECORD_NOT_INDEX: u64 = 268435456u64;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_INITIATE_REPAIR_HINT1_PARENT_FILE_RECORD_NOT_IN_USE: u64 = 16777216u64;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_INITIATE_REPAIR_HINT1_PARENT_FILE_RECORD_REUSED: u64 = 33554432u64;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_INITIATE_REPAIR_HINT1_POTENTIAL_CROSSLINK: u64 = 8192u64;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_INITIATE_REPAIR_HINT1_PREVIOUS_PARENT_STILL_VALID: u64 = 549755813888u64;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_INITIATE_REPAIR_HINT1_RECURSIVELY_CORRUPTED: u64 = 256u64;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_INITIATE_REPAIR_HINT1_REPAIRED: u64 = 1024u64;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_INITIATE_REPAIR_HINT1_REPAIR_DISABLED: u64 = 128u64;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_INITIATE_REPAIR_HINT1_SID_MISMATCH: u64 = 4194304u64;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_INITIATE_REPAIR_HINT1_SID_VALID: u64 = 2097152u64;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_INITIATE_REPAIR_HINT1_STALE_INFORMATION: u64 = 16384u64;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_INITIATE_REPAIR_HINT1_SYSTEM_FILE: u64 = 16u64;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_INITIATE_REPAIR_HINT1_UNABLE_TO_REPAIR: u64 = 64u64;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_INITIATE_REPAIR_HINT1_VALID_INDEX_ENTRY: u64 = 536870912u64;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct FILE_INITIATE_REPAIR_OUTPUT_BUFFER {
     pub Hint1: u64,
     pub Hint2: u64,
@@ -5267,6 +5657,7 @@ unsafe impl ::windows::runtime::Abi for FILE_INITIATE_REPAIR_OUTPUT_BUFFER {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct FILE_LAYOUT_ENTRY {
     pub Version: u32,
     pub NextFileOffset: u32,
@@ -5311,6 +5702,7 @@ unsafe impl ::windows::runtime::Abi for FILE_LAYOUT_ENTRY {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct FILE_LAYOUT_INFO_ENTRY {
     pub BasicInformation: FILE_LAYOUT_INFO_ENTRY_0,
     pub OwnerId: u32,
@@ -5341,6 +5733,7 @@ unsafe impl ::windows::runtime::Abi for FILE_LAYOUT_INFO_ENTRY {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct FILE_LAYOUT_INFO_ENTRY_0 {
     pub CreationTime: i64,
     pub LastAccessTime: i64,
@@ -5371,6 +5764,7 @@ unsafe impl ::windows::runtime::Abi for FILE_LAYOUT_INFO_ENTRY_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct FILE_LAYOUT_NAME_ENTRY {
     pub NextNameOffset: u32,
     pub Flags: u32,
@@ -5407,10 +5801,13 @@ unsafe impl ::windows::runtime::Abi for FILE_LAYOUT_NAME_ENTRY {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_LAYOUT_NAME_ENTRY_DOS: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_LAYOUT_NAME_ENTRY_PRIMARY: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct FILE_LEVEL_TRIM {
     pub Key: u32,
     pub NumRanges: u32,
@@ -5439,6 +5836,7 @@ unsafe impl ::windows::runtime::Abi for FILE_LEVEL_TRIM {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct FILE_LEVEL_TRIM_OUTPUT {
     pub NumRangesProcessed: u32,
 }
@@ -5465,6 +5863,7 @@ unsafe impl ::windows::runtime::Abi for FILE_LEVEL_TRIM_OUTPUT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct FILE_LEVEL_TRIM_RANGE {
     pub Offset: u64,
     pub Length: u64,
@@ -5493,6 +5892,7 @@ unsafe impl ::windows::runtime::Abi for FILE_LEVEL_TRIM_RANGE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Foundation`*"]
 pub struct FILE_MAKE_COMPATIBLE_BUFFER {
     pub CloseDisc: super::super::Foundation::BOOLEAN,
 }
@@ -5525,6 +5925,7 @@ unsafe impl ::windows::runtime::Abi for FILE_MAKE_COMPATIBLE_BUFFER {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct FILE_OBJECTID_BUFFER {
     pub ObjectId: [u8; 16],
     pub Anonymous: FILE_OBJECTID_BUFFER_0,
@@ -5547,6 +5948,7 @@ unsafe impl ::windows::runtime::Abi for FILE_OBJECTID_BUFFER {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub union FILE_OBJECTID_BUFFER_0 {
     pub Anonymous: FILE_OBJECTID_BUFFER_0_0,
     pub ExtendedInfo: [u8; 48],
@@ -5569,6 +5971,7 @@ unsafe impl ::windows::runtime::Abi for FILE_OBJECTID_BUFFER_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct FILE_OBJECTID_BUFFER_0_0 {
     pub BirthVolumeId: [u8; 16],
     pub BirthObjectId: [u8; 16],
@@ -5597,6 +6000,7 @@ unsafe impl ::windows::runtime::Abi for FILE_OBJECTID_BUFFER_0_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct FILE_PREFETCH {
     pub Type: u32,
     pub Count: u32,
@@ -5625,6 +6029,7 @@ unsafe impl ::windows::runtime::Abi for FILE_PREFETCH {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct FILE_PREFETCH_EX {
     pub Type: u32,
     pub Count: u32,
@@ -5652,15 +6057,23 @@ unsafe impl ::windows::runtime::Abi for FILE_PREFETCH_EX {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_PREFETCH_TYPE_FOR_CREATE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_PREFETCH_TYPE_FOR_CREATE_EX: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_PREFETCH_TYPE_FOR_DIRENUM: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_PREFETCH_TYPE_FOR_DIRENUM_EX: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_PREFETCH_TYPE_MAX: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_PROVIDER_COMPRESSION_MAXIMUM: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_PROVIDER_CURRENT_VERSION: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct FILE_PROVIDER_EXTERNAL_INFO_V0 {
     pub Version: u32,
     pub Algorithm: u32,
@@ -5688,6 +6101,7 @@ unsafe impl ::windows::runtime::Abi for FILE_PROVIDER_EXTERNAL_INFO_V0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct FILE_PROVIDER_EXTERNAL_INFO_V1 {
     pub Version: u32,
     pub Algorithm: u32,
@@ -5714,10 +6128,13 @@ unsafe impl ::windows::runtime::Abi for FILE_PROVIDER_EXTERNAL_INFO_V1 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_PROVIDER_FLAG_COMPRESS_ON_WRITE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_PROVIDER_SINGLE_FILE: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct FILE_QUERY_ON_DISK_VOL_INFO_BUFFER {
     pub DirectoryCount: i64,
     pub FileCount: i64,
@@ -5777,6 +6194,7 @@ unsafe impl ::windows::runtime::Abi for FILE_QUERY_ON_DISK_VOL_INFO_BUFFER {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Foundation`*"]
 pub struct FILE_QUERY_SPARING_BUFFER {
     pub SparingUnitBytes: u32,
     pub SoftwareSparing: super::super::Foundation::BOOLEAN,
@@ -5810,9 +6228,11 @@ unsafe impl ::windows::runtime::Abi for FILE_QUERY_SPARING_BUFFER {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_READ_ACCESS: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct FILE_REFERENCE_RANGE {
     pub StartingFileReferenceNumber: u64,
     pub EndingFileReferenceNumber: u64,
@@ -5840,6 +6260,7 @@ unsafe impl ::windows::runtime::Abi for FILE_REFERENCE_RANGE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct FILE_REGION_INFO {
     pub FileOffset: i64,
     pub Length: i64,
@@ -5869,6 +6290,7 @@ unsafe impl ::windows::runtime::Abi for FILE_REGION_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct FILE_REGION_INPUT {
     pub FileOffset: i64,
     pub Length: i64,
@@ -5897,6 +6319,7 @@ unsafe impl ::windows::runtime::Abi for FILE_REGION_INPUT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct FILE_REGION_OUTPUT {
     pub Flags: u32,
     pub TotalRegionEntryCount: u32,
@@ -5925,15 +6348,22 @@ unsafe impl ::windows::runtime::Abi for FILE_REGION_OUTPUT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_REGION_USAGE_HUGE_PAGE_ALIGNMENT: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_REGION_USAGE_LARGE_PAGE_ALIGNMENT: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_REGION_USAGE_OTHER_PAGE_ALIGNMENT: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_REGION_USAGE_QUERY_ALIGNMENT: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_REGION_USAGE_VALID_CACHED_DATA: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_REGION_USAGE_VALID_NONCACHED_DATA: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Foundation`*"]
 pub struct FILE_SET_DEFECT_MGMT_BUFFER {
     pub Disable: super::super::Foundation::BOOLEAN,
 }
@@ -5964,10 +6394,12 @@ unsafe impl ::windows::runtime::Abi for FILE_SET_DEFECT_MGMT_BUFFER {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_SET_ENCRYPTION: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Foundation`*"]
 pub struct FILE_SET_SPARSE_BUFFER {
     pub SetSparse: super::super::Foundation::BOOLEAN,
 }
@@ -5998,9 +6430,11 @@ unsafe impl ::windows::runtime::Abi for FILE_SET_SPARSE_BUFFER {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_SPECIAL_ACCESS: u32 = 0u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct FILE_STORAGE_TIER {
     pub Id: ::windows::runtime::GUID,
     pub Name: [u16; 256],
@@ -6031,6 +6465,7 @@ unsafe impl ::windows::runtime::Abi for FILE_STORAGE_TIER {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FILE_STORAGE_TIER_CLASS(pub i32);
@@ -6047,7 +6482,9 @@ unsafe impl ::windows::runtime::Abi for FILE_STORAGE_TIER_CLASS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_STORAGE_TIER_DESCRIPTION_LENGTH: u32 = 512u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FILE_STORAGE_TIER_FLAGS(pub u32);
@@ -6089,10 +6526,15 @@ impl ::std::ops::Not for FILE_STORAGE_TIER_FLAGS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_STORAGE_TIER_FLAG_PARITY: u32 = 8388608u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_STORAGE_TIER_FLAG_READ_CACHE: u32 = 4194304u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_STORAGE_TIER_FLAG_SMR: u32 = 16777216u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_STORAGE_TIER_FLAG_WRITE_BACK_CACHE: u32 = 2097152u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FILE_STORAGE_TIER_MEDIA_TYPE(pub i32);
@@ -6110,9 +6552,11 @@ unsafe impl ::windows::runtime::Abi for FILE_STORAGE_TIER_MEDIA_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_STORAGE_TIER_NAME_LENGTH: u32 = 256u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct FILE_STORAGE_TIER_REGION {
     pub TierId: ::windows::runtime::GUID,
     pub Offset: u64,
@@ -6142,6 +6586,7 @@ unsafe impl ::windows::runtime::Abi for FILE_STORAGE_TIER_REGION {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Foundation`*"]
 pub struct FILE_SYSTEM_RECOGNITION_INFORMATION {
     pub FileSystem: [super::super::Foundation::CHAR; 9],
 }
@@ -6172,13 +6617,16 @@ unsafe impl ::windows::runtime::Abi for FILE_SYSTEM_RECOGNITION_INFORMATION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_TYPE_NOTIFICATION_FLAG_USAGE_BEGIN: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_TYPE_NOTIFICATION_FLAG_USAGE_END: u32 = 2u32;
 pub const FILE_TYPE_NOTIFICATION_GUID_CRASHDUMP_FILE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2638560951, 53926, 19901, [162, 227, 251, 208, 237, 145, 9, 169]);
 pub const FILE_TYPE_NOTIFICATION_GUID_HIBERNATION_FILE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3076672868, 47523, 19704, [128, 17, 91, 134, 201, 64, 231, 183]);
 pub const FILE_TYPE_NOTIFICATION_GUID_PAGE_FILE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(218784929, 14588, 19896, [159, 231, 63, 67, 82, 205, 124, 92]);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct FILE_TYPE_NOTIFICATION_INPUT {
     pub Flags: u32,
     pub NumFileTypeIDs: u32,
@@ -6205,9 +6653,11 @@ unsafe impl ::windows::runtime::Abi for FILE_TYPE_NOTIFICATION_INPUT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_WRITE_ACCESS: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct FILE_ZERO_DATA_INFORMATION {
     pub FileOffset: i64,
     pub BeyondFinalZero: i64,
@@ -6235,6 +6685,7 @@ unsafe impl ::windows::runtime::Abi for FILE_ZERO_DATA_INFORMATION {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct FILE_ZERO_DATA_INFORMATION_EX {
     pub FileOffset: i64,
     pub BeyondFinalZero: i64,
@@ -6261,10 +6712,12 @@ unsafe impl ::windows::runtime::Abi for FILE_ZERO_DATA_INFORMATION_EX {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FILE_ZERO_DATA_INFORMATION_FLAG_PRESERVE_CACHED_DATA: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Security`*"]
 pub struct FIND_BY_SID_DATA {
     pub Restart: u32,
     pub Sid: super::super::Security::SID,
@@ -6298,6 +6751,7 @@ unsafe impl ::windows::runtime::Abi for FIND_BY_SID_DATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct FIND_BY_SID_OUTPUT {
     pub NextEntryOffset: u32,
     pub FileIndex: u32,
@@ -6325,9 +6779,11 @@ unsafe impl ::windows::runtime::Abi for FIND_BY_SID_OUTPUT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FLAG_USN_TRACK_MODIFIED_RANGES_ENABLE: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct FORMAT_EX_PARAMETERS {
     pub MediaType: MEDIA_TYPE,
     pub StartCylinderNumber: u32,
@@ -6370,6 +6826,7 @@ unsafe impl ::windows::runtime::Abi for FORMAT_EX_PARAMETERS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct FORMAT_PARAMETERS {
     pub MediaType: MEDIA_TYPE,
     pub StartCylinderNumber: u32,
@@ -6398,56 +6855,105 @@ unsafe impl ::windows::runtime::Abi for FORMAT_PARAMETERS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_ADD_OVERLAY: u32 = 623408u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_ADVANCE_FILE_ID: u32 = 590532u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_ALLOW_EXTENDED_DASD_IO: u32 = 589955u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_CLEAN_VOLUME_METADATA: u32 = 590716u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_CORRUPTION_HANDLING: u32 = 590432u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_CREATE_OR_GET_OBJECT_ID: u32 = 590016u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_CREATE_USN_JOURNAL: u32 = 590055u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_CSC_INTERNAL: u32 = 590255u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_CSV_CONTROL: u32 = 590548u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_CSV_GET_VOLUME_NAME_FOR_VOLUME_MOUNT_POINT: u32 = 590420u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_CSV_GET_VOLUME_PATH_NAME: u32 = 590416u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_CSV_GET_VOLUME_PATH_NAMES_FOR_VOLUME_NAME: u32 = 590424u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_CSV_H_BREAKING_SYNC_TUNNEL_REQUEST: u32 = 590564u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_CSV_INTERNAL: u32 = 590444u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_CSV_MGMT_LOCK: u32 = 590524u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_CSV_QUERY_DOWN_LEVEL_FILE_SYSTEM_CHARACTERISTICS: u32 = 590528u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_CSV_QUERY_VETO_FILE_DIRECT_IO: u32 = 590540u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_CSV_SYNC_TUNNEL_REQUEST: u32 = 590536u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_CSV_TUNNEL_REQUEST: u32 = 590404u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_DELETE_CORRUPTED_REFS_CONTAINER: u32 = 590836u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_DELETE_EXTERNAL_BACKING: u32 = 590612u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_DELETE_OBJECT_ID: u32 = 589984u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_DELETE_REPARSE_POINT: u32 = 589996u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_DELETE_USN_JOURNAL: u32 = 590072u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_DFSR_SET_GHOST_HANDLE_STATE: u32 = 590264u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_DISABLE_LOCAL_BUFFERING: u32 = 590520u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_DISMOUNT_VOLUME: u32 = 589856u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_DUPLICATE_EXTENTS_TO_FILE: u32 = 623428u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_DUPLICATE_EXTENTS_TO_FILE_EX: u32 = 623592u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_ENABLE_PER_IO_FLAGS: u32 = 590892u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_ENABLE_UPGRADE: u32 = 622800u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_ENCRYPTION_FSCTL_IO: u32 = 590043u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_ENCRYPTION_KEY_CONTROL: u32 = 590852u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_ENUM_EXTERNAL_BACKING: u32 = 590616u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_ENUM_OVERLAY: u32 = 590623u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_ENUM_USN_DATA: u32 = 590003u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_EXTEND_VOLUME: u32 = 590064u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_FILESYSTEM_GET_STATISTICS: u32 = 589920u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_FILESYSTEM_GET_STATISTICS_EX: u32 = 590732u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_FILE_LEVEL_TRIM: u32 = 623112u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_FILE_PREFETCH: u32 = 590112u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_FILE_TYPE_NOTIFICATION: u32 = 590340u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_FIND_FILES_BY_SID: u32 = 589967u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_GET_BOOT_AREA_INFO: u32 = 590384u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_GET_COMPRESSION: u32 = 589884u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_GET_EXTERNAL_BACKING: u32 = 590608u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_GET_FILTER_FILE_IDENTIFIER: u32 = 590788u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_GET_INTEGRITY_INFORMATION: u32 = 590460u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct FSCTL_GET_INTEGRITY_INFORMATION_BUFFER {
     pub ChecksumAlgorithm: u16,
     pub Reserved: u16,
@@ -6482,45 +6988,83 @@ unsafe impl ::windows::runtime::Abi for FSCTL_GET_INTEGRITY_INFORMATION_BUFFER {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_GET_NTFS_FILE_RECORD: u32 = 589928u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_GET_NTFS_VOLUME_DATA: u32 = 589924u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_GET_OBJECT_ID: u32 = 589980u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_GET_REFS_VOLUME_DATA: u32 = 590552u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_GET_REPAIR: u32 = 590236u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_GET_REPARSE_POINT: u32 = 589992u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_GET_RETRIEVAL_POINTERS: u32 = 589939u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_GET_RETRIEVAL_POINTERS_AND_REFCOUNT: u32 = 590803u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_GET_RETRIEVAL_POINTER_BASE: u32 = 590388u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_GET_RETRIEVAL_POINTER_COUNT: u32 = 590891u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_GET_VOLUME_BITMAP: u32 = 589935u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_GET_WOF_VERSION: u32 = 590696u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_GHOST_FILE_EXTENTS: u32 = 623532u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_HCS_ASYNC_TUNNEL_REQUEST: u32 = 590704u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_HCS_SYNC_NO_WRITE_TUNNEL_REQUEST: u32 = 590776u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_HCS_SYNC_TUNNEL_REQUEST: u32 = 590700u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_INITIATE_FILE_METADATA_OPTIMIZATION: u32 = 590684u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_INITIATE_REPAIR: u32 = 590248u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_INTEGRITY_FLAG_CHECKSUM_ENFORCEMENT_OFF: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_INVALIDATE_VOLUMES: u32 = 589908u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_IS_CSV_FILE: u32 = 590408u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_IS_FILE_ON_CSV_VOLUME: u32 = 590428u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_IS_PATHNAME_VALID: u32 = 589868u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_IS_VOLUME_DIRTY: u32 = 589944u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_IS_VOLUME_MOUNTED: u32 = 589864u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_IS_VOLUME_OWNED_BYCSVFS: u32 = 590456u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_LOCK_VOLUME: u32 = 589848u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_LOOKUP_STREAM_FROM_CLUSTER: u32 = 590332u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_MAKE_MEDIA_COMPATIBLE: u32 = 622896u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_MANAGE_BYPASS_IO: u32 = 590920u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_MARK_AS_SYSTEM_HIVE: u32 = 589903u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_MARK_HANDLE: u32 = 590076u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_MARK_VOLUME_DIRTY: u32 = 589872u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_MOVE_FILE: u32 = 589940u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_NOTIFY_DATA_CHANGE: u32 = 590844u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_NOTIFY_STORAGE_SPACE_ALLOCATION: u32 = 590748u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_OFFLOAD_READ: u32 = 606820u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct FSCTL_OFFLOAD_READ_INPUT {
     pub Size: u32,
     pub Flags: u32,
@@ -6552,6 +7096,7 @@ unsafe impl ::windows::runtime::Abi for FSCTL_OFFLOAD_READ_INPUT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct FSCTL_OFFLOAD_READ_OUTPUT {
     pub Size: u32,
     pub Flags: u32,
@@ -6579,9 +7124,11 @@ unsafe impl ::windows::runtime::Abi for FSCTL_OFFLOAD_READ_OUTPUT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_OFFLOAD_WRITE: u32 = 623208u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct FSCTL_OFFLOAD_WRITE_INPUT {
     pub Size: u32,
     pub Flags: u32,
@@ -6613,6 +7160,7 @@ unsafe impl ::windows::runtime::Abi for FSCTL_OFFLOAD_WRITE_INPUT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct FSCTL_OFFLOAD_WRITE_OUTPUT {
     pub Size: u32,
     pub Flags: u32,
@@ -6639,20 +7187,33 @@ unsafe impl ::windows::runtime::Abi for FSCTL_OFFLOAD_WRITE_OUTPUT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_OPBATCH_ACK_CLOSE_PENDING: u32 = 589840u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_OPLOCK_BREAK_ACKNOWLEDGE: u32 = 589836u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_OPLOCK_BREAK_ACK_NO_2: u32 = 589904u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_OPLOCK_BREAK_NOTIFY: u32 = 589844u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_QUERY_ALLOCATED_RANGES: u32 = 606415u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_QUERY_ASYNC_DUPLICATE_EXTENTS_STATUS: u32 = 590896u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_QUERY_BAD_RANGES: u32 = 590828u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_QUERY_DEPENDENT_VOLUME: u32 = 590320u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_QUERY_DIRECT_ACCESS_EXTENTS: u32 = 590747u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_QUERY_DIRECT_IMAGE_ORIGINAL_BASE: u32 = 590756u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_QUERY_EXTENT_READ_CACHE_INFO: u32 = 590711u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_QUERY_FAT_BPB: u32 = 589912u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct FSCTL_QUERY_FAT_BPB_BUFFER {
     pub First0x24BytesOfBootSector: [u8; 36],
 }
@@ -6677,19 +7238,31 @@ unsafe impl ::windows::runtime::Abi for FSCTL_QUERY_FAT_BPB_BUFFER {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_QUERY_FILE_LAYOUT: u32 = 590455u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_QUERY_FILE_METADATA_OPTIMIZATION: u32 = 590688u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_QUERY_FILE_REGIONS: u32 = 590468u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_QUERY_FILE_SYSTEM_RECOGNITION: u32 = 590412u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_QUERY_GHOSTED_FILE_EXTENTS: u32 = 590768u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_QUERY_ON_DISK_VOLUME_INFO: u32 = 590140u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_QUERY_PAGEFILE_ENCRYPTION: u32 = 590312u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_QUERY_PERSISTENT_VOLUME_STATE: u32 = 590396u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_QUERY_REFS_SMR_VOLUME_INFO: u32 = 590812u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_QUERY_REFS_VOLUME_COUNTER_INFO: u32 = 590715u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_QUERY_REGION_INFO: u32 = 590576u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct FSCTL_QUERY_REGION_INFO_INPUT {
     pub Version: u32,
     pub Size: u32,
@@ -6720,6 +7293,7 @@ unsafe impl ::windows::runtime::Abi for FSCTL_QUERY_REGION_INFO_INPUT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct FSCTL_QUERY_REGION_INFO_OUTPUT {
     pub Version: u32,
     pub Size: u32,
@@ -6760,12 +7334,17 @@ unsafe impl ::windows::runtime::Abi for FSCTL_QUERY_REGION_INFO_OUTPUT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_QUERY_RETRIEVAL_POINTERS: u32 = 589883u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_QUERY_SHARED_VIRTUAL_DISK_SUPPORT: u32 = 590592u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_QUERY_SPARING_INFO: u32 = 590136u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_QUERY_STORAGE_CLASSES: u32 = 590572u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct FSCTL_QUERY_STORAGE_CLASSES_OUTPUT {
     pub Version: u32,
     pub Size: u32,
@@ -6795,40 +7374,73 @@ unsafe impl ::windows::runtime::Abi for FSCTL_QUERY_STORAGE_CLASSES_OUTPUT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_QUERY_USN_JOURNAL: u32 = 590068u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_QUERY_VOLUME_CONTAINER_STATE: u32 = 590736u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_QUERY_VOLUME_NUMA_INFO: u32 = 590804u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_READ_FILE_USN_DATA: u32 = 590059u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_READ_FROM_PLEX: u32 = 606494u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_READ_RAW_ENCRYPTED: u32 = 590051u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_READ_UNPRIVILEGED_USN_JOURNAL: u32 = 590763u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_READ_USN_JOURNAL: u32 = 590011u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_REARRANGE_FILE: u32 = 640032u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_RECALL_FILE: u32 = 590103u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_REFS_DEALLOCATE_RANGES: u32 = 590808u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_REFS_STREAM_SNAPSHOT_MANAGEMENT: u32 = 590912u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_REMOVE_OVERLAY: u32 = 623412u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_REPAIR_COPIES: u32 = 639668u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_REQUEST_BATCH_OPLOCK: u32 = 589832u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_REQUEST_FILTER_OPLOCK: u32 = 589916u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_REQUEST_OPLOCK: u32 = 590400u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_REQUEST_OPLOCK_LEVEL_1: u32 = 589824u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_REQUEST_OPLOCK_LEVEL_2: u32 = 589828u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_RESET_VOLUME_ALLOCATION_HINTS: u32 = 590316u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_RKF_INTERNAL: u32 = 590511u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_SCRUB_DATA: u32 = 590512u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_SCRUB_UNDISCOVERABLE_ID: u32 = 590840u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_SD_GLOBAL_CHANGE: u32 = 590324u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_SECURITY_ID_CHECK: u32 = 606391u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_SET_BOOTLOADER_ACCESSED: u32 = 589903u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_SET_COMPRESSION: u32 = 639040u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_SET_DAX_ALLOC_ALIGNMENT_HINT: u32 = 590832u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_SET_DEFECT_MANAGEMENT: u32 = 622900u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_SET_ENCRYPTION: u32 = 590039u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_SET_EXTERNAL_BACKING: u32 = 590604u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_SET_INTEGRITY_INFORMATION: u32 = 639616u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct FSCTL_SET_INTEGRITY_INFORMATION_BUFFER {
     pub ChecksumAlgorithm: u16,
     pub Reserved: u16,
@@ -6857,6 +7469,7 @@ unsafe impl ::windows::runtime::Abi for FSCTL_SET_INTEGRITY_INFORMATION_BUFFER {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct FSCTL_SET_INTEGRITY_INFORMATION_BUFFER_EX {
     pub EnableIntegrity: u8,
     pub KeepIntegrityStateUnchanged: u8,
@@ -6893,68 +7506,131 @@ unsafe impl ::windows::runtime::Abi for FSCTL_SET_INTEGRITY_INFORMATION_BUFFER_E
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_SET_INTEGRITY_INFORMATION_EX: u32 = 590720u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_SET_LAYER_ROOT: u32 = 590740u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_SET_OBJECT_ID: u32 = 589976u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_SET_OBJECT_ID_EXTENDED: u32 = 590012u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_SET_PERSISTENT_VOLUME_STATE: u32 = 590392u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_SET_PURGE_FAILURE_MODE: u32 = 590448u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_SET_REFS_FILE_STRICTLY_SEQUENTIAL: u32 = 590820u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_SET_REFS_SMR_VOLUME_GC_PARAMETERS: u32 = 590816u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_SET_REPAIR: u32 = 590232u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_SET_REPARSE_POINT: u32 = 589988u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_SET_REPARSE_POINT_EX: u32 = 590860u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_SET_SHORT_NAME_BEHAVIOR: u32 = 590260u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_SET_SPARSE: u32 = 590020u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_SET_VOLUME_COMPRESSION_STATE: u32 = 590144u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_SET_ZERO_DATA: u32 = 622792u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_SET_ZERO_ON_DEALLOCATION: u32 = 590228u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_SHRINK_VOLUME: u32 = 590256u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_SHUFFLE_FILE: u32 = 639808u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_SIS_COPYFILE: u32 = 590080u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_SIS_LINK_FILES: u32 = 639236u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_SMB_SHARE_FLUSH_AND_PURGE: u32 = 590908u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_SPARSE_OVERALLOCATE: u32 = 590668u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_SSDI_STORAGE_REQUEST: u32 = 590752u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_START_VIRTUALIZATION_INSTANCE: u32 = 590784u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_START_VIRTUALIZATION_INSTANCE_EX: u32 = 590848u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_STORAGE_QOS_CONTROL: u32 = 590672u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_STREAMS_ASSOCIATE_ID: u32 = 590792u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_STREAMS_QUERY_ID: u32 = 590796u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_STREAMS_QUERY_PARAMETERS: u32 = 590788u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_SUSPEND_OVERLAY: u32 = 590724u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_SVHDX_ASYNC_TUNNEL_REQUEST: u32 = 590692u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_SVHDX_SET_INITIATOR_INFORMATION: u32 = 590600u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_SVHDX_SYNC_TUNNEL_REQUEST: u32 = 590596u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_TXFS_CREATE_MINIVERSION: u32 = 622972u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_TXFS_CREATE_SECONDARY_RM: u32 = 622952u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_TXFS_GET_METADATA_INFO: u32 = 606572u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_TXFS_GET_TRANSACTED_VERSION: u32 = 606576u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_TXFS_LIST_TRANSACTIONS: u32 = 606692u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_TXFS_LIST_TRANSACTION_LOCKED_FILES: u32 = 606688u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_TXFS_MODIFY_RM: u32 = 622916u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_TXFS_QUERY_RM_INFORMATION: u32 = 606536u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_TXFS_READ_BACKUP_INFORMATION: u32 = 606560u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_TXFS_READ_BACKUP_INFORMATION2: u32 = 590328u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_TXFS_ROLLFORWARD_REDO: u32 = 622928u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_TXFS_ROLLFORWARD_UNDO: u32 = 622932u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_TXFS_SAVEPOINT_INFORMATION: u32 = 622968u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_TXFS_SHUTDOWN_RM: u32 = 622940u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_TXFS_START_RM: u32 = 622936u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_TXFS_TRANSACTION_ACTIVE: u32 = 606604u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_TXFS_WRITE_BACKUP_INFORMATION: u32 = 622948u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_TXFS_WRITE_BACKUP_INFORMATION2: u32 = 590336u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_UNLOCK_VOLUME: u32 = 589852u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_UNMAP_SPACE: u32 = 590772u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_UPDATE_OVERLAY: u32 = 623416u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_USN_TRACK_MODIFIED_RANGES: u32 = 590580u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_VIRTUAL_STORAGE_PASSTHROUGH: u32 = 590884u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_VIRTUAL_STORAGE_QUERY_PROPERTY: u32 = 590728u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_VIRTUAL_STORAGE_SET_BEHAVIOR: u32 = 590856u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_WAIT_FOR_REPAIR: u32 = 590240u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_WRITE_RAW_ENCRYPTED: u32 = 590047u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_WRITE_USN_CLOSE_RECORD: u32 = 590063u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FSCTL_WRITE_USN_REASON: u32 = 590544u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FS_BPIO_INFLAGS(pub i32);
@@ -6971,6 +7647,7 @@ unsafe impl ::windows::runtime::Abi for FS_BPIO_INFLAGS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct FS_BPIO_INFO {
     pub ActiveBypassIoCount: u32,
     pub StorageDriverNameLen: u16,
@@ -6999,6 +7676,7 @@ unsafe impl ::windows::runtime::Abi for FS_BPIO_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct FS_BPIO_INPUT {
     pub Operation: FS_BPIO_OPERATIONS,
     pub InFlags: FS_BPIO_INFLAGS,
@@ -7026,6 +7704,7 @@ unsafe impl ::windows::runtime::Abi for FS_BPIO_INPUT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FS_BPIO_OPERATIONS(pub i32);
@@ -7047,6 +7726,7 @@ unsafe impl ::windows::runtime::Abi for FS_BPIO_OPERATIONS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FS_BPIO_OUTFLAGS(pub i32);
@@ -7066,6 +7746,7 @@ unsafe impl ::windows::runtime::Abi for FS_BPIO_OUTFLAGS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct FS_BPIO_OUTPUT {
     pub Operation: FS_BPIO_OPERATIONS,
     pub OutFlags: FS_BPIO_OUTFLAGS,
@@ -7091,6 +7772,7 @@ unsafe impl ::windows::runtime::Abi for FS_BPIO_OUTPUT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub union FS_BPIO_OUTPUT_0 {
     pub Enable: FS_BPIO_RESULTS,
     pub Query: FS_BPIO_RESULTS,
@@ -7116,6 +7798,7 @@ unsafe impl ::windows::runtime::Abi for FS_BPIO_OUTPUT_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct FS_BPIO_RESULTS {
     pub OpStatus: u32,
     pub FailingDriverNameLen: u16,
@@ -7144,10 +7827,13 @@ unsafe impl ::windows::runtime::Abi for FS_BPIO_RESULTS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FW_ISSUEID_NO_ISSUE: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const FW_ISSUEID_UNKNOWN: u32 = 4294967295u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct GETVERSIONINPARAMS {
     pub bVersion: u8,
     pub bRevision: u8,
@@ -7174,6 +7860,7 @@ unsafe impl ::windows::runtime::Abi for GETVERSIONINPARAMS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct GET_CHANGER_PARAMETERS {
     pub Size: u32,
     pub NumberTransportElements: u16,
@@ -7281,6 +7968,7 @@ unsafe impl ::windows::runtime::Abi for GET_CHANGER_PARAMETERS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GET_CHANGER_PARAMETERS_FEATURES1(pub u32);
@@ -7334,6 +8022,7 @@ impl ::std::ops::Not for GET_CHANGER_PARAMETERS_FEATURES1 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct GET_DEVICE_INTERNAL_STATUS_DATA_REQUEST {
     pub Version: u32,
     pub Size: u32,
@@ -7363,6 +8052,7 @@ unsafe impl ::windows::runtime::Abi for GET_DEVICE_INTERNAL_STATUS_DATA_REQUEST 
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct GET_DISK_ATTRIBUTES {
     pub Version: u32,
     pub Reserved1: u32,
@@ -7391,6 +8081,7 @@ unsafe impl ::windows::runtime::Abi for GET_DISK_ATTRIBUTES {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct GET_FILTER_FILE_IDENTIFIER_INPUT {
     pub AltitudeLength: u16,
     pub Altitude: [u16; 1],
@@ -7418,6 +8109,7 @@ unsafe impl ::windows::runtime::Abi for GET_FILTER_FILE_IDENTIFIER_INPUT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct GET_FILTER_FILE_IDENTIFIER_OUTPUT {
     pub FilterFileIdentifierLength: u16,
     pub FilterFileIdentifier: [u8; 1],
@@ -7445,6 +8137,7 @@ unsafe impl ::windows::runtime::Abi for GET_FILTER_FILE_IDENTIFIER_OUTPUT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct GET_LENGTH_INFORMATION {
     pub Length: i64,
 }
@@ -7472,6 +8165,7 @@ unsafe impl ::windows::runtime::Abi for GET_LENGTH_INFORMATION {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Storage_FileSystem`*"]
 pub struct GET_MEDIA_TYPES {
     pub DeviceType: u32,
     pub MediaInfoCount: u32,
@@ -7498,7 +8192,9 @@ unsafe impl ::windows::runtime::Abi for GET_MEDIA_TYPES {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const GET_VOLUME_BITMAP_FLAG_MASK_METADATA: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GPT_ATTRIBUTES(pub u64);
@@ -7544,14 +8240,21 @@ impl ::std::ops::Not for GPT_ATTRIBUTES {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const GPT_ATTRIBUTE_LEGACY_BIOS_BOOTABLE: u64 = 4u64;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const GPT_ATTRIBUTE_NO_BLOCK_IO_PROTOCOL: u64 = 2u64;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const GPT_BASIC_DATA_ATTRIBUTE_DAX: u64 = 288230376151711744u64;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const GPT_BASIC_DATA_ATTRIBUTE_OFFLINE: u64 = 576460752303423488u64;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const GPT_BASIC_DATA_ATTRIBUTE_SERVICE: u64 = 144115188075855872u64;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const GPT_SPACES_ATTRIBUTE_NO_METADATA: u64 = 9223372036854775808u64;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct GP_LOG_PAGE_DESCRIPTOR {
     pub LogAddress: u16,
     pub LogSectors: u16,
@@ -7597,6 +8300,7 @@ pub const GUID_SCM_PD_HEALTH_NOTIFICATION: ::windows::runtime::GUID = ::windows:
 pub const GUID_SCM_PD_PASSTHROUGH_INVDIMM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1124707376, 3345, 4580, [145, 145, 8, 0, 32, 12, 154, 102]);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct HISTOGRAM_BUCKET {
     pub Reads: u32,
     pub Writes: u32,
@@ -7622,10 +8326,13 @@ unsafe impl ::windows::runtime::Abi for HISTOGRAM_BUCKET {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const HIST_NO_OF_BUCKETS: u32 = 24u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IDENTIFY_BUFFER_SIZE: u32 = 512u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct IDEREGS {
     pub bFeaturesReg: u8,
     pub bSectorCountReg: u8,
@@ -7666,154 +8373,301 @@ unsafe impl ::windows::runtime::Abi for IDEREGS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const ID_CMD: u32 = 236u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_CHANGER_BASE: u32 = 48u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_CHANGER_EXCHANGE_MEDIUM: u32 = 3162144u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_CHANGER_GET_ELEMENT_STATUS: u32 = 3194900u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_CHANGER_GET_PARAMETERS: u32 = 3162112u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_CHANGER_GET_PRODUCT_DATA: u32 = 3162120u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_CHANGER_GET_STATUS: u32 = 3162116u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_CHANGER_INITIALIZE_ELEMENT_STATUS: u32 = 3162136u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_CHANGER_MOVE_MEDIUM: u32 = 3162148u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_CHANGER_QUERY_VOLUME_TAGS: u32 = 3194924u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_CHANGER_REINITIALIZE_TRANSPORT: u32 = 3162152u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_CHANGER_SET_ACCESS: u32 = 3194896u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_CHANGER_SET_POSITION: u32 = 3162140u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_DISK_BASE: u32 = 7u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_DISK_CHECK_VERIFY: u32 = 477184u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_DISK_CONTROLLER_NUMBER: u32 = 458820u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_DISK_CREATE_DISK: u32 = 507992u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_DISK_DELETE_DRIVE_LAYOUT: u32 = 508160u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_DISK_EJECT_MEDIA: u32 = 477192u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_DISK_FIND_NEW_DEVICES: u32 = 477208u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_DISK_FORMAT_DRIVE: u32 = 508876u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_DISK_FORMAT_TRACKS: u32 = 507928u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_DISK_FORMAT_TRACKS_EX: u32 = 507948u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_DISK_GET_CACHE_INFORMATION: u32 = 475348u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_DISK_GET_DISK_ATTRIBUTES: u32 = 458992u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_DISK_GET_DRIVE_GEOMETRY: u32 = 458752u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_DISK_GET_DRIVE_GEOMETRY_EX: u32 = 458912u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_DISK_GET_DRIVE_LAYOUT: u32 = 475148u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_DISK_GET_DRIVE_LAYOUT_EX: u32 = 458832u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_DISK_GET_LENGTH_INFO: u32 = 475228u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_DISK_GET_MEDIA_TYPES: u32 = 461824u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_DISK_GET_PARTITION_INFO: u32 = 475140u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_DISK_GET_PARTITION_INFO_EX: u32 = 458824u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_DISK_GET_WRITE_CACHE_STATE: u32 = 475356u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_DISK_GROW_PARTITION: u32 = 508112u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_DISK_HISTOGRAM_DATA: u32 = 458804u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_DISK_HISTOGRAM_RESET: u32 = 458808u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_DISK_HISTOGRAM_STRUCTURE: u32 = 458800u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_DISK_IS_WRITABLE: u32 = 458788u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_DISK_LOAD_MEDIA: u32 = 477196u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_DISK_LOGGING: u32 = 458792u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_DISK_MEDIA_REMOVAL: u32 = 477188u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_DISK_PERFORMANCE: u32 = 458784u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_DISK_PERFORMANCE_OFF: u32 = 458848u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_DISK_REASSIGN_BLOCKS: u32 = 507932u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_DISK_REASSIGN_BLOCKS_EX: u32 = 508068u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_DISK_RELEASE: u32 = 477204u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_DISK_REQUEST_DATA: u32 = 458816u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_DISK_REQUEST_STRUCTURE: u32 = 458812u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_DISK_RESERVE: u32 = 477200u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_DISK_RESET_SNAPSHOT_INFO: u32 = 508432u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_DISK_SENSE_DEVICE: u32 = 459744u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_DISK_SET_CACHE_INFORMATION: u32 = 508120u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_DISK_SET_DISK_ATTRIBUTES: u32 = 508148u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_DISK_SET_DRIVE_LAYOUT: u32 = 507920u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_DISK_SET_DRIVE_LAYOUT_EX: u32 = 507988u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_DISK_SET_PARTITION_INFO: u32 = 507912u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_DISK_SET_PARTITION_INFO_EX: u32 = 507980u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_DISK_UPDATE_DRIVE_SIZE: u32 = 508104u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_DISK_UPDATE_PROPERTIES: u32 = 459072u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_DISK_VERIFY: u32 = 458772u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_SCMBUS_BASE: u32 = 89u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_SCMBUS_DEVICE_FUNCTION_BASE: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_SCM_BUS_GET_LOGICAL_DEVICES: u32 = 5832704u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_SCM_BUS_GET_PHYSICAL_DEVICES: u32 = 5832708u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_SCM_BUS_GET_REGIONS: u32 = 5832712u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_SCM_BUS_QUERY_PROPERTY: u32 = 5832716u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_SCM_BUS_RUNTIME_FW_ACTIVATE: u32 = 5865488u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_SCM_BUS_SET_PROPERTY: u32 = 5865492u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_SCM_LD_GET_INTERLEAVE_SET: u32 = 5835776u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_SCM_LOGICAL_DEVICE_FUNCTION_BASE: u32 = 768u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_SCM_PD_FIRMWARE_ACTIVATE: u32 = 5871624u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_SCM_PD_FIRMWARE_DOWNLOAD: u32 = 5871620u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_SCM_PD_PASSTHROUGH: u32 = 5888012u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_SCM_PD_QUERY_PROPERTY: u32 = 5838848u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_SCM_PD_REINITIALIZE_MEDIA: u32 = 5871636u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_SCM_PD_SET_PROPERTY: u32 = 5871640u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_SCM_PD_UPDATE_MANAGEMENT_STATUS: u32 = 5838864u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_SCM_PHYSICAL_DEVICE_FUNCTION_BASE: u32 = 1536u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_SERENUM_EXPOSE_HARDWARE: u32 = 3604992u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_SERENUM_GET_PORT_NAME: u32 = 3605004u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_SERENUM_PORT_DESC: u32 = 3605000u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_SERENUM_REMOVE_HARDWARE: u32 = 3604996u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_SERIAL_LSRMST_INSERT: u32 = 1769596u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_STORAGE_ALLOCATE_BC_STREAM: u32 = 3004420u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_STORAGE_ATTRIBUTE_MANAGEMENT: u32 = 3005596u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_STORAGE_BASE: u32 = 45u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_STORAGE_BC_VERSION: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_STORAGE_BREAK_RESERVATION: u32 = 2969620u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_STORAGE_CHECK_PRIORITY_HINT_SUPPORT: u32 = 2955392u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_STORAGE_CHECK_VERIFY: u32 = 2967552u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_STORAGE_CHECK_VERIFY2: u32 = 2951168u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_STORAGE_DEVICE_POWER_CAP: u32 = 2956436u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_STORAGE_DEVICE_TELEMETRY_NOTIFY: u32 = 3002820u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_STORAGE_DEVICE_TELEMETRY_QUERY_CAPS: u32 = 3002824u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_STORAGE_DIAGNOSTIC: u32 = 2956448u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_STORAGE_EJECTION_CONTROL: u32 = 2951488u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_STORAGE_EJECT_MEDIA: u32 = 2967560u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_STORAGE_ENABLE_IDLE_POWER: u32 = 2956416u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_STORAGE_EVENT_NOTIFICATION: u32 = 2956432u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_STORAGE_FAILURE_PREDICTION_CONFIG: u32 = 2953476u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_STORAGE_FIND_NEW_DEVICES: u32 = 2967576u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_STORAGE_FIRMWARE_ACTIVATE: u32 = 3005448u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_STORAGE_FIRMWARE_DOWNLOAD: u32 = 3005444u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_STORAGE_FIRMWARE_GET_INFO: u32 = 2956288u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_STORAGE_FREE_BC_STREAM: u32 = 3004424u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_STORAGE_GET_BC_PROPERTIES: u32 = 2971648u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_STORAGE_GET_COUNTERS: u32 = 2953480u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_STORAGE_GET_DEVICE_INTERNAL_LOG: u32 = 2956484u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_STORAGE_GET_DEVICE_NUMBER: u32 = 2953344u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_STORAGE_GET_DEVICE_NUMBER_EX: u32 = 2953348u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_STORAGE_GET_DEVICE_TELEMETRY: u32 = 3002816u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_STORAGE_GET_DEVICE_TELEMETRY_RAW: u32 = 3002828u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_STORAGE_GET_HOTPLUG_INFO: u32 = 2952212u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_STORAGE_GET_IDLE_POWERUP_REASON: u32 = 2956420u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_STORAGE_GET_LB_PROVISIONING_MAP_RESOURCES: u32 = 2970632u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_STORAGE_GET_MEDIA_SERIAL_NUMBER: u32 = 2952208u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_STORAGE_GET_MEDIA_TYPES: u32 = 2952192u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_STORAGE_GET_MEDIA_TYPES_EX: u32 = 2952196u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_STORAGE_GET_PHYSICAL_ELEMENT_STATUS: u32 = 2956452u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_STORAGE_LOAD_MEDIA: u32 = 2967564u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_STORAGE_LOAD_MEDIA2: u32 = 2951180u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_STORAGE_MANAGE_BYPASS_IO: u32 = 2951360u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_STORAGE_MANAGE_DATA_SET_ATTRIBUTES: u32 = 2987012u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_STORAGE_MCN_CONTROL: u32 = 2951492u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_STORAGE_MEDIA_REMOVAL: u32 = 2967556u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_STORAGE_PERSISTENT_RESERVE_IN: u32 = 2969624u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_STORAGE_PERSISTENT_RESERVE_OUT: u32 = 3002396u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_STORAGE_POWER_ACTIVE: u32 = 2956424u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_STORAGE_POWER_IDLE: u32 = 2956428u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_STORAGE_PREDICT_FAILURE: u32 = 2953472u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_STORAGE_PROTOCOL_COMMAND: u32 = 3003328u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_STORAGE_QUERY_PROPERTY: u32 = 2954240u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_STORAGE_READ_CAPACITY: u32 = 2969920u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_STORAGE_REINITIALIZE_MEDIA: u32 = 2987584u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_STORAGE_RELEASE: u32 = 2967572u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_STORAGE_REMOVE_ELEMENT_AND_TRUNCATE: u32 = 2956480u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_STORAGE_RESERVE: u32 = 2967568u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_STORAGE_RESET_BUS: u32 = 2969600u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_STORAGE_RESET_DEVICE: u32 = 2969604u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_STORAGE_RPMB_COMMAND: u32 = 2956440u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_STORAGE_SET_HOTPLUG_INFO: u32 = 3001368u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_STORAGE_SET_PROPERTY: u32 = 2987004u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_STORAGE_SET_TEMPERATURE_THRESHOLD: u32 = 3002880u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_STORAGE_START_DATA_INTEGRITY_CHECK: u32 = 3004548u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const IOCTL_STORAGE_STOP_DATA_INTEGRITY_CHECK: u32 = 3004552u32;
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct IO_IRP_EXT_TRACK_OFFSET_HEADER {
     pub Validation: u16,
     pub Flags: u16,
@@ -7840,12 +8694,17 @@ unsafe impl ::windows::runtime::Abi for IO_IRP_EXT_TRACK_OFFSET_HEADER {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const LOCK_ELEMENT: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const LOCK_UNLOCK_DOOR: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const LOCK_UNLOCK_IEPORT: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const LOCK_UNLOCK_KEYPAD: u32 = 4u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct LOOKUP_STREAM_FROM_CLUSTER_ENTRY {
     pub OffsetToNext: u32,
     pub Flags: u32,
@@ -7874,16 +8733,25 @@ unsafe impl ::windows::runtime::Abi for LOOKUP_STREAM_FROM_CLUSTER_ENTRY {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const LOOKUP_STREAM_FROM_CLUSTER_ENTRY_ATTRIBUTE_DATA: u32 = 16777216u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const LOOKUP_STREAM_FROM_CLUSTER_ENTRY_ATTRIBUTE_INDEX: u32 = 33554432u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const LOOKUP_STREAM_FROM_CLUSTER_ENTRY_ATTRIBUTE_MASK: u32 = 4278190080u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const LOOKUP_STREAM_FROM_CLUSTER_ENTRY_ATTRIBUTE_SYSTEM: u32 = 50331648u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const LOOKUP_STREAM_FROM_CLUSTER_ENTRY_FLAG_DENY_DEFRAG_SET: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const LOOKUP_STREAM_FROM_CLUSTER_ENTRY_FLAG_FS_SYSTEM_FILE: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const LOOKUP_STREAM_FROM_CLUSTER_ENTRY_FLAG_PAGE_FILE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const LOOKUP_STREAM_FROM_CLUSTER_ENTRY_FLAG_TXF_SYSTEM_FILE: u32 = 8u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct LOOKUP_STREAM_FROM_CLUSTER_INPUT {
     pub Flags: u32,
     pub NumberOfClusters: u32,
@@ -7912,6 +8780,7 @@ unsafe impl ::windows::runtime::Abi for LOOKUP_STREAM_FROM_CLUSTER_INPUT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct LOOKUP_STREAM_FROM_CLUSTER_OUTPUT {
     pub Offset: u32,
     pub NumberOfMatches: u32,
@@ -7938,14 +8807,20 @@ unsafe impl ::windows::runtime::Abi for LOOKUP_STREAM_FROM_CLUSTER_OUTPUT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const MARK_HANDLE_CLOUD_SYNC: u32 = 2048u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const MARK_HANDLE_DISABLE_FILE_METADATA_OPTIMIZATION: u32 = 4096u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const MARK_HANDLE_ENABLE_CPU_CACHE: u32 = 268435456u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const MARK_HANDLE_ENABLE_USN_SOURCE_ON_PAGING_IO: u32 = 8192u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const MARK_HANDLE_FILTER_METADATA: u32 = 512u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Foundation`*"]
 pub struct MARK_HANDLE_INFO {
     pub Anonymous: MARK_HANDLE_INFO_0,
     pub VolumeHandle: super::super::Foundation::HANDLE,
@@ -7974,6 +8849,7 @@ unsafe impl ::windows::runtime::Abi for MARK_HANDLE_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub union MARK_HANDLE_INFO_0 {
     pub UsnSourceInfo: u32,
     pub CopyNumber: u32,
@@ -7996,6 +8872,7 @@ unsafe impl ::windows::runtime::Abi for MARK_HANDLE_INFO_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct MARK_HANDLE_INFO32 {
     pub Anonymous: MARK_HANDLE_INFO32_0,
     pub VolumeHandle: u32,
@@ -8019,6 +8896,7 @@ unsafe impl ::windows::runtime::Abi for MARK_HANDLE_INFO32 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub union MARK_HANDLE_INFO32_0 {
     pub UsnSourceInfo: u32,
     pub CopyNumber: u32,
@@ -8039,25 +8917,45 @@ unsafe impl ::windows::runtime::Abi for MARK_HANDLE_INFO32_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const MARK_HANDLE_NOT_READ_COPY: u32 = 256u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const MARK_HANDLE_NOT_REALTIME: u32 = 64u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const MARK_HANDLE_NOT_TXF_SYSTEM_LOG: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const MARK_HANDLE_PROTECT_CLUSTERS: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const MARK_HANDLE_READ_COPY: u32 = 128u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const MARK_HANDLE_REALTIME: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const MARK_HANDLE_RETURN_PURGE_FAILURE: u32 = 1024u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const MARK_HANDLE_SKIP_COHERENCY_SYNC_DISALLOW_WRITES: u32 = 16384u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const MARK_HANDLE_SUPPRESS_VOLUME_OPEN_FLUSH: u32 = 32768u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const MARK_HANDLE_TXF_SYSTEM_LOG: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const MAXIMUM_ENCRYPTION_VALUE: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const MAX_FW_BUCKET_ID_LENGTH: u32 = 132u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const MAX_INTERFACE_CODES: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const MAX_VOLUME_ID_SIZE: u32 = 36u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const MAX_VOLUME_TEMPLATE_SIZE: u32 = 40u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const MEDIA_CURRENTLY_MOUNTED: u32 = 2147483648u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const MEDIA_ERASEABLE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const MEDIA_READ_ONLY: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const MEDIA_READ_WRITE: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MEDIA_TYPE(pub i32);
@@ -8096,16 +8994,25 @@ unsafe impl ::windows::runtime::Abi for MEDIA_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const MEDIA_WRITE_ONCE: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const MEDIA_WRITE_PROTECTED: u32 = 256u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const METHOD_BUFFERED: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const METHOD_DIRECT_FROM_HARDWARE: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const METHOD_DIRECT_TO_HARDWARE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const METHOD_IN_DIRECT: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const METHOD_NEITHER: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const METHOD_OUT_DIRECT: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct MFT_ENUM_DATA_V0 {
     pub StartFileReferenceNumber: u64,
     pub LowUsn: i64,
@@ -8134,6 +9041,7 @@ unsafe impl ::windows::runtime::Abi for MFT_ENUM_DATA_V0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct MFT_ENUM_DATA_V1 {
     pub StartFileReferenceNumber: u64,
     pub LowUsn: i64,
@@ -8165,6 +9073,7 @@ unsafe impl ::windows::runtime::Abi for MFT_ENUM_DATA_V1 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Foundation`*"]
 pub struct MOVE_FILE_DATA {
     pub FileHandle: super::super::Foundation::HANDLE,
     pub StartingVcn: i64,
@@ -8200,6 +9109,7 @@ unsafe impl ::windows::runtime::Abi for MOVE_FILE_DATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct MOVE_FILE_DATA32 {
     pub FileHandle: u32,
     pub StartingVcn: i64,
@@ -8230,6 +9140,7 @@ unsafe impl ::windows::runtime::Abi for MOVE_FILE_DATA32 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Foundation`*"]
 pub struct MOVE_FILE_RECORD_DATA {
     pub FileHandle: super::super::Foundation::HANDLE,
     pub SourceFileRecord: i64,
@@ -8264,6 +9175,7 @@ unsafe impl ::windows::runtime::Abi for MOVE_FILE_RECORD_DATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct NTFS_EXTENDED_VOLUME_DATA {
     pub ByteCount: u32,
     pub MajorVersion: u16,
@@ -8319,6 +9231,7 @@ unsafe impl ::windows::runtime::Abi for NTFS_EXTENDED_VOLUME_DATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct NTFS_FILE_RECORD_INPUT_BUFFER {
     pub FileReferenceNumber: i64,
 }
@@ -8345,6 +9258,7 @@ unsafe impl ::windows::runtime::Abi for NTFS_FILE_RECORD_INPUT_BUFFER {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct NTFS_FILE_RECORD_OUTPUT_BUFFER {
     pub FileReferenceNumber: i64,
     pub FileRecordLength: u32,
@@ -8373,6 +9287,7 @@ unsafe impl ::windows::runtime::Abi for NTFS_FILE_RECORD_OUTPUT_BUFFER {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct NTFS_STATISTICS {
     pub LogFileFullExceptions: u32,
     pub OtherExceptions: u32,
@@ -8536,6 +9451,7 @@ unsafe impl ::windows::runtime::Abi for NTFS_STATISTICS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct NTFS_STATISTICS_0 {
     pub Calls: u32,
     pub Clusters: u32,
@@ -8582,6 +9498,7 @@ unsafe impl ::windows::runtime::Abi for NTFS_STATISTICS_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct NTFS_STATISTICS_1 {
     pub Write: u16,
     pub Create: u16,
@@ -8610,6 +9527,7 @@ unsafe impl ::windows::runtime::Abi for NTFS_STATISTICS_1 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct NTFS_STATISTICS_2 {
     pub Write: u16,
     pub Create: u16,
@@ -8639,6 +9557,7 @@ unsafe impl ::windows::runtime::Abi for NTFS_STATISTICS_2 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct NTFS_STATISTICS_3 {
     pub Write: u16,
     pub Create: u16,
@@ -8668,6 +9587,7 @@ unsafe impl ::windows::runtime::Abi for NTFS_STATISTICS_3 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct NTFS_STATISTICS_4 {
     pub Write: u16,
     pub Create: u16,
@@ -8697,6 +9617,7 @@ unsafe impl ::windows::runtime::Abi for NTFS_STATISTICS_4 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct NTFS_STATISTICS_EX {
     pub LogFileFullExceptions: u32,
     pub OtherExceptions: u32,
@@ -8893,6 +9814,7 @@ unsafe impl ::windows::runtime::Abi for NTFS_STATISTICS_EX {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct NTFS_STATISTICS_EX_0 {
     pub Calls: u32,
     pub RunsReturned: u32,
@@ -8939,6 +9861,7 @@ unsafe impl ::windows::runtime::Abi for NTFS_STATISTICS_EX_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct NTFS_STATISTICS_EX_1 {
     pub Write: u32,
     pub Create: u32,
@@ -8968,6 +9891,7 @@ unsafe impl ::windows::runtime::Abi for NTFS_STATISTICS_EX_1 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct NTFS_STATISTICS_EX_2 {
     pub Write: u32,
     pub Create: u32,
@@ -8997,6 +9921,7 @@ unsafe impl ::windows::runtime::Abi for NTFS_STATISTICS_EX_2 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct NTFS_STATISTICS_EX_3 {
     pub Write: u32,
     pub Create: u32,
@@ -9026,6 +9951,7 @@ unsafe impl ::windows::runtime::Abi for NTFS_STATISTICS_EX_3 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct NTFS_STATISTICS_EX_4 {
     pub Write: u32,
     pub Create: u32,
@@ -9055,6 +9981,7 @@ unsafe impl ::windows::runtime::Abi for NTFS_STATISTICS_EX_4 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct NTFS_VOLUME_DATA_BUFFER {
     pub VolumeSerialNumber: i64,
     pub NumberSectors: i64,
@@ -9120,30 +10047,52 @@ unsafe impl ::windows::runtime::Abi for NTFS_VOLUME_DATA_BUFFER {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const OBSOLETE_DISK_GET_WRITE_CACHE_STATE: u32 = 475356u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const OBSOLETE_IOCTL_STORAGE_RESET_BUS: u32 = 3002368u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const OBSOLETE_IOCTL_STORAGE_RESET_DEVICE: u32 = 3002372u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const OFFLOAD_READ_FLAG_ALL_ZERO_BEYOND_CURRENT_RANGE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const OPLOCK_LEVEL_CACHE_HANDLE: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const OPLOCK_LEVEL_CACHE_READ: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const OPLOCK_LEVEL_CACHE_WRITE: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const PARTIITON_OS_DATA: u32 = 41u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const PARTITION_BSP: u32 = 43u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const PARTITION_DM: u32 = 84u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const PARTITION_DPP: u32 = 44u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const PARTITION_ENTRY_UNUSED: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const PARTITION_EXTENDED: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const PARTITION_EZDRIVE: u32 = 85u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const PARTITION_FAT32: u32 = 11u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const PARTITION_FAT32_XINT13: u32 = 12u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const PARTITION_FAT_12: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const PARTITION_FAT_16: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const PARTITION_GPT: u32 = 238u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const PARTITION_HUGE: u32 = 6u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const PARTITION_IFS: u32 = 7u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Foundation`*"]
 pub struct PARTITION_INFORMATION {
     pub StartingOffset: i64,
     pub PartitionLength: i64,
@@ -9193,6 +10142,7 @@ unsafe impl ::windows::runtime::Abi for PARTITION_INFORMATION {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Foundation`*"]
 pub struct PARTITION_INFORMATION_EX {
     pub PartitionStyle: PARTITION_STYLE,
     pub StartingOffset: i64,
@@ -9226,6 +10176,7 @@ unsafe impl ::windows::runtime::Abi for PARTITION_INFORMATION_EX {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Foundation`*"]
 pub union PARTITION_INFORMATION_EX_0 {
     pub Mbr: PARTITION_INFORMATION_MBR,
     pub Gpt: PARTITION_INFORMATION_GPT,
@@ -9253,6 +10204,7 @@ unsafe impl ::windows::runtime::Abi for PARTITION_INFORMATION_EX_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct PARTITION_INFORMATION_GPT {
     pub PartitionType: ::windows::runtime::GUID,
     pub PartitionId: ::windows::runtime::GUID,
@@ -9283,6 +10235,7 @@ unsafe impl ::windows::runtime::Abi for PARTITION_INFORMATION_GPT {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Foundation`*"]
 pub struct PARTITION_INFORMATION_MBR {
     pub PartitionType: u8,
     pub BootIndicator: super::super::Foundation::BOOLEAN,
@@ -9317,15 +10270,25 @@ unsafe impl ::windows::runtime::Abi for PARTITION_INFORMATION_MBR {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const PARTITION_LDM: u32 = 66u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const PARTITION_MAIN_OS: u32 = 40u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const PARTITION_MSFT_RECOVERY: u32 = 39u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const PARTITION_NTFT: u32 = 128u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const PARTITION_OS2BOOTMGR: u32 = 10u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const PARTITION_PREP: u32 = 65u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const PARTITION_PRE_INSTALLED: u32 = 42u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const PARTITION_SPACES: u32 = 231u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const PARTITION_SPACES_DATA: u32 = 215u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PARTITION_STYLE(pub i32);
@@ -9341,15 +10304,23 @@ unsafe impl ::windows::runtime::Abi for PARTITION_STYLE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const PARTITION_SYSTEM: u32 = 239u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const PARTITION_UNIX: u32 = 99u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const PARTITION_WINDOWS_SYSTEM: u32 = 45u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const PARTITION_XENIX_1: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const PARTITION_XENIX_2: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const PARTITION_XINT13: u32 = 14u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const PARTITION_XINT13_EXTENDED: u32 = 15u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct PATHNAME_BUFFER {
     pub PathNameLength: u32,
     pub Name: [u16; 1],
@@ -9377,6 +10348,7 @@ unsafe impl ::windows::runtime::Abi for PATHNAME_BUFFER {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct PERF_BIN {
     pub NumberOfBins: u32,
     pub TypeOfBin: u32,
@@ -9405,6 +10377,7 @@ unsafe impl ::windows::runtime::Abi for PERF_BIN {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct PERSISTENT_RESERVE_COMMAND {
     pub Version: u32,
     pub Size: u32,
@@ -9428,6 +10401,7 @@ unsafe impl ::windows::runtime::Abi for PERSISTENT_RESERVE_COMMAND {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub union PERSISTENT_RESERVE_COMMAND_0 {
     pub PR_IN: PERSISTENT_RESERVE_COMMAND_0_0,
     pub PR_OUT: PERSISTENT_RESERVE_COMMAND_0_1,
@@ -9450,6 +10424,7 @@ unsafe impl ::windows::runtime::Abi for PERSISTENT_RESERVE_COMMAND_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct PERSISTENT_RESERVE_COMMAND_0_0 {
     pub _bitfield: u8,
     pub AllocationLength: u16,
@@ -9477,6 +10452,7 @@ unsafe impl ::windows::runtime::Abi for PERSISTENT_RESERVE_COMMAND_0_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct PERSISTENT_RESERVE_COMMAND_0_1 {
     pub _bitfield1: u8,
     pub _bitfield2: u8,
@@ -9503,21 +10479,35 @@ unsafe impl ::windows::runtime::Abi for PERSISTENT_RESERVE_COMMAND_0_1 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const PERSISTENT_VOLUME_STATE_BACKED_BY_WIM: u32 = 64u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const PERSISTENT_VOLUME_STATE_CHKDSK_RAN_ONCE: u32 = 1024u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const PERSISTENT_VOLUME_STATE_CONTAINS_BACKING_WIM: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const PERSISTENT_VOLUME_STATE_DAX_FORMATTED: u32 = 4096u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const PERSISTENT_VOLUME_STATE_GLOBAL_METADATA_NO_SEEK_PENALTY: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const PERSISTENT_VOLUME_STATE_LOCAL_METADATA_NO_SEEK_PENALTY: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const PERSISTENT_VOLUME_STATE_MODIFIED_BY_CHKDSK: u32 = 2048u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const PERSISTENT_VOLUME_STATE_NO_HEAT_GATHERING: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const PERSISTENT_VOLUME_STATE_NO_WRITE_AUTO_TIERING: u32 = 128u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const PERSISTENT_VOLUME_STATE_REALLOCATE_ALL_DATA_WRITES: u32 = 512u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const PERSISTENT_VOLUME_STATE_SHORT_NAME_CREATION_DISABLED: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const PERSISTENT_VOLUME_STATE_TXF_DISABLED: u32 = 256u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const PERSISTENT_VOLUME_STATE_VOLUME_SCRUB_DISABLED: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct PHYSICAL_ELEMENT_STATUS {
     pub Version: u32,
     pub Size: u32,
@@ -9558,6 +10548,7 @@ unsafe impl ::windows::runtime::Abi for PHYSICAL_ELEMENT_STATUS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct PHYSICAL_ELEMENT_STATUS_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
@@ -9600,6 +10591,7 @@ unsafe impl ::windows::runtime::Abi for PHYSICAL_ELEMENT_STATUS_DESCRIPTOR {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct PHYSICAL_ELEMENT_STATUS_REQUEST {
     pub Version: u32,
     pub Size: u32,
@@ -9632,6 +10624,7 @@ unsafe impl ::windows::runtime::Abi for PHYSICAL_ELEMENT_STATUS_REQUEST {
 pub type PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK = unsafe extern "system" fn(sourcecontext: *const ::std::mem::ManuallyDrop<IO_IRP_EXT_TRACK_OFFSET_HEADER>, targetcontext: *mut ::std::mem::ManuallyDrop<IO_IRP_EXT_TRACK_OFFSET_HEADER>, relativeoffset: i64);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct PLEX_READ_DATA_REQUEST {
     pub ByteOffset: i64,
     pub ByteLength: u32,
@@ -9661,6 +10654,7 @@ unsafe impl ::windows::runtime::Abi for PLEX_READ_DATA_REQUEST {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Foundation`*"]
 pub struct PREVENT_MEDIA_REMOVAL {
     pub PreventMediaRemoval: super::super::Foundation::BOOLEAN,
 }
@@ -9691,10 +10685,13 @@ unsafe impl ::windows::runtime::Abi for PREVENT_MEDIA_REMOVAL {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const PRODUCT_ID_LENGTH: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const PROJFS_PROTOCOL_VERSION: u32 = 3u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct QUERY_BAD_RANGES_INPUT {
     pub Flags: u32,
     pub NumRanges: u32,
@@ -9723,6 +10720,7 @@ unsafe impl ::windows::runtime::Abi for QUERY_BAD_RANGES_INPUT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct QUERY_BAD_RANGES_INPUT_RANGE {
     pub StartOffset: u64,
     pub LengthInBytes: u64,
@@ -9750,6 +10748,7 @@ unsafe impl ::windows::runtime::Abi for QUERY_BAD_RANGES_INPUT_RANGE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct QUERY_BAD_RANGES_OUTPUT {
     pub Flags: u32,
     pub NumBadRanges: u32,
@@ -9779,6 +10778,7 @@ unsafe impl ::windows::runtime::Abi for QUERY_BAD_RANGES_OUTPUT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct QUERY_BAD_RANGES_OUTPUT_RANGE {
     pub Flags: u32,
     pub Reserved: u32,
@@ -9806,8 +10806,11 @@ unsafe impl ::windows::runtime::Abi for QUERY_BAD_RANGES_OUTPUT_RANGE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const QUERY_DEPENDENT_VOLUME_REQUEST_FLAG_GUEST_VOLUMES: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const QUERY_DEPENDENT_VOLUME_REQUEST_FLAG_HOST_VOLUMES: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct QUERY_FILE_LAYOUT_FILTER_TYPE(pub i32);
@@ -9825,23 +10828,39 @@ unsafe impl ::windows::runtime::Abi for QUERY_FILE_LAYOUT_FILTER_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const QUERY_FILE_LAYOUT_INCLUDE_EXTENTS: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const QUERY_FILE_LAYOUT_INCLUDE_EXTRA_INFO: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const QUERY_FILE_LAYOUT_INCLUDE_FILES_WITH_DSC_ATTRIBUTE: u32 = 4096u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const QUERY_FILE_LAYOUT_INCLUDE_FULL_PATH_IN_NAMES: u32 = 64u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const QUERY_FILE_LAYOUT_INCLUDE_NAMES: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const QUERY_FILE_LAYOUT_INCLUDE_ONLY_FILES_WITH_SPECIFIC_ATTRIBUTES: u32 = 2048u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const QUERY_FILE_LAYOUT_INCLUDE_STREAMS: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const QUERY_FILE_LAYOUT_INCLUDE_STREAMS_WITH_NO_CLUSTERS_ALLOCATED: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const QUERY_FILE_LAYOUT_INCLUDE_STREAM_INFORMATION: u32 = 128u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const QUERY_FILE_LAYOUT_INCLUDE_STREAM_INFORMATION_FOR_DATA_ATTRIBUTE: u32 = 8192u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const QUERY_FILE_LAYOUT_INCLUDE_STREAM_INFORMATION_FOR_DSC_ATTRIBUTE: u32 = 256u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const QUERY_FILE_LAYOUT_INCLUDE_STREAM_INFORMATION_FOR_EA_ATTRIBUTE: u32 = 32768u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const QUERY_FILE_LAYOUT_INCLUDE_STREAM_INFORMATION_FOR_EFS_ATTRIBUTE: u32 = 1024u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const QUERY_FILE_LAYOUT_INCLUDE_STREAM_INFORMATION_FOR_REPARSE_ATTRIBUTE: u32 = 16384u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const QUERY_FILE_LAYOUT_INCLUDE_STREAM_INFORMATION_FOR_TXF_ATTRIBUTE: u32 = 512u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct QUERY_FILE_LAYOUT_INPUT {
     pub Anonymous: QUERY_FILE_LAYOUT_INPUT_0,
     pub Flags: u32,
@@ -9867,6 +10886,7 @@ unsafe impl ::windows::runtime::Abi for QUERY_FILE_LAYOUT_INPUT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub union QUERY_FILE_LAYOUT_INPUT_0 {
     pub FilterEntryCount: u32,
     pub NumberOfPairs: u32,
@@ -9889,6 +10909,7 @@ unsafe impl ::windows::runtime::Abi for QUERY_FILE_LAYOUT_INPUT_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub union QUERY_FILE_LAYOUT_INPUT_1 {
     pub ClusterRanges: [CLUSTER_RANGE; 1],
     pub FileReferenceRanges: [FILE_REFERENCE_RANGE; 1],
@@ -9912,6 +10933,7 @@ unsafe impl ::windows::runtime::Abi for QUERY_FILE_LAYOUT_INPUT_1 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct QUERY_FILE_LAYOUT_OUTPUT {
     pub FileEntryCount: u32,
     pub FirstFileOffset: u32,
@@ -9939,20 +10961,33 @@ unsafe impl ::windows::runtime::Abi for QUERY_FILE_LAYOUT_OUTPUT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const QUERY_FILE_LAYOUT_REPARSE_DATA_INVALID: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const QUERY_FILE_LAYOUT_REPARSE_TAG_INVALID: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const QUERY_FILE_LAYOUT_RESTART: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const QUERY_FILE_LAYOUT_SINGLE_INSTANCED: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const QUERY_STORAGE_CLASSES_FLAGS_MEASURE_READ: u32 = 1073741824u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const QUERY_STORAGE_CLASSES_FLAGS_MEASURE_WRITE: u32 = 2147483648u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const QUERY_STORAGE_CLASSES_FLAGS_NO_DEFRAG_VOLUME: u32 = 536870912u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const READ_ATTRIBUTES: u32 = 208u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const READ_ATTRIBUTE_BUFFER_SIZE: u32 = 512u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const READ_COMPRESSION_INFO_VALID: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const READ_COPY_NUMBER_BYPASS_CACHE_FLAG: u32 = 256u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const READ_COPY_NUMBER_KEY: u32 = 1380142592u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct READ_ELEMENT_ADDRESS_INFO {
     pub NumberOfElements: u32,
     pub ElementStatus: [CHANGER_ELEMENT_STATUS; 1],
@@ -9980,6 +11015,7 @@ unsafe impl ::windows::runtime::Abi for READ_ELEMENT_ADDRESS_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct READ_FILE_USN_DATA {
     pub MinMajorVersion: u16,
     pub MaxMajorVersion: u16,
@@ -10005,10 +11041,13 @@ unsafe impl ::windows::runtime::Abi for READ_FILE_USN_DATA {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const READ_THRESHOLDS: u32 = 209u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const READ_THRESHOLD_BUFFER_SIZE: u32 = 512u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct READ_USN_JOURNAL_DATA_V0 {
     pub StartUsn: i64,
     pub ReasonMask: u32,
@@ -10040,6 +11079,7 @@ unsafe impl ::windows::runtime::Abi for READ_USN_JOURNAL_DATA_V0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct READ_USN_JOURNAL_DATA_V1 {
     pub StartUsn: i64,
     pub ReasonMask: u32,
@@ -10082,6 +11122,7 @@ unsafe impl ::windows::runtime::Abi for READ_USN_JOURNAL_DATA_V1 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct REASSIGN_BLOCKS {
     pub Reserved: u16,
     pub Count: u16,
@@ -10110,6 +11151,7 @@ unsafe impl ::windows::runtime::Abi for REASSIGN_BLOCKS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct REASSIGN_BLOCKS_EX {
     pub Reserved: u16,
     pub Count: u16,
@@ -10131,8 +11173,11 @@ unsafe impl ::windows::runtime::Abi for REASSIGN_BLOCKS_EX {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const RECOVERED_READS_VALID: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const RECOVERED_WRITES_VALID: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct REFS_SMR_VOLUME_GC_ACTION(pub i32);
@@ -10149,6 +11194,7 @@ unsafe impl ::windows::runtime::Abi for REFS_SMR_VOLUME_GC_ACTION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct REFS_SMR_VOLUME_GC_METHOD(pub i32);
@@ -10166,6 +11212,7 @@ unsafe impl ::windows::runtime::Abi for REFS_SMR_VOLUME_GC_METHOD {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct REFS_SMR_VOLUME_GC_PARAMETERS {
     pub Version: u32,
     pub Flags: u32,
@@ -10204,7 +11251,9 @@ unsafe impl ::windows::runtime::Abi for REFS_SMR_VOLUME_GC_PARAMETERS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const REFS_SMR_VOLUME_GC_PARAMETERS_VERSION_V1: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct REFS_SMR_VOLUME_GC_STATE(pub i32);
@@ -10223,6 +11272,7 @@ unsafe impl ::windows::runtime::Abi for REFS_SMR_VOLUME_GC_STATE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct REFS_SMR_VOLUME_INFO_OUTPUT {
     pub Version: u32,
     pub Flags: u32,
@@ -10279,10 +11329,13 @@ unsafe impl ::windows::runtime::Abi for REFS_SMR_VOLUME_INFO_OUTPUT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const REFS_SMR_VOLUME_INFO_OUTPUT_VERSION_V0: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const REFS_SMR_VOLUME_INFO_OUTPUT_VERSION_V1: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct REFS_VOLUME_DATA_BUFFER {
     pub ByteCount: u32,
     pub MajorVersion: u32,
@@ -10356,6 +11409,7 @@ unsafe impl ::windows::runtime::Abi for REFS_VOLUME_DATA_BUFFER {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct REMOVE_ELEMENT_AND_TRUNCATE_REQUEST {
     pub Version: u32,
     pub Size: u32,
@@ -10386,6 +11440,7 @@ unsafe impl ::windows::runtime::Abi for REMOVE_ELEMENT_AND_TRUNCATE_REQUEST {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct REPAIR_COPIES_INPUT {
     pub Size: u32,
     pub Flags: u32,
@@ -10426,6 +11481,7 @@ unsafe impl ::windows::runtime::Abi for REPAIR_COPIES_INPUT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct REPAIR_COPIES_OUTPUT {
     pub Size: u32,
     pub Status: u32,
@@ -10452,11 +11508,15 @@ unsafe impl ::windows::runtime::Abi for REPAIR_COPIES_OUTPUT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const REPLACE_ALTERNATE: u32 = 11u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const REPLACE_PRIMARY: u32 = 10u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const REQUEST_OPLOCK_CURRENT_VERSION: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct REQUEST_OPLOCK_INPUT_BUFFER {
     pub StructureVersion: u16,
     pub StructureLength: u16,
@@ -10484,11 +11544,15 @@ unsafe impl ::windows::runtime::Abi for REQUEST_OPLOCK_INPUT_BUFFER {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const REQUEST_OPLOCK_INPUT_FLAG_ACK: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const REQUEST_OPLOCK_INPUT_FLAG_COMPLETE_ACK_ON_CLOSE: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const REQUEST_OPLOCK_INPUT_FLAG_REQUEST: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct REQUEST_OPLOCK_OUTPUT_BUFFER {
     pub StructureVersion: u16,
     pub StructureLength: u16,
@@ -10527,10 +11591,13 @@ unsafe impl ::windows::runtime::Abi for REQUEST_OPLOCK_OUTPUT_BUFFER {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const REQUEST_OPLOCK_OUTPUT_FLAG_ACK_REQUIRED: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const REQUEST_OPLOCK_OUTPUT_FLAG_MODES_PROVIDED: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct REQUEST_RAW_ENCRYPTED_DATA {
     pub FileOffset: i64,
     pub Length: u32,
@@ -10556,9 +11623,11 @@ unsafe impl ::windows::runtime::Abi for REQUEST_RAW_ENCRYPTED_DATA {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const RETRACT_IEPORT: u32 = 3u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER {
     pub ExtentCount: u32,
     pub StartingVcn: i64,
@@ -10587,6 +11656,7 @@ unsafe impl ::windows::runtime::Abi for RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER_0 {
     pub NextVcn: i64,
     pub Lcn: i64,
@@ -10615,6 +11685,7 @@ unsafe impl ::windows::runtime::Abi for RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER_0
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct RETRIEVAL_POINTERS_BUFFER {
     pub ExtentCount: u32,
     pub StartingVcn: i64,
@@ -10643,6 +11714,7 @@ unsafe impl ::windows::runtime::Abi for RETRIEVAL_POINTERS_BUFFER {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct RETRIEVAL_POINTERS_BUFFER_0 {
     pub NextVcn: i64,
     pub Lcn: i64,
@@ -10670,6 +11742,7 @@ unsafe impl ::windows::runtime::Abi for RETRIEVAL_POINTERS_BUFFER_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct RETRIEVAL_POINTER_BASE {
     pub FileAreaOffset: i64,
 }
@@ -10696,6 +11769,7 @@ unsafe impl ::windows::runtime::Abi for RETRIEVAL_POINTER_BASE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct RETRIEVAL_POINTER_COUNT {
     pub ExtentCount: u32,
 }
@@ -10720,11 +11794,15 @@ unsafe impl ::windows::runtime::Abi for RETRIEVAL_POINTER_COUNT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const RETURN_SMART_STATUS: u32 = 218u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const REVISION_LENGTH: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const SAVE_ATTRIBUTE_VALUES: u32 = 211u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct SCM_BUS_DEDICATED_MEMORY_DEVICES_INFO {
     pub Version: u32,
     pub Size: u32,
@@ -10754,6 +11832,7 @@ unsafe impl ::windows::runtime::Abi for SCM_BUS_DEDICATED_MEMORY_DEVICES_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO {
     pub DeviceGuid: ::windows::runtime::GUID,
     pub DeviceNumber: u32,
@@ -10783,6 +11862,7 @@ unsafe impl ::windows::runtime::Abi for SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO_0 {
     pub _bitfield: u32,
 }
@@ -10810,6 +11890,7 @@ unsafe impl ::windows::runtime::Abi for SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Foundation`*"]
 pub struct SCM_BUS_DEDICATED_MEMORY_STATE {
     pub ActivateState: super::super::Foundation::BOOLEAN,
 }
@@ -10840,6 +11921,7 @@ unsafe impl ::windows::runtime::Abi for SCM_BUS_DEDICATED_MEMORY_STATE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SCM_BUS_FIRMWARE_ACTIVATION_STATE(pub i32);
@@ -10855,6 +11937,7 @@ unsafe impl ::windows::runtime::Abi for SCM_BUS_FIRMWARE_ACTIVATION_STATE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SCM_BUS_PROPERTY_ID(pub i32);
@@ -10873,6 +11956,7 @@ unsafe impl ::windows::runtime::Abi for SCM_BUS_PROPERTY_ID {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct SCM_BUS_PROPERTY_QUERY {
     pub Version: u32,
     pub Size: u32,
@@ -10903,6 +11987,7 @@ unsafe impl ::windows::runtime::Abi for SCM_BUS_PROPERTY_QUERY {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct SCM_BUS_PROPERTY_SET {
     pub Version: u32,
     pub Size: u32,
@@ -10931,6 +12016,7 @@ unsafe impl ::windows::runtime::Abi for SCM_BUS_PROPERTY_SET {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SCM_BUS_QUERY_TYPE(pub i32);
@@ -10949,6 +12035,7 @@ unsafe impl ::windows::runtime::Abi for SCM_BUS_QUERY_TYPE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Foundation`*"]
 pub struct SCM_BUS_RUNTIME_FW_ACTIVATION_INFO {
     pub Version: u32,
     pub Size: u32,
@@ -11007,6 +12094,7 @@ unsafe impl ::windows::runtime::Abi for SCM_BUS_RUNTIME_FW_ACTIVATION_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct SCM_BUS_RUNTIME_FW_ACTIVATION_INFO_0 {
     pub _bitfield: u32,
 }
@@ -11031,6 +12119,7 @@ unsafe impl ::windows::runtime::Abi for SCM_BUS_RUNTIME_FW_ACTIVATION_INFO_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SCM_BUS_SET_TYPE(pub i32);
@@ -11048,6 +12137,7 @@ unsafe impl ::windows::runtime::Abi for SCM_BUS_SET_TYPE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct SCM_INTERLEAVED_PD_INFO {
     pub DeviceHandle: u32,
     pub DeviceGuid: ::windows::runtime::GUID,
@@ -11075,6 +12165,7 @@ unsafe impl ::windows::runtime::Abi for SCM_INTERLEAVED_PD_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct SCM_LD_INTERLEAVE_SET_INFO {
     pub Version: u32,
     pub Size: u32,
@@ -11104,6 +12195,7 @@ unsafe impl ::windows::runtime::Abi for SCM_LD_INTERLEAVE_SET_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct SCM_LOGICAL_DEVICES {
     pub Version: u32,
     pub Size: u32,
@@ -11133,6 +12225,7 @@ unsafe impl ::windows::runtime::Abi for SCM_LOGICAL_DEVICES {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct SCM_LOGICAL_DEVICE_INSTANCE {
     pub Version: u32,
     pub Size: u32,
@@ -11160,9 +12253,11 @@ unsafe impl ::windows::runtime::Abi for SCM_LOGICAL_DEVICE_INSTANCE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const SCM_MAX_SYMLINK_LEN_IN_CHARS: u32 = 256u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct SCM_PD_DESCRIPTOR_HEADER {
     pub Version: u32,
     pub Size: u32,
@@ -11190,6 +12285,7 @@ unsafe impl ::windows::runtime::Abi for SCM_PD_DESCRIPTOR_HEADER {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct SCM_PD_DEVICE_HANDLE {
     pub Version: u32,
     pub Size: u32,
@@ -11220,6 +12316,7 @@ unsafe impl ::windows::runtime::Abi for SCM_PD_DEVICE_HANDLE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Foundation`*"]
 pub struct SCM_PD_DEVICE_INFO {
     pub Version: u32,
     pub Size: u32,
@@ -11317,6 +12414,7 @@ unsafe impl ::windows::runtime::Abi for SCM_PD_DEVICE_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct SCM_PD_DEVICE_SPECIFIC_INFO {
     pub Version: u32,
     pub Size: u32,
@@ -11346,6 +12444,7 @@ unsafe impl ::windows::runtime::Abi for SCM_PD_DEVICE_SPECIFIC_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct SCM_PD_DEVICE_SPECIFIC_PROPERTY {
     pub Name: [u16; 128],
     pub Value: i64,
@@ -11373,6 +12472,7 @@ unsafe impl ::windows::runtime::Abi for SCM_PD_DEVICE_SPECIFIC_PROPERTY {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct SCM_PD_FIRMWARE_ACTIVATE {
     pub Version: u32,
     pub Size: u32,
@@ -11400,6 +12500,7 @@ unsafe impl ::windows::runtime::Abi for SCM_PD_FIRMWARE_ACTIVATE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SCM_PD_FIRMWARE_ACTIVATION_STATE(pub i32);
@@ -11417,6 +12518,7 @@ unsafe impl ::windows::runtime::Abi for SCM_PD_FIRMWARE_ACTIVATION_STATE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct SCM_PD_FIRMWARE_DOWNLOAD {
     pub Version: u32,
     pub Size: u32,
@@ -11459,6 +12561,7 @@ unsafe impl ::windows::runtime::Abi for SCM_PD_FIRMWARE_DOWNLOAD {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct SCM_PD_FIRMWARE_INFO {
     pub Version: u32,
     pub Size: u32,
@@ -11488,10 +12591,13 @@ unsafe impl ::windows::runtime::Abi for SCM_PD_FIRMWARE_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const SCM_PD_FIRMWARE_LAST_DOWNLOAD: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const SCM_PD_FIRMWARE_REVISION_LENGTH_BYTES: u32 = 32u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct SCM_PD_FIRMWARE_SLOT_INFO {
     pub Version: u32,
     pub Size: u32,
@@ -11523,6 +12629,7 @@ unsafe impl ::windows::runtime::Abi for SCM_PD_FIRMWARE_SLOT_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct SCM_PD_FRU_ID_STRING {
     pub Version: u32,
     pub Size: u32,
@@ -11552,6 +12659,7 @@ unsafe impl ::windows::runtime::Abi for SCM_PD_FRU_ID_STRING {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct SCM_PD_HEALTH_NOTIFICATION_DATA {
     pub DeviceGuid: ::windows::runtime::GUID,
 }
@@ -11576,6 +12684,7 @@ unsafe impl ::windows::runtime::Abi for SCM_PD_HEALTH_NOTIFICATION_DATA {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SCM_PD_HEALTH_STATUS(pub i32);
@@ -11593,6 +12702,7 @@ unsafe impl ::windows::runtime::Abi for SCM_PD_HEALTH_STATUS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SCM_PD_LAST_FW_ACTIVATION_STATUS(pub i32);
@@ -11615,6 +12725,7 @@ unsafe impl ::windows::runtime::Abi for SCM_PD_LAST_FW_ACTIVATION_STATUS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct SCM_PD_LOCATION_STRING {
     pub Version: u32,
     pub Size: u32,
@@ -11643,6 +12754,7 @@ unsafe impl ::windows::runtime::Abi for SCM_PD_LOCATION_STRING {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct SCM_PD_MANAGEMENT_STATUS {
     pub Version: u32,
     pub Size: u32,
@@ -11681,7 +12793,9 @@ unsafe impl ::windows::runtime::Abi for SCM_PD_MANAGEMENT_STATUS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const SCM_PD_MAX_OPERATIONAL_STATUS: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SCM_PD_MEDIA_REINITIALIZATION_STATUS(pub i32);
@@ -11698,6 +12812,7 @@ unsafe impl ::windows::runtime::Abi for SCM_PD_MEDIA_REINITIALIZATION_STATUS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SCM_PD_OPERATIONAL_STATUS(pub i32);
@@ -11719,6 +12834,7 @@ unsafe impl ::windows::runtime::Abi for SCM_PD_OPERATIONAL_STATUS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SCM_PD_OPERATIONAL_STATUS_REASON(pub i32);
@@ -11757,6 +12873,7 @@ unsafe impl ::windows::runtime::Abi for SCM_PD_OPERATIONAL_STATUS_REASON {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct SCM_PD_PASSTHROUGH_INPUT {
     pub Version: u32,
     pub Size: u32,
@@ -11787,6 +12904,7 @@ unsafe impl ::windows::runtime::Abi for SCM_PD_PASSTHROUGH_INPUT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct SCM_PD_PASSTHROUGH_INVDIMM_INPUT {
     pub Opcode: u32,
     pub OpcodeParametersLength: u32,
@@ -11815,6 +12933,7 @@ unsafe impl ::windows::runtime::Abi for SCM_PD_PASSTHROUGH_INVDIMM_INPUT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct SCM_PD_PASSTHROUGH_INVDIMM_OUTPUT {
     pub GeneralStatus: u16,
     pub ExtendedStatus: u16,
@@ -11844,6 +12963,7 @@ unsafe impl ::windows::runtime::Abi for SCM_PD_PASSTHROUGH_INVDIMM_OUTPUT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct SCM_PD_PASSTHROUGH_OUTPUT {
     pub Version: u32,
     pub Size: u32,
@@ -11872,6 +12992,7 @@ unsafe impl ::windows::runtime::Abi for SCM_PD_PASSTHROUGH_OUTPUT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SCM_PD_PROPERTY_ID(pub i32);
@@ -11894,9 +13015,11 @@ unsafe impl ::windows::runtime::Abi for SCM_PD_PROPERTY_ID {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const SCM_PD_PROPERTY_NAME_LENGTH_IN_CHARS: u32 = 128u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct SCM_PD_PROPERTY_QUERY {
     pub Version: u32,
     pub Size: u32,
@@ -11927,6 +13050,7 @@ unsafe impl ::windows::runtime::Abi for SCM_PD_PROPERTY_QUERY {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct SCM_PD_PROPERTY_SET {
     pub Version: u32,
     pub Size: u32,
@@ -11955,6 +13079,7 @@ unsafe impl ::windows::runtime::Abi for SCM_PD_PROPERTY_SET {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SCM_PD_QUERY_TYPE(pub i32);
@@ -11972,6 +13097,7 @@ unsafe impl ::windows::runtime::Abi for SCM_PD_QUERY_TYPE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct SCM_PD_REINITIALIZE_MEDIA_INPUT {
     pub Version: u32,
     pub Size: u32,
@@ -12000,6 +13126,7 @@ unsafe impl ::windows::runtime::Abi for SCM_PD_REINITIALIZE_MEDIA_INPUT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct SCM_PD_REINITIALIZE_MEDIA_INPUT_0 {
     pub _bitfield: u32,
 }
@@ -12026,6 +13153,7 @@ unsafe impl ::windows::runtime::Abi for SCM_PD_REINITIALIZE_MEDIA_INPUT_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct SCM_PD_REINITIALIZE_MEDIA_OUTPUT {
     pub Version: u32,
     pub Size: u32,
@@ -12055,6 +13183,7 @@ unsafe impl ::windows::runtime::Abi for SCM_PD_REINITIALIZE_MEDIA_OUTPUT {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Foundation`*"]
 pub struct SCM_PD_RUNTIME_FW_ACTIVATION_ARM_STATE {
     pub ArmState: super::super::Foundation::BOOLEAN,
 }
@@ -12087,6 +13216,7 @@ unsafe impl ::windows::runtime::Abi for SCM_PD_RUNTIME_FW_ACTIVATION_ARM_STATE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct SCM_PD_RUNTIME_FW_ACTIVATION_INFO {
     pub Version: u32,
     pub Size: u32,
@@ -12114,6 +13244,7 @@ unsafe impl ::windows::runtime::Abi for SCM_PD_RUNTIME_FW_ACTIVATION_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SCM_PD_SET_TYPE(pub i32);
@@ -12131,6 +13262,7 @@ unsafe impl ::windows::runtime::Abi for SCM_PD_SET_TYPE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct SCM_PHYSICAL_DEVICES {
     pub Version: u32,
     pub Size: u32,
@@ -12160,6 +13292,7 @@ unsafe impl ::windows::runtime::Abi for SCM_PHYSICAL_DEVICES {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct SCM_PHYSICAL_DEVICE_INSTANCE {
     pub Version: u32,
     pub Size: u32,
@@ -12189,6 +13322,7 @@ unsafe impl ::windows::runtime::Abi for SCM_PHYSICAL_DEVICE_INSTANCE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct SCM_REGION {
     pub Version: u32,
     pub Size: u32,
@@ -12239,6 +13373,7 @@ unsafe impl ::windows::runtime::Abi for SCM_REGION {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct SCM_REGIONS {
     pub Version: u32,
     pub Size: u32,
@@ -12266,6 +13401,7 @@ unsafe impl ::windows::runtime::Abi for SCM_REGIONS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SCM_REGION_FLAG(pub i32);
@@ -12282,6 +13418,7 @@ unsafe impl ::windows::runtime::Abi for SCM_REGION_FLAG {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct SD_CHANGE_MACHINE_SID_INPUT {
     pub CurrentMachineSIDOffset: u16,
     pub CurrentMachineSIDLength: u16,
@@ -12311,6 +13448,7 @@ unsafe impl ::windows::runtime::Abi for SD_CHANGE_MACHINE_SID_INPUT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct SD_CHANGE_MACHINE_SID_OUTPUT {
     pub NumSDChangedSuccess: u64,
     pub NumSDChangedFail: u64,
@@ -12351,6 +13489,7 @@ unsafe impl ::windows::runtime::Abi for SD_CHANGE_MACHINE_SID_OUTPUT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct SD_ENUM_SDS_ENTRY {
     pub Hash: u32,
     pub SecurityId: u32,
@@ -12381,6 +13520,7 @@ unsafe impl ::windows::runtime::Abi for SD_ENUM_SDS_ENTRY {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct SD_ENUM_SDS_INPUT {
     pub StartingOffset: u64,
     pub MaxSDEntriesToReturn: u64,
@@ -12408,6 +13548,7 @@ unsafe impl ::windows::runtime::Abi for SD_ENUM_SDS_INPUT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct SD_ENUM_SDS_OUTPUT {
     pub NextOffset: u64,
     pub NumSDEntriesReturned: u64,
@@ -12437,6 +13578,7 @@ unsafe impl ::windows::runtime::Abi for SD_ENUM_SDS_OUTPUT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct SD_GLOBAL_CHANGE_INPUT {
     pub Flags: u32,
     pub ChangeType: u32,
@@ -12460,6 +13602,7 @@ unsafe impl ::windows::runtime::Abi for SD_GLOBAL_CHANGE_INPUT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub union SD_GLOBAL_CHANGE_INPUT_0 {
     pub SdChange: SD_CHANGE_MACHINE_SID_INPUT,
     pub SdQueryStats: SD_QUERY_STATS_INPUT,
@@ -12483,6 +13626,7 @@ unsafe impl ::windows::runtime::Abi for SD_GLOBAL_CHANGE_INPUT_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct SD_GLOBAL_CHANGE_OUTPUT {
     pub Flags: u32,
     pub ChangeType: u32,
@@ -12506,6 +13650,7 @@ unsafe impl ::windows::runtime::Abi for SD_GLOBAL_CHANGE_OUTPUT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub union SD_GLOBAL_CHANGE_OUTPUT_0 {
     pub SdChange: SD_CHANGE_MACHINE_SID_OUTPUT,
     pub SdQueryStats: SD_QUERY_STATS_OUTPUT,
@@ -12527,11 +13672,15 @@ unsafe impl ::windows::runtime::Abi for SD_GLOBAL_CHANGE_OUTPUT_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const SD_GLOBAL_CHANGE_TYPE_ENUM_SDS: u32 = 131072u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const SD_GLOBAL_CHANGE_TYPE_MACHINE_SID: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const SD_GLOBAL_CHANGE_TYPE_QUERY_STATS: u32 = 65536u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct SD_QUERY_STATS_INPUT {
     pub Reserved: u32,
 }
@@ -12558,6 +13707,7 @@ unsafe impl ::windows::runtime::Abi for SD_QUERY_STATS_INPUT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct SD_QUERY_STATS_OUTPUT {
     pub SdsStreamSize: u64,
     pub SdsAllocationSize: u64,
@@ -12598,14 +13748,21 @@ unsafe impl ::windows::runtime::Abi for SD_QUERY_STATS_OUTPUT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const SEARCH_ALL: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const SEARCH_ALL_NO_SEQ: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const SEARCH_ALTERNATE: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const SEARCH_ALT_NO_SEQ: u32 = 6u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const SEARCH_PRIMARY: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const SEARCH_PRI_NO_SEQ: u32 = 5u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct SENDCMDINPARAMS {
     pub cBufferSize: u32,
     pub irDriveRegs: IDEREGS,
@@ -12632,6 +13789,7 @@ unsafe impl ::windows::runtime::Abi for SENDCMDINPARAMS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct SENDCMDOUTPARAMS {
     pub cBufferSize: u32,
     pub DriverStatus: DRIVERSTATUS,
@@ -12653,9 +13811,11 @@ unsafe impl ::windows::runtime::Abi for SENDCMDOUTPARAMS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const SERIAL_NUMBER_LENGTH: u32 = 32u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct SET_DAX_ALLOC_ALIGNMENT_HINT_INPUT {
     pub Flags: u32,
     pub AlignmentShift: u32,
@@ -12686,6 +13846,7 @@ unsafe impl ::windows::runtime::Abi for SET_DAX_ALLOC_ALIGNMENT_HINT_INPUT {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Foundation`*"]
 pub struct SET_DISK_ATTRIBUTES {
     pub Version: u32,
     pub Persist: super::super::Foundation::BOOLEAN,
@@ -12723,6 +13884,7 @@ unsafe impl ::windows::runtime::Abi for SET_DISK_ATTRIBUTES {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct SET_PARTITION_INFORMATION {
     pub PartitionType: u8,
 }
@@ -12749,6 +13911,7 @@ unsafe impl ::windows::runtime::Abi for SET_PARTITION_INFORMATION {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct SET_PARTITION_INFORMATION_EX {
     pub PartitionStyle: PARTITION_STYLE,
     pub Anonymous: SET_PARTITION_INFORMATION_EX_0,
@@ -12771,6 +13934,7 @@ unsafe impl ::windows::runtime::Abi for SET_PARTITION_INFORMATION_EX {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub union SET_PARTITION_INFORMATION_EX_0 {
     pub Mbr: SET_PARTITION_INFORMATION,
     pub Gpt: PARTITION_INFORMATION_GPT,
@@ -12791,10 +13955,13 @@ unsafe impl ::windows::runtime::Abi for SET_PARTITION_INFORMATION_EX_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const SET_PURGE_FAILURE_MODE_DISABLED: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const SET_PURGE_FAILURE_MODE_ENABLED: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct SET_PURGE_FAILURE_MODE_INPUT {
     pub Flags: u32,
 }
@@ -12819,12 +13986,17 @@ unsafe impl ::windows::runtime::Abi for SET_PURGE_FAILURE_MODE_INPUT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const SET_REPAIR_DISABLED_AND_BUGCHECK_ON_CORRUPT: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const SET_REPAIR_ENABLED: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const SET_REPAIR_VALID_MASK: u32 = 25u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const SET_REPAIR_WARN_ABOUT_DATA_LOSS: u32 = 8u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct SHRINK_VOLUME_INFORMATION {
     pub ShrinkRequestType: SHRINK_VOLUME_REQUEST_TYPES,
     pub Flags: u64,
@@ -12851,6 +14023,7 @@ unsafe impl ::windows::runtime::Abi for SHRINK_VOLUME_INFORMATION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SHRINK_VOLUME_REQUEST_TYPES(pub i32);
@@ -12868,6 +14041,7 @@ unsafe impl ::windows::runtime::Abi for SHRINK_VOLUME_REQUEST_TYPES {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct SI_COPYFILE {
     pub SourceFileNameLength: u32,
     pub DestinationFileNameLength: u32,
@@ -12895,35 +14069,63 @@ unsafe impl ::windows::runtime::Abi for SI_COPYFILE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const SMART_ABORT_OFFLINE_SELFTEST: u32 = 127u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const SMART_CMD: u32 = 176u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const SMART_CYL_HI: u32 = 194u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const SMART_CYL_LOW: u32 = 79u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const SMART_ERROR_NO_MEM: u32 = 7u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const SMART_EXTENDED_SELFTEST_CAPTIVE: u32 = 130u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const SMART_EXTENDED_SELFTEST_OFFLINE: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const SMART_GET_VERSION: u32 = 475264u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const SMART_IDE_ERROR: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const SMART_INVALID_BUFFER: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const SMART_INVALID_COMMAND: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const SMART_INVALID_DRIVE: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const SMART_INVALID_FLAG: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const SMART_INVALID_IOCTL: u32 = 6u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const SMART_INVALID_REGISTER: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const SMART_LOG_SECTOR_SIZE: u32 = 512u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const SMART_NOT_SUPPORTED: u32 = 9u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const SMART_NO_ERROR: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const SMART_NO_IDE_DEVICE: u32 = 10u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const SMART_OFFLINE_ROUTINE_OFFLINE: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const SMART_RCV_DRIVE_DATA: u32 = 508040u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const SMART_RCV_DRIVE_DATA_EX: u32 = 458892u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const SMART_READ_LOG: u32 = 213u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const SMART_SEND_DRIVE_COMMAND: u32 = 508036u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const SMART_SHORT_SELFTEST_CAPTIVE: u32 = 129u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const SMART_SHORT_SELFTEST_OFFLINE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const SMART_WRITE_LOG: u32 = 214u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct SMB_SHARE_FLUSH_AND_PURGE_INPUT {
     pub Version: u16,
 }
@@ -12950,6 +14152,7 @@ unsafe impl ::windows::runtime::Abi for SMB_SHARE_FLUSH_AND_PURGE_INPUT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct SMB_SHARE_FLUSH_AND_PURGE_OUTPUT {
     pub cEntriesPurged: u32,
 }
@@ -12974,11 +14177,15 @@ unsafe impl ::windows::runtime::Abi for SMB_SHARE_FLUSH_AND_PURGE_OUTPUT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const SPACES_TRACKED_OFFSET_HEADER_FLAG: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const SRB_TYPE_SCSI_REQUEST_BLOCK: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const SRB_TYPE_STORAGE_REQUEST_BLOCK: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STARTING_LCN_INPUT_BUFFER {
     pub StartingLcn: i64,
 }
@@ -13005,6 +14212,7 @@ unsafe impl ::windows::runtime::Abi for STARTING_LCN_INPUT_BUFFER {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STARTING_LCN_INPUT_BUFFER_EX {
     pub StartingLcn: i64,
     pub Flags: u32,
@@ -13032,6 +14240,7 @@ unsafe impl ::windows::runtime::Abi for STARTING_LCN_INPUT_BUFFER_EX {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STARTING_VCN_INPUT_BUFFER {
     pub StartingVcn: i64,
 }
@@ -13058,6 +14267,7 @@ unsafe impl ::windows::runtime::Abi for STARTING_VCN_INPUT_BUFFER {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_ACCESS_ALIGNMENT_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
@@ -13099,6 +14309,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_ACCESS_ALIGNMENT_DESCRIPTOR {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Foundation`*"]
 pub struct STORAGE_ADAPTER_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
@@ -13172,6 +14383,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_ADAPTER_DESCRIPTOR {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_ADAPTER_SERIAL_NUMBER {
     pub Version: u32,
     pub Size: u32,
@@ -13198,11 +14410,14 @@ unsafe impl ::windows::runtime::Abi for STORAGE_ADAPTER_SERIAL_NUMBER {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STORAGE_ADAPTER_SERIAL_NUMBER_V1_MAX_LENGTH: u32 = 128u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STORAGE_ADDRESS_TYPE_BTL8: u32 = 0u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Foundation`*"]
 pub struct STORAGE_ALLOCATE_BC_STREAM_INPUT {
     pub Version: u32,
     pub RequestsPerPeriod: u32,
@@ -13251,6 +14466,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_ALLOCATE_BC_STREAM_INPUT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_ALLOCATE_BC_STREAM_OUTPUT {
     pub RequestSize: u64,
     pub NumOutStandingRequests: u32,
@@ -13276,6 +14492,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_ALLOCATE_BC_STREAM_OUTPUT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STORAGE_ASSOCIATION_TYPE(pub i32);
@@ -13291,12 +14508,17 @@ unsafe impl ::windows::runtime::Abi for STORAGE_ASSOCIATION_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STORAGE_ATTRIBUTE_ASYNC_EVENT_NOTIFICATION: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STORAGE_ATTRIBUTE_BLOCK_IO: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STORAGE_ATTRIBUTE_BYTE_ADDRESSABLE_IO: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STORAGE_ATTRIBUTE_DYNAMIC_PERSISTENCE: u32 = 4u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_ATTRIBUTE_MGMT {
     pub Version: u32,
     pub Size: u32,
@@ -13324,6 +14546,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_ATTRIBUTE_MGMT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STORAGE_ATTRIBUTE_MGMT_ACTION(pub i32);
@@ -13339,10 +14562,13 @@ unsafe impl ::windows::runtime::Abi for STORAGE_ATTRIBUTE_MGMT_ACTION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STORAGE_ATTRIBUTE_PERF_SIZE_INDEPENDENT: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STORAGE_ATTRIBUTE_VOLATILE: u32 = 8u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_BREAK_RESERVATION_REQUEST {
     pub Length: u32,
     pub _unused: u8,
@@ -13373,6 +14599,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_BREAK_RESERVATION_REQUEST {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_BUS_RESET_REQUEST {
     pub PathId: u8,
 }
@@ -13397,6 +14624,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_BUS_RESET_REQUEST {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STORAGE_COMPONENT_HEALTH_STATUS(pub i32);
@@ -13415,11 +14643,15 @@ unsafe impl ::windows::runtime::Abi for STORAGE_COMPONENT_HEALTH_STATUS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STORAGE_COMPONENT_ROLE_CACHE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STORAGE_COMPONENT_ROLE_DATA: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STORAGE_COMPONENT_ROLE_TIERING: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_COUNTER {
     pub Type: STORAGE_COUNTER_TYPE,
     pub Value: STORAGE_COUNTER_0,
@@ -13442,6 +14674,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_COUNTER {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub union STORAGE_COUNTER_0 {
     pub ManufactureDate: STORAGE_COUNTER_0_0,
     pub AsUlonglong: u64,
@@ -13464,6 +14697,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_COUNTER_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_COUNTER_0_0 {
     pub Week: u32,
     pub Year: u32,
@@ -13491,6 +14725,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_COUNTER_0_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_COUNTERS {
     pub Version: u32,
     pub Size: u32,
@@ -13513,6 +14748,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_COUNTERS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STORAGE_COUNTER_TYPE(pub i32);
@@ -13547,6 +14783,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_COUNTER_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STORAGE_CRYPTO_ALGORITHM_ID(pub i32);
@@ -13567,6 +14804,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_CRYPTO_ALGORITHM_ID {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_CRYPTO_CAPABILITY {
     pub Version: u32,
     pub Size: u32,
@@ -13596,9 +14834,11 @@ unsafe impl ::windows::runtime::Abi for STORAGE_CRYPTO_CAPABILITY {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STORAGE_CRYPTO_CAPABILITY_VERSION_1: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_CRYPTO_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
@@ -13627,7 +14867,9 @@ unsafe impl ::windows::runtime::Abi for STORAGE_CRYPTO_DESCRIPTOR {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STORAGE_CRYPTO_DESCRIPTOR_VERSION_1: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STORAGE_CRYPTO_KEY_SIZE(pub i32);
@@ -13647,6 +14889,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_CRYPTO_KEY_SIZE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_DESCRIPTOR_HEADER {
     pub Version: u32,
     pub Size: u32,
@@ -13674,6 +14917,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_DESCRIPTOR_HEADER {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_DEVICE_ATTRIBUTES_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
@@ -13703,6 +14947,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_DEVICE_ATTRIBUTES_DESCRIPTOR {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Foundation`, `Win32_Storage_FileSystem`*"]
 pub struct STORAGE_DEVICE_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
@@ -13773,6 +15018,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_DEVICE_DESCRIPTOR {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_DEVICE_FAULT_DOMAIN_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
@@ -13800,9 +15046,13 @@ unsafe impl ::windows::runtime::Abi for STORAGE_DEVICE_FAULT_DOMAIN_DESCRIPTOR {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STORAGE_DEVICE_FLAGS_PAGE_83_DEVICEGUID: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STORAGE_DEVICE_FLAGS_RANDOM_DEVICEGUID_REASON_CONFLICT: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STORAGE_DEVICE_FLAGS_RANDOM_DEVICEGUID_REASON_NOHWID: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STORAGE_DEVICE_FORM_FACTOR(pub i32);
@@ -13828,6 +15078,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_DEVICE_FORM_FACTOR {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_DEVICE_ID_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
@@ -13857,6 +15108,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_DEVICE_ID_DESCRIPTOR {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_DEVICE_IO_CAPABILITY_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
@@ -13886,6 +15138,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_DEVICE_IO_CAPABILITY_DESCRIPTOR 
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_DEVICE_LED_STATE_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
@@ -13914,6 +15167,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_DEVICE_LED_STATE_DESCRIPTOR {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_DEVICE_LOCATION_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
@@ -13938,6 +15192,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_DEVICE_LOCATION_DESCRIPTOR {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_DEVICE_MANAGEMENT_STATUS {
     pub Version: u32,
     pub Size: u32,
@@ -13963,10 +15218,13 @@ unsafe impl ::windows::runtime::Abi for STORAGE_DEVICE_MANAGEMENT_STATUS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STORAGE_DEVICE_MAX_OPERATIONAL_STATUS: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STORAGE_DEVICE_NUMA_NODE_UNKNOWN: u32 = 4294967295u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_DEVICE_NUMA_PROPERTY {
     pub Version: u32,
     pub Size: u32,
@@ -13995,6 +15253,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_DEVICE_NUMA_PROPERTY {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_DEVICE_NUMBER {
     pub DeviceType: u32,
     pub DeviceNumber: u32,
@@ -14023,6 +15282,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_DEVICE_NUMBER {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_DEVICE_NUMBERS {
     pub Version: u32,
     pub Size: u32,
@@ -14052,6 +15312,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_DEVICE_NUMBERS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_DEVICE_NUMBER_EX {
     pub Version: u32,
     pub Size: u32,
@@ -14092,6 +15353,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_DEVICE_NUMBER_EX {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_DEVICE_POWER_CAP {
     pub Version: u32,
     pub Size: u32,
@@ -14119,6 +15381,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_DEVICE_POWER_CAP {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STORAGE_DEVICE_POWER_CAP_UNITS(pub i32);
@@ -14133,9 +15396,11 @@ unsafe impl ::windows::runtime::Abi for STORAGE_DEVICE_POWER_CAP_UNITS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STORAGE_DEVICE_POWER_CAP_VERSION_V1: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_DEVICE_RESILIENCY_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
@@ -14179,6 +15444,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_DEVICE_RESILIENCY_DESCRIPTOR {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Foundation`*"]
 pub struct STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY {
     pub Version: u32,
     pub Size: u32,
@@ -14213,6 +15479,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY 
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_DEVICE_TIERING_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
@@ -14244,6 +15511,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_DEVICE_TIERING_DESCRIPTOR {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_DEVICE_UNSAFE_SHUTDOWN_COUNT {
     pub Version: u32,
     pub Size: u32,
@@ -14272,6 +15540,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_DEVICE_UNSAFE_SHUTDOWN_COUNT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_DIAGNOSTIC_DATA {
     pub Version: u32,
     pub Size: u32,
@@ -14301,7 +15570,9 @@ unsafe impl ::windows::runtime::Abi for STORAGE_DIAGNOSTIC_DATA {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STORAGE_DIAGNOSTIC_FLAG_ADAPTER_REQUEST: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STORAGE_DIAGNOSTIC_LEVEL(pub i32);
@@ -14318,6 +15589,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_DIAGNOSTIC_LEVEL {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_DIAGNOSTIC_REQUEST {
     pub Version: u32,
     pub Size: u32,
@@ -14346,6 +15618,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_DIAGNOSTIC_REQUEST {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STORAGE_DIAGNOSTIC_TARGET_TYPE(pub i32);
@@ -14363,6 +15636,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_DIAGNOSTIC_TARGET_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STORAGE_DISK_HEALTH_STATUS(pub i32);
@@ -14380,6 +15654,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_DISK_HEALTH_STATUS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STORAGE_DISK_OPERATIONAL_STATUS(pub i32);
@@ -14401,11 +15676,15 @@ unsafe impl ::windows::runtime::Abi for STORAGE_DISK_OPERATIONAL_STATUS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STORAGE_EVENT_DEVICE_OPERATION: u64 = 4u64;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STORAGE_EVENT_DEVICE_STATUS: u64 = 2u64;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STORAGE_EVENT_MEDIA_STATUS: u64 = 1u64;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_EVENT_NOTIFICATION {
     pub Version: u32,
     pub Size: u32,
@@ -14432,10 +15711,12 @@ unsafe impl ::windows::runtime::Abi for STORAGE_EVENT_NOTIFICATION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STORAGE_EVENT_NOTIFICATION_VERSION_V1: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Foundation`*"]
 pub struct STORAGE_FAILURE_PREDICTION_CONFIG {
     pub Version: u32,
     pub Size: u32,
@@ -14470,9 +15751,11 @@ unsafe impl ::windows::runtime::Abi for STORAGE_FAILURE_PREDICTION_CONFIG {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STORAGE_FAILURE_PREDICTION_CONFIG_V1: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_FRU_ID_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
@@ -14502,6 +15785,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_FRU_ID_DESCRIPTOR {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_GET_BC_PROPERTIES_OUTPUT {
     pub MaximumRequestsPerPeriod: u32,
     pub MinimumPeriod: u32,
@@ -14541,6 +15825,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_GET_BC_PROPERTIES_OUTPUT {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Foundation`*"]
 pub struct STORAGE_HOTPLUG_INFO {
     pub Size: u32,
     pub MediaRemovable: super::super::Foundation::BOOLEAN,
@@ -14577,6 +15862,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_HOTPLUG_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_HW_ENDURANCE_DATA_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
@@ -14605,6 +15891,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_HW_ENDURANCE_DATA_DESCRIPTOR {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_HW_ENDURANCE_INFO {
     pub ValidFields: u32,
     pub GroupId: u32,
@@ -14636,6 +15923,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_HW_ENDURANCE_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_HW_ENDURANCE_INFO_0 {
     pub _bitfield: u32,
 }
@@ -14662,6 +15950,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_HW_ENDURANCE_INFO_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_HW_FIRMWARE_ACTIVATE {
     pub Version: u32,
     pub Size: u32,
@@ -14692,6 +15981,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_HW_FIRMWARE_ACTIVATE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_HW_FIRMWARE_DOWNLOAD {
     pub Version: u32,
     pub Size: u32,
@@ -14734,6 +16024,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_HW_FIRMWARE_DOWNLOAD {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_HW_FIRMWARE_DOWNLOAD_V2 {
     pub Version: u32,
     pub Size: u32,
@@ -14781,6 +16072,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_HW_FIRMWARE_DOWNLOAD_V2 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Foundation`*"]
 pub struct STORAGE_HW_FIRMWARE_INFO {
     pub Version: u32,
     pub Size: u32,
@@ -14835,6 +16127,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_HW_FIRMWARE_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_HW_FIRMWARE_INFO_QUERY {
     pub Version: u32,
     pub Size: u32,
@@ -14862,14 +16155,21 @@ unsafe impl ::windows::runtime::Abi for STORAGE_HW_FIRMWARE_INFO_QUERY {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STORAGE_HW_FIRMWARE_INVALID_SLOT: u32 = 255u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STORAGE_HW_FIRMWARE_REQUEST_FLAG_CONTROLLER: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STORAGE_HW_FIRMWARE_REQUEST_FLAG_FIRST_SEGMENT: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STORAGE_HW_FIRMWARE_REQUEST_FLAG_LAST_SEGMENT: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STORAGE_HW_FIRMWARE_REQUEST_FLAG_SWITCH_TO_EXISTING_FIRMWARE: u32 = 2147483648u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STORAGE_HW_FIRMWARE_REVISION_LENGTH: u32 = 16u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_HW_FIRMWARE_SLOT_INFO {
     pub Version: u32,
     pub Size: u32,
@@ -14901,6 +16201,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_HW_FIRMWARE_SLOT_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_IDENTIFIER {
     pub CodeSet: STORAGE_IDENTIFIER_CODE_SET,
     pub Type: STORAGE_IDENTIFIER_TYPE,
@@ -14930,6 +16231,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_IDENTIFIER {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STORAGE_IDENTIFIER_CODE_SET(pub i32);
@@ -14946,6 +16248,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_IDENTIFIER_CODE_SET {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STORAGE_IDENTIFIER_TYPE(pub i32);
@@ -14969,6 +16272,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_IDENTIFIER_TYPE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_IDLE_POWER {
     pub Version: u32,
     pub Size: u32,
@@ -14998,6 +16302,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_IDLE_POWER {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_IDLE_POWERUP_REASON {
     pub Version: u32,
     pub Size: u32,
@@ -15024,7 +16329,9 @@ unsafe impl ::windows::runtime::Abi for STORAGE_IDLE_POWERUP_REASON {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STORAGE_IDLE_POWERUP_REASON_VERSION_V1: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STORAGE_ID_NAA_FORMAT(pub i32);
@@ -15042,6 +16349,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_ID_NAA_FORMAT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_LB_PROVISIONING_MAP_RESOURCES {
     pub Size: u32,
     pub Version: u32,
@@ -15084,6 +16392,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_LB_PROVISIONING_MAP_RESOURCES {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_MEDIA_SERIAL_NUMBER_DATA {
     pub Reserved: u16,
     pub SerialNumberLength: u16,
@@ -15110,6 +16419,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_MEDIA_SERIAL_NUMBER_DATA {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STORAGE_MEDIA_TYPE(pub i32);
@@ -15187,6 +16497,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_MEDIA_TYPE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_MEDIUM_PRODUCT_TYPE_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
@@ -15216,6 +16527,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_MEDIUM_PRODUCT_TYPE_DESCRIPTOR {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Foundation`*"]
 pub struct STORAGE_MINIPORT_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
@@ -15251,6 +16563,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_MINIPORT_DESCRIPTOR {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub union STORAGE_MINIPORT_DESCRIPTOR_0 {
     pub Anonymous: STORAGE_MINIPORT_DESCRIPTOR_0_0,
     pub AsBYTE: u8,
@@ -15273,6 +16586,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_MINIPORT_DESCRIPTOR_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_MINIPORT_DESCRIPTOR_0_0 {
     pub _bitfield: u8,
 }
@@ -15297,9 +16611,11 @@ unsafe impl ::windows::runtime::Abi for STORAGE_MINIPORT_DESCRIPTOR_0_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STORAGE_OFFLOAD_MAX_TOKEN_LENGTH: u32 = 512u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_OFFLOAD_READ_OUTPUT {
     pub OffloadReadFlags: u32,
     pub Reserved: u32,
@@ -15323,9 +16639,11 @@ unsafe impl ::windows::runtime::Abi for STORAGE_OFFLOAD_READ_OUTPUT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STORAGE_OFFLOAD_READ_RANGE_TRUNCATED: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_OFFLOAD_TOKEN {
     pub TokenType: [u8; 4],
     pub Reserved: [u8; 2],
@@ -15350,6 +16668,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_OFFLOAD_TOKEN {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub union STORAGE_OFFLOAD_TOKEN_0 {
     pub StorageOffloadZeroDataToken: STORAGE_OFFLOAD_TOKEN_0_0,
     pub Token: [u8; 504],
@@ -15372,6 +16691,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_OFFLOAD_TOKEN_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_OFFLOAD_TOKEN_0_0 {
     pub Reserved2: [u8; 504],
 }
@@ -15396,11 +16716,15 @@ unsafe impl ::windows::runtime::Abi for STORAGE_OFFLOAD_TOKEN_0_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STORAGE_OFFLOAD_TOKEN_ID_LENGTH: u32 = 504u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STORAGE_OFFLOAD_TOKEN_INVALID: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STORAGE_OFFLOAD_TOKEN_TYPE_ZERO_DATA: u32 = 4294901761u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_OFFLOAD_WRITE_OUTPUT {
     pub OffloadWriteFlags: u32,
     pub Reserved: u32,
@@ -15427,9 +16751,11 @@ unsafe impl ::windows::runtime::Abi for STORAGE_OFFLOAD_WRITE_OUTPUT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STORAGE_OFFLOAD_WRITE_RANGE_TRUNCATED: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_OPERATIONAL_REASON {
     pub Version: u32,
     pub Size: u32,
@@ -15454,6 +16780,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_OPERATIONAL_REASON {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub union STORAGE_OPERATIONAL_REASON_0 {
     pub ScsiSenseKey: STORAGE_OPERATIONAL_REASON_0_1,
     pub NVDIMM_N: STORAGE_OPERATIONAL_REASON_0_0,
@@ -15477,6 +16804,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_OPERATIONAL_REASON_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_OPERATIONAL_REASON_0_0 {
     pub CriticalHealth: u8,
     pub ModuleHealth: [u8; 2],
@@ -15505,6 +16833,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_OPERATIONAL_REASON_0_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_OPERATIONAL_REASON_0_1 {
     pub SenseKey: u8,
     pub ASC: u8,
@@ -15532,6 +16861,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_OPERATIONAL_REASON_0_1 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STORAGE_OPERATIONAL_STATUS_REASON(pub i32);
@@ -15568,6 +16898,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_OPERATIONAL_STATUS_REASON {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Foundation`*"]
 pub struct STORAGE_PHYSICAL_ADAPTER_DATA {
     pub AdapterId: u32,
     pub HealthStatus: STORAGE_COMPONENT_HEALTH_STATUS,
@@ -15604,6 +16935,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_PHYSICAL_ADAPTER_DATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_PHYSICAL_DEVICE_DATA {
     pub DeviceId: u32,
     pub Role: u32,
@@ -15636,6 +16968,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_PHYSICAL_DEVICE_DATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_PHYSICAL_NODE_DATA {
     pub NodeId: u32,
     pub AdapterCount: u32,
@@ -15678,6 +17011,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_PHYSICAL_NODE_DATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_PHYSICAL_TOPOLOGY_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
@@ -15706,6 +17040,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_PHYSICAL_TOPOLOGY_DESCRIPTOR {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STORAGE_PORT_CODE_SET(pub i32);
@@ -15726,6 +17061,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_PORT_CODE_SET {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STORAGE_POWERUP_REASON_TYPE(pub i32);
@@ -15743,6 +17079,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_POWERUP_REASON_TYPE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_PREDICT_FAILURE {
     pub PredictFailure: u32,
     pub VendorSpecific: [u8; 512],
@@ -15770,6 +17107,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_PREDICT_FAILURE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_PRIORITY_HINT_SUPPORT {
     pub SupportFlags: u32,
 }
@@ -15794,7 +17132,9 @@ unsafe impl ::windows::runtime::Abi for STORAGE_PRIORITY_HINT_SUPPORT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STORAGE_PRIORITY_HINT_SUPPORTED: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STORAGE_PROPERTY_ID(pub i32);
@@ -15845,6 +17185,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_PROPERTY_ID {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_PROPERTY_QUERY {
     pub PropertyId: STORAGE_PROPERTY_ID,
     pub QueryType: STORAGE_QUERY_TYPE,
@@ -15873,6 +17214,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_PROPERTY_QUERY {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_PROPERTY_SET {
     pub PropertyId: STORAGE_PROPERTY_ID,
     pub SetType: STORAGE_SET_TYPE,
@@ -15899,6 +17241,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_PROPERTY_SET {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STORAGE_PROTOCOL_ATA_DATA_TYPE(pub i32);
@@ -15916,6 +17259,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_PROTOCOL_ATA_DATA_TYPE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_PROTOCOL_COMMAND {
     pub Version: u32,
     pub Length: u32,
@@ -15996,10 +17340,13 @@ unsafe impl ::windows::runtime::Abi for STORAGE_PROTOCOL_COMMAND {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STORAGE_PROTOCOL_COMMAND_FLAG_ADAPTER_REQUEST: u32 = 2147483648u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STORAGE_PROTOCOL_COMMAND_LENGTH_NVME: u32 = 64u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_PROTOCOL_DATA_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
@@ -16028,6 +17375,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_PROTOCOL_DATA_DESCRIPTOR {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_PROTOCOL_DATA_DESCRIPTOR_EXT {
     pub Version: u32,
     pub Size: u32,
@@ -16056,6 +17404,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_PROTOCOL_DATA_DESCRIPTOR_EXT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub union STORAGE_PROTOCOL_DATA_SUBVALUE_GET_LOG_PAGE {
     pub Anonymous: STORAGE_PROTOCOL_DATA_SUBVALUE_GET_LOG_PAGE_0,
     pub AsUlong: u32,
@@ -16078,6 +17427,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_PROTOCOL_DATA_SUBVALUE_GET_LOG_P
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_PROTOCOL_DATA_SUBVALUE_GET_LOG_PAGE_0 {
     pub _bitfield: u32,
 }
@@ -16102,6 +17452,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_PROTOCOL_DATA_SUBVALUE_GET_LOG_P
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STORAGE_PROTOCOL_NVME_DATA_TYPE(pub i32);
@@ -16120,6 +17471,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_PROTOCOL_NVME_DATA_TYPE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_PROTOCOL_SPECIFIC_DATA {
     pub ProtocolType: STORAGE_PROTOCOL_TYPE,
     pub DataType: u32,
@@ -16175,6 +17527,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_PROTOCOL_SPECIFIC_DATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_PROTOCOL_SPECIFIC_DATA_EXT {
     pub ProtocolType: STORAGE_PROTOCOL_TYPE,
     pub DataType: u32,
@@ -16234,19 +17587,33 @@ unsafe impl ::windows::runtime::Abi for STORAGE_PROTOCOL_SPECIFIC_DATA_EXT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STORAGE_PROTOCOL_SPECIFIC_NVME_ADMIN_COMMAND: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STORAGE_PROTOCOL_SPECIFIC_NVME_NVM_COMMAND: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STORAGE_PROTOCOL_STATUS_BUSY: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STORAGE_PROTOCOL_STATUS_DATA_OVERRUN: u32 = 6u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STORAGE_PROTOCOL_STATUS_ERROR: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STORAGE_PROTOCOL_STATUS_INSUFFICIENT_RESOURCES: u32 = 7u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STORAGE_PROTOCOL_STATUS_INVALID_REQUEST: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STORAGE_PROTOCOL_STATUS_NOT_SUPPORTED: u32 = 255u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STORAGE_PROTOCOL_STATUS_NO_DEVICE: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STORAGE_PROTOCOL_STATUS_PENDING: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STORAGE_PROTOCOL_STATUS_SUCCESS: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STORAGE_PROTOCOL_STATUS_THROTTLED_REQUEST: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STORAGE_PROTOCOL_STRUCTURE_VERSION: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STORAGE_PROTOCOL_TYPE(pub i32);
@@ -16267,6 +17634,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_PROTOCOL_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STORAGE_PROTOCOL_UFS_DATA_TYPE(pub i32);
@@ -16289,6 +17657,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_PROTOCOL_UFS_DATA_TYPE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_Vhd")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Storage_Vhd`*"]
 pub struct STORAGE_QUERY_DEPENDENT_VOLUME_LEV1_ENTRY {
     pub EntryLength: u32,
     pub DependencyTypeFlags: u32,
@@ -16325,6 +17694,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_QUERY_DEPENDENT_VOLUME_LEV1_ENTR
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_Vhd")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Storage_Vhd`*"]
 pub struct STORAGE_QUERY_DEPENDENT_VOLUME_LEV2_ENTRY {
     pub EntryLength: u32,
     pub DependencyTypeFlags: u32,
@@ -16395,6 +17765,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_QUERY_DEPENDENT_VOLUME_LEV2_ENTR
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_QUERY_DEPENDENT_VOLUME_REQUEST {
     pub RequestLevel: u32,
     pub RequestFlags: u32,
@@ -16423,6 +17794,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_QUERY_DEPENDENT_VOLUME_REQUEST {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_Vhd")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Storage_Vhd`*"]
 pub struct STORAGE_QUERY_DEPENDENT_VOLUME_RESPONSE {
     pub ResponseLevel: u32,
     pub NumberEntries: u32,
@@ -16452,6 +17824,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_QUERY_DEPENDENT_VOLUME_RESPONSE 
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_Vhd")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Storage_Vhd`*"]
 pub union STORAGE_QUERY_DEPENDENT_VOLUME_RESPONSE_0 {
     pub Lev1Depends: [STORAGE_QUERY_DEPENDENT_VOLUME_LEV1_ENTRY; 1],
     pub Lev2Depends: [STORAGE_QUERY_DEPENDENT_VOLUME_LEV2_ENTRY; 1],
@@ -16477,6 +17850,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_QUERY_DEPENDENT_VOLUME_RESPONSE_
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STORAGE_QUERY_TYPE(pub i32);
@@ -16495,6 +17869,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_QUERY_TYPE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_READ_CAPACITY {
     pub Version: u32,
     pub Size: u32,
@@ -16525,6 +17900,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_READ_CAPACITY {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_REINITIALIZE_MEDIA {
     pub Version: u32,
     pub Size: u32,
@@ -16554,6 +17930,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_REINITIALIZE_MEDIA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_REINITIALIZE_MEDIA_0 {
     pub _bitfield: u32,
 }
@@ -16578,6 +17955,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_REINITIALIZE_MEDIA_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STORAGE_RESERVE_ID(pub i32);
@@ -16595,6 +17973,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_RESERVE_ID {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STORAGE_RPMB_COMMAND_TYPE(pub i32);
@@ -16616,6 +17995,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_RPMB_COMMAND_TYPE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_RPMB_DATA_FRAME {
     pub Stuff: [u8; 196],
     pub KeyOrMAC: [u8; 32],
@@ -16660,6 +18040,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_RPMB_DATA_FRAME {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_RPMB_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
@@ -16688,7 +18069,9 @@ unsafe impl ::windows::runtime::Abi for STORAGE_RPMB_DESCRIPTOR {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STORAGE_RPMB_DESCRIPTOR_VERSION_1: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STORAGE_RPMB_FRAME_TYPE(pub i32);
@@ -16704,7 +18087,9 @@ unsafe impl ::windows::runtime::Abi for STORAGE_RPMB_FRAME_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STORAGE_RPMB_MINIMUM_RELIABLE_WRITE_SIZE: u32 = 512u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STORAGE_SANITIZE_METHOD(pub i32);
@@ -16720,6 +18105,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_SANITIZE_METHOD {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STORAGE_SET_TYPE(pub i32);
@@ -16737,6 +18123,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_SET_TYPE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub union STORAGE_SPEC_VERSION {
     pub Anonymous: STORAGE_SPEC_VERSION_0,
     pub AsUlong: u32,
@@ -16759,6 +18146,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_SPEC_VERSION {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_SPEC_VERSION_0 {
     pub MinorVersion: STORAGE_SPEC_VERSION_0_0,
     pub MajorVersion: u16,
@@ -16781,6 +18169,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_SPEC_VERSION_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub union STORAGE_SPEC_VERSION_0_0 {
     pub Anonymous: STORAGE_SPEC_VERSION_0_0_0,
     pub AsUshort: u16,
@@ -16803,6 +18192,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_SPEC_VERSION_0_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_SPEC_VERSION_0_0_0 {
     pub SubMinor: u8,
     pub Minor: u8,
@@ -16828,11 +18218,14 @@ unsafe impl ::windows::runtime::Abi for STORAGE_SPEC_VERSION_0_0_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STORAGE_SUPPORTED_FEATURES_BYPASS_IO: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STORAGE_SUPPORTED_FEATURES_MASK: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Foundation`*"]
 pub struct STORAGE_TEMPERATURE_DATA_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
@@ -16882,6 +18275,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_TEMPERATURE_DATA_DESCRIPTOR {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Foundation`*"]
 pub struct STORAGE_TEMPERATURE_INFO {
     pub Index: u16,
     pub Temperature: i16,
@@ -16933,6 +18327,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_TEMPERATURE_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Foundation`*"]
 pub struct STORAGE_TEMPERATURE_THRESHOLD {
     pub Version: u32,
     pub Size: u32,
@@ -16969,10 +18364,13 @@ unsafe impl ::windows::runtime::Abi for STORAGE_TEMPERATURE_THRESHOLD {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STORAGE_TEMPERATURE_THRESHOLD_FLAG_ADAPTER_REQUEST: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STORAGE_TEMPERATURE_VALUE_NOT_REPORTED: u32 = 32768u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_TIER {
     pub Id: ::windows::runtime::GUID,
     pub Name: [u16; 256],
@@ -17003,6 +18401,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_TIER {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STORAGE_TIER_CLASS(pub i32);
@@ -17019,12 +18418,19 @@ unsafe impl ::windows::runtime::Abi for STORAGE_TIER_CLASS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STORAGE_TIER_DESCRIPTION_LENGTH: u32 = 512u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STORAGE_TIER_FLAG_NO_SEEK_PENALTY: u32 = 131072u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STORAGE_TIER_FLAG_PARITY: u32 = 8388608u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STORAGE_TIER_FLAG_READ_CACHE: u32 = 4194304u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STORAGE_TIER_FLAG_SMR: u32 = 16777216u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STORAGE_TIER_FLAG_WRITE_BACK_CACHE: u32 = 2097152u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STORAGE_TIER_MEDIA_TYPE(pub i32);
@@ -17042,9 +18448,11 @@ unsafe impl ::windows::runtime::Abi for STORAGE_TIER_MEDIA_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STORAGE_TIER_NAME_LENGTH: u32 = 256u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_TIER_REGION {
     pub TierId: ::windows::runtime::GUID,
     pub Offset: u64,
@@ -17074,6 +18482,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_TIER_REGION {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Foundation`*"]
 pub struct STORAGE_WRITE_CACHE_PROPERTY {
     pub Version: u32,
     pub Size: u32,
@@ -17125,6 +18534,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_WRITE_CACHE_PROPERTY {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Foundation`*"]
 pub struct STORAGE_ZONED_DEVICE_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
@@ -17158,6 +18568,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_ZONED_DEVICE_DESCRIPTOR {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Foundation`*"]
 pub union STORAGE_ZONED_DEVICE_DESCRIPTOR_0 {
     pub SequentialRequiredZone: STORAGE_ZONED_DEVICE_DESCRIPTOR_0_1,
     pub SequentialPreferredZone: STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0,
@@ -17185,6 +18596,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_ZONED_DEVICE_DESCRIPTOR_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0 {
     pub OptimalOpenZoneCount: u32,
     pub Reserved: u32,
@@ -17213,6 +18625,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Foundation`*"]
 pub struct STORAGE_ZONED_DEVICE_DESCRIPTOR_0_1 {
     pub MaxOpenZoneCount: u32,
     pub UnrestrictedRead: super::super::Foundation::BOOLEAN,
@@ -17245,6 +18658,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_ZONED_DEVICE_DESCRIPTOR_0_1 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STORAGE_ZONED_DEVICE_TYPES(pub i32);
@@ -17261,6 +18675,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_ZONED_DEVICE_TYPES {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STORAGE_ZONES_ATTRIBUTES(pub i32);
@@ -17277,6 +18692,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_ZONES_ATTRIBUTES {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STORAGE_ZONE_CONDITION(pub i32);
@@ -17300,6 +18716,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_ZONE_CONDITION {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Foundation`*"]
 pub struct STORAGE_ZONE_DESCRIPTOR {
     pub Size: u32,
     pub ZoneType: STORAGE_ZONE_TYPES,
@@ -17346,6 +18763,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_ZONE_DESCRIPTOR {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STORAGE_ZONE_GROUP {
     pub ZoneCount: u32,
     pub ZoneType: STORAGE_ZONE_TYPES,
@@ -17372,6 +18790,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_ZONE_GROUP {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STORAGE_ZONE_TYPES(pub i32);
@@ -17389,11 +18808,15 @@ unsafe impl ::windows::runtime::Abi for STORAGE_ZONE_TYPES {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STORATTRIBUTE_MANAGEMENT_STATE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STORATTRIBUTE_NONE: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STREAMS_ASSOCIATE_ID_CLEAR: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STREAMS_ASSOCIATE_ID_INPUT_BUFFER {
     pub Flags: u32,
     pub StreamId: u32,
@@ -17419,11 +18842,15 @@ unsafe impl ::windows::runtime::Abi for STREAMS_ASSOCIATE_ID_INPUT_BUFFER {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STREAMS_ASSOCIATE_ID_SET: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STREAMS_INVALID_ID: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STREAMS_MAX_ID: u32 = 65535u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STREAMS_QUERY_ID_OUTPUT_BUFFER {
     pub StreamId: u32,
 }
@@ -17450,6 +18877,7 @@ unsafe impl ::windows::runtime::Abi for STREAMS_QUERY_ID_OUTPUT_BUFFER {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STREAMS_QUERY_PARAMETERS_OUTPUT_BUFFER {
     pub OptimalWriteSize: u32,
     pub StreamGranularitySize: u32,
@@ -17477,9 +18905,11 @@ unsafe impl ::windows::runtime::Abi for STREAMS_QUERY_PARAMETERS_OUTPUT_BUFFER {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STREAM_CLEAR_ENCRYPTION: u32 = 4u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STREAM_EXTENT_ENTRY {
     pub Flags: u32,
     pub ExtentInformation: STREAM_EXTENT_ENTRY_0,
@@ -17502,6 +18932,7 @@ unsafe impl ::windows::runtime::Abi for STREAM_EXTENT_ENTRY {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub union STREAM_EXTENT_ENTRY_0 {
     pub RetrievalPointers: RETRIEVAL_POINTERS_BUFFER,
 }
@@ -17521,10 +18952,13 @@ unsafe impl ::windows::runtime::Abi for STREAM_EXTENT_ENTRY_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STREAM_EXTENT_ENTRY_ALL_EXTENTS: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STREAM_EXTENT_ENTRY_AS_RETRIEVAL_POINTERS: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STREAM_INFORMATION_ENTRY {
     pub Version: u32,
     pub Flags: u32,
@@ -17548,6 +18982,7 @@ unsafe impl ::windows::runtime::Abi for STREAM_INFORMATION_ENTRY {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub union STREAM_INFORMATION_ENTRY_0 {
     pub DesiredStorageClass: STREAM_INFORMATION_ENTRY_0_1,
     pub DataStream: STREAM_INFORMATION_ENTRY_0_0,
@@ -17572,6 +19007,7 @@ unsafe impl ::windows::runtime::Abi for STREAM_INFORMATION_ENTRY_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STREAM_INFORMATION_ENTRY_0_0 {
     pub Length: u16,
     pub Flags: u16,
@@ -17601,6 +19037,7 @@ unsafe impl ::windows::runtime::Abi for STREAM_INFORMATION_ENTRY_0_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STREAM_INFORMATION_ENTRY_0_1 {
     pub Class: FILE_STORAGE_TIER_CLASS,
     pub Flags: u32,
@@ -17628,6 +19065,7 @@ unsafe impl ::windows::runtime::Abi for STREAM_INFORMATION_ENTRY_0_1 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STREAM_INFORMATION_ENTRY_0_2 {
     pub Length: u16,
     pub Flags: u16,
@@ -17657,6 +19095,7 @@ unsafe impl ::windows::runtime::Abi for STREAM_INFORMATION_ENTRY_0_2 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STREAM_INFORMATION_ENTRY_0_3 {
     pub Length: u16,
     pub Flags: u16,
@@ -17686,6 +19125,7 @@ unsafe impl ::windows::runtime::Abi for STREAM_INFORMATION_ENTRY_0_3 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct STREAM_LAYOUT_ENTRY {
     pub Version: u32,
     pub NextStreamOffset: u32,
@@ -17742,14 +19182,21 @@ unsafe impl ::windows::runtime::Abi for STREAM_LAYOUT_ENTRY {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STREAM_LAYOUT_ENTRY_HAS_INFORMATION: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STREAM_LAYOUT_ENTRY_IMMOVABLE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STREAM_LAYOUT_ENTRY_NO_CLUSTERS_ALLOCATED: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STREAM_LAYOUT_ENTRY_PINNED: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STREAM_LAYOUT_ENTRY_RESIDENT: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const STREAM_SET_ENCRYPTION: u32 = 3u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct TAPE_GET_STATISTICS {
     pub Operation: u32,
 }
@@ -17774,11 +19221,15 @@ unsafe impl ::windows::runtime::Abi for TAPE_GET_STATISTICS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const TAPE_RESET_STATISTICS: i32 = 2i32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const TAPE_RETURN_ENV_INFO: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const TAPE_RETURN_STATISTICS: i32 = 0i32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct TAPE_STATISTICS {
     pub Version: u32,
     pub Flags: u32,
@@ -17819,13 +19270,19 @@ unsafe impl ::windows::runtime::Abi for TAPE_STATISTICS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const TC_DEVICEDUMP_SUBSECTION_DESC_LENGTH: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const TC_PUBLIC_DEVICEDUMP_CONTENT_GPLOG: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const TC_PUBLIC_DEVICEDUMP_CONTENT_GPLOG_MAX: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const TC_PUBLIC_DEVICEDUMP_CONTENT_SMART: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const TELEMETRY_COMMAND_SIZE: u32 = 16u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct TXFS_CREATE_MINIVERSION_INFO {
     pub StructureVersion: u16,
     pub StructureLength: u16,
@@ -17855,6 +19312,7 @@ unsafe impl ::windows::runtime::Abi for TXFS_CREATE_MINIVERSION_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct TXFS_GET_METADATA_INFO_OUT {
     pub TxfFileId: TXFS_GET_METADATA_INFO_OUT_0,
     pub LockingTransaction: ::windows::runtime::GUID,
@@ -17884,6 +19342,7 @@ unsafe impl ::windows::runtime::Abi for TXFS_GET_METADATA_INFO_OUT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct TXFS_GET_METADATA_INFO_OUT_0 {
     pub LowPart: i64,
     pub HighPart: i64,
@@ -17911,6 +19370,7 @@ unsafe impl ::windows::runtime::Abi for TXFS_GET_METADATA_INFO_OUT_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct TXFS_GET_TRANSACTED_VERSION {
     pub ThisBaseVersion: u32,
     pub LatestVersion: u32,
@@ -17941,6 +19401,7 @@ unsafe impl ::windows::runtime::Abi for TXFS_GET_TRANSACTED_VERSION {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct TXFS_LIST_TRANSACTIONS {
     pub NumberOfTransactions: u64,
     pub BufferSizeRequired: u64,
@@ -17968,6 +19429,7 @@ unsafe impl ::windows::runtime::Abi for TXFS_LIST_TRANSACTIONS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct TXFS_LIST_TRANSACTIONS_ENTRY {
     pub TransactionId: ::windows::runtime::GUID,
     pub TransactionState: u32,
@@ -17998,6 +19460,7 @@ unsafe impl ::windows::runtime::Abi for TXFS_LIST_TRANSACTIONS_ENTRY {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct TXFS_LIST_TRANSACTION_LOCKED_FILES {
     pub KtmTransaction: ::windows::runtime::GUID,
     pub NumberOfFiles: u64,
@@ -18027,6 +19490,7 @@ unsafe impl ::windows::runtime::Abi for TXFS_LIST_TRANSACTION_LOCKED_FILES {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct TXFS_LIST_TRANSACTION_LOCKED_FILES_ENTRY {
     pub Offset: u64,
     pub NameFlags: u32,
@@ -18065,12 +19529,17 @@ unsafe impl ::windows::runtime::Abi for TXFS_LIST_TRANSACTION_LOCKED_FILES_ENTRY
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const TXFS_LIST_TRANSACTION_LOCKED_FILES_ENTRY_FLAG_CREATED: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const TXFS_LIST_TRANSACTION_LOCKED_FILES_ENTRY_FLAG_DELETED: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const TXFS_LOGGING_MODE_FULL: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const TXFS_LOGGING_MODE_SIMPLE: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct TXFS_MODIFY_RM {
     pub Flags: TXFS_RMF_LAGS,
     pub LogContainerCountMax: u32,
@@ -18113,6 +19582,7 @@ unsafe impl ::windows::runtime::Abi for TXFS_MODIFY_RM {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct TXFS_QUERY_RM_INFORMATION {
     pub BytesRequired: u32,
     pub TailLsn: u64,
@@ -18216,6 +19686,7 @@ unsafe impl ::windows::runtime::Abi for TXFS_QUERY_RM_INFORMATION {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct TXFS_READ_BACKUP_INFORMATION_OUT {
     pub Anonymous: TXFS_READ_BACKUP_INFORMATION_OUT_0,
 }
@@ -18237,6 +19708,7 @@ unsafe impl ::windows::runtime::Abi for TXFS_READ_BACKUP_INFORMATION_OUT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub union TXFS_READ_BACKUP_INFORMATION_OUT_0 {
     pub BufferLength: u32,
     pub Buffer: [u8; 1],
@@ -18257,6 +19729,7 @@ unsafe impl ::windows::runtime::Abi for TXFS_READ_BACKUP_INFORMATION_OUT_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TXFS_RMF_LAGS(pub u32);
@@ -18314,14 +19787,21 @@ impl ::std::ops::Not for TXFS_RMF_LAGS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const TXFS_RM_STATE_ACTIVE: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const TXFS_RM_STATE_NOT_STARTED: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const TXFS_RM_STATE_SHUTTING_DOWN: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const TXFS_RM_STATE_STARTING: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const TXFS_ROLLFORWARD_REDO_FLAG_USE_LAST_REDO_LSN: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const TXFS_ROLLFORWARD_REDO_FLAG_USE_LAST_VIRTUAL_CLOCK: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct TXFS_ROLLFORWARD_REDO_INFORMATION {
     pub LastVirtualClock: i64,
     pub LastRedoLsn: u64,
@@ -18349,11 +19829,14 @@ unsafe impl ::windows::runtime::Abi for TXFS_ROLLFORWARD_REDO_INFORMATION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const TXFS_SAVEPOINT_CLEAR: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const TXFS_SAVEPOINT_CLEAR_ALL: u32 = 16u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Foundation`*"]
 pub struct TXFS_SAVEPOINT_INFORMATION {
     pub KtmTransaction: super::super::Foundation::HANDLE,
     pub ActionCode: u32,
@@ -18386,23 +19869,39 @@ unsafe impl ::windows::runtime::Abi for TXFS_SAVEPOINT_INFORMATION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const TXFS_SAVEPOINT_ROLLBACK: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const TXFS_SAVEPOINT_SET: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const TXFS_START_RM_FLAG_LOGGING_MODE: u32 = 1024u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const TXFS_START_RM_FLAG_LOG_AUTO_SHRINK_PERCENTAGE: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const TXFS_START_RM_FLAG_LOG_CONTAINER_COUNT_MAX: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const TXFS_START_RM_FLAG_LOG_CONTAINER_COUNT_MIN: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const TXFS_START_RM_FLAG_LOG_CONTAINER_SIZE: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const TXFS_START_RM_FLAG_LOG_GROWTH_INCREMENT_NUM_CONTAINERS: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const TXFS_START_RM_FLAG_LOG_GROWTH_INCREMENT_PERCENT: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const TXFS_START_RM_FLAG_LOG_NO_CONTAINER_COUNT_MAX: u32 = 64u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const TXFS_START_RM_FLAG_LOG_NO_CONTAINER_COUNT_MIN: u32 = 128u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const TXFS_START_RM_FLAG_PREFER_AVAILABILITY: u32 = 8192u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const TXFS_START_RM_FLAG_PREFER_CONSISTENCY: u32 = 4096u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const TXFS_START_RM_FLAG_PRESERVE_CHANGES: u32 = 2048u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const TXFS_START_RM_FLAG_RECOVER_BEST_EFFORT: u32 = 512u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct TXFS_START_RM_INFORMATION {
     pub Flags: u32,
     pub LogContainerSize: u64,
@@ -18462,11 +19961,14 @@ unsafe impl ::windows::runtime::Abi for TXFS_START_RM_INFORMATION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const TXFS_TRANSACTED_VERSION_NONTRANSACTED: u32 = 4294967294u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const TXFS_TRANSACTED_VERSION_UNCOMMITTED: u32 = 4294967295u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Foundation`*"]
 pub struct TXFS_TRANSACTION_ACTIVE_INFO {
     pub TransactionsActiveAtSnapshot: super::super::Foundation::BOOLEAN,
 }
@@ -18497,12 +19999,17 @@ unsafe impl ::windows::runtime::Abi for TXFS_TRANSACTION_ACTIVE_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const TXFS_TRANSACTION_STATE_ACTIVE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const TXFS_TRANSACTION_STATE_NONE: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const TXFS_TRANSACTION_STATE_NOTACTIVE: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const TXFS_TRANSACTION_STATE_PREPARED: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct TXFS_WRITE_BACKUP_INFORMATION {
     pub Buffer: [u8; 1],
 }
@@ -18527,11 +20034,17 @@ unsafe impl ::windows::runtime::Abi for TXFS_WRITE_BACKUP_INFORMATION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const UNDEFINE_ALTERNATE: u32 = 13u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const UNDEFINE_PRIMARY: u32 = 12u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const UNLOCK_ELEMENT: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const UNRECOVERED_READS_VALID: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const UNRECOVERED_WRITES_VALID: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct USN_DELETE_FLAGS(pub u32);
@@ -18574,9 +20087,11 @@ impl ::std::ops::Not for USN_DELETE_FLAGS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const USN_DELETE_VALID_FLAGS: u32 = 3u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct USN_JOURNAL_DATA_V0 {
     pub UsnJournalID: u64,
     pub FirstUsn: i64,
@@ -18617,6 +20132,7 @@ unsafe impl ::windows::runtime::Abi for USN_JOURNAL_DATA_V0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct USN_JOURNAL_DATA_V1 {
     pub UsnJournalID: u64,
     pub FirstUsn: i64,
@@ -18661,6 +20177,7 @@ unsafe impl ::windows::runtime::Abi for USN_JOURNAL_DATA_V1 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct USN_JOURNAL_DATA_V2 {
     pub UsnJournalID: u64,
     pub FirstUsn: i64,
@@ -18720,9 +20237,11 @@ unsafe impl ::windows::runtime::Abi for USN_JOURNAL_DATA_V2 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const USN_PAGE_SIZE: u32 = 4096u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct USN_RANGE_TRACK_OUTPUT {
     pub Usn: i64,
 }
@@ -18747,32 +20266,57 @@ unsafe impl ::windows::runtime::Abi for USN_RANGE_TRACK_OUTPUT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const USN_REASON_BASIC_INFO_CHANGE: u32 = 32768u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const USN_REASON_CLOSE: u32 = 2147483648u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const USN_REASON_COMPRESSION_CHANGE: u32 = 131072u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const USN_REASON_DATA_EXTEND: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const USN_REASON_DATA_OVERWRITE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const USN_REASON_DATA_TRUNCATION: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const USN_REASON_DESIRED_STORAGE_CLASS_CHANGE: u32 = 16777216u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const USN_REASON_EA_CHANGE: u32 = 1024u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const USN_REASON_ENCRYPTION_CHANGE: u32 = 262144u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const USN_REASON_FILE_CREATE: u32 = 256u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const USN_REASON_FILE_DELETE: u32 = 512u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const USN_REASON_HARD_LINK_CHANGE: u32 = 65536u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const USN_REASON_INDEXABLE_CHANGE: u32 = 16384u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const USN_REASON_INTEGRITY_CHANGE: u32 = 8388608u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const USN_REASON_NAMED_DATA_EXTEND: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const USN_REASON_NAMED_DATA_OVERWRITE: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const USN_REASON_NAMED_DATA_TRUNCATION: u32 = 64u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const USN_REASON_OBJECT_ID_CHANGE: u32 = 524288u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const USN_REASON_RENAME_NEW_NAME: u32 = 8192u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const USN_REASON_RENAME_OLD_NAME: u32 = 4096u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const USN_REASON_REPARSE_POINT_CHANGE: u32 = 1048576u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const USN_REASON_SECURITY_CHANGE: u32 = 2048u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const USN_REASON_STREAM_CHANGE: u32 = 2097152u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const USN_REASON_TRANSACTED_CHANGE: u32 = 4194304u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct USN_RECORD_COMMON_HEADER {
     pub RecordLength: u32,
     pub MajorVersion: u16,
@@ -18801,6 +20345,7 @@ unsafe impl ::windows::runtime::Abi for USN_RECORD_COMMON_HEADER {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct USN_RECORD_EXTENT {
     pub Offset: i64,
     pub Length: i64,
@@ -18829,6 +20374,7 @@ unsafe impl ::windows::runtime::Abi for USN_RECORD_EXTENT {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Storage_FileSystem`*"]
 pub union USN_RECORD_UNION {
     pub Header: USN_RECORD_COMMON_HEADER,
     pub V2: USN_RECORD_V2,
@@ -18858,6 +20404,7 @@ unsafe impl ::windows::runtime::Abi for USN_RECORD_UNION {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct USN_RECORD_V2 {
     pub RecordLength: u32,
     pub MajorVersion: u16,
@@ -18926,6 +20473,7 @@ unsafe impl ::windows::runtime::Abi for USN_RECORD_V2 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Storage_FileSystem`*"]
 pub struct USN_RECORD_V3 {
     pub RecordLength: u32,
     pub MajorVersion: u16,
@@ -19000,6 +20548,7 @@ unsafe impl ::windows::runtime::Abi for USN_RECORD_V3 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Storage_FileSystem`*"]
 pub struct USN_RECORD_V4 {
     pub Header: USN_RECORD_COMMON_HEADER,
     pub FileReferenceNumber: super::super::Storage::FileSystem::FILE_ID_128,
@@ -19050,6 +20599,7 @@ unsafe impl ::windows::runtime::Abi for USN_RECORD_V4 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct USN_SOURCE_INFO_ID(pub u32);
@@ -19096,6 +20646,7 @@ impl ::std::ops::Not for USN_SOURCE_INFO_ID {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct USN_TRACK_MODIFIED_RANGES {
     pub Flags: u32,
     pub Unused: u32,
@@ -19123,10 +20674,13 @@ unsafe impl ::windows::runtime::Abi for USN_TRACK_MODIFIED_RANGES {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const VALID_NTFT: u32 = 192u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const VENDOR_ID_LENGTH: u32 = 8u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct VERIFY_INFORMATION {
     pub StartingOffset: i64,
     pub Length: u32,
@@ -19154,6 +20708,7 @@ unsafe impl ::windows::runtime::Abi for VERIFY_INFORMATION {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct VIRTUALIZATION_INSTANCE_INFO_INPUT {
     pub NumberOfWorkerThreads: u32,
     pub Flags: u32,
@@ -19181,6 +20736,7 @@ unsafe impl ::windows::runtime::Abi for VIRTUALIZATION_INSTANCE_INFO_INPUT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct VIRTUALIZATION_INSTANCE_INFO_INPUT_EX {
     pub HeaderSize: u16,
     pub Flags: u32,
@@ -19217,6 +20773,7 @@ unsafe impl ::windows::runtime::Abi for VIRTUALIZATION_INSTANCE_INFO_INPUT_EX {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct VIRTUALIZATION_INSTANCE_INFO_OUTPUT {
     pub VirtualizationInstanceID: ::windows::runtime::GUID,
 }
@@ -19241,6 +20798,7 @@ unsafe impl ::windows::runtime::Abi for VIRTUALIZATION_INSTANCE_INFO_OUTPUT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct VIRTUAL_STORAGE_BEHAVIOR_CODE(pub i32);
@@ -19260,6 +20818,7 @@ unsafe impl ::windows::runtime::Abi for VIRTUAL_STORAGE_BEHAVIOR_CODE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct VIRTUAL_STORAGE_SET_BEHAVIOR_INPUT {
     pub Size: u32,
     pub BehaviorCode: VIRTUAL_STORAGE_BEHAVIOR_CODE,
@@ -19287,6 +20846,7 @@ unsafe impl ::windows::runtime::Abi for VIRTUAL_STORAGE_SET_BEHAVIOR_INPUT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct VOLUME_BITMAP_BUFFER {
     pub StartingLcn: i64,
     pub BitmapSize: i64,
@@ -19315,6 +20875,7 @@ unsafe impl ::windows::runtime::Abi for VOLUME_BITMAP_BUFFER {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct VOLUME_DISK_EXTENTS {
     pub NumberOfDiskExtents: u32,
     pub Extents: [DISK_EXTENT; 1],
@@ -19342,6 +20903,7 @@ unsafe impl ::windows::runtime::Abi for VOLUME_DISK_EXTENTS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct VOLUME_GET_GPT_ATTRIBUTES_INFORMATION {
     pub GptAttributes: u64,
 }
@@ -19366,11 +20928,15 @@ unsafe impl ::windows::runtime::Abi for VOLUME_GET_GPT_ATTRIBUTES_INFORMATION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const VOLUME_IS_DIRTY: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const VOLUME_SESSION_OPEN: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const VOLUME_UPGRADE_SCHEDULED: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct WIM_PROVIDER_ADD_OVERLAY_INPUT {
     pub WimType: u32,
     pub WimIndex: u32,
@@ -19398,11 +20964,15 @@ unsafe impl ::windows::runtime::Abi for WIM_PROVIDER_ADD_OVERLAY_INPUT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const WIM_PROVIDER_CURRENT_VERSION: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const WIM_PROVIDER_EXTERNAL_FLAG_NOT_ACTIVE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const WIM_PROVIDER_EXTERNAL_FLAG_SUSPENDED: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct WIM_PROVIDER_EXTERNAL_INFO {
     pub Version: u32,
     pub Flags: u32,
@@ -19432,6 +21002,7 @@ unsafe impl ::windows::runtime::Abi for WIM_PROVIDER_EXTERNAL_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct WIM_PROVIDER_OVERLAY_ENTRY {
     pub NextEntryOffset: u32,
     pub DataSourceId: i64,
@@ -19472,6 +21043,7 @@ unsafe impl ::windows::runtime::Abi for WIM_PROVIDER_OVERLAY_ENTRY {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct WIM_PROVIDER_REMOVE_OVERLAY_INPUT {
     pub DataSourceId: i64,
 }
@@ -19498,6 +21070,7 @@ unsafe impl ::windows::runtime::Abi for WIM_PROVIDER_REMOVE_OVERLAY_INPUT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct WIM_PROVIDER_SUSPEND_OVERLAY_INPUT {
     pub DataSourceId: i64,
 }
@@ -19524,6 +21097,7 @@ unsafe impl ::windows::runtime::Abi for WIM_PROVIDER_SUSPEND_OVERLAY_INPUT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct WIM_PROVIDER_UPDATE_OVERLAY_INPUT {
     pub DataSourceId: i64,
     pub WimFileNameOffset: u32,
@@ -19550,10 +21124,12 @@ unsafe impl ::windows::runtime::Abi for WIM_PROVIDER_UPDATE_OVERLAY_INPUT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const WOF_CURRENT_VERSION: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
+#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Storage_FileSystem`*"]
 pub struct WOF_EXTERNAL_FILE_ID {
     pub FileId: super::super::Storage::FileSystem::FILE_ID_128,
 }
@@ -19586,6 +21162,7 @@ unsafe impl ::windows::runtime::Abi for WOF_EXTERNAL_FILE_ID {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct WOF_EXTERNAL_INFO {
     pub Version: u32,
     pub Provider: u32,
@@ -19611,9 +21188,11 @@ unsafe impl ::windows::runtime::Abi for WOF_EXTERNAL_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const WOF_PROVIDER_CLOUD: u32 = 3u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct WOF_VERSION_INFO {
     pub WofVersion: u32,
 }
@@ -19638,6 +21217,7 @@ unsafe impl ::windows::runtime::Abi for WOF_VERSION_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WRITE_CACHE_CHANGE(pub i32);
@@ -19653,6 +21233,7 @@ unsafe impl ::windows::runtime::Abi for WRITE_CACHE_CHANGE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WRITE_CACHE_ENABLE(pub i32);
@@ -19668,6 +21249,7 @@ unsafe impl ::windows::runtime::Abi for WRITE_CACHE_ENABLE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WRITE_CACHE_TYPE(pub i32);
@@ -19684,7 +21266,9 @@ unsafe impl ::windows::runtime::Abi for WRITE_CACHE_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub const WRITE_COMPRESSION_INFO_VALID: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WRITE_THROUGH(pub i32);
@@ -19702,6 +21286,7 @@ unsafe impl ::windows::runtime::Abi for WRITE_THROUGH {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct WRITE_USN_REASON_INPUT {
     pub Flags: u32,
     pub UsnReasonToWrite: u32,
@@ -19727,6 +21312,7 @@ unsafe impl ::windows::runtime::Abi for WRITE_USN_REASON_INPUT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct _DEVICEDUMP_COLLECTION_TYPE(pub i32);

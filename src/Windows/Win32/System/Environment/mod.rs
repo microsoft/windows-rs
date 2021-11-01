@@ -1,5 +1,6 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Environment`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CallEnclave<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(lproutine: isize, lpparameter: *const ::std::ffi::c_void, fwaitforthread: Param2, lpreturnvalue: *mut *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14,6 +15,7 @@ pub unsafe fn CallEnclave<'a, Param2: ::windows::runtime::IntoParam<'a, super::s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Environment`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CreateEnclave<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, lpaddress: *const ::std::ffi::c_void, dwsize: usize, dwinitialcommitment: usize, flenclavetype: u32, lpenclaveinformation: *const ::std::ffi::c_void, dwinfolength: u32, lpenclaveerror: *mut u32) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
@@ -37,6 +39,7 @@ pub unsafe fn CreateEnclave<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Environment`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CreateEnvironmentBlock<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(lpenvironment: *mut *mut ::std::ffi::c_void, htoken: Param1, binherit: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -51,6 +54,7 @@ pub unsafe fn CreateEnvironmentBlock<'a, Param1: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Environment`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn DeleteEnclave(lpaddress: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -65,6 +69,7 @@ pub unsafe fn DeleteEnclave(lpaddress: *const ::std::ffi::c_void) -> super::supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Environment`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn DestroyEnvironmentBlock(lpenvironment: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -78,11 +83,15 @@ pub unsafe fn DestroyEnvironmentBlock(lpenvironment: *const ::std::ffi::c_void) 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Environment`*"]
 pub const ENCLAVE_FLAG_DYNAMIC_DEBUG_ACTIVE: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Environment`*"]
 pub const ENCLAVE_FLAG_DYNAMIC_DEBUG_ENABLED: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Environment`*"]
 pub const ENCLAVE_FLAG_FULL_DEBUG_ENABLED: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_System_Environment`*"]
 pub struct ENCLAVE_IDENTITY {
     pub OwnerId: [u8; 32],
     pub UniqueId: [u8; 32],
@@ -114,6 +123,7 @@ unsafe impl ::windows::runtime::Abi for ENCLAVE_IDENTITY {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Environment`*"]
 pub struct ENCLAVE_INFORMATION {
     pub EnclaveType: u32,
     pub Reserved: u32,
@@ -137,9 +147,13 @@ unsafe impl ::windows::runtime::Abi for ENCLAVE_INFORMATION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Environment`*"]
 pub const ENCLAVE_REPORT_DATA_LENGTH: u32 = 64u32;
+#[doc = "*Required features: `Win32_System_Environment`*"]
 pub const ENCLAVE_RUNTIME_POLICY_ALLOW_DYNAMIC_DEBUG: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Environment`*"]
 pub const ENCLAVE_RUNTIME_POLICY_ALLOW_FULL_DEBUG: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Environment`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ENCLAVE_SEALING_IDENTITY_POLICY(pub i32);
@@ -158,13 +172,19 @@ unsafe impl ::windows::runtime::Abi for ENCLAVE_SEALING_IDENTITY_POLICY {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Environment`*"]
 pub const ENCLAVE_UNSEAL_FLAG_STALE_KEY: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Environment`*"]
 pub const ENCLAVE_VBS_BASIC_KEY_FLAG_DEBUG_KEY: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_Environment`*"]
 pub const ENCLAVE_VBS_BASIC_KEY_FLAG_FAMILY_ID: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Environment`*"]
 pub const ENCLAVE_VBS_BASIC_KEY_FLAG_IMAGE_ID: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Environment`*"]
 pub const ENCLAVE_VBS_BASIC_KEY_FLAG_MEASUREMENT: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Environment`*"]
 pub struct ENCLAVE_VBS_BASIC_KEY_REQUEST {
     pub RequestSize: u32,
     pub Flags: u32,
@@ -193,6 +213,7 @@ unsafe impl ::windows::runtime::Abi for ENCLAVE_VBS_BASIC_KEY_REQUEST {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Environment`*"]
 #[inline]
 pub unsafe fn EnclaveGetAttestationReport(enclavedata: *const u8, report: *mut ::std::ffi::c_void, buffersize: u32, outputsize: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -206,6 +227,7 @@ pub unsafe fn EnclaveGetAttestationReport(enclavedata: *const u8, report: *mut :
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Environment`*"]
 #[inline]
 pub unsafe fn EnclaveGetEnclaveInformation(informationsize: u32) -> ::windows::runtime::Result<ENCLAVE_INFORMATION> {
     #[cfg(windows)]
@@ -220,6 +242,7 @@ pub unsafe fn EnclaveGetEnclaveInformation(informationsize: u32) -> ::windows::r
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Environment`*"]
 #[inline]
 pub unsafe fn EnclaveSealData(datatoencrypt: *const ::std::ffi::c_void, datatoencryptsize: u32, identitypolicy: ENCLAVE_SEALING_IDENTITY_POLICY, runtimepolicy: u32, protectedblob: *mut ::std::ffi::c_void, buffersize: u32, protectedblobsize: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -233,6 +256,7 @@ pub unsafe fn EnclaveSealData(datatoencrypt: *const ::std::ffi::c_void, datatoen
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Environment`*"]
 #[inline]
 pub unsafe fn EnclaveUnsealData(protectedblob: *const ::std::ffi::c_void, protectedblobsize: u32, decrypteddata: *mut ::std::ffi::c_void, buffersize: u32, decrypteddatasize: *mut u32, sealingidentity: *mut ENCLAVE_IDENTITY, unsealingflags: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -246,6 +270,7 @@ pub unsafe fn EnclaveUnsealData(protectedblob: *const ::std::ffi::c_void, protec
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Environment`*"]
 #[inline]
 pub unsafe fn EnclaveVerifyAttestationReport(enclavetype: u32, report: *const ::std::ffi::c_void, reportsize: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -260,6 +285,7 @@ pub unsafe fn EnclaveVerifyAttestationReport(enclavetype: u32, report: *const ::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Environment`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn ExpandEnvironmentStringsA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpsrc: Param0, lpdst: super::super::Foundation::PSTR, nsize: u32) -> u32 {
     #[cfg(windows)]
@@ -274,6 +300,7 @@ pub unsafe fn ExpandEnvironmentStringsA<'a, Param0: ::windows::runtime::IntoPara
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Environment`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn ExpandEnvironmentStringsForUserA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(htoken: Param0, lpsrc: Param1, lpdest: super::super::Foundation::PSTR, dwsize: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -288,6 +315,7 @@ pub unsafe fn ExpandEnvironmentStringsForUserA<'a, Param0: ::windows::runtime::I
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Environment`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn ExpandEnvironmentStringsForUserW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(htoken: Param0, lpsrc: Param1, lpdest: super::super::Foundation::PWSTR, dwsize: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -302,6 +330,7 @@ pub unsafe fn ExpandEnvironmentStringsForUserW<'a, Param0: ::windows::runtime::I
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Environment`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn ExpandEnvironmentStringsW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpsrc: Param0, lpdst: super::super::Foundation::PWSTR, nsize: u32) -> u32 {
     #[cfg(windows)]
@@ -316,6 +345,7 @@ pub unsafe fn ExpandEnvironmentStringsW<'a, Param0: ::windows::runtime::IntoPara
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Environment`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn FreeEnvironmentStringsA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(penv: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -330,6 +360,7 @@ pub unsafe fn FreeEnvironmentStringsA<'a, Param0: ::windows::runtime::IntoParam<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Environment`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn FreeEnvironmentStringsW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(penv: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -344,6 +375,7 @@ pub unsafe fn FreeEnvironmentStringsW<'a, Param0: ::windows::runtime::IntoParam<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Environment`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetCommandLineA() -> super::super::Foundation::PSTR {
     #[cfg(windows)]
@@ -358,6 +390,7 @@ pub unsafe fn GetCommandLineA() -> super::super::Foundation::PSTR {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Environment`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetCommandLineW() -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
@@ -372,6 +405,7 @@ pub unsafe fn GetCommandLineW() -> super::super::Foundation::PWSTR {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Environment`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetCurrentDirectoryA(nbufferlength: u32, lpbuffer: super::super::Foundation::PSTR) -> u32 {
     #[cfg(windows)]
@@ -386,6 +420,7 @@ pub unsafe fn GetCurrentDirectoryA(nbufferlength: u32, lpbuffer: super::super::F
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Environment`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetCurrentDirectoryW(nbufferlength: u32, lpbuffer: super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
@@ -400,6 +435,7 @@ pub unsafe fn GetCurrentDirectoryW(nbufferlength: u32, lpbuffer: super::super::F
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Environment`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetEnvironmentStrings() -> super::super::Foundation::PSTR {
     #[cfg(windows)]
@@ -414,6 +450,7 @@ pub unsafe fn GetEnvironmentStrings() -> super::super::Foundation::PSTR {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Environment`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetEnvironmentStringsW() -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
@@ -428,6 +465,7 @@ pub unsafe fn GetEnvironmentStringsW() -> super::super::Foundation::PWSTR {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Environment`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetEnvironmentVariableA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpname: Param0, lpbuffer: super::super::Foundation::PSTR, nsize: u32) -> u32 {
     #[cfg(windows)]
@@ -442,6 +480,7 @@ pub unsafe fn GetEnvironmentVariableA<'a, Param0: ::windows::runtime::IntoParam<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Environment`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetEnvironmentVariableW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpname: Param0, lpbuffer: super::super::Foundation::PWSTR, nsize: u32) -> u32 {
     #[cfg(windows)]
@@ -456,6 +495,7 @@ pub unsafe fn GetEnvironmentVariableW<'a, Param0: ::windows::runtime::IntoParam<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Environment`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn InitializeEnclave<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, lpaddress: *const ::std::ffi::c_void, lpenclaveinformation: *const ::std::ffi::c_void, dwinfolength: u32, lpenclaveerror: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -470,6 +510,7 @@ pub unsafe fn InitializeEnclave<'a, Param0: ::windows::runtime::IntoParam<'a, su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Environment`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn IsEnclaveTypeSupported(flenclavetype: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -484,6 +525,7 @@ pub unsafe fn IsEnclaveTypeSupported(flenclavetype: u32) -> super::super::Founda
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Environment`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn LoadEnclaveData<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, lpaddress: *const ::std::ffi::c_void, lpbuffer: *const ::std::ffi::c_void, nsize: usize, flprotect: u32, lppageinformation: *const ::std::ffi::c_void, dwinfolength: u32, lpnumberofbyteswritten: *mut usize, lpenclaveerror: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -508,6 +550,7 @@ pub unsafe fn LoadEnclaveData<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Environment`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn LoadEnclaveImageA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpenclaveaddress: *const ::std::ffi::c_void, lpimagename: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -522,6 +565,7 @@ pub unsafe fn LoadEnclaveImageA<'a, Param1: ::windows::runtime::IntoParam<'a, su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Environment`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn LoadEnclaveImageW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpenclaveaddress: *const ::std::ffi::c_void, lpimagename: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -536,6 +580,7 @@ pub unsafe fn LoadEnclaveImageW<'a, Param1: ::windows::runtime::IntoParam<'a, su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Environment`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn NeedCurrentDirectoryForExePathA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(exename: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -550,6 +595,7 @@ pub unsafe fn NeedCurrentDirectoryForExePathA<'a, Param0: ::windows::runtime::In
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Environment`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn NeedCurrentDirectoryForExePathW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(exename: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -564,6 +610,7 @@ pub unsafe fn NeedCurrentDirectoryForExePathW<'a, Param0: ::windows::runtime::In
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Environment`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SetCurrentDirectoryA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lppathname: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -578,6 +625,7 @@ pub unsafe fn SetCurrentDirectoryA<'a, Param0: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Environment`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SetCurrentDirectoryW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lppathname: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -592,6 +640,7 @@ pub unsafe fn SetCurrentDirectoryW<'a, Param0: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Environment`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SetEnvironmentStringsW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(newenvironment: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -606,6 +655,7 @@ pub unsafe fn SetEnvironmentStringsW<'a, Param0: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Environment`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SetEnvironmentVariableA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpname: Param0, lpvalue: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -620,6 +670,7 @@ pub unsafe fn SetEnvironmentVariableA<'a, Param0: ::windows::runtime::IntoParam<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Environment`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SetEnvironmentVariableW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpname: Param0, lpvalue: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -634,6 +685,7 @@ pub unsafe fn SetEnvironmentVariableW<'a, Param0: ::windows::runtime::IntoParam<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Environment`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn TerminateEnclave<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(lpaddress: *const ::std::ffi::c_void, fwait: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -662,6 +714,7 @@ pub type VBS_BASIC_ENCLAVE_BASIC_CALL_TERMINATE_THREAD = unsafe extern "system" 
 pub type VBS_BASIC_ENCLAVE_BASIC_CALL_VERIFY_REPORT = unsafe extern "system" fn(report: *const ::std::ffi::c_void, reportsize: u32) -> i32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Environment`*"]
 pub struct VBS_BASIC_ENCLAVE_EXCEPTION_AMD64 {
     pub ExceptionCode: u32,
     pub NumberParameters: u32,
@@ -704,6 +757,7 @@ unsafe impl ::windows::runtime::Abi for VBS_BASIC_ENCLAVE_EXCEPTION_AMD64 {
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Environment`*"]
 pub struct VBS_BASIC_ENCLAVE_SYSCALL_PAGE {
     pub ReturnFromEnclave: ::std::option::Option<VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_ENCLAVE>,
     pub ReturnFromException: ::std::option::Option<VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_EXCEPTION>,
@@ -754,6 +808,7 @@ unsafe impl ::windows::runtime::Abi for VBS_BASIC_ENCLAVE_SYSCALL_PAGE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Environment`*"]
 pub struct VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32 {
     pub ThreadContext: [u32; 4],
     pub EntryPoint: u32,
@@ -792,6 +847,7 @@ unsafe impl ::windows::runtime::Abi for VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Environment`*"]
 pub struct VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64 {
     pub ThreadContext: [u64; 4],
     pub EntryPoint: u64,
@@ -830,6 +886,7 @@ unsafe impl ::windows::runtime::Abi for VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_System_Environment`*"]
 pub struct VBS_ENCLAVE_REPORT {
     pub ReportSize: u32,
     pub ReportVersion: u32,
@@ -854,6 +911,7 @@ unsafe impl ::windows::runtime::Abi for VBS_ENCLAVE_REPORT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_System_Environment`*"]
 pub struct VBS_ENCLAVE_REPORT_MODULE {
     pub Header: VBS_ENCLAVE_REPORT_VARDATA_HEADER,
     pub UniqueId: [u8; 32],
@@ -881,6 +939,7 @@ unsafe impl ::windows::runtime::Abi for VBS_ENCLAVE_REPORT_MODULE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_System_Environment`*"]
 pub struct VBS_ENCLAVE_REPORT_PKG_HEADER {
     pub PackageSize: u32,
     pub Version: u32,
@@ -905,10 +964,13 @@ unsafe impl ::windows::runtime::Abi for VBS_ENCLAVE_REPORT_PKG_HEADER {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Environment`*"]
 pub const VBS_ENCLAVE_REPORT_PKG_HEADER_VERSION_CURRENT: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Environment`*"]
 pub const VBS_ENCLAVE_REPORT_SIGNATURE_SCHEME_SHA256_RSA_PSS_SHA256: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_System_Environment`*"]
 pub struct VBS_ENCLAVE_REPORT_VARDATA_HEADER {
     pub DataType: u32,
     pub Size: u32,
@@ -929,6 +991,9 @@ unsafe impl ::windows::runtime::Abi for VBS_ENCLAVE_REPORT_VARDATA_HEADER {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Environment`*"]
 pub const VBS_ENCLAVE_REPORT_VERSION_CURRENT: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Environment`*"]
 pub const VBS_ENCLAVE_VARDATA_INVALID: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_Environment`*"]
 pub const VBS_ENCLAVE_VARDATA_MODULE: u32 = 1u32;

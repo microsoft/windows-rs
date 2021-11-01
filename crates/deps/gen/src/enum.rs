@@ -114,8 +114,10 @@ pub fn gen_enum(def: &TypeDef, gen: &Gen, include: TypeInclude) -> TokenStream {
     };
 
     let extensions = gen_extensions(def);
+    let doc = gen.gen_cfg_doc(&BTreeSet::new());
 
     quote! {
+        #doc
         #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::marker::Copy, ::std::clone::Clone, ::std::default::Default, ::std::fmt::Debug)]
         #[repr(transparent)]
         pub struct #name(pub #underlying_type);

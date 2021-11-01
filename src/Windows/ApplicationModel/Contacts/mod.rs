@@ -3,11 +3,13 @@
 pub mod DataProvider;
 #[cfg(feature = "ApplicationModel_Contacts_Provider")]
 pub mod Provider;
+#[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AggregateContactManager(::windows::runtime::IInspectable);
 impl AggregateContactManager {
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`, `Foundation_Collections`*"]
     pub fn FindRawContactsAsync<'a, Param0: ::windows::runtime::IntoParam<'a, Contact>>(&self, contact: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Contact>>> {
         let this = self;
         unsafe {
@@ -16,6 +18,7 @@ impl AggregateContactManager {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn TryLinkContactsAsync<'a, Param0: ::windows::runtime::IntoParam<'a, Contact>, Param1: ::windows::runtime::IntoParam<'a, Contact>>(&self, primarycontact: Param0, secondarycontact: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<Contact>> {
         let this = self;
         unsafe {
@@ -24,6 +27,7 @@ impl AggregateContactManager {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn UnlinkRawContactAsync<'a, Param0: ::windows::runtime::IntoParam<'a, Contact>>(&self, contact: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -32,6 +36,7 @@ impl AggregateContactManager {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn TrySetPreferredSourceForPictureAsync<'a, Param0: ::windows::runtime::IntoParam<'a, Contact>, Param1: ::windows::runtime::IntoParam<'a, Contact>>(&self, aggregatecontact: Param0, rawcontact: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
@@ -40,6 +45,7 @@ impl AggregateContactManager {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn SetRemoteIdentificationInformationAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, contactlistid: Param0, remotesourceid: Param1, accountid: Param2) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows::runtime::Interface::cast::<IAggregateContactManager2>(self)?;
         unsafe {
@@ -100,6 +106,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for AggregateContactManager {}
 unsafe impl ::std::marker::Sync for AggregateContactManager {}
+#[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct Contact(::windows::runtime::IInspectable);
@@ -111,6 +118,7 @@ impl Contact {
         static mut SHARED: ::windows::runtime::FactoryCache<Contact, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -118,11 +126,13 @@ impl Contact {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Storage_Streams`*"]
     pub fn Thumbnail(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
         let this = self;
         unsafe {
@@ -131,11 +141,13 @@ impl Contact {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Storage_Streams`*"]
     pub fn SetThumbnail<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation_Collections`*"]
     pub fn Fields(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<IContactField>> {
         let this = self;
         unsafe {
@@ -143,6 +155,7 @@ impl Contact {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<IContactField>>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IContact2>(self)?;
         unsafe {
@@ -150,10 +163,12 @@ impl Contact {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SetId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IContact2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn Notes(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IContact2>(self)?;
         unsafe {
@@ -161,11 +176,13 @@ impl Contact {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SetNotes<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IContact2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation_Collections`*"]
     pub fn Phones(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<ContactPhone>> {
         let this = &::windows::runtime::Interface::cast::<IContact2>(self)?;
         unsafe {
@@ -174,6 +191,7 @@ impl Contact {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation_Collections`*"]
     pub fn Emails(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<ContactEmail>> {
         let this = &::windows::runtime::Interface::cast::<IContact2>(self)?;
         unsafe {
@@ -182,6 +200,7 @@ impl Contact {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation_Collections`*"]
     pub fn Addresses(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<ContactAddress>> {
         let this = &::windows::runtime::Interface::cast::<IContact2>(self)?;
         unsafe {
@@ -190,6 +209,7 @@ impl Contact {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation_Collections`*"]
     pub fn ConnectedServiceAccounts(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<ContactConnectedServiceAccount>> {
         let this = &::windows::runtime::Interface::cast::<IContact2>(self)?;
         unsafe {
@@ -198,6 +218,7 @@ impl Contact {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation_Collections`*"]
     pub fn ImportantDates(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<ContactDate>> {
         let this = &::windows::runtime::Interface::cast::<IContact2>(self)?;
         unsafe {
@@ -206,6 +227,7 @@ impl Contact {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation_Collections`*"]
     pub fn DataSuppliers(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>> {
         let this = &::windows::runtime::Interface::cast::<IContact2>(self)?;
         unsafe {
@@ -214,6 +236,7 @@ impl Contact {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation_Collections`*"]
     pub fn JobInfo(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<ContactJobInfo>> {
         let this = &::windows::runtime::Interface::cast::<IContact2>(self)?;
         unsafe {
@@ -222,6 +245,7 @@ impl Contact {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation_Collections`*"]
     pub fn SignificantOthers(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<ContactSignificantOther>> {
         let this = &::windows::runtime::Interface::cast::<IContact2>(self)?;
         unsafe {
@@ -230,6 +254,7 @@ impl Contact {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation_Collections`*"]
     pub fn Websites(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<ContactWebsite>> {
         let this = &::windows::runtime::Interface::cast::<IContact2>(self)?;
         unsafe {
@@ -238,6 +263,7 @@ impl Contact {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation_Collections`*"]
     pub fn ProviderProperties(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IPropertySet> {
         let this = &::windows::runtime::Interface::cast::<IContact2>(self)?;
         unsafe {
@@ -245,6 +271,7 @@ impl Contact {
             (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IPropertySet>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn ContactListId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IContact3>(self)?;
         unsafe {
@@ -253,6 +280,7 @@ impl Contact {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn DisplayPictureUserUpdateTime(&self) -> ::windows::runtime::Result<super::super::Foundation::DateTime> {
         let this = &::windows::runtime::Interface::cast::<IContact3>(self)?;
         unsafe {
@@ -261,10 +289,12 @@ impl Contact {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn SetDisplayPictureUserUpdateTime<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::DateTime>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IContact3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn IsMe(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IContact3>(self)?;
         unsafe {
@@ -272,6 +302,7 @@ impl Contact {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn AggregateId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IContact3>(self)?;
         unsafe {
@@ -279,6 +310,7 @@ impl Contact {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn RemoteId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IContact3>(self)?;
         unsafe {
@@ -286,10 +318,12 @@ impl Contact {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SetRemoteId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IContact3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn RingToneToken(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IContact3>(self)?;
         unsafe {
@@ -297,10 +331,12 @@ impl Contact {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SetRingToneToken<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IContact3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn IsDisplayPictureManuallySet(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IContact3>(self)?;
         unsafe {
@@ -309,6 +345,7 @@ impl Contact {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Storage_Streams`*"]
     pub fn LargeDisplayPicture(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
         let this = &::windows::runtime::Interface::cast::<IContact3>(self)?;
         unsafe {
@@ -317,6 +354,7 @@ impl Contact {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Storage_Streams`*"]
     pub fn SmallDisplayPicture(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
         let this = &::windows::runtime::Interface::cast::<IContact3>(self)?;
         unsafe {
@@ -325,6 +363,7 @@ impl Contact {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Storage_Streams`*"]
     pub fn SourceDisplayPicture(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
         let this = &::windows::runtime::Interface::cast::<IContact3>(self)?;
         unsafe {
@@ -333,10 +372,12 @@ impl Contact {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Storage_Streams`*"]
     pub fn SetSourceDisplayPicture<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IContact3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn TextToneToken(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IContact3>(self)?;
         unsafe {
@@ -344,10 +385,12 @@ impl Contact {
             (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SetTextToneToken<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IContact3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn IsAggregate(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IContact3>(self)?;
         unsafe {
@@ -355,6 +398,7 @@ impl Contact {
             (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn FullName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IContact3>(self)?;
         unsafe {
@@ -362,6 +406,7 @@ impl Contact {
             (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn DisplayNameOverride(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IContact3>(self)?;
         unsafe {
@@ -369,10 +414,12 @@ impl Contact {
             (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SetDisplayNameOverride<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IContact3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn Nickname(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IContact3>(self)?;
         unsafe {
@@ -380,10 +427,12 @@ impl Contact {
             (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SetNickname<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IContact3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SortName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IContact3>(self)?;
         unsafe {
@@ -391,6 +440,7 @@ impl Contact {
             (::windows::runtime::Interface::vtable(this).28)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn FirstName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IContactName>(self)?;
         unsafe {
@@ -398,10 +448,12 @@ impl Contact {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SetFirstName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IContactName>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn LastName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IContactName>(self)?;
         unsafe {
@@ -409,10 +461,12 @@ impl Contact {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SetLastName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IContactName>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn MiddleName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IContactName>(self)?;
         unsafe {
@@ -420,10 +474,12 @@ impl Contact {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SetMiddleName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IContactName>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn YomiGivenName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IContactName>(self)?;
         unsafe {
@@ -431,10 +487,12 @@ impl Contact {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SetYomiGivenName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IContactName>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn YomiFamilyName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IContactName>(self)?;
         unsafe {
@@ -442,10 +500,12 @@ impl Contact {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SetYomiFamilyName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IContactName>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn HonorificNameSuffix(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IContactName>(self)?;
         unsafe {
@@ -453,10 +513,12 @@ impl Contact {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SetHonorificNameSuffix<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IContactName>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn HonorificNamePrefix(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IContactName>(self)?;
         unsafe {
@@ -464,10 +526,12 @@ impl Contact {
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SetHonorificNamePrefix<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IContactName>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn DisplayName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IContactName>(self)?;
         unsafe {
@@ -475,6 +539,7 @@ impl Contact {
             (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn YomiDisplayName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IContactName>(self)?;
         unsafe {
@@ -535,6 +600,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for Contact {}
 unsafe impl ::std::marker::Sync for Contact {}
+#[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ContactAddress(::windows::runtime::IInspectable);
@@ -546,6 +612,7 @@ impl ContactAddress {
         static mut SHARED: ::windows::runtime::FactoryCache<ContactAddress, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn StreetAddress(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -553,10 +620,12 @@ impl ContactAddress {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SetStreetAddress<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn Locality(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -564,10 +633,12 @@ impl ContactAddress {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SetLocality<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn Region(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -575,10 +646,12 @@ impl ContactAddress {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SetRegion<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn Country(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -586,10 +659,12 @@ impl ContactAddress {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SetCountry<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn PostalCode(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -597,10 +672,12 @@ impl ContactAddress {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SetPostalCode<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn Kind(&self) -> ::windows::runtime::Result<ContactAddressKind> {
         let this = self;
         unsafe {
@@ -608,10 +685,12 @@ impl ContactAddress {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ContactAddressKind>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SetKind(&self, value: ContactAddressKind) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn Description(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -619,6 +698,7 @@ impl ContactAddress {
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SetDescription<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -676,6 +756,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for ContactAddress {}
 unsafe impl ::std::marker::Sync for ContactAddress {}
+#[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ContactAddressKind(pub i32);
@@ -696,6 +777,7 @@ unsafe impl ::windows::runtime::Abi for ContactAddressKind {
 unsafe impl ::windows::runtime::RuntimeType for ContactAddressKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactAddressKind;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ContactAnnotation(::windows::runtime::IInspectable);
@@ -707,6 +789,7 @@ impl ContactAnnotation {
         static mut SHARED: ::windows::runtime::FactoryCache<ContactAnnotation, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -714,6 +797,7 @@ impl ContactAnnotation {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn AnnotationListId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -721,6 +805,7 @@ impl ContactAnnotation {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn ContactId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -728,10 +813,12 @@ impl ContactAnnotation {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SetContactId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn RemoteId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -739,10 +826,12 @@ impl ContactAnnotation {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SetRemoteId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SupportedOperations(&self) -> ::windows::runtime::Result<ContactAnnotationOperations> {
         let this = self;
         unsafe {
@@ -750,10 +839,12 @@ impl ContactAnnotation {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ContactAnnotationOperations>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SetSupportedOperations(&self, value: ContactAnnotationOperations) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn IsDisabled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -762,6 +853,7 @@ impl ContactAnnotation {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation_Collections`*"]
     pub fn ProviderProperties(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::ValueSet> {
         let this = self;
         unsafe {
@@ -769,6 +861,7 @@ impl ContactAnnotation {
             (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn ContactListId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IContactAnnotation2>(self)?;
         unsafe {
@@ -776,6 +869,7 @@ impl ContactAnnotation {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SetContactListId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IContactAnnotation2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -833,10 +927,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for ContactAnnotation {}
 unsafe impl ::std::marker::Sync for ContactAnnotation {}
+#[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ContactAnnotationList(::windows::runtime::IInspectable);
 impl ContactAnnotationList {
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -844,6 +940,7 @@ impl ContactAnnotationList {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn ProviderPackageFamilyName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -851,6 +948,7 @@ impl ContactAnnotationList {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn UserDataAccountId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -859,6 +957,7 @@ impl ContactAnnotationList {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn DeleteAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -867,6 +966,7 @@ impl ContactAnnotationList {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn TrySaveAnnotationAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ContactAnnotation>>(&self, annotation: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
@@ -875,6 +975,7 @@ impl ContactAnnotationList {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn GetAnnotationAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, annotationid: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<ContactAnnotation>> {
         let this = self;
         unsafe {
@@ -883,6 +984,7 @@ impl ContactAnnotationList {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`, `Foundation_Collections`*"]
     pub fn FindAnnotationsByRemoteIdAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, remoteid: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactAnnotation>>> {
         let this = self;
         unsafe {
@@ -891,6 +993,7 @@ impl ContactAnnotationList {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`, `Foundation_Collections`*"]
     pub fn FindAnnotationsAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactAnnotation>>> {
         let this = self;
         unsafe {
@@ -899,6 +1002,7 @@ impl ContactAnnotationList {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn DeleteAnnotationAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ContactAnnotation>>(&self, annotation: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -959,6 +1063,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for ContactAnnotationList {}
 unsafe impl ::std::marker::Sync for ContactAnnotationList {}
+#[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ContactAnnotationOperations(pub u32);
@@ -1011,11 +1116,13 @@ impl ::std::ops::Not for ContactAnnotationOperations {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ContactAnnotationStore(::windows::runtime::IInspectable);
 impl ContactAnnotationStore {
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`, `Foundation_Collections`*"]
     pub fn FindContactIdsByEmailAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, emailaddress: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>>> {
         let this = self;
         unsafe {
@@ -1024,6 +1131,7 @@ impl ContactAnnotationStore {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`, `Foundation_Collections`*"]
     pub fn FindContactIdsByPhoneNumberAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, phonenumber: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>>> {
         let this = self;
         unsafe {
@@ -1032,6 +1140,7 @@ impl ContactAnnotationStore {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`, `Foundation_Collections`*"]
     pub fn FindAnnotationsForContactAsync<'a, Param0: ::windows::runtime::IntoParam<'a, Contact>>(&self, contact: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactAnnotation>>> {
         let this = self;
         unsafe {
@@ -1040,6 +1149,7 @@ impl ContactAnnotationStore {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn DisableAnnotationAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ContactAnnotation>>(&self, annotation: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -1048,6 +1158,7 @@ impl ContactAnnotationStore {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn CreateAnnotationListAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<ContactAnnotationList>> {
         let this = self;
         unsafe {
@@ -1056,6 +1167,7 @@ impl ContactAnnotationStore {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn CreateAnnotationListInAccountAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, userdataaccountid: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<ContactAnnotationList>> {
         let this = self;
         unsafe {
@@ -1064,6 +1176,7 @@ impl ContactAnnotationStore {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn GetAnnotationListAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, annotationlistid: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<ContactAnnotationList>> {
         let this = self;
         unsafe {
@@ -1072,6 +1185,7 @@ impl ContactAnnotationStore {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`, `Foundation_Collections`*"]
     pub fn FindAnnotationListsAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactAnnotationList>>> {
         let this = self;
         unsafe {
@@ -1080,6 +1194,7 @@ impl ContactAnnotationStore {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`, `Foundation_Collections`*"]
     pub fn FindAnnotationsForContactListAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, contactlistid: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactAnnotation>>> {
         let this = &::windows::runtime::Interface::cast::<IContactAnnotationStore2>(self)?;
         unsafe {
@@ -1140,6 +1255,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for ContactAnnotationStore {}
 unsafe impl ::std::marker::Sync for ContactAnnotationStore {}
+#[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ContactAnnotationStoreAccessType(pub i32);
@@ -1159,11 +1275,13 @@ unsafe impl ::windows::runtime::Abi for ContactAnnotationStoreAccessType {
 unsafe impl ::windows::runtime::RuntimeType for ContactAnnotationStoreAccessType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactAnnotationStoreAccessType;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ContactBatch(::windows::runtime::IInspectable);
 impl ContactBatch {
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation_Collections`*"]
     pub fn Contacts(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<Contact>> {
         let this = self;
         unsafe {
@@ -1171,6 +1289,7 @@ impl ContactBatch {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<Contact>>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<ContactBatchStatus> {
         let this = self;
         unsafe {
@@ -1231,6 +1350,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for ContactBatch {}
 unsafe impl ::std::marker::Sync for ContactBatch {}
+#[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ContactBatchStatus(pub i32);
@@ -1251,15 +1371,18 @@ unsafe impl ::windows::runtime::Abi for ContactBatchStatus {
 unsafe impl ::windows::runtime::RuntimeType for ContactBatchStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactBatchStatus;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ContactCardDelayedDataLoader(::windows::runtime::IInspectable);
 impl ContactCardDelayedDataLoader {
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SetData<'a, Param0: ::windows::runtime::IntoParam<'a, Contact>>(&self, contact: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), contact.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
@@ -1343,6 +1466,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> 
 }
 unsafe impl ::std::marker::Send for ContactCardDelayedDataLoader {}
 unsafe impl ::std::marker::Sync for ContactCardDelayedDataLoader {}
+#[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ContactCardHeaderKind(pub i32);
@@ -1363,6 +1487,7 @@ unsafe impl ::windows::runtime::Abi for ContactCardHeaderKind {
 unsafe impl ::windows::runtime::RuntimeType for ContactCardHeaderKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactCardHeaderKind;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ContactCardOptions(::windows::runtime::IInspectable);
@@ -1374,6 +1499,7 @@ impl ContactCardOptions {
         static mut SHARED: ::windows::runtime::FactoryCache<ContactCardOptions, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn HeaderKind(&self) -> ::windows::runtime::Result<ContactCardHeaderKind> {
         let this = self;
         unsafe {
@@ -1381,10 +1507,12 @@ impl ContactCardOptions {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ContactCardHeaderKind>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SetHeaderKind(&self, value: ContactCardHeaderKind) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn InitialTabKind(&self) -> ::windows::runtime::Result<ContactCardTabKind> {
         let this = self;
         unsafe {
@@ -1392,11 +1520,13 @@ impl ContactCardOptions {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ContactCardTabKind>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SetInitialTabKind(&self, value: ContactCardTabKind) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation_Collections`*"]
     pub fn ServerSearchContactListIds(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>> {
         let this = &::windows::runtime::Interface::cast::<IContactCardOptions2>(self)?;
         unsafe {
@@ -1457,6 +1587,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for ContactCardOptions {}
 unsafe impl ::std::marker::Sync for ContactCardOptions {}
+#[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ContactCardTabKind(pub i32);
@@ -1480,10 +1611,12 @@ unsafe impl ::windows::runtime::Abi for ContactCardTabKind {
 unsafe impl ::windows::runtime::RuntimeType for ContactCardTabKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactCardTabKind;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ContactChange(::windows::runtime::IInspectable);
 impl ContactChange {
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn ChangeType(&self) -> ::windows::runtime::Result<ContactChangeType> {
         let this = self;
         unsafe {
@@ -1491,6 +1624,7 @@ impl ContactChange {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ContactChangeType>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn Contact(&self) -> ::windows::runtime::Result<Contact> {
         let this = self;
         unsafe {
@@ -1551,19 +1685,23 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for ContactChange {}
 unsafe impl ::std::marker::Sync for ContactChange {}
+#[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ContactChangeReader(::windows::runtime::IInspectable);
 impl ContactChangeReader {
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn AcceptChanges(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn AcceptChangesThrough<'a, Param0: ::windows::runtime::IntoParam<'a, ContactChange>>(&self, lastchangetoaccept: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), lastchangetoaccept.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`, `Foundation_Collections`*"]
     pub fn ReadBatchAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactChange>>> {
         let this = self;
         unsafe {
@@ -1624,14 +1762,17 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for ContactChangeReader {}
 unsafe impl ::std::marker::Sync for ContactChangeReader {}
+#[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ContactChangeTracker(::windows::runtime::IInspectable);
 impl ContactChangeTracker {
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn Enable(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn GetChangeReader(&self) -> ::windows::runtime::Result<ContactChangeReader> {
         let this = self;
         unsafe {
@@ -1639,10 +1780,12 @@ impl ContactChangeTracker {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ContactChangeReader>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn Reset(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn IsTracking(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IContactChangeTracker2>(self)?;
         unsafe {
@@ -1703,6 +1846,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for ContactChangeTracker {}
 unsafe impl ::std::marker::Sync for ContactChangeTracker {}
+#[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ContactChangeType(pub i32);
@@ -1724,10 +1868,12 @@ unsafe impl ::windows::runtime::Abi for ContactChangeType {
 unsafe impl ::windows::runtime::RuntimeType for ContactChangeType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactChangeType;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ContactChangedDeferral(::windows::runtime::IInspectable);
 impl ContactChangedDeferral {
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn Complete(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
@@ -1785,10 +1931,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for ContactChangedDeferral {}
 unsafe impl ::std::marker::Sync for ContactChangedDeferral {}
+#[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ContactChangedEventArgs(::windows::runtime::IInspectable);
 impl ContactChangedEventArgs {
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<ContactChangedDeferral> {
         let this = self;
         unsafe {
@@ -1849,6 +1997,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for ContactChangedEventArgs {}
 unsafe impl ::std::marker::Sync for ContactChangedEventArgs {}
+#[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ContactConnectedServiceAccount(::windows::runtime::IInspectable);
@@ -1860,6 +2009,7 @@ impl ContactConnectedServiceAccount {
         static mut SHARED: ::windows::runtime::FactoryCache<ContactConnectedServiceAccount, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1867,10 +2017,12 @@ impl ContactConnectedServiceAccount {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SetId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn ServiceName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1878,6 +2030,7 @@ impl ContactConnectedServiceAccount {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SetServiceName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -1935,6 +2088,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for ContactConnectedServiceAccount {}
 unsafe impl ::std::marker::Sync for ContactConnectedServiceAccount {}
+#[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ContactDate(::windows::runtime::IInspectable);
@@ -1947,6 +2101,7 @@ impl ContactDate {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn Day(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<u32>> {
         let this = self;
         unsafe {
@@ -1955,11 +2110,13 @@ impl ContactDate {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn SetDay<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<u32>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn Month(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<u32>> {
         let this = self;
         unsafe {
@@ -1968,11 +2125,13 @@ impl ContactDate {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn SetMonth<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<u32>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn Year(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
@@ -1981,10 +2140,12 @@ impl ContactDate {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn SetYear<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<i32>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn Kind(&self) -> ::windows::runtime::Result<ContactDateKind> {
         let this = self;
         unsafe {
@@ -1992,10 +2153,12 @@ impl ContactDate {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ContactDateKind>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SetKind(&self, value: ContactDateKind) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn Description(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2003,6 +2166,7 @@ impl ContactDate {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SetDescription<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -2060,6 +2224,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for ContactDate {}
 unsafe impl ::std::marker::Sync for ContactDate {}
+#[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ContactDateKind(pub i32);
@@ -2080,6 +2245,7 @@ unsafe impl ::windows::runtime::Abi for ContactDateKind {
 unsafe impl ::windows::runtime::RuntimeType for ContactDateKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactDateKind;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ContactEmail(::windows::runtime::IInspectable);
@@ -2091,6 +2257,7 @@ impl ContactEmail {
         static mut SHARED: ::windows::runtime::FactoryCache<ContactEmail, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn Address(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2098,10 +2265,12 @@ impl ContactEmail {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SetAddress<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn Kind(&self) -> ::windows::runtime::Result<ContactEmailKind> {
         let this = self;
         unsafe {
@@ -2109,10 +2278,12 @@ impl ContactEmail {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ContactEmailKind>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SetKind(&self, value: ContactEmailKind) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn Description(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2120,6 +2291,7 @@ impl ContactEmail {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SetDescription<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -2177,6 +2349,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for ContactEmail {}
 unsafe impl ::std::marker::Sync for ContactEmail {}
+#[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ContactEmailKind(pub i32);
@@ -2197,10 +2370,12 @@ unsafe impl ::windows::runtime::Abi for ContactEmailKind {
 unsafe impl ::windows::runtime::RuntimeType for ContactEmailKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactEmailKind;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ContactField(::windows::runtime::IInspectable);
 impl ContactField {
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn Type(&self) -> ::windows::runtime::Result<ContactFieldType> {
         let this = self;
         unsafe {
@@ -2208,6 +2383,7 @@ impl ContactField {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ContactFieldType>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn Category(&self) -> ::windows::runtime::Result<ContactFieldCategory> {
         let this = self;
         unsafe {
@@ -2215,6 +2391,7 @@ impl ContactField {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ContactFieldCategory>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2222,6 +2399,7 @@ impl ContactField {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn Value(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2229,18 +2407,21 @@ impl ContactField {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn CreateField_Default<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(value: Param0, r#type: ContactFieldType) -> ::windows::runtime::Result<ContactField> {
         Self::IContactFieldFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value.into_param().abi(), r#type, &mut result__).from_abi::<ContactField>(result__)
         })
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn CreateField_Category<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(value: Param0, r#type: ContactFieldType, category: ContactFieldCategory) -> ::windows::runtime::Result<ContactField> {
         Self::IContactFieldFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi(), r#type, category, &mut result__).from_abi::<ContactField>(result__)
         })
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn CreateField_Custom<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(name: Param0, value: Param1, r#type: ContactFieldType, category: ContactFieldCategory) -> ::windows::runtime::Result<ContactField> {
         Self::IContactFieldFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -2324,6 +2505,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IContactField> for &ContactField {
 }
 unsafe impl ::std::marker::Send for ContactField {}
 unsafe impl ::std::marker::Sync for ContactField {}
+#[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ContactFieldCategory(pub i32);
@@ -2346,6 +2528,7 @@ unsafe impl ::windows::runtime::Abi for ContactFieldCategory {
 unsafe impl ::windows::runtime::RuntimeType for ContactFieldCategory {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactFieldCategory;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ContactFieldFactory(::windows::runtime::IInspectable);
@@ -2357,6 +2540,7 @@ impl ContactFieldFactory {
         static mut SHARED: ::windows::runtime::FactoryCache<ContactFieldFactory, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn CreateField_Default<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0, r#type: ContactFieldType) -> ::windows::runtime::Result<ContactField> {
         let this = self;
         unsafe {
@@ -2364,6 +2548,7 @@ impl ContactFieldFactory {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value.into_param().abi(), r#type, &mut result__).from_abi::<ContactField>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn CreateField_Category<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0, r#type: ContactFieldType, category: ContactFieldCategory) -> ::windows::runtime::Result<ContactField> {
         let this = self;
         unsafe {
@@ -2371,6 +2556,7 @@ impl ContactFieldFactory {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi(), r#type, category, &mut result__).from_abi::<ContactField>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn CreateField_Custom<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, name: Param0, value: Param1, r#type: ContactFieldType, category: ContactFieldCategory) -> ::windows::runtime::Result<ContactField> {
         let this = self;
         unsafe {
@@ -2378,6 +2564,7 @@ impl ContactFieldFactory {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), name.into_param().abi(), value.into_param().abi(), r#type, category, &mut result__).from_abi::<ContactField>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn CreateInstantMessage_Default<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, username: Param0) -> ::windows::runtime::Result<ContactInstantMessageField> {
         let this = &::windows::runtime::Interface::cast::<IContactInstantMessageFieldFactory>(self)?;
         unsafe {
@@ -2385,6 +2572,7 @@ impl ContactFieldFactory {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), username.into_param().abi(), &mut result__).from_abi::<ContactInstantMessageField>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn CreateInstantMessage_Category<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, username: Param0, category: ContactFieldCategory) -> ::windows::runtime::Result<ContactInstantMessageField> {
         let this = &::windows::runtime::Interface::cast::<IContactInstantMessageFieldFactory>(self)?;
         unsafe {
@@ -2393,6 +2581,7 @@ impl ContactFieldFactory {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn CreateInstantMessage_All<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>>(&self, username: Param0, category: ContactFieldCategory, service: Param2, displaytext: Param3, verb: Param4) -> ::windows::runtime::Result<ContactInstantMessageField> {
         let this = &::windows::runtime::Interface::cast::<IContactInstantMessageFieldFactory>(self)?;
         unsafe {
@@ -2400,6 +2589,7 @@ impl ContactFieldFactory {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), username.into_param().abi(), category, service.into_param().abi(), displaytext.into_param().abi(), verb.into_param().abi(), &mut result__).from_abi::<ContactInstantMessageField>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn CreateLocation_Default<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, unstructuredaddress: Param0) -> ::windows::runtime::Result<ContactLocationField> {
         let this = &::windows::runtime::Interface::cast::<IContactLocationFieldFactory>(self)?;
         unsafe {
@@ -2407,6 +2597,7 @@ impl ContactFieldFactory {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), unstructuredaddress.into_param().abi(), &mut result__).from_abi::<ContactLocationField>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn CreateLocation_Category<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, unstructuredaddress: Param0, category: ContactFieldCategory) -> ::windows::runtime::Result<ContactLocationField> {
         let this = &::windows::runtime::Interface::cast::<IContactLocationFieldFactory>(self)?;
         unsafe {
@@ -2414,6 +2605,7 @@ impl ContactFieldFactory {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), unstructuredaddress.into_param().abi(), category, &mut result__).from_abi::<ContactLocationField>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn CreateLocation_All<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param4: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param5: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param6: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(
         &self,
         unstructuredaddress: Param0,
@@ -2547,6 +2739,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IContactLocationFieldFactory> for &Co
 }
 unsafe impl ::std::marker::Send for ContactFieldFactory {}
 unsafe impl ::std::marker::Sync for ContactFieldFactory {}
+#[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ContactFieldType(pub i32);
@@ -2576,6 +2769,7 @@ unsafe impl ::windows::runtime::Abi for ContactFieldType {
 unsafe impl ::windows::runtime::RuntimeType for ContactFieldType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactFieldType;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ContactGroup(::windows::runtime::IInspectable);
@@ -2632,10 +2826,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for ContactGroup {}
 unsafe impl ::std::marker::Sync for ContactGroup {}
+#[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ContactInformation(::windows::runtime::IInspectable);
 impl ContactInformation {
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2644,6 +2840,7 @@ impl ContactInformation {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`, `Storage_Streams`*"]
     pub fn GetThumbnailAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamWithContentType>> {
         let this = self;
         unsafe {
@@ -2652,6 +2849,7 @@ impl ContactInformation {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation_Collections`*"]
     pub fn Emails(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<ContactField>> {
         let this = self;
         unsafe {
@@ -2660,6 +2858,7 @@ impl ContactInformation {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation_Collections`*"]
     pub fn PhoneNumbers(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<ContactField>> {
         let this = self;
         unsafe {
@@ -2668,6 +2867,7 @@ impl ContactInformation {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation_Collections`*"]
     pub fn Locations(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<ContactLocationField>> {
         let this = self;
         unsafe {
@@ -2676,6 +2876,7 @@ impl ContactInformation {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation_Collections`*"]
     pub fn InstantMessages(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<ContactInstantMessageField>> {
         let this = self;
         unsafe {
@@ -2684,6 +2885,7 @@ impl ContactInformation {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation_Collections`*"]
     pub fn CustomFields(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<ContactField>> {
         let this = self;
         unsafe {
@@ -2692,6 +2894,7 @@ impl ContactInformation {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation_Collections`*"]
     pub fn QueryCustomFields<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, customname: Param0) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<ContactField>> {
         let this = self;
         unsafe {
@@ -2750,10 +2953,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
+#[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ContactInstantMessageField(::windows::runtime::IInspectable);
 impl ContactInstantMessageField {
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn UserName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2761,6 +2966,7 @@ impl ContactInstantMessageField {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn Service(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2768,6 +2974,7 @@ impl ContactInstantMessageField {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn DisplayText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2776,6 +2983,7 @@ impl ContactInstantMessageField {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn LaunchUri(&self) -> ::windows::runtime::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
@@ -2783,6 +2991,7 @@ impl ContactInstantMessageField {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn Type(&self) -> ::windows::runtime::Result<ContactFieldType> {
         let this = &::windows::runtime::Interface::cast::<IContactField>(self)?;
         unsafe {
@@ -2790,6 +2999,7 @@ impl ContactInstantMessageField {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ContactFieldType>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn Category(&self) -> ::windows::runtime::Result<ContactFieldCategory> {
         let this = &::windows::runtime::Interface::cast::<IContactField>(self)?;
         unsafe {
@@ -2797,6 +3007,7 @@ impl ContactInstantMessageField {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ContactFieldCategory>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IContactField>(self)?;
         unsafe {
@@ -2804,6 +3015,7 @@ impl ContactInstantMessageField {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn Value(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IContactField>(self)?;
         unsafe {
@@ -2811,12 +3023,14 @@ impl ContactInstantMessageField {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn CreateInstantMessage_Default<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(username: Param0) -> ::windows::runtime::Result<ContactInstantMessageField> {
         Self::IContactInstantMessageFieldFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), username.into_param().abi(), &mut result__).from_abi::<ContactInstantMessageField>(result__)
         })
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn CreateInstantMessage_Category<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(username: Param0, category: ContactFieldCategory) -> ::windows::runtime::Result<ContactInstantMessageField> {
         Self::IContactInstantMessageFieldFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -2824,6 +3038,7 @@ impl ContactInstantMessageField {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn CreateInstantMessage_All<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>>(username: Param0, category: ContactFieldCategory, service: Param2, displaytext: Param3, verb: Param4) -> ::windows::runtime::Result<ContactInstantMessageField> {
         Self::IContactInstantMessageFieldFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -2909,6 +3124,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IContactField> for &ContactInstantMes
 }
 unsafe impl ::std::marker::Send for ContactInstantMessageField {}
 unsafe impl ::std::marker::Sync for ContactInstantMessageField {}
+#[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ContactJobInfo(::windows::runtime::IInspectable);
@@ -2920,6 +3136,7 @@ impl ContactJobInfo {
         static mut SHARED: ::windows::runtime::FactoryCache<ContactJobInfo, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn CompanyName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2927,10 +3144,12 @@ impl ContactJobInfo {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SetCompanyName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn CompanyYomiName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2938,10 +3157,12 @@ impl ContactJobInfo {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SetCompanyYomiName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn Department(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2949,10 +3170,12 @@ impl ContactJobInfo {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SetDepartment<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn Title(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2960,10 +3183,12 @@ impl ContactJobInfo {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SetTitle<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn Manager(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2971,10 +3196,12 @@ impl ContactJobInfo {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SetManager<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn Office(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2982,10 +3209,12 @@ impl ContactJobInfo {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SetOffice<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn CompanyAddress(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2993,10 +3222,12 @@ impl ContactJobInfo {
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SetCompanyAddress<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn Description(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -3004,6 +3235,7 @@ impl ContactJobInfo {
             (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SetDescription<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -3061,32 +3293,38 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for ContactJobInfo {}
 unsafe impl ::std::marker::Sync for ContactJobInfo {}
+#[doc = "*Required features: `ApplicationModel_Contacts`*"]
 pub struct ContactLaunchActionVerbs {}
 impl ContactLaunchActionVerbs {
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn Call() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IContactLaunchActionVerbsStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn Message() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IContactLaunchActionVerbsStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn Map() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IContactLaunchActionVerbsStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn Post() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IContactLaunchActionVerbsStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn VideoCall() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IContactLaunchActionVerbsStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
@@ -3101,10 +3339,12 @@ impl ContactLaunchActionVerbs {
 impl ::windows::runtime::RuntimeName for ContactLaunchActionVerbs {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactLaunchActionVerbs";
 }
+#[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ContactList(::windows::runtime::IInspectable);
 impl ContactList {
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -3112,6 +3352,7 @@ impl ContactList {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn DisplayName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -3119,10 +3360,12 @@ impl ContactList {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SetDisplayName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SourceDisplayName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -3130,6 +3373,7 @@ impl ContactList {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn IsHidden(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -3137,10 +3381,12 @@ impl ContactList {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SetIsHidden(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn OtherAppReadAccess(&self) -> ::windows::runtime::Result<ContactListOtherAppReadAccess> {
         let this = self;
         unsafe {
@@ -3148,10 +3394,12 @@ impl ContactList {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ContactListOtherAppReadAccess>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SetOtherAppReadAccess(&self, value: ContactListOtherAppReadAccess) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn OtherAppWriteAccess(&self) -> ::windows::runtime::Result<ContactListOtherAppWriteAccess> {
         let this = self;
         unsafe {
@@ -3159,10 +3407,12 @@ impl ContactList {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ContactListOtherAppWriteAccess>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SetOtherAppWriteAccess(&self, value: ContactListOtherAppWriteAccess) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn ChangeTracker(&self) -> ::windows::runtime::Result<ContactChangeTracker> {
         let this = self;
         unsafe {
@@ -3170,6 +3420,7 @@ impl ContactList {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ContactChangeTracker>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SyncManager(&self) -> ::windows::runtime::Result<ContactListSyncManager> {
         let this = self;
         unsafe {
@@ -3177,6 +3428,7 @@ impl ContactList {
             (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ContactListSyncManager>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SupportsServerSearch(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -3184,6 +3436,7 @@ impl ContactList {
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn UserDataAccountId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -3192,6 +3445,7 @@ impl ContactList {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn ContactChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<ContactList, ContactChangedEventArgs>>>(&self, value: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -3200,11 +3454,13 @@ impl ContactList {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn RemoveContactChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn SaveAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -3213,6 +3469,7 @@ impl ContactList {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn DeleteAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -3221,6 +3478,7 @@ impl ContactList {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn GetContactFromRemoteIdAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, remoteid: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<Contact>> {
         let this = self;
         unsafe {
@@ -3229,6 +3487,7 @@ impl ContactList {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn GetMeContactAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<Contact>> {
         let this = self;
         unsafe {
@@ -3236,6 +3495,7 @@ impl ContactList {
             (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<Contact>>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn GetContactReader(&self) -> ::windows::runtime::Result<ContactReader> {
         let this = self;
         unsafe {
@@ -3243,6 +3503,7 @@ impl ContactList {
             (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ContactReader>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn GetContactReaderWithOptions<'a, Param0: ::windows::runtime::IntoParam<'a, ContactQueryOptions>>(&self, options: Param0) -> ::windows::runtime::Result<ContactReader> {
         let this = self;
         unsafe {
@@ -3251,6 +3512,7 @@ impl ContactList {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn SaveContactAsync<'a, Param0: ::windows::runtime::IntoParam<'a, Contact>>(&self, contact: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -3259,6 +3521,7 @@ impl ContactList {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn DeleteContactAsync<'a, Param0: ::windows::runtime::IntoParam<'a, Contact>>(&self, contact: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -3267,6 +3530,7 @@ impl ContactList {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn GetContactAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, contactid: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<Contact>> {
         let this = self;
         unsafe {
@@ -3275,6 +3539,7 @@ impl ContactList {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn RegisterSyncManagerAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows::runtime::Interface::cast::<IContactList2>(self)?;
         unsafe {
@@ -3282,10 +3547,12 @@ impl ContactList {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SetSupportsServerSearch(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IContactList2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SyncConstraints(&self) -> ::windows::runtime::Result<ContactListSyncConstraints> {
         let this = &::windows::runtime::Interface::cast::<IContactList2>(self)?;
         unsafe {
@@ -3293,6 +3560,7 @@ impl ContactList {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ContactListSyncConstraints>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn LimitedWriteOperations(&self) -> ::windows::runtime::Result<ContactListLimitedWriteOperations> {
         let this = &::windows::runtime::Interface::cast::<IContactList3>(self)?;
         unsafe {
@@ -3300,6 +3568,7 @@ impl ContactList {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ContactListLimitedWriteOperations>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn GetChangeTracker<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, identity: Param0) -> ::windows::runtime::Result<ContactChangeTracker> {
         let this = &::windows::runtime::Interface::cast::<IContactList3>(self)?;
         unsafe {
@@ -3360,11 +3629,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for ContactList {}
 unsafe impl ::std::marker::Sync for ContactList {}
+#[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ContactListLimitedWriteOperations(::windows::runtime::IInspectable);
 impl ContactListLimitedWriteOperations {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn TryCreateOrUpdateContactAsync<'a, Param0: ::windows::runtime::IntoParam<'a, Contact>>(&self, contact: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
@@ -3373,6 +3644,7 @@ impl ContactListLimitedWriteOperations {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn TryDeleteContactAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, contactid: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
@@ -3433,6 +3705,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for ContactListLimitedWriteOperations {}
 unsafe impl ::std::marker::Sync for ContactListLimitedWriteOperations {}
+#[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ContactListOtherAppReadAccess(pub i32);
@@ -3454,6 +3727,7 @@ unsafe impl ::windows::runtime::Abi for ContactListOtherAppReadAccess {
 unsafe impl ::windows::runtime::RuntimeType for ContactListOtherAppReadAccess {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactListOtherAppReadAccess;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ContactListOtherAppWriteAccess(pub i32);
@@ -3474,10 +3748,12 @@ unsafe impl ::windows::runtime::Abi for ContactListOtherAppWriteAccess {
 unsafe impl ::windows::runtime::RuntimeType for ContactListOtherAppWriteAccess {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactListOtherAppWriteAccess;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ContactListSyncConstraints(::windows::runtime::IInspectable);
 impl ContactListSyncConstraints {
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn CanSyncDescriptions(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -3485,11 +3761,13 @@ impl ContactListSyncConstraints {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SetCanSyncDescriptions(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn MaxHomePhoneNumbers(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
@@ -3498,11 +3776,13 @@ impl ContactListSyncConstraints {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn SetMaxHomePhoneNumbers<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<i32>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn MaxMobilePhoneNumbers(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
@@ -3511,11 +3791,13 @@ impl ContactListSyncConstraints {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn SetMaxMobilePhoneNumbers<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<i32>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn MaxWorkPhoneNumbers(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
@@ -3524,11 +3806,13 @@ impl ContactListSyncConstraints {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn SetMaxWorkPhoneNumbers<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<i32>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn MaxOtherPhoneNumbers(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
@@ -3537,11 +3821,13 @@ impl ContactListSyncConstraints {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn SetMaxOtherPhoneNumbers<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<i32>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn MaxPagerPhoneNumbers(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
@@ -3550,11 +3836,13 @@ impl ContactListSyncConstraints {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn SetMaxPagerPhoneNumbers<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<i32>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn MaxBusinessFaxPhoneNumbers(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
@@ -3563,11 +3851,13 @@ impl ContactListSyncConstraints {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn SetMaxBusinessFaxPhoneNumbers<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<i32>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn MaxHomeFaxPhoneNumbers(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
@@ -3576,11 +3866,13 @@ impl ContactListSyncConstraints {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn SetMaxHomeFaxPhoneNumbers<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<i32>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn MaxCompanyPhoneNumbers(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
@@ -3589,11 +3881,13 @@ impl ContactListSyncConstraints {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn SetMaxCompanyPhoneNumbers<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<i32>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn MaxAssistantPhoneNumbers(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
@@ -3602,11 +3896,13 @@ impl ContactListSyncConstraints {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn SetMaxAssistantPhoneNumbers<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<i32>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn MaxRadioPhoneNumbers(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
@@ -3615,11 +3911,13 @@ impl ContactListSyncConstraints {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn SetMaxRadioPhoneNumbers<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<i32>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn MaxPersonalEmailAddresses(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
@@ -3628,11 +3926,13 @@ impl ContactListSyncConstraints {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn SetMaxPersonalEmailAddresses<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<i32>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).29)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn MaxWorkEmailAddresses(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
@@ -3641,11 +3941,13 @@ impl ContactListSyncConstraints {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn SetMaxWorkEmailAddresses<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<i32>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).31)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn MaxOtherEmailAddresses(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
@@ -3654,11 +3956,13 @@ impl ContactListSyncConstraints {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn SetMaxOtherEmailAddresses<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<i32>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).33)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn MaxHomeAddresses(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
@@ -3667,11 +3971,13 @@ impl ContactListSyncConstraints {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn SetMaxHomeAddresses<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<i32>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).35)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn MaxWorkAddresses(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
@@ -3680,11 +3986,13 @@ impl ContactListSyncConstraints {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn SetMaxWorkAddresses<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<i32>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).37)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn MaxOtherAddresses(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
@@ -3693,11 +4001,13 @@ impl ContactListSyncConstraints {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn SetMaxOtherAddresses<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<i32>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).39)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn MaxBirthdayDates(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
@@ -3706,11 +4016,13 @@ impl ContactListSyncConstraints {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn SetMaxBirthdayDates<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<i32>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).41)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn MaxAnniversaryDates(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
@@ -3719,11 +4031,13 @@ impl ContactListSyncConstraints {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn SetMaxAnniversaryDates<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<i32>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).43)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn MaxOtherDates(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
@@ -3732,11 +4046,13 @@ impl ContactListSyncConstraints {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn SetMaxOtherDates<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<i32>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).45)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn MaxOtherRelationships(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
@@ -3745,11 +4061,13 @@ impl ContactListSyncConstraints {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn SetMaxOtherRelationships<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<i32>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).47)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn MaxSpouseRelationships(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
@@ -3758,11 +4076,13 @@ impl ContactListSyncConstraints {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn SetMaxSpouseRelationships<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<i32>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).49)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn MaxPartnerRelationships(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
@@ -3771,11 +4091,13 @@ impl ContactListSyncConstraints {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn SetMaxPartnerRelationships<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<i32>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).51)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn MaxSiblingRelationships(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
@@ -3784,11 +4106,13 @@ impl ContactListSyncConstraints {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn SetMaxSiblingRelationships<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<i32>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).53)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn MaxParentRelationships(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
@@ -3797,11 +4121,13 @@ impl ContactListSyncConstraints {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn SetMaxParentRelationships<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<i32>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).55)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn MaxChildRelationships(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
@@ -3810,11 +4136,13 @@ impl ContactListSyncConstraints {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn SetMaxChildRelationships<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<i32>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).57)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn MaxJobInfo(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
@@ -3823,11 +4151,13 @@ impl ContactListSyncConstraints {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn SetMaxJobInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<i32>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).59)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn MaxWebsites(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
@@ -3836,6 +4166,7 @@ impl ContactListSyncConstraints {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn SetMaxWebsites<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<i32>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).61)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -3893,10 +4224,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for ContactListSyncConstraints {}
 unsafe impl ::std::marker::Sync for ContactListSyncConstraints {}
+#[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ContactListSyncManager(::windows::runtime::IInspectable);
 impl ContactListSyncManager {
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<ContactListSyncStatus> {
         let this = self;
         unsafe {
@@ -3905,6 +4238,7 @@ impl ContactListSyncManager {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn LastSuccessfulSyncTime(&self) -> ::windows::runtime::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -3913,6 +4247,7 @@ impl ContactListSyncManager {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn LastAttemptedSyncTime(&self) -> ::windows::runtime::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -3921,6 +4256,7 @@ impl ContactListSyncManager {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn SyncAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
@@ -3929,6 +4265,7 @@ impl ContactListSyncManager {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn SyncStatusChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<ContactListSyncManager, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -3937,20 +4274,24 @@ impl ContactListSyncManager {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn RemoveSyncStatusChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SetStatus(&self, value: ContactListSyncStatus) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IContactListSyncManager2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn SetLastSuccessfulSyncTime<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::DateTime>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IContactListSyncManager2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn SetLastAttemptedSyncTime<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::DateTime>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IContactListSyncManager2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -4008,6 +4349,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for ContactListSyncManager {}
 unsafe impl ::std::marker::Sync for ContactListSyncManager {}
+#[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ContactListSyncStatus(pub i32);
@@ -4032,10 +4374,12 @@ unsafe impl ::windows::runtime::Abi for ContactListSyncStatus {
 unsafe impl ::windows::runtime::RuntimeType for ContactListSyncStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactListSyncStatus;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ContactLocationField(::windows::runtime::IInspectable);
 impl ContactLocationField {
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn UnstructuredAddress(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -4043,6 +4387,7 @@ impl ContactLocationField {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn Street(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -4050,6 +4395,7 @@ impl ContactLocationField {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn City(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -4057,6 +4403,7 @@ impl ContactLocationField {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn Region(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -4064,6 +4411,7 @@ impl ContactLocationField {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn Country(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -4071,6 +4419,7 @@ impl ContactLocationField {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn PostalCode(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -4078,6 +4427,7 @@ impl ContactLocationField {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn Type(&self) -> ::windows::runtime::Result<ContactFieldType> {
         let this = &::windows::runtime::Interface::cast::<IContactField>(self)?;
         unsafe {
@@ -4085,6 +4435,7 @@ impl ContactLocationField {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ContactFieldType>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn Category(&self) -> ::windows::runtime::Result<ContactFieldCategory> {
         let this = &::windows::runtime::Interface::cast::<IContactField>(self)?;
         unsafe {
@@ -4092,6 +4443,7 @@ impl ContactLocationField {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ContactFieldCategory>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IContactField>(self)?;
         unsafe {
@@ -4099,6 +4451,7 @@ impl ContactLocationField {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn Value(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IContactField>(self)?;
         unsafe {
@@ -4106,18 +4459,21 @@ impl ContactLocationField {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn CreateLocation_Default<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(unstructuredaddress: Param0) -> ::windows::runtime::Result<ContactLocationField> {
         Self::IContactLocationFieldFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), unstructuredaddress.into_param().abi(), &mut result__).from_abi::<ContactLocationField>(result__)
         })
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn CreateLocation_Category<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(unstructuredaddress: Param0, category: ContactFieldCategory) -> ::windows::runtime::Result<ContactLocationField> {
         Self::IContactLocationFieldFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), unstructuredaddress.into_param().abi(), category, &mut result__).from_abi::<ContactLocationField>(result__)
         })
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn CreateLocation_All<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param4: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param5: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param6: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(
         unstructuredaddress: Param0,
         category: ContactFieldCategory,
@@ -4211,17 +4567,21 @@ impl<'a> ::windows::runtime::IntoParam<'a, IContactField> for &ContactLocationFi
 }
 unsafe impl ::std::marker::Send for ContactLocationField {}
 unsafe impl ::std::marker::Sync for ContactLocationField {}
+#[doc = "*Required features: `ApplicationModel_Contacts`*"]
 pub struct ContactManager {}
 impl ContactManager {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn ShowContactCard<'a, Param0: ::windows::runtime::IntoParam<'a, Contact>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::Rect>>(contact: Param0, selection: Param1) -> ::windows::runtime::Result<()> {
         Self::IContactManagerStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), contact.into_param().abi(), selection.into_param().abi()).ok() })
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Popups"))]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`, `UI_Popups`*"]
     pub fn ShowContactCardWithPlacement<'a, Param0: ::windows::runtime::IntoParam<'a, Contact>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::Rect>>(contact: Param0, selection: Param1, preferredplacement: super::super::UI::Popups::Placement) -> ::windows::runtime::Result<()> {
         Self::IContactManagerStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), contact.into_param().abi(), selection.into_param().abi(), preferredplacement).ok() })
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Popups"))]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`, `UI_Popups`*"]
     pub fn ShowDelayLoadedContactCard<'a, Param0: ::windows::runtime::IntoParam<'a, Contact>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::Rect>>(contact: Param0, selection: Param1, preferredplacement: super::super::UI::Popups::Placement) -> ::windows::runtime::Result<ContactCardDelayedDataLoader> {
         Self::IContactManagerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -4229,6 +4589,7 @@ impl ContactManager {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn RequestStoreAsync() -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<ContactStore>> {
         Self::IContactManagerStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -4236,6 +4597,7 @@ impl ContactManager {
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`, `Storage_Streams`*"]
     pub fn ConvertContactToVCardAsync<'a, Param0: ::windows::runtime::IntoParam<'a, Contact>>(contact: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::RandomAccessStreamReference>> {
         Self::IContactManagerStatics3(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -4243,6 +4605,7 @@ impl ContactManager {
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`, `Storage_Streams`*"]
     pub fn ConvertContactToVCardAsyncWithMaxBytes<'a, Param0: ::windows::runtime::IntoParam<'a, Contact>>(contact: Param0, maxbytes: u32) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::RandomAccessStreamReference>> {
         Self::IContactManagerStatics3(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -4250,6 +4613,7 @@ impl ContactManager {
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`, `Storage_Streams`*"]
     pub fn ConvertVCardToContactAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference>>(vcard: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<Contact>> {
         Self::IContactManagerStatics3(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -4257,6 +4621,7 @@ impl ContactManager {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn RequestStoreAsyncWithAccessType(accesstype: ContactStoreAccessType) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<ContactStore>> {
         Self::IContactManagerStatics3(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -4264,12 +4629,14 @@ impl ContactManager {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn RequestAnnotationStoreAsync(accesstype: ContactAnnotationStoreAccessType) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<ContactAnnotationStore>> {
         Self::IContactManagerStatics3(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), accesstype, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ContactAnnotationStore>>(result__)
         })
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn IsShowContactCardSupported() -> ::windows::runtime::Result<bool> {
         Self::IContactManagerStatics3(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
@@ -4277,9 +4644,11 @@ impl ContactManager {
         })
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Popups"))]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`, `UI_Popups`*"]
     pub fn ShowContactCardWithOptions<'a, Param0: ::windows::runtime::IntoParam<'a, Contact>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::Rect>, Param3: ::windows::runtime::IntoParam<'a, ContactCardOptions>>(contact: Param0, selection: Param1, preferredplacement: super::super::UI::Popups::Placement, contactcardoptions: Param3) -> ::windows::runtime::Result<()> {
         Self::IContactManagerStatics3(|this| unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), contact.into_param().abi(), selection.into_param().abi(), preferredplacement, contactcardoptions.into_param().abi()).ok() })
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn IsShowDelayLoadedContactCardSupported() -> ::windows::runtime::Result<bool> {
         Self::IContactManagerStatics3(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
@@ -4287,34 +4656,41 @@ impl ContactManager {
         })
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Popups"))]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`, `UI_Popups`*"]
     pub fn ShowDelayLoadedContactCardWithOptions<'a, Param0: ::windows::runtime::IntoParam<'a, Contact>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::Rect>, Param3: ::windows::runtime::IntoParam<'a, ContactCardOptions>>(contact: Param0, selection: Param1, preferredplacement: super::super::UI::Popups::Placement, contactcardoptions: Param3) -> ::windows::runtime::Result<ContactCardDelayedDataLoader> {
         Self::IContactManagerStatics3(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), contact.into_param().abi(), selection.into_param().abi(), preferredplacement, contactcardoptions.into_param().abi(), &mut result__).from_abi::<ContactCardDelayedDataLoader>(result__)
         })
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn ShowFullContactCard<'a, Param0: ::windows::runtime::IntoParam<'a, Contact>, Param1: ::windows::runtime::IntoParam<'a, FullContactCardOptions>>(contact: Param0, fullcontactcardoptions: Param1) -> ::windows::runtime::Result<()> {
         Self::IContactManagerStatics3(|this| unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), contact.into_param().abi(), fullcontactcardoptions.into_param().abi()).ok() })
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SystemDisplayNameOrder() -> ::windows::runtime::Result<ContactNameOrder> {
         Self::IContactManagerStatics3(|this| unsafe {
             let mut result__: ContactNameOrder = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ContactNameOrder>(result__)
         })
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SetSystemDisplayNameOrder(value: ContactNameOrder) -> ::windows::runtime::Result<()> {
         Self::IContactManagerStatics3(|this| unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), value).ok() })
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SystemSortOrder() -> ::windows::runtime::Result<ContactNameOrder> {
         Self::IContactManagerStatics3(|this| unsafe {
             let mut result__: ContactNameOrder = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ContactNameOrder>(result__)
         })
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SetSystemSortOrder(value: ContactNameOrder) -> ::windows::runtime::Result<()> {
         Self::IContactManagerStatics3(|this| unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), value).ok() })
     }
     #[cfg(feature = "System")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `System`*"]
     pub fn GetForUser<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::User>>(user: Param0) -> ::windows::runtime::Result<ContactManagerForUser> {
         Self::IContactManagerStatics4(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -4322,18 +4698,21 @@ impl ContactManager {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn IsShowFullContactCardSupportedAsync() -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::IContactManagerStatics5(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         })
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn IncludeMiddleNameInSystemDisplayAndSort() -> ::windows::runtime::Result<bool> {
         Self::IContactManagerStatics5(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SetIncludeMiddleNameInSystemDisplayAndSort(value: bool) -> ::windows::runtime::Result<()> {
         Self::IContactManagerStatics5(|this| unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value).ok() })
     }
@@ -4361,11 +4740,13 @@ impl ContactManager {
 impl ::windows::runtime::RuntimeName for ContactManager {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactManager";
 }
+#[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ContactManagerForUser(::windows::runtime::IInspectable);
 impl ContactManagerForUser {
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`, `Storage_Streams`*"]
     pub fn ConvertContactToVCardAsync<'a, Param0: ::windows::runtime::IntoParam<'a, Contact>>(&self, contact: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::RandomAccessStreamReference>> {
         let this = self;
         unsafe {
@@ -4374,6 +4755,7 @@ impl ContactManagerForUser {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`, `Storage_Streams`*"]
     pub fn ConvertContactToVCardAsyncWithMaxBytes<'a, Param0: ::windows::runtime::IntoParam<'a, Contact>>(&self, contact: Param0, maxbytes: u32) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::RandomAccessStreamReference>> {
         let this = self;
         unsafe {
@@ -4382,6 +4764,7 @@ impl ContactManagerForUser {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`, `Storage_Streams`*"]
     pub fn ConvertVCardToContactAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference>>(&self, vcard: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<Contact>> {
         let this = self;
         unsafe {
@@ -4390,6 +4773,7 @@ impl ContactManagerForUser {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn RequestStoreAsync(&self, accesstype: ContactStoreAccessType) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<ContactStore>> {
         let this = self;
         unsafe {
@@ -4398,6 +4782,7 @@ impl ContactManagerForUser {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn RequestAnnotationStoreAsync(&self, accesstype: ContactAnnotationStoreAccessType) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<ContactAnnotationStore>> {
         let this = self;
         unsafe {
@@ -4405,6 +4790,7 @@ impl ContactManagerForUser {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), accesstype, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ContactAnnotationStore>>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SystemDisplayNameOrder(&self) -> ::windows::runtime::Result<ContactNameOrder> {
         let this = self;
         unsafe {
@@ -4412,10 +4798,12 @@ impl ContactManagerForUser {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ContactNameOrder>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SetSystemDisplayNameOrder(&self, value: ContactNameOrder) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SystemSortOrder(&self) -> ::windows::runtime::Result<ContactNameOrder> {
         let this = self;
         unsafe {
@@ -4423,11 +4811,13 @@ impl ContactManagerForUser {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ContactNameOrder>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SetSystemSortOrder(&self, value: ContactNameOrder) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "System")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `System`*"]
     pub fn User(&self) -> ::windows::runtime::Result<super::super::System::User> {
         let this = self;
         unsafe {
@@ -4435,6 +4825,7 @@ impl ContactManagerForUser {
             (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn ShowFullContactCard<'a, Param0: ::windows::runtime::IntoParam<'a, Contact>, Param1: ::windows::runtime::IntoParam<'a, FullContactCardOptions>>(&self, contact: Param0, fullcontactcardoptions: Param1) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IContactManagerForUser2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), contact.into_param().abi(), fullcontactcardoptions.into_param().abi()).ok() }
@@ -4492,10 +4883,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for ContactManagerForUser {}
 unsafe impl ::std::marker::Sync for ContactManagerForUser {}
+#[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ContactMatchReason(::windows::runtime::IInspectable);
 impl ContactMatchReason {
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn Field(&self) -> ::windows::runtime::Result<ContactMatchReasonKind> {
         let this = self;
         unsafe {
@@ -4504,6 +4897,7 @@ impl ContactMatchReason {
         }
     }
     #[cfg(all(feature = "Data_Text", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Data_Text`, `Foundation_Collections`*"]
     pub fn Segments(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<super::super::Data::Text::TextSegment>> {
         let this = self;
         unsafe {
@@ -4511,6 +4905,7 @@ impl ContactMatchReason {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Data::Text::TextSegment>>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn Text(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -4571,6 +4966,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for ContactMatchReason {}
 unsafe impl ::std::marker::Sync for ContactMatchReason {}
+#[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ContactMatchReasonKind(pub i32);
@@ -4594,6 +4990,7 @@ unsafe impl ::windows::runtime::Abi for ContactMatchReasonKind {
 unsafe impl ::windows::runtime::RuntimeType for ContactMatchReasonKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactMatchReasonKind;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ContactNameOrder(pub i32);
@@ -4613,15 +5010,18 @@ unsafe impl ::windows::runtime::Abi for ContactNameOrder {
 unsafe impl ::windows::runtime::RuntimeType for ContactNameOrder {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactNameOrder;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ContactPanel(::windows::runtime::IInspectable);
 impl ContactPanel {
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn ClosePanel(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "UI"))]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`, `UI`*"]
     pub fn HeaderColor(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<super::super::UI::Color>> {
         let this = self;
         unsafe {
@@ -4630,11 +5030,13 @@ impl ContactPanel {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "UI"))]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`, `UI`*"]
     pub fn SetHeaderColor<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<super::super::UI::Color>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn LaunchFullAppRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<ContactPanel, ContactPanelLaunchFullAppRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -4643,11 +5045,13 @@ impl ContactPanel {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn RemoveLaunchFullAppRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn Closing<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<ContactPanel, ContactPanelClosingEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -4656,6 +5060,7 @@ impl ContactPanel {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn RemoveClosing<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
@@ -4713,11 +5118,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for ContactPanel {}
 unsafe impl ::std::marker::Sync for ContactPanel {}
+#[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ContactPanelClosingEventArgs(::windows::runtime::IInspectable);
 impl ContactPanelClosingEventArgs {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
@@ -4778,10 +5185,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for ContactPanelClosingEventArgs {}
 unsafe impl ::std::marker::Sync for ContactPanelClosingEventArgs {}
+#[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ContactPanelLaunchFullAppRequestedEventArgs(::windows::runtime::IInspectable);
 impl ContactPanelLaunchFullAppRequestedEventArgs {
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn Handled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -4789,6 +5198,7 @@ impl ContactPanelLaunchFullAppRequestedEventArgs {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SetHandled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
@@ -4846,6 +5256,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for ContactPanelLaunchFullAppRequestedEventArgs {}
 unsafe impl ::std::marker::Sync for ContactPanelLaunchFullAppRequestedEventArgs {}
+#[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ContactPhone(::windows::runtime::IInspectable);
@@ -4857,6 +5268,7 @@ impl ContactPhone {
         static mut SHARED: ::windows::runtime::FactoryCache<ContactPhone, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn Number(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -4864,10 +5276,12 @@ impl ContactPhone {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SetNumber<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn Kind(&self) -> ::windows::runtime::Result<ContactPhoneKind> {
         let this = self;
         unsafe {
@@ -4875,10 +5289,12 @@ impl ContactPhone {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ContactPhoneKind>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SetKind(&self, value: ContactPhoneKind) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn Description(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -4886,6 +5302,7 @@ impl ContactPhone {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SetDescription<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -4943,6 +5360,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for ContactPhone {}
 unsafe impl ::std::marker::Sync for ContactPhone {}
+#[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ContactPhoneKind(pub i32);
@@ -4970,6 +5388,7 @@ unsafe impl ::windows::runtime::Abi for ContactPhoneKind {
 unsafe impl ::windows::runtime::RuntimeType for ContactPhoneKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactPhoneKind;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ContactPicker(::windows::runtime::IInspectable);
@@ -4981,6 +5400,7 @@ impl ContactPicker {
         static mut SHARED: ::windows::runtime::FactoryCache<ContactPicker, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn CommitButtonText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -4988,10 +5408,12 @@ impl ContactPicker {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SetCommitButtonText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SelectionMode(&self) -> ::windows::runtime::Result<ContactSelectionMode> {
         let this = self;
         unsafe {
@@ -4999,11 +5421,13 @@ impl ContactPicker {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ContactSelectionMode>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SetSelectionMode(&self, value: ContactSelectionMode) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation_Collections`*"]
     pub fn DesiredFields(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -5012,6 +5436,7 @@ impl ContactPicker {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn PickSingleContactAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<ContactInformation>> {
         let this = self;
         unsafe {
@@ -5020,6 +5445,7 @@ impl ContactPicker {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`, `Foundation_Collections`*"]
     pub fn PickMultipleContactsAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactInformation>>> {
         let this = self;
         unsafe {
@@ -5028,6 +5454,7 @@ impl ContactPicker {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation_Collections`*"]
     pub fn DesiredFieldsWithContactFieldType(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<ContactFieldType>> {
         let this = &::windows::runtime::Interface::cast::<IContactPicker2>(self)?;
         unsafe {
@@ -5036,6 +5463,7 @@ impl ContactPicker {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn PickContactAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<Contact>> {
         let this = &::windows::runtime::Interface::cast::<IContactPicker2>(self)?;
         unsafe {
@@ -5044,6 +5472,7 @@ impl ContactPicker {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`, `Foundation_Collections`*"]
     pub fn PickContactsAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<Contact>>> {
         let this = &::windows::runtime::Interface::cast::<IContactPicker2>(self)?;
         unsafe {
@@ -5052,6 +5481,7 @@ impl ContactPicker {
         }
     }
     #[cfg(feature = "System")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `System`*"]
     pub fn User(&self) -> ::windows::runtime::Result<super::super::System::User> {
         let this = &::windows::runtime::Interface::cast::<IContactPicker3>(self)?;
         unsafe {
@@ -5060,6 +5490,7 @@ impl ContactPicker {
         }
     }
     #[cfg(feature = "System")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `System`*"]
     pub fn CreateForUser<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::User>>(user: Param0) -> ::windows::runtime::Result<ContactPicker> {
         Self::IContactPickerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -5067,6 +5498,7 @@ impl ContactPicker {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn IsSupportedAsync() -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::IContactPickerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -5128,6 +5560,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
+#[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ContactQueryDesiredFields(pub u32);
@@ -5177,6 +5610,7 @@ impl ::std::ops::Not for ContactQueryDesiredFields {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ContactQueryOptions(::windows::runtime::IInspectable);
@@ -5188,6 +5622,7 @@ impl ContactQueryOptions {
         static mut SHARED: ::windows::runtime::FactoryCache<ContactQueryOptions, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn TextSearch(&self) -> ::windows::runtime::Result<ContactQueryTextSearch> {
         let this = self;
         unsafe {
@@ -5196,6 +5631,7 @@ impl ContactQueryOptions {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation_Collections`*"]
     pub fn ContactListIds(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -5203,6 +5639,7 @@ impl ContactQueryOptions {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn IncludeContactsFromHiddenLists(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -5210,10 +5647,12 @@ impl ContactQueryOptions {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SetIncludeContactsFromHiddenLists(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn DesiredFields(&self) -> ::windows::runtime::Result<ContactQueryDesiredFields> {
         let this = self;
         unsafe {
@@ -5221,10 +5660,12 @@ impl ContactQueryOptions {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ContactQueryDesiredFields>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SetDesiredFields(&self, value: ContactQueryDesiredFields) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn DesiredOperations(&self) -> ::windows::runtime::Result<ContactAnnotationOperations> {
         let this = self;
         unsafe {
@@ -5232,11 +5673,13 @@ impl ContactQueryOptions {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ContactAnnotationOperations>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SetDesiredOperations(&self, value: ContactAnnotationOperations) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation_Collections`*"]
     pub fn AnnotationListIds(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -5244,12 +5687,14 @@ impl ContactQueryOptions {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn CreateWithText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(text: Param0) -> ::windows::runtime::Result<ContactQueryOptions> {
         Self::IContactQueryOptionsFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), text.into_param().abi(), &mut result__).from_abi::<ContactQueryOptions>(result__)
         })
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn CreateWithTextAndFields<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(text: Param0, fields: ContactQuerySearchFields) -> ::windows::runtime::Result<ContactQueryOptions> {
         Self::IContactQueryOptionsFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -5313,6 +5758,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for ContactQueryOptions {}
 unsafe impl ::std::marker::Sync for ContactQueryOptions {}
+#[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ContactQuerySearchFields(pub u32);
@@ -5363,6 +5809,7 @@ impl ::std::ops::Not for ContactQuerySearchFields {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ContactQuerySearchScope(pub i32);
@@ -5382,10 +5829,12 @@ unsafe impl ::windows::runtime::Abi for ContactQuerySearchScope {
 unsafe impl ::windows::runtime::RuntimeType for ContactQuerySearchScope {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactQuerySearchScope;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ContactQueryTextSearch(::windows::runtime::IInspectable);
 impl ContactQueryTextSearch {
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn Fields(&self) -> ::windows::runtime::Result<ContactQuerySearchFields> {
         let this = self;
         unsafe {
@@ -5393,10 +5842,12 @@ impl ContactQueryTextSearch {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ContactQuerySearchFields>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SetFields(&self, value: ContactQuerySearchFields) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn Text(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -5404,10 +5855,12 @@ impl ContactQueryTextSearch {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SetText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SearchScope(&self) -> ::windows::runtime::Result<ContactQuerySearchScope> {
         let this = self;
         unsafe {
@@ -5415,6 +5868,7 @@ impl ContactQueryTextSearch {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ContactQuerySearchScope>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SetSearchScope(&self, value: ContactQuerySearchScope) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
@@ -5472,11 +5926,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for ContactQueryTextSearch {}
 unsafe impl ::std::marker::Sync for ContactQueryTextSearch {}
+#[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ContactReader(::windows::runtime::IInspectable);
 impl ContactReader {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn ReadBatchAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<ContactBatch>> {
         let this = self;
         unsafe {
@@ -5485,6 +5941,7 @@ impl ContactReader {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation_Collections`*"]
     pub fn GetMatchingPropertiesWithMatchReason<'a, Param0: ::windows::runtime::IntoParam<'a, Contact>>(&self, contact: Param0) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<ContactMatchReason>> {
         let this = self;
         unsafe {
@@ -5545,6 +6002,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for ContactReader {}
 unsafe impl ::std::marker::Sync for ContactReader {}
+#[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ContactRelationship(pub i32);
@@ -5568,6 +6026,7 @@ unsafe impl ::windows::runtime::Abi for ContactRelationship {
 unsafe impl ::windows::runtime::RuntimeType for ContactRelationship {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactRelationship;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ContactSelectionMode(pub i32);
@@ -5587,6 +6046,7 @@ unsafe impl ::windows::runtime::Abi for ContactSelectionMode {
 unsafe impl ::windows::runtime::RuntimeType for ContactSelectionMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactSelectionMode;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ContactSignificantOther(::windows::runtime::IInspectable);
@@ -5598,6 +6058,7 @@ impl ContactSignificantOther {
         static mut SHARED: ::windows::runtime::FactoryCache<ContactSignificantOther, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -5605,10 +6066,12 @@ impl ContactSignificantOther {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn Description(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -5616,10 +6079,12 @@ impl ContactSignificantOther {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SetDescription<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn Relationship(&self) -> ::windows::runtime::Result<ContactRelationship> {
         let this = &::windows::runtime::Interface::cast::<IContactSignificantOther2>(self)?;
         unsafe {
@@ -5627,6 +6092,7 @@ impl ContactSignificantOther {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ContactRelationship>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SetRelationship(&self, value: ContactRelationship) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IContactSignificantOther2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
@@ -5684,11 +6150,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for ContactSignificantOther {}
 unsafe impl ::std::marker::Sync for ContactSignificantOther {}
+#[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ContactStore(::windows::runtime::IInspectable);
 impl ContactStore {
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`, `Foundation_Collections`*"]
     pub fn FindContactsAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Contact>>> {
         let this = self;
         unsafe {
@@ -5697,6 +6165,7 @@ impl ContactStore {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`, `Foundation_Collections`*"]
     pub fn FindContactsWithSearchTextAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, searchtext: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Contact>>> {
         let this = self;
         unsafe {
@@ -5705,6 +6174,7 @@ impl ContactStore {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn GetContactAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, contactid: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<Contact>> {
         let this = self;
         unsafe {
@@ -5712,6 +6182,7 @@ impl ContactStore {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), contactid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<Contact>>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn ChangeTracker(&self) -> ::windows::runtime::Result<ContactChangeTracker> {
         let this = &::windows::runtime::Interface::cast::<IContactStore2>(self)?;
         unsafe {
@@ -5720,6 +6191,7 @@ impl ContactStore {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn ContactChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<ContactStore, ContactChangedEventArgs>>>(&self, value: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<IContactStore2>(self)?;
         unsafe {
@@ -5728,10 +6200,12 @@ impl ContactStore {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn RemoveContactChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IContactStore2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn AggregateContactManager(&self) -> ::windows::runtime::Result<AggregateContactManager> {
         let this = &::windows::runtime::Interface::cast::<IContactStore2>(self)?;
         unsafe {
@@ -5740,6 +6214,7 @@ impl ContactStore {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`, `Foundation_Collections`*"]
     pub fn FindContactListsAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactList>>> {
         let this = &::windows::runtime::Interface::cast::<IContactStore2>(self)?;
         unsafe {
@@ -5748,6 +6223,7 @@ impl ContactStore {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn GetContactListAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, contactlistid: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<ContactList>> {
         let this = &::windows::runtime::Interface::cast::<IContactStore2>(self)?;
         unsafe {
@@ -5756,6 +6232,7 @@ impl ContactStore {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn CreateContactListAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, displayname: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<ContactList>> {
         let this = &::windows::runtime::Interface::cast::<IContactStore2>(self)?;
         unsafe {
@@ -5764,6 +6241,7 @@ impl ContactStore {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn GetMeContactAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<Contact>> {
         let this = &::windows::runtime::Interface::cast::<IContactStore2>(self)?;
         unsafe {
@@ -5771,6 +6249,7 @@ impl ContactStore {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<Contact>>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn GetContactReader(&self) -> ::windows::runtime::Result<ContactReader> {
         let this = &::windows::runtime::Interface::cast::<IContactStore2>(self)?;
         unsafe {
@@ -5778,6 +6257,7 @@ impl ContactStore {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ContactReader>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn GetContactReaderWithOptions<'a, Param0: ::windows::runtime::IntoParam<'a, ContactQueryOptions>>(&self, options: Param0) -> ::windows::runtime::Result<ContactReader> {
         let this = &::windows::runtime::Interface::cast::<IContactStore2>(self)?;
         unsafe {
@@ -5786,6 +6266,7 @@ impl ContactStore {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn CreateContactListInAccountAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, displayname: Param0, userdataaccountid: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<ContactList>> {
         let this = &::windows::runtime::Interface::cast::<IContactStore2>(self)?;
         unsafe {
@@ -5793,6 +6274,7 @@ impl ContactStore {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), displayname.into_param().abi(), userdataaccountid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ContactList>>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn GetChangeTracker<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, identity: Param0) -> ::windows::runtime::Result<ContactChangeTracker> {
         let this = &::windows::runtime::Interface::cast::<IContactStore3>(self)?;
         unsafe {
@@ -5853,6 +6335,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for ContactStore {}
 unsafe impl ::std::marker::Sync for ContactStore {}
+#[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ContactStoreAccessType(pub i32);
@@ -5873,6 +6356,7 @@ unsafe impl ::windows::runtime::Abi for ContactStoreAccessType {
 unsafe impl ::windows::runtime::RuntimeType for ContactStoreAccessType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactStoreAccessType;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ContactStoreNotificationTriggerDetails(::windows::runtime::IInspectable);
@@ -5929,6 +6413,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for ContactStoreNotificationTriggerDetails {}
 unsafe impl ::std::marker::Sync for ContactStoreNotificationTriggerDetails {}
+#[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ContactWebsite(::windows::runtime::IInspectable);
@@ -5941,6 +6426,7 @@ impl ContactWebsite {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn Uri(&self) -> ::windows::runtime::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
@@ -5949,10 +6435,12 @@ impl ContactWebsite {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn SetUri<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn Description(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -5960,10 +6448,12 @@ impl ContactWebsite {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SetDescription<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn RawValue(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IContactWebsite2>(self)?;
         unsafe {
@@ -5971,6 +6461,7 @@ impl ContactWebsite {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SetRawValue<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IContactWebsite2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -6028,6 +6519,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for ContactWebsite {}
 unsafe impl ::std::marker::Sync for ContactWebsite {}
+#[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct FullContactCardOptions(::windows::runtime::IInspectable);
@@ -6040,6 +6532,7 @@ impl FullContactCardOptions {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "UI_ViewManagement")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `UI_ViewManagement`*"]
     pub fn DesiredRemainingView(&self) -> ::windows::runtime::Result<super::super::UI::ViewManagement::ViewSizePreference> {
         let this = self;
         unsafe {
@@ -6048,6 +6541,7 @@ impl FullContactCardOptions {
         }
     }
     #[cfg(feature = "UI_ViewManagement")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `UI_ViewManagement`*"]
     pub fn SetDesiredRemainingView(&self, value: super::super::UI::ViewManagement::ViewSizePreference) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
@@ -6718,12 +7212,14 @@ pub struct IContactEmail_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `ApplicationModel_Contacts`*"]
 pub struct IContactField(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactField {
     type Vtable = IContactField_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2977319018, 53907, 18732, [160, 88, 219, 87, 91, 62, 60, 15]);
 }
 impl IContactField {
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn Type(&self) -> ::windows::runtime::Result<ContactFieldType> {
         let this = self;
         unsafe {
@@ -6731,6 +7227,7 @@ impl IContactField {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ContactFieldType>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn Category(&self) -> ::windows::runtime::Result<ContactFieldCategory> {
         let this = self;
         unsafe {
@@ -6738,6 +7235,7 @@ impl IContactField {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ContactFieldCategory>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -6745,6 +7243,7 @@ impl IContactField {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn Value(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -6812,12 +7311,14 @@ pub struct IContactField_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `ApplicationModel_Contacts`*"]
 pub struct IContactFieldFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactFieldFactory {
     type Vtable = IContactFieldFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2246218047, 3658, 19006, [137, 148, 64, 106, 231, 237, 100, 110]);
 }
 impl IContactFieldFactory {
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn CreateField_Default<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0, r#type: ContactFieldType) -> ::windows::runtime::Result<ContactField> {
         let this = self;
         unsafe {
@@ -6825,6 +7326,7 @@ impl IContactFieldFactory {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value.into_param().abi(), r#type, &mut result__).from_abi::<ContactField>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn CreateField_Category<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0, r#type: ContactFieldType, category: ContactFieldCategory) -> ::windows::runtime::Result<ContactField> {
         let this = self;
         unsafe {
@@ -6832,6 +7334,7 @@ impl IContactFieldFactory {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi(), r#type, category, &mut result__).from_abi::<ContactField>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn CreateField_Custom<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, name: Param0, value: Param1, r#type: ContactFieldType, category: ContactFieldCategory) -> ::windows::runtime::Result<ContactField> {
         let this = self;
         unsafe {
@@ -6972,12 +7475,14 @@ pub struct IContactInstantMessageField_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `ApplicationModel_Contacts`*"]
 pub struct IContactInstantMessageFieldFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactInstantMessageFieldFactory {
     type Vtable = IContactInstantMessageFieldFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3121309588, 37283, 19378, [177, 185, 105, 165, 223, 240, 186, 9]);
 }
 impl IContactInstantMessageFieldFactory {
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn CreateInstantMessage_Default<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, username: Param0) -> ::windows::runtime::Result<ContactInstantMessageField> {
         let this = self;
         unsafe {
@@ -6985,6 +7490,7 @@ impl IContactInstantMessageFieldFactory {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), username.into_param().abi(), &mut result__).from_abi::<ContactInstantMessageField>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn CreateInstantMessage_Category<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, username: Param0, category: ContactFieldCategory) -> ::windows::runtime::Result<ContactInstantMessageField> {
         let this = self;
         unsafe {
@@ -6993,6 +7499,7 @@ impl IContactInstantMessageFieldFactory {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn CreateInstantMessage_All<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>>(&self, username: Param0, category: ContactFieldCategory, service: Param2, displaytext: Param3, verb: Param4) -> ::windows::runtime::Result<ContactInstantMessageField> {
         let this = self;
         unsafe {
@@ -7437,12 +7944,14 @@ pub struct IContactLocationField_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `ApplicationModel_Contacts`*"]
 pub struct IContactLocationFieldFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactLocationFieldFactory {
     type Vtable = IContactLocationFieldFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4154012375, 12255, 17406, [143, 24, 65, 137, 115, 144, 188, 254]);
 }
 impl IContactLocationFieldFactory {
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn CreateLocation_Default<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, unstructuredaddress: Param0) -> ::windows::runtime::Result<ContactLocationField> {
         let this = self;
         unsafe {
@@ -7450,6 +7959,7 @@ impl IContactLocationFieldFactory {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), unstructuredaddress.into_param().abi(), &mut result__).from_abi::<ContactLocationField>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn CreateLocation_Category<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, unstructuredaddress: Param0, category: ContactFieldCategory) -> ::windows::runtime::Result<ContactLocationField> {
         let this = self;
         unsafe {
@@ -7457,6 +7967,7 @@ impl IContactLocationFieldFactory {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), unstructuredaddress.into_param().abi(), category, &mut result__).from_abi::<ContactLocationField>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn CreateLocation_All<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param4: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param5: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param6: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(
         &self,
         unstructuredaddress: Param0,
@@ -8360,9 +8871,11 @@ pub struct IPinnedContactManagerStatics_abi(
     #[cfg(not(feature = "System"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `ApplicationModel_Contacts`*"]
 pub struct KnownContactField {}
 impl KnownContactField {
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn Email() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownContactFieldStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
@@ -8370,6 +8883,7 @@ impl KnownContactField {
         })
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn PhoneNumber() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownContactFieldStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
@@ -8377,6 +8891,7 @@ impl KnownContactField {
         })
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn Location() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownContactFieldStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
@@ -8384,6 +8899,7 @@ impl KnownContactField {
         })
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn InstantMessage() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownContactFieldStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
@@ -8391,6 +8907,7 @@ impl KnownContactField {
         })
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn ConvertNameToType<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(name: Param0) -> ::windows::runtime::Result<ContactFieldType> {
         Self::IKnownContactFieldStatics(|this| unsafe {
             let mut result__: ContactFieldType = ::std::mem::zeroed();
@@ -8398,6 +8915,7 @@ impl KnownContactField {
         })
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn ConvertTypeToName(r#type: ContactFieldType) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownContactFieldStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
@@ -8412,11 +8930,13 @@ impl KnownContactField {
 impl ::windows::runtime::RuntimeName for KnownContactField {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.KnownContactField";
 }
+#[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PinnedContactIdsQueryResult(::windows::runtime::IInspectable);
 impl PinnedContactIdsQueryResult {
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation_Collections`*"]
     pub fn ContactIds(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -8477,11 +8997,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for PinnedContactIdsQueryResult {}
 unsafe impl ::std::marker::Sync for PinnedContactIdsQueryResult {}
+#[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PinnedContactManager(::windows::runtime::IInspectable);
 impl PinnedContactManager {
     #[cfg(feature = "System")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `System`*"]
     pub fn User(&self) -> ::windows::runtime::Result<super::super::System::User> {
         let this = self;
         unsafe {
@@ -8489,6 +9011,7 @@ impl PinnedContactManager {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn IsPinSurfaceSupported(&self, surface: PinnedContactSurface) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -8496,6 +9019,7 @@ impl PinnedContactManager {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), surface, &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn IsContactPinned<'a, Param0: ::windows::runtime::IntoParam<'a, Contact>>(&self, contact: Param0, surface: PinnedContactSurface) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -8504,6 +9028,7 @@ impl PinnedContactManager {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn RequestPinContactAsync<'a, Param0: ::windows::runtime::IntoParam<'a, Contact>>(&self, contact: Param0, surface: PinnedContactSurface) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
@@ -8512,6 +9037,7 @@ impl PinnedContactManager {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`, `Foundation_Collections`*"]
     pub fn RequestPinContactsAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<Contact>>>(&self, contacts: Param0, surface: PinnedContactSurface) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
@@ -8520,6 +9046,7 @@ impl PinnedContactManager {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn RequestUnpinContactAsync<'a, Param0: ::windows::runtime::IntoParam<'a, Contact>>(&self, contact: Param0, surface: PinnedContactSurface) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
@@ -8527,11 +9054,13 @@ impl PinnedContactManager {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), contact.into_param().abi(), surface, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn SignalContactActivity<'a, Param0: ::windows::runtime::IntoParam<'a, Contact>>(&self, contact: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), contact.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `Foundation`*"]
     pub fn GetPinnedContactIdsAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<PinnedContactIdsQueryResult>> {
         let this = self;
         unsafe {
@@ -8539,6 +9068,7 @@ impl PinnedContactManager {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<PinnedContactIdsQueryResult>>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn GetDefault() -> ::windows::runtime::Result<PinnedContactManager> {
         Self::IPinnedContactManagerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -8546,12 +9076,14 @@ impl PinnedContactManager {
         })
     }
     #[cfg(feature = "System")]
+    #[doc = "*Required features: `ApplicationModel_Contacts`, `System`*"]
     pub fn GetForUser<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::User>>(user: Param0) -> ::windows::runtime::Result<PinnedContactManager> {
         Self::IPinnedContactManagerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), user.into_param().abi(), &mut result__).from_abi::<PinnedContactManager>(result__)
         })
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts`*"]
     pub fn IsSupported() -> ::windows::runtime::Result<bool> {
         Self::IPinnedContactManagerStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
@@ -8615,6 +9147,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for PinnedContactManager {}
 unsafe impl ::std::marker::Sync for PinnedContactManager {}
+#[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PinnedContactSurface(pub i32);

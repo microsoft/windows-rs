@@ -1,8 +1,10 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `UI_Xaml_Documents`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct Block(::windows::runtime::IInspectable);
 impl Block {
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn TextAlignment(&self) -> ::windows::runtime::Result<super::TextAlignment> {
         let this = self;
         unsafe {
@@ -10,10 +12,12 @@ impl Block {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::TextAlignment>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetTextAlignment(&self, value: super::TextAlignment) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn LineHeight(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -21,10 +25,12 @@ impl Block {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetLineHeight(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn LineStackingStrategy(&self) -> ::windows::runtime::Result<super::LineStackingStrategy> {
         let this = self;
         unsafe {
@@ -32,10 +38,12 @@ impl Block {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::LineStackingStrategy>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetLineStackingStrategy(&self, value: super::LineStackingStrategy) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn Margin(&self) -> ::windows::runtime::Result<super::Thickness> {
         let this = self;
         unsafe {
@@ -43,34 +51,40 @@ impl Block {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Thickness>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetMargin<'a, Param0: ::windows::runtime::IntoParam<'a, super::Thickness>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn TextAlignmentProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IBlockStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn LineHeightProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IBlockStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn LineStackingStrategyProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IBlockStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn MarginProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IBlockStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn HorizontalTextAlignment(&self) -> ::windows::runtime::Result<super::TextAlignment> {
         let this = &::windows::runtime::Interface::cast::<IBlock2>(self)?;
         unsafe {
@@ -78,16 +92,19 @@ impl Block {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::TextAlignment>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetHorizontalTextAlignment(&self, value: super::TextAlignment) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IBlock2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn HorizontalTextAlignmentProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IBlockStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -95,14 +112,17 @@ impl Block {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ClearValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -110,6 +130,7 @@ impl Block {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -118,6 +139,7 @@ impl Block {
         }
     }
     #[cfg(feature = "UI_Core")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::runtime::Result<super::super::Core::CoreDispatcher> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -125,6 +147,7 @@ impl Block {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Core::CoreDispatcher>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::runtime::IntoParam<'a, super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::runtime::Result<i64> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject2>(self)?;
         unsafe {
@@ -132,10 +155,12 @@ impl Block {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -143,6 +168,7 @@ impl Block {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn FontSize(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -150,11 +176,13 @@ impl Block {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetFontSize(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn FontFamily(&self) -> ::windows::runtime::Result<super::Media::FontFamily> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -163,11 +191,13 @@ impl Block {
         }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn SetFontFamily<'a, Param0: ::windows::runtime::IntoParam<'a, super::Media::FontFamily>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn FontWeight(&self) -> ::windows::runtime::Result<super::super::Text::FontWeight> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -176,11 +206,13 @@ impl Block {
         }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn SetFontWeight<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Text::FontWeight>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn FontStyle(&self) -> ::windows::runtime::Result<super::super::Text::FontStyle> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -189,11 +221,13 @@ impl Block {
         }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn SetFontStyle(&self, value: super::super::Text::FontStyle) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn FontStretch(&self) -> ::windows::runtime::Result<super::super::Text::FontStretch> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -202,10 +236,12 @@ impl Block {
         }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn SetFontStretch(&self, value: super::super::Text::FontStretch) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn CharacterSpacing(&self) -> ::windows::runtime::Result<i32> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -213,11 +249,13 @@ impl Block {
             (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetCharacterSpacing(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn Foreground(&self) -> ::windows::runtime::Result<super::Media::Brush> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -226,10 +264,12 @@ impl Block {
         }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn SetForeground<'a, Param0: ::windows::runtime::IntoParam<'a, super::Media::Brush>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn Language(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -237,10 +277,12 @@ impl Block {
             (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetLanguage<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ContentStart(&self) -> ::windows::runtime::Result<TextPointer> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -248,6 +290,7 @@ impl Block {
             (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ContentEnd(&self) -> ::windows::runtime::Result<TextPointer> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -255,6 +298,7 @@ impl Block {
             (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ElementStart(&self) -> ::windows::runtime::Result<TextPointer> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -262,6 +306,7 @@ impl Block {
             (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ElementEnd(&self) -> ::windows::runtime::Result<TextPointer> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -269,6 +314,7 @@ impl Block {
             (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn FindName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, name: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -276,6 +322,7 @@ impl Block {
             (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this), name.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn IsTextScaleFactorEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ITextElement2>(self)?;
         unsafe {
@@ -283,14 +330,17 @@ impl Block {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetIsTextScaleFactorEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn OnDisconnectVisualChildren(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElementOverrides>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn AllowFocusOnInteraction(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe {
@@ -298,10 +348,12 @@ impl Block {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetAllowFocusOnInteraction(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn AccessKey(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe {
@@ -309,10 +361,12 @@ impl Block {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetAccessKey<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ExitDisplayModeOnAccessKeyInvoked(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe {
@@ -320,11 +374,13 @@ impl Block {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetExitDisplayModeOnAccessKeyInvoked(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn TextDecorations(&self) -> ::windows::runtime::Result<super::super::Text::TextDecorations> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -333,10 +389,12 @@ impl Block {
         }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn SetTextDecorations(&self, value: super::super::Text::TextDecorations) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn IsAccessKeyScope(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -344,10 +402,12 @@ impl Block {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetIsAccessKeyScope(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn AccessKeyScopeOwner(&self) -> ::windows::runtime::Result<super::DependencyObject> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -355,11 +415,13 @@ impl Block {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyObject>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetAccessKeyScopeOwner<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI_Xaml_Input")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Input`*"]
     pub fn KeyTipPlacementMode(&self) -> ::windows::runtime::Result<super::Input::KeyTipPlacementMode> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -368,10 +430,12 @@ impl Block {
         }
     }
     #[cfg(feature = "UI_Xaml_Input")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Input`*"]
     pub fn SetKeyTipPlacementMode(&self, value: super::Input::KeyTipPlacementMode) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn KeyTipHorizontalOffset(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -379,10 +443,12 @@ impl Block {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetKeyTipHorizontalOffset(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn KeyTipVerticalOffset(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -390,11 +456,13 @@ impl Block {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetKeyTipVerticalOffset(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`, `UI_Xaml_Input`*"]
     pub fn AccessKeyDisplayRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyDisplayRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -403,11 +471,13 @@ impl Block {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveAccessKeyDisplayRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`, `UI_Xaml_Input`*"]
     pub fn AccessKeyDisplayDismissed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyDisplayDismissedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -416,11 +486,13 @@ impl Block {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveAccessKeyDisplayDismissed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`, `UI_Xaml_Input`*"]
     pub fn AccessKeyInvoked<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyInvokedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -429,10 +501,12 @@ impl Block {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveAccessKeyInvoked<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn XamlRoot(&self) -> ::windows::runtime::Result<super::XamlRoot> {
         let this = &::windows::runtime::Interface::cast::<ITextElement5>(self)?;
         unsafe {
@@ -440,6 +514,7 @@ impl Block {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::XamlRoot>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetXamlRoot<'a, Param0: ::windows::runtime::IntoParam<'a, super::XamlRoot>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement5>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -546,12 +621,14 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::DependencyObject> for &Block {
 unsafe impl ::std::marker::Send for Block {}
 unsafe impl ::std::marker::Sync for Block {}
 #[cfg(feature = "Foundation_Collections")]
+#[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Collections`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct BlockCollection(::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl BlockCollection {
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Collections`*"]
     pub fn GetAt(&self, index: u32) -> ::windows::runtime::Result<Block> {
         let this = self;
         unsafe {
@@ -560,6 +637,7 @@ impl BlockCollection {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Collections`*"]
     pub fn Size(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -568,6 +646,7 @@ impl BlockCollection {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Collections`*"]
     pub fn GetView(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<Block>> {
         let this = self;
         unsafe {
@@ -576,6 +655,7 @@ impl BlockCollection {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Collections`*"]
     pub fn IndexOf<'a, Param0: ::windows::runtime::IntoParam<'a, Block>>(&self, value: Param0, index: &mut u32) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -584,36 +664,43 @@ impl BlockCollection {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Collections`*"]
     pub fn SetAt<'a, Param1: ::windows::runtime::IntoParam<'a, Block>>(&self, index: u32, value: Param1) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), index, value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Collections`*"]
     pub fn InsertAt<'a, Param1: ::windows::runtime::IntoParam<'a, Block>>(&self, index: u32, value: Param1) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), index, value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Collections`*"]
     pub fn RemoveAt(&self, index: u32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), index).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Collections`*"]
     pub fn Append<'a, Param0: ::windows::runtime::IntoParam<'a, Block>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Collections`*"]
     pub fn RemoveAtEnd(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Collections`*"]
     pub fn Clear(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Collections`*"]
     pub fn GetMany(&self, startindex: u32, items: &mut [<Block as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -622,11 +709,13 @@ impl BlockCollection {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Collections`*"]
     pub fn ReplaceAll(&self, items: &[<Block as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), items.len() as u32, ::std::mem::transmute(items.as_ptr())).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Collections`*"]
     pub fn First(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IIterator<Block>> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::Collections::IIterable<Block>>(self)?;
         unsafe {
@@ -766,6 +855,7 @@ impl ::std::iter::IntoIterator for &BlockCollection {
         super::super::super::Foundation::Collections::VectorIterator::new(::std::convert::TryInto::try_into(self).ok())
     }
 }
+#[doc = "*Required features: `UI_Xaml_Documents`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct Bold(::windows::runtime::IInspectable);
@@ -777,6 +867,7 @@ impl Bold {
         static mut SHARED: ::windows::runtime::FactoryCache<Bold, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -784,14 +875,17 @@ impl Bold {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ClearValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -799,6 +893,7 @@ impl Bold {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -807,6 +902,7 @@ impl Bold {
         }
     }
     #[cfg(feature = "UI_Core")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::runtime::Result<super::super::Core::CoreDispatcher> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -814,6 +910,7 @@ impl Bold {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Core::CoreDispatcher>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::runtime::IntoParam<'a, super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::runtime::Result<i64> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject2>(self)?;
         unsafe {
@@ -821,11 +918,13 @@ impl Bold {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Collections`*"]
     pub fn Inlines(&self) -> ::windows::runtime::Result<InlineCollection> {
         let this = &::windows::runtime::Interface::cast::<ISpan>(self)?;
         unsafe {
@@ -834,10 +933,12 @@ impl Bold {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Collections`*"]
     pub fn SetInlines<'a, Param0: ::windows::runtime::IntoParam<'a, InlineCollection>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ISpan>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -845,6 +946,7 @@ impl Bold {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn FontSize(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -852,11 +954,13 @@ impl Bold {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetFontSize(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn FontFamily(&self) -> ::windows::runtime::Result<super::Media::FontFamily> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -865,11 +969,13 @@ impl Bold {
         }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn SetFontFamily<'a, Param0: ::windows::runtime::IntoParam<'a, super::Media::FontFamily>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn FontWeight(&self) -> ::windows::runtime::Result<super::super::Text::FontWeight> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -878,11 +984,13 @@ impl Bold {
         }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn SetFontWeight<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Text::FontWeight>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn FontStyle(&self) -> ::windows::runtime::Result<super::super::Text::FontStyle> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -891,11 +999,13 @@ impl Bold {
         }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn SetFontStyle(&self, value: super::super::Text::FontStyle) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn FontStretch(&self) -> ::windows::runtime::Result<super::super::Text::FontStretch> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -904,10 +1014,12 @@ impl Bold {
         }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn SetFontStretch(&self, value: super::super::Text::FontStretch) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn CharacterSpacing(&self) -> ::windows::runtime::Result<i32> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -915,11 +1027,13 @@ impl Bold {
             (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetCharacterSpacing(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn Foreground(&self) -> ::windows::runtime::Result<super::Media::Brush> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -928,10 +1042,12 @@ impl Bold {
         }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn SetForeground<'a, Param0: ::windows::runtime::IntoParam<'a, super::Media::Brush>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn Language(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -939,10 +1055,12 @@ impl Bold {
             (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetLanguage<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ContentStart(&self) -> ::windows::runtime::Result<TextPointer> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -950,6 +1068,7 @@ impl Bold {
             (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ContentEnd(&self) -> ::windows::runtime::Result<TextPointer> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -957,6 +1076,7 @@ impl Bold {
             (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ElementStart(&self) -> ::windows::runtime::Result<TextPointer> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -964,6 +1084,7 @@ impl Bold {
             (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ElementEnd(&self) -> ::windows::runtime::Result<TextPointer> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -971,6 +1092,7 @@ impl Bold {
             (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn FindName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, name: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -978,6 +1100,7 @@ impl Bold {
             (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this), name.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn IsTextScaleFactorEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ITextElement2>(self)?;
         unsafe {
@@ -985,14 +1108,17 @@ impl Bold {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetIsTextScaleFactorEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn OnDisconnectVisualChildren(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElementOverrides>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn AllowFocusOnInteraction(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe {
@@ -1000,10 +1126,12 @@ impl Bold {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetAllowFocusOnInteraction(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn AccessKey(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe {
@@ -1011,10 +1139,12 @@ impl Bold {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetAccessKey<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ExitDisplayModeOnAccessKeyInvoked(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe {
@@ -1022,11 +1152,13 @@ impl Bold {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetExitDisplayModeOnAccessKeyInvoked(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn TextDecorations(&self) -> ::windows::runtime::Result<super::super::Text::TextDecorations> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -1035,10 +1167,12 @@ impl Bold {
         }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn SetTextDecorations(&self, value: super::super::Text::TextDecorations) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn IsAccessKeyScope(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -1046,10 +1180,12 @@ impl Bold {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetIsAccessKeyScope(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn AccessKeyScopeOwner(&self) -> ::windows::runtime::Result<super::DependencyObject> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -1057,11 +1193,13 @@ impl Bold {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyObject>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetAccessKeyScopeOwner<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI_Xaml_Input")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Input`*"]
     pub fn KeyTipPlacementMode(&self) -> ::windows::runtime::Result<super::Input::KeyTipPlacementMode> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -1070,10 +1208,12 @@ impl Bold {
         }
     }
     #[cfg(feature = "UI_Xaml_Input")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Input`*"]
     pub fn SetKeyTipPlacementMode(&self, value: super::Input::KeyTipPlacementMode) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn KeyTipHorizontalOffset(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -1081,10 +1221,12 @@ impl Bold {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetKeyTipHorizontalOffset(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn KeyTipVerticalOffset(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -1092,11 +1234,13 @@ impl Bold {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetKeyTipVerticalOffset(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`, `UI_Xaml_Input`*"]
     pub fn AccessKeyDisplayRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyDisplayRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -1105,11 +1249,13 @@ impl Bold {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveAccessKeyDisplayRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`, `UI_Xaml_Input`*"]
     pub fn AccessKeyDisplayDismissed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyDisplayDismissedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -1118,11 +1264,13 @@ impl Bold {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveAccessKeyDisplayDismissed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`, `UI_Xaml_Input`*"]
     pub fn AccessKeyInvoked<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyInvokedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -1131,10 +1279,12 @@ impl Bold {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveAccessKeyInvoked<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn XamlRoot(&self) -> ::windows::runtime::Result<super::XamlRoot> {
         let this = &::windows::runtime::Interface::cast::<ITextElement5>(self)?;
         unsafe {
@@ -1142,6 +1292,7 @@ impl Bold {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::XamlRoot>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetXamlRoot<'a, Param0: ::windows::runtime::IntoParam<'a, super::XamlRoot>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement5>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -1279,6 +1430,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::DependencyObject> for &Bold {
 }
 unsafe impl ::std::marker::Send for Bold {}
 unsafe impl ::std::marker::Sync for Bold {}
+#[doc = "*Required features: `UI_Xaml_Documents`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ContactContentLinkProvider(::windows::runtime::IInspectable);
@@ -1290,6 +1442,7 @@ impl ContactContentLinkProvider {
         static mut SHARED: ::windows::runtime::FactoryCache<ContactContentLinkProvider, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -1297,14 +1450,17 @@ impl ContactContentLinkProvider {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ClearValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -1312,6 +1468,7 @@ impl ContactContentLinkProvider {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -1320,6 +1477,7 @@ impl ContactContentLinkProvider {
         }
     }
     #[cfg(feature = "UI_Core")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::runtime::Result<super::super::Core::CoreDispatcher> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -1327,6 +1485,7 @@ impl ContactContentLinkProvider {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Core::CoreDispatcher>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::runtime::IntoParam<'a, super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::runtime::Result<i64> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject2>(self)?;
         unsafe {
@@ -1334,6 +1493,7 @@ impl ContactContentLinkProvider {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
@@ -1431,6 +1591,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::DependencyObject> for &Contact
 }
 unsafe impl ::std::marker::Send for ContactContentLinkProvider {}
 unsafe impl ::std::marker::Sync for ContactContentLinkProvider {}
+#[doc = "*Required features: `UI_Xaml_Documents`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ContentLink(::windows::runtime::IInspectable);
@@ -1443,6 +1604,7 @@ impl ContentLink {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn Info(&self) -> ::windows::runtime::Result<super::super::Text::ContentLinkInfo> {
         let this = self;
         unsafe {
@@ -1451,11 +1613,13 @@ impl ContentLink {
         }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn SetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Text::ContentLinkInfo>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn Background(&self) -> ::windows::runtime::Result<super::Media::Brush> {
         let this = self;
         unsafe {
@@ -1464,11 +1628,13 @@ impl ContentLink {
         }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn SetBackground<'a, Param0: ::windows::runtime::IntoParam<'a, super::Media::Brush>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI_Core")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Core`*"]
     pub fn Cursor(&self) -> ::windows::runtime::Result<super::super::Core::CoreCursorType> {
         let this = self;
         unsafe {
@@ -1477,10 +1643,12 @@ impl ContentLink {
         }
     }
     #[cfg(feature = "UI_Core")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Core`*"]
     pub fn SetCursor(&self, value: super::super::Core::CoreCursorType) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn XYFocusLeft(&self) -> ::windows::runtime::Result<super::DependencyObject> {
         let this = self;
         unsafe {
@@ -1488,10 +1656,12 @@ impl ContentLink {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyObject>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetXYFocusLeft<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn XYFocusRight(&self) -> ::windows::runtime::Result<super::DependencyObject> {
         let this = self;
         unsafe {
@@ -1499,10 +1669,12 @@ impl ContentLink {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyObject>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetXYFocusRight<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn XYFocusUp(&self) -> ::windows::runtime::Result<super::DependencyObject> {
         let this = self;
         unsafe {
@@ -1510,10 +1682,12 @@ impl ContentLink {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyObject>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetXYFocusUp<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn XYFocusDown(&self) -> ::windows::runtime::Result<super::DependencyObject> {
         let this = self;
         unsafe {
@@ -1521,10 +1695,12 @@ impl ContentLink {
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyObject>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetXYFocusDown<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ElementSoundMode(&self) -> ::windows::runtime::Result<super::ElementSoundMode> {
         let this = self;
         unsafe {
@@ -1532,10 +1708,12 @@ impl ContentLink {
             (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::ElementSoundMode>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetElementSoundMode(&self, value: super::ElementSoundMode) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn FocusState(&self) -> ::windows::runtime::Result<super::FocusState> {
         let this = self;
         unsafe {
@@ -1544,6 +1722,7 @@ impl ContentLink {
         }
     }
     #[cfg(feature = "UI_Xaml_Input")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Input`*"]
     pub fn XYFocusUpNavigationStrategy(&self) -> ::windows::runtime::Result<super::Input::XYFocusNavigationStrategy> {
         let this = self;
         unsafe {
@@ -1552,11 +1731,13 @@ impl ContentLink {
         }
     }
     #[cfg(feature = "UI_Xaml_Input")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Input`*"]
     pub fn SetXYFocusUpNavigationStrategy(&self, value: super::Input::XYFocusNavigationStrategy) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "UI_Xaml_Input")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Input`*"]
     pub fn XYFocusDownNavigationStrategy(&self) -> ::windows::runtime::Result<super::Input::XYFocusNavigationStrategy> {
         let this = self;
         unsafe {
@@ -1565,11 +1746,13 @@ impl ContentLink {
         }
     }
     #[cfg(feature = "UI_Xaml_Input")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Input`*"]
     pub fn SetXYFocusDownNavigationStrategy(&self, value: super::Input::XYFocusNavigationStrategy) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "UI_Xaml_Input")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Input`*"]
     pub fn XYFocusLeftNavigationStrategy(&self) -> ::windows::runtime::Result<super::Input::XYFocusNavigationStrategy> {
         let this = self;
         unsafe {
@@ -1578,11 +1761,13 @@ impl ContentLink {
         }
     }
     #[cfg(feature = "UI_Xaml_Input")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Input`*"]
     pub fn SetXYFocusLeftNavigationStrategy(&self, value: super::Input::XYFocusNavigationStrategy) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).28)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "UI_Xaml_Input")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Input`*"]
     pub fn XYFocusRightNavigationStrategy(&self) -> ::windows::runtime::Result<super::Input::XYFocusNavigationStrategy> {
         let this = self;
         unsafe {
@@ -1591,10 +1776,12 @@ impl ContentLink {
         }
     }
     #[cfg(feature = "UI_Xaml_Input")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Input`*"]
     pub fn SetXYFocusRightNavigationStrategy(&self, value: super::Input::XYFocusNavigationStrategy) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).30)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn IsTabStop(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1602,10 +1789,12 @@ impl ContentLink {
             (::windows::runtime::Interface::vtable(this).31)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetIsTabStop(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).32)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn TabIndex(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -1613,11 +1802,13 @@ impl ContentLink {
             (::windows::runtime::Interface::vtable(this).33)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetTabIndex(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).34)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn Invoked<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<ContentLink, ContentLinkInvokedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1626,11 +1817,13 @@ impl ContentLink {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveInvoked<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).36)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn GotFocus<'a, Param0: ::windows::runtime::IntoParam<'a, super::RoutedEventHandler>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1639,11 +1832,13 @@ impl ContentLink {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveGotFocus<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).38)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn LostFocus<'a, Param0: ::windows::runtime::IntoParam<'a, super::RoutedEventHandler>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1652,10 +1847,12 @@ impl ContentLink {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveLostFocus<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).40)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn Focus(&self, value: super::FocusState) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1663,90 +1860,105 @@ impl ContentLink {
             (::windows::runtime::Interface::vtable(this).41)(::std::mem::transmute_copy(this), value, &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn BackgroundProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IContentLinkStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn CursorProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IContentLinkStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn XYFocusLeftProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IContentLinkStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn XYFocusRightProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IContentLinkStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn XYFocusUpProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IContentLinkStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn XYFocusDownProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IContentLinkStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ElementSoundModeProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IContentLinkStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn FocusStateProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IContentLinkStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn XYFocusUpNavigationStrategyProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IContentLinkStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn XYFocusDownNavigationStrategyProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IContentLinkStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn XYFocusLeftNavigationStrategyProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IContentLinkStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn XYFocusRightNavigationStrategyProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IContentLinkStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn IsTabStopProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IContentLinkStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn TabIndexProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IContentLinkStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -1754,14 +1966,17 @@ impl ContentLink {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ClearValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -1769,6 +1984,7 @@ impl ContentLink {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -1777,6 +1993,7 @@ impl ContentLink {
         }
     }
     #[cfg(feature = "UI_Core")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::runtime::Result<super::super::Core::CoreDispatcher> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -1784,6 +2001,7 @@ impl ContentLink {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Core::CoreDispatcher>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::runtime::IntoParam<'a, super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::runtime::Result<i64> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject2>(self)?;
         unsafe {
@@ -1791,10 +2009,12 @@ impl ContentLink {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -1802,6 +2022,7 @@ impl ContentLink {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn FontSize(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -1809,11 +2030,13 @@ impl ContentLink {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetFontSize(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn FontFamily(&self) -> ::windows::runtime::Result<super::Media::FontFamily> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -1822,11 +2045,13 @@ impl ContentLink {
         }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn SetFontFamily<'a, Param0: ::windows::runtime::IntoParam<'a, super::Media::FontFamily>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn FontWeight(&self) -> ::windows::runtime::Result<super::super::Text::FontWeight> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -1835,11 +2060,13 @@ impl ContentLink {
         }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn SetFontWeight<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Text::FontWeight>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn FontStyle(&self) -> ::windows::runtime::Result<super::super::Text::FontStyle> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -1848,11 +2075,13 @@ impl ContentLink {
         }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn SetFontStyle(&self, value: super::super::Text::FontStyle) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn FontStretch(&self) -> ::windows::runtime::Result<super::super::Text::FontStretch> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -1861,10 +2090,12 @@ impl ContentLink {
         }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn SetFontStretch(&self, value: super::super::Text::FontStretch) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn CharacterSpacing(&self) -> ::windows::runtime::Result<i32> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -1872,11 +2103,13 @@ impl ContentLink {
             (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetCharacterSpacing(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn Foreground(&self) -> ::windows::runtime::Result<super::Media::Brush> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -1885,10 +2118,12 @@ impl ContentLink {
         }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn SetForeground<'a, Param0: ::windows::runtime::IntoParam<'a, super::Media::Brush>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn Language(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -1896,10 +2131,12 @@ impl ContentLink {
             (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetLanguage<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ContentStart(&self) -> ::windows::runtime::Result<TextPointer> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -1907,6 +2144,7 @@ impl ContentLink {
             (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ContentEnd(&self) -> ::windows::runtime::Result<TextPointer> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -1914,6 +2152,7 @@ impl ContentLink {
             (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ElementStart(&self) -> ::windows::runtime::Result<TextPointer> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -1921,6 +2160,7 @@ impl ContentLink {
             (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ElementEnd(&self) -> ::windows::runtime::Result<TextPointer> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -1928,6 +2168,7 @@ impl ContentLink {
             (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn FindName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, name: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -1935,6 +2176,7 @@ impl ContentLink {
             (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this), name.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn IsTextScaleFactorEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ITextElement2>(self)?;
         unsafe {
@@ -1942,14 +2184,17 @@ impl ContentLink {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetIsTextScaleFactorEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn OnDisconnectVisualChildren(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElementOverrides>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn AllowFocusOnInteraction(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe {
@@ -1957,10 +2202,12 @@ impl ContentLink {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetAllowFocusOnInteraction(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn AccessKey(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe {
@@ -1968,10 +2215,12 @@ impl ContentLink {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetAccessKey<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ExitDisplayModeOnAccessKeyInvoked(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe {
@@ -1979,11 +2228,13 @@ impl ContentLink {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetExitDisplayModeOnAccessKeyInvoked(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn TextDecorations(&self) -> ::windows::runtime::Result<super::super::Text::TextDecorations> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -1992,10 +2243,12 @@ impl ContentLink {
         }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn SetTextDecorations(&self, value: super::super::Text::TextDecorations) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn IsAccessKeyScope(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -2003,10 +2256,12 @@ impl ContentLink {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetIsAccessKeyScope(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn AccessKeyScopeOwner(&self) -> ::windows::runtime::Result<super::DependencyObject> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -2014,11 +2269,13 @@ impl ContentLink {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyObject>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetAccessKeyScopeOwner<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI_Xaml_Input")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Input`*"]
     pub fn KeyTipPlacementMode(&self) -> ::windows::runtime::Result<super::Input::KeyTipPlacementMode> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -2027,10 +2284,12 @@ impl ContentLink {
         }
     }
     #[cfg(feature = "UI_Xaml_Input")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Input`*"]
     pub fn SetKeyTipPlacementMode(&self, value: super::Input::KeyTipPlacementMode) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn KeyTipHorizontalOffset(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -2038,10 +2297,12 @@ impl ContentLink {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetKeyTipHorizontalOffset(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn KeyTipVerticalOffset(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -2049,11 +2310,13 @@ impl ContentLink {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetKeyTipVerticalOffset(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`, `UI_Xaml_Input`*"]
     pub fn AccessKeyDisplayRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyDisplayRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -2062,11 +2325,13 @@ impl ContentLink {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveAccessKeyDisplayRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`, `UI_Xaml_Input`*"]
     pub fn AccessKeyDisplayDismissed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyDisplayDismissedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -2075,11 +2340,13 @@ impl ContentLink {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveAccessKeyDisplayDismissed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`, `UI_Xaml_Input`*"]
     pub fn AccessKeyInvoked<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyInvokedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -2088,10 +2355,12 @@ impl ContentLink {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveAccessKeyInvoked<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn XamlRoot(&self) -> ::windows::runtime::Result<super::XamlRoot> {
         let this = &::windows::runtime::Interface::cast::<ITextElement5>(self)?;
         unsafe {
@@ -2099,6 +2368,7 @@ impl ContentLink {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::XamlRoot>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetXamlRoot<'a, Param0: ::windows::runtime::IntoParam<'a, super::XamlRoot>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement5>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -2220,11 +2490,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::DependencyObject> for &Content
 }
 unsafe impl ::std::marker::Send for ContentLink {}
 unsafe impl ::std::marker::Sync for ContentLink {}
+#[doc = "*Required features: `UI_Xaml_Documents`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ContentLinkInvokedEventArgs(::windows::runtime::IInspectable);
 impl ContentLinkInvokedEventArgs {
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn ContentLinkInfo(&self) -> ::windows::runtime::Result<super::super::Text::ContentLinkInfo> {
         let this = self;
         unsafe {
@@ -2232,6 +2504,7 @@ impl ContentLinkInvokedEventArgs {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Text::ContentLinkInfo>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn Handled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -2239,6 +2512,7 @@ impl ContentLinkInvokedEventArgs {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetHandled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value).ok() }
@@ -2296,10 +2570,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for ContentLinkInvokedEventArgs {}
 unsafe impl ::std::marker::Sync for ContentLinkInvokedEventArgs {}
+#[doc = "*Required features: `UI_Xaml_Documents`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ContentLinkProvider(::windows::runtime::IInspectable);
 impl ContentLinkProvider {
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -2307,14 +2583,17 @@ impl ContentLinkProvider {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ClearValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -2322,6 +2601,7 @@ impl ContentLinkProvider {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -2330,6 +2610,7 @@ impl ContentLinkProvider {
         }
     }
     #[cfg(feature = "UI_Core")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::runtime::Result<super::super::Core::CoreDispatcher> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -2337,6 +2618,7 @@ impl ContentLinkProvider {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Core::CoreDispatcher>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::runtime::IntoParam<'a, super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::runtime::Result<i64> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject2>(self)?;
         unsafe {
@@ -2344,6 +2626,7 @@ impl ContentLinkProvider {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
@@ -2421,6 +2704,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::DependencyObject> for &Content
 }
 unsafe impl ::std::marker::Send for ContentLinkProvider {}
 unsafe impl ::std::marker::Sync for ContentLinkProvider {}
+#[doc = "*Required features: `UI_Xaml_Documents`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ContentLinkProviderCollection(::windows::runtime::IInspectable);
@@ -2433,6 +2717,7 @@ impl ContentLinkProviderCollection {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Collections`*"]
     pub fn First(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IIterator<ContentLinkProvider>> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::Collections::IIterable<ContentLinkProvider>>(self)?;
         unsafe {
@@ -2441,6 +2726,7 @@ impl ContentLinkProviderCollection {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Collections`*"]
     pub fn GetAt(&self, index: u32) -> ::windows::runtime::Result<ContentLinkProvider> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::Collections::IVector<ContentLinkProvider>>(self)?;
         unsafe {
@@ -2449,6 +2735,7 @@ impl ContentLinkProviderCollection {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Collections`*"]
     pub fn Size(&self) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::Collections::IVector<ContentLinkProvider>>(self)?;
         unsafe {
@@ -2457,6 +2744,7 @@ impl ContentLinkProviderCollection {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Collections`*"]
     pub fn GetView(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<ContentLinkProvider>> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::Collections::IVector<ContentLinkProvider>>(self)?;
         unsafe {
@@ -2465,6 +2753,7 @@ impl ContentLinkProviderCollection {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Collections`*"]
     pub fn IndexOf<'a, Param0: ::windows::runtime::IntoParam<'a, ContentLinkProvider>>(&self, value: Param0, index: &mut u32) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::Collections::IVector<ContentLinkProvider>>(self)?;
         unsafe {
@@ -2473,36 +2762,43 @@ impl ContentLinkProviderCollection {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Collections`*"]
     pub fn SetAt<'a, Param1: ::windows::runtime::IntoParam<'a, ContentLinkProvider>>(&self, index: u32, value: Param1) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::Collections::IVector<ContentLinkProvider>>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), index, value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Collections`*"]
     pub fn InsertAt<'a, Param1: ::windows::runtime::IntoParam<'a, ContentLinkProvider>>(&self, index: u32, value: Param1) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::Collections::IVector<ContentLinkProvider>>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), index, value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Collections`*"]
     pub fn RemoveAt(&self, index: u32) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::Collections::IVector<ContentLinkProvider>>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), index).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Collections`*"]
     pub fn Append<'a, Param0: ::windows::runtime::IntoParam<'a, ContentLinkProvider>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::Collections::IVector<ContentLinkProvider>>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Collections`*"]
     pub fn RemoveAtEnd(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::Collections::IVector<ContentLinkProvider>>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Collections`*"]
     pub fn Clear(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::Collections::IVector<ContentLinkProvider>>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Collections`*"]
     pub fn GetMany(&self, startindex: u32, items: &mut [<ContentLinkProvider as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::Collections::IVector<ContentLinkProvider>>(self)?;
         unsafe {
@@ -2511,6 +2807,7 @@ impl ContentLinkProviderCollection {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Collections`*"]
     pub fn ReplaceAll(&self, items: &[<ContentLinkProvider as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::Collections::IVector<ContentLinkProvider>>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), items.len() as u32, ::std::mem::transmute(items.as_ptr())).ok() }
@@ -2636,6 +2933,7 @@ impl ::std::iter::IntoIterator for &ContentLinkProviderCollection {
         super::super::super::Foundation::Collections::VectorIterator::new(::std::convert::TryInto::try_into(self).ok())
     }
 }
+#[doc = "*Required features: `UI_Xaml_Documents`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct Glyphs(::windows::runtime::IInspectable);
@@ -2647,6 +2945,7 @@ impl Glyphs {
         static mut SHARED: ::windows::runtime::FactoryCache<Glyphs, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn UnicodeString(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2654,10 +2953,12 @@ impl Glyphs {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetUnicodeString<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn Indices(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2665,11 +2966,13 @@ impl Glyphs {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetIndices<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn FontUri(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Uri> {
         let this = self;
         unsafe {
@@ -2678,11 +2981,13 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn SetFontUri<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn StyleSimulations(&self) -> ::windows::runtime::Result<super::Media::StyleSimulations> {
         let this = self;
         unsafe {
@@ -2691,10 +2996,12 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn SetStyleSimulations(&self, value: super::Media::StyleSimulations) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn FontRenderingEmSize(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -2702,10 +3009,12 @@ impl Glyphs {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetFontRenderingEmSize(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn OriginX(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -2713,10 +3022,12 @@ impl Glyphs {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetOriginX(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn OriginY(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -2724,11 +3035,13 @@ impl Glyphs {
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetOriginY(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn Fill(&self) -> ::windows::runtime::Result<super::Media::Brush> {
         let this = self;
         unsafe {
@@ -2737,10 +3050,12 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn SetFill<'a, Param0: ::windows::runtime::IntoParam<'a, super::Media::Brush>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn IsColorFontEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IGlyphs2>(self)?;
         unsafe {
@@ -2748,10 +3063,12 @@ impl Glyphs {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetIsColorFontEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IGlyphs2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ColorFontPaletteIndex(&self) -> ::windows::runtime::Result<i32> {
         let this = &::windows::runtime::Interface::cast::<IGlyphs2>(self)?;
         unsafe {
@@ -2759,70 +3076,82 @@ impl Glyphs {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetColorFontPaletteIndex(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IGlyphs2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn UnicodeStringProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IGlyphsStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn IndicesProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IGlyphsStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn FontUriProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IGlyphsStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn StyleSimulationsProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IGlyphsStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn FontRenderingEmSizeProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IGlyphsStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn OriginXProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IGlyphsStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn OriginYProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IGlyphsStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn FillProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IGlyphsStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn IsColorFontEnabledProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IGlyphsStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ColorFontPaletteIndexProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IGlyphsStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -2830,14 +3159,17 @@ impl Glyphs {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ClearValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -2845,6 +3177,7 @@ impl Glyphs {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -2853,6 +3186,7 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "UI_Core")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::runtime::Result<super::super::Core::CoreDispatcher> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -2860,6 +3194,7 @@ impl Glyphs {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Core::CoreDispatcher>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::runtime::IntoParam<'a, super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::runtime::Result<i64> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject2>(self)?;
         unsafe {
@@ -2867,11 +3202,13 @@ impl Glyphs {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Collections`*"]
     pub fn Triggers(&self) -> ::windows::runtime::Result<super::TriggerCollection> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElement>(self)?;
         unsafe {
@@ -2879,6 +3216,7 @@ impl Glyphs {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::TriggerCollection>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn Resources(&self) -> ::windows::runtime::Result<super::ResourceDictionary> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElement>(self)?;
         unsafe {
@@ -2886,10 +3224,12 @@ impl Glyphs {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::ResourceDictionary>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetResources<'a, Param0: ::windows::runtime::IntoParam<'a, super::ResourceDictionary>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn Tag(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElement>(self)?;
         unsafe {
@@ -2897,10 +3237,12 @@ impl Glyphs {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetTag<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn Language(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElement>(self)?;
         unsafe {
@@ -2908,10 +3250,12 @@ impl Glyphs {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetLanguage<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ActualWidth(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElement>(self)?;
         unsafe {
@@ -2919,6 +3263,7 @@ impl Glyphs {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ActualHeight(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElement>(self)?;
         unsafe {
@@ -2926,6 +3271,7 @@ impl Glyphs {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn Width(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElement>(self)?;
         unsafe {
@@ -2933,10 +3279,12 @@ impl Glyphs {
             (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetWidth(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn Height(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElement>(self)?;
         unsafe {
@@ -2944,10 +3292,12 @@ impl Glyphs {
             (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetHeight(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn MinWidth(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElement>(self)?;
         unsafe {
@@ -2955,10 +3305,12 @@ impl Glyphs {
             (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetMinWidth(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn MaxWidth(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElement>(self)?;
         unsafe {
@@ -2966,10 +3318,12 @@ impl Glyphs {
             (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetMaxWidth(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn MinHeight(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElement>(self)?;
         unsafe {
@@ -2977,10 +3331,12 @@ impl Glyphs {
             (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetMinHeight(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn MaxHeight(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElement>(self)?;
         unsafe {
@@ -2988,10 +3344,12 @@ impl Glyphs {
             (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetMaxHeight(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn HorizontalAlignment(&self) -> ::windows::runtime::Result<super::HorizontalAlignment> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElement>(self)?;
         unsafe {
@@ -2999,10 +3357,12 @@ impl Glyphs {
             (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::HorizontalAlignment>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetHorizontalAlignment(&self, value: super::HorizontalAlignment) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).28)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn VerticalAlignment(&self) -> ::windows::runtime::Result<super::VerticalAlignment> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElement>(self)?;
         unsafe {
@@ -3010,10 +3370,12 @@ impl Glyphs {
             (::windows::runtime::Interface::vtable(this).29)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::VerticalAlignment>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetVerticalAlignment(&self, value: super::VerticalAlignment) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).30)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn Margin(&self) -> ::windows::runtime::Result<super::Thickness> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElement>(self)?;
         unsafe {
@@ -3021,10 +3383,12 @@ impl Glyphs {
             (::windows::runtime::Interface::vtable(this).31)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Thickness>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetMargin<'a, Param0: ::windows::runtime::IntoParam<'a, super::Thickness>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).32)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElement>(self)?;
         unsafe {
@@ -3032,11 +3396,13 @@ impl Glyphs {
             (::windows::runtime::Interface::vtable(this).33)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).34)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn BaseUri(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Uri> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElement>(self)?;
         unsafe {
@@ -3044,6 +3410,7 @@ impl Glyphs {
             (::windows::runtime::Interface::vtable(this).35)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Uri>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn DataContext(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElement>(self)?;
         unsafe {
@@ -3051,10 +3418,12 @@ impl Glyphs {
             (::windows::runtime::Interface::vtable(this).36)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetDataContext<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).37)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn Style(&self) -> ::windows::runtime::Result<super::Style> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElement>(self)?;
         unsafe {
@@ -3062,10 +3431,12 @@ impl Glyphs {
             (::windows::runtime::Interface::vtable(this).38)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Style>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetStyle<'a, Param0: ::windows::runtime::IntoParam<'a, super::Style>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).39)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn Parent(&self) -> ::windows::runtime::Result<super::DependencyObject> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElement>(self)?;
         unsafe {
@@ -3073,6 +3444,7 @@ impl Glyphs {
             (::windows::runtime::Interface::vtable(this).40)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyObject>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn FlowDirection(&self) -> ::windows::runtime::Result<super::FlowDirection> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElement>(self)?;
         unsafe {
@@ -3080,11 +3452,13 @@ impl Glyphs {
             (::windows::runtime::Interface::vtable(this).41)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::FlowDirection>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetFlowDirection(&self, value: super::FlowDirection) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).42)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn Loaded<'a, Param0: ::windows::runtime::IntoParam<'a, super::RoutedEventHandler>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElement>(self)?;
         unsafe {
@@ -3093,11 +3467,13 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveLoaded<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).44)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn Unloaded<'a, Param0: ::windows::runtime::IntoParam<'a, super::RoutedEventHandler>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElement>(self)?;
         unsafe {
@@ -3106,11 +3482,13 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveUnloaded<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).46)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn SizeChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::SizeChangedEventHandler>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElement>(self)?;
         unsafe {
@@ -3119,11 +3497,13 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveSizeChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).48)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn LayoutUpdated<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventHandler<::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElement>(self)?;
         unsafe {
@@ -3132,10 +3512,12 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveLayoutUpdated<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).50)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn FindName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, name: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElement>(self)?;
         unsafe {
@@ -3144,10 +3526,12 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "UI_Xaml_Data")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Data`*"]
     pub fn SetBinding<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::runtime::IntoParam<'a, super::Data::BindingBase>>(&self, dp: Param0, binding: Param1) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).52)(::std::mem::transmute_copy(this), dp.into_param().abi(), binding.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn RequestedTheme(&self) -> ::windows::runtime::Result<super::ElementTheme> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElement2>(self)?;
         unsafe {
@@ -3155,11 +3539,13 @@ impl Glyphs {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::ElementTheme>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetRequestedTheme(&self, value: super::ElementTheme) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElement2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn DataContextChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<super::FrameworkElement, super::DataContextChangedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElement2>(self)?;
         unsafe {
@@ -3168,11 +3554,13 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveDataContextChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElement2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI_Xaml_Data")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Data`*"]
     pub fn GetBindingExpression<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<super::Data::BindingExpression> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElement2>(self)?;
         unsafe {
@@ -3181,6 +3569,7 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn Loading<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<super::FrameworkElement, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElement3>(self)?;
         unsafe {
@@ -3189,11 +3578,13 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveLoading<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElement3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn DesiredSize(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Size> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe {
@@ -3201,6 +3592,7 @@ impl Glyphs {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Size>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn AllowDrop(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe {
@@ -3208,10 +3600,12 @@ impl Glyphs {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetAllowDrop(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn Opacity(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe {
@@ -3219,11 +3613,13 @@ impl Glyphs {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetOpacity(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn Clip(&self) -> ::windows::runtime::Result<super::Media::RectangleGeometry> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe {
@@ -3232,11 +3628,13 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn SetClip<'a, Param0: ::windows::runtime::IntoParam<'a, super::Media::RectangleGeometry>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn RenderTransform(&self) -> ::windows::runtime::Result<super::Media::Transform> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe {
@@ -3245,11 +3643,13 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn SetRenderTransform<'a, Param0: ::windows::runtime::IntoParam<'a, super::Media::Transform>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn Projection(&self) -> ::windows::runtime::Result<super::Media::Projection> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe {
@@ -3258,11 +3658,13 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn SetProjection<'a, Param0: ::windows::runtime::IntoParam<'a, super::Media::Projection>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RenderTransformOrigin(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Point> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe {
@@ -3271,10 +3673,12 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn SetRenderTransformOrigin<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Point>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn IsHitTestVisible(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe {
@@ -3282,10 +3686,12 @@ impl Glyphs {
             (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetIsHitTestVisible(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn Visibility(&self) -> ::windows::runtime::Result<super::Visibility> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe {
@@ -3293,11 +3699,13 @@ impl Glyphs {
             (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Visibility>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetVisibility(&self, value: super::Visibility) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RenderSize(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Size> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe {
@@ -3305,6 +3713,7 @@ impl Glyphs {
             (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Size>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn UseLayoutRounding(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe {
@@ -3312,11 +3721,13 @@ impl Glyphs {
             (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetUseLayoutRounding(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "UI_Xaml_Media_Animation"))]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Collections`, `UI_Xaml_Media_Animation`*"]
     pub fn Transitions(&self) -> ::windows::runtime::Result<super::Media::Animation::TransitionCollection> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe {
@@ -3325,11 +3736,13 @@ impl Glyphs {
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "UI_Xaml_Media_Animation"))]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Collections`, `UI_Xaml_Media_Animation`*"]
     pub fn SetTransitions<'a, Param0: ::windows::runtime::IntoParam<'a, super::Media::Animation::TransitionCollection>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn CacheMode(&self) -> ::windows::runtime::Result<super::Media::CacheMode> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe {
@@ -3338,10 +3751,12 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn SetCacheMode<'a, Param0: ::windows::runtime::IntoParam<'a, super::Media::CacheMode>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).29)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn IsTapEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe {
@@ -3349,10 +3764,12 @@ impl Glyphs {
             (::windows::runtime::Interface::vtable(this).30)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetIsTapEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).31)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn IsDoubleTapEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe {
@@ -3360,10 +3777,12 @@ impl Glyphs {
             (::windows::runtime::Interface::vtable(this).32)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetIsDoubleTapEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).33)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn IsRightTapEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe {
@@ -3371,10 +3790,12 @@ impl Glyphs {
             (::windows::runtime::Interface::vtable(this).34)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetIsRightTapEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).35)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn IsHoldingEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe {
@@ -3382,11 +3803,13 @@ impl Glyphs {
             (::windows::runtime::Interface::vtable(this).36)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetIsHoldingEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).37)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "UI_Xaml_Input")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Input`*"]
     pub fn ManipulationMode(&self) -> ::windows::runtime::Result<super::Input::ManipulationModes> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe {
@@ -3395,11 +3818,13 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "UI_Xaml_Input")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Input`*"]
     pub fn SetManipulationMode(&self, value: super::Input::ManipulationModes) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).39)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "UI_Xaml_Input"))]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Collections`, `UI_Xaml_Input`*"]
     pub fn PointerCaptures(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<super::Input::Pointer>> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe {
@@ -3408,6 +3833,7 @@ impl Glyphs {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`, `UI_Xaml_Input`*"]
     pub fn KeyUp<'a, Param0: ::windows::runtime::IntoParam<'a, super::Input::KeyEventHandler>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe {
@@ -3416,11 +3842,13 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveKeyUp<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).42)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`, `UI_Xaml_Input`*"]
     pub fn KeyDown<'a, Param0: ::windows::runtime::IntoParam<'a, super::Input::KeyEventHandler>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe {
@@ -3429,11 +3857,13 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveKeyDown<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).44)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn GotFocus<'a, Param0: ::windows::runtime::IntoParam<'a, super::RoutedEventHandler>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe {
@@ -3442,11 +3872,13 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveGotFocus<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).46)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn LostFocus<'a, Param0: ::windows::runtime::IntoParam<'a, super::RoutedEventHandler>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe {
@@ -3455,11 +3887,13 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveLostFocus<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).48)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn DragEnter<'a, Param0: ::windows::runtime::IntoParam<'a, super::DragEventHandler>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe {
@@ -3468,11 +3902,13 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveDragEnter<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).50)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn DragLeave<'a, Param0: ::windows::runtime::IntoParam<'a, super::DragEventHandler>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe {
@@ -3481,11 +3917,13 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveDragLeave<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).52)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn DragOver<'a, Param0: ::windows::runtime::IntoParam<'a, super::DragEventHandler>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe {
@@ -3494,11 +3932,13 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveDragOver<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).54)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn Drop<'a, Param0: ::windows::runtime::IntoParam<'a, super::DragEventHandler>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe {
@@ -3507,11 +3947,13 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveDrop<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).56)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`, `UI_Xaml_Input`*"]
     pub fn PointerPressed<'a, Param0: ::windows::runtime::IntoParam<'a, super::Input::PointerEventHandler>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe {
@@ -3520,11 +3962,13 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemovePointerPressed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).58)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`, `UI_Xaml_Input`*"]
     pub fn PointerMoved<'a, Param0: ::windows::runtime::IntoParam<'a, super::Input::PointerEventHandler>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe {
@@ -3533,11 +3977,13 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemovePointerMoved<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).60)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`, `UI_Xaml_Input`*"]
     pub fn PointerReleased<'a, Param0: ::windows::runtime::IntoParam<'a, super::Input::PointerEventHandler>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe {
@@ -3546,11 +3992,13 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemovePointerReleased<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).62)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`, `UI_Xaml_Input`*"]
     pub fn PointerEntered<'a, Param0: ::windows::runtime::IntoParam<'a, super::Input::PointerEventHandler>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe {
@@ -3559,11 +4007,13 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemovePointerEntered<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).64)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`, `UI_Xaml_Input`*"]
     pub fn PointerExited<'a, Param0: ::windows::runtime::IntoParam<'a, super::Input::PointerEventHandler>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe {
@@ -3572,11 +4022,13 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemovePointerExited<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).66)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`, `UI_Xaml_Input`*"]
     pub fn PointerCaptureLost<'a, Param0: ::windows::runtime::IntoParam<'a, super::Input::PointerEventHandler>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe {
@@ -3585,11 +4037,13 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemovePointerCaptureLost<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).68)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`, `UI_Xaml_Input`*"]
     pub fn PointerCanceled<'a, Param0: ::windows::runtime::IntoParam<'a, super::Input::PointerEventHandler>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe {
@@ -3598,11 +4052,13 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemovePointerCanceled<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).70)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`, `UI_Xaml_Input`*"]
     pub fn PointerWheelChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::Input::PointerEventHandler>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe {
@@ -3611,11 +4067,13 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemovePointerWheelChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).72)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`, `UI_Xaml_Input`*"]
     pub fn Tapped<'a, Param0: ::windows::runtime::IntoParam<'a, super::Input::TappedEventHandler>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe {
@@ -3624,11 +4082,13 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveTapped<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).74)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`, `UI_Xaml_Input`*"]
     pub fn DoubleTapped<'a, Param0: ::windows::runtime::IntoParam<'a, super::Input::DoubleTappedEventHandler>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe {
@@ -3637,11 +4097,13 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveDoubleTapped<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).76)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`, `UI_Xaml_Input`*"]
     pub fn Holding<'a, Param0: ::windows::runtime::IntoParam<'a, super::Input::HoldingEventHandler>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe {
@@ -3650,11 +4112,13 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveHolding<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).78)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`, `UI_Xaml_Input`*"]
     pub fn RightTapped<'a, Param0: ::windows::runtime::IntoParam<'a, super::Input::RightTappedEventHandler>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe {
@@ -3663,11 +4127,13 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveRightTapped<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).80)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`, `UI_Xaml_Input`*"]
     pub fn ManipulationStarting<'a, Param0: ::windows::runtime::IntoParam<'a, super::Input::ManipulationStartingEventHandler>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe {
@@ -3676,11 +4142,13 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveManipulationStarting<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).82)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`, `UI_Xaml_Input`*"]
     pub fn ManipulationInertiaStarting<'a, Param0: ::windows::runtime::IntoParam<'a, super::Input::ManipulationInertiaStartingEventHandler>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe {
@@ -3689,11 +4157,13 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveManipulationInertiaStarting<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).84)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`, `UI_Xaml_Input`*"]
     pub fn ManipulationStarted<'a, Param0: ::windows::runtime::IntoParam<'a, super::Input::ManipulationStartedEventHandler>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe {
@@ -3702,11 +4172,13 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveManipulationStarted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).86)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`, `UI_Xaml_Input`*"]
     pub fn ManipulationDelta<'a, Param0: ::windows::runtime::IntoParam<'a, super::Input::ManipulationDeltaEventHandler>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe {
@@ -3715,11 +4187,13 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveManipulationDelta<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).88)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`, `UI_Xaml_Input`*"]
     pub fn ManipulationCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, super::Input::ManipulationCompletedEventHandler>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe {
@@ -3728,21 +4202,25 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveManipulationCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).90)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn Measure<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Size>>(&self, availablesize: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).91)(::std::mem::transmute_copy(this), availablesize.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn Arrange<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Rect>>(&self, finalrect: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).92)(::std::mem::transmute_copy(this), finalrect.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI_Xaml_Input")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Input`*"]
     pub fn CapturePointer<'a, Param0: ::windows::runtime::IntoParam<'a, super::Input::Pointer>>(&self, value: Param0) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe {
@@ -3751,23 +4229,28 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "UI_Xaml_Input")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Input`*"]
     pub fn ReleasePointerCapture<'a, Param0: ::windows::runtime::IntoParam<'a, super::Input::Pointer>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).94)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ReleasePointerCaptures(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).95)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn AddHandler<'a, Param0: ::windows::runtime::IntoParam<'a, super::RoutedEvent>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, routedevent: Param0, handler: Param1, handledeventstoo: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).96)(::std::mem::transmute_copy(this), routedevent.into_param().abi(), handler.into_param().abi(), handledeventstoo).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn RemoveHandler<'a, Param0: ::windows::runtime::IntoParam<'a, super::RoutedEvent>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, routedevent: Param0, handler: Param1) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).97)(::std::mem::transmute_copy(this), routedevent.into_param().abi(), handler.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn TransformToVisual<'a, Param0: ::windows::runtime::IntoParam<'a, super::UIElement>>(&self, visual: Param0) -> ::windows::runtime::Result<super::Media::GeneralTransform> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe {
@@ -3775,19 +4258,23 @@ impl Glyphs {
             (::windows::runtime::Interface::vtable(this).98)(::std::mem::transmute_copy(this), visual.into_param().abi(), &mut result__).from_abi::<super::Media::GeneralTransform>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn InvalidateMeasure(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).99)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn InvalidateArrange(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).100)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn UpdateLayout(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).101)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn CompositeMode(&self) -> ::windows::runtime::Result<super::Media::ElementCompositeMode> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement2>(self)?;
         unsafe {
@@ -3796,10 +4283,12 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn SetCompositeMode(&self, value: super::Media::ElementCompositeMode) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn CancelDirectManipulations(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement2>(self)?;
         unsafe {
@@ -3808,6 +4297,7 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "UI_Xaml_Media_Media3D")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media_Media3D`*"]
     pub fn Transform3D(&self) -> ::windows::runtime::Result<super::Media::Media3D::Transform3D> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement3>(self)?;
         unsafe {
@@ -3816,10 +4306,12 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "UI_Xaml_Media_Media3D")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media_Media3D`*"]
     pub fn SetTransform3D<'a, Param0: ::windows::runtime::IntoParam<'a, super::Media::Media3D::Transform3D>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn CanDrag(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement3>(self)?;
         unsafe {
@@ -3827,11 +4319,13 @@ impl Glyphs {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetCanDrag(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn DragStarting<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<super::UIElement, super::DragStartingEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement3>(self)?;
         unsafe {
@@ -3840,11 +4334,13 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveDragStarting<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn DropCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<super::UIElement, super::DropCompletedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement3>(self)?;
         unsafe {
@@ -3853,11 +4349,13 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveDropCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "ApplicationModel_DataTransfer", feature = "Foundation", feature = "UI_Input"))]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `ApplicationModel_DataTransfer`, `Foundation`, `UI_Input`*"]
     pub fn StartDragAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Input::PointerPoint>>(&self, pointerpoint: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::ApplicationModel::DataTransfer::DataPackageOperation>> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement3>(self)?;
         unsafe {
@@ -3866,6 +4364,7 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn MeasureOverride<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Size>>(&self, availablesize: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::Size> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElementOverrides>(self)?;
         unsafe {
@@ -3874,6 +4373,7 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn ArrangeOverride<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Size>>(&self, finalsize: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::Size> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElementOverrides>(self)?;
         unsafe {
@@ -3881,10 +4381,12 @@ impl Glyphs {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), finalsize.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::Size>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn OnApplyTemplate(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElementOverrides>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GoToElementStateCore<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, statename: Param0, usetransitions: bool) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElementOverrides2>(self)?;
         unsafe {
@@ -3893,6 +4395,7 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "UI_Xaml_Automation_Peers")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Automation_Peers`*"]
     pub fn OnCreateAutomationPeer(&self) -> ::windows::runtime::Result<super::Automation::Peers::AutomationPeer> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElementOverrides>(self)?;
         unsafe {
@@ -3900,11 +4403,13 @@ impl Glyphs {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Automation::Peers::AutomationPeer>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn OnDisconnectVisualChildren(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElementOverrides>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`, `Foundation_Collections`*"]
     pub fn FindSubElementsForTouchTargeting<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Point>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Rect>>(&self, point: Param0, boundingrect: Param1) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Point>>> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElementOverrides>(self)?;
         unsafe {
@@ -3912,6 +4417,7 @@ impl Glyphs {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), point.into_param().abi(), boundingrect.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Point>>>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn AllowFocusOnInteraction(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElement4>(self)?;
         unsafe {
@@ -3919,10 +4425,12 @@ impl Glyphs {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetAllowFocusOnInteraction(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn FocusVisualMargin(&self) -> ::windows::runtime::Result<super::Thickness> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElement4>(self)?;
         unsafe {
@@ -3930,10 +4438,12 @@ impl Glyphs {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Thickness>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetFocusVisualMargin<'a, Param0: ::windows::runtime::IntoParam<'a, super::Thickness>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn FocusVisualSecondaryThickness(&self) -> ::windows::runtime::Result<super::Thickness> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElement4>(self)?;
         unsafe {
@@ -3941,10 +4451,12 @@ impl Glyphs {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Thickness>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetFocusVisualSecondaryThickness<'a, Param0: ::windows::runtime::IntoParam<'a, super::Thickness>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn FocusVisualPrimaryThickness(&self) -> ::windows::runtime::Result<super::Thickness> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElement4>(self)?;
         unsafe {
@@ -3952,11 +4464,13 @@ impl Glyphs {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Thickness>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetFocusVisualPrimaryThickness<'a, Param0: ::windows::runtime::IntoParam<'a, super::Thickness>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn FocusVisualSecondaryBrush(&self) -> ::windows::runtime::Result<super::Media::Brush> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElement4>(self)?;
         unsafe {
@@ -3965,11 +4479,13 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn SetFocusVisualSecondaryBrush<'a, Param0: ::windows::runtime::IntoParam<'a, super::Media::Brush>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn FocusVisualPrimaryBrush(&self) -> ::windows::runtime::Result<super::Media::Brush> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElement4>(self)?;
         unsafe {
@@ -3978,10 +4494,12 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn SetFocusVisualPrimaryBrush<'a, Param0: ::windows::runtime::IntoParam<'a, super::Media::Brush>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn AllowFocusWhenDisabled(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElement4>(self)?;
         unsafe {
@@ -3989,11 +4507,13 @@ impl Glyphs {
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetAllowFocusWhenDisabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "UI_Xaml_Controls_Primitives")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Controls_Primitives`*"]
     pub fn ContextFlyout(&self) -> ::windows::runtime::Result<super::Controls::Primitives::FlyoutBase> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement4>(self)?;
         unsafe {
@@ -4002,10 +4522,12 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "UI_Xaml_Controls_Primitives")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Controls_Primitives`*"]
     pub fn SetContextFlyout<'a, Param0: ::windows::runtime::IntoParam<'a, super::Controls::Primitives::FlyoutBase>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ExitDisplayModeOnAccessKeyInvoked(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement4>(self)?;
         unsafe {
@@ -4013,10 +4535,12 @@ impl Glyphs {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetExitDisplayModeOnAccessKeyInvoked(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn IsAccessKeyScope(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement4>(self)?;
         unsafe {
@@ -4024,10 +4548,12 @@ impl Glyphs {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetIsAccessKeyScope(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn AccessKeyScopeOwner(&self) -> ::windows::runtime::Result<super::DependencyObject> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement4>(self)?;
         unsafe {
@@ -4035,10 +4561,12 @@ impl Glyphs {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyObject>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetAccessKeyScopeOwner<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn AccessKey(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement4>(self)?;
         unsafe {
@@ -4046,11 +4574,13 @@ impl Glyphs {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetAccessKey<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`, `UI_Xaml_Input`*"]
     pub fn ContextRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<super::UIElement, super::Input::ContextRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement4>(self)?;
         unsafe {
@@ -4059,11 +4589,13 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveContextRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn ContextCanceled<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<super::UIElement, super::RoutedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement4>(self)?;
         unsafe {
@@ -4072,11 +4604,13 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveContextCanceled<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`, `UI_Xaml_Input`*"]
     pub fn AccessKeyDisplayRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<super::UIElement, super::Input::AccessKeyDisplayRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement4>(self)?;
         unsafe {
@@ -4085,11 +4619,13 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveAccessKeyDisplayRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`, `UI_Xaml_Input`*"]
     pub fn AccessKeyDisplayDismissed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<super::UIElement, super::Input::AccessKeyDisplayDismissedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement4>(self)?;
         unsafe {
@@ -4098,11 +4634,13 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveAccessKeyDisplayDismissed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`, `UI_Xaml_Input`*"]
     pub fn AccessKeyInvoked<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<super::UIElement, super::Input::AccessKeyInvokedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement4>(self)?;
         unsafe {
@@ -4111,11 +4649,13 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveAccessKeyInvoked<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "UI_Xaml_Media"))]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Collections`, `UI_Xaml_Media`*"]
     pub fn Lights(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVector<super::Media::XamlLight>> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement5>(self)?;
         unsafe {
@@ -4124,6 +4664,7 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "UI_Xaml_Input")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Input`*"]
     pub fn KeyTipPlacementMode(&self) -> ::windows::runtime::Result<super::Input::KeyTipPlacementMode> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement5>(self)?;
         unsafe {
@@ -4132,10 +4673,12 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "UI_Xaml_Input")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Input`*"]
     pub fn SetKeyTipPlacementMode(&self, value: super::Input::KeyTipPlacementMode) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement5>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn KeyTipHorizontalOffset(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement5>(self)?;
         unsafe {
@@ -4143,10 +4686,12 @@ impl Glyphs {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetKeyTipHorizontalOffset(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement5>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn KeyTipVerticalOffset(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement5>(self)?;
         unsafe {
@@ -4154,11 +4699,13 @@ impl Glyphs {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetKeyTipVerticalOffset(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement5>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "UI_Xaml_Input")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Input`*"]
     pub fn XYFocusKeyboardNavigation(&self) -> ::windows::runtime::Result<super::Input::XYFocusKeyboardNavigationMode> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement5>(self)?;
         unsafe {
@@ -4167,11 +4714,13 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "UI_Xaml_Input")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Input`*"]
     pub fn SetXYFocusKeyboardNavigation(&self, value: super::Input::XYFocusKeyboardNavigationMode) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement5>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "UI_Xaml_Input")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Input`*"]
     pub fn XYFocusUpNavigationStrategy(&self) -> ::windows::runtime::Result<super::Input::XYFocusNavigationStrategy> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement5>(self)?;
         unsafe {
@@ -4180,11 +4729,13 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "UI_Xaml_Input")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Input`*"]
     pub fn SetXYFocusUpNavigationStrategy(&self, value: super::Input::XYFocusNavigationStrategy) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement5>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "UI_Xaml_Input")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Input`*"]
     pub fn XYFocusDownNavigationStrategy(&self) -> ::windows::runtime::Result<super::Input::XYFocusNavigationStrategy> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement5>(self)?;
         unsafe {
@@ -4193,11 +4744,13 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "UI_Xaml_Input")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Input`*"]
     pub fn SetXYFocusDownNavigationStrategy(&self, value: super::Input::XYFocusNavigationStrategy) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement5>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "UI_Xaml_Input")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Input`*"]
     pub fn XYFocusLeftNavigationStrategy(&self) -> ::windows::runtime::Result<super::Input::XYFocusNavigationStrategy> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement5>(self)?;
         unsafe {
@@ -4206,11 +4759,13 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "UI_Xaml_Input")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Input`*"]
     pub fn SetXYFocusLeftNavigationStrategy(&self, value: super::Input::XYFocusNavigationStrategy) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement5>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "UI_Xaml_Input")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Input`*"]
     pub fn XYFocusRightNavigationStrategy(&self) -> ::windows::runtime::Result<super::Input::XYFocusNavigationStrategy> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement5>(self)?;
         unsafe {
@@ -4219,10 +4774,12 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "UI_Xaml_Input")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Input`*"]
     pub fn SetXYFocusRightNavigationStrategy(&self, value: super::Input::XYFocusNavigationStrategy) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement5>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn HighContrastAdjustment(&self) -> ::windows::runtime::Result<super::ElementHighContrastAdjustment> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement5>(self)?;
         unsafe {
@@ -4230,11 +4787,13 @@ impl Glyphs {
             (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::ElementHighContrastAdjustment>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetHighContrastAdjustment(&self, value: super::ElementHighContrastAdjustment) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement5>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "UI_Xaml_Input")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Input`*"]
     pub fn TabFocusNavigation(&self) -> ::windows::runtime::Result<super::Input::KeyboardNavigationMode> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement5>(self)?;
         unsafe {
@@ -4243,11 +4802,13 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "UI_Xaml_Input")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Input`*"]
     pub fn SetTabFocusNavigation(&self, value: super::Input::KeyboardNavigationMode) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement5>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`, `UI_Xaml_Input`*"]
     pub fn GettingFocus<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<super::UIElement, super::Input::GettingFocusEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement5>(self)?;
         unsafe {
@@ -4256,11 +4817,13 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveGettingFocus<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement5>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).28)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`, `UI_Xaml_Input`*"]
     pub fn LosingFocus<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<super::UIElement, super::Input::LosingFocusEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement5>(self)?;
         unsafe {
@@ -4269,11 +4832,13 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveLosingFocus<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement5>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).30)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`, `UI_Xaml_Input`*"]
     pub fn NoFocusCandidateFound<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<super::UIElement, super::Input::NoFocusCandidateFoundEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement5>(self)?;
         unsafe {
@@ -4282,18 +4847,22 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveNoFocusCandidateFound<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement5>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).32)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn StartBringIntoView(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement5>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).33)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn StartBringIntoViewWithOptions<'a, Param0: ::windows::runtime::IntoParam<'a, super::BringIntoViewOptions>>(&self, options: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement5>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).34)(::std::mem::transmute_copy(this), options.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ActualTheme(&self) -> ::windows::runtime::Result<super::ElementTheme> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElement6>(self)?;
         unsafe {
@@ -4302,6 +4871,7 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn ActualThemeChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<super::FrameworkElement, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElement6>(self)?;
         unsafe {
@@ -4310,11 +4880,13 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveActualThemeChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElement6>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "UI_Xaml_Input"))]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Collections`, `UI_Xaml_Input`*"]
     pub fn KeyboardAccelerators(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVector<super::Input::KeyboardAccelerator>> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement7>(self)?;
         unsafe {
@@ -4323,6 +4895,7 @@ impl Glyphs {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`, `UI_Xaml_Input`*"]
     pub fn CharacterReceived<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<super::UIElement, super::Input::CharacterReceivedRoutedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement7>(self)?;
         unsafe {
@@ -4331,11 +4904,13 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveCharacterReceived<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement7>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`, `UI_Xaml_Input`*"]
     pub fn ProcessKeyboardAccelerators<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<super::UIElement, super::Input::ProcessKeyboardAcceleratorEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement7>(self)?;
         unsafe {
@@ -4344,11 +4919,13 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveProcessKeyboardAccelerators<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement7>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`, `UI_Xaml_Input`*"]
     pub fn PreviewKeyDown<'a, Param0: ::windows::runtime::IntoParam<'a, super::Input::KeyEventHandler>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement7>(self)?;
         unsafe {
@@ -4357,11 +4934,13 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemovePreviewKeyDown<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement7>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`, `UI_Xaml_Input`*"]
     pub fn PreviewKeyUp<'a, Param0: ::windows::runtime::IntoParam<'a, super::Input::KeyEventHandler>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement7>(self)?;
         unsafe {
@@ -4370,16 +4949,19 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemovePreviewKeyUp<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement7>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI_Xaml_Input")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Input`*"]
     pub fn TryInvokeKeyboardAccelerator<'a, Param0: ::windows::runtime::IntoParam<'a, super::Input::ProcessKeyboardAcceleratorEventArgs>>(&self, args: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement7>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), args.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Collections`*"]
     pub fn GetChildrenInTabFocusOrder(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IIterable<super::DependencyObject>> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElementOverrides7>(self)?;
         unsafe {
@@ -4388,10 +4970,12 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "UI_Xaml_Input")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Input`*"]
     pub fn OnProcessKeyboardAccelerators<'a, Param0: ::windows::runtime::IntoParam<'a, super::Input::ProcessKeyboardAcceleratorEventArgs>>(&self, args: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElementOverrides7>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), args.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn KeyTipTarget(&self) -> ::windows::runtime::Result<super::DependencyObject> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement8>(self)?;
         unsafe {
@@ -4399,10 +4983,12 @@ impl Glyphs {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyObject>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetKeyTipTarget<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement8>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn KeyboardAcceleratorPlacementTarget(&self) -> ::windows::runtime::Result<super::DependencyObject> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement8>(self)?;
         unsafe {
@@ -4410,11 +4996,13 @@ impl Glyphs {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyObject>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetKeyboardAcceleratorPlacementTarget<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement8>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI_Xaml_Input")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Input`*"]
     pub fn KeyboardAcceleratorPlacementMode(&self) -> ::windows::runtime::Result<super::Input::KeyboardAcceleratorPlacementMode> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement8>(self)?;
         unsafe {
@@ -4423,11 +5011,13 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "UI_Xaml_Input")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Input`*"]
     pub fn SetKeyboardAcceleratorPlacementMode(&self, value: super::Input::KeyboardAcceleratorPlacementMode) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement8>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn BringIntoViewRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<super::UIElement, super::BringIntoViewRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement8>(self)?;
         unsafe {
@@ -4436,24 +5026,29 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveBringIntoViewRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement8>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI_Xaml_Input")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Input`*"]
     pub fn OnKeyboardAcceleratorInvoked<'a, Param0: ::windows::runtime::IntoParam<'a, super::Input::KeyboardAcceleratorInvokedEventArgs>>(&self, args: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElementOverrides8>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), args.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn OnBringIntoViewRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::BringIntoViewRequestedEventArgs>>(&self, e: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElementOverrides8>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), e.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI_Composition")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Composition`*"]
     pub fn PopulatePropertyInfo<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, super::super::Composition::AnimationPropertyInfo>>(&self, propertyname: Param0, propertyinfo: Param1) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Composition::IAnimationObject>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), propertyname.into_param().abi(), propertyinfo.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn IsLoaded(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElement7>(self)?;
         unsafe {
@@ -4462,6 +5057,7 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn EffectiveViewportChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<super::FrameworkElement, super::EffectiveViewportChangedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElement7>(self)?;
         unsafe {
@@ -4470,14 +5066,17 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveEffectiveViewportChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElement7>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn InvalidateViewport(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IFrameworkElementProtected7>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn CanBeScrollAnchor(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement9>(self)?;
         unsafe {
@@ -4485,10 +5084,12 @@ impl Glyphs {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetCanBeScrollAnchor(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement9>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn OpacityTransition(&self) -> ::windows::runtime::Result<super::ScalarTransition> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement9>(self)?;
         unsafe {
@@ -4496,11 +5097,13 @@ impl Glyphs {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::ScalarTransition>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetOpacityTransition<'a, Param0: ::windows::runtime::IntoParam<'a, super::ScalarTransition>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement9>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Numerics`*"]
     pub fn Translation(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Numerics::Vector3> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement9>(self)?;
         unsafe {
@@ -4509,10 +5112,12 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Numerics`*"]
     pub fn SetTranslation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Numerics::Vector3>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement9>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn TranslationTransition(&self) -> ::windows::runtime::Result<super::Vector3Transition> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement9>(self)?;
         unsafe {
@@ -4520,10 +5125,12 @@ impl Glyphs {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Vector3Transition>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetTranslationTransition<'a, Param0: ::windows::runtime::IntoParam<'a, super::Vector3Transition>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement9>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn Rotation(&self) -> ::windows::runtime::Result<f32> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement9>(self)?;
         unsafe {
@@ -4531,10 +5138,12 @@ impl Glyphs {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetRotation(&self, value: f32) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement9>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn RotationTransition(&self) -> ::windows::runtime::Result<super::ScalarTransition> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement9>(self)?;
         unsafe {
@@ -4542,11 +5151,13 @@ impl Glyphs {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::ScalarTransition>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetRotationTransition<'a, Param0: ::windows::runtime::IntoParam<'a, super::ScalarTransition>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement9>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Numerics`*"]
     pub fn Scale(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Numerics::Vector3> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement9>(self)?;
         unsafe {
@@ -4555,10 +5166,12 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Numerics`*"]
     pub fn SetScale<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Numerics::Vector3>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement9>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ScaleTransition(&self) -> ::windows::runtime::Result<super::Vector3Transition> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement9>(self)?;
         unsafe {
@@ -4566,11 +5179,13 @@ impl Glyphs {
             (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Vector3Transition>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetScaleTransition<'a, Param0: ::windows::runtime::IntoParam<'a, super::Vector3Transition>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement9>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Numerics`*"]
     pub fn TransformMatrix(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Numerics::Matrix4x4> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement9>(self)?;
         unsafe {
@@ -4579,11 +5194,13 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Numerics`*"]
     pub fn SetTransformMatrix<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Numerics::Matrix4x4>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement9>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Numerics`*"]
     pub fn CenterPoint(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Numerics::Vector3> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement9>(self)?;
         unsafe {
@@ -4592,11 +5209,13 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Numerics`*"]
     pub fn SetCenterPoint<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Numerics::Vector3>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement9>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Numerics`*"]
     pub fn RotationAxis(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Numerics::Vector3> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement9>(self)?;
         unsafe {
@@ -4605,26 +5224,31 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Numerics`*"]
     pub fn SetRotationAxis<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Numerics::Vector3>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement9>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI_Composition")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Composition`*"]
     pub fn StartAnimation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Composition::ICompositionAnimationBase>>(&self, animation: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement9>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).28)(::std::mem::transmute_copy(this), animation.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI_Composition")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Composition`*"]
     pub fn StopAnimation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Composition::ICompositionAnimationBase>>(&self, animation: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement9>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).29)(::std::mem::transmute_copy(this), animation.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI_Composition")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Composition`*"]
     pub fn PopulatePropertyInfoOverride<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, super::super::Composition::AnimationPropertyInfo>>(&self, propertyname: Param0, animationpropertyinfo: Param1) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElementOverrides9>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), propertyname.into_param().abi(), animationpropertyinfo.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Numerics`*"]
     pub fn ActualOffset(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Numerics::Vector3> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement10>(self)?;
         unsafe {
@@ -4633,6 +5257,7 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Numerics`*"]
     pub fn ActualSize(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Numerics::Vector2> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement10>(self)?;
         unsafe {
@@ -4640,6 +5265,7 @@ impl Glyphs {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn XamlRoot(&self) -> ::windows::runtime::Result<super::XamlRoot> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement10>(self)?;
         unsafe {
@@ -4647,10 +5273,12 @@ impl Glyphs {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::XamlRoot>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetXamlRoot<'a, Param0: ::windows::runtime::IntoParam<'a, super::XamlRoot>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement10>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn UIContext(&self) -> ::windows::runtime::Result<super::super::UIContext> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement10>(self)?;
         unsafe {
@@ -4659,6 +5287,7 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn Shadow(&self) -> ::windows::runtime::Result<super::Media::Shadow> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement10>(self)?;
         unsafe {
@@ -4667,6 +5296,7 @@ impl Glyphs {
         }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn SetShadow<'a, Param0: ::windows::runtime::IntoParam<'a, super::Media::Shadow>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IUIElement10>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -4844,6 +5474,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::DependencyObject> for &Glyphs 
 }
 unsafe impl ::std::marker::Send for Glyphs {}
 unsafe impl ::std::marker::Sync for Glyphs {}
+#[doc = "*Required features: `UI_Xaml_Documents`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct Hyperlink(::windows::runtime::IInspectable);
@@ -4856,6 +5487,7 @@ impl Hyperlink {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn NavigateUri(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Uri> {
         let this = self;
         unsafe {
@@ -4864,11 +5496,13 @@ impl Hyperlink {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn SetNavigateUri<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn Click<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<Hyperlink, HyperlinkClickEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -4877,10 +5511,12 @@ impl Hyperlink {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveClick<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn UnderlineStyle(&self) -> ::windows::runtime::Result<UnderlineStyle> {
         let this = &::windows::runtime::Interface::cast::<IHyperlink2>(self)?;
         unsafe {
@@ -4888,22 +5524,26 @@ impl Hyperlink {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<UnderlineStyle>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetUnderlineStyle(&self, value: UnderlineStyle) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IHyperlink2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn NavigateUriProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IHyperlinkStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn UnderlineStyleProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IHyperlinkStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn XYFocusLeft(&self) -> ::windows::runtime::Result<super::DependencyObject> {
         let this = &::windows::runtime::Interface::cast::<IHyperlink3>(self)?;
         unsafe {
@@ -4911,10 +5551,12 @@ impl Hyperlink {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyObject>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetXYFocusLeft<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IHyperlink3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn XYFocusRight(&self) -> ::windows::runtime::Result<super::DependencyObject> {
         let this = &::windows::runtime::Interface::cast::<IHyperlink3>(self)?;
         unsafe {
@@ -4922,10 +5564,12 @@ impl Hyperlink {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyObject>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetXYFocusRight<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IHyperlink3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn XYFocusUp(&self) -> ::windows::runtime::Result<super::DependencyObject> {
         let this = &::windows::runtime::Interface::cast::<IHyperlink3>(self)?;
         unsafe {
@@ -4933,10 +5577,12 @@ impl Hyperlink {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyObject>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetXYFocusUp<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IHyperlink3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn XYFocusDown(&self) -> ::windows::runtime::Result<super::DependencyObject> {
         let this = &::windows::runtime::Interface::cast::<IHyperlink3>(self)?;
         unsafe {
@@ -4944,10 +5590,12 @@ impl Hyperlink {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyObject>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetXYFocusDown<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IHyperlink3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ElementSoundMode(&self) -> ::windows::runtime::Result<super::ElementSoundMode> {
         let this = &::windows::runtime::Interface::cast::<IHyperlink3>(self)?;
         unsafe {
@@ -4955,40 +5603,47 @@ impl Hyperlink {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::ElementSoundMode>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetElementSoundMode(&self, value: super::ElementSoundMode) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IHyperlink3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn XYFocusLeftProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IHyperlinkStatics3(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn XYFocusRightProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IHyperlinkStatics3(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn XYFocusUpProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IHyperlinkStatics3(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn XYFocusDownProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IHyperlinkStatics3(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ElementSoundModeProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IHyperlinkStatics3(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn FocusState(&self) -> ::windows::runtime::Result<super::FocusState> {
         let this = &::windows::runtime::Interface::cast::<IHyperlink4>(self)?;
         unsafe {
@@ -4997,6 +5652,7 @@ impl Hyperlink {
         }
     }
     #[cfg(feature = "UI_Xaml_Input")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Input`*"]
     pub fn XYFocusUpNavigationStrategy(&self) -> ::windows::runtime::Result<super::Input::XYFocusNavigationStrategy> {
         let this = &::windows::runtime::Interface::cast::<IHyperlink4>(self)?;
         unsafe {
@@ -5005,11 +5661,13 @@ impl Hyperlink {
         }
     }
     #[cfg(feature = "UI_Xaml_Input")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Input`*"]
     pub fn SetXYFocusUpNavigationStrategy(&self, value: super::Input::XYFocusNavigationStrategy) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IHyperlink4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "UI_Xaml_Input")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Input`*"]
     pub fn XYFocusDownNavigationStrategy(&self) -> ::windows::runtime::Result<super::Input::XYFocusNavigationStrategy> {
         let this = &::windows::runtime::Interface::cast::<IHyperlink4>(self)?;
         unsafe {
@@ -5018,11 +5676,13 @@ impl Hyperlink {
         }
     }
     #[cfg(feature = "UI_Xaml_Input")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Input`*"]
     pub fn SetXYFocusDownNavigationStrategy(&self, value: super::Input::XYFocusNavigationStrategy) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IHyperlink4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "UI_Xaml_Input")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Input`*"]
     pub fn XYFocusLeftNavigationStrategy(&self) -> ::windows::runtime::Result<super::Input::XYFocusNavigationStrategy> {
         let this = &::windows::runtime::Interface::cast::<IHyperlink4>(self)?;
         unsafe {
@@ -5031,11 +5691,13 @@ impl Hyperlink {
         }
     }
     #[cfg(feature = "UI_Xaml_Input")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Input`*"]
     pub fn SetXYFocusLeftNavigationStrategy(&self, value: super::Input::XYFocusNavigationStrategy) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IHyperlink4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "UI_Xaml_Input")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Input`*"]
     pub fn XYFocusRightNavigationStrategy(&self) -> ::windows::runtime::Result<super::Input::XYFocusNavigationStrategy> {
         let this = &::windows::runtime::Interface::cast::<IHyperlink4>(self)?;
         unsafe {
@@ -5044,11 +5706,13 @@ impl Hyperlink {
         }
     }
     #[cfg(feature = "UI_Xaml_Input")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Input`*"]
     pub fn SetXYFocusRightNavigationStrategy(&self, value: super::Input::XYFocusNavigationStrategy) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IHyperlink4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn GotFocus<'a, Param0: ::windows::runtime::IntoParam<'a, super::RoutedEventHandler>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<IHyperlink4>(self)?;
         unsafe {
@@ -5057,11 +5721,13 @@ impl Hyperlink {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveGotFocus<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IHyperlink4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn LostFocus<'a, Param0: ::windows::runtime::IntoParam<'a, super::RoutedEventHandler>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<IHyperlink4>(self)?;
         unsafe {
@@ -5070,10 +5736,12 @@ impl Hyperlink {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveLostFocus<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IHyperlink4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn Focus(&self, value: super::FocusState) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IHyperlink4>(self)?;
         unsafe {
@@ -5081,36 +5749,42 @@ impl Hyperlink {
             (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), value, &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn FocusStateProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IHyperlinkStatics4(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn XYFocusUpNavigationStrategyProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IHyperlinkStatics4(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn XYFocusDownNavigationStrategyProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IHyperlinkStatics4(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn XYFocusLeftNavigationStrategyProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IHyperlinkStatics4(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn XYFocusRightNavigationStrategyProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IHyperlinkStatics4(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn IsTabStop(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IHyperlink5>(self)?;
         unsafe {
@@ -5118,10 +5792,12 @@ impl Hyperlink {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetIsTabStop(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IHyperlink5>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn TabIndex(&self) -> ::windows::runtime::Result<i32> {
         let this = &::windows::runtime::Interface::cast::<IHyperlink5>(self)?;
         unsafe {
@@ -5129,22 +5805,26 @@ impl Hyperlink {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetTabIndex(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IHyperlink5>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn IsTabStopProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IHyperlinkStatics5(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn TabIndexProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IHyperlinkStatics5(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -5152,14 +5832,17 @@ impl Hyperlink {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ClearValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -5167,6 +5850,7 @@ impl Hyperlink {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -5175,6 +5859,7 @@ impl Hyperlink {
         }
     }
     #[cfg(feature = "UI_Core")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::runtime::Result<super::super::Core::CoreDispatcher> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -5182,6 +5867,7 @@ impl Hyperlink {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Core::CoreDispatcher>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::runtime::IntoParam<'a, super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::runtime::Result<i64> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject2>(self)?;
         unsafe {
@@ -5189,11 +5875,13 @@ impl Hyperlink {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Collections`*"]
     pub fn Inlines(&self) -> ::windows::runtime::Result<InlineCollection> {
         let this = &::windows::runtime::Interface::cast::<ISpan>(self)?;
         unsafe {
@@ -5202,10 +5890,12 @@ impl Hyperlink {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Collections`*"]
     pub fn SetInlines<'a, Param0: ::windows::runtime::IntoParam<'a, InlineCollection>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ISpan>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -5213,6 +5903,7 @@ impl Hyperlink {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn FontSize(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -5220,11 +5911,13 @@ impl Hyperlink {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetFontSize(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn FontFamily(&self) -> ::windows::runtime::Result<super::Media::FontFamily> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -5233,11 +5926,13 @@ impl Hyperlink {
         }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn SetFontFamily<'a, Param0: ::windows::runtime::IntoParam<'a, super::Media::FontFamily>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn FontWeight(&self) -> ::windows::runtime::Result<super::super::Text::FontWeight> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -5246,11 +5941,13 @@ impl Hyperlink {
         }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn SetFontWeight<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Text::FontWeight>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn FontStyle(&self) -> ::windows::runtime::Result<super::super::Text::FontStyle> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -5259,11 +5956,13 @@ impl Hyperlink {
         }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn SetFontStyle(&self, value: super::super::Text::FontStyle) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn FontStretch(&self) -> ::windows::runtime::Result<super::super::Text::FontStretch> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -5272,10 +5971,12 @@ impl Hyperlink {
         }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn SetFontStretch(&self, value: super::super::Text::FontStretch) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn CharacterSpacing(&self) -> ::windows::runtime::Result<i32> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -5283,11 +5984,13 @@ impl Hyperlink {
             (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetCharacterSpacing(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn Foreground(&self) -> ::windows::runtime::Result<super::Media::Brush> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -5296,10 +5999,12 @@ impl Hyperlink {
         }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn SetForeground<'a, Param0: ::windows::runtime::IntoParam<'a, super::Media::Brush>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn Language(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -5307,10 +6012,12 @@ impl Hyperlink {
             (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetLanguage<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ContentStart(&self) -> ::windows::runtime::Result<TextPointer> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -5318,6 +6025,7 @@ impl Hyperlink {
             (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ContentEnd(&self) -> ::windows::runtime::Result<TextPointer> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -5325,6 +6033,7 @@ impl Hyperlink {
             (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ElementStart(&self) -> ::windows::runtime::Result<TextPointer> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -5332,6 +6041,7 @@ impl Hyperlink {
             (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ElementEnd(&self) -> ::windows::runtime::Result<TextPointer> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -5339,6 +6049,7 @@ impl Hyperlink {
             (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn FindName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, name: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -5346,6 +6057,7 @@ impl Hyperlink {
             (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this), name.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn IsTextScaleFactorEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ITextElement2>(self)?;
         unsafe {
@@ -5353,14 +6065,17 @@ impl Hyperlink {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetIsTextScaleFactorEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn OnDisconnectVisualChildren(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElementOverrides>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn AllowFocusOnInteraction(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe {
@@ -5368,10 +6083,12 @@ impl Hyperlink {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetAllowFocusOnInteraction(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn AccessKey(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe {
@@ -5379,10 +6096,12 @@ impl Hyperlink {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetAccessKey<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ExitDisplayModeOnAccessKeyInvoked(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe {
@@ -5390,11 +6109,13 @@ impl Hyperlink {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetExitDisplayModeOnAccessKeyInvoked(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn TextDecorations(&self) -> ::windows::runtime::Result<super::super::Text::TextDecorations> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -5403,10 +6124,12 @@ impl Hyperlink {
         }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn SetTextDecorations(&self, value: super::super::Text::TextDecorations) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn IsAccessKeyScope(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -5414,10 +6137,12 @@ impl Hyperlink {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetIsAccessKeyScope(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn AccessKeyScopeOwner(&self) -> ::windows::runtime::Result<super::DependencyObject> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -5425,11 +6150,13 @@ impl Hyperlink {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyObject>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetAccessKeyScopeOwner<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI_Xaml_Input")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Input`*"]
     pub fn KeyTipPlacementMode(&self) -> ::windows::runtime::Result<super::Input::KeyTipPlacementMode> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -5438,10 +6165,12 @@ impl Hyperlink {
         }
     }
     #[cfg(feature = "UI_Xaml_Input")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Input`*"]
     pub fn SetKeyTipPlacementMode(&self, value: super::Input::KeyTipPlacementMode) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn KeyTipHorizontalOffset(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -5449,10 +6178,12 @@ impl Hyperlink {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetKeyTipHorizontalOffset(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn KeyTipVerticalOffset(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -5460,11 +6191,13 @@ impl Hyperlink {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetKeyTipVerticalOffset(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`, `UI_Xaml_Input`*"]
     pub fn AccessKeyDisplayRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyDisplayRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -5473,11 +6206,13 @@ impl Hyperlink {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveAccessKeyDisplayRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`, `UI_Xaml_Input`*"]
     pub fn AccessKeyDisplayDismissed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyDisplayDismissedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -5486,11 +6221,13 @@ impl Hyperlink {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveAccessKeyDisplayDismissed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`, `UI_Xaml_Input`*"]
     pub fn AccessKeyInvoked<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyInvokedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -5499,10 +6236,12 @@ impl Hyperlink {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveAccessKeyInvoked<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn XamlRoot(&self) -> ::windows::runtime::Result<super::XamlRoot> {
         let this = &::windows::runtime::Interface::cast::<ITextElement5>(self)?;
         unsafe {
@@ -5510,6 +6249,7 @@ impl Hyperlink {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::XamlRoot>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetXamlRoot<'a, Param0: ::windows::runtime::IntoParam<'a, super::XamlRoot>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement5>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -5667,10 +6407,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::DependencyObject> for &Hyperli
 }
 unsafe impl ::std::marker::Send for Hyperlink {}
 unsafe impl ::std::marker::Sync for Hyperlink {}
+#[doc = "*Required features: `UI_Xaml_Documents`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct HyperlinkClickEventArgs(::windows::runtime::IInspectable);
 impl HyperlinkClickEventArgs {
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn OriginalSource(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::IRoutedEventArgs>(self)?;
         unsafe {
@@ -7278,10 +8020,12 @@ pub struct IUnderline_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `UI_Xaml_Documents`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct Inline(::windows::runtime::IInspectable);
 impl Inline {
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -7289,14 +8033,17 @@ impl Inline {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ClearValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -7304,6 +8051,7 @@ impl Inline {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -7312,6 +8060,7 @@ impl Inline {
         }
     }
     #[cfg(feature = "UI_Core")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::runtime::Result<super::super::Core::CoreDispatcher> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -7319,6 +8068,7 @@ impl Inline {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Core::CoreDispatcher>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::runtime::IntoParam<'a, super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::runtime::Result<i64> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject2>(self)?;
         unsafe {
@@ -7326,10 +8076,12 @@ impl Inline {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -7337,6 +8089,7 @@ impl Inline {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn FontSize(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -7344,11 +8097,13 @@ impl Inline {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetFontSize(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn FontFamily(&self) -> ::windows::runtime::Result<super::Media::FontFamily> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -7357,11 +8112,13 @@ impl Inline {
         }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn SetFontFamily<'a, Param0: ::windows::runtime::IntoParam<'a, super::Media::FontFamily>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn FontWeight(&self) -> ::windows::runtime::Result<super::super::Text::FontWeight> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -7370,11 +8127,13 @@ impl Inline {
         }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn SetFontWeight<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Text::FontWeight>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn FontStyle(&self) -> ::windows::runtime::Result<super::super::Text::FontStyle> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -7383,11 +8142,13 @@ impl Inline {
         }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn SetFontStyle(&self, value: super::super::Text::FontStyle) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn FontStretch(&self) -> ::windows::runtime::Result<super::super::Text::FontStretch> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -7396,10 +8157,12 @@ impl Inline {
         }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn SetFontStretch(&self, value: super::super::Text::FontStretch) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn CharacterSpacing(&self) -> ::windows::runtime::Result<i32> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -7407,11 +8170,13 @@ impl Inline {
             (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetCharacterSpacing(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn Foreground(&self) -> ::windows::runtime::Result<super::Media::Brush> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -7420,10 +8185,12 @@ impl Inline {
         }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn SetForeground<'a, Param0: ::windows::runtime::IntoParam<'a, super::Media::Brush>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn Language(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -7431,10 +8198,12 @@ impl Inline {
             (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetLanguage<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ContentStart(&self) -> ::windows::runtime::Result<TextPointer> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -7442,6 +8211,7 @@ impl Inline {
             (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ContentEnd(&self) -> ::windows::runtime::Result<TextPointer> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -7449,6 +8219,7 @@ impl Inline {
             (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ElementStart(&self) -> ::windows::runtime::Result<TextPointer> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -7456,6 +8227,7 @@ impl Inline {
             (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ElementEnd(&self) -> ::windows::runtime::Result<TextPointer> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -7463,6 +8235,7 @@ impl Inline {
             (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn FindName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, name: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -7470,6 +8243,7 @@ impl Inline {
             (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this), name.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn IsTextScaleFactorEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ITextElement2>(self)?;
         unsafe {
@@ -7477,14 +8251,17 @@ impl Inline {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetIsTextScaleFactorEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn OnDisconnectVisualChildren(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElementOverrides>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn AllowFocusOnInteraction(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe {
@@ -7492,10 +8269,12 @@ impl Inline {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetAllowFocusOnInteraction(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn AccessKey(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe {
@@ -7503,10 +8282,12 @@ impl Inline {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetAccessKey<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ExitDisplayModeOnAccessKeyInvoked(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe {
@@ -7514,11 +8295,13 @@ impl Inline {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetExitDisplayModeOnAccessKeyInvoked(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn TextDecorations(&self) -> ::windows::runtime::Result<super::super::Text::TextDecorations> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -7527,10 +8310,12 @@ impl Inline {
         }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn SetTextDecorations(&self, value: super::super::Text::TextDecorations) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn IsAccessKeyScope(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -7538,10 +8323,12 @@ impl Inline {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetIsAccessKeyScope(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn AccessKeyScopeOwner(&self) -> ::windows::runtime::Result<super::DependencyObject> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -7549,11 +8336,13 @@ impl Inline {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyObject>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetAccessKeyScopeOwner<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI_Xaml_Input")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Input`*"]
     pub fn KeyTipPlacementMode(&self) -> ::windows::runtime::Result<super::Input::KeyTipPlacementMode> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -7562,10 +8351,12 @@ impl Inline {
         }
     }
     #[cfg(feature = "UI_Xaml_Input")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Input`*"]
     pub fn SetKeyTipPlacementMode(&self, value: super::Input::KeyTipPlacementMode) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn KeyTipHorizontalOffset(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -7573,10 +8364,12 @@ impl Inline {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetKeyTipHorizontalOffset(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn KeyTipVerticalOffset(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -7584,11 +8377,13 @@ impl Inline {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetKeyTipVerticalOffset(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`, `UI_Xaml_Input`*"]
     pub fn AccessKeyDisplayRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyDisplayRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -7597,11 +8392,13 @@ impl Inline {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveAccessKeyDisplayRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`, `UI_Xaml_Input`*"]
     pub fn AccessKeyDisplayDismissed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyDisplayDismissedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -7610,11 +8407,13 @@ impl Inline {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveAccessKeyDisplayDismissed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`, `UI_Xaml_Input`*"]
     pub fn AccessKeyInvoked<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyInvokedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -7623,10 +8422,12 @@ impl Inline {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveAccessKeyInvoked<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn XamlRoot(&self) -> ::windows::runtime::Result<super::XamlRoot> {
         let this = &::windows::runtime::Interface::cast::<ITextElement5>(self)?;
         unsafe {
@@ -7634,6 +8435,7 @@ impl Inline {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::XamlRoot>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetXamlRoot<'a, Param0: ::windows::runtime::IntoParam<'a, super::XamlRoot>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement5>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -7732,12 +8534,14 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::DependencyObject> for &Inline 
 unsafe impl ::std::marker::Send for Inline {}
 unsafe impl ::std::marker::Sync for Inline {}
 #[cfg(feature = "Foundation_Collections")]
+#[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Collections`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct InlineCollection(::windows::runtime::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl InlineCollection {
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Collections`*"]
     pub fn GetAt(&self, index: u32) -> ::windows::runtime::Result<Inline> {
         let this = self;
         unsafe {
@@ -7746,6 +8550,7 @@ impl InlineCollection {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Collections`*"]
     pub fn Size(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -7754,6 +8559,7 @@ impl InlineCollection {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Collections`*"]
     pub fn GetView(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<Inline>> {
         let this = self;
         unsafe {
@@ -7762,6 +8568,7 @@ impl InlineCollection {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Collections`*"]
     pub fn IndexOf<'a, Param0: ::windows::runtime::IntoParam<'a, Inline>>(&self, value: Param0, index: &mut u32) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -7770,36 +8577,43 @@ impl InlineCollection {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Collections`*"]
     pub fn SetAt<'a, Param1: ::windows::runtime::IntoParam<'a, Inline>>(&self, index: u32, value: Param1) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), index, value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Collections`*"]
     pub fn InsertAt<'a, Param1: ::windows::runtime::IntoParam<'a, Inline>>(&self, index: u32, value: Param1) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), index, value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Collections`*"]
     pub fn RemoveAt(&self, index: u32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), index).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Collections`*"]
     pub fn Append<'a, Param0: ::windows::runtime::IntoParam<'a, Inline>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Collections`*"]
     pub fn RemoveAtEnd(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Collections`*"]
     pub fn Clear(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Collections`*"]
     pub fn GetMany(&self, startindex: u32, items: &mut [<Inline as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -7808,11 +8622,13 @@ impl InlineCollection {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Collections`*"]
     pub fn ReplaceAll(&self, items: &[<Inline as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), items.len() as u32, ::std::mem::transmute(items.as_ptr())).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Collections`*"]
     pub fn First(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IIterator<Inline>> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::Collections::IIterable<Inline>>(self)?;
         unsafe {
@@ -7952,6 +8768,7 @@ impl ::std::iter::IntoIterator for &InlineCollection {
         super::super::super::Foundation::Collections::VectorIterator::new(::std::convert::TryInto::try_into(self).ok())
     }
 }
+#[doc = "*Required features: `UI_Xaml_Documents`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct InlineUIContainer(::windows::runtime::IInspectable);
@@ -7963,6 +8780,7 @@ impl InlineUIContainer {
         static mut SHARED: ::windows::runtime::FactoryCache<InlineUIContainer, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn Child(&self) -> ::windows::runtime::Result<super::UIElement> {
         let this = self;
         unsafe {
@@ -7970,10 +8788,12 @@ impl InlineUIContainer {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::UIElement>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetChild<'a, Param0: ::windows::runtime::IntoParam<'a, super::UIElement>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -7981,14 +8801,17 @@ impl InlineUIContainer {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ClearValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -7996,6 +8819,7 @@ impl InlineUIContainer {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -8004,6 +8828,7 @@ impl InlineUIContainer {
         }
     }
     #[cfg(feature = "UI_Core")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::runtime::Result<super::super::Core::CoreDispatcher> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -8011,6 +8836,7 @@ impl InlineUIContainer {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Core::CoreDispatcher>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::runtime::IntoParam<'a, super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::runtime::Result<i64> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject2>(self)?;
         unsafe {
@@ -8018,10 +8844,12 @@ impl InlineUIContainer {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -8029,6 +8857,7 @@ impl InlineUIContainer {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn FontSize(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -8036,11 +8865,13 @@ impl InlineUIContainer {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetFontSize(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn FontFamily(&self) -> ::windows::runtime::Result<super::Media::FontFamily> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -8049,11 +8880,13 @@ impl InlineUIContainer {
         }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn SetFontFamily<'a, Param0: ::windows::runtime::IntoParam<'a, super::Media::FontFamily>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn FontWeight(&self) -> ::windows::runtime::Result<super::super::Text::FontWeight> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -8062,11 +8895,13 @@ impl InlineUIContainer {
         }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn SetFontWeight<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Text::FontWeight>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn FontStyle(&self) -> ::windows::runtime::Result<super::super::Text::FontStyle> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -8075,11 +8910,13 @@ impl InlineUIContainer {
         }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn SetFontStyle(&self, value: super::super::Text::FontStyle) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn FontStretch(&self) -> ::windows::runtime::Result<super::super::Text::FontStretch> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -8088,10 +8925,12 @@ impl InlineUIContainer {
         }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn SetFontStretch(&self, value: super::super::Text::FontStretch) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn CharacterSpacing(&self) -> ::windows::runtime::Result<i32> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -8099,11 +8938,13 @@ impl InlineUIContainer {
             (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetCharacterSpacing(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn Foreground(&self) -> ::windows::runtime::Result<super::Media::Brush> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -8112,10 +8953,12 @@ impl InlineUIContainer {
         }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn SetForeground<'a, Param0: ::windows::runtime::IntoParam<'a, super::Media::Brush>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn Language(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -8123,10 +8966,12 @@ impl InlineUIContainer {
             (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetLanguage<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ContentStart(&self) -> ::windows::runtime::Result<TextPointer> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -8134,6 +8979,7 @@ impl InlineUIContainer {
             (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ContentEnd(&self) -> ::windows::runtime::Result<TextPointer> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -8141,6 +8987,7 @@ impl InlineUIContainer {
             (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ElementStart(&self) -> ::windows::runtime::Result<TextPointer> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -8148,6 +8995,7 @@ impl InlineUIContainer {
             (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ElementEnd(&self) -> ::windows::runtime::Result<TextPointer> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -8155,6 +9003,7 @@ impl InlineUIContainer {
             (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn FindName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, name: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -8162,6 +9011,7 @@ impl InlineUIContainer {
             (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this), name.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn IsTextScaleFactorEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ITextElement2>(self)?;
         unsafe {
@@ -8169,14 +9019,17 @@ impl InlineUIContainer {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetIsTextScaleFactorEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn OnDisconnectVisualChildren(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElementOverrides>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn AllowFocusOnInteraction(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe {
@@ -8184,10 +9037,12 @@ impl InlineUIContainer {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetAllowFocusOnInteraction(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn AccessKey(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe {
@@ -8195,10 +9050,12 @@ impl InlineUIContainer {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetAccessKey<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ExitDisplayModeOnAccessKeyInvoked(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe {
@@ -8206,11 +9063,13 @@ impl InlineUIContainer {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetExitDisplayModeOnAccessKeyInvoked(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn TextDecorations(&self) -> ::windows::runtime::Result<super::super::Text::TextDecorations> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -8219,10 +9078,12 @@ impl InlineUIContainer {
         }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn SetTextDecorations(&self, value: super::super::Text::TextDecorations) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn IsAccessKeyScope(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -8230,10 +9091,12 @@ impl InlineUIContainer {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetIsAccessKeyScope(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn AccessKeyScopeOwner(&self) -> ::windows::runtime::Result<super::DependencyObject> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -8241,11 +9104,13 @@ impl InlineUIContainer {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyObject>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetAccessKeyScopeOwner<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI_Xaml_Input")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Input`*"]
     pub fn KeyTipPlacementMode(&self) -> ::windows::runtime::Result<super::Input::KeyTipPlacementMode> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -8254,10 +9119,12 @@ impl InlineUIContainer {
         }
     }
     #[cfg(feature = "UI_Xaml_Input")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Input`*"]
     pub fn SetKeyTipPlacementMode(&self, value: super::Input::KeyTipPlacementMode) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn KeyTipHorizontalOffset(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -8265,10 +9132,12 @@ impl InlineUIContainer {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetKeyTipHorizontalOffset(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn KeyTipVerticalOffset(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -8276,11 +9145,13 @@ impl InlineUIContainer {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetKeyTipVerticalOffset(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`, `UI_Xaml_Input`*"]
     pub fn AccessKeyDisplayRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyDisplayRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -8289,11 +9160,13 @@ impl InlineUIContainer {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveAccessKeyDisplayRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`, `UI_Xaml_Input`*"]
     pub fn AccessKeyDisplayDismissed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyDisplayDismissedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -8302,11 +9175,13 @@ impl InlineUIContainer {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveAccessKeyDisplayDismissed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`, `UI_Xaml_Input`*"]
     pub fn AccessKeyInvoked<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyInvokedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -8315,10 +9190,12 @@ impl InlineUIContainer {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveAccessKeyInvoked<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn XamlRoot(&self) -> ::windows::runtime::Result<super::XamlRoot> {
         let this = &::windows::runtime::Interface::cast::<ITextElement5>(self)?;
         unsafe {
@@ -8326,6 +9203,7 @@ impl InlineUIContainer {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::XamlRoot>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetXamlRoot<'a, Param0: ::windows::runtime::IntoParam<'a, super::XamlRoot>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement5>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -8443,6 +9321,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::DependencyObject> for &InlineU
 }
 unsafe impl ::std::marker::Send for InlineUIContainer {}
 unsafe impl ::std::marker::Sync for InlineUIContainer {}
+#[doc = "*Required features: `UI_Xaml_Documents`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct Italic(::windows::runtime::IInspectable);
@@ -8454,6 +9333,7 @@ impl Italic {
         static mut SHARED: ::windows::runtime::FactoryCache<Italic, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -8461,14 +9341,17 @@ impl Italic {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ClearValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -8476,6 +9359,7 @@ impl Italic {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -8484,6 +9368,7 @@ impl Italic {
         }
     }
     #[cfg(feature = "UI_Core")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::runtime::Result<super::super::Core::CoreDispatcher> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -8491,6 +9376,7 @@ impl Italic {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Core::CoreDispatcher>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::runtime::IntoParam<'a, super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::runtime::Result<i64> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject2>(self)?;
         unsafe {
@@ -8498,11 +9384,13 @@ impl Italic {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Collections`*"]
     pub fn Inlines(&self) -> ::windows::runtime::Result<InlineCollection> {
         let this = &::windows::runtime::Interface::cast::<ISpan>(self)?;
         unsafe {
@@ -8511,10 +9399,12 @@ impl Italic {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Collections`*"]
     pub fn SetInlines<'a, Param0: ::windows::runtime::IntoParam<'a, InlineCollection>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ISpan>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -8522,6 +9412,7 @@ impl Italic {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn FontSize(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -8529,11 +9420,13 @@ impl Italic {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetFontSize(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn FontFamily(&self) -> ::windows::runtime::Result<super::Media::FontFamily> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -8542,11 +9435,13 @@ impl Italic {
         }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn SetFontFamily<'a, Param0: ::windows::runtime::IntoParam<'a, super::Media::FontFamily>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn FontWeight(&self) -> ::windows::runtime::Result<super::super::Text::FontWeight> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -8555,11 +9450,13 @@ impl Italic {
         }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn SetFontWeight<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Text::FontWeight>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn FontStyle(&self) -> ::windows::runtime::Result<super::super::Text::FontStyle> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -8568,11 +9465,13 @@ impl Italic {
         }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn SetFontStyle(&self, value: super::super::Text::FontStyle) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn FontStretch(&self) -> ::windows::runtime::Result<super::super::Text::FontStretch> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -8581,10 +9480,12 @@ impl Italic {
         }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn SetFontStretch(&self, value: super::super::Text::FontStretch) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn CharacterSpacing(&self) -> ::windows::runtime::Result<i32> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -8592,11 +9493,13 @@ impl Italic {
             (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetCharacterSpacing(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn Foreground(&self) -> ::windows::runtime::Result<super::Media::Brush> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -8605,10 +9508,12 @@ impl Italic {
         }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn SetForeground<'a, Param0: ::windows::runtime::IntoParam<'a, super::Media::Brush>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn Language(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -8616,10 +9521,12 @@ impl Italic {
             (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetLanguage<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ContentStart(&self) -> ::windows::runtime::Result<TextPointer> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -8627,6 +9534,7 @@ impl Italic {
             (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ContentEnd(&self) -> ::windows::runtime::Result<TextPointer> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -8634,6 +9542,7 @@ impl Italic {
             (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ElementStart(&self) -> ::windows::runtime::Result<TextPointer> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -8641,6 +9550,7 @@ impl Italic {
             (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ElementEnd(&self) -> ::windows::runtime::Result<TextPointer> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -8648,6 +9558,7 @@ impl Italic {
             (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn FindName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, name: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -8655,6 +9566,7 @@ impl Italic {
             (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this), name.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn IsTextScaleFactorEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ITextElement2>(self)?;
         unsafe {
@@ -8662,14 +9574,17 @@ impl Italic {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetIsTextScaleFactorEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn OnDisconnectVisualChildren(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElementOverrides>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn AllowFocusOnInteraction(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe {
@@ -8677,10 +9592,12 @@ impl Italic {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetAllowFocusOnInteraction(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn AccessKey(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe {
@@ -8688,10 +9605,12 @@ impl Italic {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetAccessKey<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ExitDisplayModeOnAccessKeyInvoked(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe {
@@ -8699,11 +9618,13 @@ impl Italic {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetExitDisplayModeOnAccessKeyInvoked(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn TextDecorations(&self) -> ::windows::runtime::Result<super::super::Text::TextDecorations> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -8712,10 +9633,12 @@ impl Italic {
         }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn SetTextDecorations(&self, value: super::super::Text::TextDecorations) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn IsAccessKeyScope(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -8723,10 +9646,12 @@ impl Italic {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetIsAccessKeyScope(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn AccessKeyScopeOwner(&self) -> ::windows::runtime::Result<super::DependencyObject> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -8734,11 +9659,13 @@ impl Italic {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyObject>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetAccessKeyScopeOwner<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI_Xaml_Input")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Input`*"]
     pub fn KeyTipPlacementMode(&self) -> ::windows::runtime::Result<super::Input::KeyTipPlacementMode> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -8747,10 +9674,12 @@ impl Italic {
         }
     }
     #[cfg(feature = "UI_Xaml_Input")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Input`*"]
     pub fn SetKeyTipPlacementMode(&self, value: super::Input::KeyTipPlacementMode) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn KeyTipHorizontalOffset(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -8758,10 +9687,12 @@ impl Italic {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetKeyTipHorizontalOffset(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn KeyTipVerticalOffset(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -8769,11 +9700,13 @@ impl Italic {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetKeyTipVerticalOffset(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`, `UI_Xaml_Input`*"]
     pub fn AccessKeyDisplayRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyDisplayRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -8782,11 +9715,13 @@ impl Italic {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveAccessKeyDisplayRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`, `UI_Xaml_Input`*"]
     pub fn AccessKeyDisplayDismissed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyDisplayDismissedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -8795,11 +9730,13 @@ impl Italic {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveAccessKeyDisplayDismissed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`, `UI_Xaml_Input`*"]
     pub fn AccessKeyInvoked<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyInvokedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -8808,10 +9745,12 @@ impl Italic {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveAccessKeyInvoked<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn XamlRoot(&self) -> ::windows::runtime::Result<super::XamlRoot> {
         let this = &::windows::runtime::Interface::cast::<ITextElement5>(self)?;
         unsafe {
@@ -8819,6 +9758,7 @@ impl Italic {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::XamlRoot>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetXamlRoot<'a, Param0: ::windows::runtime::IntoParam<'a, super::XamlRoot>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement5>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -8956,6 +9896,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::DependencyObject> for &Italic 
 }
 unsafe impl ::std::marker::Send for Italic {}
 unsafe impl ::std::marker::Sync for Italic {}
+#[doc = "*Required features: `UI_Xaml_Documents`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct LineBreak(::windows::runtime::IInspectable);
@@ -8967,6 +9908,7 @@ impl LineBreak {
         static mut SHARED: ::windows::runtime::FactoryCache<LineBreak, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -8974,14 +9916,17 @@ impl LineBreak {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ClearValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -8989,6 +9934,7 @@ impl LineBreak {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -8997,6 +9943,7 @@ impl LineBreak {
         }
     }
     #[cfg(feature = "UI_Core")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::runtime::Result<super::super::Core::CoreDispatcher> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -9004,6 +9951,7 @@ impl LineBreak {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Core::CoreDispatcher>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::runtime::IntoParam<'a, super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::runtime::Result<i64> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject2>(self)?;
         unsafe {
@@ -9011,10 +9959,12 @@ impl LineBreak {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -9022,6 +9972,7 @@ impl LineBreak {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn FontSize(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -9029,11 +9980,13 @@ impl LineBreak {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetFontSize(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn FontFamily(&self) -> ::windows::runtime::Result<super::Media::FontFamily> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -9042,11 +9995,13 @@ impl LineBreak {
         }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn SetFontFamily<'a, Param0: ::windows::runtime::IntoParam<'a, super::Media::FontFamily>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn FontWeight(&self) -> ::windows::runtime::Result<super::super::Text::FontWeight> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -9055,11 +10010,13 @@ impl LineBreak {
         }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn SetFontWeight<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Text::FontWeight>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn FontStyle(&self) -> ::windows::runtime::Result<super::super::Text::FontStyle> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -9068,11 +10025,13 @@ impl LineBreak {
         }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn SetFontStyle(&self, value: super::super::Text::FontStyle) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn FontStretch(&self) -> ::windows::runtime::Result<super::super::Text::FontStretch> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -9081,10 +10040,12 @@ impl LineBreak {
         }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn SetFontStretch(&self, value: super::super::Text::FontStretch) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn CharacterSpacing(&self) -> ::windows::runtime::Result<i32> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -9092,11 +10053,13 @@ impl LineBreak {
             (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetCharacterSpacing(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn Foreground(&self) -> ::windows::runtime::Result<super::Media::Brush> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -9105,10 +10068,12 @@ impl LineBreak {
         }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn SetForeground<'a, Param0: ::windows::runtime::IntoParam<'a, super::Media::Brush>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn Language(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -9116,10 +10081,12 @@ impl LineBreak {
             (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetLanguage<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ContentStart(&self) -> ::windows::runtime::Result<TextPointer> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -9127,6 +10094,7 @@ impl LineBreak {
             (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ContentEnd(&self) -> ::windows::runtime::Result<TextPointer> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -9134,6 +10102,7 @@ impl LineBreak {
             (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ElementStart(&self) -> ::windows::runtime::Result<TextPointer> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -9141,6 +10110,7 @@ impl LineBreak {
             (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ElementEnd(&self) -> ::windows::runtime::Result<TextPointer> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -9148,6 +10118,7 @@ impl LineBreak {
             (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn FindName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, name: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -9155,6 +10126,7 @@ impl LineBreak {
             (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this), name.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn IsTextScaleFactorEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ITextElement2>(self)?;
         unsafe {
@@ -9162,14 +10134,17 @@ impl LineBreak {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetIsTextScaleFactorEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn OnDisconnectVisualChildren(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElementOverrides>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn AllowFocusOnInteraction(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe {
@@ -9177,10 +10152,12 @@ impl LineBreak {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetAllowFocusOnInteraction(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn AccessKey(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe {
@@ -9188,10 +10165,12 @@ impl LineBreak {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetAccessKey<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ExitDisplayModeOnAccessKeyInvoked(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe {
@@ -9199,11 +10178,13 @@ impl LineBreak {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetExitDisplayModeOnAccessKeyInvoked(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn TextDecorations(&self) -> ::windows::runtime::Result<super::super::Text::TextDecorations> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -9212,10 +10193,12 @@ impl LineBreak {
         }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn SetTextDecorations(&self, value: super::super::Text::TextDecorations) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn IsAccessKeyScope(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -9223,10 +10206,12 @@ impl LineBreak {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetIsAccessKeyScope(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn AccessKeyScopeOwner(&self) -> ::windows::runtime::Result<super::DependencyObject> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -9234,11 +10219,13 @@ impl LineBreak {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyObject>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetAccessKeyScopeOwner<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI_Xaml_Input")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Input`*"]
     pub fn KeyTipPlacementMode(&self) -> ::windows::runtime::Result<super::Input::KeyTipPlacementMode> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -9247,10 +10234,12 @@ impl LineBreak {
         }
     }
     #[cfg(feature = "UI_Xaml_Input")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Input`*"]
     pub fn SetKeyTipPlacementMode(&self, value: super::Input::KeyTipPlacementMode) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn KeyTipHorizontalOffset(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -9258,10 +10247,12 @@ impl LineBreak {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetKeyTipHorizontalOffset(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn KeyTipVerticalOffset(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -9269,11 +10260,13 @@ impl LineBreak {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetKeyTipVerticalOffset(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`, `UI_Xaml_Input`*"]
     pub fn AccessKeyDisplayRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyDisplayRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -9282,11 +10275,13 @@ impl LineBreak {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveAccessKeyDisplayRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`, `UI_Xaml_Input`*"]
     pub fn AccessKeyDisplayDismissed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyDisplayDismissedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -9295,11 +10290,13 @@ impl LineBreak {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveAccessKeyDisplayDismissed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`, `UI_Xaml_Input`*"]
     pub fn AccessKeyInvoked<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyInvokedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -9308,10 +10305,12 @@ impl LineBreak {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveAccessKeyInvoked<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn XamlRoot(&self) -> ::windows::runtime::Result<super::XamlRoot> {
         let this = &::windows::runtime::Interface::cast::<ITextElement5>(self)?;
         unsafe {
@@ -9319,6 +10318,7 @@ impl LineBreak {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::XamlRoot>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetXamlRoot<'a, Param0: ::windows::runtime::IntoParam<'a, super::XamlRoot>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement5>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -9436,6 +10436,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::DependencyObject> for &LineBre
 }
 unsafe impl ::std::marker::Send for LineBreak {}
 unsafe impl ::std::marker::Sync for LineBreak {}
+#[doc = "*Required features: `UI_Xaml_Documents`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct LogicalDirection(pub i32);
@@ -9455,6 +10456,7 @@ unsafe impl ::windows::runtime::Abi for LogicalDirection {
 unsafe impl ::windows::runtime::RuntimeType for LogicalDirection {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Documents.LogicalDirection;i4)");
 }
+#[doc = "*Required features: `UI_Xaml_Documents`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct Paragraph(::windows::runtime::IInspectable);
@@ -9467,6 +10469,7 @@ impl Paragraph {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Collections`*"]
     pub fn Inlines(&self) -> ::windows::runtime::Result<InlineCollection> {
         let this = self;
         unsafe {
@@ -9474,6 +10477,7 @@ impl Paragraph {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<InlineCollection>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn TextIndent(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -9481,16 +10485,19 @@ impl Paragraph {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetTextIndent(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn TextIndentProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IParagraphStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -9498,14 +10505,17 @@ impl Paragraph {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ClearValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -9513,6 +10523,7 @@ impl Paragraph {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -9521,6 +10532,7 @@ impl Paragraph {
         }
     }
     #[cfg(feature = "UI_Core")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::runtime::Result<super::super::Core::CoreDispatcher> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -9528,6 +10540,7 @@ impl Paragraph {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Core::CoreDispatcher>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::runtime::IntoParam<'a, super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::runtime::Result<i64> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject2>(self)?;
         unsafe {
@@ -9535,10 +10548,12 @@ impl Paragraph {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn TextAlignment(&self) -> ::windows::runtime::Result<super::TextAlignment> {
         let this = &::windows::runtime::Interface::cast::<IBlock>(self)?;
         unsafe {
@@ -9546,10 +10561,12 @@ impl Paragraph {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::TextAlignment>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetTextAlignment(&self, value: super::TextAlignment) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IBlock>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn LineHeight(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<IBlock>(self)?;
         unsafe {
@@ -9557,10 +10574,12 @@ impl Paragraph {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetLineHeight(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IBlock>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn LineStackingStrategy(&self) -> ::windows::runtime::Result<super::LineStackingStrategy> {
         let this = &::windows::runtime::Interface::cast::<IBlock>(self)?;
         unsafe {
@@ -9568,10 +10587,12 @@ impl Paragraph {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::LineStackingStrategy>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetLineStackingStrategy(&self, value: super::LineStackingStrategy) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IBlock>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn Margin(&self) -> ::windows::runtime::Result<super::Thickness> {
         let this = &::windows::runtime::Interface::cast::<IBlock>(self)?;
         unsafe {
@@ -9579,10 +10600,12 @@ impl Paragraph {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Thickness>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetMargin<'a, Param0: ::windows::runtime::IntoParam<'a, super::Thickness>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IBlock>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -9590,6 +10613,7 @@ impl Paragraph {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn FontSize(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -9597,11 +10621,13 @@ impl Paragraph {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetFontSize(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn FontFamily(&self) -> ::windows::runtime::Result<super::Media::FontFamily> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -9610,11 +10636,13 @@ impl Paragraph {
         }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn SetFontFamily<'a, Param0: ::windows::runtime::IntoParam<'a, super::Media::FontFamily>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn FontWeight(&self) -> ::windows::runtime::Result<super::super::Text::FontWeight> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -9623,11 +10651,13 @@ impl Paragraph {
         }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn SetFontWeight<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Text::FontWeight>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn FontStyle(&self) -> ::windows::runtime::Result<super::super::Text::FontStyle> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -9636,11 +10666,13 @@ impl Paragraph {
         }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn SetFontStyle(&self, value: super::super::Text::FontStyle) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn FontStretch(&self) -> ::windows::runtime::Result<super::super::Text::FontStretch> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -9649,10 +10681,12 @@ impl Paragraph {
         }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn SetFontStretch(&self, value: super::super::Text::FontStretch) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn CharacterSpacing(&self) -> ::windows::runtime::Result<i32> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -9660,11 +10694,13 @@ impl Paragraph {
             (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetCharacterSpacing(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn Foreground(&self) -> ::windows::runtime::Result<super::Media::Brush> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -9673,10 +10709,12 @@ impl Paragraph {
         }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn SetForeground<'a, Param0: ::windows::runtime::IntoParam<'a, super::Media::Brush>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn Language(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -9684,10 +10722,12 @@ impl Paragraph {
             (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetLanguage<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ContentStart(&self) -> ::windows::runtime::Result<TextPointer> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -9695,6 +10735,7 @@ impl Paragraph {
             (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ContentEnd(&self) -> ::windows::runtime::Result<TextPointer> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -9702,6 +10743,7 @@ impl Paragraph {
             (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ElementStart(&self) -> ::windows::runtime::Result<TextPointer> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -9709,6 +10751,7 @@ impl Paragraph {
             (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ElementEnd(&self) -> ::windows::runtime::Result<TextPointer> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -9716,6 +10759,7 @@ impl Paragraph {
             (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn FindName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, name: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -9723,6 +10767,7 @@ impl Paragraph {
             (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this), name.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn IsTextScaleFactorEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ITextElement2>(self)?;
         unsafe {
@@ -9730,14 +10775,17 @@ impl Paragraph {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetIsTextScaleFactorEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn OnDisconnectVisualChildren(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElementOverrides>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn AllowFocusOnInteraction(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe {
@@ -9745,10 +10793,12 @@ impl Paragraph {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetAllowFocusOnInteraction(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn AccessKey(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe {
@@ -9756,10 +10806,12 @@ impl Paragraph {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetAccessKey<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ExitDisplayModeOnAccessKeyInvoked(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe {
@@ -9767,11 +10819,13 @@ impl Paragraph {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetExitDisplayModeOnAccessKeyInvoked(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn TextDecorations(&self) -> ::windows::runtime::Result<super::super::Text::TextDecorations> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -9780,10 +10834,12 @@ impl Paragraph {
         }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn SetTextDecorations(&self, value: super::super::Text::TextDecorations) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn IsAccessKeyScope(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -9791,10 +10847,12 @@ impl Paragraph {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetIsAccessKeyScope(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn AccessKeyScopeOwner(&self) -> ::windows::runtime::Result<super::DependencyObject> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -9802,11 +10860,13 @@ impl Paragraph {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyObject>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetAccessKeyScopeOwner<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI_Xaml_Input")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Input`*"]
     pub fn KeyTipPlacementMode(&self) -> ::windows::runtime::Result<super::Input::KeyTipPlacementMode> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -9815,10 +10875,12 @@ impl Paragraph {
         }
     }
     #[cfg(feature = "UI_Xaml_Input")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Input`*"]
     pub fn SetKeyTipPlacementMode(&self, value: super::Input::KeyTipPlacementMode) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn KeyTipHorizontalOffset(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -9826,10 +10888,12 @@ impl Paragraph {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetKeyTipHorizontalOffset(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn KeyTipVerticalOffset(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -9837,11 +10901,13 @@ impl Paragraph {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetKeyTipVerticalOffset(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`, `UI_Xaml_Input`*"]
     pub fn AccessKeyDisplayRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyDisplayRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -9850,11 +10916,13 @@ impl Paragraph {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveAccessKeyDisplayRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`, `UI_Xaml_Input`*"]
     pub fn AccessKeyDisplayDismissed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyDisplayDismissedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -9863,11 +10931,13 @@ impl Paragraph {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveAccessKeyDisplayDismissed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`, `UI_Xaml_Input`*"]
     pub fn AccessKeyInvoked<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyInvokedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -9876,10 +10946,12 @@ impl Paragraph {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveAccessKeyInvoked<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn HorizontalTextAlignment(&self) -> ::windows::runtime::Result<super::TextAlignment> {
         let this = &::windows::runtime::Interface::cast::<IBlock2>(self)?;
         unsafe {
@@ -9887,10 +10959,12 @@ impl Paragraph {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::TextAlignment>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetHorizontalTextAlignment(&self, value: super::TextAlignment) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IBlock2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn XamlRoot(&self) -> ::windows::runtime::Result<super::XamlRoot> {
         let this = &::windows::runtime::Interface::cast::<ITextElement5>(self)?;
         unsafe {
@@ -9898,6 +10972,7 @@ impl Paragraph {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::XamlRoot>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetXamlRoot<'a, Param0: ::windows::runtime::IntoParam<'a, super::XamlRoot>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement5>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -10019,6 +11094,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::DependencyObject> for &Paragra
 }
 unsafe impl ::std::marker::Send for Paragraph {}
 unsafe impl ::std::marker::Sync for Paragraph {}
+#[doc = "*Required features: `UI_Xaml_Documents`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PlaceContentLinkProvider(::windows::runtime::IInspectable);
@@ -10030,6 +11106,7 @@ impl PlaceContentLinkProvider {
         static mut SHARED: ::windows::runtime::FactoryCache<PlaceContentLinkProvider, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -10037,14 +11114,17 @@ impl PlaceContentLinkProvider {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ClearValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -10052,6 +11132,7 @@ impl PlaceContentLinkProvider {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -10060,6 +11141,7 @@ impl PlaceContentLinkProvider {
         }
     }
     #[cfg(feature = "UI_Core")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::runtime::Result<super::super::Core::CoreDispatcher> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -10067,6 +11149,7 @@ impl PlaceContentLinkProvider {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Core::CoreDispatcher>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::runtime::IntoParam<'a, super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::runtime::Result<i64> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject2>(self)?;
         unsafe {
@@ -10074,6 +11157,7 @@ impl PlaceContentLinkProvider {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
@@ -10171,6 +11255,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::DependencyObject> for &PlaceCo
 }
 unsafe impl ::std::marker::Send for PlaceContentLinkProvider {}
 unsafe impl ::std::marker::Sync for PlaceContentLinkProvider {}
+#[doc = "*Required features: `UI_Xaml_Documents`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct Run(::windows::runtime::IInspectable);
@@ -10182,6 +11267,7 @@ impl Run {
         static mut SHARED: ::windows::runtime::FactoryCache<Run, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn Text(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -10189,10 +11275,12 @@ impl Run {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn FlowDirection(&self) -> ::windows::runtime::Result<super::FlowDirection> {
         let this = self;
         unsafe {
@@ -10200,16 +11288,19 @@ impl Run {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::FlowDirection>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetFlowDirection(&self, value: super::FlowDirection) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn FlowDirectionProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::IRunStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -10217,14 +11308,17 @@ impl Run {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ClearValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -10232,6 +11326,7 @@ impl Run {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -10240,6 +11335,7 @@ impl Run {
         }
     }
     #[cfg(feature = "UI_Core")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::runtime::Result<super::super::Core::CoreDispatcher> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -10247,6 +11343,7 @@ impl Run {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Core::CoreDispatcher>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::runtime::IntoParam<'a, super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::runtime::Result<i64> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject2>(self)?;
         unsafe {
@@ -10254,10 +11351,12 @@ impl Run {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -10265,6 +11364,7 @@ impl Run {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn FontSize(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -10272,11 +11372,13 @@ impl Run {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetFontSize(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn FontFamily(&self) -> ::windows::runtime::Result<super::Media::FontFamily> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -10285,11 +11387,13 @@ impl Run {
         }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn SetFontFamily<'a, Param0: ::windows::runtime::IntoParam<'a, super::Media::FontFamily>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn FontWeight(&self) -> ::windows::runtime::Result<super::super::Text::FontWeight> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -10298,11 +11402,13 @@ impl Run {
         }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn SetFontWeight<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Text::FontWeight>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn FontStyle(&self) -> ::windows::runtime::Result<super::super::Text::FontStyle> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -10311,11 +11417,13 @@ impl Run {
         }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn SetFontStyle(&self, value: super::super::Text::FontStyle) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn FontStretch(&self) -> ::windows::runtime::Result<super::super::Text::FontStretch> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -10324,10 +11432,12 @@ impl Run {
         }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn SetFontStretch(&self, value: super::super::Text::FontStretch) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn CharacterSpacing(&self) -> ::windows::runtime::Result<i32> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -10335,11 +11445,13 @@ impl Run {
             (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetCharacterSpacing(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn Foreground(&self) -> ::windows::runtime::Result<super::Media::Brush> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -10348,10 +11460,12 @@ impl Run {
         }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn SetForeground<'a, Param0: ::windows::runtime::IntoParam<'a, super::Media::Brush>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn Language(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -10359,10 +11473,12 @@ impl Run {
             (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetLanguage<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ContentStart(&self) -> ::windows::runtime::Result<TextPointer> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -10370,6 +11486,7 @@ impl Run {
             (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ContentEnd(&self) -> ::windows::runtime::Result<TextPointer> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -10377,6 +11494,7 @@ impl Run {
             (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ElementStart(&self) -> ::windows::runtime::Result<TextPointer> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -10384,6 +11502,7 @@ impl Run {
             (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ElementEnd(&self) -> ::windows::runtime::Result<TextPointer> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -10391,6 +11510,7 @@ impl Run {
             (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn FindName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, name: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -10398,6 +11518,7 @@ impl Run {
             (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this), name.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn IsTextScaleFactorEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ITextElement2>(self)?;
         unsafe {
@@ -10405,14 +11526,17 @@ impl Run {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetIsTextScaleFactorEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn OnDisconnectVisualChildren(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElementOverrides>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn AllowFocusOnInteraction(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe {
@@ -10420,10 +11544,12 @@ impl Run {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetAllowFocusOnInteraction(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn AccessKey(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe {
@@ -10431,10 +11557,12 @@ impl Run {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetAccessKey<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ExitDisplayModeOnAccessKeyInvoked(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe {
@@ -10442,11 +11570,13 @@ impl Run {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetExitDisplayModeOnAccessKeyInvoked(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn TextDecorations(&self) -> ::windows::runtime::Result<super::super::Text::TextDecorations> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -10455,10 +11585,12 @@ impl Run {
         }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn SetTextDecorations(&self, value: super::super::Text::TextDecorations) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn IsAccessKeyScope(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -10466,10 +11598,12 @@ impl Run {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetIsAccessKeyScope(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn AccessKeyScopeOwner(&self) -> ::windows::runtime::Result<super::DependencyObject> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -10477,11 +11611,13 @@ impl Run {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyObject>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetAccessKeyScopeOwner<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI_Xaml_Input")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Input`*"]
     pub fn KeyTipPlacementMode(&self) -> ::windows::runtime::Result<super::Input::KeyTipPlacementMode> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -10490,10 +11626,12 @@ impl Run {
         }
     }
     #[cfg(feature = "UI_Xaml_Input")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Input`*"]
     pub fn SetKeyTipPlacementMode(&self, value: super::Input::KeyTipPlacementMode) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn KeyTipHorizontalOffset(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -10501,10 +11639,12 @@ impl Run {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetKeyTipHorizontalOffset(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn KeyTipVerticalOffset(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -10512,11 +11652,13 @@ impl Run {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetKeyTipVerticalOffset(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`, `UI_Xaml_Input`*"]
     pub fn AccessKeyDisplayRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyDisplayRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -10525,11 +11667,13 @@ impl Run {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveAccessKeyDisplayRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`, `UI_Xaml_Input`*"]
     pub fn AccessKeyDisplayDismissed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyDisplayDismissedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -10538,11 +11682,13 @@ impl Run {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveAccessKeyDisplayDismissed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`, `UI_Xaml_Input`*"]
     pub fn AccessKeyInvoked<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyInvokedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -10551,10 +11697,12 @@ impl Run {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveAccessKeyInvoked<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn XamlRoot(&self) -> ::windows::runtime::Result<super::XamlRoot> {
         let this = &::windows::runtime::Interface::cast::<ITextElement5>(self)?;
         unsafe {
@@ -10562,6 +11710,7 @@ impl Run {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::XamlRoot>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetXamlRoot<'a, Param0: ::windows::runtime::IntoParam<'a, super::XamlRoot>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement5>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -10683,11 +11832,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::DependencyObject> for &Run {
 }
 unsafe impl ::std::marker::Send for Run {}
 unsafe impl ::std::marker::Sync for Run {}
+#[doc = "*Required features: `UI_Xaml_Documents`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct Span(::windows::runtime::IInspectable);
 impl Span {
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Collections`*"]
     pub fn Inlines(&self) -> ::windows::runtime::Result<InlineCollection> {
         let this = self;
         unsafe {
@@ -10696,16 +11847,19 @@ impl Span {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Collections`*"]
     pub fn SetInlines<'a, Param0: ::windows::runtime::IntoParam<'a, InlineCollection>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn new() -> ::windows::runtime::Result<Span> {
         Self::ISpanFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), ::std::ptr::null_mut(), &mut ::std::option::Option::<::windows::runtime::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<Span>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -10713,14 +11867,17 @@ impl Span {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ClearValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -10728,6 +11885,7 @@ impl Span {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -10736,6 +11894,7 @@ impl Span {
         }
     }
     #[cfg(feature = "UI_Core")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::runtime::Result<super::super::Core::CoreDispatcher> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -10743,6 +11902,7 @@ impl Span {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Core::CoreDispatcher>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::runtime::IntoParam<'a, super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::runtime::Result<i64> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject2>(self)?;
         unsafe {
@@ -10750,10 +11910,12 @@ impl Span {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -10761,6 +11923,7 @@ impl Span {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn FontSize(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -10768,11 +11931,13 @@ impl Span {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetFontSize(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn FontFamily(&self) -> ::windows::runtime::Result<super::Media::FontFamily> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -10781,11 +11946,13 @@ impl Span {
         }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn SetFontFamily<'a, Param0: ::windows::runtime::IntoParam<'a, super::Media::FontFamily>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn FontWeight(&self) -> ::windows::runtime::Result<super::super::Text::FontWeight> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -10794,11 +11961,13 @@ impl Span {
         }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn SetFontWeight<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Text::FontWeight>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn FontStyle(&self) -> ::windows::runtime::Result<super::super::Text::FontStyle> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -10807,11 +11976,13 @@ impl Span {
         }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn SetFontStyle(&self, value: super::super::Text::FontStyle) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn FontStretch(&self) -> ::windows::runtime::Result<super::super::Text::FontStretch> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -10820,10 +11991,12 @@ impl Span {
         }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn SetFontStretch(&self, value: super::super::Text::FontStretch) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn CharacterSpacing(&self) -> ::windows::runtime::Result<i32> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -10831,11 +12004,13 @@ impl Span {
             (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetCharacterSpacing(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn Foreground(&self) -> ::windows::runtime::Result<super::Media::Brush> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -10844,10 +12019,12 @@ impl Span {
         }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn SetForeground<'a, Param0: ::windows::runtime::IntoParam<'a, super::Media::Brush>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn Language(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -10855,10 +12032,12 @@ impl Span {
             (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetLanguage<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ContentStart(&self) -> ::windows::runtime::Result<TextPointer> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -10866,6 +12045,7 @@ impl Span {
             (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ContentEnd(&self) -> ::windows::runtime::Result<TextPointer> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -10873,6 +12053,7 @@ impl Span {
             (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ElementStart(&self) -> ::windows::runtime::Result<TextPointer> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -10880,6 +12061,7 @@ impl Span {
             (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ElementEnd(&self) -> ::windows::runtime::Result<TextPointer> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -10887,6 +12069,7 @@ impl Span {
             (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn FindName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, name: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -10894,6 +12077,7 @@ impl Span {
             (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this), name.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn IsTextScaleFactorEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ITextElement2>(self)?;
         unsafe {
@@ -10901,14 +12085,17 @@ impl Span {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetIsTextScaleFactorEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn OnDisconnectVisualChildren(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElementOverrides>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn AllowFocusOnInteraction(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe {
@@ -10916,10 +12103,12 @@ impl Span {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetAllowFocusOnInteraction(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn AccessKey(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe {
@@ -10927,10 +12116,12 @@ impl Span {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetAccessKey<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ExitDisplayModeOnAccessKeyInvoked(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe {
@@ -10938,11 +12129,13 @@ impl Span {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetExitDisplayModeOnAccessKeyInvoked(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn TextDecorations(&self) -> ::windows::runtime::Result<super::super::Text::TextDecorations> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -10951,10 +12144,12 @@ impl Span {
         }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn SetTextDecorations(&self, value: super::super::Text::TextDecorations) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn IsAccessKeyScope(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -10962,10 +12157,12 @@ impl Span {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetIsAccessKeyScope(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn AccessKeyScopeOwner(&self) -> ::windows::runtime::Result<super::DependencyObject> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -10973,11 +12170,13 @@ impl Span {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyObject>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetAccessKeyScopeOwner<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI_Xaml_Input")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Input`*"]
     pub fn KeyTipPlacementMode(&self) -> ::windows::runtime::Result<super::Input::KeyTipPlacementMode> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -10986,10 +12185,12 @@ impl Span {
         }
     }
     #[cfg(feature = "UI_Xaml_Input")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Input`*"]
     pub fn SetKeyTipPlacementMode(&self, value: super::Input::KeyTipPlacementMode) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn KeyTipHorizontalOffset(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -10997,10 +12198,12 @@ impl Span {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetKeyTipHorizontalOffset(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn KeyTipVerticalOffset(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -11008,11 +12211,13 @@ impl Span {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetKeyTipVerticalOffset(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`, `UI_Xaml_Input`*"]
     pub fn AccessKeyDisplayRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyDisplayRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -11021,11 +12226,13 @@ impl Span {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveAccessKeyDisplayRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`, `UI_Xaml_Input`*"]
     pub fn AccessKeyDisplayDismissed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyDisplayDismissedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -11034,11 +12241,13 @@ impl Span {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveAccessKeyDisplayDismissed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`, `UI_Xaml_Input`*"]
     pub fn AccessKeyInvoked<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyInvokedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -11047,10 +12256,12 @@ impl Span {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveAccessKeyInvoked<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn XamlRoot(&self) -> ::windows::runtime::Result<super::XamlRoot> {
         let this = &::windows::runtime::Interface::cast::<ITextElement5>(self)?;
         unsafe {
@@ -11058,6 +12269,7 @@ impl Span {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::XamlRoot>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetXamlRoot<'a, Param0: ::windows::runtime::IntoParam<'a, super::XamlRoot>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement5>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -11179,10 +12391,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::DependencyObject> for &Span {
 }
 unsafe impl ::std::marker::Send for Span {}
 unsafe impl ::std::marker::Sync for Span {}
+#[doc = "*Required features: `UI_Xaml_Documents`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct TextElement(::windows::runtime::IInspectable);
 impl TextElement {
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -11190,6 +12404,7 @@ impl TextElement {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn FontSize(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -11197,11 +12412,13 @@ impl TextElement {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetFontSize(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn FontFamily(&self) -> ::windows::runtime::Result<super::Media::FontFamily> {
         let this = self;
         unsafe {
@@ -11210,11 +12427,13 @@ impl TextElement {
         }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn SetFontFamily<'a, Param0: ::windows::runtime::IntoParam<'a, super::Media::FontFamily>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn FontWeight(&self) -> ::windows::runtime::Result<super::super::Text::FontWeight> {
         let this = self;
         unsafe {
@@ -11223,11 +12442,13 @@ impl TextElement {
         }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn SetFontWeight<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Text::FontWeight>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn FontStyle(&self) -> ::windows::runtime::Result<super::super::Text::FontStyle> {
         let this = self;
         unsafe {
@@ -11236,11 +12457,13 @@ impl TextElement {
         }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn SetFontStyle(&self, value: super::super::Text::FontStyle) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn FontStretch(&self) -> ::windows::runtime::Result<super::super::Text::FontStretch> {
         let this = self;
         unsafe {
@@ -11249,10 +12472,12 @@ impl TextElement {
         }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn SetFontStretch(&self, value: super::super::Text::FontStretch) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn CharacterSpacing(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -11260,11 +12485,13 @@ impl TextElement {
             (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetCharacterSpacing(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn Foreground(&self) -> ::windows::runtime::Result<super::Media::Brush> {
         let this = self;
         unsafe {
@@ -11273,10 +12500,12 @@ impl TextElement {
         }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn SetForeground<'a, Param0: ::windows::runtime::IntoParam<'a, super::Media::Brush>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn Language(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -11284,10 +12513,12 @@ impl TextElement {
             (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetLanguage<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ContentStart(&self) -> ::windows::runtime::Result<TextPointer> {
         let this = self;
         unsafe {
@@ -11295,6 +12526,7 @@ impl TextElement {
             (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ContentEnd(&self) -> ::windows::runtime::Result<TextPointer> {
         let this = self;
         unsafe {
@@ -11302,6 +12534,7 @@ impl TextElement {
             (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ElementStart(&self) -> ::windows::runtime::Result<TextPointer> {
         let this = self;
         unsafe {
@@ -11309,6 +12542,7 @@ impl TextElement {
             (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ElementEnd(&self) -> ::windows::runtime::Result<TextPointer> {
         let this = self;
         unsafe {
@@ -11316,6 +12550,7 @@ impl TextElement {
             (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn FindName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, name: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = self;
         unsafe {
@@ -11323,6 +12558,7 @@ impl TextElement {
             (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this), name.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn IsTextScaleFactorEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ITextElement2>(self)?;
         unsafe {
@@ -11330,68 +12566,80 @@ impl TextElement {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetIsTextScaleFactorEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn OnDisconnectVisualChildren(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElementOverrides>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn FontSizeProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::ITextElementStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn FontFamilyProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::ITextElementStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn FontWeightProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::ITextElementStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn FontStyleProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::ITextElementStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn FontStretchProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::ITextElementStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn CharacterSpacingProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::ITextElementStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ForegroundProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::ITextElementStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn LanguageProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::ITextElementStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn IsTextScaleFactorEnabledProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::ITextElementStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn AllowFocusOnInteraction(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe {
@@ -11399,10 +12647,12 @@ impl TextElement {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetAllowFocusOnInteraction(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn AccessKey(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe {
@@ -11410,10 +12660,12 @@ impl TextElement {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetAccessKey<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ExitDisplayModeOnAccessKeyInvoked(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe {
@@ -11421,22 +12673,26 @@ impl TextElement {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetExitDisplayModeOnAccessKeyInvoked(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn AllowFocusOnInteractionProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::ITextElementStatics3(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn AccessKeyProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::ITextElementStatics3(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ExitDisplayModeOnAccessKeyInvokedProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::ITextElementStatics3(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -11444,6 +12700,7 @@ impl TextElement {
         })
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn TextDecorations(&self) -> ::windows::runtime::Result<super::super::Text::TextDecorations> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -11452,10 +12709,12 @@ impl TextElement {
         }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn SetTextDecorations(&self, value: super::super::Text::TextDecorations) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn IsAccessKeyScope(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -11463,10 +12722,12 @@ impl TextElement {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetIsAccessKeyScope(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn AccessKeyScopeOwner(&self) -> ::windows::runtime::Result<super::DependencyObject> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -11474,11 +12735,13 @@ impl TextElement {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyObject>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetAccessKeyScopeOwner<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI_Xaml_Input")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Input`*"]
     pub fn KeyTipPlacementMode(&self) -> ::windows::runtime::Result<super::Input::KeyTipPlacementMode> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -11487,10 +12750,12 @@ impl TextElement {
         }
     }
     #[cfg(feature = "UI_Xaml_Input")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Input`*"]
     pub fn SetKeyTipPlacementMode(&self, value: super::Input::KeyTipPlacementMode) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn KeyTipHorizontalOffset(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -11498,10 +12763,12 @@ impl TextElement {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetKeyTipHorizontalOffset(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn KeyTipVerticalOffset(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -11509,11 +12776,13 @@ impl TextElement {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetKeyTipVerticalOffset(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`, `UI_Xaml_Input`*"]
     pub fn AccessKeyDisplayRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyDisplayRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -11522,11 +12791,13 @@ impl TextElement {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveAccessKeyDisplayRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`, `UI_Xaml_Input`*"]
     pub fn AccessKeyDisplayDismissed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyDisplayDismissedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -11535,11 +12806,13 @@ impl TextElement {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveAccessKeyDisplayDismissed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`, `UI_Xaml_Input`*"]
     pub fn AccessKeyInvoked<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyInvokedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -11548,46 +12821,54 @@ impl TextElement {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveAccessKeyInvoked<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn TextDecorationsProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::ITextElementStatics4(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn IsAccessKeyScopeProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::ITextElementStatics4(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn AccessKeyScopeOwnerProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::ITextElementStatics4(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn KeyTipPlacementModeProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::ITextElementStatics4(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn KeyTipHorizontalOffsetProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::ITextElementStatics4(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn KeyTipVerticalOffsetProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::ITextElementStatics4(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn XamlRoot(&self) -> ::windows::runtime::Result<super::XamlRoot> {
         let this = &::windows::runtime::Interface::cast::<ITextElement5>(self)?;
         unsafe {
@@ -11595,10 +12876,12 @@ impl TextElement {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::XamlRoot>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetXamlRoot<'a, Param0: ::windows::runtime::IntoParam<'a, super::XamlRoot>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement5>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -11606,14 +12889,17 @@ impl TextElement {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ClearValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -11621,6 +12907,7 @@ impl TextElement {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -11629,6 +12916,7 @@ impl TextElement {
         }
     }
     #[cfg(feature = "UI_Core")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::runtime::Result<super::super::Core::CoreDispatcher> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -11636,6 +12924,7 @@ impl TextElement {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Core::CoreDispatcher>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::runtime::IntoParam<'a, super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::runtime::Result<i64> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject2>(self)?;
         unsafe {
@@ -11643,6 +12932,7 @@ impl TextElement {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
@@ -11736,11 +13026,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::DependencyObject> for &TextEle
 }
 unsafe impl ::std::marker::Send for TextElement {}
 unsafe impl ::std::marker::Sync for TextElement {}
+#[doc = "*Required features: `UI_Xaml_Documents`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct TextHighlighter(::windows::runtime::IInspectable);
 impl TextHighlighter {
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Collections`*"]
     pub fn Ranges(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVector<TextRange>> {
         let this = self;
         unsafe {
@@ -11749,6 +13041,7 @@ impl TextHighlighter {
         }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn Foreground(&self) -> ::windows::runtime::Result<super::Media::Brush> {
         let this = self;
         unsafe {
@@ -11757,11 +13050,13 @@ impl TextHighlighter {
         }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn SetForeground<'a, Param0: ::windows::runtime::IntoParam<'a, super::Media::Brush>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn Background(&self) -> ::windows::runtime::Result<super::Media::Brush> {
         let this = self;
         unsafe {
@@ -11770,22 +13065,26 @@ impl TextHighlighter {
         }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn SetBackground<'a, Param0: ::windows::runtime::IntoParam<'a, super::Media::Brush>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ForegroundProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::ITextHighlighterStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn BackgroundProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::ITextHighlighterStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn new() -> ::windows::runtime::Result<TextHighlighter> {
         Self::ITextHighlighterFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -11853,10 +13152,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for TextHighlighter {}
 unsafe impl ::std::marker::Sync for TextHighlighter {}
+#[doc = "*Required features: `UI_Xaml_Documents`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct TextHighlighterBase(::windows::runtime::IInspectable);
 impl TextHighlighterBase {
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -11864,14 +13165,17 @@ impl TextHighlighterBase {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ClearValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -11879,6 +13183,7 @@ impl TextHighlighterBase {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -11887,6 +13192,7 @@ impl TextHighlighterBase {
         }
     }
     #[cfg(feature = "UI_Core")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::runtime::Result<super::super::Core::CoreDispatcher> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -11894,6 +13200,7 @@ impl TextHighlighterBase {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Core::CoreDispatcher>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::runtime::IntoParam<'a, super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::runtime::Result<i64> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject2>(self)?;
         unsafe {
@@ -11901,6 +13208,7 @@ impl TextHighlighterBase {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
@@ -11978,10 +13286,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::DependencyObject> for &TextHig
 }
 unsafe impl ::std::marker::Send for TextHighlighterBase {}
 unsafe impl ::std::marker::Sync for TextHighlighterBase {}
+#[doc = "*Required features: `UI_Xaml_Documents`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct TextPointer(::windows::runtime::IInspectable);
 impl TextPointer {
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn Parent(&self) -> ::windows::runtime::Result<super::DependencyObject> {
         let this = self;
         unsafe {
@@ -11989,6 +13299,7 @@ impl TextPointer {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyObject>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn VisualParent(&self) -> ::windows::runtime::Result<super::FrameworkElement> {
         let this = self;
         unsafe {
@@ -11996,6 +13307,7 @@ impl TextPointer {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::FrameworkElement>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn LogicalDirection(&self) -> ::windows::runtime::Result<LogicalDirection> {
         let this = self;
         unsafe {
@@ -12003,6 +13315,7 @@ impl TextPointer {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<LogicalDirection>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn Offset(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -12011,6 +13324,7 @@ impl TextPointer {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn GetCharacterRect(&self, direction: LogicalDirection) -> ::windows::runtime::Result<super::super::super::Foundation::Rect> {
         let this = self;
         unsafe {
@@ -12018,6 +13332,7 @@ impl TextPointer {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), direction, &mut result__).from_abi::<super::super::super::Foundation::Rect>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetPositionAtOffset(&self, offset: i32, direction: LogicalDirection) -> ::windows::runtime::Result<TextPointer> {
         let this = self;
         unsafe {
@@ -12080,6 +13395,7 @@ unsafe impl ::std::marker::Send for TextPointer {}
 unsafe impl ::std::marker::Sync for TextPointer {}
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `UI_Xaml_Documents`*"]
 pub struct TextRange {
     pub StartIndex: i32,
     pub Length: i32,
@@ -12108,652 +13424,782 @@ unsafe impl ::windows::runtime::Abi for TextRange {
 unsafe impl ::windows::runtime::RuntimeType for TextRange {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.UI.Xaml.Documents.TextRange;i4;i4)");
 }
+#[doc = "*Required features: `UI_Xaml_Documents`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct Typography(::windows::runtime::IInspectable);
 impl Typography {
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn AnnotationAlternatesProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetAnnotationAlternates<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::runtime::Result<i32> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: i32 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<i32>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetAnnotationAlternates<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0, value: i32) -> ::windows::runtime::Result<()> {
         Self::ITypographyStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn EastAsianExpertFormsProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetEastAsianExpertForms<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::runtime::Result<bool> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetEastAsianExpertForms<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0, value: bool) -> ::windows::runtime::Result<()> {
         Self::ITypographyStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn EastAsianLanguageProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetEastAsianLanguage<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::runtime::Result<super::FontEastAsianLanguage> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: super::FontEastAsianLanguage = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<super::FontEastAsianLanguage>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetEastAsianLanguage<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0, value: super::FontEastAsianLanguage) -> ::windows::runtime::Result<()> {
         Self::ITypographyStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn EastAsianWidthsProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetEastAsianWidths<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::runtime::Result<super::FontEastAsianWidths> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: super::FontEastAsianWidths = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<super::FontEastAsianWidths>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetEastAsianWidths<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0, value: super::FontEastAsianWidths) -> ::windows::runtime::Result<()> {
         Self::ITypographyStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn StandardLigaturesProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetStandardLigatures<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::runtime::Result<bool> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetStandardLigatures<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0, value: bool) -> ::windows::runtime::Result<()> {
         Self::ITypographyStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ContextualLigaturesProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetContextualLigatures<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::runtime::Result<bool> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetContextualLigatures<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0, value: bool) -> ::windows::runtime::Result<()> {
         Self::ITypographyStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn DiscretionaryLigaturesProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetDiscretionaryLigatures<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::runtime::Result<bool> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetDiscretionaryLigatures<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0, value: bool) -> ::windows::runtime::Result<()> {
         Self::ITypographyStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn HistoricalLigaturesProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetHistoricalLigatures<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::runtime::Result<bool> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).28)(::std::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetHistoricalLigatures<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0, value: bool) -> ::windows::runtime::Result<()> {
         Self::ITypographyStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).29)(::std::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn StandardSwashesProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).30)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetStandardSwashes<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::runtime::Result<i32> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: i32 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).31)(::std::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<i32>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetStandardSwashes<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0, value: i32) -> ::windows::runtime::Result<()> {
         Self::ITypographyStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).32)(::std::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ContextualSwashesProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).33)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetContextualSwashes<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::runtime::Result<i32> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: i32 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).34)(::std::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<i32>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetContextualSwashes<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0, value: i32) -> ::windows::runtime::Result<()> {
         Self::ITypographyStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).35)(::std::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ContextualAlternatesProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).36)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetContextualAlternates<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::runtime::Result<bool> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).37)(::std::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetContextualAlternates<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0, value: bool) -> ::windows::runtime::Result<()> {
         Self::ITypographyStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).38)(::std::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn StylisticAlternatesProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).39)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetStylisticAlternates<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::runtime::Result<i32> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: i32 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).40)(::std::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<i32>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetStylisticAlternates<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0, value: i32) -> ::windows::runtime::Result<()> {
         Self::ITypographyStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).41)(::std::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn StylisticSet1Property() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).42)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetStylisticSet1<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::runtime::Result<bool> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).43)(::std::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetStylisticSet1<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0, value: bool) -> ::windows::runtime::Result<()> {
         Self::ITypographyStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).44)(::std::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn StylisticSet2Property() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).45)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetStylisticSet2<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::runtime::Result<bool> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).46)(::std::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetStylisticSet2<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0, value: bool) -> ::windows::runtime::Result<()> {
         Self::ITypographyStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).47)(::std::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn StylisticSet3Property() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).48)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetStylisticSet3<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::runtime::Result<bool> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).49)(::std::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetStylisticSet3<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0, value: bool) -> ::windows::runtime::Result<()> {
         Self::ITypographyStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).50)(::std::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn StylisticSet4Property() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).51)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetStylisticSet4<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::runtime::Result<bool> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).52)(::std::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetStylisticSet4<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0, value: bool) -> ::windows::runtime::Result<()> {
         Self::ITypographyStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).53)(::std::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn StylisticSet5Property() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).54)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetStylisticSet5<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::runtime::Result<bool> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).55)(::std::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetStylisticSet5<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0, value: bool) -> ::windows::runtime::Result<()> {
         Self::ITypographyStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).56)(::std::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn StylisticSet6Property() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).57)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetStylisticSet6<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::runtime::Result<bool> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).58)(::std::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetStylisticSet6<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0, value: bool) -> ::windows::runtime::Result<()> {
         Self::ITypographyStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).59)(::std::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn StylisticSet7Property() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).60)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetStylisticSet7<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::runtime::Result<bool> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).61)(::std::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetStylisticSet7<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0, value: bool) -> ::windows::runtime::Result<()> {
         Self::ITypographyStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).62)(::std::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn StylisticSet8Property() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).63)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetStylisticSet8<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::runtime::Result<bool> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).64)(::std::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetStylisticSet8<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0, value: bool) -> ::windows::runtime::Result<()> {
         Self::ITypographyStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).65)(::std::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn StylisticSet9Property() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).66)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetStylisticSet9<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::runtime::Result<bool> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).67)(::std::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetStylisticSet9<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0, value: bool) -> ::windows::runtime::Result<()> {
         Self::ITypographyStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).68)(::std::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn StylisticSet10Property() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).69)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetStylisticSet10<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::runtime::Result<bool> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).70)(::std::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetStylisticSet10<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0, value: bool) -> ::windows::runtime::Result<()> {
         Self::ITypographyStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).71)(::std::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn StylisticSet11Property() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).72)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetStylisticSet11<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::runtime::Result<bool> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).73)(::std::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetStylisticSet11<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0, value: bool) -> ::windows::runtime::Result<()> {
         Self::ITypographyStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).74)(::std::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn StylisticSet12Property() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).75)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetStylisticSet12<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::runtime::Result<bool> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).76)(::std::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetStylisticSet12<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0, value: bool) -> ::windows::runtime::Result<()> {
         Self::ITypographyStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).77)(::std::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn StylisticSet13Property() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).78)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetStylisticSet13<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::runtime::Result<bool> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).79)(::std::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetStylisticSet13<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0, value: bool) -> ::windows::runtime::Result<()> {
         Self::ITypographyStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).80)(::std::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn StylisticSet14Property() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).81)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetStylisticSet14<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::runtime::Result<bool> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).82)(::std::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetStylisticSet14<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0, value: bool) -> ::windows::runtime::Result<()> {
         Self::ITypographyStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).83)(::std::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn StylisticSet15Property() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).84)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetStylisticSet15<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::runtime::Result<bool> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).85)(::std::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetStylisticSet15<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0, value: bool) -> ::windows::runtime::Result<()> {
         Self::ITypographyStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).86)(::std::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn StylisticSet16Property() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).87)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetStylisticSet16<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::runtime::Result<bool> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).88)(::std::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetStylisticSet16<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0, value: bool) -> ::windows::runtime::Result<()> {
         Self::ITypographyStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).89)(::std::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn StylisticSet17Property() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).90)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetStylisticSet17<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::runtime::Result<bool> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).91)(::std::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetStylisticSet17<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0, value: bool) -> ::windows::runtime::Result<()> {
         Self::ITypographyStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).92)(::std::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn StylisticSet18Property() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).93)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetStylisticSet18<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::runtime::Result<bool> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).94)(::std::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetStylisticSet18<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0, value: bool) -> ::windows::runtime::Result<()> {
         Self::ITypographyStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).95)(::std::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn StylisticSet19Property() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).96)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetStylisticSet19<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::runtime::Result<bool> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).97)(::std::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetStylisticSet19<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0, value: bool) -> ::windows::runtime::Result<()> {
         Self::ITypographyStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).98)(::std::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn StylisticSet20Property() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).99)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetStylisticSet20<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::runtime::Result<bool> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).100)(::std::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetStylisticSet20<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0, value: bool) -> ::windows::runtime::Result<()> {
         Self::ITypographyStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).101)(::std::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn CapitalsProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).102)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetCapitals<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::runtime::Result<super::FontCapitals> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: super::FontCapitals = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).103)(::std::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<super::FontCapitals>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetCapitals<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0, value: super::FontCapitals) -> ::windows::runtime::Result<()> {
         Self::ITypographyStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).104)(::std::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn CapitalSpacingProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).105)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetCapitalSpacing<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::runtime::Result<bool> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).106)(::std::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetCapitalSpacing<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0, value: bool) -> ::windows::runtime::Result<()> {
         Self::ITypographyStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).107)(::std::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn KerningProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).108)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetKerning<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::runtime::Result<bool> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).109)(::std::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetKerning<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0, value: bool) -> ::windows::runtime::Result<()> {
         Self::ITypographyStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).110)(::std::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn CaseSensitiveFormsProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).111)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetCaseSensitiveForms<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::runtime::Result<bool> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).112)(::std::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetCaseSensitiveForms<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0, value: bool) -> ::windows::runtime::Result<()> {
         Self::ITypographyStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).113)(::std::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn HistoricalFormsProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).114)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetHistoricalForms<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::runtime::Result<bool> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).115)(::std::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetHistoricalForms<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0, value: bool) -> ::windows::runtime::Result<()> {
         Self::ITypographyStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).116)(::std::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn FractionProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).117)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetFraction<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::runtime::Result<super::FontFraction> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: super::FontFraction = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).118)(::std::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<super::FontFraction>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetFraction<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0, value: super::FontFraction) -> ::windows::runtime::Result<()> {
         Self::ITypographyStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).119)(::std::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn NumeralStyleProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).120)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetNumeralStyle<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::runtime::Result<super::FontNumeralStyle> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: super::FontNumeralStyle = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).121)(::std::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<super::FontNumeralStyle>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetNumeralStyle<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0, value: super::FontNumeralStyle) -> ::windows::runtime::Result<()> {
         Self::ITypographyStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).122)(::std::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn NumeralAlignmentProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).123)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetNumeralAlignment<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::runtime::Result<super::FontNumeralAlignment> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: super::FontNumeralAlignment = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).124)(::std::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<super::FontNumeralAlignment>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetNumeralAlignment<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0, value: super::FontNumeralAlignment) -> ::windows::runtime::Result<()> {
         Self::ITypographyStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).125)(::std::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SlashedZeroProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).126)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetSlashedZero<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::runtime::Result<bool> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).127)(::std::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetSlashedZero<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0, value: bool) -> ::windows::runtime::Result<()> {
         Self::ITypographyStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).128)(::std::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn MathematicalGreekProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).129)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetMathematicalGreek<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::runtime::Result<bool> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).130)(::std::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetMathematicalGreek<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0, value: bool) -> ::windows::runtime::Result<()> {
         Self::ITypographyStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).131)(::std::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn VariantsProperty() -> ::windows::runtime::Result<super::DependencyProperty> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).132)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetVariants<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0) -> ::windows::runtime::Result<super::FontVariants> {
         Self::ITypographyStatics(|this| unsafe {
             let mut result__: super::FontVariants = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).133)(::std::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<super::FontVariants>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetVariants<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(element: Param0, value: super::FontVariants) -> ::windows::runtime::Result<()> {
         Self::ITypographyStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).134)(::std::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
     }
@@ -12814,6 +14260,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for Typography {}
 unsafe impl ::std::marker::Sync for Typography {}
+#[doc = "*Required features: `UI_Xaml_Documents`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct Underline(::windows::runtime::IInspectable);
@@ -12825,6 +14272,7 @@ impl Underline {
         static mut SHARED: ::windows::runtime::FactoryCache<Underline, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -12832,14 +14280,17 @@ impl Underline {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, dp: Param0, value: Param1) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), dp.into_param().abi(), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ClearValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), dp.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ReadLocalValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -12847,6 +14298,7 @@ impl Underline {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), dp.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn GetAnimationBaseValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -12855,6 +14307,7 @@ impl Underline {
         }
     }
     #[cfg(feature = "UI_Core")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::runtime::Result<super::super::Core::CoreDispatcher> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject>(self)?;
         unsafe {
@@ -12862,6 +14315,7 @@ impl Underline {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Core::CoreDispatcher>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn RegisterPropertyChangedCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>, Param1: ::windows::runtime::IntoParam<'a, super::DependencyPropertyChangedCallback>>(&self, dp: Param0, callback: Param1) -> ::windows::runtime::Result<i64> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject2>(self)?;
         unsafe {
@@ -12869,11 +14323,13 @@ impl Underline {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), dp.into_param().abi(), callback.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn UnregisterPropertyChangedCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyProperty>>(&self, dp: Param0, token: i64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::IDependencyObject2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), dp.into_param().abi(), token).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Collections`*"]
     pub fn Inlines(&self) -> ::windows::runtime::Result<InlineCollection> {
         let this = &::windows::runtime::Interface::cast::<ISpan>(self)?;
         unsafe {
@@ -12882,10 +14338,12 @@ impl Underline {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Collections`*"]
     pub fn SetInlines<'a, Param0: ::windows::runtime::IntoParam<'a, InlineCollection>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ISpan>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -12893,6 +14351,7 @@ impl Underline {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn FontSize(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -12900,11 +14359,13 @@ impl Underline {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetFontSize(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn FontFamily(&self) -> ::windows::runtime::Result<super::Media::FontFamily> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -12913,11 +14374,13 @@ impl Underline {
         }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn SetFontFamily<'a, Param0: ::windows::runtime::IntoParam<'a, super::Media::FontFamily>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn FontWeight(&self) -> ::windows::runtime::Result<super::super::Text::FontWeight> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -12926,11 +14389,13 @@ impl Underline {
         }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn SetFontWeight<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Text::FontWeight>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn FontStyle(&self) -> ::windows::runtime::Result<super::super::Text::FontStyle> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -12939,11 +14404,13 @@ impl Underline {
         }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn SetFontStyle(&self, value: super::super::Text::FontStyle) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn FontStretch(&self) -> ::windows::runtime::Result<super::super::Text::FontStretch> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -12952,10 +14419,12 @@ impl Underline {
         }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn SetFontStretch(&self, value: super::super::Text::FontStretch) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn CharacterSpacing(&self) -> ::windows::runtime::Result<i32> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -12963,11 +14432,13 @@ impl Underline {
             (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetCharacterSpacing(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn Foreground(&self) -> ::windows::runtime::Result<super::Media::Brush> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -12976,10 +14447,12 @@ impl Underline {
         }
     }
     #[cfg(feature = "UI_Xaml_Media")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Media`*"]
     pub fn SetForeground<'a, Param0: ::windows::runtime::IntoParam<'a, super::Media::Brush>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn Language(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -12987,10 +14460,12 @@ impl Underline {
             (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetLanguage<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ContentStart(&self) -> ::windows::runtime::Result<TextPointer> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -12998,6 +14473,7 @@ impl Underline {
             (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ContentEnd(&self) -> ::windows::runtime::Result<TextPointer> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -13005,6 +14481,7 @@ impl Underline {
             (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ElementStart(&self) -> ::windows::runtime::Result<TextPointer> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -13012,6 +14489,7 @@ impl Underline {
             (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ElementEnd(&self) -> ::windows::runtime::Result<TextPointer> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -13019,6 +14497,7 @@ impl Underline {
             (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TextPointer>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn FindName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, name: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = &::windows::runtime::Interface::cast::<ITextElement>(self)?;
         unsafe {
@@ -13026,6 +14505,7 @@ impl Underline {
             (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this), name.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn IsTextScaleFactorEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ITextElement2>(self)?;
         unsafe {
@@ -13033,14 +14513,17 @@ impl Underline {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetIsTextScaleFactorEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn OnDisconnectVisualChildren(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElementOverrides>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn AllowFocusOnInteraction(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe {
@@ -13048,10 +14531,12 @@ impl Underline {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetAllowFocusOnInteraction(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn AccessKey(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe {
@@ -13059,10 +14544,12 @@ impl Underline {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetAccessKey<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn ExitDisplayModeOnAccessKeyInvoked(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe {
@@ -13070,11 +14557,13 @@ impl Underline {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetExitDisplayModeOnAccessKeyInvoked(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn TextDecorations(&self) -> ::windows::runtime::Result<super::super::Text::TextDecorations> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -13083,10 +14572,12 @@ impl Underline {
         }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Text`*"]
     pub fn SetTextDecorations(&self, value: super::super::Text::TextDecorations) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn IsAccessKeyScope(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -13094,10 +14585,12 @@ impl Underline {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetIsAccessKeyScope(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn AccessKeyScopeOwner(&self) -> ::windows::runtime::Result<super::DependencyObject> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -13105,11 +14598,13 @@ impl Underline {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyObject>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetAccessKeyScopeOwner<'a, Param0: ::windows::runtime::IntoParam<'a, super::DependencyObject>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI_Xaml_Input")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Input`*"]
     pub fn KeyTipPlacementMode(&self) -> ::windows::runtime::Result<super::Input::KeyTipPlacementMode> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -13118,10 +14613,12 @@ impl Underline {
         }
     }
     #[cfg(feature = "UI_Xaml_Input")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `UI_Xaml_Input`*"]
     pub fn SetKeyTipPlacementMode(&self, value: super::Input::KeyTipPlacementMode) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn KeyTipHorizontalOffset(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -13129,10 +14626,12 @@ impl Underline {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetKeyTipHorizontalOffset(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn KeyTipVerticalOffset(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -13140,11 +14639,13 @@ impl Underline {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetKeyTipVerticalOffset(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`, `UI_Xaml_Input`*"]
     pub fn AccessKeyDisplayRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyDisplayRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -13153,11 +14654,13 @@ impl Underline {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveAccessKeyDisplayRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`, `UI_Xaml_Input`*"]
     pub fn AccessKeyDisplayDismissed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyDisplayDismissedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -13166,11 +14669,13 @@ impl Underline {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveAccessKeyDisplayDismissed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`, `UI_Xaml_Input`*"]
     pub fn AccessKeyInvoked<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyInvokedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe {
@@ -13179,10 +14684,12 @@ impl Underline {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation`*"]
     pub fn RemoveAccessKeyInvoked<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn XamlRoot(&self) -> ::windows::runtime::Result<super::XamlRoot> {
         let this = &::windows::runtime::Interface::cast::<ITextElement5>(self)?;
         unsafe {
@@ -13190,6 +14697,7 @@ impl Underline {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::XamlRoot>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Xaml_Documents`*"]
     pub fn SetXamlRoot<'a, Param0: ::windows::runtime::IntoParam<'a, super::XamlRoot>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITextElement5>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -13327,6 +14835,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::DependencyObject> for &Underli
 }
 unsafe impl ::std::marker::Send for Underline {}
 unsafe impl ::std::marker::Sync for Underline {}
+#[doc = "*Required features: `UI_Xaml_Documents`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct UnderlineStyle(pub i32);

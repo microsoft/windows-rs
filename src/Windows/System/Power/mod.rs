@@ -1,9 +1,11 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[cfg(feature = "System_Power_Diagnostics")]
 pub mod Diagnostics;
+#[doc = "*Required features: `System_Power`*"]
 pub struct BackgroundEnergyManager {}
 impl BackgroundEnergyManager {
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `System_Power`*"]
     pub fn LowUsageLevel() -> ::windows::runtime::Result<u32> {
         Self::IBackgroundEnergyManagerStatics(|this| unsafe {
             let mut result__: u32 = ::std::mem::zeroed();
@@ -11,6 +13,7 @@ impl BackgroundEnergyManager {
         })
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `System_Power`*"]
     pub fn NearMaxAcceptableUsageLevel() -> ::windows::runtime::Result<u32> {
         Self::IBackgroundEnergyManagerStatics(|this| unsafe {
             let mut result__: u32 = ::std::mem::zeroed();
@@ -18,6 +21,7 @@ impl BackgroundEnergyManager {
         })
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `System_Power`*"]
     pub fn MaxAcceptableUsageLevel() -> ::windows::runtime::Result<u32> {
         Self::IBackgroundEnergyManagerStatics(|this| unsafe {
             let mut result__: u32 = ::std::mem::zeroed();
@@ -25,6 +29,7 @@ impl BackgroundEnergyManager {
         })
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `System_Power`*"]
     pub fn ExcessiveUsageLevel() -> ::windows::runtime::Result<u32> {
         Self::IBackgroundEnergyManagerStatics(|this| unsafe {
             let mut result__: u32 = ::std::mem::zeroed();
@@ -32,6 +37,7 @@ impl BackgroundEnergyManager {
         })
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `System_Power`*"]
     pub fn NearTerminationUsageLevel() -> ::windows::runtime::Result<u32> {
         Self::IBackgroundEnergyManagerStatics(|this| unsafe {
             let mut result__: u32 = ::std::mem::zeroed();
@@ -39,6 +45,7 @@ impl BackgroundEnergyManager {
         })
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `System_Power`*"]
     pub fn TerminationUsageLevel() -> ::windows::runtime::Result<u32> {
         Self::IBackgroundEnergyManagerStatics(|this| unsafe {
             let mut result__: u32 = ::std::mem::zeroed();
@@ -46,6 +53,7 @@ impl BackgroundEnergyManager {
         })
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `System_Power`*"]
     pub fn RecentEnergyUsage() -> ::windows::runtime::Result<u32> {
         Self::IBackgroundEnergyManagerStatics(|this| unsafe {
             let mut result__: u32 = ::std::mem::zeroed();
@@ -53,6 +61,7 @@ impl BackgroundEnergyManager {
         })
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `System_Power`*"]
     pub fn RecentEnergyUsageLevel() -> ::windows::runtime::Result<u32> {
         Self::IBackgroundEnergyManagerStatics(|this| unsafe {
             let mut result__: u32 = ::std::mem::zeroed();
@@ -61,6 +70,7 @@ impl BackgroundEnergyManager {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `System_Power`, `Foundation`*"]
     pub fn RecentEnergyUsageIncreased<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventHandler<::windows::runtime::IInspectable>>>(handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IBackgroundEnergyManagerStatics(|this| unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
@@ -69,11 +79,13 @@ impl BackgroundEnergyManager {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `System_Power`, `Foundation`*"]
     pub fn RemoveRecentEnergyUsageIncreased<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::runtime::Result<()> {
         Self::IBackgroundEnergyManagerStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() })
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `System_Power`, `Foundation`*"]
     pub fn RecentEnergyUsageReturnedToLow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventHandler<::windows::runtime::IInspectable>>>(handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IBackgroundEnergyManagerStatics(|this| unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
@@ -82,6 +94,7 @@ impl BackgroundEnergyManager {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `System_Power`, `Foundation`*"]
     pub fn RemoveRecentEnergyUsageReturnedToLow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::runtime::Result<()> {
         Self::IBackgroundEnergyManagerStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() })
     }
@@ -93,6 +106,7 @@ impl BackgroundEnergyManager {
 impl ::windows::runtime::RuntimeName for BackgroundEnergyManager {
     const NAME: &'static str = "Windows.System.Power.BackgroundEnergyManager";
 }
+#[doc = "*Required features: `System_Power`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct BatteryStatus(pub i32);
@@ -114,6 +128,7 @@ unsafe impl ::windows::runtime::Abi for BatteryStatus {
 unsafe impl ::windows::runtime::RuntimeType for BatteryStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.System.Power.BatteryStatus;i4)");
 }
+#[doc = "*Required features: `System_Power`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EnergySaverStatus(pub i32);
@@ -134,9 +149,11 @@ unsafe impl ::windows::runtime::Abi for EnergySaverStatus {
 unsafe impl ::windows::runtime::RuntimeType for EnergySaverStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.System.Power.EnergySaverStatus;i4)");
 }
+#[doc = "*Required features: `System_Power`*"]
 pub struct ForegroundEnergyManager {}
 impl ForegroundEnergyManager {
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `System_Power`*"]
     pub fn LowUsageLevel() -> ::windows::runtime::Result<u32> {
         Self::IForegroundEnergyManagerStatics(|this| unsafe {
             let mut result__: u32 = ::std::mem::zeroed();
@@ -144,6 +161,7 @@ impl ForegroundEnergyManager {
         })
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `System_Power`*"]
     pub fn NearMaxAcceptableUsageLevel() -> ::windows::runtime::Result<u32> {
         Self::IForegroundEnergyManagerStatics(|this| unsafe {
             let mut result__: u32 = ::std::mem::zeroed();
@@ -151,6 +169,7 @@ impl ForegroundEnergyManager {
         })
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `System_Power`*"]
     pub fn MaxAcceptableUsageLevel() -> ::windows::runtime::Result<u32> {
         Self::IForegroundEnergyManagerStatics(|this| unsafe {
             let mut result__: u32 = ::std::mem::zeroed();
@@ -158,6 +177,7 @@ impl ForegroundEnergyManager {
         })
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `System_Power`*"]
     pub fn ExcessiveUsageLevel() -> ::windows::runtime::Result<u32> {
         Self::IForegroundEnergyManagerStatics(|this| unsafe {
             let mut result__: u32 = ::std::mem::zeroed();
@@ -165,6 +185,7 @@ impl ForegroundEnergyManager {
         })
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `System_Power`*"]
     pub fn RecentEnergyUsage() -> ::windows::runtime::Result<u32> {
         Self::IForegroundEnergyManagerStatics(|this| unsafe {
             let mut result__: u32 = ::std::mem::zeroed();
@@ -172,6 +193,7 @@ impl ForegroundEnergyManager {
         })
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `System_Power`*"]
     pub fn RecentEnergyUsageLevel() -> ::windows::runtime::Result<u32> {
         Self::IForegroundEnergyManagerStatics(|this| unsafe {
             let mut result__: u32 = ::std::mem::zeroed();
@@ -180,6 +202,7 @@ impl ForegroundEnergyManager {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `System_Power`, `Foundation`*"]
     pub fn RecentEnergyUsageIncreased<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventHandler<::windows::runtime::IInspectable>>>(handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IForegroundEnergyManagerStatics(|this| unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
@@ -188,11 +211,13 @@ impl ForegroundEnergyManager {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `System_Power`, `Foundation`*"]
     pub fn RemoveRecentEnergyUsageIncreased<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::runtime::Result<()> {
         Self::IForegroundEnergyManagerStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() })
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `System_Power`, `Foundation`*"]
     pub fn RecentEnergyUsageReturnedToLow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventHandler<::windows::runtime::IInspectable>>>(handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IForegroundEnergyManagerStatics(|this| unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
@@ -201,6 +226,7 @@ impl ForegroundEnergyManager {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `System_Power`, `Foundation`*"]
     pub fn RemoveRecentEnergyUsageReturnedToLow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::runtime::Result<()> {
         Self::IForegroundEnergyManagerStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() })
     }
@@ -322,8 +348,10 @@ pub struct IPowerManagerStatics_abi(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, token: super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: `System_Power`*"]
 pub struct PowerManager {}
 impl PowerManager {
+    #[doc = "*Required features: `System_Power`*"]
     pub fn EnergySaverStatus() -> ::windows::runtime::Result<EnergySaverStatus> {
         Self::IPowerManagerStatics(|this| unsafe {
             let mut result__: EnergySaverStatus = ::std::mem::zeroed();
@@ -331,6 +359,7 @@ impl PowerManager {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `System_Power`, `Foundation`*"]
     pub fn EnergySaverStatusChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventHandler<::windows::runtime::IInspectable>>>(handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IPowerManagerStatics(|this| unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
@@ -338,9 +367,11 @@ impl PowerManager {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `System_Power`, `Foundation`*"]
     pub fn RemoveEnergySaverStatusChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::runtime::Result<()> {
         Self::IPowerManagerStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() })
     }
+    #[doc = "*Required features: `System_Power`*"]
     pub fn BatteryStatus() -> ::windows::runtime::Result<BatteryStatus> {
         Self::IPowerManagerStatics(|this| unsafe {
             let mut result__: BatteryStatus = ::std::mem::zeroed();
@@ -348,6 +379,7 @@ impl PowerManager {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `System_Power`, `Foundation`*"]
     pub fn BatteryStatusChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventHandler<::windows::runtime::IInspectable>>>(handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IPowerManagerStatics(|this| unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
@@ -355,9 +387,11 @@ impl PowerManager {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `System_Power`, `Foundation`*"]
     pub fn RemoveBatteryStatusChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::runtime::Result<()> {
         Self::IPowerManagerStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() })
     }
+    #[doc = "*Required features: `System_Power`*"]
     pub fn PowerSupplyStatus() -> ::windows::runtime::Result<PowerSupplyStatus> {
         Self::IPowerManagerStatics(|this| unsafe {
             let mut result__: PowerSupplyStatus = ::std::mem::zeroed();
@@ -365,6 +399,7 @@ impl PowerManager {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `System_Power`, `Foundation`*"]
     pub fn PowerSupplyStatusChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventHandler<::windows::runtime::IInspectable>>>(handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IPowerManagerStatics(|this| unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
@@ -372,9 +407,11 @@ impl PowerManager {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `System_Power`, `Foundation`*"]
     pub fn RemovePowerSupplyStatusChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::runtime::Result<()> {
         Self::IPowerManagerStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() })
     }
+    #[doc = "*Required features: `System_Power`*"]
     pub fn RemainingChargePercent() -> ::windows::runtime::Result<i32> {
         Self::IPowerManagerStatics(|this| unsafe {
             let mut result__: i32 = ::std::mem::zeroed();
@@ -382,6 +419,7 @@ impl PowerManager {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `System_Power`, `Foundation`*"]
     pub fn RemainingChargePercentChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventHandler<::windows::runtime::IInspectable>>>(handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IPowerManagerStatics(|this| unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
@@ -389,10 +427,12 @@ impl PowerManager {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `System_Power`, `Foundation`*"]
     pub fn RemoveRemainingChargePercentChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::runtime::Result<()> {
         Self::IPowerManagerStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `System_Power`, `Foundation`*"]
     pub fn RemainingDischargeTime() -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         Self::IPowerManagerStatics(|this| unsafe {
             let mut result__: super::super::Foundation::TimeSpan = ::std::mem::zeroed();
@@ -400,6 +440,7 @@ impl PowerManager {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `System_Power`, `Foundation`*"]
     pub fn RemainingDischargeTimeChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventHandler<::windows::runtime::IInspectable>>>(handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IPowerManagerStatics(|this| unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
@@ -407,6 +448,7 @@ impl PowerManager {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `System_Power`, `Foundation`*"]
     pub fn RemoveRemainingDischargeTimeChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::runtime::Result<()> {
         Self::IPowerManagerStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() })
     }
@@ -418,6 +460,7 @@ impl PowerManager {
 impl ::windows::runtime::RuntimeName for PowerManager {
     const NAME: &'static str = "Windows.System.Power.PowerManager";
 }
+#[doc = "*Required features: `System_Power`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PowerSupplyStatus(pub i32);

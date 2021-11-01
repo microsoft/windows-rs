@@ -1,6 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_System_SideShow`*"]
 pub struct APPLICATION_EVENT_DATA {
     pub cbApplicationEventData: u32,
     pub ApplicationId: ::windows::runtime::GUID,
@@ -25,10 +26,13 @@ unsafe impl ::windows::runtime::Abi for APPLICATION_EVENT_DATA {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SideShow`*"]
 pub const CONTENT_ID_GLANCE: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_SideShow`*"]
 pub const CONTENT_ID_HOME: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_System_SideShow`*"]
 pub struct CONTENT_MISSING_EVENT_DATA {
     pub cbContentMissingEventData: u32,
     pub ApplicationId: ::windows::runtime::GUID,
@@ -53,6 +57,7 @@ unsafe impl ::windows::runtime::Abi for CONTENT_MISSING_EVENT_DATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_System_SideShow`*"]
 pub struct DEVICE_USER_CHANGE_EVENT_DATA {
     pub cbDeviceUserChangeEventData: u32,
     pub wszUser: u16,
@@ -75,6 +80,7 @@ unsafe impl ::windows::runtime::Abi for DEVICE_USER_CHANGE_EVENT_DATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_System_SideShow`*"]
 pub struct EVENT_DATA_HEADER {
     pub cbEventDataHeader: u32,
     pub guidEventType: ::windows::runtime::GUID,
@@ -98,14 +104,17 @@ unsafe impl ::windows::runtime::Abi for EVENT_DATA_HEADER {
     type DefaultType = Self;
 }
 pub const GUID_DEVINTERFACE_SIDESHOW: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(355358737, 65209, 19200, [144, 244, 211, 41, 71, 174, 22, 129]);
+#[doc = "*Required features: `Win32_System_SideShow`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISideShowBulkCapabilities(::windows::runtime::IUnknown);
 impl ISideShowBulkCapabilities {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))]
+    #[doc = "*Required features: `Win32_System_SideShow`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`, `Win32_System_PropertiesSystem`*"]
     pub unsafe fn GetCapability(&self, in_keycapability: *const super::PropertiesSystem::PROPERTYKEY, inout_pvalue: *mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(in_keycapability), ::std::mem::transmute(inout_pvalue)).ok()
     }
+    #[doc = "*Required features: `Win32_System_SideShow`*"]
     pub unsafe fn GetCapabilities<'a, Param0: ::windows::runtime::IntoParam<'a, ISideShowKeyCollection>>(&self, in_keycollection: Param0, inout_pvalues: *mut ::std::option::Option<ISideShowPropVariantCollection>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), in_keycollection.into_param().abi(), ::std::mem::transmute(inout_pvalues)).ok()
     }
@@ -164,11 +173,13 @@ pub struct ISideShowBulkCapabilities_abi(
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, in_keycollection: ::windows::runtime::RawPtr, inout_pvalues: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_SideShow`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISideShowCapabilities(::windows::runtime::IUnknown);
 impl ISideShowCapabilities {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))]
+    #[doc = "*Required features: `Win32_System_SideShow`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`, `Win32_System_PropertiesSystem`*"]
     pub unsafe fn GetCapability(&self, in_keycapability: *const super::PropertiesSystem::PROPERTYKEY, inout_pvalue: *mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(in_keycapability), ::std::mem::transmute(inout_pvalue)).ok()
     }
@@ -206,14 +217,17 @@ pub struct ISideShowCapabilities_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, in_keycapability: *const super::PropertiesSystem::PROPERTYKEY, inout_pvalue: *mut ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem")))] usize,
 );
+#[doc = "*Required features: `Win32_System_SideShow`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISideShowCapabilitiesCollection(::windows::runtime::IUnknown);
 impl ISideShowCapabilitiesCollection {
+    #[doc = "*Required features: `Win32_System_SideShow`*"]
     pub unsafe fn GetCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_SideShow`*"]
     pub unsafe fn GetAt(&self, in_dwindex: u32) -> ::windows::runtime::Result<ISideShowCapabilities> {
         let mut result__: <ISideShowCapabilities as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(in_dwindex), &mut result__).from_abi::<ISideShowCapabilities>(result__)
@@ -252,18 +266,22 @@ pub struct ISideShowCapabilitiesCollection_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, out_pdwcount: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, in_dwindex: u32, out_ppcapabilities: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_SideShow`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISideShowContent(::windows::runtime::IUnknown);
 impl ISideShowContent {
+    #[doc = "*Required features: `Win32_System_SideShow`*"]
     pub unsafe fn GetContent<'a, Param0: ::windows::runtime::IntoParam<'a, ISideShowCapabilities>>(&self, in_picapabilities: Param0, out_pdwsize: *mut u32, out_ppbdata: *mut *mut u8) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), in_picapabilities.into_param().abi(), ::std::mem::transmute(out_pdwsize), ::std::mem::transmute(out_ppbdata)).ok()
     }
+    #[doc = "*Required features: `Win32_System_SideShow`*"]
     pub unsafe fn ContentId(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_SideShow`, `Win32_Foundation`*"]
     pub unsafe fn DifferentiateContent(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
@@ -304,22 +322,28 @@ pub struct ISideShowContent_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, out_pfdifferentiatecontent: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_SideShow`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISideShowContentManager(::windows::runtime::IUnknown);
 impl ISideShowContentManager {
+    #[doc = "*Required features: `Win32_System_SideShow`*"]
     pub unsafe fn Add<'a, Param0: ::windows::runtime::IntoParam<'a, ISideShowContent>>(&self, in_picontent: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), in_picontent.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_SideShow`*"]
     pub unsafe fn Remove(&self, in_contentid: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(in_contentid)).ok()
     }
+    #[doc = "*Required features: `Win32_System_SideShow`*"]
     pub unsafe fn RemoveAll(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_SideShow`*"]
     pub unsafe fn SetEventSink<'a, Param0: ::windows::runtime::IntoParam<'a, ISideShowEvents>>(&self, in_pievents: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), in_pievents.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_SideShow`*"]
     pub unsafe fn GetDeviceCapabilities(&self) -> ::windows::runtime::Result<ISideShowCapabilitiesCollection> {
         let mut result__: <ISideShowCapabilitiesCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISideShowCapabilitiesCollection>(result__)
@@ -361,20 +385,25 @@ pub struct ISideShowContentManager_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, in_pievents: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, out_ppcollection: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_SideShow`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISideShowEvents(::windows::runtime::IUnknown);
 impl ISideShowEvents {
+    #[doc = "*Required features: `Win32_System_SideShow`*"]
     pub unsafe fn ContentMissing(&self, in_contentid: u32) -> ::windows::runtime::Result<ISideShowContent> {
         let mut result__: <ISideShowContent as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(in_contentid), &mut result__).from_abi::<ISideShowContent>(result__)
     }
+    #[doc = "*Required features: `Win32_System_SideShow`*"]
     pub unsafe fn ApplicationEvent<'a, Param0: ::windows::runtime::IntoParam<'a, ISideShowCapabilities>>(&self, in_picapabilities: Param0, in_dweventid: u32, in_dweventsize: u32, in_pbeventdata: *const u8) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), in_picapabilities.into_param().abi(), ::std::mem::transmute(in_dweventid), ::std::mem::transmute(in_dweventsize), ::std::mem::transmute(in_pbeventdata)).ok()
     }
+    #[doc = "*Required features: `Win32_System_SideShow`*"]
     pub unsafe fn DeviceAdded<'a, Param0: ::windows::runtime::IntoParam<'a, ISideShowCapabilities>>(&self, in_pidevice: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), in_pidevice.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_SideShow`*"]
     pub unsafe fn DeviceRemoved<'a, Param0: ::windows::runtime::IntoParam<'a, ISideShowCapabilities>>(&self, in_pidevice: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), in_pidevice.into_param().abi()).ok()
     }
@@ -414,24 +443,30 @@ pub struct ISideShowEvents_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, in_pidevice: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, in_pidevice: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_SideShow`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISideShowKeyCollection(::windows::runtime::IUnknown);
 impl ISideShowKeyCollection {
     #[cfg(feature = "Win32_System_PropertiesSystem")]
+    #[doc = "*Required features: `Win32_System_SideShow`, `Win32_System_PropertiesSystem`*"]
     pub unsafe fn Add(&self, key: *const super::PropertiesSystem::PROPERTYKEY) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(key)).ok()
     }
+    #[doc = "*Required features: `Win32_System_SideShow`*"]
     pub unsafe fn Clear(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_System_PropertiesSystem")]
+    #[doc = "*Required features: `Win32_System_SideShow`, `Win32_System_PropertiesSystem`*"]
     pub unsafe fn GetAt(&self, dwindex: u32, pkey: *mut super::PropertiesSystem::PROPERTYKEY) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwindex), ::std::mem::transmute(pkey)).ok()
     }
+    #[doc = "*Required features: `Win32_System_SideShow`*"]
     pub unsafe fn GetCount(&self, pcelems: *const u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcelems)).ok()
     }
+    #[doc = "*Required features: `Win32_System_SideShow`*"]
     pub unsafe fn RemoveAt(&self, dwindex: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwindex)).ok()
     }
@@ -474,50 +509,61 @@ pub struct ISideShowKeyCollection_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcelems: *const u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwindex: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_SideShow`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISideShowNotification(::windows::runtime::IUnknown);
 impl ISideShowNotification {
+    #[doc = "*Required features: `Win32_System_SideShow`*"]
     pub unsafe fn NotificationId(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_SideShow`*"]
     pub unsafe fn SetNotificationId(&self, in_notificationid: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(in_notificationid)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_SideShow`, `Win32_Foundation`*"]
     pub unsafe fn Title(&self) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
         let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_SideShow`, `Win32_Foundation`*"]
     pub unsafe fn SetTitle<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, in_pwsztitle: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), in_pwsztitle.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_SideShow`, `Win32_Foundation`*"]
     pub unsafe fn Message(&self) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
         let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_SideShow`, `Win32_Foundation`*"]
     pub unsafe fn SetMessage<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, in_pwszmessage: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), in_pwszmessage.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+    #[doc = "*Required features: `Win32_System_SideShow`, `Win32_UI_WindowsAndMessaging`*"]
     pub unsafe fn Image(&self) -> ::windows::runtime::Result<super::super::UI::WindowsAndMessaging::HICON> {
         let mut result__: <super::super::UI::WindowsAndMessaging::HICON as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::UI::WindowsAndMessaging::HICON>(result__)
     }
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+    #[doc = "*Required features: `Win32_System_SideShow`, `Win32_UI_WindowsAndMessaging`*"]
     pub unsafe fn SetImage<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::UI::WindowsAndMessaging::HICON>>(&self, in_hicon: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), in_hicon.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_SideShow`, `Win32_Foundation`*"]
     pub unsafe fn ExpirationTime(&self) -> ::windows::runtime::Result<super::super::Foundation::SYSTEMTIME> {
         let mut result__: <super::super::Foundation::SYSTEMTIME as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::SYSTEMTIME>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_SideShow`, `Win32_Foundation`*"]
     pub unsafe fn SetExpirationTime(&self, in_ptime: *const super::super::Foundation::SYSTEMTIME) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(in_ptime)).ok()
     }
@@ -571,16 +617,20 @@ pub struct ISideShowNotification_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, in_ptime: *const super::super::Foundation::SYSTEMTIME) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_SideShow`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISideShowNotificationManager(::windows::runtime::IUnknown);
 impl ISideShowNotificationManager {
+    #[doc = "*Required features: `Win32_System_SideShow`*"]
     pub unsafe fn Show<'a, Param0: ::windows::runtime::IntoParam<'a, ISideShowNotification>>(&self, in_pinotification: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), in_pinotification.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_SideShow`*"]
     pub unsafe fn Revoke(&self, in_notificationid: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(in_notificationid)).ok()
     }
+    #[doc = "*Required features: `Win32_System_SideShow`*"]
     pub unsafe fn RevokeAll(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
@@ -619,24 +669,30 @@ pub struct ISideShowNotificationManager_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, in_notificationid: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_SideShow`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISideShowPropVariantCollection(::windows::runtime::IUnknown);
 impl ISideShowPropVariantCollection {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_SideShow`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Add(&self, pvalue: *const super::Com::StructuredStorage::PROPVARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pvalue)).ok()
     }
+    #[doc = "*Required features: `Win32_System_SideShow`*"]
     pub unsafe fn Clear(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_SideShow`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetAt(&self, dwindex: u32, pvalue: *mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwindex), ::std::mem::transmute(pvalue)).ok()
     }
+    #[doc = "*Required features: `Win32_System_SideShow`*"]
     pub unsafe fn GetCount(&self, pcelems: *const u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcelems)).ok()
     }
+    #[doc = "*Required features: `Win32_System_SideShow`*"]
     pub unsafe fn RemoveAt(&self, dwindex: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwindex)).ok()
     }
@@ -679,14 +735,17 @@ pub struct ISideShowPropVariantCollection_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcelems: *const u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwindex: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_SideShow`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISideShowSession(::windows::runtime::IUnknown);
 impl ISideShowSession {
+    #[doc = "*Required features: `Win32_System_SideShow`*"]
     pub unsafe fn RegisterContent(&self, in_applicationid: *const ::windows::runtime::GUID, in_endpointid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<ISideShowContentManager> {
         let mut result__: <ISideShowContentManager as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(in_applicationid), ::std::mem::transmute(in_endpointid), &mut result__).from_abi::<ISideShowContentManager>(result__)
     }
+    #[doc = "*Required features: `Win32_System_SideShow`*"]
     pub unsafe fn RegisterNotifications(&self, in_applicationid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<ISideShowNotificationManager> {
         let mut result__: <ISideShowNotificationManager as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(in_applicationid), &mut result__).from_abi::<ISideShowNotificationManager>(result__)
@@ -727,6 +786,7 @@ pub struct ISideShowSession_abi(
 );
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_System_SideShow`*"]
 pub struct NEW_EVENT_DATA_AVAILABLE {
     pub cbNewEventDataAvailable: u32,
     pub dwVersion: u32,
@@ -747,6 +807,7 @@ unsafe impl ::windows::runtime::Abi for NEW_EVENT_DATA_AVAILABLE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SideShow`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SCF_BUTTON_IDS(pub i32);
@@ -773,6 +834,7 @@ unsafe impl ::windows::runtime::Abi for SCF_BUTTON_IDS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SideShow`*"]
 pub struct SCF_CONTEXTMENU_EVENT {
     pub PreviousPage: u32,
     pub TargetPage: u32,
@@ -803,6 +865,7 @@ unsafe impl ::windows::runtime::Abi for SCF_CONTEXTMENU_EVENT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SideShow`*"]
 pub struct SCF_EVENT_HEADER {
     pub PreviousPage: u32,
     pub TargetPage: u32,
@@ -828,6 +891,7 @@ unsafe impl ::windows::runtime::Abi for SCF_EVENT_HEADER {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_SideShow`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SCF_EVENT_IDS(pub i32);
@@ -845,6 +909,7 @@ unsafe impl ::windows::runtime::Abi for SCF_EVENT_IDS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SideShow`*"]
 pub struct SCF_MENUACTION_EVENT {
     pub PreviousPage: u32,
     pub TargetPage: u32,
@@ -874,6 +939,7 @@ unsafe impl ::windows::runtime::Abi for SCF_MENUACTION_EVENT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_SideShow`*"]
 pub struct SCF_NAVIGATION_EVENT {
     pub PreviousPage: u32,
     pub TargetPage: u32,
@@ -902,6 +968,7 @@ unsafe impl ::windows::runtime::Abi for SCF_NAVIGATION_EVENT {
 }
 pub const SIDESHOW_APPLICATION_EVENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1286959866, 7483, 18867, [161, 122, 46, 107, 255, 5, 40, 84]);
 pub const SIDESHOW_CAPABILITY_DEVICE_PROPERTIES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2327611560, 34171, 19159, [163, 90, 181, 148, 47, 73, 43, 153]);
+#[doc = "*Required features: `Win32_System_SideShow`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SIDESHOW_COLOR_TYPE(pub i32);
@@ -920,9 +987,12 @@ unsafe impl ::windows::runtime::Abi for SIDESHOW_COLOR_TYPE {
 pub const SIDESHOW_CONTENT_MISSING_EVENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1342700456, 54035, 17311, [190, 162, 165, 2, 1, 211, 233, 168]);
 pub const SIDESHOW_ENDPOINT_ICAL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1308571317, 40414, 20342, [154, 42, 150, 67, 80, 71, 6, 61]);
 pub const SIDESHOW_ENDPOINT_SIMPLE_CONTENT_FORMAT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2846176575, 11595, 18382, [147, 238, 117, 159, 58, 125, 218, 79]);
+#[doc = "*Required features: `Win32_System_SideShow`*"]
 pub const SIDESHOW_EVENTID_APPLICATION_ENTER: u32 = 4294901760u32;
+#[doc = "*Required features: `Win32_System_SideShow`*"]
 pub const SIDESHOW_EVENTID_APPLICATION_EXIT: u32 = 4294901761u32;
 pub const SIDESHOW_NEW_EVENT_DATA_AVAILABLE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1468086356, 12225, 16668, [165, 159, 242, 73, 39, 96, 136, 4]);
+#[doc = "*Required features: `Win32_System_SideShow`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SIDESHOW_SCREEN_TYPE(pub i32);
@@ -942,4 +1012,5 @@ pub const SideShowKeyCollection: ::windows::runtime::GUID = ::windows::runtime::
 pub const SideShowNotification: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(216262767, 54733, 17701, [167, 102, 26, 186, 177, 167, 82, 245]);
 pub const SideShowPropVariantCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3863016469, 21406, 18723, [150, 205, 95, 9, 59, 194, 80, 205]);
 pub const SideShowSession: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3791995833, 63365, 20130, [152, 30, 196, 255, 167, 107, 188, 124]);
+#[doc = "*Required features: `Win32_System_SideShow`*"]
 pub const VERSION_1_WINDOWS_7: u32 = 0u32;

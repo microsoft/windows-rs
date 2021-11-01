@@ -1,14 +1,17 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[cfg(feature = "System_Profile_SystemManufacturers")]
 pub mod SystemManufacturers;
+#[doc = "*Required features: `System_Profile`*"]
 pub struct AnalyticsInfo {}
 impl AnalyticsInfo {
+    #[doc = "*Required features: `System_Profile`*"]
     pub fn VersionInfo() -> ::windows::runtime::Result<AnalyticsVersionInfo> {
         Self::IAnalyticsInfoStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AnalyticsVersionInfo>(result__)
         })
     }
+    #[doc = "*Required features: `System_Profile`*"]
     pub fn DeviceForm() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IAnalyticsInfoStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
@@ -16,6 +19,7 @@ impl AnalyticsInfo {
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `System_Profile`, `Foundation`, `Foundation_Collections`*"]
     pub fn GetSystemPropertiesAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>>(attributenames: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, ::windows::runtime::HSTRING>>> {
         Self::IAnalyticsInfoStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -34,10 +38,12 @@ impl AnalyticsInfo {
 impl ::windows::runtime::RuntimeName for AnalyticsInfo {
     const NAME: &'static str = "Windows.System.Profile.AnalyticsInfo";
 }
+#[doc = "*Required features: `System_Profile`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AnalyticsVersionInfo(::windows::runtime::IInspectable);
 impl AnalyticsVersionInfo {
+    #[doc = "*Required features: `System_Profile`*"]
     pub fn DeviceFamily(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -45,6 +51,7 @@ impl AnalyticsVersionInfo {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `System_Profile`*"]
     pub fn DeviceFamilyVersion(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -52,6 +59,7 @@ impl AnalyticsVersionInfo {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `System_Profile`*"]
     pub fn ProductName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IAnalyticsVersionInfo2>(self)?;
         unsafe {
@@ -112,9 +120,11 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for AnalyticsVersionInfo {}
 unsafe impl ::std::marker::Sync for AnalyticsVersionInfo {}
+#[doc = "*Required features: `System_Profile`*"]
 pub struct AppApplicability {}
 impl AppApplicability {
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `System_Profile`, `Foundation_Collections`*"]
     pub fn GetUnsupportedAppRequirements<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>>(capabilities: Param0) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<UnsupportedAppRequirement>> {
         Self::IAppApplicabilityStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -129,8 +139,10 @@ impl AppApplicability {
 impl ::windows::runtime::RuntimeName for AppApplicability {
     const NAME: &'static str = "Windows.System.Profile.AppApplicability";
 }
+#[doc = "*Required features: `System_Profile`*"]
 pub struct EducationSettings {}
 impl EducationSettings {
+    #[doc = "*Required features: `System_Profile`*"]
     pub fn IsEducationEnvironment() -> ::windows::runtime::Result<bool> {
         Self::IEducationSettingsStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
@@ -145,9 +157,11 @@ impl EducationSettings {
 impl ::windows::runtime::RuntimeName for EducationSettings {
     const NAME: &'static str = "Windows.System.Profile.EducationSettings";
 }
+#[doc = "*Required features: `System_Profile`*"]
 pub struct HardwareIdentification {}
 impl HardwareIdentification {
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `System_Profile`, `Storage_Streams`*"]
     pub fn GetPackageSpecificToken<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(nonce: Param0) -> ::windows::runtime::Result<HardwareToken> {
         Self::IHardwareIdentificationStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -162,11 +176,13 @@ impl HardwareIdentification {
 impl ::windows::runtime::RuntimeName for HardwareIdentification {
     const NAME: &'static str = "Windows.System.Profile.HardwareIdentification";
 }
+#[doc = "*Required features: `System_Profile`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct HardwareToken(::windows::runtime::IInspectable);
 impl HardwareToken {
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `System_Profile`, `Storage_Streams`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
@@ -175,6 +191,7 @@ impl HardwareToken {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `System_Profile`, `Storage_Streams`*"]
     pub fn Signature(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
@@ -183,6 +200,7 @@ impl HardwareToken {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `System_Profile`, `Storage_Streams`*"]
     pub fn Certificate(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
@@ -638,134 +656,157 @@ pub struct IWindowsIntegrityPolicyStatics_abi(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, token: super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: `System_Profile`*"]
 pub struct KnownRetailInfoProperties {}
 impl KnownRetailInfoProperties {
+    #[doc = "*Required features: `System_Profile`*"]
     pub fn RetailAccessCode() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `System_Profile`*"]
     pub fn ManufacturerName() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `System_Profile`*"]
     pub fn ModelName() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `System_Profile`*"]
     pub fn DisplayModelName() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `System_Profile`*"]
     pub fn Price() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `System_Profile`*"]
     pub fn IsFeatured() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `System_Profile`*"]
     pub fn FormFactor() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `System_Profile`*"]
     pub fn ScreenSize() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `System_Profile`*"]
     pub fn Weight() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `System_Profile`*"]
     pub fn DisplayDescription() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `System_Profile`*"]
     pub fn BatteryLifeDescription() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `System_Profile`*"]
     pub fn ProcessorDescription() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `System_Profile`*"]
     pub fn Memory() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `System_Profile`*"]
     pub fn StorageDescription() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `System_Profile`*"]
     pub fn GraphicsDescription() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `System_Profile`*"]
     pub fn FrontCameraDescription() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `System_Profile`*"]
     pub fn RearCameraDescription() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `System_Profile`*"]
     pub fn HasNfc() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `System_Profile`*"]
     pub fn HasSdSlot() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `System_Profile`*"]
     pub fn HasOpticalDrive() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `System_Profile`*"]
     pub fn IsOfficeInstalled() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `System_Profile`*"]
     pub fn WindowsEdition() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
@@ -780,6 +821,7 @@ impl KnownRetailInfoProperties {
 impl ::windows::runtime::RuntimeName for KnownRetailInfoProperties {
     const NAME: &'static str = "Windows.System.Profile.KnownRetailInfoProperties";
 }
+#[doc = "*Required features: `System_Profile`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PlatformDataCollectionLevel(pub i32);
@@ -801,8 +843,10 @@ unsafe impl ::windows::runtime::Abi for PlatformDataCollectionLevel {
 unsafe impl ::windows::runtime::RuntimeType for PlatformDataCollectionLevel {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.System.Profile.PlatformDataCollectionLevel;i4)");
 }
+#[doc = "*Required features: `System_Profile`*"]
 pub struct PlatformDiagnosticsAndUsageDataSettings {}
 impl PlatformDiagnosticsAndUsageDataSettings {
+    #[doc = "*Required features: `System_Profile`*"]
     pub fn CollectionLevel() -> ::windows::runtime::Result<PlatformDataCollectionLevel> {
         Self::IPlatformDiagnosticsAndUsageDataSettingsStatics(|this| unsafe {
             let mut result__: PlatformDataCollectionLevel = ::std::mem::zeroed();
@@ -810,6 +854,7 @@ impl PlatformDiagnosticsAndUsageDataSettings {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `System_Profile`, `Foundation`*"]
     pub fn CollectionLevelChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventHandler<::windows::runtime::IInspectable>>>(handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IPlatformDiagnosticsAndUsageDataSettingsStatics(|this| unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
@@ -817,9 +862,11 @@ impl PlatformDiagnosticsAndUsageDataSettings {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `System_Profile`, `Foundation`*"]
     pub fn RemoveCollectionLevelChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::runtime::Result<()> {
         Self::IPlatformDiagnosticsAndUsageDataSettingsStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() })
     }
+    #[doc = "*Required features: `System_Profile`*"]
     pub fn CanCollectDiagnostics(level: PlatformDataCollectionLevel) -> ::windows::runtime::Result<bool> {
         Self::IPlatformDiagnosticsAndUsageDataSettingsStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
@@ -843,8 +890,10 @@ pub struct ProfileRetailInfoContract(pub u8);
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
 pub struct ProfileSharedModeContract(pub u8);
+#[doc = "*Required features: `System_Profile`*"]
 pub struct RetailInfo {}
 impl RetailInfo {
+    #[doc = "*Required features: `System_Profile`*"]
     pub fn IsDemoModeEnabled() -> ::windows::runtime::Result<bool> {
         Self::IRetailInfoStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
@@ -852,6 +901,7 @@ impl RetailInfo {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `System_Profile`, `Foundation_Collections`*"]
     pub fn Properties() -> ::windows::runtime::Result<super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, ::windows::runtime::IInspectable>> {
         Self::IRetailInfoStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -866,14 +916,17 @@ impl RetailInfo {
 impl ::windows::runtime::RuntimeName for RetailInfo {
     const NAME: &'static str = "Windows.System.Profile.RetailInfo";
 }
+#[doc = "*Required features: `System_Profile`*"]
 pub struct SharedModeSettings {}
 impl SharedModeSettings {
+    #[doc = "*Required features: `System_Profile`*"]
     pub fn IsEnabled() -> ::windows::runtime::Result<bool> {
         Self::ISharedModeSettingsStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: `System_Profile`*"]
     pub fn ShouldAvoidLocalStorage() -> ::windows::runtime::Result<bool> {
         Self::ISharedModeSettingsStatics2(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
@@ -892,14 +945,17 @@ impl SharedModeSettings {
 impl ::windows::runtime::RuntimeName for SharedModeSettings {
     const NAME: &'static str = "Windows.System.Profile.SharedModeSettings";
 }
+#[doc = "*Required features: `System_Profile`*"]
 pub struct SystemIdentification {}
 impl SystemIdentification {
+    #[doc = "*Required features: `System_Profile`*"]
     pub fn GetSystemIdForPublisher() -> ::windows::runtime::Result<SystemIdentificationInfo> {
         Self::ISystemIdentificationStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SystemIdentificationInfo>(result__)
         })
     }
+    #[doc = "*Required features: `System_Profile`*"]
     pub fn GetSystemIdForUser<'a, Param0: ::windows::runtime::IntoParam<'a, super::User>>(user: Param0) -> ::windows::runtime::Result<SystemIdentificationInfo> {
         Self::ISystemIdentificationStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -914,11 +970,13 @@ impl SystemIdentification {
 impl ::windows::runtime::RuntimeName for SystemIdentification {
     const NAME: &'static str = "Windows.System.Profile.SystemIdentification";
 }
+#[doc = "*Required features: `System_Profile`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SystemIdentificationInfo(::windows::runtime::IInspectable);
 impl SystemIdentificationInfo {
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `System_Profile`, `Storage_Streams`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
@@ -926,6 +984,7 @@ impl SystemIdentificationInfo {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
+    #[doc = "*Required features: `System_Profile`*"]
     pub fn Source(&self) -> ::windows::runtime::Result<SystemIdentificationSource> {
         let this = self;
         unsafe {
@@ -986,6 +1045,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for SystemIdentificationInfo {}
 unsafe impl ::std::marker::Sync for SystemIdentificationInfo {}
+#[doc = "*Required features: `System_Profile`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SystemIdentificationSource(pub i32);
@@ -1007,6 +1067,7 @@ unsafe impl ::windows::runtime::Abi for SystemIdentificationSource {
 unsafe impl ::windows::runtime::RuntimeType for SystemIdentificationSource {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.System.Profile.SystemIdentificationSource;i4)");
 }
+#[doc = "*Required features: `System_Profile`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SystemOutOfBoxExperienceState(pub i32);
@@ -1027,8 +1088,10 @@ unsafe impl ::windows::runtime::Abi for SystemOutOfBoxExperienceState {
 unsafe impl ::windows::runtime::RuntimeType for SystemOutOfBoxExperienceState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.System.Profile.SystemOutOfBoxExperienceState;i4)");
 }
+#[doc = "*Required features: `System_Profile`*"]
 pub struct SystemSetupInfo {}
 impl SystemSetupInfo {
+    #[doc = "*Required features: `System_Profile`*"]
     pub fn OutOfBoxExperienceState() -> ::windows::runtime::Result<SystemOutOfBoxExperienceState> {
         Self::ISystemSetupInfoStatics(|this| unsafe {
             let mut result__: SystemOutOfBoxExperienceState = ::std::mem::zeroed();
@@ -1036,6 +1099,7 @@ impl SystemSetupInfo {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `System_Profile`, `Foundation`*"]
     pub fn OutOfBoxExperienceStateChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventHandler<::windows::runtime::IInspectable>>>(handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         Self::ISystemSetupInfoStatics(|this| unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
@@ -1043,6 +1107,7 @@ impl SystemSetupInfo {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `System_Profile`, `Foundation`*"]
     pub fn RemoveOutOfBoxExperienceStateChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::runtime::Result<()> {
         Self::ISystemSetupInfoStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() })
     }
@@ -1054,10 +1119,12 @@ impl SystemSetupInfo {
 impl ::windows::runtime::RuntimeName for SystemSetupInfo {
     const NAME: &'static str = "Windows.System.Profile.SystemSetupInfo";
 }
+#[doc = "*Required features: `System_Profile`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct UnsupportedAppRequirement(::windows::runtime::IInspectable);
 impl UnsupportedAppRequirement {
+    #[doc = "*Required features: `System_Profile`*"]
     pub fn Requirement(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1065,6 +1132,7 @@ impl UnsupportedAppRequirement {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `System_Profile`*"]
     pub fn Reasons(&self) -> ::windows::runtime::Result<UnsupportedAppRequirementReasons> {
         let this = self;
         unsafe {
@@ -1125,6 +1193,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for UnsupportedAppRequirement {}
 unsafe impl ::std::marker::Sync for UnsupportedAppRequirement {}
+#[doc = "*Required features: `System_Profile`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct UnsupportedAppRequirementReasons(pub u32);
@@ -1172,26 +1241,31 @@ impl ::std::ops::Not for UnsupportedAppRequirementReasons {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `System_Profile`*"]
 pub struct WindowsIntegrityPolicy {}
 impl WindowsIntegrityPolicy {
+    #[doc = "*Required features: `System_Profile`*"]
     pub fn IsEnabled() -> ::windows::runtime::Result<bool> {
         Self::IWindowsIntegrityPolicyStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: `System_Profile`*"]
     pub fn IsEnabledForTrial() -> ::windows::runtime::Result<bool> {
         Self::IWindowsIntegrityPolicyStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: `System_Profile`*"]
     pub fn CanDisable() -> ::windows::runtime::Result<bool> {
         Self::IWindowsIntegrityPolicyStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: `System_Profile`*"]
     pub fn IsDisableSupported() -> ::windows::runtime::Result<bool> {
         Self::IWindowsIntegrityPolicyStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
@@ -1199,6 +1273,7 @@ impl WindowsIntegrityPolicy {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `System_Profile`, `Foundation`*"]
     pub fn PolicyChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventHandler<::windows::runtime::IInspectable>>>(handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IWindowsIntegrityPolicyStatics(|this| unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
@@ -1206,6 +1281,7 @@ impl WindowsIntegrityPolicy {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `System_Profile`, `Foundation`*"]
     pub fn RemovePolicyChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::runtime::Result<()> {
         Self::IWindowsIntegrityPolicyStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() })
     }

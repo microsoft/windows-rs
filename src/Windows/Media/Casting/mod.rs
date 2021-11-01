@@ -1,8 +1,10 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Media_Casting`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CastingConnection(::windows::runtime::IInspectable);
 impl CastingConnection {
+    #[doc = "*Required features: `Media_Casting`*"]
     pub fn State(&self) -> ::windows::runtime::Result<CastingConnectionState> {
         let this = self;
         unsafe {
@@ -10,6 +12,7 @@ impl CastingConnection {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<CastingConnectionState>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Casting`*"]
     pub fn Device(&self) -> ::windows::runtime::Result<CastingDevice> {
         let this = self;
         unsafe {
@@ -17,6 +20,7 @@ impl CastingConnection {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<CastingDevice>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Casting`*"]
     pub fn Source(&self) -> ::windows::runtime::Result<CastingSource> {
         let this = self;
         unsafe {
@@ -24,11 +28,13 @@ impl CastingConnection {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<CastingSource>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Casting`*"]
     pub fn SetSource<'a, Param0: ::windows::runtime::IntoParam<'a, CastingSource>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Casting`, `Foundation`*"]
     pub fn StateChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<CastingConnection, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -37,11 +43,13 @@ impl CastingConnection {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Casting`, `Foundation`*"]
     pub fn RemoveStateChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Casting`, `Foundation`*"]
     pub fn ErrorOccurred<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<CastingConnection, CastingConnectionErrorOccurredEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -50,11 +58,13 @@ impl CastingConnection {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Casting`, `Foundation`*"]
     pub fn RemoveErrorOccurred<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Casting`, `Foundation`*"]
     pub fn RequestStartCastingAsync<'a, Param0: ::windows::runtime::IntoParam<'a, CastingSource>>(&self, value: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<CastingConnectionErrorStatus>> {
         let this = self;
         unsafe {
@@ -63,6 +73,7 @@ impl CastingConnection {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Casting`, `Foundation`*"]
     pub fn DisconnectAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<CastingConnectionErrorStatus>> {
         let this = self;
         unsafe {
@@ -71,6 +82,7 @@ impl CastingConnection {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Casting`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
@@ -154,10 +166,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> 
 }
 unsafe impl ::std::marker::Send for CastingConnection {}
 unsafe impl ::std::marker::Sync for CastingConnection {}
+#[doc = "*Required features: `Media_Casting`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CastingConnectionErrorOccurredEventArgs(::windows::runtime::IInspectable);
 impl CastingConnectionErrorOccurredEventArgs {
+    #[doc = "*Required features: `Media_Casting`*"]
     pub fn ErrorStatus(&self) -> ::windows::runtime::Result<CastingConnectionErrorStatus> {
         let this = self;
         unsafe {
@@ -165,6 +179,7 @@ impl CastingConnectionErrorOccurredEventArgs {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<CastingConnectionErrorStatus>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Casting`*"]
     pub fn Message(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -225,6 +240,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for CastingConnectionErrorOccurredEventArgs {}
 unsafe impl ::std::marker::Sync for CastingConnectionErrorOccurredEventArgs {}
+#[doc = "*Required features: `Media_Casting`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CastingConnectionErrorStatus(pub i32);
@@ -249,6 +265,7 @@ unsafe impl ::windows::runtime::Abi for CastingConnectionErrorStatus {
 unsafe impl ::windows::runtime::RuntimeType for CastingConnectionErrorStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Casting.CastingConnectionErrorStatus;i4)");
 }
+#[doc = "*Required features: `Media_Casting`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CastingConnectionState(pub i32);
@@ -271,10 +288,12 @@ unsafe impl ::windows::runtime::Abi for CastingConnectionState {
 unsafe impl ::windows::runtime::RuntimeType for CastingConnectionState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Casting.CastingConnectionState;i4)");
 }
+#[doc = "*Required features: `Media_Casting`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CastingDevice(::windows::runtime::IInspectable);
 impl CastingDevice {
+    #[doc = "*Required features: `Media_Casting`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -282,6 +301,7 @@ impl CastingDevice {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Casting`*"]
     pub fn FriendlyName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -290,6 +310,7 @@ impl CastingDevice {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Media_Casting`, `Storage_Streams`*"]
     pub fn Icon(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IRandomAccessStreamWithContentType> {
         let this = self;
         unsafe {
@@ -298,6 +319,7 @@ impl CastingDevice {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Casting`, `Foundation`*"]
     pub fn GetSupportedCastingPlaybackTypesAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<CastingPlaybackTypes>> {
         let this = self;
         unsafe {
@@ -305,6 +327,7 @@ impl CastingDevice {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<CastingPlaybackTypes>>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Casting`*"]
     pub fn CreateCastingConnection(&self) -> ::windows::runtime::Result<CastingConnection> {
         let this = self;
         unsafe {
@@ -312,6 +335,7 @@ impl CastingDevice {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<CastingConnection>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Casting`*"]
     pub fn GetDeviceSelector(r#type: CastingPlaybackTypes) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ICastingDeviceStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
@@ -319,6 +343,7 @@ impl CastingDevice {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Casting`, `Foundation`*"]
     pub fn GetDeviceSelectorFromCastingSourceAsync<'a, Param0: ::windows::runtime::IntoParam<'a, CastingSource>>(castingsource: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<::windows::runtime::HSTRING>> {
         Self::ICastingDeviceStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -326,6 +351,7 @@ impl CastingDevice {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Casting`, `Foundation`*"]
     pub fn FromIdAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(value: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<CastingDevice>> {
         Self::ICastingDeviceStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -333,6 +359,7 @@ impl CastingDevice {
         })
     }
     #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation"))]
+    #[doc = "*Required features: `Media_Casting`, `Devices_Enumeration`, `Foundation`*"]
     pub fn DeviceInfoSupportsCastingAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Devices::Enumeration::DeviceInformation>>(device: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::ICastingDeviceStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -396,6 +423,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for CastingDevice {}
 unsafe impl ::std::marker::Sync for CastingDevice {}
+#[doc = "*Required features: `Media_Casting`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CastingDevicePicker(::windows::runtime::IInspectable);
@@ -407,6 +435,7 @@ impl CastingDevicePicker {
         static mut SHARED: ::windows::runtime::FactoryCache<CastingDevicePicker, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `Media_Casting`*"]
     pub fn Filter(&self) -> ::windows::runtime::Result<CastingDevicePickerFilter> {
         let this = self;
         unsafe {
@@ -415,6 +444,7 @@ impl CastingDevicePicker {
         }
     }
     #[cfg(feature = "Devices_Enumeration")]
+    #[doc = "*Required features: `Media_Casting`, `Devices_Enumeration`*"]
     pub fn Appearance(&self) -> ::windows::runtime::Result<super::super::Devices::Enumeration::DevicePickerAppearance> {
         let this = self;
         unsafe {
@@ -423,6 +453,7 @@ impl CastingDevicePicker {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Casting`, `Foundation`*"]
     pub fn CastingDeviceSelected<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<CastingDevicePicker, CastingDeviceSelectedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -431,11 +462,13 @@ impl CastingDevicePicker {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Casting`, `Foundation`*"]
     pub fn RemoveCastingDeviceSelected<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Casting`, `Foundation`*"]
     pub fn CastingDevicePickerDismissed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<CastingDevicePicker, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -444,20 +477,24 @@ impl CastingDevicePicker {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Casting`, `Foundation`*"]
     pub fn RemoveCastingDevicePickerDismissed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Casting`, `Foundation`*"]
     pub fn Show<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Rect>>(&self, selection: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), selection.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Popups"))]
+    #[doc = "*Required features: `Media_Casting`, `Foundation`, `UI_Popups`*"]
     pub fn ShowWithPlacement<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Rect>>(&self, selection: Param0, preferredplacement: super::super::UI::Popups::Placement) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), selection.into_param().abi(), preferredplacement).ok() }
     }
+    #[doc = "*Required features: `Media_Casting`*"]
     pub fn Hide(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this)).ok() }
@@ -515,10 +552,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for CastingDevicePicker {}
 unsafe impl ::std::marker::Sync for CastingDevicePicker {}
+#[doc = "*Required features: `Media_Casting`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CastingDevicePickerFilter(::windows::runtime::IInspectable);
 impl CastingDevicePickerFilter {
+    #[doc = "*Required features: `Media_Casting`*"]
     pub fn SupportsAudio(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -526,10 +565,12 @@ impl CastingDevicePickerFilter {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Casting`*"]
     pub fn SetSupportsAudio(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Casting`*"]
     pub fn SupportsVideo(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -537,10 +578,12 @@ impl CastingDevicePickerFilter {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Casting`*"]
     pub fn SetSupportsVideo(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Casting`*"]
     pub fn SupportsPictures(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -548,11 +591,13 @@ impl CastingDevicePickerFilter {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Casting`*"]
     pub fn SetSupportsPictures(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Media_Casting`, `Foundation_Collections`*"]
     pub fn SupportedCastingSources(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<CastingSource>> {
         let this = self;
         unsafe {
@@ -613,10 +658,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for CastingDevicePickerFilter {}
 unsafe impl ::std::marker::Sync for CastingDevicePickerFilter {}
+#[doc = "*Required features: `Media_Casting`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CastingDeviceSelectedEventArgs(::windows::runtime::IInspectable);
 impl CastingDeviceSelectedEventArgs {
+    #[doc = "*Required features: `Media_Casting`*"]
     pub fn SelectedCastingDevice(&self) -> ::windows::runtime::Result<CastingDevice> {
         let this = self;
         unsafe {
@@ -677,6 +724,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for CastingDeviceSelectedEventArgs {}
 unsafe impl ::std::marker::Sync for CastingDeviceSelectedEventArgs {}
+#[doc = "*Required features: `Media_Casting`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CastingPlaybackTypes(pub u32);
@@ -726,11 +774,13 @@ impl ::std::ops::Not for CastingPlaybackTypes {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Media_Casting`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CastingSource(::windows::runtime::IInspectable);
 impl CastingSource {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Casting`, `Foundation`*"]
     pub fn PreferredSourceUri(&self) -> ::windows::runtime::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
@@ -739,6 +789,7 @@ impl CastingSource {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Casting`, `Foundation`*"]
     pub fn SetPreferredSourceUri<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }

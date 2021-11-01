@@ -5,20 +5,24 @@ pub const CLSID_MILBitmapEffectDropShadow: ::windows::runtime::GUID = ::windows:
 pub const CLSID_MILBitmapEffectEmboss: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3442055238, 33359, 18412, [160, 7, 18, 170, 118, 127, 40, 22]);
 pub const CLSID_MILBitmapEffectGroup: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2895911578, 32280, 20324, [172, 126, 71, 207, 127, 5, 30, 149]);
 pub const CLSID_MILBitmapEffectOuterGlow: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3793099741, 32438, 18213, [156, 11, 138, 42, 27, 79, 6, 103]);
+#[doc = "*Required features: `Win32_UI_Wpf`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMILBitmapEffect(::windows::runtime::IUnknown);
 impl IMILBitmapEffect {
     #[cfg(feature = "Win32_Graphics_Imaging")]
+    #[doc = "*Required features: `Win32_UI_Wpf`, `Win32_Graphics_Imaging`*"]
     pub unsafe fn GetOutput<'a, Param1: ::windows::runtime::IntoParam<'a, IMILBitmapEffectRenderContext>>(&self, uiindex: u32, pcontext: Param1) -> ::windows::runtime::Result<super::super::Graphics::Imaging::IWICBitmapSource> {
         let mut result__: <super::super::Graphics::Imaging::IWICBitmapSource as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(uiindex), pcontext.into_param().abi(), &mut result__).from_abi::<super::super::Graphics::Imaging::IWICBitmapSource>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_Wpf`*"]
     pub unsafe fn GetParentEffect(&self) -> ::windows::runtime::Result<IMILBitmapEffectGroup> {
         let mut result__: <IMILBitmapEffectGroup as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IMILBitmapEffectGroup>(result__)
     }
     #[cfg(feature = "Win32_Graphics_Imaging")]
+    #[doc = "*Required features: `Win32_UI_Wpf`, `Win32_Graphics_Imaging`*"]
     pub unsafe fn SetInputSource<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Graphics::Imaging::IWICBitmapSource>>(&self, uiindex: u32, pbitmapsource: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(uiindex), pbitmapsource.into_param().abi()).ok()
     }
@@ -59,14 +63,17 @@ pub struct IMILBitmapEffect_abi(
     #[cfg(feature = "Win32_Graphics_Imaging")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, uiindex: u32, pbitmapsource: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Imaging"))] usize,
 );
+#[doc = "*Required features: `Win32_UI_Wpf`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMILBitmapEffectConnections(::windows::runtime::IUnknown);
 impl IMILBitmapEffectConnections {
+    #[doc = "*Required features: `Win32_UI_Wpf`*"]
     pub unsafe fn GetInputConnector(&self, uiindex: u32) -> ::windows::runtime::Result<IMILBitmapEffectInputConnector> {
         let mut result__: <IMILBitmapEffectInputConnector as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(uiindex), &mut result__).from_abi::<IMILBitmapEffectInputConnector>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_Wpf`*"]
     pub unsafe fn GetOutputConnector(&self, uiindex: u32) -> ::windows::runtime::Result<IMILBitmapEffectOutputConnector> {
         let mut result__: <IMILBitmapEffectOutputConnector as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(uiindex), &mut result__).from_abi::<IMILBitmapEffectOutputConnector>(result__)
@@ -105,22 +112,27 @@ pub struct IMILBitmapEffectConnections_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, uiindex: u32, ppconnector: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, uiindex: u32, ppconnector: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_Wpf`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMILBitmapEffectConnectionsInfo(::windows::runtime::IUnknown);
 impl IMILBitmapEffectConnectionsInfo {
+    #[doc = "*Required features: `Win32_UI_Wpf`*"]
     pub unsafe fn GetNumberInputs(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_Wpf`*"]
     pub unsafe fn GetNumberOutputs(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_Wpf`*"]
     pub unsafe fn GetInputConnectorInfo(&self, uiindex: u32) -> ::windows::runtime::Result<IMILBitmapEffectConnectorInfo> {
         let mut result__: <IMILBitmapEffectConnectorInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(uiindex), &mut result__).from_abi::<IMILBitmapEffectConnectorInfo>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_Wpf`*"]
     pub unsafe fn GetOutputConnectorInfo(&self, uiindex: u32) -> ::windows::runtime::Result<IMILBitmapEffectConnectorInfo> {
         let mut result__: <IMILBitmapEffectConnectorInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(uiindex), &mut result__).from_abi::<IMILBitmapEffectConnectorInfo>(result__)
@@ -161,30 +173,37 @@ pub struct IMILBitmapEffectConnectionsInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, uiindex: u32, ppconnectorinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, uiindex: u32, ppconnectorinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_Wpf`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMILBitmapEffectConnector(::windows::runtime::IUnknown);
 impl IMILBitmapEffectConnector {
+    #[doc = "*Required features: `Win32_UI_Wpf`*"]
     pub unsafe fn GetIndex(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_Wpf`*"]
     pub unsafe fn GetOptimalFormat(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_Wpf`*"]
     pub unsafe fn GetNumberFormats(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_Wpf`*"]
     pub unsafe fn GetFormat(&self, ulindex: u32) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulindex), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_Wpf`*"]
     pub unsafe fn IsConnected(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_Wpf`*"]
     pub unsafe fn GetBitmapEffect(&self) -> ::windows::runtime::Result<IMILBitmapEffect> {
         let mut result__: <IMILBitmapEffect as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IMILBitmapEffect>(result__)
@@ -247,22 +266,27 @@ pub struct IMILBitmapEffectConnector_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pfconnected: *mut i16) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppeffect: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_Wpf`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMILBitmapEffectConnectorInfo(::windows::runtime::IUnknown);
 impl IMILBitmapEffectConnectorInfo {
+    #[doc = "*Required features: `Win32_UI_Wpf`*"]
     pub unsafe fn GetIndex(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_Wpf`*"]
     pub unsafe fn GetOptimalFormat(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_Wpf`*"]
     pub unsafe fn GetNumberFormats(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_Wpf`*"]
     pub unsafe fn GetFormat(&self, ulindex: u32) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulindex), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
@@ -303,14 +327,17 @@ pub struct IMILBitmapEffectConnectorInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pulnumberformats: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ulindex: u32, pformat: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_Wpf`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMILBitmapEffectEvents(::windows::runtime::IUnknown);
 impl IMILBitmapEffectEvents {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_UI_Wpf`, `Win32_Foundation`*"]
     pub unsafe fn PropertyChange<'a, Param0: ::windows::runtime::IntoParam<'a, IMILBitmapEffect>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, peffect: Param0, bstrpropertyname: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), peffect.into_param().abi(), bstrpropertyname.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_UI_Wpf`*"]
     pub unsafe fn DirtyRegion<'a, Param0: ::windows::runtime::IntoParam<'a, IMILBitmapEffect>>(&self, peffect: Param0, prect: *const MilRectD) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), peffect.into_param().abi(), ::std::mem::transmute(prect)).ok()
     }
@@ -349,18 +376,22 @@ pub struct IMILBitmapEffectEvents_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, peffect: ::windows::runtime::RawPtr, prect: *const MilRectD) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_Wpf`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMILBitmapEffectFactory(::windows::runtime::IUnknown);
 impl IMILBitmapEffectFactory {
+    #[doc = "*Required features: `Win32_UI_Wpf`*"]
     pub unsafe fn CreateEffect(&self, pguideffect: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<IMILBitmapEffect> {
         let mut result__: <IMILBitmapEffect as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pguideffect), &mut result__).from_abi::<IMILBitmapEffect>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_Wpf`*"]
     pub unsafe fn CreateContext(&self) -> ::windows::runtime::Result<IMILBitmapEffectRenderContext> {
         let mut result__: <IMILBitmapEffectRenderContext as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IMILBitmapEffectRenderContext>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_Wpf`*"]
     pub unsafe fn CreateEffectOuter(&self) -> ::windows::runtime::Result<IMILBitmapEffect> {
         let mut result__: <IMILBitmapEffect as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IMILBitmapEffect>(result__)
@@ -400,18 +431,22 @@ pub struct IMILBitmapEffectFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppcontext: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppeffect: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_Wpf`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMILBitmapEffectGroup(::windows::runtime::IUnknown);
 impl IMILBitmapEffectGroup {
+    #[doc = "*Required features: `Win32_UI_Wpf`*"]
     pub unsafe fn GetInteriorInputConnector(&self, uiindex: u32) -> ::windows::runtime::Result<IMILBitmapEffectOutputConnector> {
         let mut result__: <IMILBitmapEffectOutputConnector as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(uiindex), &mut result__).from_abi::<IMILBitmapEffectOutputConnector>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_Wpf`*"]
     pub unsafe fn GetInteriorOutputConnector(&self, uiindex: u32) -> ::windows::runtime::Result<IMILBitmapEffectInputConnector> {
         let mut result__: <IMILBitmapEffectInputConnector as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(uiindex), &mut result__).from_abi::<IMILBitmapEffectInputConnector>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_Wpf`*"]
     pub unsafe fn Add<'a, Param0: ::windows::runtime::IntoParam<'a, IMILBitmapEffect>>(&self, peffect: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), peffect.into_param().abi()).ok()
     }
@@ -450,17 +485,21 @@ pub struct IMILBitmapEffectGroup_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, uiindex: u32, ppconnector: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, peffect: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_Wpf`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMILBitmapEffectGroupImpl(::windows::runtime::IUnknown);
 impl IMILBitmapEffectGroupImpl {
+    #[doc = "*Required features: `Win32_UI_Wpf`*"]
     pub unsafe fn Preprocess<'a, Param0: ::windows::runtime::IntoParam<'a, IMILBitmapEffectRenderContext>>(&self, pcontext: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pcontext.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_UI_Wpf`*"]
     pub unsafe fn GetNumberChildren(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_Wpf`*"]
     pub unsafe fn GetChildren(&self) -> ::windows::runtime::Result<IMILBitmapEffects> {
         let mut result__: <IMILBitmapEffects as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IMILBitmapEffects>(result__)
@@ -500,34 +539,42 @@ pub struct IMILBitmapEffectGroupImpl_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, puinumberchildren: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pchildren: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_Wpf`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMILBitmapEffectImpl(::windows::runtime::IUnknown);
 impl IMILBitmapEffectImpl {
+    #[doc = "*Required features: `Win32_UI_Wpf`*"]
     pub unsafe fn IsInPlaceModificationAllowed<'a, Param0: ::windows::runtime::IntoParam<'a, IMILBitmapEffectOutputConnector>>(&self, poutputconnector: Param0) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), poutputconnector.into_param().abi(), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_Wpf`*"]
     pub unsafe fn SetParentEffect<'a, Param0: ::windows::runtime::IntoParam<'a, IMILBitmapEffectGroup>>(&self, pparenteffect: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pparenteffect.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Graphics_Imaging")]
+    #[doc = "*Required features: `Win32_UI_Wpf`, `Win32_Graphics_Imaging`*"]
     pub unsafe fn GetInputSource(&self, uiindex: u32) -> ::windows::runtime::Result<super::super::Graphics::Imaging::IWICBitmapSource> {
         let mut result__: <super::super::Graphics::Imaging::IWICBitmapSource as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(uiindex), &mut result__).from_abi::<super::super::Graphics::Imaging::IWICBitmapSource>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_Wpf`*"]
     pub unsafe fn GetInputSourceBounds(&self, uiindex: u32) -> ::windows::runtime::Result<MilRectD> {
         let mut result__: <MilRectD as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(uiindex), &mut result__).from_abi::<MilRectD>(result__)
     }
     #[cfg(feature = "Win32_Graphics_Imaging")]
+    #[doc = "*Required features: `Win32_UI_Wpf`, `Win32_Graphics_Imaging`*"]
     pub unsafe fn GetInputBitmapSource<'a, Param1: ::windows::runtime::IntoParam<'a, IMILBitmapEffectRenderContext>>(&self, uiindex: u32, prendercontext: Param1, pfmodifyinplace: *mut i16, ppbitmapsource: *mut ::std::option::Option<super::super::Graphics::Imaging::IWICBitmapSource>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(uiindex), prendercontext.into_param().abi(), ::std::mem::transmute(pfmodifyinplace), ::std::mem::transmute(ppbitmapsource)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Imaging")]
+    #[doc = "*Required features: `Win32_UI_Wpf`, `Win32_Graphics_Imaging`*"]
     pub unsafe fn GetOutputBitmapSource<'a, Param1: ::windows::runtime::IntoParam<'a, IMILBitmapEffectRenderContext>>(&self, uiindex: u32, prendercontext: Param1, pfmodifyinplace: *mut i16, ppbitmapsource: *mut ::std::option::Option<super::super::Graphics::Imaging::IWICBitmapSource>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(uiindex), prendercontext.into_param().abi(), ::std::mem::transmute(pfmodifyinplace), ::std::mem::transmute(ppbitmapsource)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_Wpf`*"]
     pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, pinner: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), pinner.into_param().abi()).ok()
     }
@@ -573,37 +620,46 @@ pub struct IMILBitmapEffectImpl_abi(
     #[cfg(not(feature = "Win32_Graphics_Imaging"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pinner: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_Wpf`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMILBitmapEffectInputConnector(::windows::runtime::IUnknown);
 impl IMILBitmapEffectInputConnector {
+    #[doc = "*Required features: `Win32_UI_Wpf`*"]
     pub unsafe fn GetIndex(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_Wpf`*"]
     pub unsafe fn GetOptimalFormat(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_Wpf`*"]
     pub unsafe fn GetNumberFormats(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_Wpf`*"]
     pub unsafe fn GetFormat(&self, ulindex: u32) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulindex), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_Wpf`*"]
     pub unsafe fn IsConnected(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_Wpf`*"]
     pub unsafe fn GetBitmapEffect(&self) -> ::windows::runtime::Result<IMILBitmapEffect> {
         let mut result__: <IMILBitmapEffect as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IMILBitmapEffect>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_Wpf`*"]
     pub unsafe fn ConnectTo<'a, Param0: ::windows::runtime::IntoParam<'a, IMILBitmapEffectOutputConnector>>(&self, pconnector: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), pconnector.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_UI_Wpf`*"]
     pub unsafe fn GetConnection(&self) -> ::windows::runtime::Result<IMILBitmapEffectOutputConnector> {
         let mut result__: <IMILBitmapEffectOutputConnector as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IMILBitmapEffectOutputConnector>(result__)
@@ -688,10 +744,12 @@ pub struct IMILBitmapEffectInputConnector_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pconnector: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppconnector: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_Wpf`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMILBitmapEffectInteriorInputConnector(::windows::runtime::IUnknown);
 impl IMILBitmapEffectInteriorInputConnector {
+    #[doc = "*Required features: `Win32_UI_Wpf`*"]
     pub unsafe fn GetInputConnector(&self) -> ::windows::runtime::Result<IMILBitmapEffectInputConnector> {
         let mut result__: <IMILBitmapEffectInputConnector as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IMILBitmapEffectInputConnector>(result__)
@@ -729,10 +787,12 @@ pub struct IMILBitmapEffectInteriorInputConnector_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pinputconnector: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_Wpf`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMILBitmapEffectInteriorOutputConnector(::windows::runtime::IUnknown);
 impl IMILBitmapEffectInteriorOutputConnector {
+    #[doc = "*Required features: `Win32_UI_Wpf`*"]
     pub unsafe fn GetOutputConnector(&self) -> ::windows::runtime::Result<IMILBitmapEffectOutputConnector> {
         let mut result__: <IMILBitmapEffectOutputConnector as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IMILBitmapEffectOutputConnector>(result__)
@@ -770,38 +830,47 @@ pub struct IMILBitmapEffectInteriorOutputConnector_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, poutputconnector: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_Wpf`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMILBitmapEffectOutputConnector(::windows::runtime::IUnknown);
 impl IMILBitmapEffectOutputConnector {
+    #[doc = "*Required features: `Win32_UI_Wpf`*"]
     pub unsafe fn GetIndex(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_Wpf`*"]
     pub unsafe fn GetOptimalFormat(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_Wpf`*"]
     pub unsafe fn GetNumberFormats(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_Wpf`*"]
     pub unsafe fn GetFormat(&self, ulindex: u32) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulindex), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_Wpf`*"]
     pub unsafe fn IsConnected(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_Wpf`*"]
     pub unsafe fn GetBitmapEffect(&self) -> ::windows::runtime::Result<IMILBitmapEffect> {
         let mut result__: <IMILBitmapEffect as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IMILBitmapEffect>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_Wpf`*"]
     pub unsafe fn GetNumberConnections(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_Wpf`*"]
     pub unsafe fn GetConnection(&self, uiindex: u32) -> ::windows::runtime::Result<IMILBitmapEffectInputConnector> {
         let mut result__: <IMILBitmapEffectInputConnector as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(uiindex), &mut result__).from_abi::<IMILBitmapEffectInputConnector>(result__)
@@ -886,13 +955,16 @@ pub struct IMILBitmapEffectOutputConnector_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, puinumberconnections: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, uiindex: u32, ppconnection: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_Wpf`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMILBitmapEffectOutputConnectorImpl(::windows::runtime::IUnknown);
 impl IMILBitmapEffectOutputConnectorImpl {
+    #[doc = "*Required features: `Win32_UI_Wpf`*"]
     pub unsafe fn AddBackLink<'a, Param0: ::windows::runtime::IntoParam<'a, IMILBitmapEffectInputConnector>>(&self, pconnection: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pconnection.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_UI_Wpf`*"]
     pub unsafe fn RemoveBackLink<'a, Param0: ::windows::runtime::IntoParam<'a, IMILBitmapEffectInputConnector>>(&self, pconnection: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pconnection.into_param().abi()).ok()
     }
@@ -930,29 +1002,36 @@ pub struct IMILBitmapEffectOutputConnectorImpl_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pconnection: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pconnection: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_Wpf`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMILBitmapEffectPrimitive(::windows::runtime::IUnknown);
 impl IMILBitmapEffectPrimitive {
     #[cfg(feature = "Win32_Graphics_Imaging")]
+    #[doc = "*Required features: `Win32_UI_Wpf`, `Win32_Graphics_Imaging`*"]
     pub unsafe fn GetOutput<'a, Param1: ::windows::runtime::IntoParam<'a, IMILBitmapEffectRenderContext>>(&self, uiindex: u32, pcontext: Param1, pfmodifyinplace: *mut i16, ppbitmapsource: *mut ::std::option::Option<super::super::Graphics::Imaging::IWICBitmapSource>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(uiindex), pcontext.into_param().abi(), ::std::mem::transmute(pfmodifyinplace), ::std::mem::transmute(ppbitmapsource)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_Wpf`*"]
     pub unsafe fn TransformPoint<'a, Param3: ::windows::runtime::IntoParam<'a, IMILBitmapEffectRenderContext>>(&self, uiindex: u32, p: *mut MilPoint2D, fforwardtransform: i16, pcontext: Param3, pfpointtransformed: *mut i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(uiindex), ::std::mem::transmute(p), ::std::mem::transmute(fforwardtransform), pcontext.into_param().abi(), ::std::mem::transmute(pfpointtransformed)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_Wpf`*"]
     pub unsafe fn TransformRect<'a, Param3: ::windows::runtime::IntoParam<'a, IMILBitmapEffectRenderContext>>(&self, uiindex: u32, p: *mut MilRectD, fforwardtransform: i16, pcontext: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(uiindex), ::std::mem::transmute(p), ::std::mem::transmute(fforwardtransform), pcontext.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_UI_Wpf`*"]
     pub unsafe fn HasAffineTransform(&self, uiindex: u32) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(uiindex), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_Wpf`*"]
     pub unsafe fn HasInverseTransform(&self, uiindex: u32) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(uiindex), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(feature = "Win32_Graphics_Dwm")]
+    #[doc = "*Required features: `Win32_UI_Wpf`, `Win32_Graphics_Dwm`*"]
     pub unsafe fn GetAffineMatrix(&self, uiindex: u32, pmatrix: *mut super::super::Graphics::Dwm::MilMatrix3x2D) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(uiindex), ::std::mem::transmute(pmatrix)).ok()
     }
@@ -996,14 +1075,17 @@ pub struct IMILBitmapEffectPrimitive_abi(
     #[cfg(feature = "Win32_Graphics_Dwm")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, uiindex: u32, pmatrix: *mut super::super::Graphics::Dwm::MilMatrix3x2D) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dwm"))] usize,
 );
+#[doc = "*Required features: `Win32_UI_Wpf`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMILBitmapEffectPrimitiveImpl(::windows::runtime::IUnknown);
 impl IMILBitmapEffectPrimitiveImpl {
+    #[doc = "*Required features: `Win32_UI_Wpf`*"]
     pub unsafe fn IsDirty(&self, uioutputindex: u32) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(uioutputindex), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_Wpf`*"]
     pub unsafe fn IsVolatile(&self, uioutputindex: u32) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(uioutputindex), &mut result__).from_abi::<i16>(result__)
@@ -1042,33 +1124,42 @@ pub struct IMILBitmapEffectPrimitiveImpl_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, uioutputindex: u32, pfdirty: *mut i16) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, uioutputindex: u32, pfvolatile: *mut i16) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_Wpf`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMILBitmapEffectRenderContext(::windows::runtime::IUnknown);
 impl IMILBitmapEffectRenderContext {
+    #[doc = "*Required features: `Win32_UI_Wpf`*"]
     pub unsafe fn SetOutputPixelFormat(&self, format: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(format)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_Wpf`*"]
     pub unsafe fn GetOutputPixelFormat(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_Wpf`*"]
     pub unsafe fn SetUseSoftwareRenderer(&self, fsoftware: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(fsoftware)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_Wpf`*"]
     pub unsafe fn SetInitialTransform(&self, pmatrix: *const MILMatrixF) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(pmatrix)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_Wpf`*"]
     pub unsafe fn GetFinalTransform(&self) -> ::windows::runtime::Result<MILMatrixF> {
         let mut result__: <MILMatrixF as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<MILMatrixF>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_Wpf`*"]
     pub unsafe fn SetOutputDPI(&self, dbldpix: f64, dbldpiy: f64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(dbldpix), ::std::mem::transmute(dbldpiy)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_Wpf`*"]
     pub unsafe fn GetOutputDPI(&self, pdbldpix: *mut f64, pdbldpiy: *mut f64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdbldpix), ::std::mem::transmute(pdbldpiy)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_Wpf`*"]
     pub unsafe fn SetRegionOfInterest(&self, prect: *const MilRectD) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(prect)).ok()
     }
@@ -1112,23 +1203,29 @@ pub struct IMILBitmapEffectRenderContext_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdbldpix: *mut f64, pdbldpiy: *mut f64) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, prect: *const MilRectD) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_Wpf`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMILBitmapEffectRenderContextImpl(::windows::runtime::IUnknown);
 impl IMILBitmapEffectRenderContextImpl {
+    #[doc = "*Required features: `Win32_UI_Wpf`*"]
     pub unsafe fn GetUseSoftwareRenderer(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_Wpf`*"]
     pub unsafe fn GetTransform(&self, pmatrix: *mut MILMatrixF) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pmatrix)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_Wpf`*"]
     pub unsafe fn UpdateTransform(&self, pmatrix: *const MILMatrixF) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(pmatrix)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_Wpf`*"]
     pub unsafe fn GetOutputBounds(&self, prect: *mut MilRectD) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(prect)).ok()
     }
+    #[doc = "*Required features: `Win32_UI_Wpf`*"]
     pub unsafe fn UpdateOutputBounds(&self, prect: *const MilRectD) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(prect)).ok()
     }
@@ -1169,22 +1266,27 @@ pub struct IMILBitmapEffectRenderContextImpl_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, prect: *mut MilRectD) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, prect: *const MilRectD) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_Wpf`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMILBitmapEffects(::windows::runtime::IUnknown);
 impl IMILBitmapEffects {
+    #[doc = "*Required features: `Win32_UI_Wpf`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
         let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_Wpf`*"]
     pub unsafe fn Parent(&self) -> ::windows::runtime::Result<IMILBitmapEffectGroup> {
         let mut result__: <IMILBitmapEffectGroup as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IMILBitmapEffectGroup>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_Wpf`*"]
     pub unsafe fn Item(&self, uindex: u32) -> ::windows::runtime::Result<IMILBitmapEffect> {
         let mut result__: <IMILBitmapEffect as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(uindex), &mut result__).from_abi::<IMILBitmapEffect>(result__)
     }
+    #[doc = "*Required features: `Win32_UI_Wpf`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
@@ -1225,9 +1327,11 @@ pub struct IMILBitmapEffects_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, uindex: u32, ppeffect: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, puicount: *mut u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_Wpf`*"]
 pub const MILBITMAPEFFECT_SDK_VERSION: u32 = 16777216u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_Wpf`*"]
 pub struct MILMatrixF {
     pub _11: f64,
     pub _12: f64,
@@ -1286,6 +1390,7 @@ unsafe impl ::windows::runtime::Abi for MILMatrixF {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_Wpf`*"]
 pub struct MilPoint2D {
     pub X: f64,
     pub Y: f64,
@@ -1313,6 +1418,7 @@ unsafe impl ::windows::runtime::Abi for MilPoint2D {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_UI_Wpf`*"]
 pub struct MilRectD {
     pub left: f64,
     pub top: f64,

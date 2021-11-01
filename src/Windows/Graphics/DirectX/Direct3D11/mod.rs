@@ -1,4 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Graphics_DirectX_Direct3D11`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct Direct3DBindings(pub u32);
@@ -56,6 +57,7 @@ impl ::std::ops::Not for Direct3DBindings {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Graphics_DirectX_Direct3D11`*"]
 pub struct Direct3DMultisampleDescription {
     pub Count: i32,
     pub Quality: i32,
@@ -86,6 +88,7 @@ unsafe impl ::windows::runtime::RuntimeType for Direct3DMultisampleDescription {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Graphics_DirectX_Direct3D11`*"]
 pub struct Direct3DSurfaceDescription {
     pub Width: i32,
     pub Height: i32,
@@ -116,6 +119,7 @@ unsafe impl ::windows::runtime::Abi for Direct3DSurfaceDescription {
 unsafe impl ::windows::runtime::RuntimeType for Direct3DSurfaceDescription {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Graphics.DirectX.Direct3D11.Direct3DSurfaceDescription;i4;i4;enum(Windows.Graphics.DirectX.DirectXPixelFormat;i4);struct(Windows.Graphics.DirectX.Direct3D11.Direct3DMultisampleDescription;i4;i4))");
 }
+#[doc = "*Required features: `Graphics_DirectX_Direct3D11`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct Direct3DUsage(pub i32);
@@ -139,17 +143,20 @@ unsafe impl ::windows::runtime::RuntimeType for Direct3DUsage {
 }
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Graphics_DirectX_Direct3D11`*"]
 pub struct IDirect3DDevice(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDirect3DDevice {
     type Vtable = IDirect3DDevice_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2742428843, 36191, 18000, [157, 62, 158, 174, 61, 155, 198, 112]);
 }
 impl IDirect3DDevice {
+    #[doc = "*Required features: `Graphics_DirectX_Direct3D11`*"]
     pub fn Trim(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Graphics_DirectX_Direct3D11`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
@@ -237,12 +244,14 @@ pub struct IDirect3DDevice_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Graphics_DirectX_Direct3D11`*"]
 pub struct IDirect3DSurface(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDirect3DSurface {
     type Vtable = IDirect3DSurface_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(200581446, 5057, 18068, [190, 227, 122, 191, 21, 234, 245, 134]);
 }
 impl IDirect3DSurface {
+    #[doc = "*Required features: `Graphics_DirectX_Direct3D11`*"]
     pub fn Description(&self) -> ::windows::runtime::Result<Direct3DSurfaceDescription> {
         let this = self;
         unsafe {
@@ -251,6 +260,7 @@ impl IDirect3DSurface {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Graphics_DirectX_Direct3D11`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }

@@ -1,7 +1,9 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Perception_Automation_Core`*"]
 pub struct CorePerceptionAutomation {}
 impl CorePerceptionAutomation {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Perception_Automation_Core`, `Foundation`*"]
     pub fn SetActivationFactoryProvider<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::IGetActivationFactory>>(provider: Param0) -> ::windows::runtime::Result<()> {
         Self::ICorePerceptionAutomationStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), provider.into_param().abi()).ok() })
     }

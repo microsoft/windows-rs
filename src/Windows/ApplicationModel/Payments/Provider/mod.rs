@@ -131,10 +131,12 @@ pub struct IPaymentTransactionStatics_abi(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, id: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: `ApplicationModel_Payments_Provider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PaymentAppCanMakePaymentTriggerDetails(::windows::runtime::IInspectable);
 impl PaymentAppCanMakePaymentTriggerDetails {
+    #[doc = "*Required features: `ApplicationModel_Payments_Provider`*"]
     pub fn Request(&self) -> ::windows::runtime::Result<super::PaymentRequest> {
         let this = self;
         unsafe {
@@ -142,6 +144,7 @@ impl PaymentAppCanMakePaymentTriggerDetails {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::PaymentRequest>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Payments_Provider`*"]
     pub fn ReportCanMakePaymentResult<'a, Param0: ::windows::runtime::IntoParam<'a, super::PaymentCanMakePaymentResult>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -199,11 +202,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for PaymentAppCanMakePaymentTriggerDetails {}
 unsafe impl ::std::marker::Sync for PaymentAppCanMakePaymentTriggerDetails {}
+#[doc = "*Required features: `ApplicationModel_Payments_Provider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PaymentAppManager(::windows::runtime::IInspectable);
 impl PaymentAppManager {
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `ApplicationModel_Payments_Provider`, `Foundation`, `Foundation_Collections`*"]
     pub fn RegisterAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>>(&self, supportedpaymentmethodids: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -212,6 +217,7 @@ impl PaymentAppManager {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Payments_Provider`, `Foundation`*"]
     pub fn UnregisterAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -219,6 +225,7 @@ impl PaymentAppManager {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Payments_Provider`*"]
     pub fn Current() -> ::windows::runtime::Result<PaymentAppManager> {
         Self::IPaymentAppManagerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -282,10 +289,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for PaymentAppManager {}
 unsafe impl ::std::marker::Sync for PaymentAppManager {}
+#[doc = "*Required features: `ApplicationModel_Payments_Provider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PaymentTransaction(::windows::runtime::IInspectable);
 impl PaymentTransaction {
+    #[doc = "*Required features: `ApplicationModel_Payments_Provider`*"]
     pub fn PaymentRequest(&self) -> ::windows::runtime::Result<super::PaymentRequest> {
         let this = self;
         unsafe {
@@ -293,6 +302,7 @@ impl PaymentTransaction {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::PaymentRequest>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Payments_Provider`*"]
     pub fn PayerEmail(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -300,10 +310,12 @@ impl PaymentTransaction {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Payments_Provider`*"]
     pub fn SetPayerEmail<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Payments_Provider`*"]
     pub fn PayerName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -311,10 +323,12 @@ impl PaymentTransaction {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Payments_Provider`*"]
     pub fn SetPayerName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Payments_Provider`*"]
     pub fn PayerPhoneNumber(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -322,11 +336,13 @@ impl PaymentTransaction {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Payments_Provider`*"]
     pub fn SetPayerPhoneNumber<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Payments_Provider`, `Foundation`*"]
     pub fn UpdateShippingAddressAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::PaymentAddress>>(&self, shippingaddress: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<super::PaymentRequestChangedResult>> {
         let this = self;
         unsafe {
@@ -335,6 +351,7 @@ impl PaymentTransaction {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Payments_Provider`, `Foundation`*"]
     pub fn UpdateSelectedShippingOptionAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::PaymentShippingOption>>(&self, selectedshippingoption: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<super::PaymentRequestChangedResult>> {
         let this = self;
         unsafe {
@@ -343,6 +360,7 @@ impl PaymentTransaction {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Payments_Provider`, `Foundation`*"]
     pub fn AcceptAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::PaymentToken>>(&self, paymenttoken: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<PaymentTransactionAcceptResult>> {
         let this = self;
         unsafe {
@@ -350,11 +368,13 @@ impl PaymentTransaction {
             (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), paymenttoken.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<PaymentTransactionAcceptResult>>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Payments_Provider`*"]
     pub fn Reject(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Payments_Provider`, `Foundation`*"]
     pub fn FromIdAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(id: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<PaymentTransaction>> {
         Self::IPaymentTransactionStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -418,10 +438,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for PaymentTransaction {}
 unsafe impl ::std::marker::Sync for PaymentTransaction {}
+#[doc = "*Required features: `ApplicationModel_Payments_Provider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PaymentTransactionAcceptResult(::windows::runtime::IInspectable);
 impl PaymentTransactionAcceptResult {
+    #[doc = "*Required features: `ApplicationModel_Payments_Provider`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<super::PaymentRequestCompletionStatus> {
         let this = self;
         unsafe {

@@ -1,10 +1,12 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Services_Cortana`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CortanaActionableInsights(::windows::runtime::IInspectable);
 impl CortanaActionableInsights {
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "System")]
+    #[doc = "*Required features: `Services_Cortana`, `System`*"]
     pub fn User(&self) -> ::windows::runtime::Result<super::super::System::User> {
         let this = self;
         unsafe {
@@ -14,6 +16,7 @@ impl CortanaActionableInsights {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Services_Cortana`, `Foundation`*"]
     pub fn IsAvailableAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
@@ -23,6 +26,7 @@ impl CortanaActionableInsights {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Services_Cortana`, `Foundation`, `Storage_Streams`*"]
     pub fn ShowInsightsForImageAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference>>(&self, imagestream: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -32,6 +36,7 @@ impl CortanaActionableInsights {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Services_Cortana`, `Foundation`, `Storage_Streams`*"]
     pub fn ShowInsightsForImageWithOptionsAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference>, Param1: ::windows::runtime::IntoParam<'a, CortanaActionableInsightsOptions>>(&self, imagestream: Param0, options: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -41,6 +46,7 @@ impl CortanaActionableInsights {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Services_Cortana`, `Foundation`*"]
     pub fn ShowInsightsForTextAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, text: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -50,6 +56,7 @@ impl CortanaActionableInsights {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Services_Cortana`, `Foundation`*"]
     pub fn ShowInsightsForTextWithOptionsAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, CortanaActionableInsightsOptions>>(&self, text: Param0, options: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -59,6 +66,7 @@ impl CortanaActionableInsights {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(all(feature = "ApplicationModel_DataTransfer", feature = "Foundation"))]
+    #[doc = "*Required features: `Services_Cortana`, `ApplicationModel_DataTransfer`, `Foundation`*"]
     pub fn ShowInsightsAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::DataTransfer::DataPackage>>(&self, datapackage: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -68,6 +76,7 @@ impl CortanaActionableInsights {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(all(feature = "ApplicationModel_DataTransfer", feature = "Foundation"))]
+    #[doc = "*Required features: `Services_Cortana`, `ApplicationModel_DataTransfer`, `Foundation`*"]
     pub fn ShowInsightsWithOptionsAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::DataTransfer::DataPackage>, Param1: ::windows::runtime::IntoParam<'a, CortanaActionableInsightsOptions>>(&self, datapackage: Param0, options: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -76,6 +85,7 @@ impl CortanaActionableInsights {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Services_Cortana`*"]
     pub fn GetDefault() -> ::windows::runtime::Result<CortanaActionableInsights> {
         Self::ICortanaActionableInsightsStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -84,6 +94,7 @@ impl CortanaActionableInsights {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "System")]
+    #[doc = "*Required features: `Services_Cortana`, `System`*"]
     pub fn GetForUser<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::User>>(user: Param0) -> ::windows::runtime::Result<CortanaActionableInsights> {
         Self::ICortanaActionableInsightsStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -147,6 +158,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for CortanaActionableInsights {}
 unsafe impl ::std::marker::Sync for CortanaActionableInsights {}
+#[doc = "*Required features: `Services_Cortana`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CortanaActionableInsightsOptions(::windows::runtime::IInspectable);
@@ -160,6 +172,7 @@ impl CortanaActionableInsightsOptions {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Services_Cortana`, `Foundation`*"]
     pub fn ContentSourceWebLink(&self) -> ::windows::runtime::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
@@ -169,11 +182,13 @@ impl CortanaActionableInsightsOptions {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Services_Cortana`, `Foundation`*"]
     pub fn SetContentSourceWebLink<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Services_Cortana`*"]
     pub fn SurroundingText(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -182,6 +197,7 @@ impl CortanaActionableInsightsOptions {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Services_Cortana`*"]
     pub fn SetSurroundingText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -239,6 +255,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for CortanaActionableInsightsOptions {}
 unsafe impl ::std::marker::Sync for CortanaActionableInsightsOptions {}
+#[doc = "*Required features: `Services_Cortana`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CortanaPermission(pub i32);
@@ -267,6 +284,7 @@ unsafe impl ::windows::runtime::Abi for CortanaPermission {
 unsafe impl ::windows::runtime::RuntimeType for CortanaPermission {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Services.Cortana.CortanaPermission;i4)");
 }
+#[doc = "*Required features: `Services_Cortana`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CortanaPermissionsChangeResult(pub i32);
@@ -287,11 +305,13 @@ unsafe impl ::windows::runtime::Abi for CortanaPermissionsChangeResult {
 unsafe impl ::windows::runtime::RuntimeType for CortanaPermissionsChangeResult {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Services.Cortana.CortanaPermissionsChangeResult;i4)");
 }
+#[doc = "*Required features: `Services_Cortana`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CortanaPermissionsManager(::windows::runtime::IInspectable);
 impl CortanaPermissionsManager {
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Services_Cortana`*"]
     pub fn IsSupported(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -301,6 +321,7 @@ impl CortanaPermissionsManager {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Services_Cortana`, `Foundation`, `Foundation_Collections`*"]
     pub fn ArePermissionsGrantedAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<CortanaPermission>>>(&self, permissions: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
@@ -310,6 +331,7 @@ impl CortanaPermissionsManager {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Services_Cortana`, `Foundation`, `Foundation_Collections`*"]
     pub fn GrantPermissionsAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<CortanaPermission>>>(&self, permissions: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<CortanaPermissionsChangeResult>> {
         let this = self;
         unsafe {
@@ -319,6 +341,7 @@ impl CortanaPermissionsManager {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Services_Cortana`, `Foundation`, `Foundation_Collections`*"]
     pub fn RevokePermissionsAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<CortanaPermission>>>(&self, permissions: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<CortanaPermissionsChangeResult>> {
         let this = self;
         unsafe {
@@ -327,6 +350,7 @@ impl CortanaPermissionsManager {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Services_Cortana`*"]
     pub fn GetDefault() -> ::windows::runtime::Result<CortanaPermissionsManager> {
         Self::ICortanaPermissionsManagerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -390,11 +414,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for CortanaPermissionsManager {}
 unsafe impl ::std::marker::Sync for CortanaPermissionsManager {}
+#[doc = "*Required features: `Services_Cortana`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CortanaSettings(::windows::runtime::IInspectable);
 impl CortanaSettings {
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Services_Cortana`*"]
     pub fn HasUserConsentToVoiceActivation(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -403,6 +429,7 @@ impl CortanaSettings {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Services_Cortana`*"]
     pub fn IsVoiceActivationEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -411,11 +438,13 @@ impl CortanaSettings {
         }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Services_Cortana`*"]
     pub fn SetIsVoiceActivationEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Services_Cortana`*"]
     pub fn IsSupported() -> ::windows::runtime::Result<bool> {
         Self::ICortanaSettingsStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
@@ -423,6 +452,7 @@ impl CortanaSettings {
         })
     }
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `Services_Cortana`*"]
     pub fn GetDefault() -> ::windows::runtime::Result<CortanaSettings> {
         Self::ICortanaSettingsStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();

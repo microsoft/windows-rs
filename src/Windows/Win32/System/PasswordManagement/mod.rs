@@ -2,6 +2,7 @@
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_PasswordManagement`, `Win32_Foundation`*"]
 pub struct CYPHER_BLOCK {
     pub data: [super::super::Foundation::CHAR; 8],
 }
@@ -35,6 +36,7 @@ unsafe impl ::windows::runtime::Abi for CYPHER_BLOCK {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_PasswordManagement`, `Win32_Foundation`*"]
 pub struct ENCRYPTED_LM_OWF_PASSWORD {
     pub data: [CYPHER_BLOCK; 2],
 }
@@ -68,6 +70,7 @@ unsafe impl ::windows::runtime::Abi for ENCRYPTED_LM_OWF_PASSWORD {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_PasswordManagement`, `Win32_Foundation`*"]
 pub struct LM_OWF_PASSWORD {
     pub data: [CYPHER_BLOCK; 2],
 }
@@ -99,6 +102,7 @@ unsafe impl ::windows::runtime::Abi for LM_OWF_PASSWORD {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_PasswordManagement`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MSChapSrvChangePassword<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>>(
     servername: Param0,
@@ -121,6 +125,7 @@ pub unsafe fn MSChapSrvChangePassword<'a, Param0: ::windows::runtime::IntoParam<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_PasswordManagement`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MSChapSrvChangePassword2<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>>(
     servername: Param0,
@@ -152,6 +157,7 @@ pub unsafe fn MSChapSrvChangePassword2<'a, Param0: ::windows::runtime::IntoParam
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_PasswordManagement`*"]
 pub struct SAMPR_ENCRYPTED_USER_PASSWORD {
     pub Buffer: [u8; 516],
 }

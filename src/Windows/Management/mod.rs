@@ -93,6 +93,7 @@ pub struct IMdmSessionManagerStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, sessionid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, sessionid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Management`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MdmAlert(::windows::runtime::IInspectable);
@@ -104,6 +105,7 @@ impl MdmAlert {
         static mut SHARED: ::windows::runtime::FactoryCache<MdmAlert, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `Management`*"]
     pub fn Data(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -111,10 +113,12 @@ impl MdmAlert {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Management`*"]
     pub fn SetData<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Management`*"]
     pub fn Format(&self) -> ::windows::runtime::Result<MdmAlertDataType> {
         let this = self;
         unsafe {
@@ -122,10 +126,12 @@ impl MdmAlert {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MdmAlertDataType>(result__)
         }
     }
+    #[doc = "*Required features: `Management`*"]
     pub fn SetFormat(&self, value: MdmAlertDataType) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Management`*"]
     pub fn Mark(&self) -> ::windows::runtime::Result<MdmAlertMark> {
         let this = self;
         unsafe {
@@ -133,10 +139,12 @@ impl MdmAlert {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MdmAlertMark>(result__)
         }
     }
+    #[doc = "*Required features: `Management`*"]
     pub fn SetMark(&self, value: MdmAlertMark) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Management`*"]
     pub fn Source(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -144,10 +152,12 @@ impl MdmAlert {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Management`*"]
     pub fn SetSource<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Management`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -155,6 +165,7 @@ impl MdmAlert {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Management`*"]
     pub fn Target(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -162,10 +173,12 @@ impl MdmAlert {
             (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Management`*"]
     pub fn SetTarget<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Management`*"]
     pub fn Type(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -173,6 +186,7 @@ impl MdmAlert {
             (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Management`*"]
     pub fn SetType<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -228,6 +242,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
+#[doc = "*Required features: `Management`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MdmAlertDataType(pub i32);
@@ -249,6 +264,7 @@ unsafe impl ::windows::runtime::Abi for MdmAlertDataType {
 unsafe impl ::windows::runtime::RuntimeType for MdmAlertDataType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Management.MdmAlertDataType;i4)");
 }
+#[doc = "*Required features: `Management`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MdmAlertMark(pub i32);
@@ -271,11 +287,13 @@ unsafe impl ::windows::runtime::Abi for MdmAlertMark {
 unsafe impl ::windows::runtime::RuntimeType for MdmAlertMark {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Management.MdmAlertMark;i4)");
 }
+#[doc = "*Required features: `Management`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MdmSession(::windows::runtime::IInspectable);
 impl MdmSession {
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Management`, `Foundation_Collections`*"]
     pub fn Alerts(&self) -> ::windows::runtime::Result<super::Foundation::Collections::IVectorView<MdmAlert>> {
         let this = self;
         unsafe {
@@ -283,6 +301,7 @@ impl MdmSession {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::Collections::IVectorView<MdmAlert>>(result__)
         }
     }
+    #[doc = "*Required features: `Management`*"]
     pub fn ExtendedError(&self) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
         let this = self;
         unsafe {
@@ -290,6 +309,7 @@ impl MdmSession {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HRESULT>(result__)
         }
     }
+    #[doc = "*Required features: `Management`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -297,6 +317,7 @@ impl MdmSession {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Management`*"]
     pub fn State(&self) -> ::windows::runtime::Result<MdmSessionState> {
         let this = self;
         unsafe {
@@ -305,6 +326,7 @@ impl MdmSession {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Management`, `Foundation`*"]
     pub fn AttachAsync(&self) -> ::windows::runtime::Result<super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -312,11 +334,13 @@ impl MdmSession {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: `Management`*"]
     pub fn Delete(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Management`, `Foundation`*"]
     pub fn StartAsync(&self) -> ::windows::runtime::Result<super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -325,6 +349,7 @@ impl MdmSession {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Management`, `Foundation`, `Foundation_Collections`*"]
     pub fn StartWithAlertsAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::Collections::IIterable<MdmAlert>>>(&self, alerts: Param0) -> ::windows::runtime::Result<super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -383,24 +408,29 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
+#[doc = "*Required features: `Management`*"]
 pub struct MdmSessionManager {}
 impl MdmSessionManager {
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Management`, `Foundation_Collections`*"]
     pub fn SessionIds() -> ::windows::runtime::Result<super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>> {
         Self::IMdmSessionManagerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>>(result__)
         })
     }
+    #[doc = "*Required features: `Management`*"]
     pub fn TryCreateSession() -> ::windows::runtime::Result<MdmSession> {
         Self::IMdmSessionManagerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MdmSession>(result__)
         })
     }
+    #[doc = "*Required features: `Management`*"]
     pub fn DeleteSessionById<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(sessionid: Param0) -> ::windows::runtime::Result<()> {
         Self::IMdmSessionManagerStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), sessionid.into_param().abi()).ok() })
     }
+    #[doc = "*Required features: `Management`*"]
     pub fn GetSessionById<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(sessionid: Param0) -> ::windows::runtime::Result<MdmSession> {
         Self::IMdmSessionManagerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -415,6 +445,7 @@ impl MdmSessionManager {
 impl ::windows::runtime::RuntimeName for MdmSessionManager {
     const NAME: &'static str = "Windows.Management.MdmSessionManager";
 }
+#[doc = "*Required features: `Management`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MdmSessionState(pub i32);

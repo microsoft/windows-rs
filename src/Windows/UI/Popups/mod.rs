@@ -79,12 +79,14 @@ pub struct IPopupMenu_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `UI_Popups`*"]
 pub struct IUICommand(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUICommand {
     type Vtable = IUICommand_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1341733493, 16709, 18431, [172, 127, 223, 241, 193, 250, 91, 15]);
 }
 impl IUICommand {
+    #[doc = "*Required features: `UI_Popups`*"]
     pub fn Label(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -92,10 +94,12 @@ impl IUICommand {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Popups`*"]
     pub fn SetLabel<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Popups`*"]
     pub fn Invoked(&self) -> ::windows::runtime::Result<UICommandInvokedHandler> {
         let this = self;
         unsafe {
@@ -103,10 +107,12 @@ impl IUICommand {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<UICommandInvokedHandler>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Popups`*"]
     pub fn SetInvoked<'a, Param0: ::windows::runtime::IntoParam<'a, UICommandInvokedHandler>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Popups`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = self;
         unsafe {
@@ -114,6 +120,7 @@ impl IUICommand {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Popups`*"]
     pub fn SetId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -199,10 +206,12 @@ pub struct IUICommandFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, label: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, action: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, label: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, action: ::windows::runtime::RawPtr, commandid: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `UI_Popups`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MessageDialog(::windows::runtime::IInspectable);
 impl MessageDialog {
+    #[doc = "*Required features: `UI_Popups`*"]
     pub fn Title(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -210,11 +219,13 @@ impl MessageDialog {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Popups`*"]
     pub fn SetTitle<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Popups`, `Foundation_Collections`*"]
     pub fn Commands(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<IUICommand>> {
         let this = self;
         unsafe {
@@ -222,6 +233,7 @@ impl MessageDialog {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<IUICommand>>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Popups`*"]
     pub fn DefaultCommandIndex(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -229,10 +241,12 @@ impl MessageDialog {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Popups`*"]
     pub fn SetDefaultCommandIndex(&self, value: u32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Popups`*"]
     pub fn CancelCommandIndex(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -240,10 +254,12 @@ impl MessageDialog {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Popups`*"]
     pub fn SetCancelCommandIndex(&self, value: u32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Popups`*"]
     pub fn Content(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -251,11 +267,13 @@ impl MessageDialog {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Popups`*"]
     pub fn SetContent<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Popups`, `Foundation`*"]
     pub fn ShowAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<IUICommand>> {
         let this = self;
         unsafe {
@@ -263,6 +281,7 @@ impl MessageDialog {
             (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<IUICommand>>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Popups`*"]
     pub fn Options(&self) -> ::windows::runtime::Result<MessageDialogOptions> {
         let this = self;
         unsafe {
@@ -270,16 +289,19 @@ impl MessageDialog {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MessageDialogOptions>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Popups`*"]
     pub fn SetOptions(&self, value: MessageDialogOptions) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Popups`*"]
     pub fn Create<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(content: Param0) -> ::windows::runtime::Result<MessageDialog> {
         Self::IMessageDialogFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), content.into_param().abi(), &mut result__).from_abi::<MessageDialog>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Popups`*"]
     pub fn CreateWithTitle<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(content: Param0, title: Param1) -> ::windows::runtime::Result<MessageDialog> {
         Self::IMessageDialogFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -341,6 +363,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
+#[doc = "*Required features: `UI_Popups`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MessageDialogOptions(pub u32);
@@ -388,6 +411,7 @@ impl ::std::ops::Not for MessageDialogOptions {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `UI_Popups`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct Placement(pub i32);
@@ -410,6 +434,7 @@ unsafe impl ::windows::runtime::Abi for Placement {
 unsafe impl ::windows::runtime::RuntimeType for Placement {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Popups.Placement;i4)");
 }
+#[doc = "*Required features: `UI_Popups`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PopupMenu(::windows::runtime::IInspectable);
@@ -422,6 +447,7 @@ impl PopupMenu {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Popups`, `Foundation_Collections`*"]
     pub fn Commands(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<IUICommand>> {
         let this = self;
         unsafe {
@@ -430,6 +456,7 @@ impl PopupMenu {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Popups`, `Foundation`*"]
     pub fn ShowAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Point>>(&self, invocationpoint: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<IUICommand>> {
         let this = self;
         unsafe {
@@ -438,6 +465,7 @@ impl PopupMenu {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Popups`, `Foundation`*"]
     pub fn ShowAsyncWithRect<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Rect>>(&self, selection: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<IUICommand>> {
         let this = self;
         unsafe {
@@ -446,6 +474,7 @@ impl PopupMenu {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Popups`, `Foundation`*"]
     pub fn ShowAsyncWithRectAndPlacement<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Rect>>(&self, selection: Param0, preferredplacement: Placement) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<IUICommand>> {
         let this = self;
         unsafe {
@@ -504,6 +533,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
+#[doc = "*Required features: `UI_Popups`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct UICommand(::windows::runtime::IInspectable);
@@ -515,6 +545,7 @@ impl UICommand {
         static mut SHARED: ::windows::runtime::FactoryCache<UICommand, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `UI_Popups`*"]
     pub fn Label(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -522,10 +553,12 @@ impl UICommand {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Popups`*"]
     pub fn SetLabel<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Popups`*"]
     pub fn Invoked(&self) -> ::windows::runtime::Result<UICommandInvokedHandler> {
         let this = self;
         unsafe {
@@ -533,10 +566,12 @@ impl UICommand {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<UICommandInvokedHandler>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Popups`*"]
     pub fn SetInvoked<'a, Param0: ::windows::runtime::IntoParam<'a, UICommandInvokedHandler>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Popups`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = self;
         unsafe {
@@ -544,22 +579,26 @@ impl UICommand {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Popups`*"]
     pub fn SetId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Popups`*"]
     pub fn Create<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(label: Param0) -> ::windows::runtime::Result<UICommand> {
         Self::IUICommandFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), label.into_param().abi(), &mut result__).from_abi::<UICommand>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Popups`*"]
     pub fn CreateWithHandler<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, UICommandInvokedHandler>>(label: Param0, action: Param1) -> ::windows::runtime::Result<UICommand> {
         Self::IUICommandFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), label.into_param().abi(), action.into_param().abi(), &mut result__).from_abi::<UICommand>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Popups`*"]
     pub fn CreateWithHandlerAndId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, UICommandInvokedHandler>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(label: Param0, action: Param1, commandid: Param2) -> ::windows::runtime::Result<UICommand> {
         Self::IUICommandFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -643,6 +682,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IUICommand> for &UICommand {
 }
 unsafe impl ::std::marker::Send for UICommand {}
 unsafe impl ::std::marker::Sync for UICommand {}
+#[doc = "*Required features: `UI_Popups`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct UICommandInvokedHandler(::windows::runtime::IUnknown);
@@ -655,6 +695,7 @@ impl UICommandInvokedHandler {
         };
         unsafe { std::mem::transmute(::std::boxed::Box::new(com)) }
     }
+    #[doc = "*Required features: `UI_Popups`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, IUICommand>>(&self, command: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).3)(::std::mem::transmute_copy(this), command.into_param().abi()).ok() }
@@ -714,6 +755,7 @@ impl<F: FnMut(&::std::option::Option<IUICommand>) -> ::windows::runtime::Result<
         ((*this).invoke)(&*(&command as *const <IUICommand as ::windows::runtime::Abi>::Abi as *const <IUICommand as ::windows::runtime::Abi>::DefaultType)).into()
     }
 }
+#[doc = "*Required features: `UI_Popups`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct UICommandSeparator(::windows::runtime::IInspectable);
@@ -725,6 +767,7 @@ impl UICommandSeparator {
         static mut SHARED: ::windows::runtime::FactoryCache<UICommandSeparator, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `UI_Popups`*"]
     pub fn Label(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -732,10 +775,12 @@ impl UICommandSeparator {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Popups`*"]
     pub fn SetLabel<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Popups`*"]
     pub fn Invoked(&self) -> ::windows::runtime::Result<UICommandInvokedHandler> {
         let this = self;
         unsafe {
@@ -743,10 +788,12 @@ impl UICommandSeparator {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<UICommandInvokedHandler>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Popups`*"]
     pub fn SetInvoked<'a, Param0: ::windows::runtime::IntoParam<'a, UICommandInvokedHandler>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Popups`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = self;
         unsafe {
@@ -754,6 +801,7 @@ impl UICommandSeparator {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Popups`*"]
     pub fn SetId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }

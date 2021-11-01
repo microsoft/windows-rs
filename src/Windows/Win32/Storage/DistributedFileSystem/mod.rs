@@ -1,8 +1,11 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`*"]
 pub const DFS_ADD_VOLUME: u32 = 1u32;
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`*"]
 pub const DFS_FORCE_REMOVE: u32 = 2147483648u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`*"]
 pub struct DFS_GET_PKT_ENTRY_STATE_ARG {
     pub DfsEntryPathLen: u16,
     pub ServerNameLen: u16,
@@ -34,6 +37,7 @@ unsafe impl ::windows::runtime::Abi for DFS_GET_PKT_ENTRY_STATE_ARG {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`, `Win32_Foundation`*"]
 pub struct DFS_INFO_1 {
     pub EntryPath: super::super::Foundation::PWSTR,
 }
@@ -67,6 +71,7 @@ unsafe impl ::windows::runtime::Abi for DFS_INFO_1 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`, `Win32_Foundation`*"]
 pub struct DFS_INFO_100 {
     pub Comment: super::super::Foundation::PWSTR,
 }
@@ -99,6 +104,7 @@ unsafe impl ::windows::runtime::Abi for DFS_INFO_100 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`*"]
 pub struct DFS_INFO_101 {
     pub State: u32,
 }
@@ -125,6 +131,7 @@ unsafe impl ::windows::runtime::Abi for DFS_INFO_101 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`*"]
 pub struct DFS_INFO_102 {
     pub Timeout: u32,
 }
@@ -151,6 +158,7 @@ unsafe impl ::windows::runtime::Abi for DFS_INFO_102 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`*"]
 pub struct DFS_INFO_103 {
     pub PropertyFlagMask: u32,
     pub PropertyFlags: u32,
@@ -178,6 +186,7 @@ unsafe impl ::windows::runtime::Abi for DFS_INFO_103 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`*"]
 pub struct DFS_INFO_104 {
     pub TargetPriority: DFS_TARGET_PRIORITY,
 }
@@ -205,6 +214,7 @@ unsafe impl ::windows::runtime::Abi for DFS_INFO_104 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`, `Win32_Foundation`*"]
 pub struct DFS_INFO_105 {
     pub Comment: super::super::Foundation::PWSTR,
     pub State: u32,
@@ -241,6 +251,7 @@ unsafe impl ::windows::runtime::Abi for DFS_INFO_105 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`*"]
 pub struct DFS_INFO_106 {
     pub State: u32,
     pub TargetPriority: DFS_TARGET_PRIORITY,
@@ -269,6 +280,7 @@ unsafe impl ::windows::runtime::Abi for DFS_INFO_106 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`, `Win32_Foundation`, `Win32_Security`*"]
 pub struct DFS_INFO_107 {
     pub Comment: super::super::Foundation::PWSTR,
     pub State: u32,
@@ -316,6 +328,7 @@ unsafe impl ::windows::runtime::Abi for DFS_INFO_107 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`, `Win32_Foundation`, `Win32_Security`*"]
 pub struct DFS_INFO_150 {
     pub SdLengthReserved: u32,
     pub pSecurityDescriptor: *mut super::super::Security::SECURITY_DESCRIPTOR,
@@ -349,6 +362,7 @@ unsafe impl ::windows::runtime::Abi for DFS_INFO_150 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`*"]
 pub struct DFS_INFO_1_32 {
     pub EntryPath: u32,
 }
@@ -376,6 +390,7 @@ unsafe impl ::windows::runtime::Abi for DFS_INFO_1_32 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`, `Win32_Foundation`*"]
 pub struct DFS_INFO_2 {
     pub EntryPath: super::super::Foundation::PWSTR,
     pub Comment: super::super::Foundation::PWSTR,
@@ -412,6 +427,7 @@ unsafe impl ::windows::runtime::Abi for DFS_INFO_2 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`, `Win32_Foundation`*"]
 pub struct DFS_INFO_200 {
     pub FtDfsName: super::super::Foundation::PWSTR,
 }
@@ -444,6 +460,7 @@ unsafe impl ::windows::runtime::Abi for DFS_INFO_200 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`*"]
 pub struct DFS_INFO_2_32 {
     pub EntryPath: u32,
     pub Comment: u32,
@@ -474,6 +491,7 @@ unsafe impl ::windows::runtime::Abi for DFS_INFO_2_32 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`, `Win32_Foundation`*"]
 pub struct DFS_INFO_3 {
     pub EntryPath: super::super::Foundation::PWSTR,
     pub Comment: super::super::Foundation::PWSTR,
@@ -511,6 +529,7 @@ unsafe impl ::windows::runtime::Abi for DFS_INFO_3 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`, `Win32_Foundation`*"]
 pub struct DFS_INFO_300 {
     pub Flags: u32,
     pub DfsName: super::super::Foundation::PWSTR,
@@ -544,6 +563,7 @@ unsafe impl ::windows::runtime::Abi for DFS_INFO_300 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`*"]
 pub struct DFS_INFO_3_32 {
     pub EntryPath: u32,
     pub Comment: u32,
@@ -575,6 +595,7 @@ unsafe impl ::windows::runtime::Abi for DFS_INFO_3_32 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`, `Win32_Foundation`*"]
 pub struct DFS_INFO_4 {
     pub EntryPath: super::super::Foundation::PWSTR,
     pub Comment: super::super::Foundation::PWSTR,
@@ -613,6 +634,7 @@ unsafe impl ::windows::runtime::Abi for DFS_INFO_4 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`*"]
 pub struct DFS_INFO_4_32 {
     pub EntryPath: u32,
     pub Comment: u32,
@@ -646,6 +668,7 @@ unsafe impl ::windows::runtime::Abi for DFS_INFO_4_32 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`, `Win32_Foundation`*"]
 pub struct DFS_INFO_5 {
     pub EntryPath: super::super::Foundation::PWSTR,
     pub Comment: super::super::Foundation::PWSTR,
@@ -694,6 +717,7 @@ unsafe impl ::windows::runtime::Abi for DFS_INFO_5 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`*"]
 pub struct DFS_INFO_50 {
     pub NamespaceMajorVersion: u32,
     pub NamespaceMinorVersion: u32,
@@ -723,6 +747,7 @@ unsafe impl ::windows::runtime::Abi for DFS_INFO_50 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`, `Win32_Foundation`*"]
 pub struct DFS_INFO_6 {
     pub EntryPath: super::super::Foundation::PWSTR,
     pub Comment: super::super::Foundation::PWSTR,
@@ -773,6 +798,7 @@ unsafe impl ::windows::runtime::Abi for DFS_INFO_6 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`*"]
 pub struct DFS_INFO_7 {
     pub GenerationGuid: ::windows::runtime::GUID,
 }
@@ -800,6 +826,7 @@ unsafe impl ::windows::runtime::Abi for DFS_INFO_7 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`, `Win32_Foundation`, `Win32_Security`*"]
 pub struct DFS_INFO_8 {
     pub EntryPath: super::super::Foundation::PWSTR,
     pub Comment: super::super::Foundation::PWSTR,
@@ -853,6 +880,7 @@ unsafe impl ::windows::runtime::Abi for DFS_INFO_8 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`, `Win32_Foundation`, `Win32_Security`*"]
 pub struct DFS_INFO_9 {
     pub EntryPath: super::super::Foundation::PWSTR,
     pub Comment: super::super::Foundation::PWSTR,
@@ -905,7 +933,9 @@ unsafe impl ::windows::runtime::Abi for DFS_INFO_9 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`*"]
 pub const DFS_MOVE_FLAG_REPLACE_IF_EXISTS: u32 = 1u32;
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DFS_NAMESPACE_VERSION_ORIGIN(pub i32);
@@ -921,16 +951,24 @@ unsafe impl ::windows::runtime::Abi for DFS_NAMESPACE_VERSION_ORIGIN {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`*"]
 pub const DFS_PROPERTY_FLAG_ABDE: u32 = 32u32;
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`*"]
 pub const DFS_PROPERTY_FLAG_CLUSTER_ENABLED: u32 = 16u32;
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`*"]
 pub const DFS_PROPERTY_FLAG_INSITE_REFERRALS: u32 = 1u32;
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`*"]
 pub const DFS_PROPERTY_FLAG_ROOT_SCALABILITY: u32 = 2u32;
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`*"]
 pub const DFS_PROPERTY_FLAG_SITE_COSTING: u32 = 4u32;
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`*"]
 pub const DFS_PROPERTY_FLAG_TARGET_FAILBACK: u32 = 8u32;
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`*"]
 pub const DFS_RESTORE_VOLUME: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`, `Win32_Foundation`*"]
 pub struct DFS_SITELIST_INFO {
     pub cSites: u32,
     pub Site: [DFS_SITENAME_INFO; 1],
@@ -965,6 +1003,7 @@ unsafe impl ::windows::runtime::Abi for DFS_SITELIST_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`, `Win32_Foundation`*"]
 pub struct DFS_SITENAME_INFO {
     pub SiteFlags: u32,
     pub SiteName: super::super::Foundation::PWSTR,
@@ -996,11 +1035,14 @@ unsafe impl ::windows::runtime::Abi for DFS_SITENAME_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`*"]
 pub const DFS_SITE_PRIMARY: u32 = 1u32;
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`*"]
 pub const DFS_STORAGE_FLAVOR_UNUSED2: u32 = 768u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`, `Win32_Foundation`*"]
 pub struct DFS_STORAGE_INFO {
     pub State: u32,
     pub ServerName: super::super::Foundation::PWSTR,
@@ -1035,6 +1077,7 @@ unsafe impl ::windows::runtime::Abi for DFS_STORAGE_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`*"]
 pub struct DFS_STORAGE_INFO_0_32 {
     pub State: u32,
     pub ServerName: u32,
@@ -1064,6 +1107,7 @@ unsafe impl ::windows::runtime::Abi for DFS_STORAGE_INFO_0_32 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`, `Win32_Foundation`*"]
 pub struct DFS_STORAGE_INFO_1 {
     pub State: u32,
     pub ServerName: super::super::Foundation::PWSTR,
@@ -1097,12 +1141,17 @@ unsafe impl ::windows::runtime::Abi for DFS_STORAGE_INFO_1 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`*"]
 pub const DFS_STORAGE_STATES: u32 = 15u32;
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`*"]
 pub const DFS_STORAGE_STATE_ACTIVE: u32 = 4u32;
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`*"]
 pub const DFS_STORAGE_STATE_OFFLINE: u32 = 1u32;
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`*"]
 pub const DFS_STORAGE_STATE_ONLINE: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`*"]
 pub struct DFS_SUPPORTED_NAMESPACE_VERSION_INFO {
     pub DomainDfsMajorVersion: u32,
     pub DomainDfsMinorVersion: u32,
@@ -1141,6 +1190,7 @@ unsafe impl ::windows::runtime::Abi for DFS_SUPPORTED_NAMESPACE_VERSION_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`*"]
 pub struct DFS_TARGET_PRIORITY {
     pub TargetPriorityClass: DFS_TARGET_PRIORITY_CLASS,
     pub TargetPriorityRank: u16,
@@ -1167,6 +1217,7 @@ unsafe impl ::windows::runtime::Abi for DFS_TARGET_PRIORITY {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DFS_TARGET_PRIORITY_CLASS(pub i32);
@@ -1185,24 +1236,42 @@ unsafe impl ::windows::runtime::Abi for DFS_TARGET_PRIORITY_CLASS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`*"]
 pub const DFS_VOLUME_FLAVORS: u32 = 768u32;
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`*"]
 pub const DFS_VOLUME_FLAVOR_AD_BLOB: u32 = 512u32;
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`*"]
 pub const DFS_VOLUME_FLAVOR_STANDALONE: u32 = 256u32;
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`*"]
 pub const DFS_VOLUME_FLAVOR_UNUSED1: u32 = 0u32;
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`*"]
 pub const DFS_VOLUME_STATES: u32 = 15u32;
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`*"]
 pub const DFS_VOLUME_STATE_FORCE_SYNC: u32 = 64u32;
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`*"]
 pub const DFS_VOLUME_STATE_INCONSISTENT: u32 = 2u32;
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`*"]
 pub const DFS_VOLUME_STATE_OFFLINE: u32 = 3u32;
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`*"]
 pub const DFS_VOLUME_STATE_OK: u32 = 1u32;
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`*"]
 pub const DFS_VOLUME_STATE_ONLINE: u32 = 4u32;
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`*"]
 pub const DFS_VOLUME_STATE_RESYNCHRONIZE: u32 = 16u32;
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`*"]
 pub const DFS_VOLUME_STATE_STANDBY: u32 = 32u32;
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`*"]
 pub const FSCTL_DFS_BASE: u32 = 6u32;
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`*"]
 pub const FSCTL_DFS_GET_PKT_ENTRY_STATE: u32 = 401340u32;
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`*"]
 pub const NET_DFS_SETDC_FLAGS: u32 = 0u32;
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`*"]
 pub const NET_DFS_SETDC_INITPKT: u32 = 2u32;
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`*"]
 pub const NET_DFS_SETDC_TIMEOUT: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn NetDfsAdd<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dfsentrypath: Param0, servername: Param1, sharename: Param2, comment: Param3, flags: u32) -> u32 {
     #[cfg(windows)]
@@ -1217,6 +1286,7 @@ pub unsafe fn NetDfsAdd<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn NetDfsAddFtRoot<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, rootshare: Param1, ftdfsname: Param2, comment: Param3, flags: u32) -> u32 {
     #[cfg(windows)]
@@ -1231,6 +1301,7 @@ pub unsafe fn NetDfsAddFtRoot<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn NetDfsAddRootTarget<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pdfspath: Param0, ptargetpath: Param1, majorversion: u32, pcomment: Param3, flags: u32) -> u32 {
     #[cfg(windows)]
@@ -1245,6 +1316,7 @@ pub unsafe fn NetDfsAddRootTarget<'a, Param0: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn NetDfsAddStdRoot<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, rootshare: Param1, comment: Param2, flags: u32) -> u32 {
     #[cfg(windows)]
@@ -1259,6 +1331,7 @@ pub unsafe fn NetDfsAddStdRoot<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn NetDfsEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dfsname: Param0, level: u32, prefmaxlen: u32, buffer: *mut *mut u8, entriesread: *mut u32, resumehandle: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -1273,6 +1346,7 @@ pub unsafe fn NetDfsEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn NetDfsGetClientInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dfsentrypath: Param0, servername: Param1, sharename: Param2, level: u32, buffer: *mut *mut u8) -> u32 {
     #[cfg(windows)]
@@ -1287,6 +1361,7 @@ pub unsafe fn NetDfsGetClientInfo<'a, Param0: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`, `Win32_Foundation`, `Win32_Security`*"]
 #[inline]
 pub unsafe fn NetDfsGetFtContainerSecurity<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(domainname: Param0, securityinformation: u32, ppsecuritydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR, lpcbsecuritydescriptor: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -1301,6 +1376,7 @@ pub unsafe fn NetDfsGetFtContainerSecurity<'a, Param0: ::windows::runtime::IntoP
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn NetDfsGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dfsentrypath: Param0, servername: Param1, sharename: Param2, level: u32, buffer: *mut *mut u8) -> u32 {
     #[cfg(windows)]
@@ -1315,6 +1391,7 @@ pub unsafe fn NetDfsGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`, `Win32_Foundation`, `Win32_Security`*"]
 #[inline]
 pub unsafe fn NetDfsGetSecurity<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dfsentrypath: Param0, securityinformation: u32, ppsecuritydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR, lpcbsecuritydescriptor: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -1329,6 +1406,7 @@ pub unsafe fn NetDfsGetSecurity<'a, Param0: ::windows::runtime::IntoParam<'a, su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`, `Win32_Foundation`, `Win32_Security`*"]
 #[inline]
 pub unsafe fn NetDfsGetStdContainerSecurity<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(machinename: Param0, securityinformation: u32, ppsecuritydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR, lpcbsecuritydescriptor: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -1343,6 +1421,7 @@ pub unsafe fn NetDfsGetStdContainerSecurity<'a, Param0: ::windows::runtime::Into
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn NetDfsGetSupportedNamespaceVersion<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(origin: DFS_NAMESPACE_VERSION_ORIGIN, pname: Param1, ppversioninfo: *mut *mut DFS_SUPPORTED_NAMESPACE_VERSION_INFO) -> u32 {
     #[cfg(windows)]
@@ -1357,6 +1436,7 @@ pub unsafe fn NetDfsGetSupportedNamespaceVersion<'a, Param1: ::windows::runtime:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn NetDfsMove<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(olddfsentrypath: Param0, newdfsentrypath: Param1, flags: u32) -> u32 {
     #[cfg(windows)]
@@ -1371,6 +1451,7 @@ pub unsafe fn NetDfsMove<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn NetDfsRemove<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dfsentrypath: Param0, servername: Param1, sharename: Param2) -> u32 {
     #[cfg(windows)]
@@ -1385,6 +1466,7 @@ pub unsafe fn NetDfsRemove<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn NetDfsRemoveFtRoot<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, rootshare: Param1, ftdfsname: Param2, flags: u32) -> u32 {
     #[cfg(windows)]
@@ -1399,6 +1481,7 @@ pub unsafe fn NetDfsRemoveFtRoot<'a, Param0: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn NetDfsRemoveFtRootForced<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(domainname: Param0, servername: Param1, rootshare: Param2, ftdfsname: Param3, flags: u32) -> u32 {
     #[cfg(windows)]
@@ -1413,6 +1496,7 @@ pub unsafe fn NetDfsRemoveFtRootForced<'a, Param0: ::windows::runtime::IntoParam
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn NetDfsRemoveRootTarget<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pdfspath: Param0, ptargetpath: Param1, flags: u32) -> u32 {
     #[cfg(windows)]
@@ -1427,6 +1511,7 @@ pub unsafe fn NetDfsRemoveRootTarget<'a, Param0: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn NetDfsRemoveStdRoot<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, rootshare: Param1, flags: u32) -> u32 {
     #[cfg(windows)]
@@ -1441,6 +1526,7 @@ pub unsafe fn NetDfsRemoveStdRoot<'a, Param0: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn NetDfsSetClientInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dfsentrypath: Param0, servername: Param1, sharename: Param2, level: u32, buffer: *const u8) -> u32 {
     #[cfg(windows)]
@@ -1455,6 +1541,7 @@ pub unsafe fn NetDfsSetClientInfo<'a, Param0: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`, `Win32_Foundation`, `Win32_Security`*"]
 #[inline]
 pub unsafe fn NetDfsSetFtContainerSecurity<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(domainname: Param0, securityinformation: u32, psecuritydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR) -> u32 {
     #[cfg(windows)]
@@ -1469,6 +1556,7 @@ pub unsafe fn NetDfsSetFtContainerSecurity<'a, Param0: ::windows::runtime::IntoP
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn NetDfsSetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dfsentrypath: Param0, servername: Param1, sharename: Param2, level: u32, buffer: *const u8) -> u32 {
     #[cfg(windows)]
@@ -1483,6 +1571,7 @@ pub unsafe fn NetDfsSetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`, `Win32_Foundation`, `Win32_Security`*"]
 #[inline]
 pub unsafe fn NetDfsSetSecurity<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dfsentrypath: Param0, securityinformation: u32, psecuritydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR) -> u32 {
     #[cfg(windows)]
@@ -1497,6 +1586,7 @@ pub unsafe fn NetDfsSetSecurity<'a, Param0: ::windows::runtime::IntoParam<'a, su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "*Required features: `Win32_Storage_DistributedFileSystem`, `Win32_Foundation`, `Win32_Security`*"]
 #[inline]
 pub unsafe fn NetDfsSetStdContainerSecurity<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(machinename: Param0, securityinformation: u32, psecuritydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR) -> u32 {
     #[cfg(windows)]

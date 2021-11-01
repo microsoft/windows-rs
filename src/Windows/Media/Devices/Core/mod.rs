@@ -1,9 +1,11 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Media_Devices_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CameraIntrinsics(::windows::runtime::IInspectable);
 impl CameraIntrinsics {
     #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Media_Devices_Core`, `Foundation_Numerics`*"]
     pub fn FocalLength(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Numerics::Vector2> {
         let this = self;
         unsafe {
@@ -12,6 +14,7 @@ impl CameraIntrinsics {
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Media_Devices_Core`, `Foundation_Numerics`*"]
     pub fn PrincipalPoint(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Numerics::Vector2> {
         let this = self;
         unsafe {
@@ -20,6 +23,7 @@ impl CameraIntrinsics {
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Media_Devices_Core`, `Foundation_Numerics`*"]
     pub fn RadialDistortion(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Numerics::Vector3> {
         let this = self;
         unsafe {
@@ -28,6 +32,7 @@ impl CameraIntrinsics {
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Media_Devices_Core`, `Foundation_Numerics`*"]
     pub fn TangentialDistortion(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Numerics::Vector2> {
         let this = self;
         unsafe {
@@ -35,6 +40,7 @@ impl CameraIntrinsics {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Devices_Core`*"]
     pub fn ImageWidth(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -42,6 +48,7 @@ impl CameraIntrinsics {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Devices_Core`*"]
     pub fn ImageHeight(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -50,6 +57,7 @@ impl CameraIntrinsics {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
+    #[doc = "*Required features: `Media_Devices_Core`, `Foundation`, `Foundation_Numerics`*"]
     pub fn ProjectOntoFrame<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Numerics::Vector3>>(&self, coordinate: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::Point> {
         let this = self;
         unsafe {
@@ -58,6 +66,7 @@ impl CameraIntrinsics {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
+    #[doc = "*Required features: `Media_Devices_Core`, `Foundation`, `Foundation_Numerics`*"]
     pub fn UnprojectAtUnitDepth<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Point>>(&self, pixelcoordinate: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::Numerics::Vector2> {
         let this = self;
         unsafe {
@@ -66,16 +75,19 @@ impl CameraIntrinsics {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
+    #[doc = "*Required features: `Media_Devices_Core`, `Foundation`, `Foundation_Numerics`*"]
     pub fn ProjectManyOntoFrame(&self, coordinates: &[<super::super::super::Foundation::Numerics::Vector3 as ::windows::runtime::Abi>::DefaultType], results: &mut [<super::super::super::Foundation::Point as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), coordinates.len() as u32, ::std::mem::transmute(coordinates.as_ptr()), results.len() as u32, ::std::mem::transmute_copy(&results)).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
+    #[doc = "*Required features: `Media_Devices_Core`, `Foundation`, `Foundation_Numerics`*"]
     pub fn UnprojectPixelsAtUnitDepth(&self, pixelcoordinates: &[<super::super::super::Foundation::Point as ::windows::runtime::Abi>::DefaultType], results: &mut [<super::super::super::Foundation::Numerics::Vector2 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), pixelcoordinates.len() as u32, ::std::mem::transmute(pixelcoordinates.as_ptr()), results.len() as u32, ::std::mem::transmute_copy(&results)).ok() }
     }
     #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Media_Devices_Core`, `Foundation_Numerics`*"]
     pub fn Create<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Numerics::Vector2>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Numerics::Vector2>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Numerics::Vector3>, Param3: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Numerics::Vector2>>(
         focallength: Param0,
         principalpoint: Param1,
@@ -90,6 +102,7 @@ impl CameraIntrinsics {
         })
     }
     #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Media_Devices_Core`, `Foundation_Numerics`*"]
     pub fn UndistortedProjectionTransform(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Numerics::Matrix4x4> {
         let this = &::windows::runtime::Interface::cast::<ICameraIntrinsics2>(self)?;
         unsafe {
@@ -98,6 +111,7 @@ impl CameraIntrinsics {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Devices_Core`, `Foundation`*"]
     pub fn DistortPoint<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Point>>(&self, input: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::Point> {
         let this = &::windows::runtime::Interface::cast::<ICameraIntrinsics2>(self)?;
         unsafe {
@@ -106,11 +120,13 @@ impl CameraIntrinsics {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Devices_Core`, `Foundation`*"]
     pub fn DistortPoints(&self, inputs: &[<super::super::super::Foundation::Point as ::windows::runtime::Abi>::DefaultType], results: &mut [<super::super::super::Foundation::Point as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ICameraIntrinsics2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), inputs.len() as u32, ::std::mem::transmute(inputs.as_ptr()), results.len() as u32, ::std::mem::transmute_copy(&results)).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Devices_Core`, `Foundation`*"]
     pub fn UndistortPoint<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Point>>(&self, input: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::Point> {
         let this = &::windows::runtime::Interface::cast::<ICameraIntrinsics2>(self)?;
         unsafe {
@@ -119,6 +135,7 @@ impl CameraIntrinsics {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Devices_Core`, `Foundation`*"]
     pub fn UndistortPoints(&self, inputs: &[<super::super::super::Foundation::Point as ::windows::runtime::Abi>::DefaultType], results: &mut [<super::super::super::Foundation::Point as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ICameraIntrinsics2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), inputs.len() as u32, ::std::mem::transmute(inputs.as_ptr()), results.len() as u32, ::std::mem::transmute_copy(&results)).ok() }
@@ -180,16 +197,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for CameraIntrinsics {}
 unsafe impl ::std::marker::Sync for CameraIntrinsics {}
+#[doc = "*Required features: `Media_Devices_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct DepthCorrelatedCoordinateMapper(::windows::runtime::IInspectable);
 impl DepthCorrelatedCoordinateMapper {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Devices_Core`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
+    #[doc = "*Required features: `Media_Devices_Core`, `Foundation`, `Foundation_Numerics`, `Perception_Spatial`*"]
     pub fn UnprojectPoint<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Point>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>>(&self, sourcepoint: Param0, targetcoordinatesystem: Param1) -> ::windows::runtime::Result<super::super::super::Foundation::Numerics::Vector3> {
         let this = self;
         unsafe {
@@ -198,11 +218,13 @@ impl DepthCorrelatedCoordinateMapper {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
+    #[doc = "*Required features: `Media_Devices_Core`, `Foundation`, `Foundation_Numerics`, `Perception_Spatial`*"]
     pub fn UnprojectPoints<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>>(&self, sourcepoints: &[<super::super::super::Foundation::Point as ::windows::runtime::Abi>::DefaultType], targetcoordinatesystem: Param1, results: &mut [<super::super::super::Foundation::Numerics::Vector3 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), sourcepoints.len() as u32, ::std::mem::transmute(sourcepoints.as_ptr()), targetcoordinatesystem.into_param().abi(), results.len() as u32, ::std::mem::transmute_copy(&results)).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Perception_Spatial"))]
+    #[doc = "*Required features: `Media_Devices_Core`, `Foundation`, `Perception_Spatial`*"]
     pub fn MapPoint<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Point>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>, Param2: ::windows::runtime::IntoParam<'a, CameraIntrinsics>>(&self, sourcepoint: Param0, targetcoordinatesystem: Param1, targetcameraintrinsics: Param2) -> ::windows::runtime::Result<super::super::super::Foundation::Point> {
         let this = self;
         unsafe {
@@ -211,6 +233,7 @@ impl DepthCorrelatedCoordinateMapper {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Perception_Spatial"))]
+    #[doc = "*Required features: `Media_Devices_Core`, `Foundation`, `Perception_Spatial`*"]
     pub fn MapPoints<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>, Param2: ::windows::runtime::IntoParam<'a, CameraIntrinsics>>(&self, sourcepoints: &[<super::super::super::Foundation::Point as ::windows::runtime::Abi>::DefaultType], targetcoordinatesystem: Param1, targetcameraintrinsics: Param2, results: &mut [<super::super::super::Foundation::Point as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), sourcepoints.len() as u32, ::std::mem::transmute(sourcepoints.as_ptr()), targetcoordinatesystem.into_param().abi(), targetcameraintrinsics.into_param().abi(), results.len() as u32, ::std::mem::transmute_copy(&results)).ok() }
@@ -294,10 +317,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::IClo
 }
 unsafe impl ::std::marker::Send for DepthCorrelatedCoordinateMapper {}
 unsafe impl ::std::marker::Sync for DepthCorrelatedCoordinateMapper {}
+#[doc = "*Required features: `Media_Devices_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct FrameControlCapabilities(::windows::runtime::IInspectable);
 impl FrameControlCapabilities {
+    #[doc = "*Required features: `Media_Devices_Core`*"]
     pub fn Exposure(&self) -> ::windows::runtime::Result<FrameExposureCapabilities> {
         let this = self;
         unsafe {
@@ -305,6 +330,7 @@ impl FrameControlCapabilities {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<FrameExposureCapabilities>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Devices_Core`*"]
     pub fn ExposureCompensation(&self) -> ::windows::runtime::Result<FrameExposureCompensationCapabilities> {
         let this = self;
         unsafe {
@@ -312,6 +338,7 @@ impl FrameControlCapabilities {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<FrameExposureCompensationCapabilities>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Devices_Core`*"]
     pub fn IsoSpeed(&self) -> ::windows::runtime::Result<FrameIsoSpeedCapabilities> {
         let this = self;
         unsafe {
@@ -319,6 +346,7 @@ impl FrameControlCapabilities {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<FrameIsoSpeedCapabilities>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Devices_Core`*"]
     pub fn Focus(&self) -> ::windows::runtime::Result<FrameFocusCapabilities> {
         let this = self;
         unsafe {
@@ -326,6 +354,7 @@ impl FrameControlCapabilities {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<FrameFocusCapabilities>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Devices_Core`*"]
     pub fn PhotoConfirmationSupported(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -333,6 +362,7 @@ impl FrameControlCapabilities {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Devices_Core`*"]
     pub fn Flash(&self) -> ::windows::runtime::Result<FrameFlashCapabilities> {
         let this = &::windows::runtime::Interface::cast::<IFrameControlCapabilities2>(self)?;
         unsafe {
@@ -391,6 +421,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
+#[doc = "*Required features: `Media_Devices_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct FrameController(::windows::runtime::IInspectable);
@@ -402,6 +433,7 @@ impl FrameController {
         static mut SHARED: ::windows::runtime::FactoryCache<FrameController, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `Media_Devices_Core`*"]
     pub fn ExposureControl(&self) -> ::windows::runtime::Result<FrameExposureControl> {
         let this = self;
         unsafe {
@@ -409,6 +441,7 @@ impl FrameController {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<FrameExposureControl>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Devices_Core`*"]
     pub fn ExposureCompensationControl(&self) -> ::windows::runtime::Result<FrameExposureCompensationControl> {
         let this = self;
         unsafe {
@@ -416,6 +449,7 @@ impl FrameController {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<FrameExposureCompensationControl>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Devices_Core`*"]
     pub fn IsoSpeedControl(&self) -> ::windows::runtime::Result<FrameIsoSpeedControl> {
         let this = self;
         unsafe {
@@ -423,6 +457,7 @@ impl FrameController {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<FrameIsoSpeedControl>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Devices_Core`*"]
     pub fn FocusControl(&self) -> ::windows::runtime::Result<FrameFocusControl> {
         let this = self;
         unsafe {
@@ -431,6 +466,7 @@ impl FrameController {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Devices_Core`, `Foundation`*"]
     pub fn PhotoConfirmationEnabled(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IReference<bool>> {
         let this = self;
         unsafe {
@@ -439,10 +475,12 @@ impl FrameController {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Devices_Core`, `Foundation`*"]
     pub fn SetPhotoConfirmationEnabled<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::IReference<bool>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Media_Devices_Core`*"]
     pub fn FlashControl(&self) -> ::windows::runtime::Result<FrameFlashControl> {
         let this = &::windows::runtime::Interface::cast::<IFrameController2>(self)?;
         unsafe {
@@ -503,10 +541,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for FrameController {}
 unsafe impl ::std::marker::Sync for FrameController {}
+#[doc = "*Required features: `Media_Devices_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct FrameExposureCapabilities(::windows::runtime::IInspectable);
 impl FrameExposureCapabilities {
+    #[doc = "*Required features: `Media_Devices_Core`*"]
     pub fn Supported(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -515,6 +555,7 @@ impl FrameExposureCapabilities {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Devices_Core`, `Foundation`*"]
     pub fn Min(&self) -> ::windows::runtime::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -523,6 +564,7 @@ impl FrameExposureCapabilities {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Devices_Core`, `Foundation`*"]
     pub fn Max(&self) -> ::windows::runtime::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -531,6 +573,7 @@ impl FrameExposureCapabilities {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Devices_Core`, `Foundation`*"]
     pub fn Step(&self) -> ::windows::runtime::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -589,10 +632,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
+#[doc = "*Required features: `Media_Devices_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct FrameExposureCompensationCapabilities(::windows::runtime::IInspectable);
 impl FrameExposureCompensationCapabilities {
+    #[doc = "*Required features: `Media_Devices_Core`*"]
     pub fn Supported(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -600,6 +645,7 @@ impl FrameExposureCompensationCapabilities {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Devices_Core`*"]
     pub fn Min(&self) -> ::windows::runtime::Result<f32> {
         let this = self;
         unsafe {
@@ -607,6 +653,7 @@ impl FrameExposureCompensationCapabilities {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Devices_Core`*"]
     pub fn Max(&self) -> ::windows::runtime::Result<f32> {
         let this = self;
         unsafe {
@@ -614,6 +661,7 @@ impl FrameExposureCompensationCapabilities {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Devices_Core`*"]
     pub fn Step(&self) -> ::windows::runtime::Result<f32> {
         let this = self;
         unsafe {
@@ -672,11 +720,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
+#[doc = "*Required features: `Media_Devices_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct FrameExposureCompensationControl(::windows::runtime::IInspectable);
 impl FrameExposureCompensationControl {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Devices_Core`, `Foundation`*"]
     pub fn Value(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IReference<f32>> {
         let this = self;
         unsafe {
@@ -685,6 +735,7 @@ impl FrameExposureCompensationControl {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Devices_Core`, `Foundation`*"]
     pub fn SetValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::IReference<f32>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -740,10 +791,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
+#[doc = "*Required features: `Media_Devices_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct FrameExposureControl(::windows::runtime::IInspectable);
 impl FrameExposureControl {
+    #[doc = "*Required features: `Media_Devices_Core`*"]
     pub fn Auto(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -751,11 +804,13 @@ impl FrameExposureControl {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Devices_Core`*"]
     pub fn SetAuto(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Devices_Core`, `Foundation`*"]
     pub fn Value(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>> {
         let this = self;
         unsafe {
@@ -764,6 +819,7 @@ impl FrameExposureControl {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Devices_Core`, `Foundation`*"]
     pub fn SetValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -819,10 +875,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
+#[doc = "*Required features: `Media_Devices_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct FrameFlashCapabilities(::windows::runtime::IInspectable);
 impl FrameFlashCapabilities {
+    #[doc = "*Required features: `Media_Devices_Core`*"]
     pub fn Supported(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -830,6 +888,7 @@ impl FrameFlashCapabilities {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Devices_Core`*"]
     pub fn RedEyeReductionSupported(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -837,6 +896,7 @@ impl FrameFlashCapabilities {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Devices_Core`*"]
     pub fn PowerSupported(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -895,10 +955,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
+#[doc = "*Required features: `Media_Devices_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct FrameFlashControl(::windows::runtime::IInspectable);
 impl FrameFlashControl {
+    #[doc = "*Required features: `Media_Devices_Core`*"]
     pub fn Mode(&self) -> ::windows::runtime::Result<FrameFlashMode> {
         let this = self;
         unsafe {
@@ -906,10 +968,12 @@ impl FrameFlashControl {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<FrameFlashMode>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Devices_Core`*"]
     pub fn SetMode(&self, value: FrameFlashMode) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Devices_Core`*"]
     pub fn Auto(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -917,10 +981,12 @@ impl FrameFlashControl {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Devices_Core`*"]
     pub fn SetAuto(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Devices_Core`*"]
     pub fn RedEyeReduction(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -928,10 +994,12 @@ impl FrameFlashControl {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Devices_Core`*"]
     pub fn SetRedEyeReduction(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Devices_Core`*"]
     pub fn PowerPercent(&self) -> ::windows::runtime::Result<f32> {
         let this = self;
         unsafe {
@@ -939,6 +1007,7 @@ impl FrameFlashControl {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Devices_Core`*"]
     pub fn SetPowerPercent(&self, value: f32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value).ok() }
@@ -994,6 +1063,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
+#[doc = "*Required features: `Media_Devices_Core`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FrameFlashMode(pub i32);
@@ -1014,10 +1084,12 @@ unsafe impl ::windows::runtime::Abi for FrameFlashMode {
 unsafe impl ::windows::runtime::RuntimeType for FrameFlashMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.Core.FrameFlashMode;i4)");
 }
+#[doc = "*Required features: `Media_Devices_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct FrameFocusCapabilities(::windows::runtime::IInspectable);
 impl FrameFocusCapabilities {
+    #[doc = "*Required features: `Media_Devices_Core`*"]
     pub fn Supported(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1025,6 +1097,7 @@ impl FrameFocusCapabilities {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Devices_Core`*"]
     pub fn Min(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -1032,6 +1105,7 @@ impl FrameFocusCapabilities {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Devices_Core`*"]
     pub fn Max(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -1039,6 +1113,7 @@ impl FrameFocusCapabilities {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Devices_Core`*"]
     pub fn Step(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -1097,11 +1172,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
+#[doc = "*Required features: `Media_Devices_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct FrameFocusControl(::windows::runtime::IInspectable);
 impl FrameFocusControl {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Devices_Core`, `Foundation`*"]
     pub fn Value(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IReference<u32>> {
         let this = self;
         unsafe {
@@ -1110,6 +1187,7 @@ impl FrameFocusControl {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Devices_Core`, `Foundation`*"]
     pub fn SetValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::IReference<u32>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -1165,10 +1243,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
+#[doc = "*Required features: `Media_Devices_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct FrameIsoSpeedCapabilities(::windows::runtime::IInspectable);
 impl FrameIsoSpeedCapabilities {
+    #[doc = "*Required features: `Media_Devices_Core`*"]
     pub fn Supported(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1176,6 +1256,7 @@ impl FrameIsoSpeedCapabilities {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Devices_Core`*"]
     pub fn Min(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -1183,6 +1264,7 @@ impl FrameIsoSpeedCapabilities {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Devices_Core`*"]
     pub fn Max(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -1190,6 +1272,7 @@ impl FrameIsoSpeedCapabilities {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Devices_Core`*"]
     pub fn Step(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -1248,10 +1331,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
+#[doc = "*Required features: `Media_Devices_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct FrameIsoSpeedControl(::windows::runtime::IInspectable);
 impl FrameIsoSpeedControl {
+    #[doc = "*Required features: `Media_Devices_Core`*"]
     pub fn Auto(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1259,11 +1344,13 @@ impl FrameIsoSpeedControl {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Devices_Core`*"]
     pub fn SetAuto(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Devices_Core`, `Foundation`*"]
     pub fn Value(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IReference<u32>> {
         let this = self;
         unsafe {
@@ -1272,6 +1359,7 @@ impl FrameIsoSpeedControl {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Devices_Core`, `Foundation`*"]
     pub fn SetValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::IReference<u32>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -1783,10 +1871,12 @@ pub struct IVariablePhotoSequenceController_abi(
     #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
+#[doc = "*Required features: `Media_Devices_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct VariablePhotoSequenceController(::windows::runtime::IInspectable);
 impl VariablePhotoSequenceController {
+    #[doc = "*Required features: `Media_Devices_Core`*"]
     pub fn Supported(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1794,6 +1884,7 @@ impl VariablePhotoSequenceController {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Devices_Core`*"]
     pub fn MaxPhotosPerSecond(&self) -> ::windows::runtime::Result<f32> {
         let this = self;
         unsafe {
@@ -1801,6 +1892,7 @@ impl VariablePhotoSequenceController {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Devices_Core`*"]
     pub fn PhotosPerSecondLimit(&self) -> ::windows::runtime::Result<f32> {
         let this = self;
         unsafe {
@@ -1808,11 +1900,13 @@ impl VariablePhotoSequenceController {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Devices_Core`*"]
     pub fn SetPhotosPerSecondLimit(&self, value: f32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Media_MediaProperties")]
+    #[doc = "*Required features: `Media_Devices_Core`, `Media_MediaProperties`*"]
     pub fn GetHighestConcurrentFrameRate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::MediaProperties::IMediaEncodingProperties>>(&self, captureproperties: Param0) -> ::windows::runtime::Result<super::super::MediaProperties::MediaRatio> {
         let this = self;
         unsafe {
@@ -1821,6 +1915,7 @@ impl VariablePhotoSequenceController {
         }
     }
     #[cfg(feature = "Media_MediaProperties")]
+    #[doc = "*Required features: `Media_Devices_Core`, `Media_MediaProperties`*"]
     pub fn GetCurrentFrameRate(&self) -> ::windows::runtime::Result<super::super::MediaProperties::MediaRatio> {
         let this = self;
         unsafe {
@@ -1828,6 +1923,7 @@ impl VariablePhotoSequenceController {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::MediaProperties::MediaRatio>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Devices_Core`*"]
     pub fn FrameCapabilities(&self) -> ::windows::runtime::Result<FrameControlCapabilities> {
         let this = self;
         unsafe {
@@ -1836,6 +1932,7 @@ impl VariablePhotoSequenceController {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Media_Devices_Core`, `Foundation_Collections`*"]
     pub fn DesiredFrameControllers(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVector<FrameController>> {
         let this = self;
         unsafe {

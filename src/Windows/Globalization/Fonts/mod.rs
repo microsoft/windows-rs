@@ -73,10 +73,12 @@ pub struct ILanguageFontGroupFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, languagetag: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Globalization_Fonts`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct LanguageFont(::windows::runtime::IInspectable);
 impl LanguageFont {
+    #[doc = "*Required features: `Globalization_Fonts`*"]
     pub fn FontFamily(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -85,6 +87,7 @@ impl LanguageFont {
         }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `Globalization_Fonts`, `UI_Text`*"]
     pub fn FontWeight(&self) -> ::windows::runtime::Result<super::super::UI::Text::FontWeight> {
         let this = self;
         unsafe {
@@ -93,6 +96,7 @@ impl LanguageFont {
         }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `Globalization_Fonts`, `UI_Text`*"]
     pub fn FontStretch(&self) -> ::windows::runtime::Result<super::super::UI::Text::FontStretch> {
         let this = self;
         unsafe {
@@ -101,6 +105,7 @@ impl LanguageFont {
         }
     }
     #[cfg(feature = "UI_Text")]
+    #[doc = "*Required features: `Globalization_Fonts`, `UI_Text`*"]
     pub fn FontStyle(&self) -> ::windows::runtime::Result<super::super::UI::Text::FontStyle> {
         let this = self;
         unsafe {
@@ -108,6 +113,7 @@ impl LanguageFont {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::UI::Text::FontStyle>(result__)
         }
     }
+    #[doc = "*Required features: `Globalization_Fonts`*"]
     pub fn ScaleFactor(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -168,10 +174,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for LanguageFont {}
 unsafe impl ::std::marker::Sync for LanguageFont {}
+#[doc = "*Required features: `Globalization_Fonts`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct LanguageFontGroup(::windows::runtime::IInspectable);
 impl LanguageFontGroup {
+    #[doc = "*Required features: `Globalization_Fonts`*"]
     pub fn UITextFont(&self) -> ::windows::runtime::Result<LanguageFont> {
         let this = self;
         unsafe {
@@ -179,6 +187,7 @@ impl LanguageFontGroup {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<LanguageFont>(result__)
         }
     }
+    #[doc = "*Required features: `Globalization_Fonts`*"]
     pub fn UIHeadingFont(&self) -> ::windows::runtime::Result<LanguageFont> {
         let this = self;
         unsafe {
@@ -186,6 +195,7 @@ impl LanguageFontGroup {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<LanguageFont>(result__)
         }
     }
+    #[doc = "*Required features: `Globalization_Fonts`*"]
     pub fn UITitleFont(&self) -> ::windows::runtime::Result<LanguageFont> {
         let this = self;
         unsafe {
@@ -193,6 +203,7 @@ impl LanguageFontGroup {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<LanguageFont>(result__)
         }
     }
+    #[doc = "*Required features: `Globalization_Fonts`*"]
     pub fn UICaptionFont(&self) -> ::windows::runtime::Result<LanguageFont> {
         let this = self;
         unsafe {
@@ -200,6 +211,7 @@ impl LanguageFontGroup {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<LanguageFont>(result__)
         }
     }
+    #[doc = "*Required features: `Globalization_Fonts`*"]
     pub fn UINotificationHeadingFont(&self) -> ::windows::runtime::Result<LanguageFont> {
         let this = self;
         unsafe {
@@ -207,6 +219,7 @@ impl LanguageFontGroup {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<LanguageFont>(result__)
         }
     }
+    #[doc = "*Required features: `Globalization_Fonts`*"]
     pub fn TraditionalDocumentFont(&self) -> ::windows::runtime::Result<LanguageFont> {
         let this = self;
         unsafe {
@@ -214,6 +227,7 @@ impl LanguageFontGroup {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<LanguageFont>(result__)
         }
     }
+    #[doc = "*Required features: `Globalization_Fonts`*"]
     pub fn ModernDocumentFont(&self) -> ::windows::runtime::Result<LanguageFont> {
         let this = self;
         unsafe {
@@ -221,6 +235,7 @@ impl LanguageFontGroup {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<LanguageFont>(result__)
         }
     }
+    #[doc = "*Required features: `Globalization_Fonts`*"]
     pub fn DocumentHeadingFont(&self) -> ::windows::runtime::Result<LanguageFont> {
         let this = self;
         unsafe {
@@ -228,6 +243,7 @@ impl LanguageFontGroup {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<LanguageFont>(result__)
         }
     }
+    #[doc = "*Required features: `Globalization_Fonts`*"]
     pub fn FixedWidthTextFont(&self) -> ::windows::runtime::Result<LanguageFont> {
         let this = self;
         unsafe {
@@ -235,6 +251,7 @@ impl LanguageFontGroup {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<LanguageFont>(result__)
         }
     }
+    #[doc = "*Required features: `Globalization_Fonts`*"]
     pub fn DocumentAlternate1Font(&self) -> ::windows::runtime::Result<LanguageFont> {
         let this = self;
         unsafe {
@@ -242,6 +259,7 @@ impl LanguageFontGroup {
             (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<LanguageFont>(result__)
         }
     }
+    #[doc = "*Required features: `Globalization_Fonts`*"]
     pub fn DocumentAlternate2Font(&self) -> ::windows::runtime::Result<LanguageFont> {
         let this = self;
         unsafe {
@@ -249,6 +267,7 @@ impl LanguageFontGroup {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<LanguageFont>(result__)
         }
     }
+    #[doc = "*Required features: `Globalization_Fonts`*"]
     pub fn CreateLanguageFontGroup<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(languagetag: Param0) -> ::windows::runtime::Result<LanguageFontGroup> {
         Self::ILanguageFontGroupFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();

@@ -1,6 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_Multicast`*"]
 pub union IPNG_ADDRESS {
     pub IpAddrV4: u32,
     pub IpAddrV6: [u8; 16],
@@ -21,12 +22,17 @@ unsafe impl ::windows::runtime::Abi for IPNG_ADDRESS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Multicast`*"]
 pub const MCAST_API_CURRENT_VERSION: i32 = 1i32;
+#[doc = "*Required features: `Win32_NetworkManagement_Multicast`*"]
 pub const MCAST_API_VERSION_0: i32 = 0i32;
+#[doc = "*Required features: `Win32_NetworkManagement_Multicast`*"]
 pub const MCAST_API_VERSION_1: i32 = 1i32;
+#[doc = "*Required features: `Win32_NetworkManagement_Multicast`*"]
 pub const MCAST_CLIENT_ID_LEN: u32 = 17u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_Multicast`*"]
 pub struct MCAST_CLIENT_UID {
     pub ClientUID: *mut u8,
     pub ClientUIDLength: u32,
@@ -54,6 +60,7 @@ unsafe impl ::windows::runtime::Abi for MCAST_CLIENT_UID {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_Multicast`*"]
 pub struct MCAST_LEASE_REQUEST {
     pub LeaseStartTime: i32,
     pub MaxLeaseStartTime: i32,
@@ -82,6 +89,7 @@ unsafe impl ::windows::runtime::Abi for MCAST_LEASE_REQUEST {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_Multicast`*"]
 pub struct MCAST_LEASE_RESPONSE {
     pub LeaseStartTime: i32,
     pub LeaseEndTime: i32,
@@ -107,6 +115,7 @@ unsafe impl ::windows::runtime::Abi for MCAST_LEASE_RESPONSE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_Multicast`*"]
 pub struct MCAST_SCOPE_CTX {
     pub ScopeID: IPNG_ADDRESS,
     pub Interface: IPNG_ADDRESS,
@@ -131,6 +140,7 @@ unsafe impl ::windows::runtime::Abi for MCAST_SCOPE_CTX {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Multicast`, `Win32_Foundation`*"]
 pub struct MCAST_SCOPE_ENTRY {
     pub ScopeCtx: MCAST_SCOPE_CTX,
     pub LastAddr: IPNG_ADDRESS,
@@ -158,6 +168,7 @@ unsafe impl ::windows::runtime::Abi for MCAST_SCOPE_ENTRY {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Multicast`*"]
 #[inline]
 pub unsafe fn McastApiCleanup() {
     #[cfg(windows)]
@@ -171,6 +182,7 @@ pub unsafe fn McastApiCleanup() {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Multicast`*"]
 #[inline]
 pub unsafe fn McastApiStartup(version: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -185,6 +197,7 @@ pub unsafe fn McastApiStartup(version: *mut u32) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Multicast`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn McastEnumerateScopes<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(addrfamily: u16, requery: Param1, pscopelist: *mut MCAST_SCOPE_ENTRY, pscopelen: *mut u32, pscopecount: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -198,6 +211,7 @@ pub unsafe fn McastEnumerateScopes<'a, Param1: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Multicast`*"]
 #[inline]
 pub unsafe fn McastGenUID(prequestid: *mut MCAST_CLIENT_UID) -> u32 {
     #[cfg(windows)]
@@ -211,6 +225,7 @@ pub unsafe fn McastGenUID(prequestid: *mut MCAST_CLIENT_UID) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Multicast`*"]
 #[inline]
 pub unsafe fn McastReleaseAddress(addrfamily: u16, prequestid: *mut MCAST_CLIENT_UID, preleaserequest: *mut MCAST_LEASE_REQUEST) -> u32 {
     #[cfg(windows)]
@@ -224,6 +239,7 @@ pub unsafe fn McastReleaseAddress(addrfamily: u16, prequestid: *mut MCAST_CLIENT
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Multicast`*"]
 #[inline]
 pub unsafe fn McastRenewAddress(addrfamily: u16, prequestid: *mut MCAST_CLIENT_UID, prenewrequest: *mut MCAST_LEASE_REQUEST, prenewresponse: *mut MCAST_LEASE_RESPONSE) -> u32 {
     #[cfg(windows)]
@@ -237,6 +253,7 @@ pub unsafe fn McastRenewAddress(addrfamily: u16, prequestid: *mut MCAST_CLIENT_U
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Multicast`*"]
 #[inline]
 pub unsafe fn McastRequestAddress(addrfamily: u16, prequestid: *mut MCAST_CLIENT_UID, pscopectx: *mut MCAST_SCOPE_CTX, paddrrequest: *mut MCAST_LEASE_REQUEST, paddrresponse: *mut MCAST_LEASE_RESPONSE) -> u32 {
     #[cfg(windows)]

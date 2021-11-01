@@ -1,4 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CPU_ARCHITECTURE(pub u32);
@@ -42,43 +43,71 @@ impl ::std::ops::Not for CPU_ARCHITECTURE {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const EVT_WDSMCS_E_CP_CALLBACKS_NOT_REG: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1054801324i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const EVT_WDSMCS_E_CP_CLOSE_INSTANCE_FAILED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1054801320i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const EVT_WDSMCS_E_CP_DLL_LOAD_FAILED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1054801328i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const EVT_WDSMCS_E_CP_DLL_LOAD_FAILED_CRITICAL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1054801317i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const EVT_WDSMCS_E_CP_INCOMPATIBLE_SERVER_VERSION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1054801325i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const EVT_WDSMCS_E_CP_INIT_FUNC_FAILED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1054801326i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const EVT_WDSMCS_E_CP_INIT_FUNC_MISSING: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1054801327i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const EVT_WDSMCS_E_CP_MEMORY_LEAK: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1054801322i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const EVT_WDSMCS_E_CP_OPEN_CONTENT_FAILED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1054801319i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const EVT_WDSMCS_E_CP_OPEN_INSTANCE_FAILED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1054801321i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const EVT_WDSMCS_E_CP_SHUTDOWN_FUNC_FAILED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1054801323i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const EVT_WDSMCS_E_DUPLICATE_MULTICAST_ADDR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1054801406i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const EVT_WDSMCS_E_NON_WDS_DUPLICATE_MULTICAST_ADDR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1054801405i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const EVT_WDSMCS_E_NSREG_CONTENT_PROVIDER_NOT_REG: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1054801151i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const EVT_WDSMCS_E_NSREG_FAILURE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1054801149i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const EVT_WDSMCS_E_NSREG_NAMESPACE_EXISTS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1054801150i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const EVT_WDSMCS_E_NSREG_START_TIME_IN_PAST: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1054801152i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const EVT_WDSMCS_E_PARAMETERS_READ_FAILED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1054801407i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const EVT_WDSMCS_S_PARAMETERS_READ: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(1092682240i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const EVT_WDSMCS_W_CP_DLL_LOAD_FAILED_NOT_CRITICAL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2128543142i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const FACILITY_WDSMCCLIENT: u32 = 290u32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const FACILITY_WDSMCSERVER: u32 = 289u32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const FACILITY_WDSTPTMGMT: u32 = 272u32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWdsTransportCacheable(::windows::runtime::IUnknown);
 impl IWdsTransportCacheable {
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Dirty(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Discard(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Refresh(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Commit(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)).ok()
     }
@@ -150,58 +179,71 @@ pub struct IWdsTransportCacheable_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWdsTransportClient(::windows::runtime::IUnknown);
 impl IWdsTransportClient {
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Session(&self) -> ::windows::runtime::Result<IWdsTransportSession> {
         let mut result__: <IWdsTransportSession as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWdsTransportSession>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Id(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn Name(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn MacAddress(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn IpAddress(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn PercentCompletion(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn JoinDuration(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn CpuUtilization(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn MemoryUtilization(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn NetworkUtilization(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn UserIdentity(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Disconnect(&self, disconnectiontype: WDSTRANSPORT_DISCONNECT_TYPE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(disconnectiontype)).ok()
     }
@@ -285,19 +327,23 @@ pub struct IWdsTransportClient_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, disconnectiontype: WDSTRANSPORT_DISCONNECT_TYPE) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWdsTransportCollection(::windows::runtime::IUnknown);
 impl IWdsTransportCollection {
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Item(&self, ulindex: u32) -> ::windows::runtime::Result<super::Ole::Automation::IDispatch> {
         let mut result__: <super::Ole::Automation::IDispatch as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulindex), &mut result__).from_abi::<super::Ole::Automation::IDispatch>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
         let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
@@ -370,37 +416,47 @@ pub struct IWdsTransportCollection_abi(
     #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppval: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWdsTransportConfigurationManager(::windows::runtime::IUnknown);
 impl IWdsTransportConfigurationManager {
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn ServicePolicy(&self) -> ::windows::runtime::Result<IWdsTransportServicePolicy> {
         let mut result__: <IWdsTransportServicePolicy as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWdsTransportServicePolicy>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn DiagnosticsPolicy(&self) -> ::windows::runtime::Result<IWdsTransportDiagnosticsPolicy> {
         let mut result__: <IWdsTransportDiagnosticsPolicy as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWdsTransportDiagnosticsPolicy>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn WdsTransportServicesRunning(&self, brealtimestatus: i16) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(brealtimestatus), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn EnableWdsTransportServices(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn DisableWdsTransportServices(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn StartWdsTransportServices(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn StopWdsTransportServices(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn RestartWdsTransportServices(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn NotifyWdsTransportServices(&self, servicenotification: WDSTRANSPORT_SERVICE_NOTIFICATION) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(servicenotification)).ok()
     }
@@ -477,57 +533,72 @@ pub struct IWdsTransportConfigurationManager_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, servicenotification: WDSTRANSPORT_SERVICE_NOTIFICATION) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWdsTransportConfigurationManager2(::windows::runtime::IUnknown);
 impl IWdsTransportConfigurationManager2 {
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::Ole::Automation::ITypeInfo> {
         let mut result__: <super::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Ole::Automation::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn ServicePolicy(&self) -> ::windows::runtime::Result<IWdsTransportServicePolicy> {
         let mut result__: <IWdsTransportServicePolicy as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWdsTransportServicePolicy>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn DiagnosticsPolicy(&self) -> ::windows::runtime::Result<IWdsTransportDiagnosticsPolicy> {
         let mut result__: <IWdsTransportDiagnosticsPolicy as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWdsTransportDiagnosticsPolicy>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn WdsTransportServicesRunning(&self, brealtimestatus: i16) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(brealtimestatus), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn EnableWdsTransportServices(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn DisableWdsTransportServices(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn StartWdsTransportServices(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn StopWdsTransportServices(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn RestartWdsTransportServices(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn NotifyWdsTransportServices(&self, servicenotification: WDSTRANSPORT_SERVICE_NOTIFICATION) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(servicenotification)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn MulticastSessionPolicy(&self) -> ::windows::runtime::Result<IWdsTransportMulticastSessionPolicy> {
         let mut result__: <IWdsTransportMulticastSessionPolicy as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWdsTransportMulticastSessionPolicy>(result__)
@@ -626,27 +697,33 @@ pub struct IWdsTransportConfigurationManager2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, servicenotification: WDSTRANSPORT_SERVICE_NOTIFICATION) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppwdstransportmulticastsessionpolicy: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWdsTransportContent(::windows::runtime::IUnknown);
 impl IWdsTransportContent {
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Namespace(&self) -> ::windows::runtime::Result<IWdsTransportNamespace> {
         let mut result__: <IWdsTransportNamespace as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWdsTransportNamespace>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Id(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn Name(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn RetrieveSessions(&self) -> ::windows::runtime::Result<IWdsTransportCollection> {
         let mut result__: <IWdsTransportCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWdsTransportCollection>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Terminate(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self)).ok()
     }
@@ -720,26 +797,31 @@ pub struct IWdsTransportContent_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppwdstransportsessions: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWdsTransportContentProvider(::windows::runtime::IUnknown);
 impl IWdsTransportContentProvider {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn Name(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn Description(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn FilePath(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn InitializationRoutine(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
@@ -816,51 +898,64 @@ pub struct IWdsTransportContentProvider_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbszinitializationroutine: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWdsTransportDiagnosticsPolicy(::windows::runtime::IUnknown);
 impl IWdsTransportDiagnosticsPolicy {
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::Ole::Automation::ITypeInfo> {
         let mut result__: <super::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Ole::Automation::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Dirty(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Discard(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Refresh(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Commit(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Enabled(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn SetEnabled(&self, benabled: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(benabled)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Components(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn SetComponents(&self, ulcomponents: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulcomponents)).ok()
     }
@@ -956,11 +1051,13 @@ pub struct IWdsTransportDiagnosticsPolicy_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pulcomponents: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ulcomponents: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWdsTransportManager(::windows::runtime::IUnknown);
 impl IWdsTransportManager {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn GetWdsTransportServer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszservername: Param0) -> ::windows::runtime::Result<IWdsTransportServer> {
         let mut result__: <IWdsTransportServer as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), bszservername.into_param().abi(), &mut result__).from_abi::<IWdsTransportServer>(result__)
@@ -1031,65 +1128,82 @@ pub struct IWdsTransportManager_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bszservername: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppwdstransportserver: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWdsTransportMulticastSessionPolicy(::windows::runtime::IUnknown);
 impl IWdsTransportMulticastSessionPolicy {
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::Ole::Automation::ITypeInfo> {
         let mut result__: <super::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Ole::Automation::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Dirty(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Discard(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Refresh(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Commit(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn SlowClientHandling(&self) -> ::windows::runtime::Result<WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE> {
         let mut result__: <WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn SetSlowClientHandling(&self, slowclienthandling: WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(slowclienthandling)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn AutoDisconnectThreshold(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn SetAutoDisconnectThreshold(&self, ulthreshold: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulthreshold)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn MultistreamStreamCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn SetMultistreamStreamCount(&self, ulstreamcount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulstreamcount)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn SlowClientFallback(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn SetSlowClientFallback(&self, bclientfallback: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(bclientfallback)).ok()
     }
@@ -1189,92 +1303,114 @@ pub struct IWdsTransportMulticastSessionPolicy_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbclientfallback: *mut i16) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bclientfallback: i16) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWdsTransportNamespace(::windows::runtime::IUnknown);
 impl IWdsTransportNamespace {
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Type(&self) -> ::windows::runtime::Result<WDSTRANSPORT_NAMESPACE_TYPE> {
         let mut result__: <WDSTRANSPORT_NAMESPACE_TYPE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<WDSTRANSPORT_NAMESPACE_TYPE>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Id(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn Name(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszname: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), bszname.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn FriendlyName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn SetFriendlyName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszfriendlyname: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), bszfriendlyname.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn Description(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn SetDescription<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszdescription: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), bszdescription.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn ContentProvider(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn SetContentProvider<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszcontentprovider: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), bszcontentprovider.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn Configuration(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn SetConfiguration<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszconfiguration: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), bszconfiguration.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Registered(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Tombstoned(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn TombstoneTime(&self) -> ::windows::runtime::Result<f64> {
         let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), &mut result__).from_abi::<f64>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn TransmissionStarted(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Register(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Deregister(&self, bterminatesessions: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), ::std::mem::transmute(bterminatesessions)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Clone(&self) -> ::windows::runtime::Result<IWdsTransportNamespace> {
         let mut result__: <IWdsTransportNamespace as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWdsTransportNamespace>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Refresh(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn RetrieveContents(&self) -> ::windows::runtime::Result<IWdsTransportCollection> {
         let mut result__: <IWdsTransportCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWdsTransportCollection>(result__)
@@ -1374,109 +1510,135 @@ pub struct IWdsTransportNamespace_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppwdstransportcontents: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWdsTransportNamespaceAutoCast(::windows::runtime::IUnknown);
 impl IWdsTransportNamespaceAutoCast {
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::Ole::Automation::ITypeInfo> {
         let mut result__: <super::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Ole::Automation::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Type(&self) -> ::windows::runtime::Result<WDSTRANSPORT_NAMESPACE_TYPE> {
         let mut result__: <WDSTRANSPORT_NAMESPACE_TYPE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<WDSTRANSPORT_NAMESPACE_TYPE>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Id(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn Name(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszname: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), bszname.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn FriendlyName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn SetFriendlyName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszfriendlyname: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), bszfriendlyname.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn Description(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn SetDescription<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszdescription: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), bszdescription.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn ContentProvider(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn SetContentProvider<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszcontentprovider: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), bszcontentprovider.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn Configuration(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn SetConfiguration<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszconfiguration: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), bszconfiguration.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Registered(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Tombstoned(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn TombstoneTime(&self) -> ::windows::runtime::Result<f64> {
         let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), &mut result__).from_abi::<f64>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn TransmissionStarted(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Register(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Deregister(&self, bterminatesessions: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), ::std::mem::transmute(bterminatesessions)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Clone(&self) -> ::windows::runtime::Result<IWdsTransportNamespace> {
         let mut result__: <IWdsTransportNamespace as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWdsTransportNamespace>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Refresh(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn RetrieveContents(&self) -> ::windows::runtime::Result<IWdsTransportCollection> {
         let mut result__: <IWdsTransportCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWdsTransportCollection>(result__)
@@ -1596,21 +1758,25 @@ pub struct IWdsTransportNamespaceAutoCast_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppwdstransportcontents: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWdsTransportNamespaceManager(::windows::runtime::IUnknown);
 impl IWdsTransportNamespaceManager {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn CreateNamespace<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, namespacetype: WDSTRANSPORT_NAMESPACE_TYPE, bsznamespacename: Param1, bszcontentprovider: Param2, bszconfiguration: Param3) -> ::windows::runtime::Result<IWdsTransportNamespace> {
         let mut result__: <IWdsTransportNamespace as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(namespacetype), bsznamespacename.into_param().abi(), bszcontentprovider.into_param().abi(), bszconfiguration.into_param().abi(), &mut result__).from_abi::<IWdsTransportNamespace>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn RetrieveNamespace<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bsznamespacename: Param0) -> ::windows::runtime::Result<IWdsTransportNamespace> {
         let mut result__: <IWdsTransportNamespace as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), bsznamespacename.into_param().abi(), &mut result__).from_abi::<IWdsTransportNamespace>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn RetrieveNamespaces<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszcontentprovider: Param0, bsznamespacename: Param1, bincludetombstones: i16) -> ::windows::runtime::Result<IWdsTransportCollection> {
         let mut result__: <IWdsTransportCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), bszcontentprovider.into_param().abi(), bsznamespacename.into_param().abi(), ::std::mem::transmute(bincludetombstones), &mut result__).from_abi::<IWdsTransportCollection>(result__)
@@ -1685,113 +1851,140 @@ pub struct IWdsTransportNamespaceManager_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bszcontentprovider: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, bsznamespacename: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, bincludetombstones: i16, ppwdstransportnamespaces: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWdsTransportNamespaceScheduledCast(::windows::runtime::IUnknown);
 impl IWdsTransportNamespaceScheduledCast {
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::Ole::Automation::ITypeInfo> {
         let mut result__: <super::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Ole::Automation::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Type(&self) -> ::windows::runtime::Result<WDSTRANSPORT_NAMESPACE_TYPE> {
         let mut result__: <WDSTRANSPORT_NAMESPACE_TYPE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<WDSTRANSPORT_NAMESPACE_TYPE>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Id(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn Name(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszname: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), bszname.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn FriendlyName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn SetFriendlyName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszfriendlyname: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), bszfriendlyname.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn Description(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn SetDescription<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszdescription: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), bszdescription.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn ContentProvider(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn SetContentProvider<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszcontentprovider: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), bszcontentprovider.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn Configuration(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn SetConfiguration<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszconfiguration: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), bszconfiguration.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Registered(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Tombstoned(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn TombstoneTime(&self) -> ::windows::runtime::Result<f64> {
         let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), &mut result__).from_abi::<f64>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn TransmissionStarted(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Register(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Deregister(&self, bterminatesessions: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), ::std::mem::transmute(bterminatesessions)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Clone(&self) -> ::windows::runtime::Result<IWdsTransportNamespace> {
         let mut result__: <IWdsTransportNamespace as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWdsTransportNamespace>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Refresh(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn RetrieveContents(&self) -> ::windows::runtime::Result<IWdsTransportCollection> {
         let mut result__: <IWdsTransportCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWdsTransportCollection>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn StartTransmission(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self)).ok()
     }
@@ -1911,127 +2104,158 @@ pub struct IWdsTransportNamespaceScheduledCast_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppwdstransportcontents: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWdsTransportNamespaceScheduledCastAutoStart(::windows::runtime::IUnknown);
 impl IWdsTransportNamespaceScheduledCastAutoStart {
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::Ole::Automation::ITypeInfo> {
         let mut result__: <super::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Ole::Automation::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Type(&self) -> ::windows::runtime::Result<WDSTRANSPORT_NAMESPACE_TYPE> {
         let mut result__: <WDSTRANSPORT_NAMESPACE_TYPE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<WDSTRANSPORT_NAMESPACE_TYPE>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Id(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn Name(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszname: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), bszname.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn FriendlyName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn SetFriendlyName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszfriendlyname: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), bszfriendlyname.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn Description(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn SetDescription<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszdescription: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), bszdescription.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn ContentProvider(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn SetContentProvider<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszcontentprovider: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), bszcontentprovider.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn Configuration(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn SetConfiguration<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszconfiguration: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), bszconfiguration.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Registered(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Tombstoned(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn TombstoneTime(&self) -> ::windows::runtime::Result<f64> {
         let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), &mut result__).from_abi::<f64>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn TransmissionStarted(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Register(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Deregister(&self, bterminatesessions: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), ::std::mem::transmute(bterminatesessions)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Clone(&self) -> ::windows::runtime::Result<IWdsTransportNamespace> {
         let mut result__: <IWdsTransportNamespace as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWdsTransportNamespace>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Refresh(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn RetrieveContents(&self) -> ::windows::runtime::Result<IWdsTransportCollection> {
         let mut result__: <IWdsTransportCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWdsTransportCollection>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn StartTransmission(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn MinimumClients(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn SetMinimumClients(&self, ulminimumclients: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulminimumclients)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn StartTime(&self) -> ::windows::runtime::Result<f64> {
         let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self), &mut result__).from_abi::<f64>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn SetStartTime(&self, starttime: f64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).32)(::std::mem::transmute_copy(self), ::std::mem::transmute(starttime)).ok()
     }
@@ -2175,113 +2399,140 @@ pub struct IWdsTransportNamespaceScheduledCastAutoStart_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pstarttime: *mut f64) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, starttime: f64) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWdsTransportNamespaceScheduledCastManualStart(::windows::runtime::IUnknown);
 impl IWdsTransportNamespaceScheduledCastManualStart {
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::Ole::Automation::ITypeInfo> {
         let mut result__: <super::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Ole::Automation::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Type(&self) -> ::windows::runtime::Result<WDSTRANSPORT_NAMESPACE_TYPE> {
         let mut result__: <WDSTRANSPORT_NAMESPACE_TYPE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<WDSTRANSPORT_NAMESPACE_TYPE>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Id(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn Name(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszname: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), bszname.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn FriendlyName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn SetFriendlyName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszfriendlyname: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), bszfriendlyname.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn Description(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn SetDescription<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszdescription: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), bszdescription.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn ContentProvider(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn SetContentProvider<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszcontentprovider: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), bszcontentprovider.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn Configuration(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn SetConfiguration<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszconfiguration: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), bszconfiguration.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Registered(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Tombstoned(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn TombstoneTime(&self) -> ::windows::runtime::Result<f64> {
         let mut result__: <f64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), &mut result__).from_abi::<f64>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn TransmissionStarted(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Register(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Deregister(&self, bterminatesessions: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), ::std::mem::transmute(bterminatesessions)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Clone(&self) -> ::windows::runtime::Result<IWdsTransportNamespace> {
         let mut result__: <IWdsTransportNamespace as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWdsTransportNamespace>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Refresh(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn RetrieveContents(&self) -> ::windows::runtime::Result<IWdsTransportCollection> {
         let mut result__: <IWdsTransportCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWdsTransportCollection>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn StartTransmission(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self)).ok()
     }
@@ -2421,27 +2672,33 @@ pub struct IWdsTransportNamespaceScheduledCastManualStart_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppwdstransportcontents: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWdsTransportServer(::windows::runtime::IUnknown);
 impl IWdsTransportServer {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn Name(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn SetupManager(&self) -> ::windows::runtime::Result<IWdsTransportSetupManager> {
         let mut result__: <IWdsTransportSetupManager as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWdsTransportSetupManager>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn ConfigurationManager(&self) -> ::windows::runtime::Result<IWdsTransportConfigurationManager> {
         let mut result__: <IWdsTransportConfigurationManager as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWdsTransportConfigurationManager>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn NamespaceManager(&self) -> ::windows::runtime::Result<IWdsTransportNamespaceManager> {
         let mut result__: <IWdsTransportNamespaceManager as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWdsTransportNamespaceManager>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn DisconnectClient(&self, ulclientid: u32, disconnectiontype: WDSTRANSPORT_DISCONNECT_TYPE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulclientid), ::std::mem::transmute(disconnectiontype)).ok()
     }
@@ -2515,47 +2772,58 @@ pub struct IWdsTransportServer_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppwdstransportnamespacemanager: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ulclientid: u32, disconnectiontype: WDSTRANSPORT_DISCONNECT_TYPE) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWdsTransportServer2(::windows::runtime::IUnknown);
 impl IWdsTransportServer2 {
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::Ole::Automation::ITypeInfo> {
         let mut result__: <super::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Ole::Automation::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn Name(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn SetupManager(&self) -> ::windows::runtime::Result<IWdsTransportSetupManager> {
         let mut result__: <IWdsTransportSetupManager as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWdsTransportSetupManager>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn ConfigurationManager(&self) -> ::windows::runtime::Result<IWdsTransportConfigurationManager> {
         let mut result__: <IWdsTransportConfigurationManager as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWdsTransportConfigurationManager>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn NamespaceManager(&self) -> ::windows::runtime::Result<IWdsTransportNamespaceManager> {
         let mut result__: <IWdsTransportNamespaceManager as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWdsTransportNamespaceManager>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn DisconnectClient(&self, ulclientid: u32, disconnectiontype: WDSTRANSPORT_DISCONNECT_TYPE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulclientid), ::std::mem::transmute(disconnectiontype)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn TftpManager(&self) -> ::windows::runtime::Result<IWdsTransportTftpManager> {
         let mut result__: <IWdsTransportTftpManager as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWdsTransportTftpManager>(result__)
@@ -2651,83 +2919,104 @@ pub struct IWdsTransportServer2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ulclientid: u32, disconnectiontype: WDSTRANSPORT_DISCONNECT_TYPE) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppwdstransporttftpmanager: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWdsTransportServicePolicy(::windows::runtime::IUnknown);
 impl IWdsTransportServicePolicy {
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::Ole::Automation::ITypeInfo> {
         let mut result__: <super::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Ole::Automation::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Dirty(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Discard(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Refresh(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Commit(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn IpAddressSource(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE) -> ::windows::runtime::Result<WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE> {
         let mut result__: <WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(addresstype), &mut result__).from_abi::<WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn SetIpAddressSource(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, sourcetype: WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(addresstype), ::std::mem::transmute(sourcetype)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn StartIpAddress(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(addresstype), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn SetStartIpAddress<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, bszstartipaddress: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(addresstype), bszstartipaddress.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn EndIpAddress(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(addresstype), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn SetEndIpAddress<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, bszendipaddress: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(addresstype), bszendipaddress.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn StartPort(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn SetStartPort(&self, ulstartport: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulstartport)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn EndPort(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn SetEndPort(&self, ulendport: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulendport)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn NetworkProfile(&self) -> ::windows::runtime::Result<WDSTRANSPORT_NETWORK_PROFILE_TYPE> {
         let mut result__: <WDSTRANSPORT_NETWORK_PROFILE_TYPE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), &mut result__).from_abi::<WDSTRANSPORT_NETWORK_PROFILE_TYPE>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn SetNetworkProfile(&self, profiletype: WDSTRANSPORT_NETWORK_PROFILE_TYPE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(profiletype)).ok()
     }
@@ -2835,104 +3124,131 @@ pub struct IWdsTransportServicePolicy_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pprofiletype: *mut WDSTRANSPORT_NETWORK_PROFILE_TYPE) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, profiletype: WDSTRANSPORT_NETWORK_PROFILE_TYPE) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWdsTransportServicePolicy2(::windows::runtime::IUnknown);
 impl IWdsTransportServicePolicy2 {
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::Ole::Automation::ITypeInfo> {
         let mut result__: <super::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Ole::Automation::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Dirty(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Discard(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Refresh(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Commit(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn IpAddressSource(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE) -> ::windows::runtime::Result<WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE> {
         let mut result__: <WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(addresstype), &mut result__).from_abi::<WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn SetIpAddressSource(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, sourcetype: WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(addresstype), ::std::mem::transmute(sourcetype)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn StartIpAddress(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(addresstype), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn SetStartIpAddress<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, bszstartipaddress: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(addresstype), bszstartipaddress.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn EndIpAddress(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(addresstype), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn SetEndIpAddress<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, bszendipaddress: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(addresstype), bszendipaddress.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn StartPort(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn SetStartPort(&self, ulstartport: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulstartport)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn EndPort(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn SetEndPort(&self, ulendport: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(ulendport)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn NetworkProfile(&self) -> ::windows::runtime::Result<WDSTRANSPORT_NETWORK_PROFILE_TYPE> {
         let mut result__: <WDSTRANSPORT_NETWORK_PROFILE_TYPE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), &mut result__).from_abi::<WDSTRANSPORT_NETWORK_PROFILE_TYPE>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn SetNetworkProfile(&self, profiletype: WDSTRANSPORT_NETWORK_PROFILE_TYPE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(profiletype)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn UdpPortPolicy(&self) -> ::windows::runtime::Result<WDSTRANSPORT_UDP_PORT_POLICY> {
         let mut result__: <WDSTRANSPORT_UDP_PORT_POLICY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), &mut result__).from_abi::<WDSTRANSPORT_UDP_PORT_POLICY>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn SetUdpPortPolicy(&self, udpportpolicy: WDSTRANSPORT_UDP_PORT_POLICY) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), ::std::mem::transmute(udpportpolicy)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn TftpMaximumBlockSize(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn SetTftpMaximumBlockSize(&self, ultftpmaximumblocksize: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), ::std::mem::transmute(ultftpmaximumblocksize)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn EnableTftpVariableWindowExtension(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn SetEnableTftpVariableWindowExtension(&self, benabletftpvariablewindowextension: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), ::std::mem::transmute(benabletftpvariablewindowextension)).ok()
     }
@@ -3066,40 +3382,49 @@ pub struct IWdsTransportServicePolicy2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbenabletftpvariablewindowextension: *mut i16) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, benabletftpvariablewindowextension: i16) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWdsTransportSession(::windows::runtime::IUnknown);
 impl IWdsTransportSession {
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Content(&self) -> ::windows::runtime::Result<IWdsTransportContent> {
         let mut result__: <IWdsTransportContent as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWdsTransportContent>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Id(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn NetworkInterfaceName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn NetworkInterfaceAddress(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn TransferRate(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn MasterClientId(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn RetrieveClients(&self) -> ::windows::runtime::Result<IWdsTransportCollection> {
         let mut result__: <IWdsTransportCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWdsTransportCollection>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Terminate(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self)).ok()
     }
@@ -3177,27 +3502,33 @@ pub struct IWdsTransportSession_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppwdstransportclients: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWdsTransportSetupManager(::windows::runtime::IUnknown);
 impl IWdsTransportSetupManager {
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Version(&self) -> ::windows::runtime::Result<u64> {
         let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u64>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn InstalledFeatures(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Protocols(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn RegisterContentProvider<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszname: Param0, bszdescription: Param1, bszfilepath: Param2, bszinitializationroutine: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), bszname.into_param().abi(), bszdescription.into_param().abi(), bszfilepath.into_param().abi(), bszinitializationroutine.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn DeregisterContentProvider<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszname: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), bszname.into_param().abi()).ok()
     }
@@ -3272,51 +3603,63 @@ pub struct IWdsTransportSetupManager_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bszname: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWdsTransportSetupManager2(::windows::runtime::IUnknown);
 impl IWdsTransportSetupManager2 {
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::Ole::Automation::ITypeInfo> {
         let mut result__: <super::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Ole::Automation::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Version(&self) -> ::windows::runtime::Result<u64> {
         let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u64>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn InstalledFeatures(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Protocols(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn RegisterContentProvider<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszname: Param0, bszdescription: Param1, bszfilepath: Param2, bszinitializationroutine: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), bszname.into_param().abi(), bszdescription.into_param().abi(), bszfilepath.into_param().abi(), bszinitializationroutine.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn DeregisterContentProvider<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszname: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), bszname.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn TftpCapabilities(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn ContentProviders(&self) -> ::windows::runtime::Result<IWdsTransportCollection> {
         let mut result__: <IWdsTransportCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWdsTransportCollection>(result__)
@@ -3414,36 +3757,44 @@ pub struct IWdsTransportSetupManager2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pultftpcapabilities: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppprovidercollection: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWdsTransportTftpClient(::windows::runtime::IUnknown);
 impl IWdsTransportTftpClient {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn FileName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
     pub unsafe fn IpAddress(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn Timeout(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn CurrentFileOffset(&self) -> ::windows::runtime::Result<u64> {
         let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u64>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn FileSize(&self) -> ::windows::runtime::Result<u64> {
         let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u64>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn BlockSize(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn WindowSize(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
@@ -3521,10 +3872,12 @@ pub struct IWdsTransportTftpClient_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pulblocksize: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pulwindowsize: *mut u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWdsTransportTftpManager(::windows::runtime::IUnknown);
 impl IWdsTransportTftpManager {
+    #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
     pub unsafe fn RetrieveTftpClients(&self) -> ::windows::runtime::Result<IWdsTransportCollection> {
         let mut result__: <IWdsTransportCollection as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWdsTransportCollection>(result__)
@@ -3594,7 +3947,9 @@ pub struct IWdsTransportTftpManager_abi(
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppwdstransporttftpclients: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const MC_SERVER_CURRENT_VERSION: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PFN_WDS_CLI_CALLBACK_MESSAGE_ID(pub u32);
@@ -3657,6 +4012,7 @@ pub type PFN_WdsTransportClientSessionStart = unsafe extern "system" fn(hsession
 pub type PFN_WdsTransportClientSessionStartEx = unsafe extern "system" fn(hsessionkey: super::super::Foundation::HANDLE, pcallerdata: *const ::std::ffi::c_void, info: *const TRANSPORTCLIENT_SESSION_INFO);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub struct PXE_ADDRESS {
     pub uFlags: u32,
     pub Anonymous: PXE_ADDRESS_0,
@@ -3681,6 +4037,7 @@ unsafe impl ::windows::runtime::Abi for PXE_ADDRESS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub union PXE_ADDRESS_0 {
     pub bAddress: [u8; 16],
     pub uIpAddress: u32,
@@ -3701,21 +4058,35 @@ unsafe impl ::windows::runtime::Abi for PXE_ADDRESS_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const PXE_ADDR_BROADCAST: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const PXE_ADDR_USE_ADDR: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const PXE_ADDR_USE_DHCP_RULES: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const PXE_ADDR_USE_PORT: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const PXE_BA_CUSTOM: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const PXE_BA_IGNORE: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const PXE_BA_NBP: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const PXE_BA_REJECTED: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const PXE_CALLBACK_MAX: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const PXE_CALLBACK_RECV_REQUEST: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const PXE_CALLBACK_SERVICE_CONTROL: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const PXE_CALLBACK_SHUTDOWN: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const PXE_DHCPV6_CLIENT_PORT: u32 = 546u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub struct PXE_DHCPV6_MESSAGE {
     pub MessageType: u8,
     pub TransactionIDByte1: u8,
@@ -3741,6 +4112,7 @@ unsafe impl ::windows::runtime::Abi for PXE_DHCPV6_MESSAGE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub struct PXE_DHCPV6_MESSAGE_HEADER {
     pub MessageType: u8,
     pub Message: [u8; 1],
@@ -3768,6 +4140,7 @@ unsafe impl ::windows::runtime::Abi for PXE_DHCPV6_MESSAGE_HEADER {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub struct PXE_DHCPV6_NESTED_RELAY_MESSAGE {
     pub pRelayMessage: *mut PXE_DHCPV6_RELAY_MESSAGE,
     pub cbRelayMessage: u32,
@@ -3797,6 +4170,7 @@ unsafe impl ::windows::runtime::Abi for PXE_DHCPV6_NESTED_RELAY_MESSAGE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub struct PXE_DHCPV6_OPTION {
     pub OptionCode: u16,
     pub DataLength: u16,
@@ -3818,9 +4192,11 @@ unsafe impl ::windows::runtime::Abi for PXE_DHCPV6_OPTION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const PXE_DHCPV6_RELAY_HOP_COUNT_LIMIT: u32 = 32u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub struct PXE_DHCPV6_RELAY_MESSAGE {
     pub MessageType: u8,
     pub HopCount: u8,
@@ -3844,13 +4220,19 @@ unsafe impl ::windows::runtime::Abi for PXE_DHCPV6_RELAY_MESSAGE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const PXE_DHCPV6_SERVER_PORT: u32 = 547u32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const PXE_DHCP_CLIENT_PORT: u32 = 68u32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const PXE_DHCP_FILE_SIZE: u32 = 128u32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const PXE_DHCP_HWAADR_SIZE: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const PXE_DHCP_MAGIC_COOKIE_SIZE: u32 = 4u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub struct PXE_DHCP_MESSAGE {
     pub Operation: u8,
     pub HardwareAddressType: u8,
@@ -3887,6 +4269,7 @@ unsafe impl ::windows::runtime::Abi for PXE_DHCP_MESSAGE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub union PXE_DHCP_MESSAGE_0 {
     pub bMagicCookie: [u8; 4],
     pub uMagicCookie: u32,
@@ -3909,6 +4292,7 @@ unsafe impl ::windows::runtime::Abi for PXE_DHCP_MESSAGE_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub struct PXE_DHCP_OPTION {
     pub OptionType: u8,
     pub OptionLength: u8,
@@ -3935,14 +4319,20 @@ unsafe impl ::windows::runtime::Abi for PXE_DHCP_OPTION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const PXE_DHCP_SERVER_PORT: u32 = 67u32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const PXE_DHCP_SERVER_SIZE: u32 = 64u32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const PXE_GSI_SERVER_DUID: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const PXE_GSI_TRACE_ENABLED: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const PXE_MAX_ADDRESS: u32 = 16u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 pub struct PXE_PROVIDER {
     pub uSizeOfStruct: u32,
     pub pwszName: super::super::Foundation::PWSTR,
@@ -3977,21 +4367,36 @@ unsafe impl ::windows::runtime::Abi for PXE_PROVIDER {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const PXE_PROV_ATTR_FILTER: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const PXE_PROV_ATTR_FILTER_IPV6: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const PXE_PROV_ATTR_IPV6_CAPABLE: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const PXE_PROV_FILTER_ALL: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const PXE_PROV_FILTER_DHCP_ONLY: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const PXE_PROV_FILTER_PXE_ONLY: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const PXE_REG_INDEX_BOTTOM: u32 = 4294967295u32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const PXE_REG_INDEX_TOP: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const PXE_SERVER_PORT: u32 = 4011u32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const PXE_TRACE_ERROR: u32 = 524288u32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const PXE_TRACE_FATAL: u32 = 1048576u32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const PXE_TRACE_INFO: u32 = 131072u32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const PXE_TRACE_VERBOSE: u32 = 65536u32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const PXE_TRACE_WARNING: u32 = 262144u32;
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PxeAsyncRecvDone<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hclientrequest: Param0, action: u32) -> u32 {
     #[cfg(windows)]
@@ -4005,6 +4410,7 @@ pub unsafe fn PxeAsyncRecvDone<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[inline]
 pub unsafe fn PxeDhcpAppendOption(preplypacket: *mut ::std::ffi::c_void, umaxreplypacketlen: u32, pureplypacketlen: *mut u32, boption: u8, boptionlen: u8, pvalue: *const ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -4018,6 +4424,7 @@ pub unsafe fn PxeDhcpAppendOption(preplypacket: *mut ::std::ffi::c_void, umaxrep
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[inline]
 pub unsafe fn PxeDhcpAppendOptionRaw(preplypacket: *mut ::std::ffi::c_void, umaxreplypacketlen: u32, pureplypacketlen: *mut u32, ubufferlen: u16, pbuffer: *const ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -4031,6 +4438,7 @@ pub unsafe fn PxeDhcpAppendOptionRaw(preplypacket: *mut ::std::ffi::c_void, umax
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[inline]
 pub unsafe fn PxeDhcpGetOptionValue(ppacket: *const ::std::ffi::c_void, upacketlen: u32, uinstance: u32, boption: u8, pboptionlen: *mut u8, ppoptionvalue: *mut *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -4044,6 +4452,7 @@ pub unsafe fn PxeDhcpGetOptionValue(ppacket: *const ::std::ffi::c_void, upacketl
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[inline]
 pub unsafe fn PxeDhcpGetVendorOptionValue(ppacket: *const ::std::ffi::c_void, upacketlen: u32, boption: u8, uinstance: u32, pboptionlen: *mut u8, ppoptionvalue: *mut *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -4057,6 +4466,7 @@ pub unsafe fn PxeDhcpGetVendorOptionValue(ppacket: *const ::std::ffi::c_void, up
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[inline]
 pub unsafe fn PxeDhcpInitialize(precvpacket: *const ::std::ffi::c_void, urecvpacketlen: u32, preplypacket: *mut ::std::ffi::c_void, umaxreplypacketlen: u32, pureplypacketlen: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -4071,6 +4481,7 @@ pub unsafe fn PxeDhcpInitialize(precvpacket: *const ::std::ffi::c_void, urecvpac
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PxeDhcpIsValid<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(ppacket: *const ::std::ffi::c_void, upacketlen: u32, brequestpacket: Param2, pbpxeoptionpresent: *mut super::super::Foundation::BOOL) -> u32 {
     #[cfg(windows)]
@@ -4084,6 +4495,7 @@ pub unsafe fn PxeDhcpIsValid<'a, Param2: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[inline]
 pub unsafe fn PxeDhcpv6AppendOption(preply: *mut ::std::ffi::c_void, cbreply: u32, pcbreplyused: *mut u32, woptiontype: u16, cboption: u16, poption: *const ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -4097,6 +4509,7 @@ pub unsafe fn PxeDhcpv6AppendOption(preply: *mut ::std::ffi::c_void, cbreply: u3
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[inline]
 pub unsafe fn PxeDhcpv6AppendOptionRaw(preply: *mut ::std::ffi::c_void, cbreply: u32, pcbreplyused: *mut u32, cbbuffer: u16, pbuffer: *const ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -4110,6 +4523,7 @@ pub unsafe fn PxeDhcpv6AppendOptionRaw(preply: *mut ::std::ffi::c_void, cbreply:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[inline]
 pub unsafe fn PxeDhcpv6CreateRelayRepl(prelaymessages: *const PXE_DHCPV6_NESTED_RELAY_MESSAGE, nrelaymessages: u32, pinnerpacket: *const u8, cbinnerpacket: u32, preplybuffer: *mut ::std::ffi::c_void, cbreplybuffer: u32, pcbreplybuffer: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -4123,6 +4537,7 @@ pub unsafe fn PxeDhcpv6CreateRelayRepl(prelaymessages: *const PXE_DHCPV6_NESTED_
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[inline]
 pub unsafe fn PxeDhcpv6GetOptionValue(ppacket: *const ::std::ffi::c_void, upacketlen: u32, uinstance: u32, woption: u16, pwoptionlen: *mut u16, ppoptionvalue: *mut *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -4136,6 +4551,7 @@ pub unsafe fn PxeDhcpv6GetOptionValue(ppacket: *const ::std::ffi::c_void, upacke
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[inline]
 pub unsafe fn PxeDhcpv6GetVendorOptionValue(ppacket: *const ::std::ffi::c_void, upacketlen: u32, dwenterprisenumber: u32, woption: u16, uinstance: u32, pwoptionlen: *mut u16, ppoptionvalue: *mut *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -4149,6 +4565,7 @@ pub unsafe fn PxeDhcpv6GetVendorOptionValue(ppacket: *const ::std::ffi::c_void, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[inline]
 pub unsafe fn PxeDhcpv6Initialize(prequest: *const ::std::ffi::c_void, cbrequest: u32, preply: *mut ::std::ffi::c_void, cbreply: u32, pcbreplyused: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -4163,6 +4580,7 @@ pub unsafe fn PxeDhcpv6Initialize(prequest: *const ::std::ffi::c_void, cbrequest
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PxeDhcpv6IsValid<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(ppacket: *const ::std::ffi::c_void, upacketlen: u32, brequestpacket: Param2, pbpxeoptionpresent: *mut super::super::Foundation::BOOL) -> u32 {
     #[cfg(windows)]
@@ -4176,6 +4594,7 @@ pub unsafe fn PxeDhcpv6IsValid<'a, Param2: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[inline]
 pub unsafe fn PxeDhcpv6ParseRelayForw(prelayforwpacket: *const ::std::ffi::c_void, urelayforwpacketlen: u32, prelaymessages: *mut PXE_DHCPV6_NESTED_RELAY_MESSAGE, nrelaymessages: u32, pnrelaymessages: *mut u32, ppinnerpacket: *mut *mut u8, pcbinnerpacket: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -4197,6 +4616,7 @@ pub unsafe fn PxeDhcpv6ParseRelayForw(prelayforwpacket: *const ::std::ffi::c_voi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[inline]
 pub unsafe fn PxeGetServerInfo(uinfotype: u32, pbuffer: *mut ::std::ffi::c_void, ubufferlen: u32) -> u32 {
     #[cfg(windows)]
@@ -4210,6 +4630,7 @@ pub unsafe fn PxeGetServerInfo(uinfotype: u32, pbuffer: *mut ::std::ffi::c_void,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[inline]
 pub unsafe fn PxeGetServerInfoEx(uinfotype: u32, pbuffer: *mut ::std::ffi::c_void, ubufferlen: u32, pubufferused: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -4224,6 +4645,7 @@ pub unsafe fn PxeGetServerInfoEx(uinfotype: u32, pbuffer: *mut ::std::ffi::c_voi
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PxePacketAllocate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprovider: Param0, hclientrequest: Param1, usize: u32) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
@@ -4238,6 +4660,7 @@ pub unsafe fn PxePacketAllocate<'a, Param0: ::windows::runtime::IntoParam<'a, su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PxePacketFree<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprovider: Param0, hclientrequest: Param1, ppacket: *const ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -4252,6 +4675,7 @@ pub unsafe fn PxePacketFree<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PxeProviderEnumClose<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(henum: Param0) -> u32 {
     #[cfg(windows)]
@@ -4266,6 +4690,7 @@ pub unsafe fn PxeProviderEnumClose<'a, Param0: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PxeProviderEnumFirst(phenum: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -4280,6 +4705,7 @@ pub unsafe fn PxeProviderEnumFirst(phenum: *mut super::super::Foundation::HANDLE
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PxeProviderEnumNext<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(henum: Param0, ppprovider: *mut *mut PXE_PROVIDER) -> u32 {
     #[cfg(windows)]
@@ -4294,6 +4720,7 @@ pub unsafe fn PxeProviderEnumNext<'a, Param0: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PxeProviderFreeInfo(pprovider: *const PXE_PROVIDER) -> u32 {
     #[cfg(windows)]
@@ -4308,6 +4735,7 @@ pub unsafe fn PxeProviderFreeInfo(pprovider: *const PXE_PROVIDER) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PxeProviderQueryIndex<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszprovidername: Param0, puindex: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -4322,6 +4750,7 @@ pub unsafe fn PxeProviderQueryIndex<'a, Param0: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`, `Win32_System_Registry`*"]
 #[inline]
 pub unsafe fn PxeProviderRegister<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(pszprovidername: Param0, pszmodulepath: Param1, index: u32, biscritical: Param3, phproviderkey: *mut super::Registry::HKEY) -> u32 {
     #[cfg(windows)]
@@ -4336,6 +4765,7 @@ pub unsafe fn PxeProviderRegister<'a, Param0: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PxeProviderSetAttribute<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprovider: Param0, attribute: u32, pparameterbuffer: *const ::std::ffi::c_void, uparamlen: u32) -> u32 {
     #[cfg(windows)]
@@ -4350,6 +4780,7 @@ pub unsafe fn PxeProviderSetAttribute<'a, Param0: ::windows::runtime::IntoParam<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PxeProviderUnRegister<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszprovidername: Param0) -> u32 {
     #[cfg(windows)]
@@ -4364,6 +4795,7 @@ pub unsafe fn PxeProviderUnRegister<'a, Param0: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PxeRegisterCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprovider: Param0, callbacktype: u32, pcallbackfunction: *const ::std::ffi::c_void, pcontext: *const ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -4378,6 +4810,7 @@ pub unsafe fn PxeRegisterCallback<'a, Param0: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PxeSendReply<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hclientrequest: Param0, ppacket: *const ::std::ffi::c_void, upacketlen: u32, paddress: *const PXE_ADDRESS) -> u32 {
     #[cfg(windows)]
@@ -4392,6 +4825,7 @@ pub unsafe fn PxeSendReply<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PxeTrace<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hprovider: Param0, severity: u32, pszformat: Param2) -> u32 {
     #[cfg(windows)]
@@ -4406,6 +4840,7 @@ pub unsafe fn PxeTrace<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PxeTraceV<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hprovider: Param0, severity: u32, pszformat: Param2, params: *const i8) -> u32 {
     #[cfg(windows)]
@@ -4419,6 +4854,7 @@ pub unsafe fn PxeTraceV<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TRANSPORTCLIENT_CALLBACK_ID(pub i32);
@@ -4440,6 +4876,7 @@ unsafe impl ::windows::runtime::Abi for TRANSPORTCLIENT_CALLBACK_ID {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub struct TRANSPORTCLIENT_SESSION_INFO {
     pub ulStructureLength: u32,
     pub ullFileSize: u64,
@@ -4466,6 +4903,7 @@ unsafe impl ::windows::runtime::Abi for TRANSPORTCLIENT_SESSION_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TRANSPORTPROVIDER_CALLBACK_ID(pub i32);
@@ -4491,97 +4929,189 @@ unsafe impl ::windows::runtime::Abi for TRANSPORTPROVIDER_CALLBACK_ID {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const TRANSPORTPROVIDER_CURRENT_VERSION: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSBP_OPTVAL_ACTION_ABORT: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSBP_OPTVAL_ACTION_APPROVAL: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSBP_OPTVAL_ACTION_REFERRAL: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSBP_OPTVAL_NBP_VER_7: u32 = 1792u32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSBP_OPTVAL_NBP_VER_8: u32 = 2048u32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSBP_OPTVAL_PXE_PROMPT_NOPROMPT: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSBP_OPTVAL_PXE_PROMPT_OPTIN: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSBP_OPTVAL_PXE_PROMPT_OPTOUT: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSBP_OPT_TYPE_BYTE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSBP_OPT_TYPE_IP4: u32 = 6u32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSBP_OPT_TYPE_IP6: u32 = 7u32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSBP_OPT_TYPE_NONE: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSBP_OPT_TYPE_STR: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSBP_OPT_TYPE_ULONG: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSBP_OPT_TYPE_USHORT: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSBP_OPT_TYPE_WSTR: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSBP_PK_TYPE_BCD: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSBP_PK_TYPE_DHCP: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSBP_PK_TYPE_DHCPV6: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSBP_PK_TYPE_WDSNBP: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSMCCLIENT_CATEGORY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(2i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSMCSERVER_CATEGORY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(1i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSMCS_E_CLIENT_DOESNOT_SUPPORT_SECURITY_MODE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1054801648i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSMCS_E_CLIENT_NOT_FOUND: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1054801660i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSMCS_E_CONTENT_NOT_FOUND: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1054801661i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSMCS_E_CONTENT_PROVIDER_NOT_FOUND: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1054801658i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSMCS_E_INCOMPATIBLE_VERSION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1054801662i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSMCS_E_NAMESPACE_ALREADY_EXISTS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1054801657i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSMCS_E_NAMESPACE_ALREADY_STARTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1054801655i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSMCS_E_NAMESPACE_NOT_FOUND: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1054801659i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSMCS_E_NAMESPACE_SHUTDOWN_IN_PROGRESS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1054801656i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSMCS_E_NS_START_FAILED_NO_CLIENTS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1054801654i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSMCS_E_PACKET_HAS_SECURITY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1054801650i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSMCS_E_PACKET_NOT_CHECKSUMED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1054801649i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSMCS_E_PACKET_NOT_HASHED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1054801652i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSMCS_E_PACKET_NOT_SIGNED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1054801651i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSMCS_E_REQCALLBACKS_NOT_REG: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1054801663i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSMCS_E_SESSION_SHUTDOWN_IN_PROGRESS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1054801664i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSMCS_E_START_TIME_IN_PAST: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1054801653i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSTPC_E_ALREADY_COMPLETED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1054735615i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSTPC_E_ALREADY_IN_LOWEST_SESSION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1054735606i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSTPC_E_ALREADY_IN_PROGRESS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1054735614i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSTPC_E_CALLBACKS_NOT_REG: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1054735616i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSTPC_E_CLIENT_DEMOTE_NOT_SUPPORTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1054735605i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSTPC_E_KICKED_FAIL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1054735609i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSTPC_E_KICKED_FALLBACK: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1054735610i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSTPC_E_KICKED_POLICY_NOT_MET: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1054735611i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSTPC_E_KICKED_UNKNOWN: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1054735608i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSTPC_E_MULTISTREAM_NOT_ENABLED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1054735607i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSTPC_E_NOT_INITIALIZED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1054735612i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSTPC_E_NO_IP4_INTERFACE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1054735604i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSTPC_E_UNKNOWN_ERROR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1054735613i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSTPTC_E_WIM_APPLY_REQUIRES_REFERENCE_IMAGE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1054735603i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSTPTMGMT_CATEGORY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(1i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSTPTMGMT_E_CANNOT_REFRESH_DIRTY_OBJECT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1055915761i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSTPTMGMT_E_CANNOT_REINITIALIZE_OBJECT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1055915767i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSTPTMGMT_E_CONTENT_PROVIDER_ALREADY_REGISTERED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1055915773i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSTPTMGMT_E_CONTENT_PROVIDER_NOT_REGISTERED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1055915772i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSTPTMGMT_E_INVALID_AUTO_DISCONNECT_THRESHOLD: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1055915748i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSTPTMGMT_E_INVALID_CLASS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1055915774i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSTPTMGMT_E_INVALID_CONTENT_PROVIDER_NAME: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1055915771i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSTPTMGMT_E_INVALID_DIAGNOSTICS_COMPONENTS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1055915762i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSTPTMGMT_E_INVALID_IPV4_MULTICAST_ADDRESS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1055915753i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSTPTMGMT_E_INVALID_IPV6_MULTICAST_ADDRESS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1055915752i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSTPTMGMT_E_INVALID_IPV6_MULTICAST_ADDRESS_SOURCE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1055915750i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSTPTMGMT_E_INVALID_IP_ADDRESS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1055915754i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSTPTMGMT_E_INVALID_MULTISTREAM_STREAM_COUNT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1055915749i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSTPTMGMT_E_INVALID_NAMESPACE_DATA: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1055915765i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSTPTMGMT_E_INVALID_NAMESPACE_NAME: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1055915766i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSTPTMGMT_E_INVALID_NAMESPACE_START_PARAMETERS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1055915758i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSTPTMGMT_E_INVALID_NAMESPACE_START_TIME: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1055915763i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSTPTMGMT_E_INVALID_OPERATION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1055915775i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSTPTMGMT_E_INVALID_PROPERTY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1055915776i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSTPTMGMT_E_INVALID_SERVICE_IP_ADDRESS_RANGE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1055915760i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSTPTMGMT_E_INVALID_SERVICE_PORT_RANGE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1055915759i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSTPTMGMT_E_INVALID_SLOW_CLIENT_HANDLING_TYPE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1055915746i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSTPTMGMT_E_INVALID_TFTP_MAX_BLOCKSIZE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1055915741i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSTPTMGMT_E_IPV6_NOT_SUPPORTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1055915751i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSTPTMGMT_E_MULTICAST_SESSION_POLICY_NOT_SUPPORTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1055915747i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSTPTMGMT_E_NAMESPACE_ALREADY_REGISTERED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1055915769i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSTPTMGMT_E_NAMESPACE_NOT_ON_SERVER: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1055915756i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSTPTMGMT_E_NAMESPACE_NOT_REGISTERED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1055915768i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSTPTMGMT_E_NAMESPACE_READ_ONLY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1055915764i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSTPTMGMT_E_NAMESPACE_REMOVED_FROM_SERVER: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1055915755i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSTPTMGMT_E_NETWORK_PROFILES_NOT_SUPPORTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1055915745i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSTPTMGMT_E_TFTP_MAX_BLOCKSIZE_NOT_SUPPORTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1055915743i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSTPTMGMT_E_TFTP_VAR_WINDOW_NOT_SUPPORTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1055915742i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSTPTMGMT_E_TRANSPORT_SERVER_ROLE_NOT_CONFIGURED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1055915770i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSTPTMGMT_E_TRANSPORT_SERVER_UNAVAILABLE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1055915757i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSTPTMGMT_E_UDP_PORT_POLICY_NOT_SUPPORTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1055915744i32 as _);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WDSTRANSPORT_DIAGNOSTICS_COMPONENT_FLAGS(pub i32);
@@ -4598,6 +5128,7 @@ unsafe impl ::windows::runtime::Abi for WDSTRANSPORT_DIAGNOSTICS_COMPONENT_FLAGS
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WDSTRANSPORT_DISCONNECT_TYPE(pub i32);
@@ -4613,6 +5144,7 @@ unsafe impl ::windows::runtime::Abi for WDSTRANSPORT_DISCONNECT_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WDSTRANSPORT_FEATURE_FLAGS(pub i32);
@@ -4628,6 +5160,7 @@ unsafe impl ::windows::runtime::Abi for WDSTRANSPORT_FEATURE_FLAGS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE(pub i32);
@@ -4643,6 +5176,7 @@ unsafe impl ::windows::runtime::Abi for WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WDSTRANSPORT_IP_ADDRESS_TYPE(pub i32);
@@ -4658,6 +5192,7 @@ unsafe impl ::windows::runtime::Abi for WDSTRANSPORT_IP_ADDRESS_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WDSTRANSPORT_NAMESPACE_TYPE(pub i32);
@@ -4674,6 +5209,7 @@ unsafe impl ::windows::runtime::Abi for WDSTRANSPORT_NAMESPACE_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WDSTRANSPORT_NETWORK_PROFILE_TYPE(pub i32);
@@ -4691,6 +5227,7 @@ unsafe impl ::windows::runtime::Abi for WDSTRANSPORT_NETWORK_PROFILE_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WDSTRANSPORT_PROTOCOL_FLAGS(pub i32);
@@ -4705,7 +5242,9 @@ unsafe impl ::windows::runtime::Abi for WDSTRANSPORT_PROTOCOL_FLAGS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSTRANSPORT_RESOURCE_UTILIZATION_UNKNOWN: u32 = 255u32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WDSTRANSPORT_SERVICE_NOTIFICATION(pub i32);
@@ -4720,6 +5259,7 @@ unsafe impl ::windows::runtime::Abi for WDSTRANSPORT_SERVICE_NOTIFICATION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE(pub i32);
@@ -4736,6 +5276,7 @@ unsafe impl ::windows::runtime::Abi for WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WDSTRANSPORT_TFTP_CAPABILITY(pub i32);
@@ -4750,6 +5291,7 @@ unsafe impl ::windows::runtime::Abi for WDSTRANSPORT_TFTP_CAPABILITY {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WDSTRANSPORT_UDP_PORT_POLICY(pub i32);
@@ -4767,6 +5309,7 @@ unsafe impl ::windows::runtime::Abi for WDSTRANSPORT_UDP_PORT_POLICY {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 pub struct WDS_CLI_CRED {
     pub pwszUserName: super::super::Foundation::PWSTR,
     pub pwszDomain: super::super::Foundation::PWSTR,
@@ -4799,6 +5342,7 @@ unsafe impl ::windows::runtime::Abi for WDS_CLI_CRED {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WDS_CLI_FIRMWARE_TYPE(pub i32);
@@ -4814,6 +5358,7 @@ unsafe impl ::windows::runtime::Abi for WDS_CLI_FIRMWARE_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WDS_CLI_IMAGE_PARAM_TYPE(pub i32);
@@ -4829,6 +5374,7 @@ unsafe impl ::windows::runtime::Abi for WDS_CLI_IMAGE_PARAM_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WDS_CLI_IMAGE_TYPE(pub i32);
@@ -4845,44 +5391,80 @@ unsafe impl ::windows::runtime::Abi for WDS_CLI_IMAGE_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDS_CLI_NO_SPARSE_FILE: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDS_CLI_TRANSFER_ASYNCHRONOUS: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDS_LOG_LEVEL_DISABLED: i32 = 0i32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDS_LOG_LEVEL_ERROR: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDS_LOG_LEVEL_INFO: i32 = 3i32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDS_LOG_LEVEL_WARNING: i32 = 2i32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDS_LOG_TYPE_CLIENT_APPLY_FINISHED: i32 = 6i32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDS_LOG_TYPE_CLIENT_APPLY_FINISHED_2: i32 = 16i32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDS_LOG_TYPE_CLIENT_APPLY_STARTED: i32 = 5i32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDS_LOG_TYPE_CLIENT_APPLY_STARTED_2: i32 = 15i32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDS_LOG_TYPE_CLIENT_DOMAINJOINERROR: i32 = 12i32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDS_LOG_TYPE_CLIENT_DOMAINJOINERROR_2: i32 = 17i32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDS_LOG_TYPE_CLIENT_DRIVER_PACKAGE_NOT_ACCESSIBLE: i32 = 18i32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDS_LOG_TYPE_CLIENT_ERROR: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDS_LOG_TYPE_CLIENT_FINISHED: i32 = 3i32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDS_LOG_TYPE_CLIENT_GENERIC_MESSAGE: i32 = 7i32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDS_LOG_TYPE_CLIENT_IMAGE_SELECTED: i32 = 4i32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDS_LOG_TYPE_CLIENT_IMAGE_SELECTED2: i32 = 22i32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDS_LOG_TYPE_CLIENT_IMAGE_SELECTED3: i32 = 23i32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDS_LOG_TYPE_CLIENT_MAX_CODE: i32 = 24i32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDS_LOG_TYPE_CLIENT_OFFLINE_DRIVER_INJECTION_END: i32 = 20i32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDS_LOG_TYPE_CLIENT_OFFLINE_DRIVER_INJECTION_FAILURE: i32 = 21i32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDS_LOG_TYPE_CLIENT_OFFLINE_DRIVER_INJECTION_START: i32 = 19i32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDS_LOG_TYPE_CLIENT_POST_ACTIONS_END: i32 = 14i32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDS_LOG_TYPE_CLIENT_POST_ACTIONS_START: i32 = 13i32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDS_LOG_TYPE_CLIENT_STARTED: i32 = 2i32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDS_LOG_TYPE_CLIENT_TRANSFER_DOWNGRADE: i32 = 11i32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDS_LOG_TYPE_CLIENT_TRANSFER_END: i32 = 10i32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDS_LOG_TYPE_CLIENT_TRANSFER_START: i32 = 9i32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDS_LOG_TYPE_CLIENT_UNATTEND_MODE: i32 = 8i32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDS_MC_TRACE_ERROR: u32 = 524288u32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDS_MC_TRACE_FATAL: u32 = 1048576u32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDS_MC_TRACE_INFO: u32 = 131072u32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDS_MC_TRACE_VERBOSE: u32 = 65536u32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDS_MC_TRACE_WARNING: u32 = 262144u32;
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 pub struct WDS_TRANSPORTCLIENT_CALLBACKS {
     pub SessionStart: ::std::option::Option<PFN_WdsTransportClientSessionStart>,
     pub SessionStartEx: ::std::option::Option<PFN_WdsTransportClientSessionStartEx>,
@@ -4923,12 +5505,16 @@ unsafe impl ::windows::runtime::Abi for WDS_TRANSPORTCLIENT_CALLBACKS {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDS_TRANSPORTCLIENT_CURRENT_API_VERSION: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDS_TRANSPORTCLIENT_NO_CACHE: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDS_TRANSPORTCLIENT_PROTOCOL_MULTICAST: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 pub struct WDS_TRANSPORTCLIENT_REQUEST {
     pub ulLength: u32,
     pub ulApiVersion: u32,
@@ -4979,6 +5565,7 @@ unsafe impl ::windows::runtime::Abi for WDS_TRANSPORTCLIENT_REQUEST {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WDS_TRANSPORTCLIENT_REQUEST_AUTH_LEVEL(pub u32);
@@ -5021,12 +5608,16 @@ impl ::std::ops::Not for WDS_TRANSPORTCLIENT_REQUEST_AUTH_LEVEL {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDS_TRANSPORTCLIENT_STATUS_FAILURE: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDS_TRANSPORTCLIENT_STATUS_IN_PROGRESS: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDS_TRANSPORTCLIENT_STATUS_SUCCESS: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`, `Win32_System_Registry`*"]
 pub struct WDS_TRANSPORTPROVIDER_INIT_PARAMS {
     pub ulLength: u32,
     pub ulMcServerVersion: u32,
@@ -5062,6 +5653,7 @@ unsafe impl ::windows::runtime::Abi for WDS_TRANSPORTPROVIDER_INIT_PARAMS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub struct WDS_TRANSPORTPROVIDER_SETTINGS {
     pub ulLength: u32,
     pub ulProviderVersion: u32,
@@ -5088,6 +5680,7 @@ unsafe impl ::windows::runtime::Abi for WDS_TRANSPORTPROVIDER_SETTINGS {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WdsBpAddOption<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hhandle: Param0, uoption: u32, uvaluelen: u32, pvalue: *const ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -5102,6 +5695,7 @@ pub unsafe fn WdsBpAddOption<'a, Param0: ::windows::runtime::IntoParam<'a, super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WdsBpCloseHandle<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hhandle: Param0) -> u32 {
     #[cfg(windows)]
@@ -5116,6 +5710,7 @@ pub unsafe fn WdsBpCloseHandle<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WdsBpGetOptionBuffer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hhandle: Param0, ubufferlen: u32, pbuffer: *mut ::std::ffi::c_void, pubytes: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -5130,6 +5725,7 @@ pub unsafe fn WdsBpGetOptionBuffer<'a, Param0: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WdsBpInitialize(bpackettype: u8, phhandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -5144,6 +5740,7 @@ pub unsafe fn WdsBpInitialize(bpackettype: u8, phhandle: *mut super::super::Foun
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WdsBpParseInitialize(ppacket: *const ::std::ffi::c_void, upacketlen: u32, pbpackettype: *mut u8, phhandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -5158,6 +5755,7 @@ pub unsafe fn WdsBpParseInitialize(ppacket: *const ::std::ffi::c_void, upacketle
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WdsBpParseInitializev6(ppacket: *const ::std::ffi::c_void, upacketlen: u32, pbpackettype: *mut u8, phhandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -5172,6 +5770,7 @@ pub unsafe fn WdsBpParseInitializev6(ppacket: *const ::std::ffi::c_void, upacket
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WdsBpQueryOption<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hhandle: Param0, uoption: u32, uvaluelen: u32, pvalue: *mut ::std::ffi::c_void, pubytes: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -5186,6 +5785,7 @@ pub unsafe fn WdsBpQueryOption<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WdsCliAuthorizeSession<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hsession: Param0, pcred: *const WDS_CLI_CRED) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5200,6 +5800,7 @@ pub unsafe fn WdsCliAuthorizeSession<'a, Param0: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WdsCliCancelTransfer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(htransfer: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5214,6 +5815,7 @@ pub unsafe fn WdsCliCancelTransfer<'a, Param0: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WdsCliClose<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(handle: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5228,6 +5830,7 @@ pub unsafe fn WdsCliClose<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WdsCliCreateSession<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszserver: Param0, pcred: *const WDS_CLI_CRED) -> ::windows::runtime::Result<super::super::Foundation::HANDLE> {
     #[cfg(windows)]
@@ -5243,6 +5846,7 @@ pub unsafe fn WdsCliCreateSession<'a, Param0: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WdsCliFindFirstImage<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hsession: Param0) -> ::windows::runtime::Result<super::super::Foundation::HANDLE> {
     #[cfg(windows)]
@@ -5258,6 +5862,7 @@ pub unsafe fn WdsCliFindFirstImage<'a, Param0: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WdsCliFindNextImage<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(handle: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5271,9 +5876,12 @@ pub unsafe fn WdsCliFindNextImage<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WdsCliFlagEnumFilterFirmware: i32 = 2i32;
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WdsCliFlagEnumFilterVersion: i32 = 1i32;
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WdsCliFreeStringArray(ppwszarray: *mut super::super::Foundation::PWSTR, ulcount: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5288,6 +5896,7 @@ pub unsafe fn WdsCliFreeStringArray(ppwszarray: *mut super::super::Foundation::P
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WdsCliGetDriverQueryXml<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszwindirpath: Param0) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
@@ -5303,6 +5912,7 @@ pub unsafe fn WdsCliGetDriverQueryXml<'a, Param0: ::windows::runtime::IntoParam<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WdsCliGetEnumerationFlags<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(handle: Param0) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
@@ -5318,6 +5928,7 @@ pub unsafe fn WdsCliGetEnumerationFlags<'a, Param0: ::windows::runtime::IntoPara
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WdsCliGetImageArchitecture<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::runtime::Result<CPU_ARCHITECTURE> {
     #[cfg(windows)]
@@ -5333,6 +5944,7 @@ pub unsafe fn WdsCliGetImageArchitecture<'a, Param0: ::windows::runtime::IntoPar
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WdsCliGetImageDescription<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
@@ -5348,6 +5960,7 @@ pub unsafe fn WdsCliGetImageDescription<'a, Param0: ::windows::runtime::IntoPara
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WdsCliGetImageFiles<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hifh: Param0, pppwszfiles: *mut *mut super::super::Foundation::PWSTR, pdwcount: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5362,6 +5975,7 @@ pub unsafe fn WdsCliGetImageFiles<'a, Param0: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WdsCliGetImageGroup<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
@@ -5377,6 +5991,7 @@ pub unsafe fn WdsCliGetImageGroup<'a, Param0: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WdsCliGetImageHalName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
@@ -5392,6 +6007,7 @@ pub unsafe fn WdsCliGetImageHalName<'a, Param0: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WdsCliGetImageHandleFromFindHandle<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(findhandle: Param0) -> ::windows::runtime::Result<super::super::Foundation::HANDLE> {
     #[cfg(windows)]
@@ -5407,6 +6023,7 @@ pub unsafe fn WdsCliGetImageHandleFromFindHandle<'a, Param0: ::windows::runtime:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WdsCliGetImageHandleFromTransferHandle<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(htransfer: Param0) -> ::windows::runtime::Result<super::super::Foundation::HANDLE> {
     #[cfg(windows)]
@@ -5422,6 +6039,7 @@ pub unsafe fn WdsCliGetImageHandleFromTransferHandle<'a, Param0: ::windows::runt
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WdsCliGetImageIndex<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
@@ -5437,6 +6055,7 @@ pub unsafe fn WdsCliGetImageIndex<'a, Param0: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WdsCliGetImageLanguage<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
@@ -5452,6 +6071,7 @@ pub unsafe fn WdsCliGetImageLanguage<'a, Param0: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WdsCliGetImageLanguages<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hifh: Param0, pppszvalues: *mut *mut *mut i8, pdwnumvalues: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5466,6 +6086,7 @@ pub unsafe fn WdsCliGetImageLanguages<'a, Param0: ::windows::runtime::IntoParam<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WdsCliGetImageLastModifiedTime<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::runtime::Result<*mut super::super::Foundation::SYSTEMTIME> {
     #[cfg(windows)]
@@ -5481,6 +6102,7 @@ pub unsafe fn WdsCliGetImageLastModifiedTime<'a, Param0: ::windows::runtime::Int
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WdsCliGetImageName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
@@ -5496,6 +6118,7 @@ pub unsafe fn WdsCliGetImageName<'a, Param0: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WdsCliGetImageNamespace<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
@@ -5511,6 +6134,7 @@ pub unsafe fn WdsCliGetImageNamespace<'a, Param0: ::windows::runtime::IntoParam<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WdsCliGetImageParameter<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hifh: Param0, paramtype: WDS_CLI_IMAGE_PARAM_TYPE, presponse: *mut ::std::ffi::c_void, uresponselen: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5525,6 +6149,7 @@ pub unsafe fn WdsCliGetImageParameter<'a, Param0: ::windows::runtime::IntoParam<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WdsCliGetImagePath<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
@@ -5540,6 +6165,7 @@ pub unsafe fn WdsCliGetImagePath<'a, Param0: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WdsCliGetImageSize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::runtime::Result<u64> {
     #[cfg(windows)]
@@ -5555,6 +6181,7 @@ pub unsafe fn WdsCliGetImageSize<'a, Param0: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WdsCliGetImageType<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::runtime::Result<WDS_CLI_IMAGE_TYPE> {
     #[cfg(windows)]
@@ -5570,6 +6197,7 @@ pub unsafe fn WdsCliGetImageType<'a, Param0: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WdsCliGetImageVersion<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
@@ -5585,6 +6213,7 @@ pub unsafe fn WdsCliGetImageVersion<'a, Param0: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WdsCliGetTransferSize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::runtime::Result<u64> {
     #[cfg(windows)]
@@ -5600,6 +6229,7 @@ pub unsafe fn WdsCliGetTransferSize<'a, Param0: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WdsCliInitializeLog<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hsession: Param0, ulclientarchitecture: CPU_ARCHITECTURE, pwszclientid: Param2, pwszclientaddress: Param3) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5614,6 +6244,7 @@ pub unsafe fn WdsCliInitializeLog<'a, Param0: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WdsCliLog<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hsession: Param0, ulloglevel: u32, ulmessagecode: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5628,6 +6259,7 @@ pub unsafe fn WdsCliLog<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WdsCliObtainDriverPackages<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(himage: Param0, ppwszservername: *mut super::super::Foundation::PWSTR, pppwszdriverpackages: *mut *mut super::super::Foundation::PWSTR, pulcount: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5642,6 +6274,7 @@ pub unsafe fn WdsCliObtainDriverPackages<'a, Param0: ::windows::runtime::IntoPar
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WdsCliObtainDriverPackagesEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hsession: Param0, pwszmachineinfo: Param1, ppwszservername: *mut super::super::Foundation::PWSTR, pppwszdriverpackages: *mut *mut super::super::Foundation::PWSTR, pulcount: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5656,6 +6289,7 @@ pub unsafe fn WdsCliObtainDriverPackagesEx<'a, Param0: ::windows::runtime::IntoP
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WdsCliRegisterTrace(pfn: ::std::option::Option<PFN_WdsCliTraceFunction>) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5669,6 +6303,7 @@ pub unsafe fn WdsCliRegisterTrace(pfn: ::std::option::Option<PFN_WdsCliTraceFunc
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[inline]
 pub unsafe fn WdsCliSetTransferBufferSize(ulsizeinbytes: u32) {
     #[cfg(windows)]
@@ -5683,6 +6318,7 @@ pub unsafe fn WdsCliSetTransferBufferSize(ulsizeinbytes: u32) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WdsCliTransferFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
     pwszserver: Param0,
@@ -5707,6 +6343,7 @@ pub unsafe fn WdsCliTransferFile<'a, Param0: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WdsCliTransferImage<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(himage: Param0, pwszlocalpath: Param1, dwflags: u32, dwreserved: u32, pfnwdsclicallback: ::std::option::Option<PFN_WdsCliCallback>, pvuserdata: *const ::std::ffi::c_void) -> ::windows::runtime::Result<super::super::Foundation::HANDLE> {
     #[cfg(windows)]
@@ -5722,6 +6359,7 @@ pub unsafe fn WdsCliTransferImage<'a, Param0: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WdsCliWaitForTransfer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(htransfer: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5737,6 +6375,7 @@ pub unsafe fn WdsCliWaitForTransfer<'a, Param0: ::windows::runtime::IntoParam<'a
 }
 pub const WdsTransportCacheable: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1884883734, 61766, 18109, [189, 157, 74, 170, 144, 8, 75, 245]);
 pub const WdsTransportClient: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1725089257, 4086, 18924, [151, 51, 218, 251, 30, 1, 223, 28]);
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[inline]
 pub unsafe fn WdsTransportClientAddRefBuffer(pvbuffer: *const ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -5751,6 +6390,7 @@ pub unsafe fn WdsTransportClientAddRefBuffer(pvbuffer: *const ::std::ffi::c_void
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WdsTransportClientCancelSession<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hsessionkey: Param0) -> u32 {
     #[cfg(windows)]
@@ -5765,6 +6405,7 @@ pub unsafe fn WdsTransportClientCancelSession<'a, Param0: ::windows::runtime::In
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WdsTransportClientCancelSessionEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hsessionkey: Param0, dwerrorcode: u32) -> u32 {
     #[cfg(windows)]
@@ -5779,6 +6420,7 @@ pub unsafe fn WdsTransportClientCancelSessionEx<'a, Param0: ::windows::runtime::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WdsTransportClientCloseSession<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hsessionkey: Param0) -> u32 {
     #[cfg(windows)]
@@ -5793,6 +6435,7 @@ pub unsafe fn WdsTransportClientCloseSession<'a, Param0: ::windows::runtime::Int
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WdsTransportClientCompleteReceive<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hsessionkey: Param0, ulsize: u32, pulloffset: *const u64) -> u32 {
     #[cfg(windows)]
@@ -5806,6 +6449,7 @@ pub unsafe fn WdsTransportClientCompleteReceive<'a, Param0: ::windows::runtime::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[inline]
 pub unsafe fn WdsTransportClientInitialize() -> u32 {
     #[cfg(windows)]
@@ -5820,6 +6464,7 @@ pub unsafe fn WdsTransportClientInitialize() -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WdsTransportClientInitializeSession(psessionrequest: *const WDS_TRANSPORTCLIENT_REQUEST, pcallerdata: *const ::std::ffi::c_void, hsessionkey: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -5834,6 +6479,7 @@ pub unsafe fn WdsTransportClientInitializeSession(psessionrequest: *const WDS_TR
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WdsTransportClientQueryStatus<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hsessionkey: Param0, pustatus: *mut u32, puerrorcode: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -5848,6 +6494,7 @@ pub unsafe fn WdsTransportClientQueryStatus<'a, Param0: ::windows::runtime::Into
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WdsTransportClientRegisterCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hsessionkey: Param0, callbackid: TRANSPORTCLIENT_CALLBACK_ID, pfncallback: *const ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -5861,6 +6508,7 @@ pub unsafe fn WdsTransportClientRegisterCallback<'a, Param0: ::windows::runtime:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[inline]
 pub unsafe fn WdsTransportClientReleaseBuffer(pvbuffer: *const ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -5874,6 +6522,7 @@ pub unsafe fn WdsTransportClientReleaseBuffer(pvbuffer: *const ::std::ffi::c_voi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[inline]
 pub unsafe fn WdsTransportClientShutdown() -> u32 {
     #[cfg(windows)]
@@ -5888,6 +6537,7 @@ pub unsafe fn WdsTransportClientShutdown() -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WdsTransportClientStartSession<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hsessionkey: Param0) -> u32 {
     #[cfg(windows)]
@@ -5902,6 +6552,7 @@ pub unsafe fn WdsTransportClientStartSession<'a, Param0: ::windows::runtime::Int
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WdsTransportClientWaitForCompletion<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hsessionkey: Param0, utimeout: u32) -> u32 {
     #[cfg(windows)]
@@ -5930,6 +6581,7 @@ pub const WdsTransportNamespaceScheduledCastAutoStart: ::windows::runtime::GUID 
 pub const WdsTransportNamespaceScheduledCastManualStart: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3554779818, 51884, 17934, [185, 138, 71, 249, 243, 24, 161, 250]);
 pub const WdsTransportServer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3927553603, 19167, 17427, [148, 44, 20, 243, 121, 17, 135, 96]);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WdsTransportServerAllocateBuffer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprovider: Param0, ulbuffersize: u32) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
@@ -5944,6 +6596,7 @@ pub unsafe fn WdsTransportServerAllocateBuffer<'a, Param0: ::windows::runtime::I
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WdsTransportServerCompleteRead<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprovider: Param0, ulbytesread: u32, pvuserdata: *const ::std::ffi::c_void, hreadresult: ::windows::runtime::HRESULT) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5958,6 +6611,7 @@ pub unsafe fn WdsTransportServerCompleteRead<'a, Param0: ::windows::runtime::Int
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WdsTransportServerFreeBuffer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprovider: Param0, pvbuffer: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5972,6 +6626,7 @@ pub unsafe fn WdsTransportServerFreeBuffer<'a, Param0: ::windows::runtime::IntoP
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WdsTransportServerRegisterCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprovider: Param0, callbackid: TRANSPORTPROVIDER_CALLBACK_ID, pfncallback: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5986,6 +6641,7 @@ pub unsafe fn WdsTransportServerRegisterCallback<'a, Param0: ::windows::runtime:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WdsTransportServerTrace<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hprovider: Param0, severity: u32, pwszformat: Param2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -6000,6 +6656,7 @@ pub unsafe fn WdsTransportServerTrace<'a, Param0: ::windows::runtime::IntoParam<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WdsTransportServerTraceV<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hprovider: Param0, severity: u32, pwszformat: Param2, params: *const i8) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]

@@ -1,5 +1,6 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeveloperLicensing`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn AcquireDeveloperLicense<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwndparent: Param0) -> ::windows::runtime::Result<super::super::Foundation::FILETIME> {
     #[cfg(windows)]
@@ -15,6 +16,7 @@ pub unsafe fn AcquireDeveloperLicense<'a, Param0: ::windows::runtime::IntoParam<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeveloperLicensing`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CheckDeveloperLicense() -> ::windows::runtime::Result<super::super::Foundation::FILETIME> {
     #[cfg(windows)]
@@ -30,6 +32,7 @@ pub unsafe fn CheckDeveloperLicense() -> ::windows::runtime::Result<super::super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DeveloperLicensing`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RemoveDeveloperLicense<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwndparent: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]

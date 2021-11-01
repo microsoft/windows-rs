@@ -1,7 +1,11 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Win32_System_RestartManager`*"]
 pub const CCH_RM_MAX_APP_NAME: u32 = 255u32;
+#[doc = "*Required features: `Win32_System_RestartManager`*"]
 pub const CCH_RM_MAX_SVC_NAME: u32 = 63u32;
+#[doc = "*Required features: `Win32_System_RestartManager`*"]
 pub const CCH_RM_SESSION_KEY: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_RestartManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RM_APP_STATUS(pub i32);
@@ -23,6 +27,7 @@ unsafe impl ::windows::runtime::Abi for RM_APP_STATUS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RestartManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RM_APP_TYPE(pub i32);
@@ -42,6 +47,7 @@ unsafe impl ::windows::runtime::Abi for RM_APP_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RestartManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RM_FILTER_ACTION(pub i32);
@@ -60,6 +66,7 @@ unsafe impl ::windows::runtime::Abi for RM_FILTER_ACTION {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RestartManager`, `Win32_Foundation`*"]
 pub struct RM_FILTER_INFO {
     pub FilterAction: RM_FILTER_ACTION,
     pub FilterTrigger: RM_FILTER_TRIGGER,
@@ -90,6 +97,7 @@ unsafe impl ::windows::runtime::Abi for RM_FILTER_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RestartManager`, `Win32_Foundation`*"]
 pub union RM_FILTER_INFO_0 {
     pub strFilename: super::super::Foundation::PWSTR,
     pub Process: RM_UNIQUE_PROCESS,
@@ -116,6 +124,7 @@ unsafe impl ::windows::runtime::Abi for RM_FILTER_INFO_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RestartManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RM_FILTER_TRIGGER(pub i32);
@@ -132,11 +141,14 @@ unsafe impl ::windows::runtime::Abi for RM_FILTER_TRIGGER {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RestartManager`*"]
 pub const RM_INVALID_PROCESS: i32 = -1i32;
+#[doc = "*Required features: `Win32_System_RestartManager`*"]
 pub const RM_INVALID_TS_SESSION: i32 = -1i32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RestartManager`, `Win32_Foundation`*"]
 pub struct RM_PROCESS_INFO {
     pub Process: RM_UNIQUE_PROCESS,
     pub strAppName: [u16; 256],
@@ -181,6 +193,7 @@ unsafe impl ::windows::runtime::Abi for RM_PROCESS_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RestartManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RM_REBOOT_REASON(pub i32);
@@ -199,6 +212,7 @@ unsafe impl ::windows::runtime::Abi for RM_REBOOT_REASON {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_RestartManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RM_SHUTDOWN_TYPE(pub i32);
@@ -216,6 +230,7 @@ unsafe impl ::windows::runtime::Abi for RM_SHUTDOWN_TYPE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RestartManager`, `Win32_Foundation`*"]
 pub struct RM_UNIQUE_PROCESS {
     pub dwProcessId: u32,
     pub ProcessStartTime: super::super::Foundation::FILETIME,
@@ -249,6 +264,7 @@ unsafe impl ::windows::runtime::Abi for RM_UNIQUE_PROCESS {
 }
 pub type RM_WRITE_STATUS_CALLBACK = unsafe extern "system" fn(npercentcomplete: u32);
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RestartManager`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RmAddFilter<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dwsessionhandle: u32, strmodulename: Param1, pprocess: *const RM_UNIQUE_PROCESS, strserviceshortname: Param3, filteraction: RM_FILTER_ACTION) -> u32 {
     #[cfg(windows)]
@@ -262,6 +278,7 @@ pub unsafe fn RmAddFilter<'a, Param1: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_RestartManager`*"]
 #[inline]
 pub unsafe fn RmCancelCurrentTask(dwsessionhandle: u32) -> u32 {
     #[cfg(windows)]
@@ -275,6 +292,7 @@ pub unsafe fn RmCancelCurrentTask(dwsessionhandle: u32) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_RestartManager`*"]
 #[inline]
 pub unsafe fn RmEndSession(dwsessionhandle: u32) -> u32 {
     #[cfg(windows)]
@@ -288,6 +306,7 @@ pub unsafe fn RmEndSession(dwsessionhandle: u32) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_RestartManager`*"]
 #[inline]
 pub unsafe fn RmGetFilterList(dwsessionhandle: u32, pbfilterbuf: *mut u8, cbfilterbuf: u32, cbfilterbufneeded: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -302,6 +321,7 @@ pub unsafe fn RmGetFilterList(dwsessionhandle: u32, pbfilterbuf: *mut u8, cbfilt
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RestartManager`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RmGetList(dwsessionhandle: u32, pnprocinfoneeded: *mut u32, pnprocinfo: *mut u32, rgaffectedapps: *mut RM_PROCESS_INFO, lpdwrebootreasons: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -316,6 +336,7 @@ pub unsafe fn RmGetList(dwsessionhandle: u32, pnprocinfoneeded: *mut u32, pnproc
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RestartManager`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RmJoinSession<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(psessionhandle: *mut u32, strsessionkey: Param1) -> u32 {
     #[cfg(windows)]
@@ -330,6 +351,7 @@ pub unsafe fn RmJoinSession<'a, Param1: ::windows::runtime::IntoParam<'a, super:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RestartManager`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RmRegisterResources(dwsessionhandle: u32, nfiles: u32, rgsfilenames: *const super::super::Foundation::PWSTR, napplications: u32, rgapplications: *const RM_UNIQUE_PROCESS, nservices: u32, rgsservicenames: *const super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
@@ -344,6 +366,7 @@ pub unsafe fn RmRegisterResources(dwsessionhandle: u32, nfiles: u32, rgsfilename
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RestartManager`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RmRemoveFilter<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dwsessionhandle: u32, strmodulename: Param1, pprocess: *const RM_UNIQUE_PROCESS, strserviceshortname: Param3) -> u32 {
     #[cfg(windows)]
@@ -357,6 +380,7 @@ pub unsafe fn RmRemoveFilter<'a, Param1: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_RestartManager`*"]
 #[inline]
 pub unsafe fn RmRestart(dwsessionhandle: u32, dwrestartflags: u32, fnstatus: ::std::option::Option<RM_WRITE_STATUS_CALLBACK>) -> u32 {
     #[cfg(windows)]
@@ -370,6 +394,7 @@ pub unsafe fn RmRestart(dwsessionhandle: u32, dwrestartflags: u32, fnstatus: ::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_RestartManager`*"]
 #[inline]
 pub unsafe fn RmShutdown(dwsessionhandle: u32, lactionflags: u32, fnstatus: ::std::option::Option<RM_WRITE_STATUS_CALLBACK>) -> u32 {
     #[cfg(windows)]
@@ -384,6 +409,7 @@ pub unsafe fn RmShutdown(dwsessionhandle: u32, lactionflags: u32, fnstatus: ::st
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_RestartManager`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RmStartSession(psessionhandle: *mut u32, dwsessionflags: u32, strsessionkey: super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]

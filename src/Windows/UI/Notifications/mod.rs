@@ -1,6 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[cfg(feature = "UI_Notifications_Management")]
 pub mod Management;
+#[doc = "*Required features: `UI_Notifications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AdaptiveNotificationContentKind(pub i32);
@@ -19,6 +20,7 @@ unsafe impl ::windows::runtime::Abi for AdaptiveNotificationContentKind {
 unsafe impl ::windows::runtime::RuntimeType for AdaptiveNotificationContentKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.AdaptiveNotificationContentKind;i4)");
 }
+#[doc = "*Required features: `UI_Notifications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AdaptiveNotificationText(::windows::runtime::IInspectable);
@@ -30,6 +32,7 @@ impl AdaptiveNotificationText {
         static mut SHARED: ::windows::runtime::FactoryCache<AdaptiveNotificationText, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn Text(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -37,10 +40,12 @@ impl AdaptiveNotificationText {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn SetText<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn Language(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -48,10 +53,12 @@ impl AdaptiveNotificationText {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn SetLanguage<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn Kind(&self) -> ::windows::runtime::Result<AdaptiveNotificationContentKind> {
         let this = &::windows::runtime::Interface::cast::<IAdaptiveNotificationContent>(self)?;
         unsafe {
@@ -60,6 +67,7 @@ impl AdaptiveNotificationText {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Notifications`, `Foundation_Collections`*"]
     pub fn Hints(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IMap<::windows::runtime::HSTRING, ::windows::runtime::HSTRING>> {
         let this = &::windows::runtime::Interface::cast::<IAdaptiveNotificationContent>(self)?;
         unsafe {
@@ -142,11 +150,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, IAdaptiveNotificationContent> for &Ad
 }
 unsafe impl ::std::marker::Send for AdaptiveNotificationText {}
 unsafe impl ::std::marker::Sync for AdaptiveNotificationText {}
+#[doc = "*Required features: `UI_Notifications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct BadgeNotification(::windows::runtime::IInspectable);
 impl BadgeNotification {
     #[cfg(feature = "Data_Xml_Dom")]
+    #[doc = "*Required features: `UI_Notifications`, `Data_Xml_Dom`*"]
     pub fn Content(&self) -> ::windows::runtime::Result<super::super::Data::Xml::Dom::XmlDocument> {
         let this = self;
         unsafe {
@@ -155,11 +165,13 @@ impl BadgeNotification {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Notifications`, `Foundation`*"]
     pub fn SetExpirationTime<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<super::super::Foundation::DateTime>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Notifications`, `Foundation`*"]
     pub fn ExpirationTime(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = self;
         unsafe {
@@ -168,6 +180,7 @@ impl BadgeNotification {
         }
     }
     #[cfg(feature = "Data_Xml_Dom")]
+    #[doc = "*Required features: `UI_Notifications`, `Data_Xml_Dom`*"]
     pub fn CreateBadgeNotification<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Data::Xml::Dom::XmlDocument>>(content: Param0) -> ::windows::runtime::Result<BadgeNotification> {
         Self::IBadgeNotificationFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -231,6 +244,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for BadgeNotification {}
 unsafe impl ::std::marker::Sync for BadgeNotification {}
+#[doc = "*Required features: `UI_Notifications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct BadgeTemplateType(pub i32);
@@ -250,20 +264,24 @@ unsafe impl ::windows::runtime::Abi for BadgeTemplateType {
 unsafe impl ::windows::runtime::RuntimeType for BadgeTemplateType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.BadgeTemplateType;i4)");
 }
+#[doc = "*Required features: `UI_Notifications`*"]
 pub struct BadgeUpdateManager {}
 impl BadgeUpdateManager {
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn CreateBadgeUpdaterForApplication() -> ::windows::runtime::Result<BadgeUpdater> {
         Self::IBadgeUpdateManagerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<BadgeUpdater>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn CreateBadgeUpdaterForApplicationWithId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(applicationid: Param0) -> ::windows::runtime::Result<BadgeUpdater> {
         Self::IBadgeUpdateManagerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), applicationid.into_param().abi(), &mut result__).from_abi::<BadgeUpdater>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn CreateBadgeUpdaterForSecondaryTile<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(tileid: Param0) -> ::windows::runtime::Result<BadgeUpdater> {
         Self::IBadgeUpdateManagerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -271,6 +289,7 @@ impl BadgeUpdateManager {
         })
     }
     #[cfg(feature = "Data_Xml_Dom")]
+    #[doc = "*Required features: `UI_Notifications`, `Data_Xml_Dom`*"]
     pub fn GetTemplateContent(r#type: BadgeTemplateType) -> ::windows::runtime::Result<super::super::Data::Xml::Dom::XmlDocument> {
         Self::IBadgeUpdateManagerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -278,6 +297,7 @@ impl BadgeUpdateManager {
         })
     }
     #[cfg(feature = "System")]
+    #[doc = "*Required features: `UI_Notifications`, `System`*"]
     pub fn GetForUser<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::User>>(user: Param0) -> ::windows::runtime::Result<BadgeUpdateManagerForUser> {
         Self::IBadgeUpdateManagerStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -296,10 +316,12 @@ impl BadgeUpdateManager {
 impl ::windows::runtime::RuntimeName for BadgeUpdateManager {
     const NAME: &'static str = "Windows.UI.Notifications.BadgeUpdateManager";
 }
+#[doc = "*Required features: `UI_Notifications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct BadgeUpdateManagerForUser(::windows::runtime::IInspectable);
 impl BadgeUpdateManagerForUser {
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn CreateBadgeUpdaterForApplication(&self) -> ::windows::runtime::Result<BadgeUpdater> {
         let this = self;
         unsafe {
@@ -307,6 +329,7 @@ impl BadgeUpdateManagerForUser {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<BadgeUpdater>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn CreateBadgeUpdaterForApplicationWithId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, applicationid: Param0) -> ::windows::runtime::Result<BadgeUpdater> {
         let this = self;
         unsafe {
@@ -314,6 +337,7 @@ impl BadgeUpdateManagerForUser {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), applicationid.into_param().abi(), &mut result__).from_abi::<BadgeUpdater>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn CreateBadgeUpdaterForSecondaryTile<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, tileid: Param0) -> ::windows::runtime::Result<BadgeUpdater> {
         let this = self;
         unsafe {
@@ -322,6 +346,7 @@ impl BadgeUpdateManagerForUser {
         }
     }
     #[cfg(feature = "System")]
+    #[doc = "*Required features: `UI_Notifications`, `System`*"]
     pub fn User(&self) -> ::windows::runtime::Result<super::super::System::User> {
         let this = self;
         unsafe {
@@ -382,28 +407,34 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for BadgeUpdateManagerForUser {}
 unsafe impl ::std::marker::Sync for BadgeUpdateManagerForUser {}
+#[doc = "*Required features: `UI_Notifications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct BadgeUpdater(::windows::runtime::IInspectable);
 impl BadgeUpdater {
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn Update<'a, Param0: ::windows::runtime::IntoParam<'a, BadgeNotification>>(&self, notification: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), notification.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn Clear(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Notifications`, `Foundation`*"]
     pub fn StartPeriodicUpdate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>>(&self, badgecontent: Param0, requestedinterval: PeriodicUpdateRecurrence) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), badgecontent.into_param().abi(), requestedinterval).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Notifications`, `Foundation`*"]
     pub fn StartPeriodicUpdateAtTime<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::DateTime>>(&self, badgecontent: Param0, starttime: Param1, requestedinterval: PeriodicUpdateRecurrence) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), badgecontent.into_param().abi(), starttime.into_param().abi(), requestedinterval).ok() }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn StopPeriodicUpdate(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this)).ok() }
@@ -463,12 +494,14 @@ unsafe impl ::std::marker::Send for BadgeUpdater {}
 unsafe impl ::std::marker::Sync for BadgeUpdater {}
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `UI_Notifications`*"]
 pub struct IAdaptiveNotificationContent(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdaptiveNotificationContent {
     type Vtable = IAdaptiveNotificationContent_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3943546470, 29768, 17549, [157, 184, 215, 138, 205, 42, 187, 169]);
 }
 impl IAdaptiveNotificationContent {
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn Kind(&self) -> ::windows::runtime::Result<AdaptiveNotificationContentKind> {
         let this = self;
         unsafe {
@@ -477,6 +510,7 @@ impl IAdaptiveNotificationContent {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Notifications`, `Foundation_Collections`*"]
     pub fn Hints(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IMap<::windows::runtime::HSTRING, ::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -2009,38 +2043,45 @@ pub struct IUserNotificationChangedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut UserNotificationChangedKind) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `UI_Notifications`*"]
 pub struct KnownAdaptiveNotificationHints {}
 impl KnownAdaptiveNotificationHints {
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn Style() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownAdaptiveNotificationHintsStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn Wrap() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownAdaptiveNotificationHintsStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn MaxLines() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownAdaptiveNotificationHintsStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn MinLines() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownAdaptiveNotificationHintsStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn TextStacking() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownAdaptiveNotificationHintsStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn Align() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownAdaptiveNotificationHintsStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
@@ -2055,116 +2096,136 @@ impl KnownAdaptiveNotificationHints {
 impl ::windows::runtime::RuntimeName for KnownAdaptiveNotificationHints {
     const NAME: &'static str = "Windows.UI.Notifications.KnownAdaptiveNotificationHints";
 }
+#[doc = "*Required features: `UI_Notifications`*"]
 pub struct KnownAdaptiveNotificationTextStyles {}
 impl KnownAdaptiveNotificationTextStyles {
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn Caption() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownAdaptiveNotificationTextStylesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn Body() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownAdaptiveNotificationTextStylesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn Base() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownAdaptiveNotificationTextStylesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn Subtitle() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownAdaptiveNotificationTextStylesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn Title() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownAdaptiveNotificationTextStylesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn Subheader() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownAdaptiveNotificationTextStylesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn Header() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownAdaptiveNotificationTextStylesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn TitleNumeral() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownAdaptiveNotificationTextStylesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn SubheaderNumeral() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownAdaptiveNotificationTextStylesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn HeaderNumeral() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownAdaptiveNotificationTextStylesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn CaptionSubtle() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownAdaptiveNotificationTextStylesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn BodySubtle() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownAdaptiveNotificationTextStylesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn BaseSubtle() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownAdaptiveNotificationTextStylesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn SubtitleSubtle() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownAdaptiveNotificationTextStylesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn TitleSubtle() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownAdaptiveNotificationTextStylesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn SubheaderSubtle() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownAdaptiveNotificationTextStylesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn SubheaderNumeralSubtle() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownAdaptiveNotificationTextStylesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn HeaderSubtle() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownAdaptiveNotificationTextStylesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn HeaderNumeralSubtle() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownAdaptiveNotificationTextStylesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
@@ -2179,8 +2240,10 @@ impl KnownAdaptiveNotificationTextStyles {
 impl ::windows::runtime::RuntimeName for KnownAdaptiveNotificationTextStyles {
     const NAME: &'static str = "Windows.UI.Notifications.KnownAdaptiveNotificationTextStyles";
 }
+#[doc = "*Required features: `UI_Notifications`*"]
 pub struct KnownNotificationBindings {}
 impl KnownNotificationBindings {
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn ToastGeneric() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IKnownNotificationBindingsStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
@@ -2195,6 +2258,7 @@ impl KnownNotificationBindings {
 impl ::windows::runtime::RuntimeName for KnownNotificationBindings {
     const NAME: &'static str = "Windows.UI.Notifications.KnownNotificationBindings";
 }
+#[doc = "*Required features: `UI_Notifications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct Notification(::windows::runtime::IInspectable);
@@ -2207,6 +2271,7 @@ impl Notification {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Notifications`, `Foundation`*"]
     pub fn ExpirationTime(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = self;
         unsafe {
@@ -2215,10 +2280,12 @@ impl Notification {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Notifications`, `Foundation`*"]
     pub fn SetExpirationTime<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<super::super::Foundation::DateTime>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn Visual(&self) -> ::windows::runtime::Result<NotificationVisual> {
         let this = self;
         unsafe {
@@ -2226,6 +2293,7 @@ impl Notification {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<NotificationVisual>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn SetVisual<'a, Param0: ::windows::runtime::IntoParam<'a, NotificationVisual>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -2283,10 +2351,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for Notification {}
 unsafe impl ::std::marker::Sync for Notification {}
+#[doc = "*Required features: `UI_Notifications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct NotificationBinding(::windows::runtime::IInspectable);
 impl NotificationBinding {
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn Template(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2294,10 +2364,12 @@ impl NotificationBinding {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn SetTemplate<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn Language(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2305,11 +2377,13 @@ impl NotificationBinding {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn SetLanguage<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Notifications`, `Foundation_Collections`*"]
     pub fn Hints(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IMap<::windows::runtime::HSTRING, ::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -2318,6 +2392,7 @@ impl NotificationBinding {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Notifications`, `Foundation_Collections`*"]
     pub fn GetTextElements(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<AdaptiveNotificationText>> {
         let this = self;
         unsafe {
@@ -2378,6 +2453,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for NotificationBinding {}
 unsafe impl ::std::marker::Sync for NotificationBinding {}
+#[doc = "*Required features: `UI_Notifications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct NotificationData(::windows::runtime::IInspectable);
@@ -2390,6 +2466,7 @@ impl NotificationData {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Notifications`, `Foundation_Collections`*"]
     pub fn Values(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IMap<::windows::runtime::HSTRING, ::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -2397,6 +2474,7 @@ impl NotificationData {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IMap<::windows::runtime::HSTRING, ::windows::runtime::HSTRING>>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn SequenceNumber(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -2404,11 +2482,13 @@ impl NotificationData {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn SetSequenceNumber(&self, value: u32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Notifications`, `Foundation_Collections`*"]
     pub fn CreateNotificationDataWithValuesAndSequenceNumber<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::HSTRING, ::windows::runtime::HSTRING>>>>(initialvalues: Param0, sequencenumber: u32) -> ::windows::runtime::Result<NotificationData> {
         Self::INotificationDataFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -2416,6 +2496,7 @@ impl NotificationData {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Notifications`, `Foundation_Collections`*"]
     pub fn CreateNotificationDataWithValues<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::HSTRING, ::windows::runtime::HSTRING>>>>(initialvalues: Param0) -> ::windows::runtime::Result<NotificationData> {
         Self::INotificationDataFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -2479,6 +2560,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for NotificationData {}
 unsafe impl ::std::marker::Sync for NotificationData {}
+#[doc = "*Required features: `UI_Notifications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NotificationKinds(pub u32);
@@ -2526,6 +2608,7 @@ impl ::std::ops::Not for NotificationKinds {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `UI_Notifications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NotificationMirroring(pub i32);
@@ -2545,6 +2628,7 @@ unsafe impl ::windows::runtime::Abi for NotificationMirroring {
 unsafe impl ::windows::runtime::RuntimeType for NotificationMirroring {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.NotificationMirroring;i4)");
 }
+#[doc = "*Required features: `UI_Notifications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NotificationSetting(pub i32);
@@ -2567,6 +2651,7 @@ unsafe impl ::windows::runtime::Abi for NotificationSetting {
 unsafe impl ::windows::runtime::RuntimeType for NotificationSetting {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.NotificationSetting;i4)");
 }
+#[doc = "*Required features: `UI_Notifications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NotificationUpdateResult(pub i32);
@@ -2587,10 +2672,12 @@ unsafe impl ::windows::runtime::Abi for NotificationUpdateResult {
 unsafe impl ::windows::runtime::RuntimeType for NotificationUpdateResult {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.NotificationUpdateResult;i4)");
 }
+#[doc = "*Required features: `UI_Notifications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct NotificationVisual(::windows::runtime::IInspectable);
 impl NotificationVisual {
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn Language(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2598,11 +2685,13 @@ impl NotificationVisual {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn SetLanguage<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Notifications`, `Foundation_Collections`*"]
     pub fn Bindings(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<NotificationBinding>> {
         let this = self;
         unsafe {
@@ -2610,6 +2699,7 @@ impl NotificationVisual {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<NotificationBinding>>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn GetBinding<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, templatename: Param0) -> ::windows::runtime::Result<NotificationBinding> {
         let this = self;
         unsafe {
@@ -2670,6 +2760,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for NotificationVisual {}
 unsafe impl ::std::marker::Sync for NotificationVisual {}
+#[doc = "*Required features: `UI_Notifications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PeriodicUpdateRecurrence(pub i32);
@@ -2692,11 +2783,13 @@ unsafe impl ::windows::runtime::Abi for PeriodicUpdateRecurrence {
 unsafe impl ::windows::runtime::RuntimeType for PeriodicUpdateRecurrence {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.PeriodicUpdateRecurrence;i4)");
 }
+#[doc = "*Required features: `UI_Notifications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ScheduledTileNotification(::windows::runtime::IInspectable);
 impl ScheduledTileNotification {
     #[cfg(feature = "Data_Xml_Dom")]
+    #[doc = "*Required features: `UI_Notifications`, `Data_Xml_Dom`*"]
     pub fn Content(&self) -> ::windows::runtime::Result<super::super::Data::Xml::Dom::XmlDocument> {
         let this = self;
         unsafe {
@@ -2705,6 +2798,7 @@ impl ScheduledTileNotification {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Notifications`, `Foundation`*"]
     pub fn DeliveryTime(&self) -> ::windows::runtime::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -2713,11 +2807,13 @@ impl ScheduledTileNotification {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Notifications`, `Foundation`*"]
     pub fn SetExpirationTime<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<super::super::Foundation::DateTime>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Notifications`, `Foundation`*"]
     pub fn ExpirationTime(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = self;
         unsafe {
@@ -2725,10 +2821,12 @@ impl ScheduledTileNotification {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Foundation::DateTime>>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn SetTag<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn Tag(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2736,10 +2834,12 @@ impl ScheduledTileNotification {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn SetId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2748,6 +2848,7 @@ impl ScheduledTileNotification {
         }
     }
     #[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation"))]
+    #[doc = "*Required features: `UI_Notifications`, `Data_Xml_Dom`, `Foundation`*"]
     pub fn CreateScheduledTileNotification<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Data::Xml::Dom::XmlDocument>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::DateTime>>(content: Param0, deliverytime: Param1) -> ::windows::runtime::Result<ScheduledTileNotification> {
         Self::IScheduledTileNotificationFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -2811,11 +2912,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for ScheduledTileNotification {}
 unsafe impl ::std::marker::Sync for ScheduledTileNotification {}
+#[doc = "*Required features: `UI_Notifications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ScheduledToastNotification(::windows::runtime::IInspectable);
 impl ScheduledToastNotification {
     #[cfg(feature = "Data_Xml_Dom")]
+    #[doc = "*Required features: `UI_Notifications`, `Data_Xml_Dom`*"]
     pub fn Content(&self) -> ::windows::runtime::Result<super::super::Data::Xml::Dom::XmlDocument> {
         let this = self;
         unsafe {
@@ -2824,6 +2927,7 @@ impl ScheduledToastNotification {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Notifications`, `Foundation`*"]
     pub fn DeliveryTime(&self) -> ::windows::runtime::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -2832,6 +2936,7 @@ impl ScheduledToastNotification {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Notifications`, `Foundation`*"]
     pub fn SnoozeInterval(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
         let this = self;
         unsafe {
@@ -2839,6 +2944,7 @@ impl ScheduledToastNotification {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn MaximumSnoozeCount(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -2846,10 +2952,12 @@ impl ScheduledToastNotification {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn SetId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2857,10 +2965,12 @@ impl ScheduledToastNotification {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn SetTag<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IScheduledToastNotification2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn Tag(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IScheduledToastNotification2>(self)?;
         unsafe {
@@ -2868,10 +2978,12 @@ impl ScheduledToastNotification {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn SetGroup<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IScheduledToastNotification2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn Group(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IScheduledToastNotification2>(self)?;
         unsafe {
@@ -2879,10 +2991,12 @@ impl ScheduledToastNotification {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn SetSuppressPopup(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IScheduledToastNotification2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn SuppressPopup(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IScheduledToastNotification2>(self)?;
         unsafe {
@@ -2891,6 +3005,7 @@ impl ScheduledToastNotification {
         }
     }
     #[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation"))]
+    #[doc = "*Required features: `UI_Notifications`, `Data_Xml_Dom`, `Foundation`*"]
     pub fn CreateScheduledToastNotification<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Data::Xml::Dom::XmlDocument>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::DateTime>>(content: Param0, deliverytime: Param1) -> ::windows::runtime::Result<ScheduledToastNotification> {
         Self::IScheduledToastNotificationFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -2898,12 +3013,14 @@ impl ScheduledToastNotification {
         })
     }
     #[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation"))]
+    #[doc = "*Required features: `UI_Notifications`, `Data_Xml_Dom`, `Foundation`*"]
     pub fn CreateScheduledToastNotificationRecurring<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Data::Xml::Dom::XmlDocument>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::DateTime>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::TimeSpan>>(content: Param0, deliverytime: Param1, snoozeinterval: Param2, maximumsnoozecount: u32) -> ::windows::runtime::Result<ScheduledToastNotification> {
         Self::IScheduledToastNotificationFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), content.into_param().abi(), deliverytime.into_param().abi(), snoozeinterval.into_param().abi(), maximumsnoozecount, &mut result__).from_abi::<ScheduledToastNotification>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn NotificationMirroring(&self) -> ::windows::runtime::Result<NotificationMirroring> {
         let this = &::windows::runtime::Interface::cast::<IScheduledToastNotification3>(self)?;
         unsafe {
@@ -2911,10 +3028,12 @@ impl ScheduledToastNotification {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<NotificationMirroring>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn SetNotificationMirroring(&self, value: NotificationMirroring) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IScheduledToastNotification3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn RemoteId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IScheduledToastNotification3>(self)?;
         unsafe {
@@ -2922,11 +3041,13 @@ impl ScheduledToastNotification {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn SetRemoteId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IScheduledToastNotification3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Notifications`, `Foundation`*"]
     pub fn ExpirationTime(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = &::windows::runtime::Interface::cast::<IScheduledToastNotification4>(self)?;
         unsafe {
@@ -2935,6 +3056,7 @@ impl ScheduledToastNotification {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Notifications`, `Foundation`*"]
     pub fn SetExpirationTime<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<super::super::Foundation::DateTime>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IScheduledToastNotification4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -2996,10 +3118,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for ScheduledToastNotification {}
 unsafe impl ::std::marker::Sync for ScheduledToastNotification {}
+#[doc = "*Required features: `UI_Notifications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ScheduledToastNotificationShowingEventArgs(::windows::runtime::IInspectable);
 impl ScheduledToastNotificationShowingEventArgs {
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn Cancel(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -3007,10 +3131,12 @@ impl ScheduledToastNotificationShowingEventArgs {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn SetCancel(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn ScheduledToastNotification(&self) -> ::windows::runtime::Result<ScheduledToastNotification> {
         let this = self;
         unsafe {
@@ -3019,6 +3145,7 @@ impl ScheduledToastNotificationShowingEventArgs {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Notifications`, `Foundation`*"]
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
@@ -3079,10 +3206,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for ScheduledToastNotificationShowingEventArgs {}
 unsafe impl ::std::marker::Sync for ScheduledToastNotificationShowingEventArgs {}
+#[doc = "*Required features: `UI_Notifications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ShownTileNotification(::windows::runtime::IInspectable);
 impl ShownTileNotification {
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn Arguments(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -3143,11 +3272,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for ShownTileNotification {}
 unsafe impl ::std::marker::Sync for ShownTileNotification {}
+#[doc = "*Required features: `UI_Notifications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct TileFlyoutNotification(::windows::runtime::IInspectable);
 impl TileFlyoutNotification {
     #[cfg(feature = "Data_Xml_Dom")]
+    #[doc = "*Required features: `UI_Notifications`, `Data_Xml_Dom`*"]
     pub fn Content(&self) -> ::windows::runtime::Result<super::super::Data::Xml::Dom::XmlDocument> {
         let this = self;
         unsafe {
@@ -3156,11 +3287,13 @@ impl TileFlyoutNotification {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Notifications`, `Foundation`*"]
     pub fn SetExpirationTime<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<super::super::Foundation::DateTime>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Notifications`, `Foundation`*"]
     pub fn ExpirationTime(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = self;
         unsafe {
@@ -3169,6 +3302,7 @@ impl TileFlyoutNotification {
         }
     }
     #[cfg(feature = "Data_Xml_Dom")]
+    #[doc = "*Required features: `UI_Notifications`, `Data_Xml_Dom`*"]
     pub fn CreateTileFlyoutNotification<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Data::Xml::Dom::XmlDocument>>(content: Param0) -> ::windows::runtime::Result<TileFlyoutNotification> {
         Self::ITileFlyoutNotificationFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -3232,6 +3366,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for TileFlyoutNotification {}
 unsafe impl ::std::marker::Sync for TileFlyoutNotification {}
+#[doc = "*Required features: `UI_Notifications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TileFlyoutTemplateType(pub i32);
@@ -3250,20 +3385,24 @@ unsafe impl ::windows::runtime::Abi for TileFlyoutTemplateType {
 unsafe impl ::windows::runtime::RuntimeType for TileFlyoutTemplateType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.TileFlyoutTemplateType;i4)");
 }
+#[doc = "*Required features: `UI_Notifications`*"]
 pub struct TileFlyoutUpdateManager {}
 impl TileFlyoutUpdateManager {
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn CreateTileFlyoutUpdaterForApplication() -> ::windows::runtime::Result<TileFlyoutUpdater> {
         Self::ITileFlyoutUpdateManagerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TileFlyoutUpdater>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn CreateTileFlyoutUpdaterForApplicationWithId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(applicationid: Param0) -> ::windows::runtime::Result<TileFlyoutUpdater> {
         Self::ITileFlyoutUpdateManagerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), applicationid.into_param().abi(), &mut result__).from_abi::<TileFlyoutUpdater>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn CreateTileFlyoutUpdaterForSecondaryTile<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(tileid: Param0) -> ::windows::runtime::Result<TileFlyoutUpdater> {
         Self::ITileFlyoutUpdateManagerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -3271,6 +3410,7 @@ impl TileFlyoutUpdateManager {
         })
     }
     #[cfg(feature = "Data_Xml_Dom")]
+    #[doc = "*Required features: `UI_Notifications`, `Data_Xml_Dom`*"]
     pub fn GetTemplateContent(r#type: TileFlyoutTemplateType) -> ::windows::runtime::Result<super::super::Data::Xml::Dom::XmlDocument> {
         Self::ITileFlyoutUpdateManagerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -3285,32 +3425,39 @@ impl TileFlyoutUpdateManager {
 impl ::windows::runtime::RuntimeName for TileFlyoutUpdateManager {
     const NAME: &'static str = "Windows.UI.Notifications.TileFlyoutUpdateManager";
 }
+#[doc = "*Required features: `UI_Notifications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct TileFlyoutUpdater(::windows::runtime::IInspectable);
 impl TileFlyoutUpdater {
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn Update<'a, Param0: ::windows::runtime::IntoParam<'a, TileFlyoutNotification>>(&self, notification: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), notification.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn Clear(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Notifications`, `Foundation`*"]
     pub fn StartPeriodicUpdate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>>(&self, tileflyoutcontent: Param0, requestedinterval: PeriodicUpdateRecurrence) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), tileflyoutcontent.into_param().abi(), requestedinterval).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Notifications`, `Foundation`*"]
     pub fn StartPeriodicUpdateAtTime<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::DateTime>>(&self, tileflyoutcontent: Param0, starttime: Param1, requestedinterval: PeriodicUpdateRecurrence) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), tileflyoutcontent.into_param().abi(), starttime.into_param().abi(), requestedinterval).ok() }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn StopPeriodicUpdate(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn Setting(&self) -> ::windows::runtime::Result<NotificationSetting> {
         let this = self;
         unsafe {
@@ -3369,11 +3516,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
+#[doc = "*Required features: `UI_Notifications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct TileNotification(::windows::runtime::IInspectable);
 impl TileNotification {
     #[cfg(feature = "Data_Xml_Dom")]
+    #[doc = "*Required features: `UI_Notifications`, `Data_Xml_Dom`*"]
     pub fn Content(&self) -> ::windows::runtime::Result<super::super::Data::Xml::Dom::XmlDocument> {
         let this = self;
         unsafe {
@@ -3382,11 +3531,13 @@ impl TileNotification {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Notifications`, `Foundation`*"]
     pub fn SetExpirationTime<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<super::super::Foundation::DateTime>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Notifications`, `Foundation`*"]
     pub fn ExpirationTime(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = self;
         unsafe {
@@ -3394,10 +3545,12 @@ impl TileNotification {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Foundation::DateTime>>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn SetTag<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn Tag(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -3406,6 +3559,7 @@ impl TileNotification {
         }
     }
     #[cfg(feature = "Data_Xml_Dom")]
+    #[doc = "*Required features: `UI_Notifications`, `Data_Xml_Dom`*"]
     pub fn CreateTileNotification<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Data::Xml::Dom::XmlDocument>>(content: Param0) -> ::windows::runtime::Result<TileNotification> {
         Self::ITileNotificationFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -3469,6 +3623,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for TileNotification {}
 unsafe impl ::std::marker::Sync for TileNotification {}
+#[doc = "*Required features: `UI_Notifications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TileTemplateType(pub i32);
@@ -3612,20 +3767,24 @@ unsafe impl ::windows::runtime::Abi for TileTemplateType {
 unsafe impl ::windows::runtime::RuntimeType for TileTemplateType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.TileTemplateType;i4)");
 }
+#[doc = "*Required features: `UI_Notifications`*"]
 pub struct TileUpdateManager {}
 impl TileUpdateManager {
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn CreateTileUpdaterForApplication() -> ::windows::runtime::Result<TileUpdater> {
         Self::ITileUpdateManagerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TileUpdater>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn CreateTileUpdaterForApplicationWithId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(applicationid: Param0) -> ::windows::runtime::Result<TileUpdater> {
         Self::ITileUpdateManagerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), applicationid.into_param().abi(), &mut result__).from_abi::<TileUpdater>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn CreateTileUpdaterForSecondaryTile<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(tileid: Param0) -> ::windows::runtime::Result<TileUpdater> {
         Self::ITileUpdateManagerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -3633,6 +3792,7 @@ impl TileUpdateManager {
         })
     }
     #[cfg(feature = "Data_Xml_Dom")]
+    #[doc = "*Required features: `UI_Notifications`, `Data_Xml_Dom`*"]
     pub fn GetTemplateContent(r#type: TileTemplateType) -> ::windows::runtime::Result<super::super::Data::Xml::Dom::XmlDocument> {
         Self::ITileUpdateManagerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -3640,6 +3800,7 @@ impl TileUpdateManager {
         })
     }
     #[cfg(feature = "System")]
+    #[doc = "*Required features: `UI_Notifications`, `System`*"]
     pub fn GetForUser<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::User>>(user: Param0) -> ::windows::runtime::Result<TileUpdateManagerForUser> {
         Self::ITileUpdateManagerStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -3658,10 +3819,12 @@ impl TileUpdateManager {
 impl ::windows::runtime::RuntimeName for TileUpdateManager {
     const NAME: &'static str = "Windows.UI.Notifications.TileUpdateManager";
 }
+#[doc = "*Required features: `UI_Notifications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct TileUpdateManagerForUser(::windows::runtime::IInspectable);
 impl TileUpdateManagerForUser {
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn CreateTileUpdaterForApplication(&self) -> ::windows::runtime::Result<TileUpdater> {
         let this = self;
         unsafe {
@@ -3669,6 +3832,7 @@ impl TileUpdateManagerForUser {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TileUpdater>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn CreateTileUpdaterForApplicationWithId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, applicationid: Param0) -> ::windows::runtime::Result<TileUpdater> {
         let this = self;
         unsafe {
@@ -3676,6 +3840,7 @@ impl TileUpdateManagerForUser {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), applicationid.into_param().abi(), &mut result__).from_abi::<TileUpdater>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn CreateTileUpdaterForSecondaryTile<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, tileid: Param0) -> ::windows::runtime::Result<TileUpdater> {
         let this = self;
         unsafe {
@@ -3684,6 +3849,7 @@ impl TileUpdateManagerForUser {
         }
     }
     #[cfg(feature = "System")]
+    #[doc = "*Required features: `UI_Notifications`, `System`*"]
     pub fn User(&self) -> ::windows::runtime::Result<super::super::System::User> {
         let this = self;
         unsafe {
@@ -3744,22 +3910,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for TileUpdateManagerForUser {}
 unsafe impl ::std::marker::Sync for TileUpdateManagerForUser {}
+#[doc = "*Required features: `UI_Notifications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct TileUpdater(::windows::runtime::IInspectable);
 impl TileUpdater {
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn Update<'a, Param0: ::windows::runtime::IntoParam<'a, TileNotification>>(&self, notification: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), notification.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn Clear(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn EnableNotificationQueue(&self, enable: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), enable).ok() }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn Setting(&self) -> ::windows::runtime::Result<NotificationSetting> {
         let this = self;
         unsafe {
@@ -3767,15 +3938,18 @@ impl TileUpdater {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<NotificationSetting>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn AddToSchedule<'a, Param0: ::windows::runtime::IntoParam<'a, ScheduledTileNotification>>(&self, scheduledtile: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), scheduledtile.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn RemoveFromSchedule<'a, Param0: ::windows::runtime::IntoParam<'a, ScheduledTileNotification>>(&self, scheduledtile: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), scheduledtile.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Notifications`, `Foundation_Collections`*"]
     pub fn GetScheduledTileNotifications(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<ScheduledTileNotification>> {
         let this = self;
         unsafe {
@@ -3784,37 +3958,45 @@ impl TileUpdater {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Notifications`, `Foundation`*"]
     pub fn StartPeriodicUpdate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>>(&self, tilecontent: Param0, requestedinterval: PeriodicUpdateRecurrence) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), tilecontent.into_param().abi(), requestedinterval).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Notifications`, `Foundation`*"]
     pub fn StartPeriodicUpdateAtTime<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::DateTime>>(&self, tilecontent: Param0, starttime: Param1, requestedinterval: PeriodicUpdateRecurrence) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), tilecontent.into_param().abi(), starttime.into_param().abi(), requestedinterval).ok() }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn StopPeriodicUpdate(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `UI_Notifications`, `Foundation`, `Foundation_Collections`*"]
     pub fn StartPeriodicUpdateBatch<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>>(&self, tilecontents: Param0, requestedinterval: PeriodicUpdateRecurrence) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), tilecontents.into_param().abi(), requestedinterval).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `UI_Notifications`, `Foundation`, `Foundation_Collections`*"]
     pub fn StartPeriodicUpdateBatchAtTime<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::DateTime>>(&self, tilecontents: Param0, starttime: Param1, requestedinterval: PeriodicUpdateRecurrence) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), tilecontents.into_param().abi(), starttime.into_param().abi(), requestedinterval).ok() }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn EnableNotificationQueueForSquare150x150(&self, enable: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITileUpdater2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), enable).ok() }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn EnableNotificationQueueForWide310x150(&self, enable: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITileUpdater2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), enable).ok() }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn EnableNotificationQueueForSquare310x310(&self, enable: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITileUpdater2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), enable).ok() }
@@ -3872,10 +4054,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for TileUpdater {}
 unsafe impl ::std::marker::Sync for TileUpdater {}
+#[doc = "*Required features: `UI_Notifications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ToastActivatedEventArgs(::windows::runtime::IInspectable);
 impl ToastActivatedEventArgs {
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn Arguments(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -3884,6 +4068,7 @@ impl ToastActivatedEventArgs {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Notifications`, `Foundation_Collections`*"]
     pub fn UserInput(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::ValueSet> {
         let this = &::windows::runtime::Interface::cast::<IToastActivatedEventArgs2>(self)?;
         unsafe {
@@ -3942,10 +4127,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
+#[doc = "*Required features: `UI_Notifications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ToastCollection(::windows::runtime::IInspectable);
 impl ToastCollection {
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -3953,6 +4140,7 @@ impl ToastCollection {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn DisplayName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -3960,10 +4148,12 @@ impl ToastCollection {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn SetDisplayName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn LaunchArgs(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -3971,11 +4161,13 @@ impl ToastCollection {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn SetLaunchArgs<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Notifications`, `Foundation`*"]
     pub fn Icon(&self) -> ::windows::runtime::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
@@ -3984,11 +4176,13 @@ impl ToastCollection {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Notifications`, `Foundation`*"]
     pub fn SetIcon<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Notifications`, `Foundation`*"]
     pub fn CreateInstance<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>>(collectionid: Param0, displayname: Param1, launchargs: Param2, iconuri: Param3) -> ::windows::runtime::Result<ToastCollection> {
         Self::IToastCollectionFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -4052,11 +4246,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for ToastCollection {}
 unsafe impl ::std::marker::Sync for ToastCollection {}
+#[doc = "*Required features: `UI_Notifications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ToastCollectionManager(::windows::runtime::IInspectable);
 impl ToastCollectionManager {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Notifications`, `Foundation`*"]
     pub fn SaveToastCollectionAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ToastCollection>>(&self, collection: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -4065,6 +4261,7 @@ impl ToastCollectionManager {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `UI_Notifications`, `Foundation`, `Foundation_Collections`*"]
     pub fn FindAllToastCollectionsAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ToastCollection>>> {
         let this = self;
         unsafe {
@@ -4073,6 +4270,7 @@ impl ToastCollectionManager {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Notifications`, `Foundation`*"]
     pub fn GetToastCollectionAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, collectionid: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<ToastCollection>> {
         let this = self;
         unsafe {
@@ -4081,6 +4279,7 @@ impl ToastCollectionManager {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Notifications`, `Foundation`*"]
     pub fn RemoveToastCollectionAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, collectionid: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -4089,6 +4288,7 @@ impl ToastCollectionManager {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Notifications`, `Foundation`*"]
     pub fn RemoveAllToastCollectionsAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -4097,6 +4297,7 @@ impl ToastCollectionManager {
         }
     }
     #[cfg(feature = "System")]
+    #[doc = "*Required features: `UI_Notifications`, `System`*"]
     pub fn User(&self) -> ::windows::runtime::Result<super::super::System::User> {
         let this = self;
         unsafe {
@@ -4104,6 +4305,7 @@ impl ToastCollectionManager {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn AppId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -4164,6 +4366,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for ToastCollectionManager {}
 unsafe impl ::std::marker::Sync for ToastCollectionManager {}
+#[doc = "*Required features: `UI_Notifications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ToastDismissalReason(pub i32);
@@ -4184,10 +4387,12 @@ unsafe impl ::windows::runtime::Abi for ToastDismissalReason {
 unsafe impl ::windows::runtime::RuntimeType for ToastDismissalReason {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.ToastDismissalReason;i4)");
 }
+#[doc = "*Required features: `UI_Notifications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ToastDismissedEventArgs(::windows::runtime::IInspectable);
 impl ToastDismissedEventArgs {
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn Reason(&self) -> ::windows::runtime::Result<ToastDismissalReason> {
         let this = self;
         unsafe {
@@ -4248,10 +4453,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for ToastDismissedEventArgs {}
 unsafe impl ::std::marker::Sync for ToastDismissedEventArgs {}
+#[doc = "*Required features: `UI_Notifications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ToastFailedEventArgs(::windows::runtime::IInspectable);
 impl ToastFailedEventArgs {
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn ErrorCode(&self) -> ::windows::runtime::Result<::windows::runtime::HRESULT> {
         let this = self;
         unsafe {
@@ -4312,6 +4519,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for ToastFailedEventArgs {}
 unsafe impl ::std::marker::Sync for ToastFailedEventArgs {}
+#[doc = "*Required features: `UI_Notifications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ToastHistoryChangedType(pub i32);
@@ -4333,11 +4541,13 @@ unsafe impl ::windows::runtime::Abi for ToastHistoryChangedType {
 unsafe impl ::windows::runtime::RuntimeType for ToastHistoryChangedType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.ToastHistoryChangedType;i4)");
 }
+#[doc = "*Required features: `UI_Notifications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ToastNotification(::windows::runtime::IInspectable);
 impl ToastNotification {
     #[cfg(feature = "Data_Xml_Dom")]
+    #[doc = "*Required features: `UI_Notifications`, `Data_Xml_Dom`*"]
     pub fn Content(&self) -> ::windows::runtime::Result<super::super::Data::Xml::Dom::XmlDocument> {
         let this = self;
         unsafe {
@@ -4346,11 +4556,13 @@ impl ToastNotification {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Notifications`, `Foundation`*"]
     pub fn SetExpirationTime<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<super::super::Foundation::DateTime>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Notifications`, `Foundation`*"]
     pub fn ExpirationTime(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = self;
         unsafe {
@@ -4359,6 +4571,7 @@ impl ToastNotification {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Notifications`, `Foundation`*"]
     pub fn Dismissed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<ToastNotification, ToastDismissedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -4367,11 +4580,13 @@ impl ToastNotification {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Notifications`, `Foundation`*"]
     pub fn RemoveDismissed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Notifications`, `Foundation`*"]
     pub fn Activated<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<ToastNotification, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -4380,11 +4595,13 @@ impl ToastNotification {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Notifications`, `Foundation`*"]
     pub fn RemoveActivated<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Notifications`, `Foundation`*"]
     pub fn Failed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<ToastNotification, ToastFailedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -4393,14 +4610,17 @@ impl ToastNotification {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Notifications`, `Foundation`*"]
     pub fn RemoveFailed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn SetTag<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IToastNotification2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn Tag(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IToastNotification2>(self)?;
         unsafe {
@@ -4408,10 +4628,12 @@ impl ToastNotification {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn SetGroup<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IToastNotification2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn Group(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IToastNotification2>(self)?;
         unsafe {
@@ -4419,10 +4641,12 @@ impl ToastNotification {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn SetSuppressPopup(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IToastNotification2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn SuppressPopup(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IToastNotification2>(self)?;
         unsafe {
@@ -4431,12 +4655,14 @@ impl ToastNotification {
         }
     }
     #[cfg(feature = "Data_Xml_Dom")]
+    #[doc = "*Required features: `UI_Notifications`, `Data_Xml_Dom`*"]
     pub fn CreateToastNotification<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Data::Xml::Dom::XmlDocument>>(content: Param0) -> ::windows::runtime::Result<ToastNotification> {
         Self::IToastNotificationFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), content.into_param().abi(), &mut result__).from_abi::<ToastNotification>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn NotificationMirroring(&self) -> ::windows::runtime::Result<NotificationMirroring> {
         let this = &::windows::runtime::Interface::cast::<IToastNotification3>(self)?;
         unsafe {
@@ -4444,10 +4670,12 @@ impl ToastNotification {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<NotificationMirroring>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn SetNotificationMirroring(&self, value: NotificationMirroring) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IToastNotification3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn RemoteId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IToastNotification3>(self)?;
         unsafe {
@@ -4455,10 +4683,12 @@ impl ToastNotification {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn SetRemoteId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IToastNotification3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn Data(&self) -> ::windows::runtime::Result<NotificationData> {
         let this = &::windows::runtime::Interface::cast::<IToastNotification4>(self)?;
         unsafe {
@@ -4466,10 +4696,12 @@ impl ToastNotification {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<NotificationData>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn SetData<'a, Param0: ::windows::runtime::IntoParam<'a, NotificationData>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IToastNotification4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn Priority(&self) -> ::windows::runtime::Result<ToastNotificationPriority> {
         let this = &::windows::runtime::Interface::cast::<IToastNotification4>(self)?;
         unsafe {
@@ -4477,10 +4709,12 @@ impl ToastNotification {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ToastNotificationPriority>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn SetPriority(&self, value: ToastNotificationPriority) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IToastNotification4>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn ExpiresOnReboot(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IToastNotification6>(self)?;
         unsafe {
@@ -4488,6 +4722,7 @@ impl ToastNotification {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn SetExpiresOnReboot(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IToastNotification6>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
@@ -4549,10 +4784,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for ToastNotification {}
 unsafe impl ::std::marker::Sync for ToastNotification {}
+#[doc = "*Required features: `UI_Notifications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ToastNotificationActionTriggerDetail(::windows::runtime::IInspectable);
 impl ToastNotificationActionTriggerDetail {
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn Argument(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -4561,6 +4798,7 @@ impl ToastNotificationActionTriggerDetail {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Notifications`, `Foundation_Collections`*"]
     pub fn UserInput(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::ValueSet> {
         let this = self;
         unsafe {
@@ -4619,39 +4857,48 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
+#[doc = "*Required features: `UI_Notifications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ToastNotificationHistory(::windows::runtime::IInspectable);
 impl ToastNotificationHistory {
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn RemoveGroup<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, group: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), group.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn RemoveGroupWithId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, group: Param0, applicationid: Param1) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), group.into_param().abi(), applicationid.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn RemoveGroupedTagWithId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, tag: Param0, group: Param1, applicationid: Param2) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), tag.into_param().abi(), group.into_param().abi(), applicationid.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn RemoveGroupedTag<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, tag: Param0, group: Param1) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), tag.into_param().abi(), group.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn Remove<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, tag: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), tag.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn Clear(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn ClearWithId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, applicationid: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), applicationid.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Notifications`, `Foundation_Collections`*"]
     pub fn GetHistory(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<ToastNotification>> {
         let this = &::windows::runtime::Interface::cast::<IToastNotificationHistory2>(self)?;
         unsafe {
@@ -4660,6 +4907,7 @@ impl ToastNotificationHistory {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Notifications`, `Foundation_Collections`*"]
     pub fn GetHistoryWithId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, applicationid: Param0) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<ToastNotification>> {
         let this = &::windows::runtime::Interface::cast::<IToastNotificationHistory2>(self)?;
         unsafe {
@@ -4718,10 +4966,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
+#[doc = "*Required features: `UI_Notifications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ToastNotificationHistoryChangedTriggerDetail(::windows::runtime::IInspectable);
 impl ToastNotificationHistoryChangedTriggerDetail {
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn ChangeType(&self) -> ::windows::runtime::Result<ToastHistoryChangedType> {
         let this = self;
         unsafe {
@@ -4729,6 +4979,7 @@ impl ToastNotificationHistoryChangedTriggerDetail {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ToastHistoryChangedType>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn CollectionId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IToastNotificationHistoryChangedTriggerDetail2>(self)?;
         unsafe {
@@ -4787,14 +5038,17 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
+#[doc = "*Required features: `UI_Notifications`*"]
 pub struct ToastNotificationManager {}
 impl ToastNotificationManager {
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn CreateToastNotifier() -> ::windows::runtime::Result<ToastNotifier> {
         Self::IToastNotificationManagerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ToastNotifier>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn CreateToastNotifierWithId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(applicationid: Param0) -> ::windows::runtime::Result<ToastNotifier> {
         Self::IToastNotificationManagerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -4802,12 +5056,14 @@ impl ToastNotificationManager {
         })
     }
     #[cfg(feature = "Data_Xml_Dom")]
+    #[doc = "*Required features: `UI_Notifications`, `Data_Xml_Dom`*"]
     pub fn GetTemplateContent(r#type: ToastTemplateType) -> ::windows::runtime::Result<super::super::Data::Xml::Dom::XmlDocument> {
         Self::IToastNotificationManagerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), r#type, &mut result__).from_abi::<super::super::Data::Xml::Dom::XmlDocument>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn History() -> ::windows::runtime::Result<ToastNotificationHistory> {
         Self::IToastNotificationManagerStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -4815,15 +5071,18 @@ impl ToastNotificationManager {
         })
     }
     #[cfg(feature = "System")]
+    #[doc = "*Required features: `UI_Notifications`, `System`*"]
     pub fn GetForUser<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::User>>(user: Param0) -> ::windows::runtime::Result<ToastNotificationManagerForUser> {
         Self::IToastNotificationManagerStatics4(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), user.into_param().abi(), &mut result__).from_abi::<ToastNotificationManagerForUser>(result__)
         })
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn ConfigureNotificationMirroring(value: NotificationMirroring) -> ::windows::runtime::Result<()> {
         Self::IToastNotificationManagerStatics4(|this| unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() })
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn GetDefault() -> ::windows::runtime::Result<ToastNotificationManagerForUser> {
         Self::IToastNotificationManagerStatics5(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -4850,10 +5109,12 @@ impl ToastNotificationManager {
 impl ::windows::runtime::RuntimeName for ToastNotificationManager {
     const NAME: &'static str = "Windows.UI.Notifications.ToastNotificationManager";
 }
+#[doc = "*Required features: `UI_Notifications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ToastNotificationManagerForUser(::windows::runtime::IInspectable);
 impl ToastNotificationManagerForUser {
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn CreateToastNotifier(&self) -> ::windows::runtime::Result<ToastNotifier> {
         let this = self;
         unsafe {
@@ -4861,6 +5122,7 @@ impl ToastNotificationManagerForUser {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ToastNotifier>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn CreateToastNotifierWithId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, applicationid: Param0) -> ::windows::runtime::Result<ToastNotifier> {
         let this = self;
         unsafe {
@@ -4868,6 +5130,7 @@ impl ToastNotificationManagerForUser {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), applicationid.into_param().abi(), &mut result__).from_abi::<ToastNotifier>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn History(&self) -> ::windows::runtime::Result<ToastNotificationHistory> {
         let this = self;
         unsafe {
@@ -4876,6 +5139,7 @@ impl ToastNotificationManagerForUser {
         }
     }
     #[cfg(feature = "System")]
+    #[doc = "*Required features: `UI_Notifications`, `System`*"]
     pub fn User(&self) -> ::windows::runtime::Result<super::super::System::User> {
         let this = self;
         unsafe {
@@ -4884,6 +5148,7 @@ impl ToastNotificationManagerForUser {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Notifications`, `Foundation`*"]
     pub fn GetToastNotifierForToastCollectionIdAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, collectionid: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<ToastNotifier>> {
         let this = &::windows::runtime::Interface::cast::<IToastNotificationManagerForUser2>(self)?;
         unsafe {
@@ -4892,6 +5157,7 @@ impl ToastNotificationManagerForUser {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Notifications`, `Foundation`*"]
     pub fn GetHistoryForToastCollectionIdAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, collectionid: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<ToastNotificationHistory>> {
         let this = &::windows::runtime::Interface::cast::<IToastNotificationManagerForUser2>(self)?;
         unsafe {
@@ -4899,6 +5165,7 @@ impl ToastNotificationManagerForUser {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), collectionid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ToastNotificationHistory>>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn GetToastCollectionManager(&self) -> ::windows::runtime::Result<ToastCollectionManager> {
         let this = &::windows::runtime::Interface::cast::<IToastNotificationManagerForUser2>(self)?;
         unsafe {
@@ -4906,6 +5173,7 @@ impl ToastNotificationManagerForUser {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ToastCollectionManager>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn GetToastCollectionManagerWithAppId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, appid: Param0) -> ::windows::runtime::Result<ToastCollectionManager> {
         let this = &::windows::runtime::Interface::cast::<IToastNotificationManagerForUser2>(self)?;
         unsafe {
@@ -4966,6 +5234,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for ToastNotificationManagerForUser {}
 unsafe impl ::std::marker::Sync for ToastNotificationManagerForUser {}
+#[doc = "*Required features: `UI_Notifications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ToastNotificationPriority(pub i32);
@@ -4985,18 +5254,22 @@ unsafe impl ::windows::runtime::Abi for ToastNotificationPriority {
 unsafe impl ::windows::runtime::RuntimeType for ToastNotificationPriority {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.ToastNotificationPriority;i4)");
 }
+#[doc = "*Required features: `UI_Notifications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ToastNotifier(::windows::runtime::IInspectable);
 impl ToastNotifier {
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn Show<'a, Param0: ::windows::runtime::IntoParam<'a, ToastNotification>>(&self, notification: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), notification.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn Hide<'a, Param0: ::windows::runtime::IntoParam<'a, ToastNotification>>(&self, notification: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), notification.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn Setting(&self) -> ::windows::runtime::Result<NotificationSetting> {
         let this = self;
         unsafe {
@@ -5004,15 +5277,18 @@ impl ToastNotifier {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<NotificationSetting>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn AddToSchedule<'a, Param0: ::windows::runtime::IntoParam<'a, ScheduledToastNotification>>(&self, scheduledtoast: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), scheduledtoast.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn RemoveFromSchedule<'a, Param0: ::windows::runtime::IntoParam<'a, ScheduledToastNotification>>(&self, scheduledtoast: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), scheduledtoast.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `UI_Notifications`, `Foundation_Collections`*"]
     pub fn GetScheduledToastNotifications(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<ScheduledToastNotification>> {
         let this = self;
         unsafe {
@@ -5020,6 +5296,7 @@ impl ToastNotifier {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<ScheduledToastNotification>>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn UpdateWithTagAndGroup<'a, Param0: ::windows::runtime::IntoParam<'a, NotificationData>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, data: Param0, tag: Param1, group: Param2) -> ::windows::runtime::Result<NotificationUpdateResult> {
         let this = &::windows::runtime::Interface::cast::<IToastNotifier2>(self)?;
         unsafe {
@@ -5027,6 +5304,7 @@ impl ToastNotifier {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), data.into_param().abi(), tag.into_param().abi(), group.into_param().abi(), &mut result__).from_abi::<NotificationUpdateResult>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn UpdateWithTag<'a, Param0: ::windows::runtime::IntoParam<'a, NotificationData>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, data: Param0, tag: Param1) -> ::windows::runtime::Result<NotificationUpdateResult> {
         let this = &::windows::runtime::Interface::cast::<IToastNotifier2>(self)?;
         unsafe {
@@ -5035,6 +5313,7 @@ impl ToastNotifier {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Notifications`, `Foundation`*"]
     pub fn ScheduledToastNotificationShowing<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<ToastNotifier, ScheduledToastNotificationShowingEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<IToastNotifier3>(self)?;
         unsafe {
@@ -5043,6 +5322,7 @@ impl ToastNotifier {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Notifications`, `Foundation`*"]
     pub fn RemoveScheduledToastNotificationShowing<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IToastNotifier3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
@@ -5100,6 +5380,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for ToastNotifier {}
 unsafe impl ::std::marker::Sync for ToastNotifier {}
+#[doc = "*Required features: `UI_Notifications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ToastTemplateType(pub i32);
@@ -5125,10 +5406,12 @@ unsafe impl ::windows::runtime::Abi for ToastTemplateType {
 unsafe impl ::windows::runtime::RuntimeType for ToastTemplateType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.ToastTemplateType;i4)");
 }
+#[doc = "*Required features: `UI_Notifications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct UserNotification(::windows::runtime::IInspectable);
 impl UserNotification {
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn Notification(&self) -> ::windows::runtime::Result<Notification> {
         let this = self;
         unsafe {
@@ -5137,6 +5420,7 @@ impl UserNotification {
         }
     }
     #[cfg(feature = "ApplicationModel")]
+    #[doc = "*Required features: `UI_Notifications`, `ApplicationModel`*"]
     pub fn AppInfo(&self) -> ::windows::runtime::Result<super::super::ApplicationModel::AppInfo> {
         let this = self;
         unsafe {
@@ -5144,6 +5428,7 @@ impl UserNotification {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::AppInfo>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -5152,6 +5437,7 @@ impl UserNotification {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `UI_Notifications`, `Foundation`*"]
     pub fn CreationTime(&self) -> ::windows::runtime::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -5212,10 +5498,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for UserNotification {}
 unsafe impl ::std::marker::Sync for UserNotification {}
+#[doc = "*Required features: `UI_Notifications`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct UserNotificationChangedEventArgs(::windows::runtime::IInspectable);
 impl UserNotificationChangedEventArgs {
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn ChangeKind(&self) -> ::windows::runtime::Result<UserNotificationChangedKind> {
         let this = self;
         unsafe {
@@ -5223,6 +5511,7 @@ impl UserNotificationChangedEventArgs {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<UserNotificationChangedKind>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Notifications`*"]
     pub fn UserNotificationId(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -5283,6 +5572,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for UserNotificationChangedEventArgs {}
 unsafe impl ::std::marker::Sync for UserNotificationChangedEventArgs {}
+#[doc = "*Required features: `UI_Notifications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct UserNotificationChangedKind(pub i32);

@@ -1,8 +1,10 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Media_Capture_Frames`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AudioMediaFrame(::windows::runtime::IInspectable);
 impl AudioMediaFrame {
+    #[doc = "*Required features: `Media_Capture_Frames`*"]
     pub fn FrameReference(&self) -> ::windows::runtime::Result<MediaFrameReference> {
         let this = self;
         unsafe {
@@ -11,6 +13,7 @@ impl AudioMediaFrame {
         }
     }
     #[cfg(feature = "Media_MediaProperties")]
+    #[doc = "*Required features: `Media_Capture_Frames`, `Media_MediaProperties`*"]
     pub fn AudioEncodingProperties(&self) -> ::windows::runtime::Result<super::super::MediaProperties::AudioEncodingProperties> {
         let this = self;
         unsafe {
@@ -18,6 +21,7 @@ impl AudioMediaFrame {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::MediaProperties::AudioEncodingProperties>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Capture_Frames`*"]
     pub fn GetAudioFrame(&self) -> ::windows::runtime::Result<super::super::AudioFrame> {
         let this = self;
         unsafe {
@@ -78,10 +82,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for AudioMediaFrame {}
 unsafe impl ::std::marker::Sync for AudioMediaFrame {}
+#[doc = "*Required features: `Media_Capture_Frames`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct BufferMediaFrame(::windows::runtime::IInspectable);
 impl BufferMediaFrame {
+    #[doc = "*Required features: `Media_Capture_Frames`*"]
     pub fn FrameReference(&self) -> ::windows::runtime::Result<MediaFrameReference> {
         let this = self;
         unsafe {
@@ -90,6 +96,7 @@ impl BufferMediaFrame {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Media_Capture_Frames`, `Storage_Streams`*"]
     pub fn Buffer(&self) -> ::windows::runtime::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
@@ -150,10 +157,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for BufferMediaFrame {}
 unsafe impl ::std::marker::Sync for BufferMediaFrame {}
+#[doc = "*Required features: `Media_Capture_Frames`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct DepthMediaFrame(::windows::runtime::IInspectable);
 impl DepthMediaFrame {
+    #[doc = "*Required features: `Media_Capture_Frames`*"]
     pub fn FrameReference(&self) -> ::windows::runtime::Result<MediaFrameReference> {
         let this = self;
         unsafe {
@@ -161,6 +170,7 @@ impl DepthMediaFrame {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MediaFrameReference>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Capture_Frames`*"]
     pub fn VideoMediaFrame(&self) -> ::windows::runtime::Result<VideoMediaFrame> {
         let this = self;
         unsafe {
@@ -168,6 +178,7 @@ impl DepthMediaFrame {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<VideoMediaFrame>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Capture_Frames`*"]
     pub fn DepthFormat(&self) -> ::windows::runtime::Result<DepthMediaFrameFormat> {
         let this = self;
         unsafe {
@@ -176,6 +187,7 @@ impl DepthMediaFrame {
         }
     }
     #[cfg(all(feature = "Media_Devices_Core", feature = "Perception_Spatial"))]
+    #[doc = "*Required features: `Media_Capture_Frames`, `Media_Devices_Core`, `Perception_Spatial`*"]
     pub fn TryCreateCoordinateMapper<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Devices::Core::CameraIntrinsics>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>>(&self, cameraintrinsics: Param0, coordinatesystem: Param1) -> ::windows::runtime::Result<super::super::Devices::Core::DepthCorrelatedCoordinateMapper> {
         let this = self;
         unsafe {
@@ -183,6 +195,7 @@ impl DepthMediaFrame {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), cameraintrinsics.into_param().abi(), coordinatesystem.into_param().abi(), &mut result__).from_abi::<super::super::Devices::Core::DepthCorrelatedCoordinateMapper>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Capture_Frames`*"]
     pub fn MaxReliableDepth(&self) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<IDepthMediaFrame2>(self)?;
         unsafe {
@@ -190,6 +203,7 @@ impl DepthMediaFrame {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Capture_Frames`*"]
     pub fn MinReliableDepth(&self) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<IDepthMediaFrame2>(self)?;
         unsafe {
@@ -250,10 +264,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for DepthMediaFrame {}
 unsafe impl ::std::marker::Sync for DepthMediaFrame {}
+#[doc = "*Required features: `Media_Capture_Frames`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct DepthMediaFrameFormat(::windows::runtime::IInspectable);
 impl DepthMediaFrameFormat {
+    #[doc = "*Required features: `Media_Capture_Frames`*"]
     pub fn VideoFormat(&self) -> ::windows::runtime::Result<VideoMediaFrameFormat> {
         let this = self;
         unsafe {
@@ -261,6 +277,7 @@ impl DepthMediaFrameFormat {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<VideoMediaFrameFormat>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Capture_Frames`*"]
     pub fn DepthScaleInMeters(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -973,10 +990,12 @@ pub struct IVideoMediaFrameFormat_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Media_Capture_Frames`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct InfraredMediaFrame(::windows::runtime::IInspectable);
 impl InfraredMediaFrame {
+    #[doc = "*Required features: `Media_Capture_Frames`*"]
     pub fn FrameReference(&self) -> ::windows::runtime::Result<MediaFrameReference> {
         let this = self;
         unsafe {
@@ -984,6 +1003,7 @@ impl InfraredMediaFrame {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MediaFrameReference>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Capture_Frames`*"]
     pub fn VideoMediaFrame(&self) -> ::windows::runtime::Result<VideoMediaFrame> {
         let this = self;
         unsafe {
@@ -991,6 +1011,7 @@ impl InfraredMediaFrame {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<VideoMediaFrame>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Capture_Frames`*"]
     pub fn IsIlluminated(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1051,6 +1072,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for InfraredMediaFrame {}
 unsafe impl ::std::marker::Sync for InfraredMediaFrame {}
+#[doc = "*Required features: `Media_Capture_Frames`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MediaFrameArrivedEventArgs(::windows::runtime::IInspectable);
@@ -1107,10 +1129,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for MediaFrameArrivedEventArgs {}
 unsafe impl ::std::marker::Sync for MediaFrameArrivedEventArgs {}
+#[doc = "*Required features: `Media_Capture_Frames`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MediaFrameFormat(::windows::runtime::IInspectable);
 impl MediaFrameFormat {
+    #[doc = "*Required features: `Media_Capture_Frames`*"]
     pub fn MajorType(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1118,6 +1142,7 @@ impl MediaFrameFormat {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Capture_Frames`*"]
     pub fn Subtype(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1126,6 +1151,7 @@ impl MediaFrameFormat {
         }
     }
     #[cfg(feature = "Media_MediaProperties")]
+    #[doc = "*Required features: `Media_Capture_Frames`, `Media_MediaProperties`*"]
     pub fn FrameRate(&self) -> ::windows::runtime::Result<super::super::MediaProperties::MediaRatio> {
         let this = self;
         unsafe {
@@ -1134,6 +1160,7 @@ impl MediaFrameFormat {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Media_Capture_Frames`, `Foundation_Collections`*"]
     pub fn Properties(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IMapView<::windows::runtime::GUID, ::windows::runtime::IInspectable>> {
         let this = self;
         unsafe {
@@ -1141,6 +1168,7 @@ impl MediaFrameFormat {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IMapView<::windows::runtime::GUID, ::windows::runtime::IInspectable>>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Capture_Frames`*"]
     pub fn VideoFormat(&self) -> ::windows::runtime::Result<VideoMediaFrameFormat> {
         let this = self;
         unsafe {
@@ -1149,6 +1177,7 @@ impl MediaFrameFormat {
         }
     }
     #[cfg(feature = "Media_MediaProperties")]
+    #[doc = "*Required features: `Media_Capture_Frames`, `Media_MediaProperties`*"]
     pub fn AudioEncodingProperties(&self) -> ::windows::runtime::Result<super::super::MediaProperties::AudioEncodingProperties> {
         let this = &::windows::runtime::Interface::cast::<IMediaFrameFormat2>(self)?;
         unsafe {
@@ -1209,16 +1238,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for MediaFrameFormat {}
 unsafe impl ::std::marker::Sync for MediaFrameFormat {}
+#[doc = "*Required features: `Media_Capture_Frames`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MediaFrameReader(::windows::runtime::IInspectable);
 impl MediaFrameReader {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Capture_Frames`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Capture_Frames`, `Foundation`*"]
     pub fn FrameArrived<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<MediaFrameReader, MediaFrameArrivedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1227,10 +1259,12 @@ impl MediaFrameReader {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Capture_Frames`, `Foundation`*"]
     pub fn RemoveFrameArrived<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Media_Capture_Frames`*"]
     pub fn TryAcquireLatestFrame(&self) -> ::windows::runtime::Result<MediaFrameReference> {
         let this = self;
         unsafe {
@@ -1239,6 +1273,7 @@ impl MediaFrameReader {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Capture_Frames`, `Foundation`*"]
     pub fn StartAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<MediaFrameReaderStartStatus>> {
         let this = self;
         unsafe {
@@ -1247,6 +1282,7 @@ impl MediaFrameReader {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Capture_Frames`, `Foundation`*"]
     pub fn StopAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -1254,10 +1290,12 @@ impl MediaFrameReader {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Capture_Frames`*"]
     pub fn SetAcquisitionMode(&self, value: MediaFrameReaderAcquisitionMode) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IMediaFrameReader2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Capture_Frames`*"]
     pub fn AcquisitionMode(&self) -> ::windows::runtime::Result<MediaFrameReaderAcquisitionMode> {
         let this = &::windows::runtime::Interface::cast::<IMediaFrameReader2>(self)?;
         unsafe {
@@ -1344,6 +1382,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::IClo
 }
 unsafe impl ::std::marker::Send for MediaFrameReader {}
 unsafe impl ::std::marker::Sync for MediaFrameReader {}
+#[doc = "*Required features: `Media_Capture_Frames`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MediaFrameReaderAcquisitionMode(pub i32);
@@ -1363,6 +1402,7 @@ unsafe impl ::windows::runtime::Abi for MediaFrameReaderAcquisitionMode {
 unsafe impl ::windows::runtime::RuntimeType for MediaFrameReaderAcquisitionMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.Frames.MediaFrameReaderAcquisitionMode;i4)");
 }
+#[doc = "*Required features: `Media_Capture_Frames`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MediaFrameReaderStartStatus(pub i32);
@@ -1385,15 +1425,18 @@ unsafe impl ::windows::runtime::Abi for MediaFrameReaderStartStatus {
 unsafe impl ::windows::runtime::RuntimeType for MediaFrameReaderStartStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.Frames.MediaFrameReaderStartStatus;i4)");
 }
+#[doc = "*Required features: `Media_Capture_Frames`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MediaFrameReference(::windows::runtime::IInspectable);
 impl MediaFrameReference {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Capture_Frames`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Media_Capture_Frames`*"]
     pub fn SourceKind(&self) -> ::windows::runtime::Result<MediaFrameSourceKind> {
         let this = self;
         unsafe {
@@ -1401,6 +1444,7 @@ impl MediaFrameReference {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MediaFrameSourceKind>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Capture_Frames`*"]
     pub fn Format(&self) -> ::windows::runtime::Result<MediaFrameFormat> {
         let this = self;
         unsafe {
@@ -1409,6 +1453,7 @@ impl MediaFrameReference {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Capture_Frames`, `Foundation`*"]
     pub fn SystemRelativeTime(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>> {
         let this = self;
         unsafe {
@@ -1417,6 +1462,7 @@ impl MediaFrameReference {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Capture_Frames`, `Foundation`*"]
     pub fn Duration(&self) -> ::windows::runtime::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -1425,6 +1471,7 @@ impl MediaFrameReference {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Media_Capture_Frames`, `Foundation_Collections`*"]
     pub fn Properties(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IMapView<::windows::runtime::GUID, ::windows::runtime::IInspectable>> {
         let this = self;
         unsafe {
@@ -1432,6 +1479,7 @@ impl MediaFrameReference {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IMapView<::windows::runtime::GUID, ::windows::runtime::IInspectable>>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Capture_Frames`*"]
     pub fn BufferMediaFrame(&self) -> ::windows::runtime::Result<BufferMediaFrame> {
         let this = self;
         unsafe {
@@ -1439,6 +1487,7 @@ impl MediaFrameReference {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<BufferMediaFrame>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Capture_Frames`*"]
     pub fn VideoMediaFrame(&self) -> ::windows::runtime::Result<VideoMediaFrame> {
         let this = self;
         unsafe {
@@ -1447,6 +1496,7 @@ impl MediaFrameReference {
         }
     }
     #[cfg(feature = "Perception_Spatial")]
+    #[doc = "*Required features: `Media_Capture_Frames`, `Perception_Spatial`*"]
     pub fn CoordinateSystem(&self) -> ::windows::runtime::Result<super::super::super::Perception::Spatial::SpatialCoordinateSystem> {
         let this = self;
         unsafe {
@@ -1454,6 +1504,7 @@ impl MediaFrameReference {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Perception::Spatial::SpatialCoordinateSystem>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Capture_Frames`*"]
     pub fn AudioMediaFrame(&self) -> ::windows::runtime::Result<AudioMediaFrame> {
         let this = &::windows::runtime::Interface::cast::<IMediaFrameReference2>(self)?;
         unsafe {
@@ -1540,10 +1591,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::IClo
 }
 unsafe impl ::std::marker::Send for MediaFrameReference {}
 unsafe impl ::std::marker::Sync for MediaFrameReference {}
+#[doc = "*Required features: `Media_Capture_Frames`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MediaFrameSource(::windows::runtime::IInspectable);
 impl MediaFrameSource {
+    #[doc = "*Required features: `Media_Capture_Frames`*"]
     pub fn Info(&self) -> ::windows::runtime::Result<MediaFrameSourceInfo> {
         let this = self;
         unsafe {
@@ -1551,6 +1604,7 @@ impl MediaFrameSource {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MediaFrameSourceInfo>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Capture_Frames`*"]
     pub fn Controller(&self) -> ::windows::runtime::Result<MediaFrameSourceController> {
         let this = self;
         unsafe {
@@ -1559,6 +1613,7 @@ impl MediaFrameSource {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Media_Capture_Frames`, `Foundation_Collections`*"]
     pub fn SupportedFormats(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<MediaFrameFormat>> {
         let this = self;
         unsafe {
@@ -1566,6 +1621,7 @@ impl MediaFrameSource {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<MediaFrameFormat>>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Capture_Frames`*"]
     pub fn CurrentFormat(&self) -> ::windows::runtime::Result<MediaFrameFormat> {
         let this = self;
         unsafe {
@@ -1574,6 +1630,7 @@ impl MediaFrameSource {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Capture_Frames`, `Foundation`*"]
     pub fn SetFormatAsync<'a, Param0: ::windows::runtime::IntoParam<'a, MediaFrameFormat>>(&self, format: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -1582,6 +1639,7 @@ impl MediaFrameSource {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Capture_Frames`, `Foundation`*"]
     pub fn FormatChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<MediaFrameSource, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1590,11 +1648,13 @@ impl MediaFrameSource {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Capture_Frames`, `Foundation`*"]
     pub fn RemoveFormatChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Media_Devices_Core")]
+    #[doc = "*Required features: `Media_Capture_Frames`, `Media_Devices_Core`*"]
     pub fn TryGetCameraIntrinsics<'a, Param0: ::windows::runtime::IntoParam<'a, MediaFrameFormat>>(&self, format: Param0) -> ::windows::runtime::Result<super::super::Devices::Core::CameraIntrinsics> {
         let this = self;
         unsafe {
@@ -1655,11 +1715,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for MediaFrameSource {}
 unsafe impl ::std::marker::Sync for MediaFrameSource {}
+#[doc = "*Required features: `Media_Capture_Frames`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MediaFrameSourceController(::windows::runtime::IInspectable);
 impl MediaFrameSourceController {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Capture_Frames`, `Foundation`*"]
     pub fn GetPropertyAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, propertyid: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<MediaFrameSourceGetPropertyResult>> {
         let this = self;
         unsafe {
@@ -1668,6 +1730,7 @@ impl MediaFrameSourceController {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Capture_Frames`, `Foundation`*"]
     pub fn SetPropertyAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, propertyid: Param0, propertyvalue: Param1) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<MediaFrameSourceSetPropertyStatus>> {
         let this = self;
         unsafe {
@@ -1676,6 +1739,7 @@ impl MediaFrameSourceController {
         }
     }
     #[cfg(feature = "Media_Devices")]
+    #[doc = "*Required features: `Media_Capture_Frames`, `Media_Devices`*"]
     pub fn VideoDeviceController(&self) -> ::windows::runtime::Result<super::super::Devices::VideoDeviceController> {
         let this = self;
         unsafe {
@@ -1684,6 +1748,7 @@ impl MediaFrameSourceController {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Capture_Frames`, `Foundation`*"]
     pub fn GetPropertyByExtendedIdAsync<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::IReference<u32>>>(&self, extendedpropertyid: &[<u8 as ::windows::runtime::Abi>::DefaultType], maxpropertyvaluesize: Param1) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<MediaFrameSourceGetPropertyResult>> {
         let this = &::windows::runtime::Interface::cast::<IMediaFrameSourceController2>(self)?;
         unsafe {
@@ -1692,6 +1757,7 @@ impl MediaFrameSourceController {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Capture_Frames`, `Foundation`*"]
     pub fn SetPropertyByExtendedIdAsync(&self, extendedpropertyid: &[<u8 as ::windows::runtime::Abi>::DefaultType], propertyvalue: &[<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<MediaFrameSourceSetPropertyStatus>> {
         let this = &::windows::runtime::Interface::cast::<IMediaFrameSourceController2>(self)?;
         unsafe {
@@ -1700,6 +1766,7 @@ impl MediaFrameSourceController {
         }
     }
     #[cfg(feature = "Media_Devices")]
+    #[doc = "*Required features: `Media_Capture_Frames`, `Media_Devices`*"]
     pub fn AudioDeviceController(&self) -> ::windows::runtime::Result<super::super::Devices::AudioDeviceController> {
         let this = &::windows::runtime::Interface::cast::<IMediaFrameSourceController3>(self)?;
         unsafe {
@@ -1760,10 +1827,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for MediaFrameSourceController {}
 unsafe impl ::std::marker::Sync for MediaFrameSourceController {}
+#[doc = "*Required features: `Media_Capture_Frames`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MediaFrameSourceGetPropertyResult(::windows::runtime::IInspectable);
 impl MediaFrameSourceGetPropertyResult {
+    #[doc = "*Required features: `Media_Capture_Frames`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<MediaFrameSourceGetPropertyStatus> {
         let this = self;
         unsafe {
@@ -1771,6 +1840,7 @@ impl MediaFrameSourceGetPropertyResult {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MediaFrameSourceGetPropertyStatus>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Capture_Frames`*"]
     pub fn Value(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = self;
         unsafe {
@@ -1831,6 +1901,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for MediaFrameSourceGetPropertyResult {}
 unsafe impl ::std::marker::Sync for MediaFrameSourceGetPropertyResult {}
+#[doc = "*Required features: `Media_Capture_Frames`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MediaFrameSourceGetPropertyStatus(pub i32);
@@ -1854,10 +1925,12 @@ unsafe impl ::windows::runtime::Abi for MediaFrameSourceGetPropertyStatus {
 unsafe impl ::windows::runtime::RuntimeType for MediaFrameSourceGetPropertyStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.Frames.MediaFrameSourceGetPropertyStatus;i4)");
 }
+#[doc = "*Required features: `Media_Capture_Frames`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MediaFrameSourceGroup(::windows::runtime::IInspectable);
 impl MediaFrameSourceGroup {
+    #[doc = "*Required features: `Media_Capture_Frames`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1865,6 +1938,7 @@ impl MediaFrameSourceGroup {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Capture_Frames`*"]
     pub fn DisplayName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1873,6 +1947,7 @@ impl MediaFrameSourceGroup {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Media_Capture_Frames`, `Foundation_Collections`*"]
     pub fn SourceInfos(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<MediaFrameSourceInfo>> {
         let this = self;
         unsafe {
@@ -1881,6 +1956,7 @@ impl MediaFrameSourceGroup {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Media_Capture_Frames`, `Foundation`, `Foundation_Collections`*"]
     pub fn FindAllAsync() -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<MediaFrameSourceGroup>>> {
         Self::IMediaFrameSourceGroupStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1888,12 +1964,14 @@ impl MediaFrameSourceGroup {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Capture_Frames`, `Foundation`*"]
     pub fn FromIdAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(id: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<MediaFrameSourceGroup>> {
         Self::IMediaFrameSourceGroupStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), id.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<MediaFrameSourceGroup>>(result__)
         })
     }
+    #[doc = "*Required features: `Media_Capture_Frames`*"]
     pub fn GetDeviceSelector() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IMediaFrameSourceGroupStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
@@ -1957,10 +2035,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for MediaFrameSourceGroup {}
 unsafe impl ::std::marker::Sync for MediaFrameSourceGroup {}
+#[doc = "*Required features: `Media_Capture_Frames`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MediaFrameSourceInfo(::windows::runtime::IInspectable);
 impl MediaFrameSourceInfo {
+    #[doc = "*Required features: `Media_Capture_Frames`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1968,6 +2048,7 @@ impl MediaFrameSourceInfo {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Capture_Frames`*"]
     pub fn MediaStreamType(&self) -> ::windows::runtime::Result<super::MediaStreamType> {
         let this = self;
         unsafe {
@@ -1975,6 +2056,7 @@ impl MediaFrameSourceInfo {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::MediaStreamType>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Capture_Frames`*"]
     pub fn SourceKind(&self) -> ::windows::runtime::Result<MediaFrameSourceKind> {
         let this = self;
         unsafe {
@@ -1982,6 +2064,7 @@ impl MediaFrameSourceInfo {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MediaFrameSourceKind>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Capture_Frames`*"]
     pub fn SourceGroup(&self) -> ::windows::runtime::Result<MediaFrameSourceGroup> {
         let this = self;
         unsafe {
@@ -1990,6 +2073,7 @@ impl MediaFrameSourceInfo {
         }
     }
     #[cfg(feature = "Devices_Enumeration")]
+    #[doc = "*Required features: `Media_Capture_Frames`, `Devices_Enumeration`*"]
     pub fn DeviceInformation(&self) -> ::windows::runtime::Result<super::super::super::Devices::Enumeration::DeviceInformation> {
         let this = self;
         unsafe {
@@ -1998,6 +2082,7 @@ impl MediaFrameSourceInfo {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Media_Capture_Frames`, `Foundation_Collections`*"]
     pub fn Properties(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IMapView<::windows::runtime::GUID, ::windows::runtime::IInspectable>> {
         let this = self;
         unsafe {
@@ -2006,6 +2091,7 @@ impl MediaFrameSourceInfo {
         }
     }
     #[cfg(feature = "Perception_Spatial")]
+    #[doc = "*Required features: `Media_Capture_Frames`, `Perception_Spatial`*"]
     pub fn CoordinateSystem(&self) -> ::windows::runtime::Result<super::super::super::Perception::Spatial::SpatialCoordinateSystem> {
         let this = self;
         unsafe {
@@ -2013,6 +2099,7 @@ impl MediaFrameSourceInfo {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Perception::Spatial::SpatialCoordinateSystem>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Capture_Frames`*"]
     pub fn ProfileId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IMediaFrameSourceInfo2>(self)?;
         unsafe {
@@ -2021,6 +2108,7 @@ impl MediaFrameSourceInfo {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Media_Capture_Frames`, `Foundation_Collections`*"]
     pub fn VideoProfileMediaDescription(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<super::MediaCaptureVideoProfileMediaDescription>> {
         let this = &::windows::runtime::Interface::cast::<IMediaFrameSourceInfo2>(self)?;
         unsafe {
@@ -2029,6 +2117,7 @@ impl MediaFrameSourceInfo {
         }
     }
     #[cfg(all(feature = "Devices_Enumeration", feature = "UI_WindowManagement"))]
+    #[doc = "*Required features: `Media_Capture_Frames`, `Devices_Enumeration`, `UI_WindowManagement`*"]
     pub fn GetRelativePanel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::UI::WindowManagement::DisplayRegion>>(&self, displayregion: Param0) -> ::windows::runtime::Result<super::super::super::Devices::Enumeration::Panel> {
         let this = &::windows::runtime::Interface::cast::<IMediaFrameSourceInfo3>(self)?;
         unsafe {
@@ -2089,6 +2178,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for MediaFrameSourceInfo {}
 unsafe impl ::std::marker::Sync for MediaFrameSourceInfo {}
+#[doc = "*Required features: `Media_Capture_Frames`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MediaFrameSourceKind(pub i32);
@@ -2113,6 +2203,7 @@ unsafe impl ::windows::runtime::Abi for MediaFrameSourceKind {
 unsafe impl ::windows::runtime::RuntimeType for MediaFrameSourceKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.Frames.MediaFrameSourceKind;i4)");
 }
+#[doc = "*Required features: `Media_Capture_Frames`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MediaFrameSourceSetPropertyStatus(pub i32);
@@ -2136,6 +2227,7 @@ unsafe impl ::windows::runtime::Abi for MediaFrameSourceSetPropertyStatus {
 unsafe impl ::windows::runtime::RuntimeType for MediaFrameSourceSetPropertyStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.Frames.MediaFrameSourceSetPropertyStatus;i4)");
 }
+#[doc = "*Required features: `Media_Capture_Frames`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MultiSourceMediaFrameArrivedEventArgs(::windows::runtime::IInspectable);
@@ -2192,16 +2284,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for MultiSourceMediaFrameArrivedEventArgs {}
 unsafe impl ::std::marker::Sync for MultiSourceMediaFrameArrivedEventArgs {}
+#[doc = "*Required features: `Media_Capture_Frames`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MultiSourceMediaFrameReader(::windows::runtime::IInspectable);
 impl MultiSourceMediaFrameReader {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Capture_Frames`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Capture_Frames`, `Foundation`*"]
     pub fn FrameArrived<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<MultiSourceMediaFrameReader, MultiSourceMediaFrameArrivedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -2210,10 +2305,12 @@ impl MultiSourceMediaFrameReader {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Capture_Frames`, `Foundation`*"]
     pub fn RemoveFrameArrived<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Media_Capture_Frames`*"]
     pub fn TryAcquireLatestFrame(&self) -> ::windows::runtime::Result<MultiSourceMediaFrameReference> {
         let this = self;
         unsafe {
@@ -2222,6 +2319,7 @@ impl MultiSourceMediaFrameReader {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Capture_Frames`, `Foundation`*"]
     pub fn StartAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<MultiSourceMediaFrameReaderStartStatus>> {
         let this = self;
         unsafe {
@@ -2230,6 +2328,7 @@ impl MultiSourceMediaFrameReader {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Capture_Frames`, `Foundation`*"]
     pub fn StopAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -2237,10 +2336,12 @@ impl MultiSourceMediaFrameReader {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Capture_Frames`*"]
     pub fn SetAcquisitionMode(&self, value: MediaFrameReaderAcquisitionMode) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IMultiSourceMediaFrameReader2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_Capture_Frames`*"]
     pub fn AcquisitionMode(&self) -> ::windows::runtime::Result<MediaFrameReaderAcquisitionMode> {
         let this = &::windows::runtime::Interface::cast::<IMultiSourceMediaFrameReader2>(self)?;
         unsafe {
@@ -2327,6 +2428,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::IClo
 }
 unsafe impl ::std::marker::Send for MultiSourceMediaFrameReader {}
 unsafe impl ::std::marker::Sync for MultiSourceMediaFrameReader {}
+#[doc = "*Required features: `Media_Capture_Frames`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MultiSourceMediaFrameReaderStartStatus(pub i32);
@@ -2349,15 +2451,18 @@ unsafe impl ::windows::runtime::Abi for MultiSourceMediaFrameReaderStartStatus {
 unsafe impl ::windows::runtime::RuntimeType for MultiSourceMediaFrameReaderStartStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.Frames.MultiSourceMediaFrameReaderStartStatus;i4)");
 }
+#[doc = "*Required features: `Media_Capture_Frames`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MultiSourceMediaFrameReference(::windows::runtime::IInspectable);
 impl MultiSourceMediaFrameReference {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Media_Capture_Frames`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Media_Capture_Frames`*"]
     pub fn TryGetFrameReferenceBySourceId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, sourceid: Param0) -> ::windows::runtime::Result<MediaFrameReference> {
         let this = self;
         unsafe {
@@ -2444,10 +2549,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::IClo
 }
 unsafe impl ::std::marker::Send for MultiSourceMediaFrameReference {}
 unsafe impl ::std::marker::Sync for MultiSourceMediaFrameReference {}
+#[doc = "*Required features: `Media_Capture_Frames`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct VideoMediaFrame(::windows::runtime::IInspectable);
 impl VideoMediaFrame {
+    #[doc = "*Required features: `Media_Capture_Frames`*"]
     pub fn FrameReference(&self) -> ::windows::runtime::Result<MediaFrameReference> {
         let this = self;
         unsafe {
@@ -2455,6 +2562,7 @@ impl VideoMediaFrame {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MediaFrameReference>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Capture_Frames`*"]
     pub fn VideoFormat(&self) -> ::windows::runtime::Result<VideoMediaFrameFormat> {
         let this = self;
         unsafe {
@@ -2463,6 +2571,7 @@ impl VideoMediaFrame {
         }
     }
     #[cfg(feature = "Graphics_Imaging")]
+    #[doc = "*Required features: `Media_Capture_Frames`, `Graphics_Imaging`*"]
     pub fn SoftwareBitmap(&self) -> ::windows::runtime::Result<super::super::super::Graphics::Imaging::SoftwareBitmap> {
         let this = self;
         unsafe {
@@ -2471,6 +2580,7 @@ impl VideoMediaFrame {
         }
     }
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
+    #[doc = "*Required features: `Media_Capture_Frames`, `Graphics_DirectX_Direct3D11`*"]
     pub fn Direct3DSurface(&self) -> ::windows::runtime::Result<super::super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface> {
         let this = self;
         unsafe {
@@ -2479,6 +2589,7 @@ impl VideoMediaFrame {
         }
     }
     #[cfg(feature = "Media_Devices_Core")]
+    #[doc = "*Required features: `Media_Capture_Frames`, `Media_Devices_Core`*"]
     pub fn CameraIntrinsics(&self) -> ::windows::runtime::Result<super::super::Devices::Core::CameraIntrinsics> {
         let this = self;
         unsafe {
@@ -2486,6 +2597,7 @@ impl VideoMediaFrame {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Core::CameraIntrinsics>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Capture_Frames`*"]
     pub fn InfraredMediaFrame(&self) -> ::windows::runtime::Result<InfraredMediaFrame> {
         let this = self;
         unsafe {
@@ -2493,6 +2605,7 @@ impl VideoMediaFrame {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<InfraredMediaFrame>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Capture_Frames`*"]
     pub fn DepthMediaFrame(&self) -> ::windows::runtime::Result<DepthMediaFrame> {
         let this = self;
         unsafe {
@@ -2500,6 +2613,7 @@ impl VideoMediaFrame {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<DepthMediaFrame>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Capture_Frames`*"]
     pub fn GetVideoFrame(&self) -> ::windows::runtime::Result<super::super::VideoFrame> {
         let this = self;
         unsafe {
@@ -2560,10 +2674,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for VideoMediaFrame {}
 unsafe impl ::std::marker::Sync for VideoMediaFrame {}
+#[doc = "*Required features: `Media_Capture_Frames`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct VideoMediaFrameFormat(::windows::runtime::IInspectable);
 impl VideoMediaFrameFormat {
+    #[doc = "*Required features: `Media_Capture_Frames`*"]
     pub fn MediaFrameFormat(&self) -> ::windows::runtime::Result<MediaFrameFormat> {
         let this = self;
         unsafe {
@@ -2571,6 +2687,7 @@ impl VideoMediaFrameFormat {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MediaFrameFormat>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Capture_Frames`*"]
     pub fn DepthFormat(&self) -> ::windows::runtime::Result<DepthMediaFrameFormat> {
         let this = self;
         unsafe {
@@ -2578,6 +2695,7 @@ impl VideoMediaFrameFormat {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<DepthMediaFrameFormat>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Capture_Frames`*"]
     pub fn Width(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -2585,6 +2703,7 @@ impl VideoMediaFrameFormat {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Media_Capture_Frames`*"]
     pub fn Height(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {

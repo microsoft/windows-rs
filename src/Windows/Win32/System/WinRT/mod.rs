@@ -1,4 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ACTIVATIONTYPE(pub i32);
@@ -30,6 +31,7 @@ unsafe impl ::windows::runtime::Abi for APARTMENT_SHUTDOWN_REGISTRATION_COOKIE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AgileReferenceOptions(pub i32);
@@ -44,6 +46,7 @@ unsafe impl ::windows::runtime::Abi for AgileReferenceOptions {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct BSOS_OPTIONS(pub i32);
@@ -58,6 +61,7 @@ unsafe impl ::windows::runtime::Abi for BSOS_OPTIONS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CASTING_CONNECTION_ERROR_STATUS(pub i32);
@@ -77,6 +81,7 @@ unsafe impl ::windows::runtime::Abi for CASTING_CONNECTION_ERROR_STATUS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CASTING_CONNECTION_STATE(pub i32);
@@ -97,9 +102,13 @@ unsafe impl ::windows::runtime::Abi for CASTING_CONNECTION_STATE {
 pub const CLSID_AudioFrameNativeFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(379626425, 40805, 16642, [147, 103, 44, 218, 58, 79, 55, 42]);
 pub const CLSID_SoftwareBitmapNativeFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2229687953, 34306, 19076, [190, 70, 112, 139, 233, 205, 75, 116]);
 pub const CLSID_VideoFrameNativeFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3516151914, 1251, 18452, [129, 0, 178, 176, 174, 109, 120, 199]);
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 pub const CastingSourceInfo_Property_CastingTypes: &'static str = "CastingTypes";
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 pub const CastingSourceInfo_Property_PreferredSourceUriScheme: &'static str = "PreferredSourceUriScheme";
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 pub const CastingSourceInfo_Property_ProtectedMedia: &'static str = "ProtectedMedia";
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[inline]
 pub unsafe fn CoDecodeProxy(dwclientpid: u32, ui64proxyaddress: u64) -> ::windows::runtime::Result<ServerInformation> {
     #[cfg(windows)]
@@ -115,6 +124,7 @@ pub unsafe fn CoDecodeProxy(dwclientpid: u32, ui64proxyaddress: u64) -> ::window
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Dxgi")]
+#[doc = "*Required features: `Win32_System_WinRT`, `Win32_Graphics_Dxgi`*"]
 #[inline]
 pub unsafe fn CreateDirect3D11DeviceFromDXGIDevice<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Dxgi::IDXGIDevice>>(dxgidevice: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
     #[cfg(windows)]
@@ -130,6 +140,7 @@ pub unsafe fn CreateDirect3D11DeviceFromDXGIDevice<'a, Param0: ::windows::runtim
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Dxgi")]
+#[doc = "*Required features: `Win32_System_WinRT`, `Win32_Graphics_Dxgi`*"]
 #[inline]
 pub unsafe fn CreateDirect3D11SurfaceFromDXGISurface<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Dxgi::IDXGISurface>>(dgxisurface: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
     #[cfg(windows)]
@@ -145,6 +156,7 @@ pub unsafe fn CreateDirect3D11SurfaceFromDXGISurface<'a, Param0: ::windows::runt
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "System")]
+#[doc = "*Required features: `Win32_System_WinRT`, `System`*"]
 #[inline]
 pub unsafe fn CreateDispatcherQueueController<'a, Param0: ::windows::runtime::IntoParam<'a, DispatcherQueueOptions>>(options: Param0) -> ::windows::runtime::Result<super::super::super::System::DispatcherQueueController> {
     #[cfg(windows)]
@@ -159,6 +171,7 @@ pub unsafe fn CreateDispatcherQueueController<'a, Param0: ::windows::runtime::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CreateProcessMethod(pub i32);
@@ -175,6 +188,7 @@ unsafe impl ::windows::runtime::Abi for CreateProcessMethod {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CreateRandomAccessStreamOnFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, T: ::windows::runtime::Interface>(filepath: Param0, accessmode: u32) -> ::windows::runtime::Result<T> {
     #[cfg(windows)]
@@ -190,6 +204,7 @@ pub unsafe fn CreateRandomAccessStreamOnFile<'a, Param0: ::windows::runtime::Int
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `Win32_System_WinRT`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn CreateRandomAccessStreamOverStream<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::IStream>, T: ::windows::runtime::Interface>(stream: Param0, options: BSOS_OPTIONS) -> ::windows::runtime::Result<T> {
     #[cfg(windows)]
@@ -204,6 +219,7 @@ pub unsafe fn CreateRandomAccessStreamOverStream<'a, Param0: ::windows::runtime:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[inline]
 pub unsafe fn CreateStreamOverRandomAccessStream<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, T: ::windows::runtime::Interface>(randomaccessstream: Param0) -> ::windows::runtime::Result<T> {
     #[cfg(windows)]
@@ -218,6 +234,7 @@ pub unsafe fn CreateStreamOverRandomAccessStream<'a, Param0: ::windows::runtime:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DISPATCHERQUEUE_THREAD_APARTMENTTYPE(pub i32);
@@ -233,6 +250,7 @@ unsafe impl ::windows::runtime::Abi for DISPATCHERQUEUE_THREAD_APARTMENTTYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DISPATCHERQUEUE_THREAD_TYPE(pub i32);
@@ -249,6 +267,7 @@ unsafe impl ::windows::runtime::Abi for DISPATCHERQUEUE_THREAD_TYPE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 pub struct DispatcherQueueOptions {
     pub dwSize: u32,
     pub threadType: DISPATCHERQUEUE_THREAD_TYPE,
@@ -275,9 +294,11 @@ unsafe impl ::windows::runtime::Abi for DispatcherQueueOptions {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 pub const E_SURFACE_CONTENTS_LOST: u32 = 2150301728u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 pub struct EventRegistrationToken {
     pub value: i64,
 }
@@ -302,6 +323,7 @@ unsafe impl ::windows::runtime::Abi for EventRegistrationToken {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GRAPHICS_EFFECT_PROPERTY_MAPPING(pub i32);
@@ -325,6 +347,7 @@ unsafe impl ::windows::runtime::Abi for GRAPHICS_EFFECT_PROPERTY_MAPPING {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[inline]
 pub unsafe fn GetRestrictedErrorInfo() -> ::windows::runtime::Result<IRestrictedErrorInfo> {
     #[cfg(windows)]
@@ -339,6 +362,7 @@ pub unsafe fn GetRestrictedErrorInfo() -> ::windows::runtime::Result<IRestricted
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HANDLE_ACCESS_OPTIONS(pub u32);
@@ -384,6 +408,7 @@ impl ::std::ops::Not for HANDLE_ACCESS_OPTIONS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HANDLE_CREATION_OPTIONS(pub i32);
@@ -401,6 +426,7 @@ unsafe impl ::windows::runtime::Abi for HANDLE_CREATION_OPTIONS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HANDLE_OPTIONS(pub u32);
@@ -449,6 +475,7 @@ impl ::std::ops::Not for HANDLE_OPTIONS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HANDLE_SHARING_OPTIONS(pub u32);
@@ -509,6 +536,7 @@ unsafe impl ::windows::runtime::Abi for HSTRING_BUFFER {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
 pub struct HSTRING_HEADER {
     pub Reserved: HSTRING_HEADER_0,
 }
@@ -536,6 +564,7 @@ unsafe impl ::windows::runtime::Abi for HSTRING_HEADER {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
 pub union HSTRING_HEADER_0 {
     pub Reserved1: *mut ::std::ffi::c_void,
     pub Reserved2: [super::super::Foundation::CHAR; 24],
@@ -561,6 +590,7 @@ unsafe impl ::windows::runtime::Abi for HSTRING_HEADER_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[inline]
 pub unsafe fn HSTRING_UserFree(param0: *const u32, param1: *const ::windows::runtime::HSTRING) {
     #[cfg(windows)]
@@ -574,6 +604,7 @@ pub unsafe fn HSTRING_UserFree(param0: *const u32, param1: *const ::windows::run
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[inline]
 pub unsafe fn HSTRING_UserFree64(param0: *const u32, param1: *const ::windows::runtime::HSTRING) {
     #[cfg(windows)]
@@ -587,6 +618,7 @@ pub unsafe fn HSTRING_UserFree64(param0: *const u32, param1: *const ::windows::r
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[inline]
 pub unsafe fn HSTRING_UserMarshal(param0: *const u32, param1: *mut u8, param2: *const ::windows::runtime::HSTRING) -> *mut u8 {
     #[cfg(windows)]
@@ -600,6 +632,7 @@ pub unsafe fn HSTRING_UserMarshal(param0: *const u32, param1: *mut u8, param2: *
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[inline]
 pub unsafe fn HSTRING_UserMarshal64(param0: *const u32, param1: *mut u8, param2: *const ::windows::runtime::HSTRING) -> *mut u8 {
     #[cfg(windows)]
@@ -613,6 +646,7 @@ pub unsafe fn HSTRING_UserMarshal64(param0: *const u32, param1: *mut u8, param2:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[inline]
 pub unsafe fn HSTRING_UserSize(param0: *const u32, param1: u32, param2: *const ::windows::runtime::HSTRING) -> u32 {
     #[cfg(windows)]
@@ -626,6 +660,7 @@ pub unsafe fn HSTRING_UserSize(param0: *const u32, param1: u32, param2: *const :
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[inline]
 pub unsafe fn HSTRING_UserSize64(param0: *const u32, param1: u32, param2: *const ::windows::runtime::HSTRING) -> u32 {
     #[cfg(windows)]
@@ -639,6 +674,7 @@ pub unsafe fn HSTRING_UserSize64(param0: *const u32, param1: u32, param2: *const
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[inline]
 pub unsafe fn HSTRING_UserUnmarshal(param0: *const u32, param1: *const u8, param2: *mut ::windows::runtime::HSTRING) -> *mut u8 {
     #[cfg(windows)]
@@ -652,6 +688,7 @@ pub unsafe fn HSTRING_UserUnmarshal(param0: *const u32, param1: *const u8, param
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[inline]
 pub unsafe fn HSTRING_UserUnmarshal64(param0: *const u32, param1: *const u8, param2: *mut ::windows::runtime::HSTRING) -> *mut u8 {
     #[cfg(windows)]
@@ -665,21 +702,25 @@ pub unsafe fn HSTRING_UserUnmarshal64(param0: *const u32, param1: *const u8, par
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IAccountsSettingsPaneInterop(::windows::runtime::IUnknown);
 impl IAccountsSettingsPaneInterop {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
     pub unsafe fn GetForWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, T: ::windows::runtime::Interface>(&self, appwindow: Param0) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), appwindow.into_param().abi(), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
     pub unsafe fn ShowManageAccountsForWindowAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, T: ::windows::runtime::Interface>(&self, appwindow: Param0) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), appwindow.into_param().abi(), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
     pub unsafe fn ShowAddAccountForWindowAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, T: ::windows::runtime::Interface>(&self, appwindow: Param0) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), appwindow.into_param().abi(), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
@@ -725,10 +766,12 @@ pub struct IAccountsSettingsPaneInterop_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, appwindow: super::super::Foundation::HWND, riid: *const ::windows::runtime::GUID, asyncaction: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IActivationFactory(::windows::runtime::IUnknown);
 impl IActivationFactory {
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn ActivateInstance(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let mut result__: <::windows::runtime::IInspectable as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
@@ -769,10 +812,12 @@ pub struct IActivationFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, instance: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IAgileReference(::windows::runtime::IUnknown);
 impl IAgileReference {
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn Resolve(&self, riid: *const ::windows::runtime::GUID, ppvobjectreference: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(ppvobjectreference)).ok()
     }
@@ -809,10 +854,12 @@ pub struct IAgileReference_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppvobjectreference: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IApartmentShutdown(::windows::runtime::IUnknown);
 impl IApartmentShutdown {
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn OnUninitialize(&self, ui64apartmentidentifier: u64) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(ui64apartmentidentifier)))
     }
@@ -849,10 +896,12 @@ pub struct IApartmentShutdown_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ui64apartmentidentifier: u64),
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IAppServiceConnectionExtendedExecution(::windows::runtime::IUnknown);
 impl IAppServiceConnectionExtendedExecution {
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn OpenForExtendedExecutionAsync<T: ::windows::runtime::Interface>(&self) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
@@ -890,10 +939,12 @@ pub struct IAppServiceConnectionExtendedExecution_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, operation: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IAudioFrameNative(::windows::runtime::IUnknown);
 impl IAudioFrameNative {
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn GetData<T: ::windows::runtime::Interface>(&self) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
@@ -934,11 +985,13 @@ pub struct IAudioFrameNative_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IAudioFrameNativeFactory(::windows::runtime::IUnknown);
 impl IAudioFrameNativeFactory {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`, `Win32_Media_MediaFoundation`*"]
     pub unsafe fn CreateFromMFSample<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Media::MediaFoundation::IMFSample>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, T: ::windows::runtime::Interface>(&self, data: Param0, forcereadonly: Param1) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), data.into_param().abi(), forcereadonly.into_param().abi(), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
@@ -980,10 +1033,12 @@ pub struct IAudioFrameNativeFactory_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, data: ::windows::runtime::RawPtr, forcereadonly: super::super::Foundation::BOOL, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation")))] usize,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IBufferByteAccess(::windows::runtime::IUnknown);
 impl IBufferByteAccess {
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn Buffer(&self) -> ::windows::runtime::Result<*mut u8> {
         let mut result__: <*mut u8 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut u8>(result__)
@@ -1021,23 +1076,29 @@ pub struct IBufferByteAccess_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut *mut u8) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ICastingController(::windows::runtime::IUnknown);
 impl ICastingController {
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, castingengine: Param0, castingsource: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), castingengine.into_param().abi(), castingsource.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn Connect(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn Disconnect(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn Advise<'a, Param0: ::windows::runtime::IntoParam<'a, ICastingEventHandler>>(&self, eventhandler: Param0) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), eventhandler.into_param().abi(), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn UnAdvise(&self, cookie: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(cookie)).ok()
     }
@@ -1078,14 +1139,17 @@ pub struct ICastingController_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, eventhandler: ::windows::runtime::RawPtr, cookie: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, cookie: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ICastingEventHandler(::windows::runtime::IUnknown);
 impl ICastingEventHandler {
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn OnStateChanged(&self, newstate: CASTING_CONNECTION_STATE) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(newstate)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
     pub unsafe fn OnError<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, errorstatus: CASTING_CONNECTION_ERROR_STATUS, errormessage: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(errorstatus), errormessage.into_param().abi()).ok()
     }
@@ -1124,15 +1188,18 @@ pub struct ICastingEventHandler_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, errorstatus: CASTING_CONNECTION_ERROR_STATUS, errormessage: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ICastingSourceInfo(::windows::runtime::IUnknown);
 impl ICastingSourceInfo {
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn GetController(&self) -> ::windows::runtime::Result<ICastingController> {
         let mut result__: <ICastingController as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ICastingController>(result__)
     }
     #[cfg(feature = "Win32_System_PropertiesSystem")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_System_PropertiesSystem`*"]
     pub unsafe fn GetProperties(&self) -> ::windows::runtime::Result<super::PropertiesSystem::INamedPropertyStore> {
         let mut result__: <super::PropertiesSystem::INamedPropertyStore as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::PropertiesSystem::INamedPropertyStore>(result__)
@@ -1172,11 +1239,13 @@ pub struct ICastingSourceInfo_abi(
     #[cfg(feature = "Win32_System_PropertiesSystem")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, props: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_PropertiesSystem"))] usize,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ICompositionCapabilitiesInteropFactory(::windows::runtime::IUnknown);
 impl ICompositionCapabilitiesInteropFactory {
     #[cfg(all(feature = "UI_Composition", feature = "Win32_Foundation"))]
+    #[doc = "*Required features: `Win32_System_WinRT`, `UI_Composition`, `Win32_Foundation`*"]
     pub unsafe fn GetForWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, hwnd: Param0) -> ::windows::runtime::Result<super::super::super::UI::Composition::CompositionCapabilities> {
         let mut result__: <super::super::super::UI::Composition::CompositionCapabilities as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), hwnd.into_param().abi(), &mut result__).from_abi::<super::super::super::UI::Composition::CompositionCapabilities>(result__)
@@ -1218,28 +1287,35 @@ pub struct ICompositionCapabilitiesInteropFactory_abi(
     #[cfg(all(feature = "UI_Composition", feature = "Win32_Foundation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hwnd: super::super::Foundation::HWND, result: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "UI_Composition", feature = "Win32_Foundation")))] usize,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ICompositionDrawingSurfaceInterop(::windows::runtime::IUnknown);
 impl ICompositionDrawingSurfaceInterop {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
     pub unsafe fn BeginDraw(&self, updaterect: *const super::super::Foundation::RECT, iid: *const ::windows::runtime::GUID, updateobject: *mut *mut ::std::ffi::c_void, updateoffset: *mut super::super::Foundation::POINT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(updaterect), ::std::mem::transmute(iid), ::std::mem::transmute(updateobject), ::std::mem::transmute(updateoffset)).ok()
     }
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn EndDraw(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
     pub unsafe fn Resize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::SIZE>>(&self, sizepixels: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), sizepixels.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
     pub unsafe fn Scroll(&self, scrollrect: *const super::super::Foundation::RECT, cliprect: *const super::super::Foundation::RECT, offsetx: i32, offsety: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(scrollrect), ::std::mem::transmute(cliprect), ::std::mem::transmute(offsetx), ::std::mem::transmute(offsety)).ok()
     }
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn ResumeDraw(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn SuspendDraw(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
     }
@@ -1284,32 +1360,40 @@ pub struct ICompositionDrawingSurfaceInterop_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ICompositionDrawingSurfaceInterop2(::windows::runtime::IUnknown);
 impl ICompositionDrawingSurfaceInterop2 {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
     pub unsafe fn BeginDraw(&self, updaterect: *const super::super::Foundation::RECT, iid: *const ::windows::runtime::GUID, updateobject: *mut *mut ::std::ffi::c_void, updateoffset: *mut super::super::Foundation::POINT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(updaterect), ::std::mem::transmute(iid), ::std::mem::transmute(updateobject), ::std::mem::transmute(updateoffset)).ok()
     }
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn EndDraw(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
     pub unsafe fn Resize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::SIZE>>(&self, sizepixels: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), sizepixels.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
     pub unsafe fn Scroll(&self, scrollrect: *const super::super::Foundation::RECT, cliprect: *const super::super::Foundation::RECT, offsetx: i32, offsety: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(scrollrect), ::std::mem::transmute(cliprect), ::std::mem::transmute(offsetx), ::std::mem::transmute(offsety)).ok()
     }
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn ResumeDraw(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn SuspendDraw(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
     pub unsafe fn CopySurface<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, destinationresource: Param0, destinationoffsetx: i32, destinationoffsety: i32, sourcerectangle: *const super::super::Foundation::RECT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), destinationresource.into_param().abi(), ::std::mem::transmute(destinationoffsetx), ::std::mem::transmute(destinationoffsety), ::std::mem::transmute(sourcerectangle)).ok()
     }
@@ -1376,14 +1460,17 @@ pub struct ICompositionDrawingSurfaceInterop2_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, destinationresource: ::windows::runtime::RawPtr, destinationoffsetx: i32, destinationoffsety: i32, sourcerectangle: *const super::super::Foundation::RECT) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ICompositionGraphicsDeviceInterop(::windows::runtime::IUnknown);
 impl ICompositionGraphicsDeviceInterop {
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn GetRenderingDevice(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
         let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
     }
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn SetRenderingDevice<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), value.into_param().abi()).ok()
     }
@@ -1421,15 +1508,18 @@ pub struct ICompositionGraphicsDeviceInterop_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ICompositorDesktopInterop(::windows::runtime::IUnknown);
 impl ICompositorDesktopInterop {
     #[cfg(all(feature = "UI_Composition_Desktop", feature = "Win32_Foundation"))]
+    #[doc = "*Required features: `Win32_System_WinRT`, `UI_Composition_Desktop`, `Win32_Foundation`*"]
     pub unsafe fn CreateDesktopWindowTarget<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, hwndtarget: Param0, istopmost: Param1) -> ::windows::runtime::Result<super::super::super::UI::Composition::Desktop::DesktopWindowTarget> {
         let mut result__: <super::super::super::UI::Composition::Desktop::DesktopWindowTarget as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), hwndtarget.into_param().abi(), istopmost.into_param().abi(), &mut result__).from_abi::<super::super::super::UI::Composition::Desktop::DesktopWindowTarget>(result__)
     }
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn EnsureOnThread(&self, threadid: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(threadid)).ok()
     }
@@ -1468,21 +1558,25 @@ pub struct ICompositorDesktopInterop_abi(
     #[cfg(not(all(feature = "UI_Composition_Desktop", feature = "Win32_Foundation")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, threadid: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ICompositorInterop(::windows::runtime::IUnknown);
 impl ICompositorInterop {
     #[cfg(all(feature = "UI_Composition", feature = "Win32_Foundation"))]
+    #[doc = "*Required features: `Win32_System_WinRT`, `UI_Composition`, `Win32_Foundation`*"]
     pub unsafe fn CreateCompositionSurfaceForHandle<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, swapchain: Param0) -> ::windows::runtime::Result<super::super::super::UI::Composition::ICompositionSurface> {
         let mut result__: <super::super::super::UI::Composition::ICompositionSurface as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), swapchain.into_param().abi(), &mut result__).from_abi::<super::super::super::UI::Composition::ICompositionSurface>(result__)
     }
     #[cfg(feature = "UI_Composition")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `UI_Composition`*"]
     pub unsafe fn CreateCompositionSurfaceForSwapChain<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, swapchain: Param0) -> ::windows::runtime::Result<super::super::super::UI::Composition::ICompositionSurface> {
         let mut result__: <super::super::super::UI::Composition::ICompositionSurface as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), swapchain.into_param().abi(), &mut result__).from_abi::<super::super::super::UI::Composition::ICompositionSurface>(result__)
     }
     #[cfg(feature = "UI_Composition")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `UI_Composition`*"]
     pub unsafe fn CreateGraphicsDevice<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, renderingdevice: Param0) -> ::windows::runtime::Result<super::super::super::UI::Composition::CompositionGraphicsDevice> {
         let mut result__: <super::super::super::UI::Composition::CompositionGraphicsDevice as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), renderingdevice.into_param().abi(), &mut result__).from_abi::<super::super::super::UI::Composition::CompositionGraphicsDevice>(result__)
@@ -1525,11 +1619,13 @@ pub struct ICompositorInterop_abi(
     #[cfg(feature = "UI_Composition")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, renderingdevice: ::windows::runtime::RawPtr, result: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "UI_Composition"))] usize,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ICoreFrameworkInputViewInterop(::windows::runtime::IUnknown);
 impl ICoreFrameworkInputViewInterop {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
     pub unsafe fn GetForWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, T: ::windows::runtime::Interface>(&self, appwindow: Param0) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), appwindow.into_param().abi(), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
@@ -1571,18 +1667,22 @@ pub struct ICoreFrameworkInputViewInterop_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, appwindow: super::super::Foundation::HWND, riid: *const ::windows::runtime::GUID, coreframeworkinputview: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ICorrelationVectorInformation(::windows::runtime::IUnknown);
 impl ICorrelationVectorInformation {
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn LastCorrelationVectorForThread(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let mut result__: <::windows::runtime::HSTRING as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
     }
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn NextCorrelationVectorForThread(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let mut result__: <::windows::runtime::HSTRING as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
     }
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn SetNextCorrelationVectorForThread<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, cv: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), cv.into_param().abi()).ok()
     }
@@ -1624,10 +1724,12 @@ pub struct ICorrelationVectorInformation_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, cv: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, cv: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ICorrelationVectorSource(::windows::runtime::IUnknown);
 impl ICorrelationVectorSource {
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn CorrelationVector(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let mut result__: <::windows::runtime::HSTRING as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
@@ -1665,11 +1767,13 @@ pub struct ICorrelationVectorSource_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, cv: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDDEInitializer(::windows::runtime::IUnknown);
 impl IDDEInitializer {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`, `Win32_UI_Shell`*"]
     pub unsafe fn Initialize<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1741,11 +1845,13 @@ pub struct IDDEInitializer_abi(
     pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fileextensionorprotocol: super::super::Foundation::PWSTR, method: CreateProcessMethod, currentdirectory: super::super::Foundation::PWSTR, exectarget: ::windows::runtime::RawPtr, site: ::windows::runtime::RawPtr, application: super::super::Foundation::PWSTR, targetfile: super::super::Foundation::PWSTR, arguments: super::super::Foundation::PWSTR, verb: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell")))] usize,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDesktopWindowTargetInterop(::windows::runtime::IUnknown);
 impl IDesktopWindowTargetInterop {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
     pub unsafe fn Hwnd(&self) -> ::windows::runtime::Result<super::super::Foundation::HWND> {
         let mut result__: <super::super::Foundation::HWND as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::HWND>(result__)
@@ -1784,15 +1890,18 @@ pub struct IDesktopWindowTargetInterop_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut super::super::Foundation::HWND) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDesktopWindowXamlSourceNative(::windows::runtime::IUnknown);
 impl IDesktopWindowXamlSourceNative {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
     pub unsafe fn AttachToWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, parentwnd: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), parentwnd.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
     pub unsafe fn WindowHandle(&self) -> ::windows::runtime::Result<super::super::Foundation::HWND> {
         let mut result__: <super::super::Foundation::HWND as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::HWND>(result__)
@@ -1833,20 +1942,24 @@ pub struct IDesktopWindowXamlSourceNative_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hwnd: *mut super::super::Foundation::HWND) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDesktopWindowXamlSourceNative2(::windows::runtime::IUnknown);
 impl IDesktopWindowXamlSourceNative2 {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
     pub unsafe fn AttachToWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, parentwnd: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), parentwnd.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
     pub unsafe fn WindowHandle(&self) -> ::windows::runtime::Result<super::super::Foundation::HWND> {
         let mut result__: <super::super::Foundation::HWND as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::HWND>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
     pub unsafe fn PreTranslateMessage(&self, message: *const super::super::UI::WindowsAndMessaging::MSG, result: *mut super::super::Foundation::BOOL) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(message), ::std::mem::transmute(result)).ok()
     }
@@ -1908,10 +2021,12 @@ pub struct IDesktopWindowXamlSourceNative2_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, message: *const super::super::UI::WindowsAndMessaging::MSG, result: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging")))] usize,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirect3DDxgiInterfaceAccess(::windows::runtime::IUnknown);
 impl IDirect3DDxgiInterfaceAccess {
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn GetInterface<T: ::windows::runtime::Interface>(&self) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
@@ -1949,16 +2064,19 @@ pub struct IDirect3DDxgiInterfaceAccess_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: *const ::windows::runtime::GUID, p: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDisplayDeviceInterop(::windows::runtime::IUnknown);
 impl IDisplayDeviceInterop {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`, `Win32_Security`*"]
     pub unsafe fn CreateSharedHandle<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, pobject: Param0, psecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, access: u32, name: Param3) -> ::windows::runtime::Result<super::super::Foundation::HANDLE> {
         let mut result__: <super::super::Foundation::HANDLE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pobject.into_param().abi(), ::std::mem::transmute(psecurityattributes), ::std::mem::transmute(access), name.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::HANDLE>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
     pub unsafe fn OpenSharedHandle<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, nthandle: Param0, riid: Param1, ppvobj: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), nthandle.into_param().abi(), riid.into_param().abi(), ::std::mem::transmute(ppvobj)).ok()
     }
@@ -1998,15 +2116,18 @@ pub struct IDisplayDeviceInterop_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, nthandle: super::super::Foundation::HANDLE, riid: ::windows::runtime::GUID, ppvobj: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDisplayPathInterop(::windows::runtime::IUnknown);
 impl IDisplayPathInterop {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
     pub unsafe fn CreateSourcePresentationHandle(&self) -> ::windows::runtime::Result<super::super::Foundation::HANDLE> {
         let mut result__: <super::super::Foundation::HANDLE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::HANDLE>(result__)
     }
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn GetSourceId(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
@@ -2046,11 +2167,13 @@ pub struct IDisplayPathInterop_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, psourceid: *mut u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDragDropManagerInterop(::windows::runtime::IUnknown);
 impl IDragDropManagerInterop {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
     pub unsafe fn GetForWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, T: ::windows::runtime::Interface>(&self, hwnd: Param0) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), hwnd.into_param().abi(), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
@@ -2092,10 +2215,12 @@ pub struct IDragDropManagerInterop_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hwnd: super::super::Foundation::HWND, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFindReferenceTargetsCallback(::windows::runtime::IUnknown);
 impl IFindReferenceTargetsCallback {
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn FoundTrackerTarget<'a, Param0: ::windows::runtime::IntoParam<'a, IReferenceTrackerTarget>>(&self, target: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), target.into_param().abi()).ok()
     }
@@ -2132,16 +2257,19 @@ pub struct IFindReferenceTargetsCallback_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, target: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IGeometrySource2DInterop(::windows::runtime::IUnknown);
 impl IGeometrySource2DInterop {
     #[cfg(feature = "Win32_Graphics_Direct2D")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Graphics_Direct2D`*"]
     pub unsafe fn GetGeometry(&self) -> ::windows::runtime::Result<super::super::Graphics::Direct2D::ID2D1Geometry> {
         let mut result__: <super::super::Graphics::Direct2D::ID2D1Geometry as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Graphics::Direct2D::ID2D1Geometry>(result__)
     }
     #[cfg(feature = "Win32_Graphics_Direct2D")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Graphics_Direct2D`*"]
     pub unsafe fn TryGetGeometryUsingFactory<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct2D::ID2D1Factory>>(&self, factory: Param0) -> ::windows::runtime::Result<super::super::Graphics::Direct2D::ID2D1Geometry> {
         let mut result__: <super::super::Graphics::Direct2D::ID2D1Geometry as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), factory.into_param().abi(), &mut result__).from_abi::<super::super::Graphics::Direct2D::ID2D1Geometry>(result__)
@@ -2182,16 +2310,19 @@ pub struct IGeometrySource2DInterop_abi(
     #[cfg(feature = "Win32_Graphics_Direct2D")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, factory: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D"))] usize,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IGraphicsCaptureItemInterop(::windows::runtime::IUnknown);
 impl IGraphicsCaptureItemInterop {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
     pub unsafe fn CreateForWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, T: ::windows::runtime::Interface>(&self, window: Param0) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), window.into_param().abi(), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Graphics_Gdi`*"]
     pub unsafe fn CreateForMonitor<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HMONITOR>, T: ::windows::runtime::Interface>(&self, monitor: Param0) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), monitor.into_param().abi(), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
@@ -2232,32 +2363,39 @@ pub struct IGraphicsCaptureItemInterop_abi(
     #[cfg(feature = "Win32_Graphics_Gdi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, monitor: super::super::Graphics::Gdi::HMONITOR, riid: *const ::windows::runtime::GUID, result: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))] usize,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IGraphicsEffectD2D1Interop(::windows::runtime::IUnknown);
 impl IGraphicsEffectD2D1Interop {
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn GetEffectId(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
     pub unsafe fn GetNamedPropertyMapping<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, name: Param0, index: *mut u32, mapping: *mut GRAPHICS_EFFECT_PROPERTY_MAPPING) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), name.into_param().abi(), ::std::mem::transmute(index), ::std::mem::transmute(mapping)).ok()
     }
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn GetPropertyCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Foundation`*"]
     pub unsafe fn GetProperty(&self, index: u32) -> ::windows::runtime::Result<super::super::super::Foundation::IPropertyValue> {
         let mut result__: <super::super::super::Foundation::IPropertyValue as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), &mut result__).from_abi::<super::super::super::Foundation::IPropertyValue>(result__)
     }
     #[cfg(feature = "Graphics_Effects")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Graphics_Effects`*"]
     pub unsafe fn GetSource(&self, index: u32) -> ::windows::runtime::Result<super::super::super::Graphics::Effects::IGraphicsEffectSource> {
         let mut result__: <super::super::super::Graphics::Effects::IGraphicsEffectSource as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), &mut result__).from_abi::<super::super::super::Graphics::Effects::IGraphicsEffectSource>(result__)
     }
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn GetSourceCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
@@ -2303,29 +2441,35 @@ pub struct IGraphicsEffectD2D1Interop_abi(
     #[cfg(not(feature = "Graphics_Effects"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IHolographicCameraInterop(::windows::runtime::IUnknown);
 impl IHolographicCameraInterop {
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi"))]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
     pub unsafe fn CreateDirect3D12BackBufferResource<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Device>>(&self, pdevice: Param0, ptexture2ddesc: *const super::super::Graphics::Direct3D12::D3D12_RESOURCE_DESC) -> ::windows::runtime::Result<super::super::Graphics::Direct3D12::ID3D12Resource> {
         let mut result__: <super::super::Graphics::Direct3D12::ID3D12Resource as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), pdevice.into_param().abi(), ::std::mem::transmute(ptexture2ddesc), &mut result__).from_abi::<super::super::Graphics::Direct3D12::ID3D12Resource>(result__)
     }
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi"))]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
     pub unsafe fn CreateDirect3D12HardwareProtectedBackBufferResource<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Device>, Param2: ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>>(&self, pdevice: Param0, ptexture2ddesc: *const super::super::Graphics::Direct3D12::D3D12_RESOURCE_DESC, pprotectedresourcesession: Param2) -> ::windows::runtime::Result<super::super::Graphics::Direct3D12::ID3D12Resource> {
         let mut result__: <super::super::Graphics::Direct3D12::ID3D12Resource as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), pdevice.into_param().abi(), ::std::mem::transmute(ptexture2ddesc), pprotectedresourcesession.into_param().abi(), &mut result__).from_abi::<super::super::Graphics::Direct3D12::ID3D12Resource>(result__)
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Graphics_Direct3D12`*"]
     pub unsafe fn AcquireDirect3D12BufferResource<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Resource>, Param1: ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12CommandQueue>>(&self, presourcetoacquire: Param0, pcommandqueue: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), presourcetoacquire.into_param().abi(), pcommandqueue.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Graphics_Direct3D12`*"]
     pub unsafe fn AcquireDirect3D12BufferResourceWithTimeout<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Resource>, Param1: ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12CommandQueue>>(&self, presourcetoacquire: Param0, pcommandqueue: Param1, duration: u64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), presourcetoacquire.into_param().abi(), pcommandqueue.into_param().abi(), ::std::mem::transmute(duration)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Graphics_Direct3D12`*"]
     pub unsafe fn UnacquireDirect3D12BufferResource<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Resource>>(&self, presourcetounacquire: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), presourcetounacquire.into_param().abi()).ok()
     }
@@ -2374,15 +2518,18 @@ pub struct IHolographicCameraInterop_abi(
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presourcetounacquire: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IHolographicCameraRenderingParametersInterop(::windows::runtime::IUnknown);
 impl IHolographicCameraRenderingParametersInterop {
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Graphics_Direct3D12`*"]
     pub unsafe fn CommitDirect3D12Resource<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Resource>, Param1: ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Fence>>(&self, pcolorresourcetocommit: Param0, pcolorresourcefence: Param1, colorresourcefencesignalvalue: u64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), pcolorresourcetocommit.into_param().abi(), pcolorresourcefence.into_param().abi(), ::std::mem::transmute(colorresourcefencesignalvalue)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Graphics_Direct3D12`*"]
     pub unsafe fn CommitDirect3D12ResourceWithDepthData<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Resource>, Param1: ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Fence>, Param3: ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Resource>, Param4: ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Fence>>(
         &self,
         pcolorresourcetocommit: Param0,
@@ -2442,16 +2589,19 @@ pub struct IHolographicCameraRenderingParametersInterop_abi(
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcolorresourcetocommit: ::windows::runtime::RawPtr, pcolorresourcefence: ::windows::runtime::RawPtr, colorresourcefencesignalvalue: u64, pdepthresourcetocommit: ::windows::runtime::RawPtr, pdepthresourcefence: ::windows::runtime::RawPtr, depthresourcefencesignalvalue: u64) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IHolographicQuadLayerInterop(::windows::runtime::IUnknown);
 impl IHolographicQuadLayerInterop {
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi"))]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
     pub unsafe fn CreateDirect3D12ContentBufferResource<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Device>>(&self, pdevice: Param0, ptexture2ddesc: *const super::super::Graphics::Direct3D12::D3D12_RESOURCE_DESC) -> ::windows::runtime::Result<super::super::Graphics::Direct3D12::ID3D12Resource> {
         let mut result__: <super::super::Graphics::Direct3D12::ID3D12Resource as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), pdevice.into_param().abi(), ::std::mem::transmute(ptexture2ddesc), &mut result__).from_abi::<super::super::Graphics::Direct3D12::ID3D12Resource>(result__)
     }
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi"))]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
     pub unsafe fn CreateDirect3D12HardwareProtectedContentBufferResource<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Device>, Param2: ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>>(
         &self,
         pdevice: Param0,
@@ -2462,14 +2612,17 @@ impl IHolographicQuadLayerInterop {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), pdevice.into_param().abi(), ::std::mem::transmute(ptexture2ddesc), pprotectedresourcesession.into_param().abi(), &mut result__).from_abi::<super::super::Graphics::Direct3D12::ID3D12Resource>(result__)
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Graphics_Direct3D12`*"]
     pub unsafe fn AcquireDirect3D12BufferResource<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Resource>, Param1: ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12CommandQueue>>(&self, presourcetoacquire: Param0, pcommandqueue: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), presourcetoacquire.into_param().abi(), pcommandqueue.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Graphics_Direct3D12`*"]
     pub unsafe fn AcquireDirect3D12BufferResourceWithTimeout<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Resource>, Param1: ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12CommandQueue>>(&self, presourcetoacquire: Param0, pcommandqueue: Param1, duration: u64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), presourcetoacquire.into_param().abi(), pcommandqueue.into_param().abi(), ::std::mem::transmute(duration)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Graphics_Direct3D12`*"]
     pub unsafe fn UnacquireDirect3D12BufferResource<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Resource>>(&self, presourcetounacquire: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), presourcetounacquire.into_param().abi()).ok()
     }
@@ -2518,11 +2671,13 @@ pub struct IHolographicQuadLayerInterop_abi(
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, presourcetounacquire: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IHolographicQuadLayerUpdateParametersInterop(::windows::runtime::IUnknown);
 impl IHolographicQuadLayerUpdateParametersInterop {
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Graphics_Direct3D12`*"]
     pub unsafe fn CommitDirect3D12Resource<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Resource>, Param1: ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Fence>>(&self, pcolorresourcetocommit: Param0, pcolorresourcefence: Param1, colorresourcefencesignalvalue: u64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), pcolorresourcetocommit.into_param().abi(), pcolorresourcefence.into_param().abi(), ::std::mem::transmute(colorresourcefencesignalvalue)).ok()
     }
@@ -2563,11 +2718,13 @@ pub struct IHolographicQuadLayerUpdateParametersInterop_abi(
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcolorresourcetocommit: ::windows::runtime::RawPtr, pcolorresourcefence: ::windows::runtime::RawPtr, colorresourcefencesignalvalue: u64) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IHolographicSpaceInterop(::windows::runtime::IUnknown);
 impl IHolographicSpaceInterop {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
     pub unsafe fn CreateForWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, T: ::windows::runtime::Interface>(&self, window: Param0) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), window.into_param().abi(), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
@@ -2609,11 +2766,13 @@ pub struct IHolographicSpaceInterop_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, window: super::super::Foundation::HWND, riid: *const ::windows::runtime::GUID, holographicspace: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IInputPaneInterop(::windows::runtime::IUnknown);
 impl IInputPaneInterop {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
     pub unsafe fn GetForWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, T: ::windows::runtime::Interface>(&self, appwindow: Param0) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), appwindow.into_param().abi(), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
@@ -2655,11 +2814,13 @@ pub struct IInputPaneInterop_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, appwindow: super::super::Foundation::HWND, riid: *const ::windows::runtime::GUID, inputpane: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IIsolatedEnvironmentInterop(::windows::runtime::IUnknown);
 impl IIsolatedEnvironmentInterop {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
     pub unsafe fn GetHostHwndInterop<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, containerhwnd: Param0) -> ::windows::runtime::Result<super::super::Foundation::HWND> {
         let mut result__: <super::super::Foundation::HWND as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), containerhwnd.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::HWND>(result__)
@@ -2698,10 +2859,12 @@ pub struct IIsolatedEnvironmentInterop_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, containerhwnd: super::super::Foundation::HWND, hosthwnd: *mut super::super::Foundation::HWND) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ILanguageExceptionErrorInfo(::windows::runtime::IUnknown);
 impl ILanguageExceptionErrorInfo {
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn GetLanguageException(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
         let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
@@ -2739,21 +2902,26 @@ pub struct ILanguageExceptionErrorInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, languageexception: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ILanguageExceptionErrorInfo2(::windows::runtime::IUnknown);
 impl ILanguageExceptionErrorInfo2 {
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn GetLanguageException(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
         let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
     }
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn GetPreviousLanguageExceptionErrorInfo(&self) -> ::windows::runtime::Result<ILanguageExceptionErrorInfo2> {
         let mut result__: <ILanguageExceptionErrorInfo2 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ILanguageExceptionErrorInfo2>(result__)
     }
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn CapturePropagationContext<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, languageexception: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), languageexception.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn GetPropagationContextHead(&self) -> ::windows::runtime::Result<ILanguageExceptionErrorInfo2> {
         let mut result__: <ILanguageExceptionErrorInfo2 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ILanguageExceptionErrorInfo2>(result__)
@@ -2814,10 +2982,12 @@ pub struct ILanguageExceptionErrorInfo2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, languageexception: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, propagatedlanguageexceptionerrorinfohead: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ILanguageExceptionStackBackTrace(::windows::runtime::IUnknown);
 impl ILanguageExceptionStackBackTrace {
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn GetStackBackTrace(&self, maxframestocapture: u32, stackbacktrace: *mut usize, framescaptured: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(maxframestocapture), ::std::mem::transmute(stackbacktrace), ::std::mem::transmute(framescaptured)).ok()
     }
@@ -2854,10 +3024,12 @@ pub struct ILanguageExceptionStackBackTrace_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, maxframestocapture: u32, stackbacktrace: *mut usize, framescaptured: *mut u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ILanguageExceptionTransform(::windows::runtime::IUnknown);
 impl ILanguageExceptionTransform {
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn GetTransformedRestrictedErrorInfo(&self) -> ::windows::runtime::Result<IRestrictedErrorInfo> {
         let mut result__: <IRestrictedErrorInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRestrictedErrorInfo>(result__)
@@ -2895,11 +3067,13 @@ pub struct ILanguageExceptionTransform_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, restrictederrorinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ILearningModelDeviceFactoryNative(::windows::runtime::IUnknown);
 impl ILearningModelDeviceFactoryNative {
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Graphics_Direct3D12`*"]
     pub unsafe fn CreateFromD3D12CommandQueue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12CommandQueue>>(&self, value: Param0) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
         let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), value.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
@@ -2938,11 +3112,13 @@ pub struct ILearningModelDeviceFactoryNative_abi(
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr, result: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ILearningModelOperatorProviderNative(::windows::runtime::IUnknown);
 impl ILearningModelOperatorProviderNative {
     #[cfg(feature = "Win32_AI_MachineLearning_WinML")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_AI_MachineLearning_WinML`*"]
     pub unsafe fn GetRegistry(&self) -> ::windows::runtime::Result<super::super::AI::MachineLearning::WinML::IMLOperatorRegistry> {
         let mut result__: <super::super::AI::MachineLearning::WinML::IMLOperatorRegistry as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::AI::MachineLearning::WinML::IMLOperatorRegistry>(result__)
@@ -2981,10 +3157,12 @@ pub struct ILearningModelOperatorProviderNative_abi(
     #[cfg(feature = "Win32_AI_MachineLearning_WinML")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppoperatorregistry: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_AI_MachineLearning_WinML"))] usize,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ILearningModelSessionOptionsNative(::windows::runtime::IUnknown);
 impl ILearningModelSessionOptionsNative {
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn SetIntraOpNumThreadsOverride(&self, intraopnumthreads: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(intraopnumthreads)).ok()
     }
@@ -3021,10 +3199,12 @@ pub struct ILearningModelSessionOptionsNative_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, intraopnumthreads: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMemoryBufferByteAccess(::windows::runtime::IUnknown);
 impl IMemoryBufferByteAccess {
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn GetBuffer(&self, value: *mut *mut u8, capacity: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(value), ::std::mem::transmute(capacity)).ok()
     }
@@ -3061,10 +3241,12 @@ pub struct IMemoryBufferByteAccess_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut *mut u8, capacity: *mut u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMessageDispatcher(::windows::runtime::IUnknown);
 impl IMessageDispatcher {
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn PumpMessages(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self)).ok()
     }
@@ -3104,10 +3286,12 @@ pub struct IMessageDispatcher_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IOplockBreakingHandler(::windows::runtime::IUnknown);
 impl IOplockBreakingHandler {
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn OplockBreaking(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)).ok()
     }
@@ -3144,15 +3328,18 @@ pub struct IOplockBreakingHandler_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPdfRendererNative(::windows::runtime::IUnknown);
 impl IPdfRendererNative {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D", feature = "Win32_Graphics_Dxgi"))]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`, `Win32_Graphics_Direct2D`, `Win32_Graphics_Dxgi`*"]
     pub unsafe fn RenderPageToSurface<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param1: ::windows::runtime::IntoParam<'a, super::super::Graphics::Dxgi::IDXGISurface>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::POINT>>(&self, pdfpage: Param0, psurface: Param1, offset: Param2, prenderparams: *const PDF_RENDER_PARAMS) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pdfpage.into_param().abi(), psurface.into_param().abi(), offset.into_param().abi(), ::std::mem::transmute(prenderparams)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D"))]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`, `Win32_Graphics_Direct2D`*"]
     pub unsafe fn RenderPageToDeviceContext<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param1: ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct2D::ID2D1DeviceContext>>(&self, pdfpage: Param0, pd2ddevicecontext: Param1, prenderparams: *const PDF_RENDER_PARAMS) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pdfpage.into_param().abi(), pd2ddevicecontext.into_param().abi(), ::std::mem::transmute(prenderparams)).ok()
     }
@@ -3192,16 +3379,19 @@ pub struct IPdfRendererNative_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdfpage: ::windows::runtime::RawPtr, pd2ddevicecontext: ::windows::runtime::RawPtr, prenderparams: *const PDF_RENDER_PARAMS) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D")))] usize,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPlayToManagerInterop(::windows::runtime::IUnknown);
 impl IPlayToManagerInterop {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
     pub unsafe fn GetForWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, T: ::windows::runtime::Interface>(&self, appwindow: Param0) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), appwindow.into_param().abi(), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
     pub unsafe fn ShowPlayToUIForWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, appwindow: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), appwindow.into_param().abi()).ok()
     }
@@ -3244,16 +3434,19 @@ pub struct IPlayToManagerInterop_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, appwindow: super::super::Foundation::HWND) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPrintManagerInterop(::windows::runtime::IUnknown);
 impl IPrintManagerInterop {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
     pub unsafe fn GetForWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, T: ::windows::runtime::Interface>(&self, appwindow: Param0) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), appwindow.into_param().abi(), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
     pub unsafe fn ShowPrintUIForWindowAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, T: ::windows::runtime::Interface>(&self, appwindow: Param0) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), appwindow.into_param().abi(), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
@@ -3297,21 +3490,25 @@ pub struct IPrintManagerInterop_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, appwindow: super::super::Foundation::HWND, riid: *const ::windows::runtime::GUID, asyncoperation: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPrintWorkflowConfigurationNative(::windows::runtime::IUnknown);
 impl IPrintWorkflowConfigurationNative {
     #[cfg(feature = "Win32_Graphics_Printing")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Graphics_Printing`*"]
     pub unsafe fn PrinterQueue(&self) -> ::windows::runtime::Result<super::super::Graphics::Printing::IPrinterQueue> {
         let mut result__: <super::super::Graphics::Printing::IPrinterQueue as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Graphics::Printing::IPrinterQueue>(result__)
     }
     #[cfg(feature = "Win32_Graphics_Printing")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Graphics_Printing`*"]
     pub unsafe fn DriverProperties(&self) -> ::windows::runtime::Result<super::super::Graphics::Printing::IPrinterPropertyBag> {
         let mut result__: <super::super::Graphics::Printing::IPrinterPropertyBag as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Graphics::Printing::IPrinterPropertyBag>(result__)
     }
     #[cfg(feature = "Win32_Graphics_Printing")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Graphics_Printing`*"]
     pub unsafe fn UserProperties(&self) -> ::windows::runtime::Result<super::super::Graphics::Printing::IPrinterPropertyBag> {
         let mut result__: <super::super::Graphics::Printing::IPrinterPropertyBag as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Graphics::Printing::IPrinterPropertyBag>(result__)
@@ -3354,14 +3551,17 @@ pub struct IPrintWorkflowConfigurationNative_abi(
     #[cfg(feature = "Win32_Graphics_Printing")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Printing"))] usize,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPrintWorkflowObjectModelSourceFileContentNative(::windows::runtime::IUnknown);
 impl IPrintWorkflowObjectModelSourceFileContentNative {
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn StartXpsOMGeneration<'a, Param0: ::windows::runtime::IntoParam<'a, IPrintWorkflowXpsReceiver>>(&self, receiver: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), receiver.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Storage_Xps")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Storage_Xps`*"]
     pub unsafe fn ObjectFactory(&self) -> ::windows::runtime::Result<super::super::Storage::Xps::IXpsOMObjectFactory1> {
         let mut result__: <super::super::Storage::Xps::IXpsOMObjectFactory1 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Storage::Xps::IXpsOMObjectFactory1>(result__)
@@ -3401,11 +3601,13 @@ pub struct IPrintWorkflowObjectModelSourceFileContentNative_abi(
     #[cfg(feature = "Win32_Storage_Xps")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Storage_Xps"))] usize,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPrintWorkflowXpsObjectModelTargetPackageNative(::windows::runtime::IUnknown);
 impl IPrintWorkflowXpsObjectModelTargetPackageNative {
     #[cfg(feature = "Win32_Storage_Xps")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Storage_Xps`*"]
     pub unsafe fn DocumentPackageTarget(&self) -> ::windows::runtime::Result<super::super::Storage::Xps::IXpsDocumentPackageTarget> {
         let mut result__: <super::super::Storage::Xps::IXpsDocumentPackageTarget as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Storage::Xps::IXpsDocumentPackageTarget>(result__)
@@ -3444,26 +3646,32 @@ pub struct IPrintWorkflowXpsObjectModelTargetPackageNative_abi(
     #[cfg(feature = "Win32_Storage_Xps")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Storage_Xps"))] usize,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPrintWorkflowXpsReceiver(::windows::runtime::IUnknown);
 impl IPrintWorkflowXpsReceiver {
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_System_Com`*"]
     pub unsafe fn SetDocumentSequencePrintTicket<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::IStream>>(&self, documentsequenceprintticket: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), documentsequenceprintticket.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
     pub unsafe fn SetDocumentSequenceUri<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, documentsequenceuri: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), documentsequenceuri.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn AddDocumentData<'a, Param1: ::windows::runtime::IntoParam<'a, super::Com::IStream>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, documentid: u32, documentprintticket: Param1, documenturi: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(documentid), documentprintticket.into_param().abi(), documenturi.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Xps"))]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`, `Win32_Storage_Xps`*"]
     pub unsafe fn AddPage<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Storage::Xps::IXpsOMPageReference>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, documentid: u32, pageid: u32, pagereference: Param2, pageuri: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(documentid), ::std::mem::transmute(pageid), pagereference.into_param().abi(), pageuri.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn Close(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)).ok()
     }
@@ -3508,29 +3716,36 @@ pub struct IPrintWorkflowXpsReceiver_abi(
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_Xps")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPrintWorkflowXpsReceiver2(::windows::runtime::IUnknown);
 impl IPrintWorkflowXpsReceiver2 {
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_System_Com`*"]
     pub unsafe fn SetDocumentSequencePrintTicket<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::IStream>>(&self, documentsequenceprintticket: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), documentsequenceprintticket.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
     pub unsafe fn SetDocumentSequenceUri<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, documentsequenceuri: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), documentsequenceuri.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`, `Win32_System_Com`*"]
     pub unsafe fn AddDocumentData<'a, Param1: ::windows::runtime::IntoParam<'a, super::Com::IStream>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, documentid: u32, documentprintticket: Param1, documenturi: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(documentid), documentprintticket.into_param().abi(), documenturi.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Xps"))]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`, `Win32_Storage_Xps`*"]
     pub unsafe fn AddPage<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Storage::Xps::IXpsOMPageReference>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, documentid: u32, pageid: u32, pagereference: Param2, pageuri: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(documentid), ::std::mem::transmute(pageid), pagereference.into_param().abi(), pageuri.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn Close(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn Failed(&self, xpserror: ::windows::runtime::HRESULT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(xpserror)).ok()
     }
@@ -3596,16 +3811,19 @@ pub struct IPrintWorkflowXpsReceiver2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, xpserror: ::windows::runtime::HRESULT) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPrinting3DManagerInterop(::windows::runtime::IUnknown);
 impl IPrinting3DManagerInterop {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
     pub unsafe fn GetForWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, T: ::windows::runtime::Interface>(&self, appwindow: Param0) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), appwindow.into_param().abi(), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
     pub unsafe fn ShowPrintUIForWindowAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, T: ::windows::runtime::Interface>(&self, appwindow: Param0) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), appwindow.into_param().abi(), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
@@ -3649,10 +3867,12 @@ pub struct IPrinting3DManagerInterop_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, appwindow: super::super::Foundation::HWND, riid: *const ::windows::runtime::GUID, asyncoperation: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRandomAccessStreamFileAccessMode(::windows::runtime::IUnknown);
 impl IRandomAccessStreamFileAccessMode {
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn GetMode(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
@@ -3690,29 +3910,37 @@ pub struct IRandomAccessStreamFileAccessMode_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fileaccessmode: *mut u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IReferenceTracker(::windows::runtime::IUnknown);
 impl IReferenceTracker {
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn ConnectFromTrackerSource(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn DisconnectFromTrackerSource(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn FindTrackerTargets<'a, Param0: ::windows::runtime::IntoParam<'a, IFindReferenceTargetsCallback>>(&self, callback: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), callback.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn GetReferenceTrackerManager(&self) -> ::windows::runtime::Result<IReferenceTrackerManager> {
         let mut result__: <IReferenceTrackerManager as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IReferenceTrackerManager>(result__)
     }
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn AddRefFromTrackerSource(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn ReleaseFromTrackerSource(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn PegFromTrackerSource(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self)).ok()
     }
@@ -3755,6 +3983,7 @@ pub struct IReferenceTracker_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IReferenceTrackerExtension(::windows::runtime::IUnknown);
@@ -3790,26 +4019,33 @@ pub struct IReferenceTrackerExtension_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IReferenceTrackerHost(::windows::runtime::IUnknown);
 impl IReferenceTrackerHost {
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn DisconnectUnusedReferenceSources(&self, options: XAML_REFERENCETRACKER_DISCONNECT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(options)).ok()
     }
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn ReleaseDisconnectedReferenceSources(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn NotifyEndOfReferenceTrackingOnThread(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn GetTrackerTarget<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, unknown: Param0) -> ::windows::runtime::Result<IReferenceTrackerTarget> {
         let mut result__: <IReferenceTrackerTarget as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), unknown.into_param().abi(), &mut result__).from_abi::<IReferenceTrackerTarget>(result__)
     }
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn AddMemoryPressure(&self, bytesallocated: u64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(bytesallocated)).ok()
     }
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn RemoveMemoryPressure(&self, bytesallocated: u64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(bytesallocated)).ok()
     }
@@ -3851,19 +4087,24 @@ pub struct IReferenceTrackerHost_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bytesallocated: u64) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bytesallocated: u64) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IReferenceTrackerManager(::windows::runtime::IUnknown);
 impl IReferenceTrackerManager {
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn ReferenceTrackingStarted(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn FindTrackerTargetsCompleted(&self, findfailed: u8) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(findfailed)).ok()
     }
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn ReferenceTrackingCompleted(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn SetReferenceTrackerHost<'a, Param0: ::windows::runtime::IntoParam<'a, IReferenceTrackerHost>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), value.into_param().abi()).ok()
     }
@@ -3903,19 +4144,24 @@ pub struct IReferenceTrackerManager_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IReferenceTrackerTarget(::windows::runtime::IUnknown);
 impl IReferenceTrackerTarget {
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn AddRefFromReferenceTracker(&self) -> u32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn ReleaseFromReferenceTracker(&self) -> u32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn Peg(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn Unpeg(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self)).ok()
     }
@@ -3955,15 +4201,18 @@ pub struct IReferenceTrackerTarget_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRestrictedErrorInfo(::windows::runtime::IUnknown);
 impl IRestrictedErrorInfo {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
     pub unsafe fn GetErrorDetails(&self, description: *mut super::super::Foundation::BSTR, error: *mut ::windows::runtime::HRESULT, restricteddescription: *mut super::super::Foundation::BSTR, capabilitysid: *mut super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(description), ::std::mem::transmute(error), ::std::mem::transmute(restricteddescription), ::std::mem::transmute(capabilitysid)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
     pub unsafe fn GetReference(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
@@ -4006,11 +4255,13 @@ pub struct IRestrictedErrorInfo_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, reference: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRoMetaDataLocator(::windows::runtime::IUnknown);
 impl IRoMetaDataLocator {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
     pub unsafe fn Locate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, IRoSimpleMetaDataBuilder>>(&self, nameelement: Param0, metadatadestination: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), nameelement.into_param().abi(), metadatadestination.into_param().abi()).ok()
     }
@@ -4048,43 +4299,54 @@ pub struct IRoMetaDataLocator_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, nameelement: super::super::Foundation::PWSTR, metadatadestination: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRoSimpleMetaDataBuilder(::windows::runtime::IUnknown);
 impl IRoSimpleMetaDataBuilder {
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn SetWinRtInterface<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, iid: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), iid.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn SetDelegate<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, iid: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), iid.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
     pub unsafe fn SetInterfaceGroupSimpleDefault<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, name: Param0, defaultinterfacename: Param1, defaultinterfaceiid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), name.into_param().abi(), defaultinterfacename.into_param().abi(), ::std::mem::transmute(defaultinterfaceiid)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
     pub unsafe fn SetInterfaceGroupParameterizedDefault<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, name: Param0, elementcount: u32, defaultinterfacenameelements: *const super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), name.into_param().abi(), ::std::mem::transmute(elementcount), ::std::mem::transmute(defaultinterfacenameelements)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
     pub unsafe fn SetRuntimeClassSimpleDefault<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, name: Param0, defaultinterfacename: Param1, defaultinterfaceiid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), name.into_param().abi(), defaultinterfacename.into_param().abi(), ::std::mem::transmute(defaultinterfaceiid)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
     pub unsafe fn SetRuntimeClassParameterizedDefault<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, name: Param0, elementcount: u32, defaultinterfacenameelements: *const super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), name.into_param().abi(), ::std::mem::transmute(elementcount), ::std::mem::transmute(defaultinterfacenameelements)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
     pub unsafe fn SetStruct<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, name: Param0, numfields: u32, fieldtypenames: *const super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), name.into_param().abi(), ::std::mem::transmute(numfields), ::std::mem::transmute(fieldtypenames)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
     pub unsafe fn SetEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, name: Param0, basetype: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), name.into_param().abi(), basetype.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn SetParameterizedInterface<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, piid: Param0, numargs: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), piid.into_param().abi(), ::std::mem::transmute(numargs)).ok()
     }
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn SetParameterizedDelegate<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, piid: Param0, numargs: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), piid.into_param().abi(), ::std::mem::transmute(numargs)).ok()
     }
@@ -4136,11 +4398,13 @@ pub struct IRoSimpleMetaDataBuilder_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, piid: ::windows::runtime::GUID, numargs: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, piid: ::windows::runtime::GUID, numargs: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IShareWindowCommandEventArgsInterop(::windows::runtime::IUnknown);
 impl IShareWindowCommandEventArgsInterop {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
     pub unsafe fn GetWindow(&self) -> ::windows::runtime::Result<super::super::Foundation::HWND> {
         let mut result__: <super::super::Foundation::HWND as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::HWND>(result__)
@@ -4179,11 +4443,13 @@ pub struct IShareWindowCommandEventArgsInterop_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut super::super::Foundation::HWND) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IShareWindowCommandSourceInterop(::windows::runtime::IUnknown);
 impl IShareWindowCommandSourceInterop {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
     pub unsafe fn GetForWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, T: ::windows::runtime::Interface>(&self, appwindow: Param0) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), appwindow.into_param().abi(), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
@@ -4222,10 +4488,12 @@ pub struct IShareWindowCommandSourceInterop_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, appwindow: super::super::Foundation::HWND, riid: *const ::windows::runtime::GUID, sharewindowcommandsource: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISoftwareBitmapNative(::windows::runtime::IUnknown);
 impl ISoftwareBitmapNative {
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn GetData<T: ::windows::runtime::Interface>(&self) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
@@ -4266,16 +4534,19 @@ pub struct ISoftwareBitmapNative_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISoftwareBitmapNativeFactory(::windows::runtime::IUnknown);
 impl ISoftwareBitmapNativeFactory {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Imaging"))]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`, `Win32_Graphics_Imaging`*"]
     pub unsafe fn CreateFromWICBitmap<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Imaging::IWICBitmap>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, T: ::windows::runtime::Interface>(&self, data: Param0, forcereadonly: Param1) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), data.into_param().abi(), forcereadonly.into_param().abi(), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`, `Win32_Media_MediaFoundation`*"]
     pub unsafe fn CreateFromMF2DBuffer2<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Media::MediaFoundation::IMF2DBuffer2>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, T: ::windows::runtime::Interface>(&self, data: Param0, subtype: *const ::windows::runtime::GUID, width: u32, height: u32, forcereadonly: Param4, mindisplayaperture: *const super::super::Media::MediaFoundation::MFVideoArea) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
         (::windows::runtime::Interface::vtable(self).7)(
@@ -4330,11 +4601,13 @@ pub struct ISoftwareBitmapNativeFactory_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, data: ::windows::runtime::RawPtr, subtype: *const ::windows::runtime::GUID, width: u32, height: u32, forcereadonly: super::super::Foundation::BOOL, mindisplayaperture: *const super::super::Media::MediaFoundation::MFVideoArea, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation")))] usize,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISpatialInteractionManagerInterop(::windows::runtime::IUnknown);
 impl ISpatialInteractionManagerInterop {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
     pub unsafe fn GetForWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, T: ::windows::runtime::Interface>(&self, window: Param0) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), window.into_param().abi(), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
@@ -4376,11 +4649,13 @@ pub struct ISpatialInteractionManagerInterop_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, window: super::super::Foundation::HWND, riid: *const ::windows::runtime::GUID, spatialinteractionmanager: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IStorageFolderHandleAccess(::windows::runtime::IUnknown);
 impl IStorageFolderHandleAccess {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
     pub unsafe fn Create<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::runtime::IntoParam<'a, IOplockBreakingHandler>>(&self, filename: Param0, creationoptions: HANDLE_CREATION_OPTIONS, accessoptions: HANDLE_ACCESS_OPTIONS, sharingoptions: HANDLE_SHARING_OPTIONS, options: HANDLE_OPTIONS, oplockbreakinghandler: Param5) -> ::windows::runtime::Result<super::super::Foundation::HANDLE> {
         let mut result__: <super::super::Foundation::HANDLE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), filename.into_param().abi(), ::std::mem::transmute(creationoptions), ::std::mem::transmute(accessoptions), ::std::mem::transmute(sharingoptions), ::std::mem::transmute(options), oplockbreakinghandler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::HANDLE>(result__)
@@ -4419,11 +4694,13 @@ pub struct IStorageFolderHandleAccess_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, filename: super::super::Foundation::PWSTR, creationoptions: HANDLE_CREATION_OPTIONS, accessoptions: HANDLE_ACCESS_OPTIONS, sharingoptions: HANDLE_SHARING_OPTIONS, options: HANDLE_OPTIONS, oplockbreakinghandler: ::windows::runtime::RawPtr, interophandle: *mut super::super::Foundation::HANDLE) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IStorageItemHandleAccess(::windows::runtime::IUnknown);
 impl IStorageItemHandleAccess {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
     pub unsafe fn Create<'a, Param3: ::windows::runtime::IntoParam<'a, IOplockBreakingHandler>>(&self, accessoptions: HANDLE_ACCESS_OPTIONS, sharingoptions: HANDLE_SHARING_OPTIONS, options: HANDLE_OPTIONS, oplockbreakinghandler: Param3) -> ::windows::runtime::Result<super::super::Foundation::HANDLE> {
         let mut result__: <super::super::Foundation::HANDLE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(accessoptions), ::std::mem::transmute(sharingoptions), ::std::mem::transmute(options), oplockbreakinghandler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::HANDLE>(result__)
@@ -4462,10 +4739,12 @@ pub struct IStorageItemHandleAccess_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, accessoptions: HANDLE_ACCESS_OPTIONS, sharingoptions: HANDLE_SHARING_OPTIONS, options: HANDLE_OPTIONS, oplockbreakinghandler: ::windows::runtime::RawPtr, interophandle: *mut super::super::Foundation::HANDLE) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISurfaceImageSourceManagerNative(::windows::runtime::IUnknown);
 impl ISurfaceImageSourceManagerNative {
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn FlushAllSurfacesWithDevice<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, device: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), device.into_param().abi()).ok()
     }
@@ -4502,18 +4781,22 @@ pub struct ISurfaceImageSourceManagerNative_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, device: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISurfaceImageSourceNative(::windows::runtime::IUnknown);
 impl ISurfaceImageSourceNative {
     #[cfg(feature = "Win32_Graphics_Dxgi")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Graphics_Dxgi`*"]
     pub unsafe fn SetDevice<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Dxgi::IDXGIDevice>>(&self, device: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), device.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`, `Win32_Graphics_Dxgi`*"]
     pub unsafe fn BeginDraw<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::RECT>>(&self, updaterect: Param0, surface: *mut ::std::option::Option<super::super::Graphics::Dxgi::IDXGISurface>, offset: *mut super::super::Foundation::POINT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), updaterect.into_param().abi(), ::std::mem::transmute(surface), ::std::mem::transmute(offset)).ok()
     }
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn EndDraw(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
@@ -4554,23 +4837,29 @@ pub struct ISurfaceImageSourceNative_abi(
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISurfaceImageSourceNativeWithD2D(::windows::runtime::IUnknown);
 impl ISurfaceImageSourceNativeWithD2D {
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn SetDevice<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, device: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), device.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
     pub unsafe fn BeginDraw(&self, updaterect: *const super::super::Foundation::RECT, iid: *const ::windows::runtime::GUID, updateobject: *mut *mut ::std::ffi::c_void, offset: *mut super::super::Foundation::POINT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(updaterect), ::std::mem::transmute(iid), ::std::mem::transmute(updateobject), ::std::mem::transmute(offset)).ok()
     }
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn EndDraw(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn SuspendDraw(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn ResumeDraw(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)).ok()
     }
@@ -4612,11 +4901,13 @@ pub struct ISurfaceImageSourceNativeWithD2D_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISwapChainBackgroundPanelNative(::windows::runtime::IUnknown);
 impl ISwapChainBackgroundPanelNative {
     #[cfg(feature = "Win32_Graphics_Dxgi")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Graphics_Dxgi`*"]
     pub unsafe fn SetSwapChain<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Dxgi::IDXGISwapChain>>(&self, swapchain: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), swapchain.into_param().abi()).ok()
     }
@@ -4654,10 +4945,12 @@ pub struct ISwapChainBackgroundPanelNative_abi(
     #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, swapchain: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISwapChainInterop(::windows::runtime::IUnknown);
 impl ISwapChainInterop {
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn SetSwapChain<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, swapchain: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), swapchain.into_param().abi()).ok()
     }
@@ -4694,11 +4987,13 @@ pub struct ISwapChainInterop_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, swapchain: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISwapChainPanelNative(::windows::runtime::IUnknown);
 impl ISwapChainPanelNative {
     #[cfg(feature = "Win32_Graphics_Dxgi")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Graphics_Dxgi`*"]
     pub unsafe fn SetSwapChain<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Dxgi::IDXGISwapChain>>(&self, swapchain: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), swapchain.into_param().abi()).ok()
     }
@@ -4736,15 +5031,18 @@ pub struct ISwapChainPanelNative_abi(
     #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, swapchain: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISwapChainPanelNative2(::windows::runtime::IUnknown);
 impl ISwapChainPanelNative2 {
     #[cfg(feature = "Win32_Graphics_Dxgi")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Graphics_Dxgi`*"]
     pub unsafe fn SetSwapChain<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Dxgi::IDXGISwapChain>>(&self, swapchain: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), swapchain.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
     pub unsafe fn SetSwapChainHandle<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, swapchainhandle: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), swapchainhandle.into_param().abi()).ok()
     }
@@ -4804,11 +5102,13 @@ pub struct ISwapChainPanelNative2_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, swapchainhandle: super::super::Foundation::HANDLE) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISystemMediaTransportControlsInterop(::windows::runtime::IUnknown);
 impl ISystemMediaTransportControlsInterop {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
     pub unsafe fn GetForWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, T: ::windows::runtime::Interface>(&self, appwindow: Param0) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), appwindow.into_param().abi(), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
@@ -4850,14 +5150,17 @@ pub struct ISystemMediaTransportControlsInterop_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, appwindow: super::super::Foundation::HWND, riid: *const ::windows::runtime::GUID, mediatransportcontrol: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITensorNative(::windows::runtime::IUnknown);
 impl ITensorNative {
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn GetBuffer(&self, value: *mut *mut u8, capacity: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(value), ::std::mem::transmute(capacity)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Graphics_Direct3D12`*"]
     pub unsafe fn GetD3D12Resource(&self) -> ::windows::runtime::Result<super::super::Graphics::Direct3D12::ID3D12Resource> {
         let mut result__: <super::super::Graphics::Direct3D12::ID3D12Resource as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Graphics::Direct3D12::ID3D12Resource>(result__)
@@ -4897,11 +5200,13 @@ pub struct ITensorNative_abi(
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITensorStaticsNative(::windows::runtime::IUnknown);
 impl ITensorStaticsNative {
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Graphics_Direct3D12`*"]
     pub unsafe fn CreateFromD3D12Resource<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Resource>>(&self, value: Param0, shape: *mut i64, shapecount: i32, result: *mut ::std::option::Option<::windows::runtime::IUnknown>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), value.into_param().abi(), ::std::mem::transmute(shape), ::std::mem::transmute(shapecount), ::std::mem::transmute(result)).ok()
     }
@@ -4939,20 +5244,25 @@ pub struct ITensorStaticsNative_abi(
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr, shape: *mut i64, shapecount: i32, result: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITrackerOwner(::windows::runtime::IUnknown);
 impl ITrackerOwner {
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn CreateTrackerHandle(&self) -> ::windows::runtime::Result<*mut TrackerHandle__> {
         let mut result__: <*mut TrackerHandle__ as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut TrackerHandle__>(result__)
     }
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn DeleteTrackerHandle(&self, handle: *const TrackerHandle__) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(handle)).ok()
     }
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn SetTrackerValue<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, handle: *const TrackerHandle__, value: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(handle), value.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn TryGetSafeTrackerValue(&self, handle: *const TrackerHandle__, returnvalue: *mut ::std::option::Option<::windows::runtime::IUnknown>) -> u8 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(handle), ::std::mem::transmute(returnvalue)))
     }
@@ -4992,11 +5302,13 @@ pub struct ITrackerOwner_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, handle: *const TrackerHandle__, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, handle: *const TrackerHandle__, returnvalue: *mut ::windows::runtime::RawPtr) -> u8,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUIViewSettingsInterop(::windows::runtime::IUnknown);
 impl IUIViewSettingsInterop {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
     pub unsafe fn GetForWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, T: ::windows::runtime::Interface>(&self, hwnd: Param0) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), hwnd.into_param().abi(), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
@@ -5038,10 +5350,12 @@ pub struct IUIViewSettingsInterop_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hwnd: super::super::Foundation::HWND, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUnbufferedFileHandleOplockCallback(::windows::runtime::IUnknown);
 impl IUnbufferedFileHandleOplockCallback {
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn OnBrokenCallback(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)).ok()
     }
@@ -5078,14 +5392,17 @@ pub struct IUnbufferedFileHandleOplockCallback_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUnbufferedFileHandleProvider(::windows::runtime::IUnknown);
 impl IUnbufferedFileHandleProvider {
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn OpenUnbufferedFileHandle<'a, Param0: ::windows::runtime::IntoParam<'a, IUnbufferedFileHandleOplockCallback>>(&self, oplockbreakcallback: Param0) -> ::windows::runtime::Result<usize> {
         let mut result__: <usize as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), oplockbreakcallback.into_param().abi(), &mut result__).from_abi::<usize>(result__)
     }
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn CloseUnbufferedFileHandle(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
@@ -5123,11 +5440,13 @@ pub struct IUnbufferedFileHandleProvider_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, oplockbreakcallback: ::windows::runtime::RawPtr, filehandle: *mut usize) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUserActivityInterop(::windows::runtime::IUnknown);
 impl IUserActivityInterop {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
     pub unsafe fn CreateSessionForWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, T: ::windows::runtime::Interface>(&self, window: Param0) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), window.into_param().abi(), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
@@ -5169,11 +5488,13 @@ pub struct IUserActivityInterop_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, window: super::super::Foundation::HWND, iid: *const ::windows::runtime::GUID, value: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUserActivityRequestManagerInterop(::windows::runtime::IUnknown);
 impl IUserActivityRequestManagerInterop {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
     pub unsafe fn GetForWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, T: ::windows::runtime::Interface>(&self, window: Param0) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), window.into_param().abi(), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
@@ -5215,10 +5536,12 @@ pub struct IUserActivityRequestManagerInterop_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, window: super::super::Foundation::HWND, iid: *const ::windows::runtime::GUID, value: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUserActivitySourceHostInterop(::windows::runtime::IUnknown);
 impl IUserActivitySourceHostInterop {
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn SetActivitySourceHost<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, activitysourcehost: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), activitysourcehost.into_param().abi()).ok()
     }
@@ -5258,11 +5581,13 @@ pub struct IUserActivitySourceHostInterop_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, activitysourcehost: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IUserConsentVerifierInterop(::windows::runtime::IUnknown);
 impl IUserConsentVerifierInterop {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
     pub unsafe fn RequestVerificationForWindowAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, T: ::windows::runtime::Interface>(&self, appwindow: Param0, message: Param1) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), appwindow.into_param().abi(), message.into_param().abi(), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
@@ -5304,14 +5629,17 @@ pub struct IUserConsentVerifierInterop_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, appwindow: super::super::Foundation::HWND, message: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, riid: *const ::windows::runtime::GUID, asyncoperation: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IVideoFrameNative(::windows::runtime::IUnknown);
 impl IVideoFrameNative {
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn GetData<T: ::windows::runtime::Interface>(&self) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn GetDevice<T: ::windows::runtime::Interface>(&self) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
@@ -5353,11 +5681,13 @@ pub struct IVideoFrameNative_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IVideoFrameNativeFactory(::windows::runtime::IUnknown);
 impl IVideoFrameNativeFactory {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`, `Win32_Media_MediaFoundation`*"]
     pub unsafe fn CreateFromMFSample<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Media::MediaFoundation::IMFSample>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param6: ::windows::runtime::IntoParam<'a, super::super::Media::MediaFoundation::IMFDXGIDeviceManager>, T: ::windows::runtime::Interface>(
         &self,
         data: Param0,
@@ -5421,41 +5751,51 @@ pub struct IVideoFrameNativeFactory_abi(
     pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, data: ::windows::runtime::RawPtr, subtype: *const ::windows::runtime::GUID, width: u32, height: u32, forcereadonly: super::super::Foundation::BOOL, mindisplayaperture: *const super::super::Media::MediaFoundation::MFVideoArea, device: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation")))] usize,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IVirtualSurfaceImageSourceNative(::windows::runtime::IUnknown);
 impl IVirtualSurfaceImageSourceNative {
     #[cfg(feature = "Win32_Graphics_Dxgi")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Graphics_Dxgi`*"]
     pub unsafe fn SetDevice<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Dxgi::IDXGIDevice>>(&self, device: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), device.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`, `Win32_Graphics_Dxgi`*"]
     pub unsafe fn BeginDraw<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::RECT>>(&self, updaterect: Param0, surface: *mut ::std::option::Option<super::super::Graphics::Dxgi::IDXGISurface>, offset: *mut super::super::Foundation::POINT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), updaterect.into_param().abi(), ::std::mem::transmute(surface), ::std::mem::transmute(offset)).ok()
     }
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn EndDraw(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
     pub unsafe fn Invalidate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::RECT>>(&self, updaterect: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), updaterect.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn GetUpdateRectCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
     pub unsafe fn GetUpdateRects(&self, updates: *mut super::super::Foundation::RECT, count: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(updates), ::std::mem::transmute(count)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
     pub unsafe fn GetVisibleBounds(&self) -> ::windows::runtime::Result<super::super::Foundation::RECT> {
         let mut result__: <super::super::Foundation::RECT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::RECT>(result__)
     }
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn RegisterForUpdatesNeeded<'a, Param0: ::windows::runtime::IntoParam<'a, IVirtualSurfaceUpdatesCallbackNative>>(&self, callback: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), callback.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn Resize(&self, newwidth: i32, newheight: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(newwidth), ::std::mem::transmute(newheight)).ok()
     }
@@ -5525,10 +5865,12 @@ pub struct IVirtualSurfaceImageSourceNative_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, callback: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, newwidth: i32, newheight: i32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IVirtualSurfaceUpdatesCallbackNative(::windows::runtime::IUnknown);
 impl IVirtualSurfaceUpdatesCallbackNative {
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn UpdatesNeeded(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)).ok()
     }
@@ -5565,11 +5907,13 @@ pub struct IVirtualSurfaceUpdatesCallbackNative_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IVisualInteractionSourceInterop(::windows::runtime::IUnknown);
 impl IVisualInteractionSourceInterop {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`, `Win32_UI_Input_Pointer`, `Win32_UI_WindowsAndMessaging`*"]
     pub unsafe fn TryRedirectForManipulation(&self, pointerinfo: *const super::super::UI::Input::Pointer::POINTER_INFO) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pointerinfo)).ok()
     }
@@ -5607,10 +5951,12 @@ pub struct IVisualInteractionSourceInterop_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pointerinfo: *const super::super::UI::Input::Pointer::POINTER_INFO) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging")))] usize,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWeakReference(::windows::runtime::IUnknown);
 impl IWeakReference {
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn Resolve<T: ::windows::runtime::Interface>(&self) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
@@ -5648,10 +5994,12 @@ pub struct IWeakReference_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, objectreference: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWeakReferenceSource(::windows::runtime::IUnknown);
 impl IWeakReferenceSource {
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn GetWeakReference(&self) -> ::windows::runtime::Result<IWeakReference> {
         let mut result__: <IWeakReference as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWeakReference>(result__)
@@ -5689,16 +6037,19 @@ pub struct IWeakReferenceSource_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, weakreference: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWebAuthenticationCoreManagerInterop(::windows::runtime::IUnknown);
 impl IWebAuthenticationCoreManagerInterop {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
     pub unsafe fn RequestTokenForWindowAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>, T: ::windows::runtime::Interface>(&self, appwindow: Param0, request: Param1) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), appwindow.into_param().abi(), request.into_param().abi(), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
     pub unsafe fn RequestTokenWithWebAccountForWindowAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>, T: ::windows::runtime::Interface>(&self, appwindow: Param0, request: Param1, webaccount: Param2) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), appwindow.into_param().abi(), request.into_param().abi(), webaccount.into_param().abi(), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
@@ -5742,10 +6093,12 @@ pub struct IWebAuthenticationCoreManagerInterop_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, appwindow: super::super::Foundation::HWND, request: ::windows::runtime::RawPtr, webaccount: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, asyncinfo: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWindowsDevicesAllJoynBusAttachmentFactoryInterop(::windows::runtime::IUnknown);
 impl IWindowsDevicesAllJoynBusAttachmentFactoryInterop {
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn CreateFromWin32Handle<T: ::windows::runtime::Interface>(&self, win32handle: u64, enableaboutdata: u8) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(win32handle), ::std::mem::transmute(enableaboutdata), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
@@ -5786,10 +6139,12 @@ pub struct IWindowsDevicesAllJoynBusAttachmentFactoryInterop_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, win32handle: u64, enableaboutdata: u8, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWindowsDevicesAllJoynBusAttachmentInterop(::windows::runtime::IUnknown);
 impl IWindowsDevicesAllJoynBusAttachmentInterop {
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn Win32Handle(&self) -> ::windows::runtime::Result<u64> {
         let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u64>(result__)
@@ -5830,10 +6185,12 @@ pub struct IWindowsDevicesAllJoynBusAttachmentInterop_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut u64) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWindowsDevicesAllJoynBusObjectFactoryInterop(::windows::runtime::IUnknown);
 impl IWindowsDevicesAllJoynBusObjectFactoryInterop {
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn CreateFromWin32Handle<T: ::windows::runtime::Interface>(&self, win32handle: u64) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(win32handle), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
@@ -5874,16 +6231,20 @@ pub struct IWindowsDevicesAllJoynBusObjectFactoryInterop_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, win32handle: u64, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWindowsDevicesAllJoynBusObjectInterop(::windows::runtime::IUnknown);
 impl IWindowsDevicesAllJoynBusObjectInterop {
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn AddPropertyGetHandler<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, context: *const ::std::ffi::c_void, interfacename: Param1, callback: isize) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(context), interfacename.into_param().abi(), ::std::mem::transmute(callback)).ok()
     }
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn AddPropertySetHandler<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, context: *const ::std::ffi::c_void, interfacename: Param1, callback: isize) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(context), interfacename.into_param().abi(), ::std::mem::transmute(callback)).ok()
     }
+    #[doc = "*Required features: `Win32_System_WinRT`*"]
     pub unsafe fn Win32Handle(&self) -> ::windows::runtime::Result<u64> {
         let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u64>(result__)
@@ -5927,6 +6288,7 @@ pub struct IWindowsDevicesAllJoynBusObjectInterop_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut u64) -> ::windows::runtime::HRESULT,
 );
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn IsErrorPropagationEnabled() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5940,7 +6302,9 @@ pub unsafe fn IsErrorPropagationEnabled() -> super::super::Foundation::BOOL {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 pub const MAX_ERROR_MESSAGE_CHARS: u32 = 512u32;
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[inline]
 pub unsafe fn MetaDataGetDispenser(rclsid: *const ::windows::runtime::GUID, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5957,6 +6321,7 @@ pub unsafe fn MetaDataGetDispenser(rclsid: *const ::windows::runtime::GUID, riid
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D"))]
+#[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`, `Win32_Graphics_Direct2D`*"]
 pub struct PDF_RENDER_PARAMS {
     pub SourceRect: super::super::Graphics::Direct2D::D2D_RECT_F,
     pub DestinationWidth: u32,
@@ -5997,6 +6362,7 @@ pub type PINSPECT_HSTRING_CALLBACK = unsafe extern "system" fn(context: *const :
 pub type PINSPECT_HSTRING_CALLBACK2 = unsafe extern "system" fn(context: *const ::std::ffi::c_void, readaddress: u64, length: u32, buffer: *mut u8) -> ::windows::runtime::HRESULT;
 pub type PINSPECT_MEMORY_CALLBACK = unsafe extern "system" fn(context: *const ::std::ffi::c_void, readaddress: usize, length: u32, buffer: *mut u8) -> ::windows::runtime::HRESULT;
 #[cfg(feature = "Win32_Graphics_Dxgi")]
+#[doc = "*Required features: `Win32_System_WinRT`, `Win32_Graphics_Dxgi`*"]
 #[inline]
 pub unsafe fn PdfCreateRenderer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Dxgi::IDXGIDevice>>(pdevice: Param0) -> ::windows::runtime::Result<IPdfRendererNative> {
     #[cfg(windows)]
@@ -6024,6 +6390,7 @@ unsafe impl ::windows::runtime::Abi for ROPARAMIIDHANDLE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RO_ERROR_REPORTING_FLAGS(pub u32);
@@ -6069,6 +6436,7 @@ impl ::std::ops::Not for RO_ERROR_REPORTING_FLAGS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RO_INIT_TYPE(pub i32);
@@ -6083,6 +6451,7 @@ unsafe impl ::windows::runtime::Abi for RO_INIT_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[inline]
 pub unsafe fn RoActivateInstance<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(activatableclassid: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
     #[cfg(windows)]
@@ -6097,6 +6466,7 @@ pub unsafe fn RoActivateInstance<'a, Param0: ::windows::runtime::IntoParam<'a, :
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[inline]
 pub unsafe fn RoCaptureErrorContext(hr: ::windows::runtime::HRESULT) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -6110,6 +6480,7 @@ pub unsafe fn RoCaptureErrorContext(hr: ::windows::runtime::HRESULT) -> ::window
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[inline]
 pub unsafe fn RoClearError() {
     #[cfg(windows)]
@@ -6123,6 +6494,7 @@ pub unsafe fn RoClearError() {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[inline]
 pub unsafe fn RoFailFastWithErrorContext(hrerror: ::windows::runtime::HRESULT) {
     #[cfg(windows)]
@@ -6136,6 +6508,7 @@ pub unsafe fn RoFailFastWithErrorContext(hrerror: ::windows::runtime::HRESULT) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[inline]
 pub unsafe fn RoFreeParameterizedTypeExtra<'a, Param0: ::windows::runtime::IntoParam<'a, ROPARAMIIDHANDLE>>(extra: Param0) {
     #[cfg(windows)]
@@ -6149,6 +6522,7 @@ pub unsafe fn RoFreeParameterizedTypeExtra<'a, Param0: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[inline]
 pub unsafe fn RoGetActivationFactory<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, T: ::windows::runtime::Interface>(activatableclassid: Param0) -> ::windows::runtime::Result<T> {
     #[cfg(windows)]
@@ -6163,6 +6537,7 @@ pub unsafe fn RoGetActivationFactory<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[inline]
 pub unsafe fn RoGetAgileReference<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(options: AgileReferenceOptions, riid: *const ::windows::runtime::GUID, punk: Param2) -> ::windows::runtime::Result<IAgileReference> {
     #[cfg(windows)]
@@ -6177,6 +6552,7 @@ pub unsafe fn RoGetAgileReference<'a, Param2: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[inline]
 pub unsafe fn RoGetApartmentIdentifier() -> ::windows::runtime::Result<u64> {
     #[cfg(windows)]
@@ -6192,6 +6568,7 @@ pub unsafe fn RoGetApartmentIdentifier() -> ::windows::runtime::Result<u64> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com_Marshal")]
+#[doc = "*Required features: `Win32_System_WinRT`, `Win32_System_Com_Marshal`*"]
 #[inline]
 pub unsafe fn RoGetBufferMarshaler() -> ::windows::runtime::Result<super::Com::Marshal::IMarshal> {
     #[cfg(windows)]
@@ -6206,6 +6583,7 @@ pub unsafe fn RoGetBufferMarshaler() -> ::windows::runtime::Result<super::Com::M
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[inline]
 pub unsafe fn RoGetErrorReportingFlags() -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
@@ -6220,6 +6598,7 @@ pub unsafe fn RoGetErrorReportingFlags() -> ::windows::runtime::Result<u32> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[inline]
 pub unsafe fn RoGetMatchingRestrictedErrorInfo(hrin: ::windows::runtime::HRESULT) -> ::windows::runtime::Result<IRestrictedErrorInfo> {
     #[cfg(windows)]
@@ -6235,6 +6614,7 @@ pub unsafe fn RoGetMatchingRestrictedErrorInfo(hrin: ::windows::runtime::HRESULT
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RoGetParameterizedTypeInstanceIID<'a, Param2: ::windows::runtime::IntoParam<'a, IRoMetaDataLocator>>(nameelementcount: u32, nameelements: *const super::super::Foundation::PWSTR, metadatalocator: Param2, iid: *mut ::windows::runtime::GUID, pextra: *mut ROPARAMIIDHANDLE) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -6248,6 +6628,7 @@ pub unsafe fn RoGetParameterizedTypeInstanceIID<'a, Param2: ::windows::runtime::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[inline]
 pub unsafe fn RoGetServerActivatableClasses<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(servername: Param0, activatableclassids: *mut *mut ::windows::runtime::HSTRING, count: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -6261,6 +6642,7 @@ pub unsafe fn RoGetServerActivatableClasses<'a, Param0: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[inline]
 pub unsafe fn RoInitialize(inittype: RO_INIT_TYPE) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -6274,6 +6656,7 @@ pub unsafe fn RoInitialize(inittype: RO_INIT_TYPE) -> ::windows::runtime::Result
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[inline]
 pub unsafe fn RoInspectCapturedStackBackTrace(targeterrorinfoaddress: usize, machine: u16, readmemorycallback: ::std::option::Option<PINSPECT_MEMORY_CALLBACK>, context: *const ::std::ffi::c_void, framecount: *mut u32, targetbacktraceaddress: *mut usize) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -6287,6 +6670,7 @@ pub unsafe fn RoInspectCapturedStackBackTrace(targeterrorinfoaddress: usize, mac
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[inline]
 pub unsafe fn RoInspectThreadErrorInfo(targettebaddress: usize, machine: u16, readmemorycallback: ::std::option::Option<PINSPECT_MEMORY_CALLBACK>, context: *const ::std::ffi::c_void) -> ::windows::runtime::Result<usize> {
     #[cfg(windows)]
@@ -6302,6 +6686,7 @@ pub unsafe fn RoInspectThreadErrorInfo(targettebaddress: usize, machine: u16, re
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RoOriginateError<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(error: ::windows::runtime::HRESULT, message: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -6316,6 +6701,7 @@ pub unsafe fn RoOriginateError<'a, Param1: ::windows::runtime::IntoParam<'a, ::w
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RoOriginateErrorW<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(error: ::windows::runtime::HRESULT, cchmax: u32, message: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -6330,6 +6716,7 @@ pub unsafe fn RoOriginateErrorW<'a, Param2: ::windows::runtime::IntoParam<'a, su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RoOriginateLanguageException<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(error: ::windows::runtime::HRESULT, message: Param1, languageexception: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -6344,6 +6731,7 @@ pub unsafe fn RoOriginateLanguageException<'a, Param1: ::windows::runtime::IntoP
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RoParameterizedTypeExtraGetTypeSignature<'a, Param0: ::windows::runtime::IntoParam<'a, ROPARAMIIDHANDLE>>(extra: Param0) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
@@ -6357,6 +6745,7 @@ pub unsafe fn RoParameterizedTypeExtraGetTypeSignature<'a, Param0: ::windows::ru
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[inline]
 pub unsafe fn RoRegisterActivationFactories(activatableclassids: *const ::windows::runtime::HSTRING, activationfactorycallbacks: *const isize, count: u32) -> ::windows::runtime::Result<isize> {
     #[cfg(windows)]
@@ -6371,6 +6760,7 @@ pub unsafe fn RoRegisterActivationFactories(activatableclassids: *const ::window
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[inline]
 pub unsafe fn RoRegisterForApartmentShutdown<'a, Param0: ::windows::runtime::IntoParam<'a, IApartmentShutdown>>(callbackobject: Param0, apartmentidentifier: *mut u64, regcookie: *mut APARTMENT_SHUTDOWN_REGISTRATION_COOKIE) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -6384,6 +6774,7 @@ pub unsafe fn RoRegisterForApartmentShutdown<'a, Param0: ::windows::runtime::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[inline]
 pub unsafe fn RoReportFailedDelegate<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param1: ::windows::runtime::IntoParam<'a, IRestrictedErrorInfo>>(punkdelegate: Param0, prestrictederrorinfo: Param1) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -6397,6 +6788,7 @@ pub unsafe fn RoReportFailedDelegate<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[inline]
 pub unsafe fn RoReportUnhandledError<'a, Param0: ::windows::runtime::IntoParam<'a, IRestrictedErrorInfo>>(prestrictederrorinfo: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -6411,6 +6803,7 @@ pub unsafe fn RoReportUnhandledError<'a, Param0: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RoResolveRestrictedErrorInfoReference<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(reference: Param0) -> ::windows::runtime::Result<IRestrictedErrorInfo> {
     #[cfg(windows)]
@@ -6425,6 +6818,7 @@ pub unsafe fn RoResolveRestrictedErrorInfoReference<'a, Param0: ::windows::runti
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[inline]
 pub unsafe fn RoRevokeActivationFactories(cookie: isize) {
     #[cfg(windows)]
@@ -6438,6 +6832,7 @@ pub unsafe fn RoRevokeActivationFactories(cookie: isize) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[inline]
 pub unsafe fn RoSetErrorReportingFlags(flags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -6452,6 +6847,7 @@ pub unsafe fn RoSetErrorReportingFlags(flags: u32) -> ::windows::runtime::Result
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RoTransformError<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(olderror: ::windows::runtime::HRESULT, newerror: ::windows::runtime::HRESULT, message: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -6466,6 +6862,7 @@ pub unsafe fn RoTransformError<'a, Param2: ::windows::runtime::IntoParam<'a, ::w
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RoTransformErrorW<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(olderror: ::windows::runtime::HRESULT, newerror: ::windows::runtime::HRESULT, cchmax: u32, message: Param3) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -6479,6 +6876,7 @@ pub unsafe fn RoTransformErrorW<'a, Param3: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[inline]
 pub unsafe fn RoUninitialize() {
     #[cfg(windows)]
@@ -6492,6 +6890,7 @@ pub unsafe fn RoUninitialize() {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[inline]
 pub unsafe fn RoUnregisterForApartmentShutdown<'a, Param0: ::windows::runtime::IntoParam<'a, APARTMENT_SHUTDOWN_REGISTRATION_COOKIE>>(regcookie: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -6507,6 +6906,7 @@ pub unsafe fn RoUnregisterForApartmentShutdown<'a, Param0: ::windows::runtime::I
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 pub struct ServerInformation {
     pub dwServerPid: u32,
     pub dwServerTid: u32,
@@ -6533,6 +6933,7 @@ unsafe impl ::windows::runtime::Abi for ServerInformation {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[inline]
 pub unsafe fn SetRestrictedErrorInfo<'a, Param0: ::windows::runtime::IntoParam<'a, IRestrictedErrorInfo>>(prestrictederrorinfo: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -6548,6 +6949,7 @@ pub unsafe fn SetRestrictedErrorInfo<'a, Param0: ::windows::runtime::IntoParam<'
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 pub struct TrackerHandle__ {
     pub unused: i32,
 }
@@ -6572,6 +6974,7 @@ unsafe impl ::windows::runtime::Abi for TrackerHandle__ {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TrustLevel(pub i32);
@@ -6587,6 +6990,7 @@ unsafe impl ::windows::runtime::Abi for TrustLevel {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[inline]
 pub unsafe fn WindowsCompareStringOrdinal<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(string1: Param0, string2: Param1) -> ::windows::runtime::Result<i32> {
     #[cfg(windows)]
@@ -6601,6 +7005,7 @@ pub unsafe fn WindowsCompareStringOrdinal<'a, Param0: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[inline]
 pub unsafe fn WindowsConcatString<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(string1: Param0, string2: Param1) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
     #[cfg(windows)]
@@ -6616,6 +7021,7 @@ pub unsafe fn WindowsConcatString<'a, Param0: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WindowsCreateString<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(sourcestring: Param0, length: u32) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
     #[cfg(windows)]
@@ -6631,6 +7037,7 @@ pub unsafe fn WindowsCreateString<'a, Param0: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WindowsCreateStringReference<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(sourcestring: Param0, length: u32, hstringheader: *mut HSTRING_HEADER, string: *mut ::windows::runtime::HSTRING) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -6644,6 +7051,7 @@ pub unsafe fn WindowsCreateStringReference<'a, Param0: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[inline]
 pub unsafe fn WindowsDeleteString<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(string: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -6657,6 +7065,7 @@ pub unsafe fn WindowsDeleteString<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[inline]
 pub unsafe fn WindowsDeleteStringBuffer<'a, Param0: ::windows::runtime::IntoParam<'a, HSTRING_BUFFER>>(bufferhandle: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -6670,6 +7079,7 @@ pub unsafe fn WindowsDeleteStringBuffer<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[inline]
 pub unsafe fn WindowsDuplicateString<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(string: Param0) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
     #[cfg(windows)]
@@ -6684,6 +7094,7 @@ pub unsafe fn WindowsDuplicateString<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[inline]
 pub unsafe fn WindowsGetStringLen<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(string: Param0) -> u32 {
     #[cfg(windows)]
@@ -6698,6 +7109,7 @@ pub unsafe fn WindowsGetStringLen<'a, Param0: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WindowsGetStringRawBuffer<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(string: Param0, length: *mut u32) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
@@ -6711,6 +7123,7 @@ pub unsafe fn WindowsGetStringRawBuffer<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[inline]
 pub unsafe fn WindowsInspectString(targethstring: usize, machine: u16, callback: ::std::option::Option<PINSPECT_HSTRING_CALLBACK>, context: *const ::std::ffi::c_void, length: *mut u32, targetstringaddress: *mut usize) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -6724,6 +7137,7 @@ pub unsafe fn WindowsInspectString(targethstring: usize, machine: u16, callback:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[inline]
 pub unsafe fn WindowsInspectString2(targethstring: u64, machine: u16, callback: ::std::option::Option<PINSPECT_HSTRING_CALLBACK2>, context: *const ::std::ffi::c_void, length: *mut u32, targetstringaddress: *mut u64) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -6738,6 +7152,7 @@ pub unsafe fn WindowsInspectString2(targethstring: u64, machine: u16, callback: 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WindowsIsStringEmpty<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(string: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -6751,6 +7166,7 @@ pub unsafe fn WindowsIsStringEmpty<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[inline]
 pub unsafe fn WindowsPreallocateStringBuffer(length: u32, charbuffer: *mut *mut u16, bufferhandle: *mut HSTRING_BUFFER) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -6764,6 +7180,7 @@ pub unsafe fn WindowsPreallocateStringBuffer(length: u32, charbuffer: *mut *mut 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[inline]
 pub unsafe fn WindowsPromoteStringBuffer<'a, Param0: ::windows::runtime::IntoParam<'a, HSTRING_BUFFER>>(bufferhandle: Param0) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
     #[cfg(windows)]
@@ -6778,6 +7195,7 @@ pub unsafe fn WindowsPromoteStringBuffer<'a, Param0: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[inline]
 pub unsafe fn WindowsReplaceString<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(string: Param0, stringreplaced: Param1, stringreplacewith: Param2) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
     #[cfg(windows)]
@@ -6793,6 +7211,7 @@ pub unsafe fn WindowsReplaceString<'a, Param0: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WindowsStringHasEmbeddedNull<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(string: Param0) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
     #[cfg(windows)]
@@ -6807,6 +7226,7 @@ pub unsafe fn WindowsStringHasEmbeddedNull<'a, Param0: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[inline]
 pub unsafe fn WindowsSubstring<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(string: Param0, startindex: u32) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
     #[cfg(windows)]
@@ -6821,6 +7241,7 @@ pub unsafe fn WindowsSubstring<'a, Param0: ::windows::runtime::IntoParam<'a, ::w
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[inline]
 pub unsafe fn WindowsSubstringWithSpecifiedLength<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(string: Param0, startindex: u32, length: u32) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
     #[cfg(windows)]
@@ -6835,6 +7256,7 @@ pub unsafe fn WindowsSubstringWithSpecifiedLength<'a, Param0: ::windows::runtime
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[inline]
 pub unsafe fn WindowsTrimStringEnd<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(string: Param0, trimstring: Param1) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
     #[cfg(windows)]
@@ -6849,6 +7271,7 @@ pub unsafe fn WindowsTrimStringEnd<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[inline]
 pub unsafe fn WindowsTrimStringStart<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(string: Param0, trimstring: Param1) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
     #[cfg(windows)]
@@ -6863,6 +7286,7 @@ pub unsafe fn WindowsTrimStringStart<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct XAML_REFERENCETRACKER_DISCONNECT(pub i32);

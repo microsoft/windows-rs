@@ -1,4 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct APPLICATIONTYPE(pub i32);
@@ -13,6 +14,7 @@ unsafe impl ::windows::runtime::Abi for APPLICATIONTYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AUTHENTICATION_LEVEL(pub i32);
@@ -30,6 +32,7 @@ unsafe impl ::windows::runtime::Abi for AUTHENTICATION_LEVEL {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub struct BOID {
     pub rgb: [u8; 16],
 }
@@ -56,7 +59,9 @@ unsafe impl ::windows::runtime::Abi for BOID {
 }
 pub const CLSID_MSDtcTransaction: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(972609387, 2344, 4561, [151, 223, 0, 192, 79, 185, 97, 138]);
 pub const CLSID_MSDtcTransactionManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1528343393, 2333, 4561, [151, 223, 0, 192, 79, 185, 97, 138]);
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const DTCINSTALL_E_CLIENT_ALREADY_INSTALLED: i32 = 384i32;
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const DTCINSTALL_E_SERVER_ALREADY_INSTALLED: i32 = 385i32;
 #[cfg(feature = "Win32_Foundation")]
 pub type DTC_GET_TRANSACTION_MANAGER = unsafe extern "system" fn(pszhost: super::super::Foundation::PSTR, psztmname: super::super::Foundation::PSTR, rid: *const ::windows::runtime::GUID, dwreserved1: u32, wcbreserved2: u16, pvreserved2: *mut ::std::ffi::c_void, ppvobject: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
@@ -65,8 +70,11 @@ pub type DTC_GET_TRANSACTION_MANAGER_EX_A = unsafe extern "system" fn(i_pszhost:
 #[cfg(feature = "Win32_Foundation")]
 pub type DTC_GET_TRANSACTION_MANAGER_EX_W = unsafe extern "system" fn(i_pwszhost: super::super::Foundation::PWSTR, i_pwsztmname: super::super::Foundation::PWSTR, i_riid: *const ::windows::runtime::GUID, i_grfoptions: u32, i_pvconfigparams: *mut ::std::ffi::c_void, o_ppvobject: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
 pub type DTC_INSTALL_CLIENT = unsafe extern "system" fn(i_pszremotetmhostname: *mut i8, i_dwprotocol: u32, i_dwoverwrite: u32) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const DTC_INSTALL_OVERWRITE_CLIENT: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const DTC_INSTALL_OVERWRITE_SERVER: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DTC_STATUS_(pub i32);
@@ -90,6 +98,7 @@ unsafe impl ::windows::runtime::Abi for DTC_STATUS_ {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn DtcGetTransactionManager<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(i_pszhost: Param0, i_psztmname: Param1, i_riid: *const ::windows::runtime::GUID, i_dwreserved1: u32, i_wcbreserved2: u16, i_pvreserved2: *const ::std::ffi::c_void, o_ppvobject: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -104,6 +113,7 @@ pub unsafe fn DtcGetTransactionManager<'a, Param0: ::windows::runtime::IntoParam
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn DtcGetTransactionManagerC<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(i_pszhost: Param0, i_psztmname: Param1, i_riid: *const ::windows::runtime::GUID, i_dwreserved1: u32, i_wcbreserved2: u16, i_pvreserved2: *const ::std::ffi::c_void, o_ppvobject: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -118,6 +128,7 @@ pub unsafe fn DtcGetTransactionManagerC<'a, Param0: ::windows::runtime::IntoPara
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn DtcGetTransactionManagerExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(i_pszhost: Param0, i_psztmname: Param1, i_riid: *const ::windows::runtime::GUID, i_grfoptions: u32, i_pvconfigparams: *mut ::std::ffi::c_void, o_ppvobject: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -132,6 +143,7 @@ pub unsafe fn DtcGetTransactionManagerExA<'a, Param0: ::windows::runtime::IntoPa
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn DtcGetTransactionManagerExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(i_pwszhost: Param0, i_pwsztmname: Param1, i_riid: *const ::windows::runtime::GUID, i_grfoptions: u32, i_pvconfigparams: *mut ::std::ffi::c_void, o_ppvobject: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -145,13 +157,16 @@ pub unsafe fn DtcGetTransactionManagerExW<'a, Param0: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDtcLuConfigure(::windows::runtime::IUnknown);
 impl IDtcLuConfigure {
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn Add(&self, puclupair: *const u8, cblupair: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(puclupair), ::std::mem::transmute(cblupair)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn Delete(&self, puclupair: *const u8, cblupair: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(puclupair), ::std::mem::transmute(cblupair)).ok()
     }
@@ -189,6 +204,7 @@ pub struct IDtcLuConfigure_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, puclupair: *const u8, cblupair: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, puclupair: *const u8, cblupair: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDtcLuRecovery(::windows::runtime::IUnknown);
@@ -224,10 +240,12 @@ pub struct IDtcLuRecovery_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
 );
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDtcLuRecoveryFactory(::windows::runtime::IUnknown);
 impl IDtcLuRecoveryFactory {
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn Create(&self, puclupair: *const u8, cblupair: u32) -> ::windows::runtime::Result<IDtcLuRecovery> {
         let mut result__: <IDtcLuRecovery as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(puclupair), ::std::mem::transmute(cblupair), &mut result__).from_abi::<IDtcLuRecovery>(result__)
@@ -265,10 +283,12 @@ pub struct IDtcLuRecoveryFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, puclupair: *const u8, cblupair: u32, pprecovery: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDtcLuRecoveryInitiatedByDtc(::windows::runtime::IUnknown);
 impl IDtcLuRecoveryInitiatedByDtc {
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn GetWork(&self, pwork: *mut _DtcLu_LocalRecovery_Work, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwork), ::std::mem::transmute(ppv)).ok()
     }
@@ -305,10 +325,12 @@ pub struct IDtcLuRecoveryInitiatedByDtc_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwork: *mut _DtcLu_LocalRecovery_Work, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDtcLuRecoveryInitiatedByDtcStatusWork(::windows::runtime::IUnknown);
 impl IDtcLuRecoveryInitiatedByDtcStatusWork {
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn HandleCheckLuStatus(&self, lrecoveryseqnum: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(lrecoveryseqnum)).ok()
     }
@@ -345,47 +367,61 @@ pub struct IDtcLuRecoveryInitiatedByDtcStatusWork_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lrecoveryseqnum: i32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDtcLuRecoveryInitiatedByDtcTransWork(::windows::runtime::IUnknown);
 impl IDtcLuRecoveryInitiatedByDtcTransWork {
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn GetLogNameSizes(&self, pcbourlogname: *mut u32, pcbremotelogname: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcbourlogname), ::std::mem::transmute(pcbremotelogname)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn GetOurXln(&self, pxln: *mut _DtcLu_Xln, pourlogname: *mut u8, premotelogname: *mut u8, pdwprotocol: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pxln), ::std::mem::transmute(pourlogname), ::std::mem::transmute(premotelogname), ::std::mem::transmute(pdwprotocol)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn HandleConfirmationFromOurXln(&self, confirmation: _DtcLu_Xln_Confirmation) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(confirmation)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn HandleTheirXlnResponse(&self, xln: _DtcLu_Xln, premotelogname: *mut u8, cbremotelogname: u32, dwprotocol: u32, pconfirmation: *mut _DtcLu_Xln_Confirmation) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(xln), ::std::mem::transmute(premotelogname), ::std::mem::transmute(cbremotelogname), ::std::mem::transmute(dwprotocol), ::std::mem::transmute(pconfirmation)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn HandleErrorFromOurXln(&self, error: _DtcLu_Xln_Error) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(error)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn CheckForCompareStates(&self, fcomparestates: *mut super::super::Foundation::BOOL) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(fcomparestates)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn GetOurTransIdSize(&self, pcbourtransid: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcbourtransid)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn GetOurCompareStates(&self, pourtransid: *mut u8, pcomparestate: *mut _DtcLu_CompareState) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(pourtransid), ::std::mem::transmute(pcomparestate)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn HandleTheirCompareStatesResponse(&self, comparestate: _DtcLu_CompareState, pconfirmation: *mut _DtcLu_CompareStates_Confirmation) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(comparestate), ::std::mem::transmute(pconfirmation)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn HandleErrorFromOurCompareStates(&self, error: _DtcLu_CompareStates_Error) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(error)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn ConversationLost(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn GetRecoverySeqNum(&self, plrecoveryseqnum: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(plrecoveryseqnum)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn ObsoleteRecoverySeqNum(&self, lnewrecoveryseqnum: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(lnewrecoveryseqnum)).ok()
     }
@@ -435,10 +471,12 @@ pub struct IDtcLuRecoveryInitiatedByDtcTransWork_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, plrecoveryseqnum: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lnewrecoveryseqnum: i32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDtcLuRecoveryInitiatedByLu(::windows::runtime::IUnknown);
 impl IDtcLuRecoveryInitiatedByLu {
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn GetObjectToHandleWorkFromLu(&self) -> ::windows::runtime::Result<IDtcLuRecoveryInitiatedByLuWork> {
         let mut result__: <IDtcLuRecoveryInitiatedByLuWork as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IDtcLuRecoveryInitiatedByLuWork>(result__)
@@ -476,10 +514,12 @@ pub struct IDtcLuRecoveryInitiatedByLu_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppwork: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDtcLuRecoveryInitiatedByLuWork(::windows::runtime::IUnknown);
 impl IDtcLuRecoveryInitiatedByLuWork {
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn HandleTheirXln(&self, lrecoveryseqnum: i32, xln: _DtcLu_Xln, premotelogname: *mut u8, cbremotelogname: u32, pourlogname: *mut u8, cbourlogname: u32, dwprotocol: u32, presponse: *mut _DtcLu_Xln_Response) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(
             ::std::mem::transmute_copy(self),
@@ -494,24 +534,31 @@ impl IDtcLuRecoveryInitiatedByLuWork {
         )
         .ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn GetOurLogNameSize(&self, pcbourlogname: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcbourlogname)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn GetOurXln(&self, pxln: *mut _DtcLu_Xln, pourlogname: *mut u8, pdwprotocol: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(pxln), ::std::mem::transmute(pourlogname), ::std::mem::transmute(pdwprotocol)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn HandleConfirmationOfOurXln(&self, confirmation: _DtcLu_Xln_Confirmation) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(confirmation)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn HandleTheirCompareStates(&self, premotetransid: *mut u8, cbremotetransid: u32, comparestate: _DtcLu_CompareState, presponse: *mut _DtcLu_CompareStates_Response, pcomparestate: *mut _DtcLu_CompareState) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(premotetransid), ::std::mem::transmute(cbremotetransid), ::std::mem::transmute(comparestate), ::std::mem::transmute(presponse), ::std::mem::transmute(pcomparestate)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn HandleConfirmationOfOurCompareStates(&self, confirmation: _DtcLu_CompareStates_Confirmation) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(confirmation)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn HandleErrorFromOurCompareStates(&self, error: _DtcLu_CompareStates_Error) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(error)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn ConversationLost(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)).ok()
     }
@@ -555,26 +602,33 @@ pub struct IDtcLuRecoveryInitiatedByLuWork_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, error: _DtcLu_CompareStates_Error) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDtcLuRmEnlistment(::windows::runtime::IUnknown);
 impl IDtcLuRmEnlistment {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn Unplug<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fconversationlost: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), fconversationlost.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn BackedOut(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn BackOut(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn Committed(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn Forget(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn RequestCommit(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
     }
@@ -617,10 +671,12 @@ pub struct IDtcLuRmEnlistment_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDtcLuRmEnlistmentFactory(::windows::runtime::IUnknown);
 impl IDtcLuRmEnlistmentFactory {
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn Create<'a, Param2: ::windows::runtime::IntoParam<'a, ITransaction>, Param5: ::windows::runtime::IntoParam<'a, IDtcLuRmEnlistmentSink>>(&self, puclupair: *mut u8, cblupair: u32, pitransaction: Param2, ptransid: *mut u8, cbtransid: u32, prmenlistmentsink: Param5, pprmenlistment: *mut ::std::option::Option<IDtcLuRmEnlistment>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(puclupair), ::std::mem::transmute(cblupair), pitransaction.into_param().abi(), ::std::mem::transmute(ptransid), ::std::mem::transmute(cbtransid), prmenlistmentsink.into_param().abi(), ::std::mem::transmute(pprmenlistment)).ok()
     }
@@ -657,34 +713,44 @@ pub struct IDtcLuRmEnlistmentFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, puclupair: *mut u8, cblupair: u32, pitransaction: ::windows::runtime::RawPtr, ptransid: *mut u8, cbtransid: u32, prmenlistmentsink: ::windows::runtime::RawPtr, pprmenlistment: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDtcLuRmEnlistmentSink(::windows::runtime::IUnknown);
 impl IDtcLuRmEnlistmentSink {
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn AckUnplug(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn TmDown(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn SessionLost(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn BackedOut(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn BackOut(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn Committed(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn Forget(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn Prepare(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn RequestCommit(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self)).ok()
     }
@@ -729,29 +795,37 @@ pub struct IDtcLuRmEnlistmentSink_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDtcLuSubordinateDtc(::windows::runtime::IUnknown);
 impl IDtcLuSubordinateDtc {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn Unplug<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fconversationlost: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), fconversationlost.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn BackedOut(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn BackOut(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn Committed(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn Forget(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn Prepare(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn RequestCommit(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self)).ok()
     }
@@ -795,10 +869,12 @@ pub struct IDtcLuSubordinateDtc_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDtcLuSubordinateDtcFactory(::windows::runtime::IUnknown);
 impl IDtcLuSubordinateDtcFactory {
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn Create<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param5: ::windows::runtime::IntoParam<'a, ITransactionOptions>, Param9: ::windows::runtime::IntoParam<'a, IDtcLuSubordinateDtcSink>>(
         &self,
         puclupair: *mut u8,
@@ -862,31 +938,40 @@ pub struct IDtcLuSubordinateDtcFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, puclupair: *mut u8, cblupair: u32, punktransactionouter: ::windows::runtime::RawPtr, isolevel: i32, isoflags: u32, poptions: ::windows::runtime::RawPtr, pptransaction: *mut ::windows::runtime::RawPtr, ptransid: *mut u8, cbtransid: u32, psubordinatedtcsink: ::windows::runtime::RawPtr, ppsubordinatedtc: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDtcLuSubordinateDtcSink(::windows::runtime::IUnknown);
 impl IDtcLuSubordinateDtcSink {
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn AckUnplug(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn TmDown(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn SessionLost(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn BackedOut(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn BackOut(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn Committed(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn Forget(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn RequestCommit(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)).ok()
     }
@@ -930,64 +1015,78 @@ pub struct IDtcLuSubordinateDtcSink_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDtcNetworkAccessConfig(::windows::runtime::IUnknown);
 impl IDtcNetworkAccessConfig {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn GetAnyNetworkAccess(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn SetAnyNetworkAccess<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, banynetworkaccess: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), banynetworkaccess.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn GetNetworkAdministrationAccess(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn SetNetworkAdministrationAccess<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bnetworkadministrationaccess: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), bnetworkadministrationaccess.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn GetNetworkTransactionAccess(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn SetNetworkTransactionAccess<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bnetworktransactionaccess: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), bnetworktransactionaccess.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn GetNetworkClientAccess(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn SetNetworkClientAccess<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bnetworkclientaccess: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), bnetworkclientaccess.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn GetNetworkTIPAccess(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn SetNetworkTIPAccess<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bnetworktipaccess: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), bnetworktipaccess.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn GetXAAccess(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn SetXAAccess<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bxaaccess: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), bxaaccess.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn RestartDtcService(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self)).ok()
     }
@@ -1048,89 +1147,109 @@ pub struct IDtcNetworkAccessConfig_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDtcNetworkAccessConfig2(::windows::runtime::IUnknown);
 impl IDtcNetworkAccessConfig2 {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn GetAnyNetworkAccess(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn SetAnyNetworkAccess<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, banynetworkaccess: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), banynetworkaccess.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn GetNetworkAdministrationAccess(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn SetNetworkAdministrationAccess<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bnetworkadministrationaccess: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), bnetworkadministrationaccess.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn GetNetworkTransactionAccess(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn SetNetworkTransactionAccess<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bnetworktransactionaccess: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), bnetworktransactionaccess.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn GetNetworkClientAccess(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn SetNetworkClientAccess<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bnetworkclientaccess: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), bnetworkclientaccess.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn GetNetworkTIPAccess(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn SetNetworkTIPAccess<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bnetworktipaccess: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), bnetworktipaccess.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn GetXAAccess(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn SetXAAccess<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bxaaccess: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), bxaaccess.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn RestartDtcService(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn GetNetworkInboundAccess(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn GetNetworkOutboundAccess(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn SetNetworkInboundAccess<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, binbound: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), binbound.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn SetNetworkOutboundAccess<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, boutbound: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), boutbound.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn GetAuthenticationLevel(&self) -> ::windows::runtime::Result<AUTHENTICATION_LEVEL> {
         let mut result__: <AUTHENTICATION_LEVEL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), &mut result__).from_abi::<AUTHENTICATION_LEVEL>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn SetAuthenticationLevel(&self, authlevel: AUTHENTICATION_LEVEL) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(authlevel)).ok()
     }
@@ -1221,98 +1340,120 @@ pub struct IDtcNetworkAccessConfig2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pauthlevel: *mut AUTHENTICATION_LEVEL) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, authlevel: AUTHENTICATION_LEVEL) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDtcNetworkAccessConfig3(::windows::runtime::IUnknown);
 impl IDtcNetworkAccessConfig3 {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn GetAnyNetworkAccess(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn SetAnyNetworkAccess<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, banynetworkaccess: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), banynetworkaccess.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn GetNetworkAdministrationAccess(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn SetNetworkAdministrationAccess<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bnetworkadministrationaccess: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), bnetworkadministrationaccess.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn GetNetworkTransactionAccess(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn SetNetworkTransactionAccess<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bnetworktransactionaccess: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), bnetworktransactionaccess.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn GetNetworkClientAccess(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn SetNetworkClientAccess<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bnetworkclientaccess: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), bnetworkclientaccess.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn GetNetworkTIPAccess(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn SetNetworkTIPAccess<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bnetworktipaccess: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), bnetworktipaccess.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn GetXAAccess(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn SetXAAccess<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bxaaccess: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), bxaaccess.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn RestartDtcService(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn GetNetworkInboundAccess(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn GetNetworkOutboundAccess(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn SetNetworkInboundAccess<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, binbound: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), binbound.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn SetNetworkOutboundAccess<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, boutbound: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), boutbound.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn GetAuthenticationLevel(&self) -> ::windows::runtime::Result<AUTHENTICATION_LEVEL> {
         let mut result__: <AUTHENTICATION_LEVEL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), &mut result__).from_abi::<AUTHENTICATION_LEVEL>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn SetAuthenticationLevel(&self, authlevel: AUTHENTICATION_LEVEL) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(authlevel)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn GetLUAccess(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn SetLUAccess<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bluaccess: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), bluaccess.into_param().abi()).ok()
     }
@@ -1427,15 +1568,18 @@ pub struct IDtcNetworkAccessConfig3_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bluaccess: super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDtcToXaHelper(::windows::runtime::IUnknown);
 impl IDtcToXaHelper {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn Close<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, i_fdorecovery: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), i_fdorecovery.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn TranslateTridToXid<'a, Param0: ::windows::runtime::IntoParam<'a, ITransaction>>(&self, pitransaction: Param0, pguidbqual: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<xid_t> {
         let mut result__: <xid_t as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pitransaction.into_param().abi(), ::std::mem::transmute(pguidbqual), &mut result__).from_abi::<xid_t>(result__)
@@ -1476,11 +1620,13 @@ pub struct IDtcToXaHelper_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pitransaction: ::windows::runtime::RawPtr, pguidbqual: *const ::windows::runtime::GUID, pxid: *mut xid_t) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDtcToXaHelperFactory(::windows::runtime::IUnknown);
 impl IDtcToXaHelperFactory {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn Create<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, pszdsn: Param0, pszclientdllname: Param1, pguidrm: *mut ::windows::runtime::GUID, ppxahelper: *mut ::std::option::Option<IDtcToXaHelper>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pszdsn.into_param().abi(), pszclientdllname.into_param().abi(), ::std::mem::transmute(pguidrm), ::std::mem::transmute(ppxahelper)).ok()
     }
@@ -1518,23 +1664,28 @@ pub struct IDtcToXaHelperFactory_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pszdsn: super::super::Foundation::PSTR, pszclientdllname: super::super::Foundation::PSTR, pguidrm: *mut ::windows::runtime::GUID, ppxahelper: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDtcToXaHelperSinglePipe(::windows::runtime::IUnknown);
 impl IDtcToXaHelperSinglePipe {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn XARMCreate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, pszdsn: Param0, pszclientdll: Param1, pdwrmcookie: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pszdsn.into_param().abi(), pszclientdll.into_param().abi(), ::std::mem::transmute(pdwrmcookie)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn ConvertTridToXID(&self, pdwitrans: *mut u32, dwrmcookie: u32, pxid: *mut xid_t) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwitrans), ::std::mem::transmute(dwrmcookie), ::std::mem::transmute(pxid)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn EnlistWithRM<'a, Param1: ::windows::runtime::IntoParam<'a, ITransaction>, Param2: ::windows::runtime::IntoParam<'a, ITransactionResourceAsync>>(&self, dwrmcookie: u32, i_pitransaction: Param1, i_pitransres: Param2) -> ::windows::runtime::Result<ITransactionEnlistmentAsync> {
         let mut result__: <ITransactionEnlistmentAsync as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwrmcookie), i_pitransaction.into_param().abi(), i_pitransres.into_param().abi(), &mut result__).from_abi::<ITransactionEnlistmentAsync>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn ReleaseRMCookie<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, i_dwrmcookie: u32, i_fnormal: Param1) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(i_dwrmcookie), i_fnormal.into_param().abi()))
     }
@@ -1577,21 +1728,26 @@ pub struct IDtcToXaHelperSinglePipe_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, i_dwrmcookie: u32, i_fnormal: super::super::Foundation::BOOL),
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDtcToXaMapper(::windows::runtime::IUnknown);
 impl IDtcToXaMapper {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn RequestNewResourceManager<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, pszdsn: Param0, pszclientdllname: Param1, pdwrmcookie: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pszdsn.into_param().abi(), pszclientdllname.into_param().abi(), ::std::mem::transmute(pdwrmcookie)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn TranslateTridToXid(&self, pdwitransaction: *const u32, dwrmcookie: u32, pxid: *mut xid_t) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwitransaction), ::std::mem::transmute(dwrmcookie), ::std::mem::transmute(pxid)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn EnlistResourceManager(&self, dwrmcookie: u32, pdwitransaction: *const u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwrmcookie), ::std::mem::transmute(pdwitransaction)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn ReleaseResourceManager(&self, dwrmcookie: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwrmcookie)).ok()
     }
@@ -1633,10 +1789,12 @@ pub struct IDtcToXaMapper_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwrmcookie: u32, pdwitransaction: *const u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwrmcookie: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IGetDispenser(::windows::runtime::IUnknown);
 impl IGetDispenser {
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn GetDispenser(&self, iid: *const ::windows::runtime::GUID, ppvobject: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(iid), ::std::mem::transmute(ppvobject)).ok()
     }
@@ -1673,11 +1831,13 @@ pub struct IGetDispenser_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: *const ::windows::runtime::GUID, ppvobject: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IKernelTransaction(::windows::runtime::IUnknown);
 impl IKernelTransaction {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn GetHandle(&self) -> ::windows::runtime::Result<super::super::Foundation::HANDLE> {
         let mut result__: <super::super::Foundation::HANDLE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::HANDLE>(result__)
@@ -1716,13 +1876,16 @@ pub struct IKernelTransaction_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, phandle: *mut super::super::Foundation::HANDLE) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ILastResourceManager(::windows::runtime::IUnknown);
 impl ILastResourceManager {
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn TransactionCommitted(&self, pprepinfo: *const u8, cbprepinfo: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pprepinfo), ::std::mem::transmute(cbprepinfo)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn RecoveryDone(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
@@ -1760,13 +1923,16 @@ pub struct ILastResourceManager_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pprepinfo: *const u8, cbprepinfo: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPrepareInfo(::windows::runtime::IUnknown);
 impl IPrepareInfo {
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn GetPrepareInfoSize(&self, pcbprepinfo: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcbprepinfo)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn GetPrepareInfo(&self, pprepinfo: *mut u8) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pprepinfo)).ok()
     }
@@ -1804,14 +1970,17 @@ pub struct IPrepareInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcbprepinfo: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pprepinfo: *mut u8) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPrepareInfo2(::windows::runtime::IUnknown);
 impl IPrepareInfo2 {
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn GetPrepareInfoSize(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn GetPrepareInfo(&self, cbprepareinfo: u32, pprepinfo: *mut u8) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(cbprepareinfo), ::std::mem::transmute(pprepinfo)).ok()
     }
@@ -1849,14 +2018,17 @@ pub struct IPrepareInfo2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcbprepinfo: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, cbprepareinfo: u32, pprepinfo: *mut u8) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRMHelper(::windows::runtime::IUnknown);
 impl IRMHelper {
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn RMCount(&self, dwctotalnumberofrms: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwctotalnumberofrms)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn RMInfo<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, pxa_switch: *mut xa_switch_t, fcdeclcallingconv: Param1, pszopenstring: Param2, pszclosestring: Param3, guidrmrecovery: Param4) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pxa_switch), fcdeclcallingconv.into_param().abi(), pszopenstring.into_param().abi(), pszclosestring.into_param().abi(), guidrmrecovery.into_param().abi()).ok()
     }
@@ -1895,20 +2067,25 @@ pub struct IRMHelper_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pxa_switch: *mut xa_switch_t, fcdeclcallingconv: super::super::Foundation::BOOL, pszopenstring: super::super::Foundation::PSTR, pszclosestring: super::super::Foundation::PSTR, guidrmrecovery: ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IResourceManager(::windows::runtime::IUnknown);
 impl IResourceManager {
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn Enlist<'a, Param0: ::windows::runtime::IntoParam<'a, ITransaction>, Param1: ::windows::runtime::IntoParam<'a, ITransactionResourceAsync>>(&self, ptransaction: Param0, pres: Param1, puow: *mut BOID, pisolevel: *mut i32, ppenlist: *mut ::std::option::Option<ITransactionEnlistmentAsync>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ptransaction.into_param().abi(), pres.into_param().abi(), ::std::mem::transmute(puow), ::std::mem::transmute(pisolevel), ::std::mem::transmute(ppenlist)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn Reenlist(&self, pprepinfo: *const u8, cbprepinfo: u32, ltimeout: u32) -> ::windows::runtime::Result<XACTSTAT> {
         let mut result__: <XACTSTAT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pprepinfo), ::std::mem::transmute(cbprepinfo), ::std::mem::transmute(ltimeout), &mut result__).from_abi::<XACTSTAT>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn ReenlistmentComplete(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn GetDistributedTransactionManager(&self, iid: *const ::windows::runtime::GUID, ppvobject: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(iid), ::std::mem::transmute(ppvobject)).ok()
     }
@@ -1948,28 +2125,35 @@ pub struct IResourceManager_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: *const ::windows::runtime::GUID, ppvobject: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IResourceManager2(::windows::runtime::IUnknown);
 impl IResourceManager2 {
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn Enlist<'a, Param0: ::windows::runtime::IntoParam<'a, ITransaction>, Param1: ::windows::runtime::IntoParam<'a, ITransactionResourceAsync>>(&self, ptransaction: Param0, pres: Param1, puow: *mut BOID, pisolevel: *mut i32, ppenlist: *mut ::std::option::Option<ITransactionEnlistmentAsync>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ptransaction.into_param().abi(), pres.into_param().abi(), ::std::mem::transmute(puow), ::std::mem::transmute(pisolevel), ::std::mem::transmute(ppenlist)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn Reenlist(&self, pprepinfo: *const u8, cbprepinfo: u32, ltimeout: u32) -> ::windows::runtime::Result<XACTSTAT> {
         let mut result__: <XACTSTAT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pprepinfo), ::std::mem::transmute(cbprepinfo), ::std::mem::transmute(ltimeout), &mut result__).from_abi::<XACTSTAT>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn ReenlistmentComplete(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn GetDistributedTransactionManager(&self, iid: *const ::windows::runtime::GUID, ppvobject: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(iid), ::std::mem::transmute(ppvobject)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn Enlist2<'a, Param0: ::windows::runtime::IntoParam<'a, ITransaction>, Param1: ::windows::runtime::IntoParam<'a, ITransactionResourceAsync>>(&self, ptransaction: Param0, presasync: Param1, puow: *mut BOID, pisolevel: *mut i32, pxid: *mut xid_t, ppenlist: *mut ::std::option::Option<ITransactionEnlistmentAsync>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ptransaction.into_param().abi(), presasync.into_param().abi(), ::std::mem::transmute(puow), ::std::mem::transmute(pisolevel), ::std::mem::transmute(pxid), ::std::mem::transmute(ppenlist)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn Reenlist2(&self, pxid: *const xid_t, dwtimeout: u32) -> ::windows::runtime::Result<XACTSTAT> {
         let mut result__: <XACTSTAT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(pxid), ::std::mem::transmute(dwtimeout), &mut result__).from_abi::<XACTSTAT>(result__)
@@ -2034,11 +2218,13 @@ pub struct IResourceManager2_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pxid: *const xid_t, dwtimeout: u32, pxactstat: *mut XACTSTAT) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IResourceManagerFactory(::windows::runtime::IUnknown);
 impl IResourceManagerFactory {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn Create<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, IResourceManagerSink>>(&self, pguidrm: *const ::windows::runtime::GUID, pszrmname: Param1, piresmgrsink: Param2) -> ::windows::runtime::Result<IResourceManager> {
         let mut result__: <IResourceManager as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pguidrm), pszrmname.into_param().abi(), piresmgrsink.into_param().abi(), &mut result__).from_abi::<IResourceManager>(result__)
@@ -2077,16 +2263,19 @@ pub struct IResourceManagerFactory_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pguidrm: *const ::windows::runtime::GUID, pszrmname: super::super::Foundation::PSTR, piresmgrsink: ::windows::runtime::RawPtr, ppresmgr: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IResourceManagerFactory2(::windows::runtime::IUnknown);
 impl IResourceManagerFactory2 {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn Create<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, IResourceManagerSink>>(&self, pguidrm: *const ::windows::runtime::GUID, pszrmname: Param1, piresmgrsink: Param2) -> ::windows::runtime::Result<IResourceManager> {
         let mut result__: <IResourceManager as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pguidrm), pszrmname.into_param().abi(), piresmgrsink.into_param().abi(), &mut result__).from_abi::<IResourceManager>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn CreateEx<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, IResourceManagerSink>>(&self, pguidrm: *const ::windows::runtime::GUID, pszrmname: Param1, piresmgrsink: Param2, riidrequested: *const ::windows::runtime::GUID, ppvresmgr: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pguidrm), pszrmname.into_param().abi(), piresmgrsink.into_param().abi(), ::std::mem::transmute(riidrequested), ::std::mem::transmute(ppvresmgr)).ok()
     }
@@ -2146,32 +2335,40 @@ pub struct IResourceManagerFactory2_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pguidrm: *const ::windows::runtime::GUID, pszrmname: super::super::Foundation::PSTR, piresmgrsink: ::windows::runtime::RawPtr, riidrequested: *const ::windows::runtime::GUID, ppvresmgr: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IResourceManagerRejoinable(::windows::runtime::IUnknown);
 impl IResourceManagerRejoinable {
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn Enlist<'a, Param0: ::windows::runtime::IntoParam<'a, ITransaction>, Param1: ::windows::runtime::IntoParam<'a, ITransactionResourceAsync>>(&self, ptransaction: Param0, pres: Param1, puow: *mut BOID, pisolevel: *mut i32, ppenlist: *mut ::std::option::Option<ITransactionEnlistmentAsync>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ptransaction.into_param().abi(), pres.into_param().abi(), ::std::mem::transmute(puow), ::std::mem::transmute(pisolevel), ::std::mem::transmute(ppenlist)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn Reenlist(&self, pprepinfo: *const u8, cbprepinfo: u32, ltimeout: u32) -> ::windows::runtime::Result<XACTSTAT> {
         let mut result__: <XACTSTAT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pprepinfo), ::std::mem::transmute(cbprepinfo), ::std::mem::transmute(ltimeout), &mut result__).from_abi::<XACTSTAT>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn ReenlistmentComplete(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn GetDistributedTransactionManager(&self, iid: *const ::windows::runtime::GUID, ppvobject: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(iid), ::std::mem::transmute(ppvobject)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn Enlist2<'a, Param0: ::windows::runtime::IntoParam<'a, ITransaction>, Param1: ::windows::runtime::IntoParam<'a, ITransactionResourceAsync>>(&self, ptransaction: Param0, presasync: Param1, puow: *mut BOID, pisolevel: *mut i32, pxid: *mut xid_t, ppenlist: *mut ::std::option::Option<ITransactionEnlistmentAsync>) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ptransaction.into_param().abi(), presasync.into_param().abi(), ::std::mem::transmute(puow), ::std::mem::transmute(pisolevel), ::std::mem::transmute(pxid), ::std::mem::transmute(ppenlist)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn Reenlist2(&self, pxid: *const xid_t, dwtimeout: u32) -> ::windows::runtime::Result<XACTSTAT> {
         let mut result__: <XACTSTAT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(pxid), ::std::mem::transmute(dwtimeout), &mut result__).from_abi::<XACTSTAT>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn Rejoin(&self, pprepinfo: *const u8, cbprepinfo: u32, ltimeout: u32) -> ::windows::runtime::Result<XACTSTAT> {
         let mut result__: <XACTSTAT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(pprepinfo), ::std::mem::transmute(cbprepinfo), ::std::mem::transmute(ltimeout), &mut result__).from_abi::<XACTSTAT>(result__)
@@ -2257,10 +2454,12 @@ pub struct IResourceManagerRejoinable_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pprepinfo: *const u8, cbprepinfo: u32, ltimeout: u32, pxactstat: *mut XACTSTAT) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IResourceManagerSink(::windows::runtime::IUnknown);
 impl IResourceManagerSink {
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn TMDown(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)).ok()
     }
@@ -2297,6 +2496,7 @@ pub struct IResourceManagerSink_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ISOFLAG(pub i32);
@@ -2320,6 +2520,7 @@ unsafe impl ::windows::runtime::Abi for ISOFLAG {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ISOLATIONLEVEL(pub i32);
@@ -2341,18 +2542,22 @@ unsafe impl ::windows::runtime::Abi for ISOLATIONLEVEL {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITipHelper(::windows::runtime::IUnknown);
 impl ITipHelper {
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn Pull(&self, i_psztxurl: *const u8) -> ::windows::runtime::Result<ITransaction> {
         let mut result__: <ITransaction as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(i_psztxurl), &mut result__).from_abi::<ITransaction>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn PullAsync<'a, Param1: ::windows::runtime::IntoParam<'a, ITipPullSink>>(&self, i_psztxurl: *const u8, i_ptippullsink: Param1) -> ::windows::runtime::Result<ITransaction> {
         let mut result__: <ITransaction as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(i_psztxurl), i_ptippullsink.into_param().abi(), &mut result__).from_abi::<ITransaction>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn GetLocalTmUrl(&self) -> ::windows::runtime::Result<*mut u8> {
         let mut result__: <*mut u8 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut u8>(result__)
@@ -2392,10 +2597,12 @@ pub struct ITipHelper_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, i_psztxurl: *const u8, i_ptippullsink: ::windows::runtime::RawPtr, o_ppitransaction: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, o_ppszlocaltmurl: *mut *mut u8) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITipPullSink(::windows::runtime::IUnknown);
 impl ITipPullSink {
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn PullComplete(&self, i_hrpull: ::windows::runtime::HRESULT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(i_hrpull)).ok()
     }
@@ -2432,16 +2639,19 @@ pub struct ITipPullSink_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, i_hrpull: ::windows::runtime::HRESULT) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITipTransaction(::windows::runtime::IUnknown);
 impl ITipTransaction {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn Push(&self, i_pszremotetmurl: *const u8) -> ::windows::runtime::Result<super::super::Foundation::PSTR> {
         let mut result__: <super::super::Foundation::PSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(i_pszremotetmurl), &mut result__).from_abi::<super::super::Foundation::PSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn GetTransactionUrl(&self) -> ::windows::runtime::Result<super::super::Foundation::PSTR> {
         let mut result__: <super::super::Foundation::PSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::PSTR>(result__)
@@ -2482,15 +2692,18 @@ pub struct ITipTransaction_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, o_ppszlocaltxurl: *mut super::super::Foundation::PSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITmNodeName(::windows::runtime::IUnknown);
 impl ITmNodeName {
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn GetNodeNameSize(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn GetNodeName<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cbnodenamebuffersize: u32, pnodenamebuffer: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(cbnodenamebuffersize), pnodenamebuffer.into_param().abi()).ok()
     }
@@ -2529,18 +2742,22 @@ pub struct ITmNodeName_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, cbnodenamebuffersize: u32, pnodenamebuffer: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITransaction(::windows::runtime::IUnknown);
 impl ITransaction {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn Commit<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fretaining: Param0, grftc: u32, grfrm: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), fretaining.into_param().abi(), ::std::mem::transmute(grftc), ::std::mem::transmute(grfrm)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn Abort<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pboidreason: *const BOID, fretaining: Param1, fasync: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pboidreason), fretaining.into_param().abi(), fasync.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn GetTransactionInfo(&self) -> ::windows::runtime::Result<XACTTRANSINFO> {
         let mut result__: <XACTTRANSINFO as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<XACTTRANSINFO>(result__)
@@ -2582,26 +2799,32 @@ pub struct ITransaction_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pinfo: *mut XACTTRANSINFO) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITransaction2(::windows::runtime::IUnknown);
 impl ITransaction2 {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn Commit<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fretaining: Param0, grftc: u32, grfrm: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), fretaining.into_param().abi(), ::std::mem::transmute(grftc), ::std::mem::transmute(grfrm)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn Abort<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pboidreason: *const BOID, fretaining: Param1, fasync: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pboidreason), fretaining.into_param().abi(), fasync.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn GetTransactionInfo(&self) -> ::windows::runtime::Result<XACTTRANSINFO> {
         let mut result__: <XACTTRANSINFO as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<XACTTRANSINFO>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn CloneWithCommitDisabled(&self) -> ::windows::runtime::Result<ITransaction> {
         let mut result__: <ITransaction as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ITransaction>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn GetTransactionInfo2(&self) -> ::windows::runtime::Result<XACTTRANSINFO> {
         let mut result__: <XACTTRANSINFO as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<XACTTRANSINFO>(result__)
@@ -2685,22 +2908,27 @@ pub struct ITransaction2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppitransaction: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pinfo: *mut XACTTRANSINFO) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITransactionCloner(::windows::runtime::IUnknown);
 impl ITransactionCloner {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn Commit<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fretaining: Param0, grftc: u32, grfrm: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), fretaining.into_param().abi(), ::std::mem::transmute(grftc), ::std::mem::transmute(grfrm)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn Abort<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pboidreason: *const BOID, fretaining: Param1, fasync: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pboidreason), fretaining.into_param().abi(), fasync.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn GetTransactionInfo(&self) -> ::windows::runtime::Result<XACTTRANSINFO> {
         let mut result__: <XACTTRANSINFO as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<XACTTRANSINFO>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn CloneWithCommitDisabled(&self) -> ::windows::runtime::Result<ITransaction> {
         let mut result__: <ITransaction as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ITransaction>(result__)
@@ -2763,14 +2991,17 @@ pub struct ITransactionCloner_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pinfo: *mut XACTTRANSINFO) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppitransaction: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITransactionDispenser(::windows::runtime::IUnknown);
 impl ITransactionDispenser {
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn GetOptionsObject(&self) -> ::windows::runtime::Result<ITransactionOptions> {
         let mut result__: <ITransactionOptions as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ITransactionOptions>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn BeginTransaction<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param3: ::windows::runtime::IntoParam<'a, ITransactionOptions>>(&self, punkouter: Param0, isolevel: i32, isoflags: u32, poptions: Param3) -> ::windows::runtime::Result<ITransaction> {
         let mut result__: <ITransaction as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), punkouter.into_param().abi(), ::std::mem::transmute(isolevel), ::std::mem::transmute(isoflags), poptions.into_param().abi(), &mut result__).from_abi::<ITransaction>(result__)
@@ -2809,17 +3040,21 @@ pub struct ITransactionDispenser_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppoptions: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, punkouter: ::windows::runtime::RawPtr, isolevel: i32, isoflags: u32, poptions: ::windows::runtime::RawPtr, pptransaction: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITransactionEnlistmentAsync(::windows::runtime::IUnknown);
 impl ITransactionEnlistmentAsync {
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_System_Com`*"]
     pub unsafe fn PrepareRequestDone<'a, Param1: ::windows::runtime::IntoParam<'a, super::Com::IMoniker>>(&self, hr: ::windows::runtime::HRESULT, pmk: Param1, pboidreason: *const BOID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(hr), pmk.into_param().abi(), ::std::mem::transmute(pboidreason)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn CommitRequestDone(&self, hr: ::windows::runtime::HRESULT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(hr)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn AbortRequestDone(&self, hr: ::windows::runtime::HRESULT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(hr)).ok()
     }
@@ -2859,14 +3094,17 @@ pub struct ITransactionEnlistmentAsync_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hr: ::windows::runtime::HRESULT) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hr: ::windows::runtime::HRESULT) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITransactionExport(::windows::runtime::IUnknown);
 impl ITransactionExport {
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn Export<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, punktransaction: Param0) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), punktransaction.into_param().abi(), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn GetTransactionCookie<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, punktransaction: Param0, cbtransactioncookie: u32, rgbtransactioncookie: *mut u8, pcbused: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), punktransaction.into_param().abi(), ::std::mem::transmute(cbtransactioncookie), ::std::mem::transmute(rgbtransactioncookie), ::std::mem::transmute(pcbused)).ok()
     }
@@ -2904,14 +3142,17 @@ pub struct ITransactionExport_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, punktransaction: ::windows::runtime::RawPtr, pcbtransactioncookie: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, punktransaction: ::windows::runtime::RawPtr, cbtransactioncookie: u32, rgbtransactioncookie: *mut u8, pcbused: *mut u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITransactionExportFactory(::windows::runtime::IUnknown);
 impl ITransactionExportFactory {
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn GetRemoteClassId(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn Create(&self, cbwhereabouts: u32, rgbwhereabouts: *const u8) -> ::windows::runtime::Result<ITransactionExport> {
         let mut result__: <ITransactionExport as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(cbwhereabouts), ::std::mem::transmute(rgbwhereabouts), &mut result__).from_abi::<ITransactionExport>(result__)
@@ -2950,10 +3191,12 @@ pub struct ITransactionExportFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pclsid: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, cbwhereabouts: u32, rgbwhereabouts: *const u8, ppexport: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITransactionImport(::windows::runtime::IUnknown);
 impl ITransactionImport {
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn Import<T: ::windows::runtime::Interface>(&self, cbtransactioncookie: u32, rgbtransactioncookie: *const u8) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(cbtransactioncookie), ::std::mem::transmute(rgbtransactioncookie), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
@@ -2991,14 +3234,17 @@ pub struct ITransactionImport_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, cbtransactioncookie: u32, rgbtransactioncookie: *const u8, piid: *const ::windows::runtime::GUID, ppvtransaction: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITransactionImportWhereabouts(::windows::runtime::IUnknown);
 impl ITransactionImportWhereabouts {
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn GetWhereaboutsSize(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn GetWhereabouts(&self, cbwhereabouts: u32, rgbwhereabouts: *mut u8, pcbused: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(cbwhereabouts), ::std::mem::transmute(rgbwhereabouts), ::std::mem::transmute(pcbused)).ok()
     }
@@ -3036,10 +3282,12 @@ pub struct ITransactionImportWhereabouts_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcbwhereabouts: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, cbwhereabouts: u32, rgbwhereabouts: *mut u8, pcbused: *mut u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITransactionLastEnlistmentAsync(::windows::runtime::IUnknown);
 impl ITransactionLastEnlistmentAsync {
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn TransactionOutcome(&self, xactstat: XACTSTAT, pboidreason: *const BOID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(xactstat), ::std::mem::transmute(pboidreason)).ok()
     }
@@ -3076,13 +3324,16 @@ pub struct ITransactionLastEnlistmentAsync_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, xactstat: XACTSTAT, pboidreason: *const BOID) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITransactionLastResourceAsync(::windows::runtime::IUnknown);
 impl ITransactionLastResourceAsync {
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn DelegateCommit(&self, grfrm: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(grfrm)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn ForgetRequest(&self, pnewuow: *const BOID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pnewuow)).ok()
     }
@@ -3120,13 +3371,16 @@ pub struct ITransactionLastResourceAsync_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, grfrm: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pnewuow: *const BOID) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITransactionOptions(::windows::runtime::IUnknown);
 impl ITransactionOptions {
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn SetOptions(&self, poptions: *const XACTOPT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(poptions)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn GetOptions(&self, poptions: *mut XACTOPT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(poptions)).ok()
     }
@@ -3164,21 +3418,26 @@ pub struct ITransactionOptions_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, poptions: *const XACTOPT) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, poptions: *mut XACTOPT) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITransactionOutcomeEvents(::windows::runtime::IUnknown);
 impl ITransactionOutcomeEvents {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn Committed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fretaining: Param0, pnewuow: *const BOID, hr: ::windows::runtime::HRESULT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), fretaining.into_param().abi(), ::std::mem::transmute(pnewuow), ::std::mem::transmute(hr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn Aborted<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pboidreason: *const BOID, fretaining: Param1, pnewuow: *const BOID, hr: ::windows::runtime::HRESULT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pboidreason), fretaining.into_param().abi(), ::std::mem::transmute(pnewuow), ::std::mem::transmute(hr)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn HeuristicDecision(&self, dwdecision: u32, pboidreason: *const BOID, hr: ::windows::runtime::HRESULT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwdecision), ::std::mem::transmute(pboidreason), ::std::mem::transmute(hr)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn Indoubt(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self)).ok()
     }
@@ -3220,22 +3479,28 @@ pub struct ITransactionOutcomeEvents_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwdecision: u32, pboidreason: *const BOID, hr: ::windows::runtime::HRESULT) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITransactionPhase0EnlistmentAsync(::windows::runtime::IUnknown);
 impl ITransactionPhase0EnlistmentAsync {
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn Enable(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn WaitForEnlistment(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn Phase0Done(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn Unenlist(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn GetTransaction(&self) -> ::windows::runtime::Result<ITransaction> {
         let mut result__: <ITransaction as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ITransaction>(result__)
@@ -3277,10 +3542,12 @@ pub struct ITransactionPhase0EnlistmentAsync_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppitransaction: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITransactionPhase0Factory(::windows::runtime::IUnknown);
 impl ITransactionPhase0Factory {
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn Create<'a, Param0: ::windows::runtime::IntoParam<'a, ITransactionPhase0NotifyAsync>>(&self, pphase0notify: Param0) -> ::windows::runtime::Result<ITransactionPhase0EnlistmentAsync> {
         let mut result__: <ITransactionPhase0EnlistmentAsync as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pphase0notify.into_param().abi(), &mut result__).from_abi::<ITransactionPhase0EnlistmentAsync>(result__)
@@ -3318,14 +3585,17 @@ pub struct ITransactionPhase0Factory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pphase0notify: ::windows::runtime::RawPtr, ppphase0enlistment: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITransactionPhase0NotifyAsync(::windows::runtime::IUnknown);
 impl ITransactionPhase0NotifyAsync {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn Phase0Request<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fabortinghint: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), fabortinghint.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn EnlistCompleted(&self, status: ::windows::runtime::HRESULT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(status)).ok()
     }
@@ -3364,21 +3634,26 @@ pub struct ITransactionPhase0NotifyAsync_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, status: ::windows::runtime::HRESULT) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITransactionReceiver(::windows::runtime::IUnknown);
 impl ITransactionReceiver {
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn UnmarshalPropagationToken(&self, cbtoken: u32, rgbtoken: *const u8) -> ::windows::runtime::Result<ITransaction> {
         let mut result__: <ITransaction as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(cbtoken), ::std::mem::transmute(rgbtoken), &mut result__).from_abi::<ITransaction>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn GetReturnTokenSize(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn MarshalReturnToken(&self, cbreturntoken: u32, rgbreturntoken: *mut u8, pcbused: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(cbreturntoken), ::std::mem::transmute(rgbreturntoken), ::std::mem::transmute(pcbused)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self)).ok()
     }
@@ -3418,10 +3693,12 @@ pub struct ITransactionReceiver_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, cbreturntoken: u32, rgbreturntoken: *mut u8, pcbused: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITransactionReceiverFactory(::windows::runtime::IUnknown);
 impl ITransactionReceiverFactory {
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn Create(&self) -> ::windows::runtime::Result<ITransactionReceiver> {
         let mut result__: <ITransactionReceiver as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ITransactionReceiver>(result__)
@@ -3459,21 +3736,26 @@ pub struct ITransactionReceiverFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppreceiver: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITransactionResource(::windows::runtime::IUnknown);
 impl ITransactionResource {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn PrepareRequest<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fretaining: Param0, grfrm: u32, fwantmoniker: Param2, fsinglephase: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), fretaining.into_param().abi(), ::std::mem::transmute(grfrm), fwantmoniker.into_param().abi(), fsinglephase.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn CommitRequest(&self, grfrm: u32, pnewuow: *const BOID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(grfrm), ::std::mem::transmute(pnewuow)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn AbortRequest<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pboidreason: *const BOID, fretaining: Param1, pnewuow: *const BOID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(pboidreason), fretaining.into_param().abi(), ::std::mem::transmute(pnewuow)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn TMDown(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self)).ok()
     }
@@ -3515,21 +3797,26 @@ pub struct ITransactionResource_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITransactionResourceAsync(::windows::runtime::IUnknown);
 impl ITransactionResourceAsync {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn PrepareRequest<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fretaining: Param0, grfrm: u32, fwantmoniker: Param2, fsinglephase: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), fretaining.into_param().abi(), ::std::mem::transmute(grfrm), fwantmoniker.into_param().abi(), fsinglephase.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn CommitRequest(&self, grfrm: u32, pnewuow: *const BOID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(grfrm), ::std::mem::transmute(pnewuow)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn AbortRequest<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pboidreason: *const BOID, fretaining: Param1, pnewuow: *const BOID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(pboidreason), fretaining.into_param().abi(), ::std::mem::transmute(pnewuow)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn TMDown(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self)).ok()
     }
@@ -3571,23 +3858,29 @@ pub struct ITransactionResourceAsync_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITransactionTransmitter(::windows::runtime::IUnknown);
 impl ITransactionTransmitter {
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn Set<'a, Param0: ::windows::runtime::IntoParam<'a, ITransaction>>(&self, ptransaction: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ptransaction.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn GetPropagationTokenSize(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn MarshalPropagationToken(&self, cbtoken: u32, rgbtoken: *mut u8, pcbused: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(cbtoken), ::std::mem::transmute(rgbtoken), ::std::mem::transmute(pcbused)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn UnmarshalReturnToken(&self, cbreturntoken: u32, rgbreturntoken: *const u8) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(cbreturntoken), ::std::mem::transmute(rgbreturntoken)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)).ok()
     }
@@ -3628,10 +3921,12 @@ pub struct ITransactionTransmitter_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, cbreturntoken: u32, rgbreturntoken: *const u8) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITransactionTransmitterFactory(::windows::runtime::IUnknown);
 impl ITransactionTransmitterFactory {
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn Create(&self) -> ::windows::runtime::Result<ITransactionTransmitter> {
         let mut result__: <ITransactionTransmitter as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ITransactionTransmitter>(result__)
@@ -3669,10 +3964,12 @@ pub struct ITransactionTransmitterFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pptransmitter: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITransactionVoterBallotAsync2(::windows::runtime::IUnknown);
 impl ITransactionVoterBallotAsync2 {
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn VoteRequestDone(&self, hr: ::windows::runtime::HRESULT, pboidreason: *const BOID) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(hr), ::std::mem::transmute(pboidreason)).ok()
     }
@@ -3709,10 +4006,12 @@ pub struct ITransactionVoterBallotAsync2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hr: ::windows::runtime::HRESULT, pboidreason: *const BOID) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITransactionVoterFactory2(::windows::runtime::IUnknown);
 impl ITransactionVoterFactory2 {
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn Create<'a, Param0: ::windows::runtime::IntoParam<'a, ITransaction>, Param1: ::windows::runtime::IntoParam<'a, ITransactionVoterNotifyAsync2>>(&self, ptransaction: Param0, pvoternotify: Param1) -> ::windows::runtime::Result<ITransactionVoterBallotAsync2> {
         let mut result__: <ITransactionVoterBallotAsync2 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ptransaction.into_param().abi(), pvoternotify.into_param().abi(), &mut result__).from_abi::<ITransactionVoterBallotAsync2>(result__)
@@ -3750,24 +4049,30 @@ pub struct ITransactionVoterFactory2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ptransaction: ::windows::runtime::RawPtr, pvoternotify: ::windows::runtime::RawPtr, ppvoterballot: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITransactionVoterNotifyAsync2(::windows::runtime::IUnknown);
 impl ITransactionVoterNotifyAsync2 {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn Committed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fretaining: Param0, pnewuow: *const BOID, hr: ::windows::runtime::HRESULT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), fretaining.into_param().abi(), ::std::mem::transmute(pnewuow), ::std::mem::transmute(hr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn Aborted<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pboidreason: *const BOID, fretaining: Param1, pnewuow: *const BOID, hr: ::windows::runtime::HRESULT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pboidreason), fretaining.into_param().abi(), ::std::mem::transmute(pnewuow), ::std::mem::transmute(hr)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn HeuristicDecision(&self, dwdecision: u32, pboidreason: *const BOID, hr: ::windows::runtime::HRESULT) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwdecision), ::std::mem::transmute(pboidreason), ::std::mem::transmute(hr)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn Indoubt(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn VoteRequest(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)).ok()
     }
@@ -3830,13 +4135,16 @@ pub struct ITransactionVoterNotifyAsync2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXAConfig(::windows::runtime::IUnknown);
 impl IXAConfig {
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, clsidhelperdll: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), clsidhelperdll.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn Terminate(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
@@ -3874,10 +4182,12 @@ pub struct IXAConfig_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, clsidhelperdll: ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXAObtainRMInfo(::windows::runtime::IUnknown);
 impl IXAObtainRMInfo {
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn ObtainRMInfo<'a, Param0: ::windows::runtime::IntoParam<'a, IRMHelper>>(&self, pirmhelper: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pirmhelper.into_param().abi()).ok()
     }
@@ -3914,10 +4224,12 @@ pub struct IXAObtainRMInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pirmhelper: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXATransLookup(::windows::runtime::IUnknown);
 impl IXATransLookup {
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
     pub unsafe fn Lookup(&self) -> ::windows::runtime::Result<ITransaction> {
         let mut result__: <ITransaction as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ITransaction>(result__)
@@ -3955,11 +4267,13 @@ pub struct IXATransLookup_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pptransaction: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXATransLookup2(::windows::runtime::IUnknown);
 impl IXATransLookup2 {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
     pub unsafe fn Lookup(&self, pxid: *const xid_t) -> ::windows::runtime::Result<ITransaction> {
         let mut result__: <ITransaction as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pxid), &mut result__).from_abi::<ITransaction>(result__)
@@ -3998,11 +4312,15 @@ pub struct IXATransLookup2_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pxid: *const xid_t, pptransaction: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const MAXBQUALSIZE: u32 = 64u32;
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const MAXGTRIDSIZE: u32 = 64u32;
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const MAXINFOSIZE: u32 = 256u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub struct OLE_TM_CONFIG_PARAMS_V1 {
     pub dwVersion: u32,
     pub dwcConcurrencyHint: u32,
@@ -4030,6 +4348,7 @@ unsafe impl ::windows::runtime::Abi for OLE_TM_CONFIG_PARAMS_V1 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub struct OLE_TM_CONFIG_PARAMS_V2 {
     pub dwVersion: u32,
     pub dwcConcurrencyHint: u32,
@@ -4057,36 +4376,67 @@ unsafe impl ::windows::runtime::Abi for OLE_TM_CONFIG_PARAMS_V2 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const OLE_TM_CONFIG_VERSION_1: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const OLE_TM_CONFIG_VERSION_2: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const OLE_TM_FLAG_INTERNAL_TO_TM: u32 = 1073741824u32;
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const OLE_TM_FLAG_NOAGILERECOVERY: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const OLE_TM_FLAG_NODEMANDSTART: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const OLE_TM_FLAG_NONE: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const OLE_TM_FLAG_QUERY_SERVICE_LOCKSTATUS: u32 = 2147483648u32;
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const RMNAMESZ: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const TMASYNC: i32 = -2147483648i32;
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const TMENDRSCAN: i32 = 8388608i32;
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const TMER_INVAL: i32 = -2i32;
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const TMER_PROTO: i32 = -3i32;
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const TMER_TMERR: i32 = -1i32;
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const TMFAIL: i32 = 536870912i32;
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const TMJOIN: i32 = 2097152i32;
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const TMMIGRATE: i32 = 1048576i32;
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const TMMULTIPLE: i32 = 4194304i32;
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const TMNOFLAGS: i32 = 0i32;
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const TMNOMIGRATE: i32 = 2i32;
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const TMNOWAIT: i32 = 268435456i32;
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const TMONEPHASE: i32 = 1073741824i32;
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const TMREGISTER: i32 = 1i32;
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const TMRESUME: i32 = 134217728i32;
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const TMSTARTRSCAN: i32 = 16777216i32;
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const TMSUCCESS: i32 = 67108864i32;
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const TMSUSPEND: i32 = 33554432i32;
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const TMUSEASYNC: i32 = 4i32;
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const TM_JOIN: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const TM_OK: u32 = 0u32;
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const TM_RESUME: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TX_MISC_CONSTANTS(pub i32);
@@ -4100,6 +4450,7 @@ unsafe impl ::windows::runtime::Abi for TX_MISC_CONSTANTS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct XACTCONST(pub i32);
@@ -4113,6 +4464,7 @@ unsafe impl ::windows::runtime::Abi for XACTCONST {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct XACTHEURISTIC(pub i32);
@@ -4131,6 +4483,7 @@ unsafe impl ::windows::runtime::Abi for XACTHEURISTIC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub struct XACTOPT {
     pub ulTimeout: u32,
     pub szDescription: [u8; 40],
@@ -4156,6 +4509,7 @@ unsafe impl ::windows::runtime::Abi for XACTOPT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct XACTRM(pub i32);
@@ -4170,6 +4524,7 @@ unsafe impl ::windows::runtime::Abi for XACTRM {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct XACTSTAT(pub i32);
@@ -4208,6 +4563,7 @@ unsafe impl ::windows::runtime::Abi for XACTSTAT {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
 pub struct XACTSTATS {
     pub cOpen: u32,
     pub cCommitting: u32,
@@ -4254,6 +4610,7 @@ unsafe impl ::windows::runtime::Abi for XACTSTATS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct XACTTC(pub i32);
@@ -4274,6 +4631,7 @@ unsafe impl ::windows::runtime::Abi for XACTTC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub struct XACTTRANSINFO {
     pub uow: BOID,
     pub isoLevel: i32,
@@ -4312,6 +4670,7 @@ unsafe impl ::windows::runtime::Abi for XACTTRANSINFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct XACT_DTC_CONSTANTS(pub i32);
@@ -4347,13 +4706,21 @@ unsafe impl ::windows::runtime::Abi for XACT_DTC_CONSTANTS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const XAER_ASYNC: i32 = -2i32;
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const XAER_DUPID: i32 = -8i32;
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const XAER_INVAL: i32 = -5i32;
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const XAER_NOTA: i32 = -4i32;
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const XAER_OUTSIDE: i32 = -9i32;
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const XAER_PROTO: i32 = -6i32;
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const XAER_RMERR: i32 = -3i32;
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const XAER_RMFAIL: i32 = -7i32;
 #[cfg(feature = "Win32_Foundation")]
 pub type XA_CLOSE_EPT = unsafe extern "system" fn(param0: super::super::Foundation::PSTR, param1: i32, param2: i32) -> i32;
@@ -4362,40 +4729,63 @@ pub type XA_COMMIT_EPT = unsafe extern "system" fn(param0: *mut xid_t, param1: i
 pub type XA_COMPLETE_EPT = unsafe extern "system" fn(param0: *mut i32, param1: *mut i32, param2: i32, param3: i32) -> i32;
 #[cfg(feature = "Win32_Foundation")]
 pub type XA_END_EPT = unsafe extern "system" fn(param0: *mut xid_t, param1: i32, param2: i32) -> i32;
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const XA_FMTID_DTC: u32 = 4478019u32;
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const XA_FMTID_DTC_VER1: u32 = 21255235u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type XA_FORGET_EPT = unsafe extern "system" fn(param0: *mut xid_t, param1: i32, param2: i32) -> i32;
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const XA_HEURCOM: u32 = 7u32;
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const XA_HEURHAZ: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const XA_HEURMIX: u32 = 5u32;
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const XA_HEURRB: u32 = 6u32;
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const XA_NOMIGRATE: u32 = 9u32;
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const XA_OK: u32 = 0u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type XA_OPEN_EPT = unsafe extern "system" fn(param0: super::super::Foundation::PSTR, param1: i32, param2: i32) -> i32;
 #[cfg(feature = "Win32_Foundation")]
 pub type XA_PREPARE_EPT = unsafe extern "system" fn(param0: *mut xid_t, param1: i32, param2: i32) -> i32;
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const XA_RBBASE: u32 = 100u32;
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const XA_RBCOMMFAIL: u32 = 101u32;
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const XA_RBDEADLOCK: u32 = 102u32;
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const XA_RBEND: u32 = 107u32;
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const XA_RBINTEGRITY: u32 = 103u32;
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const XA_RBOTHER: u32 = 104u32;
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const XA_RBPROTO: u32 = 105u32;
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const XA_RBROLLBACK: u32 = 100u32;
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const XA_RBTIMEOUT: u32 = 106u32;
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const XA_RBTRANSIENT: u32 = 107u32;
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const XA_RDONLY: u32 = 3u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type XA_RECOVER_EPT = unsafe extern "system" fn(param0: *mut xid_t, param1: i32, param2: i32, param3: i32) -> i32;
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const XA_RETRY: u32 = 4u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type XA_ROLLBACK_EPT = unsafe extern "system" fn(param0: *mut xid_t, param1: i32, param2: i32) -> i32;
 #[cfg(feature = "Win32_Foundation")]
 pub type XA_START_EPT = unsafe extern "system" fn(param0: *mut xid_t, param1: i32, param2: i32) -> i32;
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const XA_SWITCH_F_DTC: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const XIDDATASIZE: u32 = 128u32;
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct _DtcLu_CompareState(pub i32);
@@ -4414,6 +4804,7 @@ unsafe impl ::windows::runtime::Abi for _DtcLu_CompareState {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct _DtcLu_CompareStates_Confirmation(pub i32);
@@ -4428,6 +4819,7 @@ unsafe impl ::windows::runtime::Abi for _DtcLu_CompareStates_Confirmation {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct _DtcLu_CompareStates_Error(pub i32);
@@ -4441,6 +4833,7 @@ unsafe impl ::windows::runtime::Abi for _DtcLu_CompareStates_Error {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct _DtcLu_CompareStates_Response(pub i32);
@@ -4455,6 +4848,7 @@ unsafe impl ::windows::runtime::Abi for _DtcLu_CompareStates_Response {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct _DtcLu_LocalRecovery_Work(pub i32);
@@ -4470,6 +4864,7 @@ unsafe impl ::windows::runtime::Abi for _DtcLu_LocalRecovery_Work {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct _DtcLu_Xln(pub i32);
@@ -4484,6 +4879,7 @@ unsafe impl ::windows::runtime::Abi for _DtcLu_Xln {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct _DtcLu_Xln_Confirmation(pub i32);
@@ -4500,6 +4896,7 @@ unsafe impl ::windows::runtime::Abi for _DtcLu_Xln_Confirmation {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct _DtcLu_Xln_Error(pub i32);
@@ -4515,6 +4912,7 @@ unsafe impl ::windows::runtime::Abi for _DtcLu_Xln_Error {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct _DtcLu_Xln_Response(pub i32);
@@ -4533,6 +4931,7 @@ unsafe impl ::windows::runtime::Abi for _DtcLu_Xln_Response {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub struct _ProxyConfigParams {
     pub wcThreadsMax: u16,
 }
@@ -4560,6 +4959,7 @@ unsafe impl ::windows::runtime::Abi for _ProxyConfigParams {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
 pub struct xa_switch_t {
     pub name: [super::super::Foundation::CHAR; 32],
     pub flags: i32,
@@ -4631,6 +5031,7 @@ unsafe impl ::windows::runtime::Abi for xa_switch_t {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
 pub struct xid_t {
     pub formatID: i32,
     pub gtrid_length: i32,

@@ -1,5 +1,6 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`, `Win32_Graphics_Direct3D11`*"]
 #[inline]
 pub unsafe fn D3D10CompileEffectFromMemory<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::runtime::IntoParam<'a, super::Direct3D11::ID3DInclude>>(
     pdata: *const ::std::ffi::c_void,
@@ -24,6 +25,7 @@ pub unsafe fn D3D10CompileEffectFromMemory<'a, Param2: ::windows::runtime::IntoP
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`, `Win32_Graphics_Direct3D11`*"]
 #[inline]
 pub unsafe fn D3D10CompileShader<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::runtime::IntoParam<'a, super::Direct3D11::ID3DInclude>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(
     psrcdata: Param0,
@@ -61,6 +63,7 @@ pub unsafe fn D3D10CompileShader<'a, Param0: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Direct3D11")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Graphics_Direct3D11`*"]
 #[inline]
 pub unsafe fn D3D10CreateBlob(numbytes: usize) -> ::windows::runtime::Result<super::Direct3D11::ID3DBlob> {
     #[cfg(windows)]
@@ -76,6 +79,7 @@ pub unsafe fn D3D10CreateBlob(numbytes: usize) -> ::windows::runtime::Result<sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`, `Win32_Graphics_Dxgi`*"]
 #[inline]
 pub unsafe fn D3D10CreateDevice<'a, Param0: ::windows::runtime::IntoParam<'a, super::Dxgi::IDXGIAdapter>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>>(padapter: Param0, drivertype: D3D10_DRIVER_TYPE, software: Param2, flags: u32, sdkversion: u32) -> ::windows::runtime::Result<ID3D10Device> {
     #[cfg(windows)]
@@ -91,6 +95,7 @@ pub unsafe fn D3D10CreateDevice<'a, Param0: ::windows::runtime::IntoParam<'a, su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`, `Win32_Graphics_Dxgi`*"]
 #[inline]
 pub unsafe fn D3D10CreateDevice1<'a, Param0: ::windows::runtime::IntoParam<'a, super::Dxgi::IDXGIAdapter>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>>(padapter: Param0, drivertype: D3D10_DRIVER_TYPE, software: Param2, flags: u32, hardwarelevel: D3D10_FEATURE_LEVEL1, sdkversion: u32) -> ::windows::runtime::Result<ID3D10Device1> {
     #[cfg(windows)]
@@ -106,6 +111,7 @@ pub unsafe fn D3D10CreateDevice1<'a, Param0: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`, `Win32_Graphics_Dxgi`*"]
 #[inline]
 pub unsafe fn D3D10CreateDeviceAndSwapChain<'a, Param0: ::windows::runtime::IntoParam<'a, super::Dxgi::IDXGIAdapter>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>>(
     padapter: Param0,
@@ -129,6 +135,7 @@ pub unsafe fn D3D10CreateDeviceAndSwapChain<'a, Param0: ::windows::runtime::Into
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`, `Win32_Graphics_Dxgi`*"]
 #[inline]
 pub unsafe fn D3D10CreateDeviceAndSwapChain1<'a, Param0: ::windows::runtime::IntoParam<'a, super::Dxgi::IDXGIAdapter>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>>(
     padapter: Param0,
@@ -163,6 +170,7 @@ pub unsafe fn D3D10CreateDeviceAndSwapChain1<'a, Param0: ::windows::runtime::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[inline]
 pub unsafe fn D3D10CreateEffectFromMemory<'a, Param3: ::windows::runtime::IntoParam<'a, ID3D10Device>, Param4: ::windows::runtime::IntoParam<'a, ID3D10EffectPool>>(pdata: *const ::std::ffi::c_void, datalength: usize, fxflags: u32, pdevice: Param3, peffectpool: Param4) -> ::windows::runtime::Result<ID3D10Effect> {
     #[cfg(windows)]
@@ -177,6 +185,7 @@ pub unsafe fn D3D10CreateEffectFromMemory<'a, Param3: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[inline]
 pub unsafe fn D3D10CreateEffectPoolFromMemory<'a, Param3: ::windows::runtime::IntoParam<'a, ID3D10Device>>(pdata: *const ::std::ffi::c_void, datalength: usize, fxflags: u32, pdevice: Param3) -> ::windows::runtime::Result<ID3D10EffectPool> {
     #[cfg(windows)]
@@ -191,6 +200,7 @@ pub unsafe fn D3D10CreateEffectPoolFromMemory<'a, Param3: ::windows::runtime::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[inline]
 pub unsafe fn D3D10CreateStateBlock<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D10Device>>(pdevice: Param0, pstateblockmask: *const D3D10_STATE_BLOCK_MASK) -> ::windows::runtime::Result<ID3D10StateBlock> {
     #[cfg(windows)]
@@ -206,6 +216,7 @@ pub unsafe fn D3D10CreateStateBlock<'a, Param0: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`, `Win32_Graphics_Direct3D11`*"]
 #[inline]
 pub unsafe fn D3D10DisassembleEffect<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D10Effect>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(peffect: Param0, enablecolorcode: Param1) -> ::windows::runtime::Result<super::Direct3D11::ID3DBlob> {
     #[cfg(windows)]
@@ -221,6 +232,7 @@ pub unsafe fn D3D10DisassembleEffect<'a, Param0: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`, `Win32_Graphics_Direct3D11`*"]
 #[inline]
 pub unsafe fn D3D10DisassembleShader<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pshader: *const ::std::ffi::c_void, bytecodelength: usize, enablecolorcode: Param2, pcomments: Param3) -> ::windows::runtime::Result<super::Direct3D11::ID3DBlob> {
     #[cfg(windows)]
@@ -236,6 +248,7 @@ pub unsafe fn D3D10DisassembleShader<'a, Param2: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn D3D10GetGeometryShaderProfile<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D10Device>>(pdevice: Param0) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
@@ -250,6 +263,7 @@ pub unsafe fn D3D10GetGeometryShaderProfile<'a, Param0: ::windows::runtime::Into
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Direct3D11")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Graphics_Direct3D11`*"]
 #[inline]
 pub unsafe fn D3D10GetInputAndOutputSignatureBlob(pshaderbytecode: *const ::std::ffi::c_void, bytecodelength: usize) -> ::windows::runtime::Result<super::Direct3D11::ID3DBlob> {
     #[cfg(windows)]
@@ -265,6 +279,7 @@ pub unsafe fn D3D10GetInputAndOutputSignatureBlob(pshaderbytecode: *const ::std:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Direct3D11")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Graphics_Direct3D11`*"]
 #[inline]
 pub unsafe fn D3D10GetInputSignatureBlob(pshaderbytecode: *const ::std::ffi::c_void, bytecodelength: usize) -> ::windows::runtime::Result<super::Direct3D11::ID3DBlob> {
     #[cfg(windows)]
@@ -280,6 +295,7 @@ pub unsafe fn D3D10GetInputSignatureBlob(pshaderbytecode: *const ::std::ffi::c_v
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Direct3D11")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Graphics_Direct3D11`*"]
 #[inline]
 pub unsafe fn D3D10GetOutputSignatureBlob(pshaderbytecode: *const ::std::ffi::c_void, bytecodelength: usize) -> ::windows::runtime::Result<super::Direct3D11::ID3DBlob> {
     #[cfg(windows)]
@@ -295,6 +311,7 @@ pub unsafe fn D3D10GetOutputSignatureBlob(pshaderbytecode: *const ::std::ffi::c_
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn D3D10GetPixelShaderProfile<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D10Device>>(pdevice: Param0) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
@@ -309,6 +326,7 @@ pub unsafe fn D3D10GetPixelShaderProfile<'a, Param0: ::windows::runtime::IntoPar
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Direct3D11")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Graphics_Direct3D11`*"]
 #[inline]
 pub unsafe fn D3D10GetShaderDebugInfo(pshaderbytecode: *const ::std::ffi::c_void, bytecodelength: usize) -> ::windows::runtime::Result<super::Direct3D11::ID3DBlob> {
     #[cfg(windows)]
@@ -324,6 +342,7 @@ pub unsafe fn D3D10GetShaderDebugInfo(pshaderbytecode: *const ::std::ffi::c_void
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn D3D10GetVertexShaderProfile<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D10Device>>(pdevice: Param0) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
@@ -338,6 +357,7 @@ pub unsafe fn D3D10GetVertexShaderProfile<'a, Param0: ::windows::runtime::IntoPa
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`, `Win32_Graphics_Direct3D11`*"]
 #[inline]
 pub unsafe fn D3D10PreprocessShader<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::runtime::IntoParam<'a, super::Direct3D11::ID3DInclude>>(
     psrcdata: Param0,
@@ -359,6 +379,7 @@ pub unsafe fn D3D10PreprocessShader<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[inline]
 pub unsafe fn D3D10ReflectShader(pshaderbytecode: *const ::std::ffi::c_void, bytecodelength: usize) -> ::windows::runtime::Result<ID3D10ShaderReflection> {
     #[cfg(windows)]
@@ -373,6 +394,7 @@ pub unsafe fn D3D10ReflectShader(pshaderbytecode: *const ::std::ffi::c_void, byt
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[inline]
 pub unsafe fn D3D10StateBlockMaskDifference(pa: *const D3D10_STATE_BLOCK_MASK, pb: *const D3D10_STATE_BLOCK_MASK) -> ::windows::runtime::Result<D3D10_STATE_BLOCK_MASK> {
     #[cfg(windows)]
@@ -387,6 +409,7 @@ pub unsafe fn D3D10StateBlockMaskDifference(pa: *const D3D10_STATE_BLOCK_MASK, p
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[inline]
 pub unsafe fn D3D10StateBlockMaskDisableAll() -> ::windows::runtime::Result<D3D10_STATE_BLOCK_MASK> {
     #[cfg(windows)]
@@ -401,6 +424,7 @@ pub unsafe fn D3D10StateBlockMaskDisableAll() -> ::windows::runtime::Result<D3D1
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[inline]
 pub unsafe fn D3D10StateBlockMaskDisableCapture(pmask: *mut D3D10_STATE_BLOCK_MASK, statetype: D3D10_DEVICE_STATE_TYPES, rangestart: u32, rangelength: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -414,6 +438,7 @@ pub unsafe fn D3D10StateBlockMaskDisableCapture(pmask: *mut D3D10_STATE_BLOCK_MA
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[inline]
 pub unsafe fn D3D10StateBlockMaskEnableAll() -> ::windows::runtime::Result<D3D10_STATE_BLOCK_MASK> {
     #[cfg(windows)]
@@ -428,6 +453,7 @@ pub unsafe fn D3D10StateBlockMaskEnableAll() -> ::windows::runtime::Result<D3D10
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[inline]
 pub unsafe fn D3D10StateBlockMaskEnableCapture(pmask: *mut D3D10_STATE_BLOCK_MASK, statetype: D3D10_DEVICE_STATE_TYPES, rangestart: u32, rangelength: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -442,6 +468,7 @@ pub unsafe fn D3D10StateBlockMaskEnableCapture(pmask: *mut D3D10_STATE_BLOCK_MAS
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn D3D10StateBlockMaskGetSetting(pmask: *const D3D10_STATE_BLOCK_MASK, statetype: D3D10_DEVICE_STATE_TYPES, entry: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -455,6 +482,7 @@ pub unsafe fn D3D10StateBlockMaskGetSetting(pmask: *const D3D10_STATE_BLOCK_MASK
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[inline]
 pub unsafe fn D3D10StateBlockMaskIntersect(pa: *const D3D10_STATE_BLOCK_MASK, pb: *const D3D10_STATE_BLOCK_MASK) -> ::windows::runtime::Result<D3D10_STATE_BLOCK_MASK> {
     #[cfg(windows)]
@@ -469,6 +497,7 @@ pub unsafe fn D3D10StateBlockMaskIntersect(pa: *const D3D10_STATE_BLOCK_MASK, pb
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[inline]
 pub unsafe fn D3D10StateBlockMaskUnion(pa: *const D3D10_STATE_BLOCK_MASK, pb: *const D3D10_STATE_BLOCK_MASK) -> ::windows::runtime::Result<D3D10_STATE_BLOCK_MASK> {
     #[cfg(windows)]
@@ -483,34 +512,63 @@ pub unsafe fn D3D10StateBlockMaskUnion(pa: *const D3D10_STATE_BLOCK_MASK, pb: *c
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_16BIT_INDEX_STRIP_CUT_VALUE: u32 = 65535u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_1_DEFAULT_SAMPLE_MASK: u32 = 4294967295u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_1_FLOAT16_FUSED_TOLERANCE_IN_ULP: f64 = 0.6f64;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_1_FLOAT32_TO_INTEGER_TOLERANCE_IN_ULP: f32 = 0.6f32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_1_GS_INPUT_REGISTER_COUNT: u32 = 32u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_1_IA_VERTEX_INPUT_RESOURCE_SLOT_COUNT: u32 = 16u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_1_IA_VERTEX_INPUT_STRUCTURE_ELEMENTS_COMPONENTS: u32 = 128u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_1_IA_VERTEX_INPUT_STRUCTURE_ELEMENT_COUNT: u32 = 16u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_1_PS_OUTPUT_MASK_REGISTER_COMPONENTS: u32 = 1u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_1_PS_OUTPUT_MASK_REGISTER_COMPONENT_BIT_COUNT: u32 = 32u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_1_PS_OUTPUT_MASK_REGISTER_COUNT: u32 = 1u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_1_SHADER_MAJOR_VERSION: u32 = 4u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_1_SHADER_MINOR_VERSION: u32 = 1u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_1_SO_BUFFER_MAX_STRIDE_IN_BYTES: u32 = 2048u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_1_SO_BUFFER_MAX_WRITE_WINDOW_IN_BYTES: u32 = 256u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_1_SO_BUFFER_SLOT_COUNT: u32 = 4u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_1_SO_MULTIPLE_BUFFER_ELEMENTS_PER_BUFFER: u32 = 1u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_1_SO_SINGLE_BUFFER_COMPONENT_LIMIT: u32 = 64u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_1_STANDARD_VERTEX_ELEMENT_COUNT: u32 = 32u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_1_SUBPIXEL_FRACTIONAL_BIT_COUNT: u32 = 8u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_1_VS_INPUT_REGISTER_COUNT: u32 = 32u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_1_VS_OUTPUT_REGISTER_COUNT: u32 = 32u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_32BIT_INDEX_STRIP_CUT_VALUE: u32 = 4294967295u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_8BIT_INDEX_STRIP_CUT_VALUE: u32 = 255u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_ALL_RESOURCES_BOUND: u32 = 2097152u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_ANISOTROPIC_FILTERING_BIT: u32 = 64u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_APPEND_ALIGNED_ELEMENT: u32 = 4294967295u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_ARRAY_AXIS_ADDRESS_RANGE_BIT_COUNT: u32 = 9u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3D10_ASYNC_GETDATA_FLAG(pub i32);
@@ -524,6 +582,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_ASYNC_GETDATA_FLAG {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3D10_BIND_FLAG(pub i32);
@@ -543,6 +602,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_BIND_FLAG {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3D10_BLEND(pub i32);
@@ -575,6 +635,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_BLEND {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
 pub struct D3D10_BLEND_DESC {
     pub AlphaToCoverageEnable: super::super::Foundation::BOOL,
     pub BlendEnable: [super::super::Foundation::BOOL; 8],
@@ -626,6 +687,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_BLEND_DESC {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
 pub struct D3D10_BLEND_DESC1 {
     pub AlphaToCoverageEnable: super::super::Foundation::BOOL,
     pub IndependentBlendEnable: super::super::Foundation::BOOL,
@@ -658,6 +720,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_BLEND_DESC1 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3D10_BLEND_OP(pub i32);
@@ -677,6 +740,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_BLEND_OP {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub struct D3D10_BOX {
     pub left: u32,
     pub top: u32,
@@ -708,6 +772,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_BOX {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub struct D3D10_BUFFER_DESC {
     pub ByteWidth: u32,
     pub Usage: D3D10_USAGE,
@@ -738,6 +803,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_BUFFER_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub struct D3D10_BUFFER_RTV {
     pub Anonymous1: D3D10_BUFFER_RTV_0,
     pub Anonymous2: D3D10_BUFFER_RTV_1,
@@ -760,6 +826,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_BUFFER_RTV {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub union D3D10_BUFFER_RTV_0 {
     pub FirstElement: u32,
     pub ElementOffset: u32,
@@ -782,6 +849,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_BUFFER_RTV_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub union D3D10_BUFFER_RTV_1 {
     pub NumElements: u32,
     pub ElementWidth: u32,
@@ -804,6 +872,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_BUFFER_RTV_1 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub struct D3D10_BUFFER_SRV {
     pub Anonymous1: D3D10_BUFFER_SRV_0,
     pub Anonymous2: D3D10_BUFFER_SRV_1,
@@ -826,6 +895,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_BUFFER_SRV {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub union D3D10_BUFFER_SRV_0 {
     pub FirstElement: u32,
     pub ElementOffset: u32,
@@ -848,6 +918,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_BUFFER_SRV_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub union D3D10_BUFFER_SRV_1 {
     pub NumElements: u32,
     pub ElementWidth: u32,
@@ -868,6 +939,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_BUFFER_SRV_1 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3D10_CLEAR_FLAG(pub i32);
@@ -882,8 +954,11 @@ unsafe impl ::windows::runtime::Abi for D3D10_CLEAR_FLAG {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_CLIP_OR_CULL_DISTANCE_COUNT: u32 = 8u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_CLIP_OR_CULL_DISTANCE_ELEMENT_COUNT: u32 = 2u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3D10_COLOR_WRITE_ENABLE(pub i32);
@@ -901,41 +976,77 @@ unsafe impl ::windows::runtime::Abi for D3D10_COLOR_WRITE_ENABLE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_COMMONSHADER_CONSTANT_BUFFER_API_SLOT_COUNT: u32 = 14u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_COMMONSHADER_CONSTANT_BUFFER_COMPONENTS: u32 = 4u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_COMMONSHADER_CONSTANT_BUFFER_COMPONENT_BIT_COUNT: u32 = 32u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_COMMONSHADER_CONSTANT_BUFFER_HW_SLOT_COUNT: u32 = 15u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_COMMONSHADER_CONSTANT_BUFFER_REGISTER_COMPONENTS: u32 = 4u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_COMMONSHADER_CONSTANT_BUFFER_REGISTER_COUNT: u32 = 15u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_COMMONSHADER_CONSTANT_BUFFER_REGISTER_READS_PER_INST: u32 = 1u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_COMMONSHADER_CONSTANT_BUFFER_REGISTER_READ_PORTS: u32 = 1u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_COMMONSHADER_FLOWCONTROL_NESTING_LIMIT: u32 = 64u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_COMMONSHADER_IMMEDIATE_CONSTANT_BUFFER_REGISTER_COMPONENTS: u32 = 4u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_COMMONSHADER_IMMEDIATE_CONSTANT_BUFFER_REGISTER_COUNT: u32 = 1u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_COMMONSHADER_IMMEDIATE_CONSTANT_BUFFER_REGISTER_READS_PER_INST: u32 = 1u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_COMMONSHADER_IMMEDIATE_CONSTANT_BUFFER_REGISTER_READ_PORTS: u32 = 1u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_COMMONSHADER_IMMEDIATE_VALUE_COMPONENT_BIT_COUNT: u32 = 32u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_COMMONSHADER_INPUT_RESOURCE_REGISTER_COMPONENTS: u32 = 1u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_COMMONSHADER_INPUT_RESOURCE_REGISTER_COUNT: u32 = 128u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_COMMONSHADER_INPUT_RESOURCE_REGISTER_READS_PER_INST: u32 = 1u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_COMMONSHADER_INPUT_RESOURCE_REGISTER_READ_PORTS: u32 = 1u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_COMMONSHADER_INPUT_RESOURCE_SLOT_COUNT: u32 = 128u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_COMMONSHADER_SAMPLER_REGISTER_COMPONENTS: u32 = 1u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_COMMONSHADER_SAMPLER_REGISTER_COUNT: u32 = 16u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_COMMONSHADER_SAMPLER_REGISTER_READS_PER_INST: u32 = 1u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_COMMONSHADER_SAMPLER_REGISTER_READ_PORTS: u32 = 1u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_COMMONSHADER_SAMPLER_SLOT_COUNT: u32 = 16u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_COMMONSHADER_SUBROUTINE_NESTING_LIMIT: u32 = 32u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_COMMONSHADER_TEMP_REGISTER_COMPONENTS: u32 = 4u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_COMMONSHADER_TEMP_REGISTER_COMPONENT_BIT_COUNT: u32 = 32u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_COMMONSHADER_TEMP_REGISTER_COUNT: u32 = 4096u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_COMMONSHADER_TEMP_REGISTER_READS_PER_INST: u32 = 3u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_COMMONSHADER_TEMP_REGISTER_READ_PORTS: u32 = 3u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_COMMONSHADER_TEXCOORD_RANGE_REDUCTION_MAX: u32 = 10u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_COMMONSHADER_TEXCOORD_RANGE_REDUCTION_MIN: i32 = -10i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_COMMONSHADER_TEXEL_OFFSET_MAX_NEGATIVE: i32 = -8i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_COMMONSHADER_TEXEL_OFFSET_MAX_POSITIVE: u32 = 7u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_COMPARISON_FILTERING_BIT: u32 = 128u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3D10_COMPARISON_FUNC(pub i32);
@@ -956,6 +1067,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_COMPARISON_FUNC {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3D10_COUNTER(pub i32);
@@ -989,6 +1101,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_COUNTER {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub struct D3D10_COUNTER_DESC {
     pub Counter: D3D10_COUNTER,
     pub MiscFlags: u32,
@@ -1016,6 +1129,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_COUNTER_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub struct D3D10_COUNTER_INFO {
     pub LastDeviceDependentCounter: D3D10_COUNTER,
     pub NumSimultaneousCounters: u32,
@@ -1042,6 +1156,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_COUNTER_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3D10_COUNTER_TYPE(pub i32);
@@ -1058,6 +1173,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_COUNTER_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3D10_CPU_ACCESS_FLAG(pub i32);
@@ -1072,6 +1188,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_CPU_ACCESS_FLAG {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3D10_CREATE_DEVICE_FLAG(pub i32);
@@ -1093,6 +1210,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_CREATE_DEVICE_FLAG {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3D10_CULL_MODE(pub i32);
@@ -1108,37 +1226,67 @@ unsafe impl ::windows::runtime::Abi for D3D10_CULL_MODE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_DEBUG_FEATURE_FINISH_PER_RENDER_OP: u32 = 2u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_DEBUG_FEATURE_FLUSH_PER_RENDER_OP: u32 = 1u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_DEBUG_FEATURE_PRESENT_PER_RENDER_OP: u32 = 4u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_DEFAULT_BLEND_FACTOR_ALPHA: f32 = 1f32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_DEFAULT_BLEND_FACTOR_BLUE: f32 = 1f32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_DEFAULT_BLEND_FACTOR_GREEN: f32 = 1f32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_DEFAULT_BLEND_FACTOR_RED: f32 = 1f32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_DEFAULT_BORDER_COLOR_COMPONENT: f32 = 0f32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_DEFAULT_DEPTH_BIAS: u32 = 0u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_DEFAULT_DEPTH_BIAS_CLAMP: f32 = 0f32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_DEFAULT_MAX_ANISOTROPY: f32 = 16f32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_DEFAULT_MIP_LOD_BIAS: f32 = 0f32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_DEFAULT_RENDER_TARGET_ARRAY_INDEX: u32 = 0u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_DEFAULT_SAMPLE_MASK: u32 = 4294967295u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_DEFAULT_SCISSOR_ENDX: u32 = 0u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_DEFAULT_SCISSOR_ENDY: u32 = 0u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_DEFAULT_SCISSOR_STARTX: u32 = 0u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_DEFAULT_SCISSOR_STARTY: u32 = 0u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_DEFAULT_SLOPE_SCALED_DEPTH_BIAS: f32 = 0f32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_DEFAULT_STENCIL_READ_MASK: u32 = 255u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_DEFAULT_STENCIL_REFERENCE: u32 = 0u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_DEFAULT_STENCIL_WRITE_MASK: u32 = 255u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_DEFAULT_VIEWPORT_AND_SCISSORRECT_INDEX: u32 = 0u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_DEFAULT_VIEWPORT_HEIGHT: u32 = 0u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_DEFAULT_VIEWPORT_MAX_DEPTH: f32 = 0f32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_DEFAULT_VIEWPORT_MIN_DEPTH: f32 = 0f32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_DEFAULT_VIEWPORT_TOPLEFTX: u32 = 0u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_DEFAULT_VIEWPORT_TOPLEFTY: u32 = 0u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_DEFAULT_VIEWPORT_WIDTH: u32 = 0u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub struct D3D10_DEPTH_STENCILOP_DESC {
     pub StencilFailOp: D3D10_STENCIL_OP,
     pub StencilDepthFailOp: D3D10_STENCIL_OP,
@@ -1169,6 +1317,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_DEPTH_STENCILOP_DESC {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
 pub struct D3D10_DEPTH_STENCIL_DESC {
     pub DepthEnable: super::super::Foundation::BOOL,
     pub DepthWriteMask: D3D10_DEPTH_WRITE_MASK,
@@ -1218,6 +1367,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_DEPTH_STENCIL_DESC {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Graphics_Dxgi`*"]
 pub struct D3D10_DEPTH_STENCIL_VIEW_DESC {
     pub Format: super::Dxgi::DXGI_FORMAT,
     pub ViewDimension: D3D10_DSV_DIMENSION,
@@ -1246,6 +1396,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_DEPTH_STENCIL_VIEW_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub union D3D10_DEPTH_STENCIL_VIEW_DESC_0 {
     pub Texture1D: D3D10_TEX1D_DSV,
     pub Texture1DArray: D3D10_TEX1D_ARRAY_DSV,
@@ -1270,6 +1421,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_DEPTH_STENCIL_VIEW_DESC_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3D10_DEPTH_WRITE_MASK(pub i32);
@@ -1284,6 +1436,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_DEPTH_WRITE_MASK {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3D10_DEVICE_STATE_TYPES(pub i32);
@@ -1320,6 +1473,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_DEVICE_STATE_TYPES {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3D10_DRIVER_TYPE(pub i32);
@@ -1337,6 +1491,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_DRIVER_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3D10_DSV_DIMENSION(pub i32);
@@ -1356,11 +1511,14 @@ unsafe impl ::windows::runtime::Abi for D3D10_DSV_DIMENSION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_EFFECT_COMPILE_ALLOW_SLOW_OPS: u32 = 2u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_EFFECT_COMPILE_CHILD_EFFECT: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
 pub struct D3D10_EFFECT_DESC {
     pub IsChildEffect: super::super::Foundation::BOOL,
     pub ConstantBuffers: u32,
@@ -1406,6 +1564,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_EFFECT_DESC {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
 pub struct D3D10_EFFECT_SHADER_DESC {
     pub pInputSignature: *mut u8,
     pub IsInline: super::super::Foundation::BOOL,
@@ -1450,10 +1609,12 @@ unsafe impl ::windows::runtime::Abi for D3D10_EFFECT_SHADER_DESC {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_EFFECT_SINGLE_THREADED: u32 = 8u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`, `Win32_Graphics_Direct3D11`*"]
 pub struct D3D10_EFFECT_TYPE_DESC {
     pub TypeName: super::super::Foundation::PSTR,
     pub Class: super::Direct3D11::D3D_SHADER_VARIABLE_CLASS,
@@ -1504,10 +1665,12 @@ unsafe impl ::windows::runtime::Abi for D3D10_EFFECT_TYPE_DESC {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_EFFECT_VARIABLE_ANNOTATION: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
 pub struct D3D10_EFFECT_VARIABLE_DESC {
     pub Name: super::super::Foundation::PSTR,
     pub Semantic: super::super::Foundation::PSTR,
@@ -1543,9 +1706,13 @@ unsafe impl ::windows::runtime::Abi for D3D10_EFFECT_VARIABLE_DESC {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_EFFECT_VARIABLE_EXPLICIT_BIND_POINT: u32 = 4u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_EFFECT_VARIABLE_POOLED: u32 = 1u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_ENABLE_UNBOUNDED_DESCRIPTOR_TABLES: u32 = 1048576u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3D10_FEATURE_LEVEL1(pub i32);
@@ -1563,6 +1730,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_FEATURE_LEVEL1 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3D10_FILL_MODE(pub i32);
@@ -1577,6 +1745,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_FILL_MODE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3D10_FILTER(pub i32);
@@ -1608,6 +1777,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_FILTER {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3D10_FILTER_TYPE(pub i32);
@@ -1622,16 +1792,27 @@ unsafe impl ::windows::runtime::Abi for D3D10_FILTER_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_FILTER_TYPE_MASK: u32 = 3u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_FLOAT16_FUSED_TOLERANCE_IN_ULP: f64 = 0.6f64;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_FLOAT32_MAX: f32 = 340282350000000000000000000000000000000f32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_FLOAT32_TO_INTEGER_TOLERANCE_IN_ULP: f32 = 0.6f32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_FLOAT_TO_SRGB_EXPONENT_DENOMINATOR: f32 = 2.4f32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_FLOAT_TO_SRGB_EXPONENT_NUMERATOR: f32 = 1f32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_FLOAT_TO_SRGB_OFFSET: f32 = 0.055f32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_FLOAT_TO_SRGB_SCALE_1: f32 = 12.92f32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_FLOAT_TO_SRGB_SCALE_2: f32 = 1.055f32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_FLOAT_TO_SRGB_THRESHOLD: f32 = 0.0031308f32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3D10_FORMAT_SUPPORT(pub i32);
@@ -1669,39 +1850,71 @@ unsafe impl ::windows::runtime::Abi for D3D10_FORMAT_SUPPORT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_FTOI_INSTRUCTION_MAX_INPUT: f32 = 2147483600f32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_FTOI_INSTRUCTION_MIN_INPUT: f32 = -2147483600f32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_FTOU_INSTRUCTION_MAX_INPUT: f32 = 4294967300f32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_FTOU_INSTRUCTION_MIN_INPUT: f32 = 0f32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_GS_INPUT_PRIM_CONST_REGISTER_COMPONENTS: u32 = 1u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_GS_INPUT_PRIM_CONST_REGISTER_COMPONENT_BIT_COUNT: u32 = 32u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_GS_INPUT_PRIM_CONST_REGISTER_COUNT: u32 = 1u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_GS_INPUT_PRIM_CONST_REGISTER_READS_PER_INST: u32 = 2u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_GS_INPUT_PRIM_CONST_REGISTER_READ_PORTS: u32 = 1u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_GS_INPUT_REGISTER_COMPONENTS: u32 = 4u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_GS_INPUT_REGISTER_COMPONENT_BIT_COUNT: u32 = 32u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_GS_INPUT_REGISTER_COUNT: u32 = 16u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_GS_INPUT_REGISTER_READS_PER_INST: u32 = 2u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_GS_INPUT_REGISTER_READ_PORTS: u32 = 1u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_GS_INPUT_REGISTER_VERTICES: u32 = 6u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_GS_OUTPUT_ELEMENTS: u32 = 32u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_GS_OUTPUT_REGISTER_COMPONENTS: u32 = 4u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_GS_OUTPUT_REGISTER_COMPONENT_BIT_COUNT: u32 = 32u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_GS_OUTPUT_REGISTER_COUNT: u32 = 32u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_IA_DEFAULT_INDEX_BUFFER_OFFSET_IN_BYTES: u32 = 0u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_IA_DEFAULT_PRIMITIVE_TOPOLOGY: u32 = 0u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_IA_DEFAULT_VERTEX_BUFFER_OFFSET_IN_BYTES: u32 = 0u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_IA_INDEX_INPUT_RESOURCE_SLOT_COUNT: u32 = 1u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_IA_INSTANCE_ID_BIT_COUNT: u32 = 32u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_IA_INTEGER_ARITHMETIC_BIT_COUNT: u32 = 32u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_IA_PRIMITIVE_ID_BIT_COUNT: u32 = 32u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_IA_VERTEX_ID_BIT_COUNT: u32 = 32u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_IA_VERTEX_INPUT_RESOURCE_SLOT_COUNT: u32 = 16u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_IA_VERTEX_INPUT_STRUCTURE_ELEMENTS_COMPONENTS: u32 = 64u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_IA_VERTEX_INPUT_STRUCTURE_ELEMENT_COUNT: u32 = 16u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_INFO_QUEUE_DEFAULT_MESSAGE_COUNT_LIMIT: u32 = 1024u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub struct D3D10_INFO_QUEUE_FILTER {
     pub AllowList: D3D10_INFO_QUEUE_FILTER_DESC,
     pub DenyList: D3D10_INFO_QUEUE_FILTER_DESC,
@@ -1729,6 +1942,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_INFO_QUEUE_FILTER {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub struct D3D10_INFO_QUEUE_FILTER_DESC {
     pub NumCategories: u32,
     pub pCategoryList: *mut D3D10_MESSAGE_CATEGORY,
@@ -1758,6 +1972,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_INFO_QUEUE_FILTER_DESC {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3D10_INPUT_CLASSIFICATION(pub i32);
@@ -1775,6 +1990,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_INPUT_CLASSIFICATION {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`, `Win32_Graphics_Dxgi`*"]
 pub struct D3D10_INPUT_ELEMENT_DESC {
     pub SemanticName: super::super::Foundation::PSTR,
     pub SemanticIndex: u32,
@@ -1819,10 +2035,15 @@ unsafe impl ::windows::runtime::Abi for D3D10_INPUT_ELEMENT_DESC {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_INTEGER_DIVIDE_BY_ZERO_QUOTIENT: u32 = 4294967295u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_INTEGER_DIVIDE_BY_ZERO_REMAINDER: u32 = 4294967295u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_LINEAR_GAMMA: f32 = 1f32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_MAG_FILTER_SHIFT: u32 = 2u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3D10_MAP(pub i32);
@@ -1842,6 +2063,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_MAP {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub struct D3D10_MAPPED_TEXTURE2D {
     pub pData: *mut ::std::ffi::c_void,
     pub RowPitch: u32,
@@ -1869,6 +2091,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_MAPPED_TEXTURE2D {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub struct D3D10_MAPPED_TEXTURE3D {
     pub pData: *mut ::std::ffi::c_void,
     pub RowPitch: u32,
@@ -1895,6 +2118,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_MAPPED_TEXTURE3D {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3D10_MAP_FLAG(pub i32);
@@ -1908,14 +2132,21 @@ unsafe impl ::windows::runtime::Abi for D3D10_MAP_FLAG {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_MAX_BORDER_COLOR_COMPONENT: f32 = 1f32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_MAX_DEPTH: f32 = 1f32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_MAX_MAXANISOTROPY: u32 = 16u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_MAX_MULTISAMPLE_SAMPLE_COUNT: u32 = 32u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_MAX_POSITION_VALUE: f32 = 34028236000000000000000000000000000f32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_MAX_TEXTURE_DIMENSION_2_TO_EXP: u32 = 17u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub struct D3D10_MESSAGE {
     pub Category: D3D10_MESSAGE_CATEGORY,
     pub Severity: D3D10_MESSAGE_SEVERITY,
@@ -1944,6 +2175,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_MESSAGE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3D10_MESSAGE_CATEGORY(pub i32);
@@ -1967,6 +2199,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_MESSAGE_CATEGORY {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3D10_MESSAGE_ID(pub i32);
@@ -2486,6 +2719,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_MESSAGE_ID {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3D10_MESSAGE_SEVERITY(pub i32);
@@ -2503,20 +2737,32 @@ unsafe impl ::windows::runtime::Abi for D3D10_MESSAGE_SEVERITY {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_MIN_BORDER_COLOR_COMPONENT: f32 = 0f32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_MIN_DEPTH: f32 = 0f32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_MIN_FILTER_SHIFT: u32 = 4u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_MIN_MAXANISOTROPY: u32 = 0u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_MIP_FILTER_SHIFT: u32 = 0u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_MIP_LOD_BIAS_MAX: f32 = 15.99f32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_MIP_LOD_BIAS_MIN: f32 = -16f32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_MIP_LOD_FRACTIONAL_BIT_COUNT: u32 = 6u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_MIP_LOD_RANGE_BIT_COUNT: u32 = 8u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_MULTISAMPLE_ANTIALIAS_LINE_WIDTH: f32 = 1.4f32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_NONSAMPLE_FETCH_OUT_OF_RANGE_ACCESS_RESULT: u32 = 0u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
 pub struct D3D10_PASS_DESC {
     pub Name: super::super::Foundation::PSTR,
     pub Annotations: u32,
@@ -2563,6 +2809,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_PASS_DESC {
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub struct D3D10_PASS_SHADER_DESC {
     pub pShaderVariable: ::std::option::Option<ID3D10EffectShaderVariable>,
     pub ShaderIndex: u32,
@@ -2588,24 +2835,43 @@ unsafe impl ::windows::runtime::Abi for D3D10_PASS_SHADER_DESC {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_PIXEL_ADDRESS_RANGE_BIT_COUNT: u32 = 13u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_PRE_SCISSOR_PIXEL_ADDRESS_RANGE_BIT_COUNT: u32 = 15u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_PS_FRONTFACING_DEFAULT_VALUE: u32 = 4294967295u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_PS_FRONTFACING_FALSE_VALUE: u32 = 0u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_PS_FRONTFACING_TRUE_VALUE: u32 = 4294967295u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_PS_INPUT_REGISTER_COMPONENTS: u32 = 4u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_PS_INPUT_REGISTER_COMPONENT_BIT_COUNT: u32 = 32u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_PS_INPUT_REGISTER_COUNT: u32 = 32u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_PS_INPUT_REGISTER_READS_PER_INST: u32 = 2u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_PS_INPUT_REGISTER_READ_PORTS: u32 = 1u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_PS_LEGACY_PIXEL_CENTER_FRACTIONAL_COMPONENT: f32 = 0f32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_PS_OUTPUT_DEPTH_REGISTER_COMPONENTS: u32 = 1u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_PS_OUTPUT_DEPTH_REGISTER_COMPONENT_BIT_COUNT: u32 = 32u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_PS_OUTPUT_DEPTH_REGISTER_COUNT: u32 = 1u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_PS_OUTPUT_REGISTER_COMPONENTS: u32 = 4u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_PS_OUTPUT_REGISTER_COMPONENT_BIT_COUNT: u32 = 32u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_PS_OUTPUT_REGISTER_COUNT: u32 = 8u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_PS_PIXEL_CENTER_FRACTIONAL_COMPONENT: f32 = 0.5f32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3D10_QUERY(pub i32);
@@ -2628,6 +2894,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_QUERY {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub struct D3D10_QUERY_DATA_PIPELINE_STATISTICS {
     pub IAVertices: u64,
     pub IAPrimitives: u64,
@@ -2670,6 +2937,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_QUERY_DATA_PIPELINE_STATISTICS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub struct D3D10_QUERY_DATA_SO_STATISTICS {
     pub NumPrimitivesWritten: u64,
     pub PrimitivesStorageNeeded: u64,
@@ -2698,6 +2966,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_QUERY_DATA_SO_STATISTICS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
 pub struct D3D10_QUERY_DATA_TIMESTAMP_DISJOINT {
     pub Frequency: u64,
     pub Disjoint: super::super::Foundation::BOOL,
@@ -2731,6 +3000,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_QUERY_DATA_TIMESTAMP_DISJOINT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub struct D3D10_QUERY_DESC {
     pub Query: D3D10_QUERY,
     pub MiscFlags: u32,
@@ -2756,6 +3026,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_QUERY_DESC {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3D10_QUERY_MISC_FLAG(pub i32);
@@ -2769,6 +3040,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_QUERY_MISC_FLAG {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3D10_RAISE_FLAG(pub i32);
@@ -2785,6 +3057,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_RAISE_FLAG {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
 pub struct D3D10_RASTERIZER_DESC {
     pub FillMode: D3D10_FILL_MODE,
     pub CullMode: D3D10_CULL_MODE,
@@ -2838,6 +3111,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_RASTERIZER_DESC {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
 pub struct D3D10_RENDER_TARGET_BLEND_DESC1 {
     pub BlendEnable: super::super::Foundation::BOOL,
     pub SrcBlend: D3D10_BLEND,
@@ -2887,6 +3161,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_RENDER_TARGET_BLEND_DESC1 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Graphics_Dxgi`*"]
 pub struct D3D10_RENDER_TARGET_VIEW_DESC {
     pub Format: super::Dxgi::DXGI_FORMAT,
     pub ViewDimension: D3D10_RTV_DIMENSION,
@@ -2915,6 +3190,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_RENDER_TARGET_VIEW_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub union D3D10_RENDER_TARGET_VIEW_DESC_0 {
     pub Buffer: D3D10_BUFFER_RTV,
     pub Texture1D: D3D10_TEX1D_RTV,
@@ -2941,30 +3217,55 @@ unsafe impl ::windows::runtime::Abi for D3D10_RENDER_TARGET_VIEW_DESC_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_REQ_BLEND_OBJECT_COUNT_PER_CONTEXT: u32 = 4096u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_REQ_BUFFER_RESOURCE_TEXEL_COUNT_2_TO_EXP: u32 = 27u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_REQ_CONSTANT_BUFFER_ELEMENT_COUNT: u32 = 4096u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_REQ_DEPTH_STENCIL_OBJECT_COUNT_PER_CONTEXT: u32 = 4096u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_REQ_DRAWINDEXED_INDEX_COUNT_2_TO_EXP: u32 = 32u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_REQ_DRAW_VERTEX_COUNT_2_TO_EXP: u32 = 32u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_REQ_FILTERING_HW_ADDRESSABLE_RESOURCE_DIMENSION: u32 = 8192u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_REQ_GS_INVOCATION_32BIT_OUTPUT_COMPONENT_LIMIT: u32 = 1024u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_REQ_IMMEDIATE_CONSTANT_BUFFER_ELEMENT_COUNT: u32 = 4096u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_REQ_MAXANISOTROPY: u32 = 16u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_REQ_MIP_LEVELS: u32 = 14u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_REQ_MULTI_ELEMENT_STRUCTURE_SIZE_IN_BYTES: u32 = 2048u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_REQ_RASTERIZER_OBJECT_COUNT_PER_CONTEXT: u32 = 4096u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_REQ_RENDER_TO_BUFFER_WINDOW_WIDTH: u32 = 8192u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_REQ_RESOURCE_SIZE_IN_MEGABYTES: u32 = 128u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_REQ_RESOURCE_VIEW_COUNT_PER_CONTEXT_2_TO_EXP: u32 = 20u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_REQ_SAMPLER_OBJECT_COUNT_PER_CONTEXT: u32 = 4096u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_REQ_TEXTURE1D_ARRAY_AXIS_DIMENSION: u32 = 512u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_REQ_TEXTURE1D_U_DIMENSION: u32 = 8192u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_REQ_TEXTURE2D_ARRAY_AXIS_DIMENSION: u32 = 512u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_REQ_TEXTURE2D_U_OR_V_DIMENSION: u32 = 8192u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_REQ_TEXTURE3D_U_V_OR_W_DIMENSION: u32 = 2048u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_REQ_TEXTURECUBE_DIMENSION: u32 = 8192u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_RESINFO_INSTRUCTION_MISSING_COMPONENT_RETVAL: u32 = 0u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3D10_RESOURCE_DIMENSION(pub i32);
@@ -2982,6 +3283,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_RESOURCE_DIMENSION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3D10_RESOURCE_MISC_FLAG(pub i32);
@@ -2999,6 +3301,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_RESOURCE_MISC_FLAG {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3D10_RTV_DIMENSION(pub i32);
@@ -3022,6 +3325,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_RTV_DIMENSION {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub struct D3D10_SAMPLER_DESC {
     pub Filter: D3D10_FILTER,
     pub AddressU: D3D10_TEXTURE_ADDRESS_MODE,
@@ -3066,12 +3370,16 @@ unsafe impl ::windows::runtime::Abi for D3D10_SAMPLER_DESC {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_SDK_LAYERS_VERSION: u32 = 11u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_SDK_VERSION: u32 = 29u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_SHADER_AVOID_FLOW_CONTROL: u32 = 512u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`, `Win32_Graphics_Direct3D11`*"]
 pub struct D3D10_SHADER_BUFFER_DESC {
     pub Name: super::super::Foundation::PSTR,
     pub Type: super::Direct3D11::D3D_CBUFFER_TYPE,
@@ -3106,9 +3414,11 @@ unsafe impl ::windows::runtime::Abi for D3D10_SHADER_BUFFER_DESC {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_SHADER_DEBUG: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub struct D3D10_SHADER_DEBUG_FILE_INFO {
     pub FileName: u32,
     pub FileNameLen: u32,
@@ -3138,6 +3448,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_SHADER_DEBUG_FILE_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub struct D3D10_SHADER_DEBUG_INFO {
     pub Size: u32,
     pub Creator: u32,
@@ -3226,6 +3537,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_SHADER_DEBUG_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub struct D3D10_SHADER_DEBUG_INPUT_INFO {
     pub Var: u32,
     pub InitialRegisterSet: D3D10_SHADER_DEBUG_REGTYPE,
@@ -3265,6 +3577,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_SHADER_DEBUG_INPUT_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
 pub struct D3D10_SHADER_DEBUG_INST_INFO {
     pub Id: u32,
     pub Opcode: u32,
@@ -3315,11 +3628,14 @@ unsafe impl ::windows::runtime::Abi for D3D10_SHADER_DEBUG_INST_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_SHADER_DEBUG_NAME_FOR_BINARY: u32 = 8388608u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_SHADER_DEBUG_NAME_FOR_SOURCE: u32 = 4194304u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
 pub struct D3D10_SHADER_DEBUG_OUTPUTREG_INFO {
     pub OutputRegisterSet: D3D10_SHADER_DEBUG_REGTYPE,
     pub OutputReg: u32,
@@ -3367,6 +3683,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_SHADER_DEBUG_OUTPUTREG_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
 pub struct D3D10_SHADER_DEBUG_OUTPUTVAR {
     pub Var: u32,
     pub uValueMin: u32,
@@ -3415,6 +3732,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_SHADER_DEBUG_OUTPUTVAR {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3D10_SHADER_DEBUG_REGTYPE(pub i32);
@@ -3441,6 +3759,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_SHADER_DEBUG_REGTYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3D10_SHADER_DEBUG_SCOPETYPE(pub i32);
@@ -3465,6 +3784,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_SHADER_DEBUG_SCOPETYPE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D11")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Graphics_Direct3D11`*"]
 pub struct D3D10_SHADER_DEBUG_SCOPEVAR_INFO {
     pub TokenId: u32,
     pub VarType: D3D10_SHADER_DEBUG_VARTYPE,
@@ -3519,6 +3839,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_SHADER_DEBUG_SCOPEVAR_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub struct D3D10_SHADER_DEBUG_SCOPE_INFO {
     pub ScopeType: D3D10_SHADER_DEBUG_SCOPETYPE,
     pub Name: u32,
@@ -3549,6 +3870,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_SHADER_DEBUG_SCOPE_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub struct D3D10_SHADER_DEBUG_TOKEN_INFO {
     pub File: u32,
     pub Line: u32,
@@ -3577,6 +3899,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_SHADER_DEBUG_TOKEN_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3D10_SHADER_DEBUG_VARTYPE(pub i32);
@@ -3595,6 +3918,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_SHADER_DEBUG_VARTYPE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D11")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Graphics_Direct3D11`*"]
 pub struct D3D10_SHADER_DEBUG_VAR_INFO {
     pub TokenId: u32,
     pub Type: super::Direct3D11::D3D_SHADER_VARIABLE_TYPE,
@@ -3633,6 +3957,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_SHADER_DEBUG_VAR_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`, `Win32_Graphics_Direct3D11`*"]
 pub struct D3D10_SHADER_DESC {
     pub Version: u32,
     pub Creator: super::super::Foundation::PSTR,
@@ -3746,17 +4071,26 @@ unsafe impl ::windows::runtime::Abi for D3D10_SHADER_DESC {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_SHADER_ENABLE_BACKWARDS_COMPATIBILITY: u32 = 4096u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_SHADER_ENABLE_STRICTNESS: u32 = 2048u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_SHADER_FLAGS2_FORCE_ROOT_SIGNATURE_1_0: u32 = 16u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_SHADER_FLAGS2_FORCE_ROOT_SIGNATURE_1_1: u32 = 32u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_SHADER_FLAGS2_FORCE_ROOT_SIGNATURE_LATEST: u32 = 0u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_SHADER_FORCE_PS_SOFTWARE_NO_OPT: u32 = 128u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_SHADER_FORCE_VS_SOFTWARE_NO_OPT: u32 = 64u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_SHADER_IEEE_STRICTNESS: u32 = 8192u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`, `Win32_Graphics_Direct3D11`*"]
 pub struct D3D10_SHADER_INPUT_BIND_DESC {
     pub Name: super::super::Foundation::PSTR,
     pub Type: super::Direct3D11::D3D_SHADER_INPUT_TYPE,
@@ -3803,20 +4137,32 @@ unsafe impl ::windows::runtime::Abi for D3D10_SHADER_INPUT_BIND_DESC {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_SHADER_MAJOR_VERSION: u32 = 4u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_SHADER_MINOR_VERSION: u32 = 0u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_SHADER_NO_PRESHADER: u32 = 256u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_SHADER_OPTIMIZATION_LEVEL0: u32 = 16384u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_SHADER_OPTIMIZATION_LEVEL1: u32 = 0u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_SHADER_OPTIMIZATION_LEVEL3: u32 = 32768u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_SHADER_PACK_MATRIX_COLUMN_MAJOR: u32 = 16u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_SHADER_PACK_MATRIX_ROW_MAJOR: u32 = 8u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_SHADER_PARTIAL_PRECISION: u32 = 32u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_SHADER_PREFER_FLOW_CONTROL: u32 = 1024u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_SHADER_RESOURCES_MAY_ALIAS: u32 = 524288u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Direct3D11", feature = "Win32_Graphics_Dxgi"))]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Graphics_Direct3D11`, `Win32_Graphics_Dxgi`*"]
 pub struct D3D10_SHADER_RESOURCE_VIEW_DESC {
     pub Format: super::Dxgi::DXGI_FORMAT,
     pub ViewDimension: super::Direct3D11::D3D_SRV_DIMENSION,
@@ -3845,6 +4191,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_SHADER_RESOURCE_VIEW_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub union D3D10_SHADER_RESOURCE_VIEW_DESC_0 {
     pub Buffer: D3D10_BUFFER_SRV,
     pub Texture1D: D3D10_TEX1D_SRV,
@@ -3875,6 +4222,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_SHADER_RESOURCE_VIEW_DESC_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Direct3D11", feature = "Win32_Graphics_Dxgi"))]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Graphics_Direct3D11`, `Win32_Graphics_Dxgi`*"]
 pub struct D3D10_SHADER_RESOURCE_VIEW_DESC1 {
     pub Format: super::Dxgi::DXGI_FORMAT,
     pub ViewDimension: super::Direct3D11::D3D_SRV_DIMENSION,
@@ -3903,6 +4251,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_SHADER_RESOURCE_VIEW_DESC1 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub union D3D10_SHADER_RESOURCE_VIEW_DESC1_0 {
     pub Buffer: D3D10_BUFFER_SRV,
     pub Texture1D: D3D10_TEX1D_SRV,
@@ -3931,11 +4280,14 @@ unsafe impl ::windows::runtime::Abi for D3D10_SHADER_RESOURCE_VIEW_DESC1_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_SHADER_SKIP_OPTIMIZATION: u32 = 4u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_SHADER_SKIP_VALIDATION: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D11")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Graphics_Direct3D11`*"]
 pub struct D3D10_SHADER_TYPE_DESC {
     pub Class: super::Direct3D11::D3D_SHADER_VARIABLE_CLASS,
     pub Type: super::Direct3D11::D3D_SHADER_VARIABLE_TYPE,
@@ -3975,6 +4327,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_SHADER_TYPE_DESC {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
 pub struct D3D10_SHADER_VARIABLE_DESC {
     pub Name: super::super::Foundation::PSTR,
     pub StartOffset: u32,
@@ -4009,12 +4362,16 @@ unsafe impl ::windows::runtime::Abi for D3D10_SHADER_VARIABLE_DESC {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_SHADER_WARNINGS_ARE_ERRORS: u32 = 262144u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_SHIFT_INSTRUCTION_PAD_VALUE: u32 = 0u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_SHIFT_INSTRUCTION_SHIFT_VALUE_BIT_COUNT: u32 = 5u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`, `Win32_Graphics_Direct3D11`*"]
 pub struct D3D10_SIGNATURE_PARAMETER_DESC {
     pub SemanticName: super::super::Foundation::PSTR,
     pub SemanticIndex: u32,
@@ -4059,14 +4416,20 @@ unsafe impl ::windows::runtime::Abi for D3D10_SIGNATURE_PARAMETER_DESC {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_SIMULTANEOUS_RENDER_TARGET_COUNT: u32 = 8u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_SO_BUFFER_MAX_STRIDE_IN_BYTES: u32 = 2048u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_SO_BUFFER_MAX_WRITE_WINDOW_IN_BYTES: u32 = 256u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_SO_BUFFER_SLOT_COUNT: u32 = 4u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_SO_DDI_REGISTER_INDEX_DENOTING_GAP: u32 = 4294967295u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
 pub struct D3D10_SO_DECLARATION_ENTRY {
     pub SemanticName: super::super::Foundation::PSTR,
     pub SemanticIndex: u32,
@@ -4101,18 +4464,31 @@ unsafe impl ::windows::runtime::Abi for D3D10_SO_DECLARATION_ENTRY {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_SO_MULTIPLE_BUFFER_ELEMENTS_PER_BUFFER: u32 = 1u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_SO_SINGLE_BUFFER_COMPONENT_LIMIT: u32 = 64u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_SRGB_GAMMA: f32 = 2.2f32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_SRGB_TO_FLOAT_DENOMINATOR_1: f32 = 12.92f32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_SRGB_TO_FLOAT_DENOMINATOR_2: f32 = 1.055f32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_SRGB_TO_FLOAT_EXPONENT: f32 = 2.4f32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_SRGB_TO_FLOAT_OFFSET: f32 = 0.055f32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_SRGB_TO_FLOAT_THRESHOLD: f32 = 0.04045f32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_SRGB_TO_FLOAT_TOLERANCE_IN_ULP: f32 = 0.5f32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_STANDARD_COMPONENT_BIT_COUNT: u32 = 32u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_STANDARD_COMPONENT_BIT_COUNT_DOUBLED: u32 = 64u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_STANDARD_MAXIMUM_ELEMENT_ALIGNMENT_BYTE_MULTIPLE: u32 = 4u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3D10_STANDARD_MULTISAMPLE_QUALITY_LEVELS(pub i32);
@@ -4127,13 +4503,19 @@ unsafe impl ::windows::runtime::Abi for D3D10_STANDARD_MULTISAMPLE_QUALITY_LEVEL
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_STANDARD_PIXEL_COMPONENT_COUNT: u32 = 128u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_STANDARD_PIXEL_ELEMENT_COUNT: u32 = 32u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_STANDARD_VECTOR_SIZE: u32 = 4u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_STANDARD_VERTEX_ELEMENT_COUNT: u32 = 16u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_STANDARD_VERTEX_TOTAL_COMPONENT_COUNT: u32 = 64u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub struct D3D10_STATE_BLOCK_MASK {
     pub VS: u8,
     pub VSSamplers: [u8; 2],
@@ -4229,6 +4611,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_STATE_BLOCK_MASK {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3D10_STENCIL_OP(pub i32);
@@ -4249,9 +4632,11 @@ unsafe impl ::windows::runtime::Abi for D3D10_STENCIL_OP {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_SUBPIXEL_FRACTIONAL_BIT_COUNT: u32 = 8u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub struct D3D10_SUBRESOURCE_DATA {
     pub pSysMem: *mut ::std::ffi::c_void,
     pub SysMemPitch: u32,
@@ -4278,10 +4663,12 @@ unsafe impl ::windows::runtime::Abi for D3D10_SUBRESOURCE_DATA {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_SUBTEXEL_FRACTIONAL_BIT_COUNT: u32 = 6u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
 pub struct D3D10_TECHNIQUE_DESC {
     pub Name: super::super::Foundation::PSTR,
     pub Passes: u32,
@@ -4316,6 +4703,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_TECHNIQUE_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub struct D3D10_TEX1D_ARRAY_DSV {
     pub MipSlice: u32,
     pub FirstArraySlice: u32,
@@ -4344,6 +4732,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_TEX1D_ARRAY_DSV {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub struct D3D10_TEX1D_ARRAY_RTV {
     pub MipSlice: u32,
     pub FirstArraySlice: u32,
@@ -4372,6 +4761,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_TEX1D_ARRAY_RTV {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub struct D3D10_TEX1D_ARRAY_SRV {
     pub MostDetailedMip: u32,
     pub MipLevels: u32,
@@ -4401,6 +4791,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_TEX1D_ARRAY_SRV {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub struct D3D10_TEX1D_DSV {
     pub MipSlice: u32,
 }
@@ -4427,6 +4818,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_TEX1D_DSV {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub struct D3D10_TEX1D_RTV {
     pub MipSlice: u32,
 }
@@ -4453,6 +4845,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_TEX1D_RTV {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub struct D3D10_TEX1D_SRV {
     pub MostDetailedMip: u32,
     pub MipLevels: u32,
@@ -4480,6 +4873,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_TEX1D_SRV {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub struct D3D10_TEX2DMS_ARRAY_DSV {
     pub FirstArraySlice: u32,
     pub ArraySize: u32,
@@ -4507,6 +4901,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_TEX2DMS_ARRAY_DSV {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub struct D3D10_TEX2DMS_ARRAY_RTV {
     pub FirstArraySlice: u32,
     pub ArraySize: u32,
@@ -4534,6 +4929,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_TEX2DMS_ARRAY_RTV {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub struct D3D10_TEX2DMS_ARRAY_SRV {
     pub FirstArraySlice: u32,
     pub ArraySize: u32,
@@ -4561,6 +4957,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_TEX2DMS_ARRAY_SRV {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub struct D3D10_TEX2DMS_DSV {
     pub UnusedField_NothingToDefine: u32,
 }
@@ -4587,6 +4984,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_TEX2DMS_DSV {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub struct D3D10_TEX2DMS_RTV {
     pub UnusedField_NothingToDefine: u32,
 }
@@ -4613,6 +5011,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_TEX2DMS_RTV {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub struct D3D10_TEX2DMS_SRV {
     pub UnusedField_NothingToDefine: u32,
 }
@@ -4639,6 +5038,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_TEX2DMS_SRV {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub struct D3D10_TEX2D_ARRAY_DSV {
     pub MipSlice: u32,
     pub FirstArraySlice: u32,
@@ -4667,6 +5067,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_TEX2D_ARRAY_DSV {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub struct D3D10_TEX2D_ARRAY_RTV {
     pub MipSlice: u32,
     pub FirstArraySlice: u32,
@@ -4695,6 +5096,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_TEX2D_ARRAY_RTV {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub struct D3D10_TEX2D_ARRAY_SRV {
     pub MostDetailedMip: u32,
     pub MipLevels: u32,
@@ -4724,6 +5126,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_TEX2D_ARRAY_SRV {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub struct D3D10_TEX2D_DSV {
     pub MipSlice: u32,
 }
@@ -4750,6 +5153,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_TEX2D_DSV {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub struct D3D10_TEX2D_RTV {
     pub MipSlice: u32,
 }
@@ -4776,6 +5180,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_TEX2D_RTV {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub struct D3D10_TEX2D_SRV {
     pub MostDetailedMip: u32,
     pub MipLevels: u32,
@@ -4803,6 +5208,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_TEX2D_SRV {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub struct D3D10_TEX3D_RTV {
     pub MipSlice: u32,
     pub FirstWSlice: u32,
@@ -4831,6 +5237,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_TEX3D_RTV {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub struct D3D10_TEX3D_SRV {
     pub MostDetailedMip: u32,
     pub MipLevels: u32,
@@ -4858,6 +5265,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_TEX3D_SRV {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub struct D3D10_TEXCUBE_ARRAY_SRV1 {
     pub MostDetailedMip: u32,
     pub MipLevels: u32,
@@ -4887,6 +5295,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_TEXCUBE_ARRAY_SRV1 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub struct D3D10_TEXCUBE_SRV {
     pub MostDetailedMip: u32,
     pub MipLevels: u32,
@@ -4912,10 +5321,12 @@ unsafe impl ::windows::runtime::Abi for D3D10_TEXCUBE_SRV {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_TEXEL_ADDRESS_RANGE_BIT_COUNT: u32 = 18u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Graphics_Dxgi`*"]
 pub struct D3D10_TEXTURE1D_DESC {
     pub Width: u32,
     pub MipLevels: u32,
@@ -4965,6 +5376,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_TEXTURE1D_DESC {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Graphics_Dxgi`*"]
 pub struct D3D10_TEXTURE2D_DESC {
     pub Width: u32,
     pub Height: u32,
@@ -5018,6 +5430,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_TEXTURE2D_DESC {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Graphics_Dxgi`*"]
 pub struct D3D10_TEXTURE3D_DESC {
     pub Width: u32,
     pub Height: u32,
@@ -5066,6 +5479,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_TEXTURE3D_DESC {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3D10_TEXTURECUBE_FACE(pub i32);
@@ -5084,6 +5498,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_TEXTURECUBE_FACE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3D10_TEXTURE_ADDRESS_MODE(pub i32);
@@ -5101,8 +5516,11 @@ unsafe impl ::windows::runtime::Abi for D3D10_TEXTURE_ADDRESS_MODE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_TEXT_1BIT_BIT: u32 = 2147483648u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_UNBOUND_MEMORY_ACCESS_RESULT: u32 = 0u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3D10_USAGE(pub i32);
@@ -5121,6 +5539,7 @@ unsafe impl ::windows::runtime::Abi for D3D10_USAGE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub struct D3D10_VIEWPORT {
     pub TopLeftX: i32,
     pub TopLeftY: i32,
@@ -5150,54 +5569,84 @@ unsafe impl ::windows::runtime::Abi for D3D10_VIEWPORT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_VIEWPORT_AND_SCISSORRECT_MAX_INDEX: u32 = 15u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_VIEWPORT_AND_SCISSORRECT_OBJECT_COUNT_PER_PIPELINE: u32 = 16u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_VIEWPORT_BOUNDS_MAX: u32 = 16383u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_VIEWPORT_BOUNDS_MIN: i32 = -16384i32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_VS_INPUT_REGISTER_COMPONENTS: u32 = 4u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_VS_INPUT_REGISTER_COMPONENT_BIT_COUNT: u32 = 32u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_VS_INPUT_REGISTER_COUNT: u32 = 16u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_VS_INPUT_REGISTER_READS_PER_INST: u32 = 2u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_VS_INPUT_REGISTER_READ_PORTS: u32 = 1u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_VS_OUTPUT_REGISTER_COMPONENTS: u32 = 4u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_VS_OUTPUT_REGISTER_COMPONENT_BIT_COUNT: u32 = 32u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_VS_OUTPUT_REGISTER_COUNT: u32 = 16u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_WHQL_CONTEXT_COUNT_FOR_RESOURCE_LIMIT: u32 = 10u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_WHQL_DRAWINDEXED_INDEX_COUNT_2_TO_EXP: u32 = 25u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D10_WHQL_DRAW_VERTEX_COUNT_2_TO_EXP: u32 = 25u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D_MAJOR_VERSION: u32 = 10u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D_MINOR_VERSION: u32 = 0u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D_SPEC_DATE_DAY: u32 = 8u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D_SPEC_DATE_MONTH: u32 = 8u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D_SPEC_DATE_YEAR: u32 = 2006u32;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const D3D_SPEC_VERSION: f64 = 1.050005f64;
 pub const DXGI_DEBUG_D3D10: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(607865938, 13830, 19770, [153, 215, 167, 231, 179, 62, 215, 6]);
 pub const GUID_DeviceType: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3609393997, 31336, 17274, [178, 12, 88, 4, 238, 36, 148, 166]);
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ID3D10Asynchronous(::windows::runtime::IUnknown);
 impl ID3D10Asynchronous {
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D10Device>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppdevice)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, pdatasize: *mut u32, pdata: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(pdatasize), ::std::mem::transmute(pdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: u32, pdata: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(pdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, guid: *const ::windows::runtime::GUID, pdata: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn Begin(&self) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn End(&self) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetData(&self, pdata: *mut ::std::ffi::c_void, datasize: u32, getdataflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata), ::std::mem::transmute(datasize), ::std::mem::transmute(getdataflags)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetDataSize(&self) -> u32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)))
     }
@@ -5261,23 +5710,29 @@ pub struct ID3D10Asynchronous_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdata: *mut ::std::ffi::c_void, datasize: u32, getdataflags: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ID3D10BlendState(::windows::runtime::IUnknown);
 impl ID3D10BlendState {
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D10Device>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppdevice)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, pdatasize: *mut u32, pdata: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(pdatasize), ::std::mem::transmute(pdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: u32, pdata: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(pdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, guid: *const ::windows::runtime::GUID, pdata: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetDesc(&self, pdesc: *mut D3D10_BLEND_DESC) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdesc)))
     }
@@ -5339,27 +5794,34 @@ pub struct ID3D10BlendState_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut D3D10_BLEND_DESC),
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ID3D10BlendState1(::windows::runtime::IUnknown);
 impl ID3D10BlendState1 {
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D10Device>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppdevice)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, pdatasize: *mut u32, pdata: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(pdatasize), ::std::mem::transmute(pdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: u32, pdata: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(pdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, guid: *const ::windows::runtime::GUID, pdata: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetDesc(&self, pdesc: *mut D3D10_BLEND_DESC) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdesc)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetDesc1(&self, pdesc: *mut D3D10_BLEND_DESC1) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdesc)))
     }
@@ -5443,37 +5905,48 @@ pub struct ID3D10BlendState1_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut D3D10_BLEND_DESC1),
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ID3D10Buffer(::windows::runtime::IUnknown);
 impl ID3D10Buffer {
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D10Device>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppdevice)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, pdatasize: *mut u32, pdata: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(pdatasize), ::std::mem::transmute(pdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: u32, pdata: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(pdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, guid: *const ::windows::runtime::GUID, pdata: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetType(&self, rtype: *mut D3D10_RESOURCE_DIMENSION) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(rtype)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetEvictionPriority(&self, evictionpriority: u32) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(evictionpriority)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetEvictionPriority(&self) -> u32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn Map(&self, maptype: D3D10_MAP, mapflags: u32, ppdata: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(maptype), ::std::mem::transmute(mapflags), ::std::mem::transmute(ppdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn Unmap(&self) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetDesc(&self, pdesc: *mut D3D10_BUFFER_DESC) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdesc)))
     }
@@ -5559,34 +6032,44 @@ pub struct ID3D10Buffer_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut D3D10_BUFFER_DESC),
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ID3D10Counter(::windows::runtime::IUnknown);
 impl ID3D10Counter {
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D10Device>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppdevice)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, pdatasize: *mut u32, pdata: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(pdatasize), ::std::mem::transmute(pdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: u32, pdata: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(pdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, guid: *const ::windows::runtime::GUID, pdata: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn Begin(&self) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn End(&self) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetData(&self, pdata: *mut ::std::ffi::c_void, datasize: u32, getdataflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata), ::std::mem::transmute(datasize), ::std::mem::transmute(getdataflags)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetDataSize(&self) -> u32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetDesc(&self, pdesc: *mut D3D10_COUNTER_DESC) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdesc)))
     }
@@ -5671,31 +6154,39 @@ pub struct ID3D10Counter_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut D3D10_COUNTER_DESC),
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ID3D10Debug(::windows::runtime::IUnknown);
 impl ID3D10Debug {
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetFeatureMask(&self, mask: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(mask)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetFeatureMask(&self) -> u32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetPresentPerRenderOpDelay(&self, milliseconds: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(milliseconds)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetPresentPerRenderOpDelay(&self) -> u32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self)))
     }
     #[cfg(feature = "Win32_Graphics_Dxgi")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Graphics_Dxgi`*"]
     pub unsafe fn SetSwapChain<'a, Param0: ::windows::runtime::IntoParam<'a, super::Dxgi::IDXGISwapChain>>(&self, pswapchain: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), pswapchain.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Graphics_Dxgi")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Graphics_Dxgi`*"]
     pub unsafe fn GetSwapChain(&self) -> ::windows::runtime::Result<super::Dxgi::IDXGISwapChain> {
         let mut result__: <super::Dxgi::IDXGISwapChain as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::Dxgi::IDXGISwapChain>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn Validate(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self)).ok()
     }
@@ -5740,23 +6231,29 @@ pub struct ID3D10Debug_abi(
     #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ID3D10DepthStencilState(::windows::runtime::IUnknown);
 impl ID3D10DepthStencilState {
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D10Device>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppdevice)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, pdatasize: *mut u32, pdata: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(pdatasize), ::std::mem::transmute(pdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: u32, pdata: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(pdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, guid: *const ::windows::runtime::GUID, pdata: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetDesc(&self, pdesc: *mut D3D10_DEPTH_STENCIL_DESC) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdesc)))
     }
@@ -5818,26 +6315,33 @@ pub struct ID3D10DepthStencilState_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut D3D10_DEPTH_STENCIL_DESC),
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ID3D10DepthStencilView(::windows::runtime::IUnknown);
 impl ID3D10DepthStencilView {
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D10Device>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppdevice)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, pdatasize: *mut u32, pdata: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(pdatasize), ::std::mem::transmute(pdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: u32, pdata: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(pdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, guid: *const ::windows::runtime::GUID, pdata: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetResource(&self, ppresource: *mut ::std::option::Option<ID3D10Resource>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppresource)))
     }
     #[cfg(feature = "Win32_Graphics_Dxgi")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Graphics_Dxgi`*"]
     pub unsafe fn GetDesc(&self, pdesc: *mut D3D10_DEPTH_STENCIL_VIEW_DESC) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdesc)))
     }
@@ -5920,101 +6424,132 @@ pub struct ID3D10DepthStencilView_abi(
     #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut D3D10_DEPTH_STENCIL_VIEW_DESC),
     #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ID3D10Device(::windows::runtime::IUnknown);
 impl ID3D10Device {
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn VSSetConstantBuffers(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::std::option::Option<ID3D10Buffer>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(startslot), ::std::mem::transmute(numbuffers), ::std::mem::transmute(ppconstantbuffers)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn PSSetShaderResources(&self, startslot: u32, numviews: u32, ppshaderresourceviews: *const ::std::option::Option<ID3D10ShaderResourceView>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(startslot), ::std::mem::transmute(numviews), ::std::mem::transmute(ppshaderresourceviews)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn PSSetShader<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D10PixelShader>>(&self, ppixelshader: Param0) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ppixelshader.into_param().abi()))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn PSSetSamplers(&self, startslot: u32, numsamplers: u32, ppsamplers: *const ::std::option::Option<ID3D10SamplerState>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(startslot), ::std::mem::transmute(numsamplers), ::std::mem::transmute(ppsamplers)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn VSSetShader<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D10VertexShader>>(&self, pvertexshader: Param0) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), pvertexshader.into_param().abi()))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn DrawIndexed(&self, indexcount: u32, startindexlocation: u32, basevertexlocation: i32) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(indexcount), ::std::mem::transmute(startindexlocation), ::std::mem::transmute(basevertexlocation)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn Draw(&self, vertexcount: u32, startvertexlocation: u32) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(vertexcount), ::std::mem::transmute(startvertexlocation)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn PSSetConstantBuffers(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::std::option::Option<ID3D10Buffer>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(startslot), ::std::mem::transmute(numbuffers), ::std::mem::transmute(ppconstantbuffers)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn IASetInputLayout<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D10InputLayout>>(&self, pinputlayout: Param0) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), pinputlayout.into_param().abi()))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn IASetVertexBuffers(&self, startslot: u32, numbuffers: u32, ppvertexbuffers: *const ::std::option::Option<ID3D10Buffer>, pstrides: *const u32, poffsets: *const u32) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(startslot), ::std::mem::transmute(numbuffers), ::std::mem::transmute(ppvertexbuffers), ::std::mem::transmute(pstrides), ::std::mem::transmute(poffsets)))
     }
     #[cfg(feature = "Win32_Graphics_Dxgi")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Graphics_Dxgi`*"]
     pub unsafe fn IASetIndexBuffer<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D10Buffer>>(&self, pindexbuffer: Param0, format: super::Dxgi::DXGI_FORMAT, offset: u32) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), pindexbuffer.into_param().abi(), ::std::mem::transmute(format), ::std::mem::transmute(offset)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn DrawIndexedInstanced(&self, indexcountperinstance: u32, instancecount: u32, startindexlocation: u32, basevertexlocation: i32, startinstancelocation: u32) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(indexcountperinstance), ::std::mem::transmute(instancecount), ::std::mem::transmute(startindexlocation), ::std::mem::transmute(basevertexlocation), ::std::mem::transmute(startinstancelocation)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn DrawInstanced(&self, vertexcountperinstance: u32, instancecount: u32, startvertexlocation: u32, startinstancelocation: u32) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(vertexcountperinstance), ::std::mem::transmute(instancecount), ::std::mem::transmute(startvertexlocation), ::std::mem::transmute(startinstancelocation)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GSSetConstantBuffers(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::std::option::Option<ID3D10Buffer>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(startslot), ::std::mem::transmute(numbuffers), ::std::mem::transmute(ppconstantbuffers)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GSSetShader<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D10GeometryShader>>(&self, pshader: Param0) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), pshader.into_param().abi()))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D11")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn IASetPrimitiveTopology(&self, topology: super::Direct3D11::D3D_PRIMITIVE_TOPOLOGY) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(topology)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn VSSetShaderResources(&self, startslot: u32, numviews: u32, ppshaderresourceviews: *const ::std::option::Option<ID3D10ShaderResourceView>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(startslot), ::std::mem::transmute(numviews), ::std::mem::transmute(ppshaderresourceviews)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn VSSetSamplers(&self, startslot: u32, numsamplers: u32, ppsamplers: *const ::std::option::Option<ID3D10SamplerState>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(startslot), ::std::mem::transmute(numsamplers), ::std::mem::transmute(ppsamplers)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn SetPredication<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D10Predicate>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, ppredicate: Param0, predicatevalue: Param1) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ppredicate.into_param().abi(), predicatevalue.into_param().abi()))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GSSetShaderResources(&self, startslot: u32, numviews: u32, ppshaderresourceviews: *const ::std::option::Option<ID3D10ShaderResourceView>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(startslot), ::std::mem::transmute(numviews), ::std::mem::transmute(ppshaderresourceviews)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GSSetSamplers(&self, startslot: u32, numsamplers: u32, ppsamplers: *const ::std::option::Option<ID3D10SamplerState>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), ::std::mem::transmute(startslot), ::std::mem::transmute(numsamplers), ::std::mem::transmute(ppsamplers)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn OMSetRenderTargets<'a, Param2: ::windows::runtime::IntoParam<'a, ID3D10DepthStencilView>>(&self, numviews: u32, pprendertargetviews: *const ::std::option::Option<ID3D10RenderTargetView>, pdepthstencilview: Param2) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), ::std::mem::transmute(numviews), ::std::mem::transmute(pprendertargetviews), pdepthstencilview.into_param().abi()))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn OMSetBlendState<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D10BlendState>>(&self, pblendstate: Param0, blendfactor: *const f32, samplemask: u32) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), pblendstate.into_param().abi(), ::std::mem::transmute(blendfactor), ::std::mem::transmute(samplemask)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn OMSetDepthStencilState<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D10DepthStencilState>>(&self, pdepthstencilstate: Param0, stencilref: u32) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), pdepthstencilstate.into_param().abi(), ::std::mem::transmute(stencilref)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SOSetTargets(&self, numbuffers: u32, ppsotargets: *const ::std::option::Option<ID3D10Buffer>, poffsets: *const u32) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), ::std::mem::transmute(numbuffers), ::std::mem::transmute(ppsotargets), ::std::mem::transmute(poffsets)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn DrawAuto(&self) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn RSSetState<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D10RasterizerState>>(&self, prasterizerstate: Param0) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), prasterizerstate.into_param().abi()))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn RSSetViewports(&self, numviewports: u32, pviewports: *const D3D10_VIEWPORT) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), ::std::mem::transmute(numviewports), ::std::mem::transmute(pviewports)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn RSSetScissorRects(&self, numrects: u32, prects: *const super::super::Foundation::RECT) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self), ::std::mem::transmute(numrects), ::std::mem::transmute(prects)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn CopySubresourceRegion<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D10Resource>, Param5: ::windows::runtime::IntoParam<'a, ID3D10Resource>>(&self, pdstresource: Param0, dstsubresource: u32, dstx: u32, dsty: u32, dstz: u32, psrcresource: Param5, srcsubresource: u32, psrcbox: *const D3D10_BOX) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).32)(
             ::std::mem::transmute_copy(self),
@@ -6028,226 +6563,287 @@ impl ID3D10Device {
             ::std::mem::transmute(psrcbox),
         ))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn CopyResource<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D10Resource>, Param1: ::windows::runtime::IntoParam<'a, ID3D10Resource>>(&self, pdstresource: Param0, psrcresource: Param1) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).33)(::std::mem::transmute_copy(self), pdstresource.into_param().abi(), psrcresource.into_param().abi()))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn UpdateSubresource<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D10Resource>>(&self, pdstresource: Param0, dstsubresource: u32, pdstbox: *const D3D10_BOX, psrcdata: *const ::std::ffi::c_void, srcrowpitch: u32, srcdepthpitch: u32) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).34)(::std::mem::transmute_copy(self), pdstresource.into_param().abi(), ::std::mem::transmute(dstsubresource), ::std::mem::transmute(pdstbox), ::std::mem::transmute(psrcdata), ::std::mem::transmute(srcrowpitch), ::std::mem::transmute(srcdepthpitch)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn ClearRenderTargetView<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D10RenderTargetView>>(&self, prendertargetview: Param0, colorrgba: *const f32) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).35)(::std::mem::transmute_copy(self), prendertargetview.into_param().abi(), ::std::mem::transmute(colorrgba)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn ClearDepthStencilView<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D10DepthStencilView>>(&self, pdepthstencilview: Param0, clearflags: u32, depth: f32, stencil: u8) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).36)(::std::mem::transmute_copy(self), pdepthstencilview.into_param().abi(), ::std::mem::transmute(clearflags), ::std::mem::transmute(depth), ::std::mem::transmute(stencil)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GenerateMips<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D10ShaderResourceView>>(&self, pshaderresourceview: Param0) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).37)(::std::mem::transmute_copy(self), pshaderresourceview.into_param().abi()))
     }
     #[cfg(feature = "Win32_Graphics_Dxgi")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Graphics_Dxgi`*"]
     pub unsafe fn ResolveSubresource<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D10Resource>, Param2: ::windows::runtime::IntoParam<'a, ID3D10Resource>>(&self, pdstresource: Param0, dstsubresource: u32, psrcresource: Param2, srcsubresource: u32, format: super::Dxgi::DXGI_FORMAT) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).38)(::std::mem::transmute_copy(self), pdstresource.into_param().abi(), ::std::mem::transmute(dstsubresource), psrcresource.into_param().abi(), ::std::mem::transmute(srcsubresource), ::std::mem::transmute(format)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn VSGetConstantBuffers(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::std::option::Option<ID3D10Buffer>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).39)(::std::mem::transmute_copy(self), ::std::mem::transmute(startslot), ::std::mem::transmute(numbuffers), ::std::mem::transmute(ppconstantbuffers)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn PSGetShaderResources(&self, startslot: u32, numviews: u32, ppshaderresourceviews: *mut ::std::option::Option<ID3D10ShaderResourceView>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).40)(::std::mem::transmute_copy(self), ::std::mem::transmute(startslot), ::std::mem::transmute(numviews), ::std::mem::transmute(ppshaderresourceviews)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn PSGetShader(&self, pppixelshader: *mut ::std::option::Option<ID3D10PixelShader>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).41)(::std::mem::transmute_copy(self), ::std::mem::transmute(pppixelshader)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn PSGetSamplers(&self, startslot: u32, numsamplers: u32, ppsamplers: *mut ::std::option::Option<ID3D10SamplerState>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).42)(::std::mem::transmute_copy(self), ::std::mem::transmute(startslot), ::std::mem::transmute(numsamplers), ::std::mem::transmute(ppsamplers)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn VSGetShader(&self, ppvertexshader: *mut ::std::option::Option<ID3D10VertexShader>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).43)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppvertexshader)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn PSGetConstantBuffers(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::std::option::Option<ID3D10Buffer>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).44)(::std::mem::transmute_copy(self), ::std::mem::transmute(startslot), ::std::mem::transmute(numbuffers), ::std::mem::transmute(ppconstantbuffers)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn IAGetInputLayout(&self, ppinputlayout: *mut ::std::option::Option<ID3D10InputLayout>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).45)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppinputlayout)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn IAGetVertexBuffers(&self, startslot: u32, numbuffers: u32, ppvertexbuffers: *mut ::std::option::Option<ID3D10Buffer>, pstrides: *mut u32, poffsets: *mut u32) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).46)(::std::mem::transmute_copy(self), ::std::mem::transmute(startslot), ::std::mem::transmute(numbuffers), ::std::mem::transmute(ppvertexbuffers), ::std::mem::transmute(pstrides), ::std::mem::transmute(poffsets)))
     }
     #[cfg(feature = "Win32_Graphics_Dxgi")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Graphics_Dxgi`*"]
     pub unsafe fn IAGetIndexBuffer(&self, pindexbuffer: *mut ::std::option::Option<ID3D10Buffer>, format: *mut super::Dxgi::DXGI_FORMAT, offset: *mut u32) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).47)(::std::mem::transmute_copy(self), ::std::mem::transmute(pindexbuffer), ::std::mem::transmute(format), ::std::mem::transmute(offset)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GSGetConstantBuffers(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::std::option::Option<ID3D10Buffer>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).48)(::std::mem::transmute_copy(self), ::std::mem::transmute(startslot), ::std::mem::transmute(numbuffers), ::std::mem::transmute(ppconstantbuffers)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GSGetShader(&self, ppgeometryshader: *mut ::std::option::Option<ID3D10GeometryShader>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).49)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppgeometryshader)))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D11")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn IAGetPrimitiveTopology(&self, ptopology: *mut super::Direct3D11::D3D_PRIMITIVE_TOPOLOGY) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).50)(::std::mem::transmute_copy(self), ::std::mem::transmute(ptopology)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn VSGetShaderResources(&self, startslot: u32, numviews: u32, ppshaderresourceviews: *mut ::std::option::Option<ID3D10ShaderResourceView>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).51)(::std::mem::transmute_copy(self), ::std::mem::transmute(startslot), ::std::mem::transmute(numviews), ::std::mem::transmute(ppshaderresourceviews)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn VSGetSamplers(&self, startslot: u32, numsamplers: u32, ppsamplers: *mut ::std::option::Option<ID3D10SamplerState>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).52)(::std::mem::transmute_copy(self), ::std::mem::transmute(startslot), ::std::mem::transmute(numsamplers), ::std::mem::transmute(ppsamplers)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetPredication(&self, pppredicate: *mut ::std::option::Option<ID3D10Predicate>, ppredicatevalue: *mut super::super::Foundation::BOOL) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).53)(::std::mem::transmute_copy(self), ::std::mem::transmute(pppredicate), ::std::mem::transmute(ppredicatevalue)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GSGetShaderResources(&self, startslot: u32, numviews: u32, ppshaderresourceviews: *mut ::std::option::Option<ID3D10ShaderResourceView>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).54)(::std::mem::transmute_copy(self), ::std::mem::transmute(startslot), ::std::mem::transmute(numviews), ::std::mem::transmute(ppshaderresourceviews)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GSGetSamplers(&self, startslot: u32, numsamplers: u32, ppsamplers: *mut ::std::option::Option<ID3D10SamplerState>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).55)(::std::mem::transmute_copy(self), ::std::mem::transmute(startslot), ::std::mem::transmute(numsamplers), ::std::mem::transmute(ppsamplers)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn OMGetRenderTargets(&self, numviews: u32, pprendertargetviews: *mut ::std::option::Option<ID3D10RenderTargetView>, ppdepthstencilview: *mut ::std::option::Option<ID3D10DepthStencilView>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).56)(::std::mem::transmute_copy(self), ::std::mem::transmute(numviews), ::std::mem::transmute(pprendertargetviews), ::std::mem::transmute(ppdepthstencilview)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn OMGetBlendState(&self, ppblendstate: *mut ::std::option::Option<ID3D10BlendState>, blendfactor: *mut f32, psamplemask: *mut u32) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).57)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppblendstate), ::std::mem::transmute(blendfactor), ::std::mem::transmute(psamplemask)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn OMGetDepthStencilState(&self, ppdepthstencilstate: *mut ::std::option::Option<ID3D10DepthStencilState>, pstencilref: *mut u32) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).58)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppdepthstencilstate), ::std::mem::transmute(pstencilref)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SOGetTargets(&self, numbuffers: u32, ppsotargets: *mut ::std::option::Option<ID3D10Buffer>, poffsets: *mut u32) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).59)(::std::mem::transmute_copy(self), ::std::mem::transmute(numbuffers), ::std::mem::transmute(ppsotargets), ::std::mem::transmute(poffsets)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn RSGetState(&self, pprasterizerstate: *mut ::std::option::Option<ID3D10RasterizerState>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).60)(::std::mem::transmute_copy(self), ::std::mem::transmute(pprasterizerstate)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn RSGetViewports(&self, numviewports: *mut u32, pviewports: *mut D3D10_VIEWPORT) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).61)(::std::mem::transmute_copy(self), ::std::mem::transmute(numviewports), ::std::mem::transmute(pviewports)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn RSGetScissorRects(&self, numrects: *mut u32, prects: *mut super::super::Foundation::RECT) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).62)(::std::mem::transmute_copy(self), ::std::mem::transmute(numrects), ::std::mem::transmute(prects)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetDeviceRemovedReason(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).63)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetExceptionMode(&self, raiseflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).64)(::std::mem::transmute_copy(self), ::std::mem::transmute(raiseflags)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetExceptionMode(&self) -> u32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).65)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, pdatasize: *mut u32, pdata: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).66)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(pdatasize), ::std::mem::transmute(pdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: u32, pdata: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).67)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(pdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, guid: *const ::windows::runtime::GUID, pdata: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).68)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn ClearState(&self) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).69)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn Flush(&self) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).70)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn CreateBuffer(&self, pdesc: *const D3D10_BUFFER_DESC, pinitialdata: *const D3D10_SUBRESOURCE_DATA) -> ::windows::runtime::Result<ID3D10Buffer> {
         let mut result__: <ID3D10Buffer as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).71)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdesc), ::std::mem::transmute(pinitialdata), &mut result__).from_abi::<ID3D10Buffer>(result__)
     }
     #[cfg(feature = "Win32_Graphics_Dxgi")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Graphics_Dxgi`*"]
     pub unsafe fn CreateTexture1D(&self, pdesc: *const D3D10_TEXTURE1D_DESC, pinitialdata: *const D3D10_SUBRESOURCE_DATA) -> ::windows::runtime::Result<ID3D10Texture1D> {
         let mut result__: <ID3D10Texture1D as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).72)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdesc), ::std::mem::transmute(pinitialdata), &mut result__).from_abi::<ID3D10Texture1D>(result__)
     }
     #[cfg(feature = "Win32_Graphics_Dxgi")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Graphics_Dxgi`*"]
     pub unsafe fn CreateTexture2D(&self, pdesc: *const D3D10_TEXTURE2D_DESC, pinitialdata: *const D3D10_SUBRESOURCE_DATA) -> ::windows::runtime::Result<ID3D10Texture2D> {
         let mut result__: <ID3D10Texture2D as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).73)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdesc), ::std::mem::transmute(pinitialdata), &mut result__).from_abi::<ID3D10Texture2D>(result__)
     }
     #[cfg(feature = "Win32_Graphics_Dxgi")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Graphics_Dxgi`*"]
     pub unsafe fn CreateTexture3D(&self, pdesc: *const D3D10_TEXTURE3D_DESC, pinitialdata: *const D3D10_SUBRESOURCE_DATA) -> ::windows::runtime::Result<ID3D10Texture3D> {
         let mut result__: <ID3D10Texture3D as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).74)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdesc), ::std::mem::transmute(pinitialdata), &mut result__).from_abi::<ID3D10Texture3D>(result__)
     }
     #[cfg(all(feature = "Win32_Graphics_Direct3D11", feature = "Win32_Graphics_Dxgi"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Graphics_Direct3D11`, `Win32_Graphics_Dxgi`*"]
     pub unsafe fn CreateShaderResourceView<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D10Resource>>(&self, presource: Param0, pdesc: *const D3D10_SHADER_RESOURCE_VIEW_DESC) -> ::windows::runtime::Result<ID3D10ShaderResourceView> {
         let mut result__: <ID3D10ShaderResourceView as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).75)(::std::mem::transmute_copy(self), presource.into_param().abi(), ::std::mem::transmute(pdesc), &mut result__).from_abi::<ID3D10ShaderResourceView>(result__)
     }
     #[cfg(feature = "Win32_Graphics_Dxgi")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Graphics_Dxgi`*"]
     pub unsafe fn CreateRenderTargetView<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D10Resource>>(&self, presource: Param0, pdesc: *const D3D10_RENDER_TARGET_VIEW_DESC) -> ::windows::runtime::Result<ID3D10RenderTargetView> {
         let mut result__: <ID3D10RenderTargetView as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).76)(::std::mem::transmute_copy(self), presource.into_param().abi(), ::std::mem::transmute(pdesc), &mut result__).from_abi::<ID3D10RenderTargetView>(result__)
     }
     #[cfg(feature = "Win32_Graphics_Dxgi")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Graphics_Dxgi`*"]
     pub unsafe fn CreateDepthStencilView<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D10Resource>>(&self, presource: Param0, pdesc: *const D3D10_DEPTH_STENCIL_VIEW_DESC) -> ::windows::runtime::Result<ID3D10DepthStencilView> {
         let mut result__: <ID3D10DepthStencilView as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).77)(::std::mem::transmute_copy(self), presource.into_param().abi(), ::std::mem::transmute(pdesc), &mut result__).from_abi::<ID3D10DepthStencilView>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`, `Win32_Graphics_Dxgi`*"]
     pub unsafe fn CreateInputLayout(&self, pinputelementdescs: *const D3D10_INPUT_ELEMENT_DESC, numelements: u32, pshaderbytecodewithinputsignature: *const ::std::ffi::c_void, bytecodelength: usize) -> ::windows::runtime::Result<ID3D10InputLayout> {
         let mut result__: <ID3D10InputLayout as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).78)(::std::mem::transmute_copy(self), ::std::mem::transmute(pinputelementdescs), ::std::mem::transmute(numelements), ::std::mem::transmute(pshaderbytecodewithinputsignature), ::std::mem::transmute(bytecodelength), &mut result__).from_abi::<ID3D10InputLayout>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn CreateVertexShader(&self, pshaderbytecode: *const ::std::ffi::c_void, bytecodelength: usize) -> ::windows::runtime::Result<ID3D10VertexShader> {
         let mut result__: <ID3D10VertexShader as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).79)(::std::mem::transmute_copy(self), ::std::mem::transmute(pshaderbytecode), ::std::mem::transmute(bytecodelength), &mut result__).from_abi::<ID3D10VertexShader>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn CreateGeometryShader(&self, pshaderbytecode: *const ::std::ffi::c_void, bytecodelength: usize) -> ::windows::runtime::Result<ID3D10GeometryShader> {
         let mut result__: <ID3D10GeometryShader as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).80)(::std::mem::transmute_copy(self), ::std::mem::transmute(pshaderbytecode), ::std::mem::transmute(bytecodelength), &mut result__).from_abi::<ID3D10GeometryShader>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn CreateGeometryShaderWithStreamOutput(&self, pshaderbytecode: *const ::std::ffi::c_void, bytecodelength: usize, psodeclaration: *const D3D10_SO_DECLARATION_ENTRY, numentries: u32, outputstreamstride: u32) -> ::windows::runtime::Result<ID3D10GeometryShader> {
         let mut result__: <ID3D10GeometryShader as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).81)(::std::mem::transmute_copy(self), ::std::mem::transmute(pshaderbytecode), ::std::mem::transmute(bytecodelength), ::std::mem::transmute(psodeclaration), ::std::mem::transmute(numentries), ::std::mem::transmute(outputstreamstride), &mut result__).from_abi::<ID3D10GeometryShader>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn CreatePixelShader(&self, pshaderbytecode: *const ::std::ffi::c_void, bytecodelength: usize) -> ::windows::runtime::Result<ID3D10PixelShader> {
         let mut result__: <ID3D10PixelShader as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).82)(::std::mem::transmute_copy(self), ::std::mem::transmute(pshaderbytecode), ::std::mem::transmute(bytecodelength), &mut result__).from_abi::<ID3D10PixelShader>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn CreateBlendState(&self, pblendstatedesc: *const D3D10_BLEND_DESC) -> ::windows::runtime::Result<ID3D10BlendState> {
         let mut result__: <ID3D10BlendState as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).83)(::std::mem::transmute_copy(self), ::std::mem::transmute(pblendstatedesc), &mut result__).from_abi::<ID3D10BlendState>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn CreateDepthStencilState(&self, pdepthstencildesc: *const D3D10_DEPTH_STENCIL_DESC) -> ::windows::runtime::Result<ID3D10DepthStencilState> {
         let mut result__: <ID3D10DepthStencilState as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).84)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdepthstencildesc), &mut result__).from_abi::<ID3D10DepthStencilState>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn CreateRasterizerState(&self, prasterizerdesc: *const D3D10_RASTERIZER_DESC) -> ::windows::runtime::Result<ID3D10RasterizerState> {
         let mut result__: <ID3D10RasterizerState as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).85)(::std::mem::transmute_copy(self), ::std::mem::transmute(prasterizerdesc), &mut result__).from_abi::<ID3D10RasterizerState>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn CreateSamplerState(&self, psamplerdesc: *const D3D10_SAMPLER_DESC) -> ::windows::runtime::Result<ID3D10SamplerState> {
         let mut result__: <ID3D10SamplerState as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).86)(::std::mem::transmute_copy(self), ::std::mem::transmute(psamplerdesc), &mut result__).from_abi::<ID3D10SamplerState>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn CreateQuery(&self, pquerydesc: *const D3D10_QUERY_DESC) -> ::windows::runtime::Result<ID3D10Query> {
         let mut result__: <ID3D10Query as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).87)(::std::mem::transmute_copy(self), ::std::mem::transmute(pquerydesc), &mut result__).from_abi::<ID3D10Query>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn CreatePredicate(&self, ppredicatedesc: *const D3D10_QUERY_DESC) -> ::windows::runtime::Result<ID3D10Predicate> {
         let mut result__: <ID3D10Predicate as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).88)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppredicatedesc), &mut result__).from_abi::<ID3D10Predicate>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn CreateCounter(&self, pcounterdesc: *const D3D10_COUNTER_DESC) -> ::windows::runtime::Result<ID3D10Counter> {
         let mut result__: <ID3D10Counter as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).89)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcounterdesc), &mut result__).from_abi::<ID3D10Counter>(result__)
     }
     #[cfg(feature = "Win32_Graphics_Dxgi")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Graphics_Dxgi`*"]
     pub unsafe fn CheckFormatSupport(&self, format: super::Dxgi::DXGI_FORMAT) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).90)(::std::mem::transmute_copy(self), ::std::mem::transmute(format), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Graphics_Dxgi")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Graphics_Dxgi`*"]
     pub unsafe fn CheckMultisampleQualityLevels(&self, format: super::Dxgi::DXGI_FORMAT, samplecount: u32) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).91)(::std::mem::transmute_copy(self), ::std::mem::transmute(format), ::std::mem::transmute(samplecount), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn CheckCounterInfo(&self, pcounterinfo: *mut D3D10_COUNTER_INFO) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).92)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcounterinfo)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn CheckCounter(&self, pdesc: *const D3D10_COUNTER_DESC, ptype: *mut D3D10_COUNTER_TYPE, pactivecounters: *mut u32, szname: super::super::Foundation::PSTR, pnamelength: *mut u32, szunits: super::super::Foundation::PSTR, punitslength: *mut u32, szdescription: super::super::Foundation::PSTR, pdescriptionlength: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).93)(
             ::std::mem::transmute_copy(self),
@@ -6263,16 +6859,20 @@ impl ID3D10Device {
         )
         .ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetCreationFlags(&self) -> u32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).94)(::std::mem::transmute_copy(self)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn OpenSharedResource<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, hresource: Param0, returnedinterface: *const ::windows::runtime::GUID, ppresource: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).95)(::std::mem::transmute_copy(self), hresource.into_param().abi(), ::std::mem::transmute(returnedinterface), ::std::mem::transmute(ppresource)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetTextFilterSize(&self, width: u32, height: u32) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).96)(::std::mem::transmute_copy(self), ::std::mem::transmute(width), ::std::mem::transmute(height)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetTextFilterSize(&self, pwidth: *mut u32, pheight: *mut u32) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).97)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwidth), ::std::mem::transmute(pheight)))
     }
@@ -6427,101 +7027,132 @@ pub struct ID3D10Device_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, width: u32, height: u32),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwidth: *mut u32, pheight: *mut u32),
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ID3D10Device1(::windows::runtime::IUnknown);
 impl ID3D10Device1 {
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn VSSetConstantBuffers(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::std::option::Option<ID3D10Buffer>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(startslot), ::std::mem::transmute(numbuffers), ::std::mem::transmute(ppconstantbuffers)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn PSSetShaderResources(&self, startslot: u32, numviews: u32, ppshaderresourceviews: *const ::std::option::Option<ID3D10ShaderResourceView>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(startslot), ::std::mem::transmute(numviews), ::std::mem::transmute(ppshaderresourceviews)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn PSSetShader<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D10PixelShader>>(&self, ppixelshader: Param0) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ppixelshader.into_param().abi()))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn PSSetSamplers(&self, startslot: u32, numsamplers: u32, ppsamplers: *const ::std::option::Option<ID3D10SamplerState>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(startslot), ::std::mem::transmute(numsamplers), ::std::mem::transmute(ppsamplers)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn VSSetShader<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D10VertexShader>>(&self, pvertexshader: Param0) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), pvertexshader.into_param().abi()))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn DrawIndexed(&self, indexcount: u32, startindexlocation: u32, basevertexlocation: i32) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(indexcount), ::std::mem::transmute(startindexlocation), ::std::mem::transmute(basevertexlocation)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn Draw(&self, vertexcount: u32, startvertexlocation: u32) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(vertexcount), ::std::mem::transmute(startvertexlocation)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn PSSetConstantBuffers(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::std::option::Option<ID3D10Buffer>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(startslot), ::std::mem::transmute(numbuffers), ::std::mem::transmute(ppconstantbuffers)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn IASetInputLayout<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D10InputLayout>>(&self, pinputlayout: Param0) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), pinputlayout.into_param().abi()))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn IASetVertexBuffers(&self, startslot: u32, numbuffers: u32, ppvertexbuffers: *const ::std::option::Option<ID3D10Buffer>, pstrides: *const u32, poffsets: *const u32) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(startslot), ::std::mem::transmute(numbuffers), ::std::mem::transmute(ppvertexbuffers), ::std::mem::transmute(pstrides), ::std::mem::transmute(poffsets)))
     }
     #[cfg(feature = "Win32_Graphics_Dxgi")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Graphics_Dxgi`*"]
     pub unsafe fn IASetIndexBuffer<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D10Buffer>>(&self, pindexbuffer: Param0, format: super::Dxgi::DXGI_FORMAT, offset: u32) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), pindexbuffer.into_param().abi(), ::std::mem::transmute(format), ::std::mem::transmute(offset)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn DrawIndexedInstanced(&self, indexcountperinstance: u32, instancecount: u32, startindexlocation: u32, basevertexlocation: i32, startinstancelocation: u32) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(indexcountperinstance), ::std::mem::transmute(instancecount), ::std::mem::transmute(startindexlocation), ::std::mem::transmute(basevertexlocation), ::std::mem::transmute(startinstancelocation)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn DrawInstanced(&self, vertexcountperinstance: u32, instancecount: u32, startvertexlocation: u32, startinstancelocation: u32) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(vertexcountperinstance), ::std::mem::transmute(instancecount), ::std::mem::transmute(startvertexlocation), ::std::mem::transmute(startinstancelocation)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GSSetConstantBuffers(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::std::option::Option<ID3D10Buffer>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(startslot), ::std::mem::transmute(numbuffers), ::std::mem::transmute(ppconstantbuffers)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GSSetShader<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D10GeometryShader>>(&self, pshader: Param0) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), pshader.into_param().abi()))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D11")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn IASetPrimitiveTopology(&self, topology: super::Direct3D11::D3D_PRIMITIVE_TOPOLOGY) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(topology)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn VSSetShaderResources(&self, startslot: u32, numviews: u32, ppshaderresourceviews: *const ::std::option::Option<ID3D10ShaderResourceView>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(startslot), ::std::mem::transmute(numviews), ::std::mem::transmute(ppshaderresourceviews)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn VSSetSamplers(&self, startslot: u32, numsamplers: u32, ppsamplers: *const ::std::option::Option<ID3D10SamplerState>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(startslot), ::std::mem::transmute(numsamplers), ::std::mem::transmute(ppsamplers)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn SetPredication<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D10Predicate>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, ppredicate: Param0, predicatevalue: Param1) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ppredicate.into_param().abi(), predicatevalue.into_param().abi()))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GSSetShaderResources(&self, startslot: u32, numviews: u32, ppshaderresourceviews: *const ::std::option::Option<ID3D10ShaderResourceView>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(startslot), ::std::mem::transmute(numviews), ::std::mem::transmute(ppshaderresourceviews)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GSSetSamplers(&self, startslot: u32, numsamplers: u32, ppsamplers: *const ::std::option::Option<ID3D10SamplerState>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), ::std::mem::transmute(startslot), ::std::mem::transmute(numsamplers), ::std::mem::transmute(ppsamplers)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn OMSetRenderTargets<'a, Param2: ::windows::runtime::IntoParam<'a, ID3D10DepthStencilView>>(&self, numviews: u32, pprendertargetviews: *const ::std::option::Option<ID3D10RenderTargetView>, pdepthstencilview: Param2) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), ::std::mem::transmute(numviews), ::std::mem::transmute(pprendertargetviews), pdepthstencilview.into_param().abi()))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn OMSetBlendState<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D10BlendState>>(&self, pblendstate: Param0, blendfactor: *const f32, samplemask: u32) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), pblendstate.into_param().abi(), ::std::mem::transmute(blendfactor), ::std::mem::transmute(samplemask)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn OMSetDepthStencilState<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D10DepthStencilState>>(&self, pdepthstencilstate: Param0, stencilref: u32) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), pdepthstencilstate.into_param().abi(), ::std::mem::transmute(stencilref)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SOSetTargets(&self, numbuffers: u32, ppsotargets: *const ::std::option::Option<ID3D10Buffer>, poffsets: *const u32) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), ::std::mem::transmute(numbuffers), ::std::mem::transmute(ppsotargets), ::std::mem::transmute(poffsets)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn DrawAuto(&self) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn RSSetState<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D10RasterizerState>>(&self, prasterizerstate: Param0) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), prasterizerstate.into_param().abi()))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn RSSetViewports(&self, numviewports: u32, pviewports: *const D3D10_VIEWPORT) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), ::std::mem::transmute(numviewports), ::std::mem::transmute(pviewports)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn RSSetScissorRects(&self, numrects: u32, prects: *const super::super::Foundation::RECT) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self), ::std::mem::transmute(numrects), ::std::mem::transmute(prects)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn CopySubresourceRegion<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D10Resource>, Param5: ::windows::runtime::IntoParam<'a, ID3D10Resource>>(&self, pdstresource: Param0, dstsubresource: u32, dstx: u32, dsty: u32, dstz: u32, psrcresource: Param5, srcsubresource: u32, psrcbox: *const D3D10_BOX) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).32)(
             ::std::mem::transmute_copy(self),
@@ -6535,226 +7166,287 @@ impl ID3D10Device1 {
             ::std::mem::transmute(psrcbox),
         ))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn CopyResource<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D10Resource>, Param1: ::windows::runtime::IntoParam<'a, ID3D10Resource>>(&self, pdstresource: Param0, psrcresource: Param1) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).33)(::std::mem::transmute_copy(self), pdstresource.into_param().abi(), psrcresource.into_param().abi()))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn UpdateSubresource<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D10Resource>>(&self, pdstresource: Param0, dstsubresource: u32, pdstbox: *const D3D10_BOX, psrcdata: *const ::std::ffi::c_void, srcrowpitch: u32, srcdepthpitch: u32) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).34)(::std::mem::transmute_copy(self), pdstresource.into_param().abi(), ::std::mem::transmute(dstsubresource), ::std::mem::transmute(pdstbox), ::std::mem::transmute(psrcdata), ::std::mem::transmute(srcrowpitch), ::std::mem::transmute(srcdepthpitch)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn ClearRenderTargetView<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D10RenderTargetView>>(&self, prendertargetview: Param0, colorrgba: *const f32) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).35)(::std::mem::transmute_copy(self), prendertargetview.into_param().abi(), ::std::mem::transmute(colorrgba)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn ClearDepthStencilView<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D10DepthStencilView>>(&self, pdepthstencilview: Param0, clearflags: u32, depth: f32, stencil: u8) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).36)(::std::mem::transmute_copy(self), pdepthstencilview.into_param().abi(), ::std::mem::transmute(clearflags), ::std::mem::transmute(depth), ::std::mem::transmute(stencil)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GenerateMips<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D10ShaderResourceView>>(&self, pshaderresourceview: Param0) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).37)(::std::mem::transmute_copy(self), pshaderresourceview.into_param().abi()))
     }
     #[cfg(feature = "Win32_Graphics_Dxgi")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Graphics_Dxgi`*"]
     pub unsafe fn ResolveSubresource<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D10Resource>, Param2: ::windows::runtime::IntoParam<'a, ID3D10Resource>>(&self, pdstresource: Param0, dstsubresource: u32, psrcresource: Param2, srcsubresource: u32, format: super::Dxgi::DXGI_FORMAT) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).38)(::std::mem::transmute_copy(self), pdstresource.into_param().abi(), ::std::mem::transmute(dstsubresource), psrcresource.into_param().abi(), ::std::mem::transmute(srcsubresource), ::std::mem::transmute(format)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn VSGetConstantBuffers(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::std::option::Option<ID3D10Buffer>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).39)(::std::mem::transmute_copy(self), ::std::mem::transmute(startslot), ::std::mem::transmute(numbuffers), ::std::mem::transmute(ppconstantbuffers)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn PSGetShaderResources(&self, startslot: u32, numviews: u32, ppshaderresourceviews: *mut ::std::option::Option<ID3D10ShaderResourceView>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).40)(::std::mem::transmute_copy(self), ::std::mem::transmute(startslot), ::std::mem::transmute(numviews), ::std::mem::transmute(ppshaderresourceviews)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn PSGetShader(&self, pppixelshader: *mut ::std::option::Option<ID3D10PixelShader>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).41)(::std::mem::transmute_copy(self), ::std::mem::transmute(pppixelshader)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn PSGetSamplers(&self, startslot: u32, numsamplers: u32, ppsamplers: *mut ::std::option::Option<ID3D10SamplerState>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).42)(::std::mem::transmute_copy(self), ::std::mem::transmute(startslot), ::std::mem::transmute(numsamplers), ::std::mem::transmute(ppsamplers)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn VSGetShader(&self, ppvertexshader: *mut ::std::option::Option<ID3D10VertexShader>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).43)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppvertexshader)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn PSGetConstantBuffers(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::std::option::Option<ID3D10Buffer>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).44)(::std::mem::transmute_copy(self), ::std::mem::transmute(startslot), ::std::mem::transmute(numbuffers), ::std::mem::transmute(ppconstantbuffers)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn IAGetInputLayout(&self, ppinputlayout: *mut ::std::option::Option<ID3D10InputLayout>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).45)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppinputlayout)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn IAGetVertexBuffers(&self, startslot: u32, numbuffers: u32, ppvertexbuffers: *mut ::std::option::Option<ID3D10Buffer>, pstrides: *mut u32, poffsets: *mut u32) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).46)(::std::mem::transmute_copy(self), ::std::mem::transmute(startslot), ::std::mem::transmute(numbuffers), ::std::mem::transmute(ppvertexbuffers), ::std::mem::transmute(pstrides), ::std::mem::transmute(poffsets)))
     }
     #[cfg(feature = "Win32_Graphics_Dxgi")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Graphics_Dxgi`*"]
     pub unsafe fn IAGetIndexBuffer(&self, pindexbuffer: *mut ::std::option::Option<ID3D10Buffer>, format: *mut super::Dxgi::DXGI_FORMAT, offset: *mut u32) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).47)(::std::mem::transmute_copy(self), ::std::mem::transmute(pindexbuffer), ::std::mem::transmute(format), ::std::mem::transmute(offset)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GSGetConstantBuffers(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::std::option::Option<ID3D10Buffer>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).48)(::std::mem::transmute_copy(self), ::std::mem::transmute(startslot), ::std::mem::transmute(numbuffers), ::std::mem::transmute(ppconstantbuffers)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GSGetShader(&self, ppgeometryshader: *mut ::std::option::Option<ID3D10GeometryShader>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).49)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppgeometryshader)))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D11")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn IAGetPrimitiveTopology(&self, ptopology: *mut super::Direct3D11::D3D_PRIMITIVE_TOPOLOGY) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).50)(::std::mem::transmute_copy(self), ::std::mem::transmute(ptopology)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn VSGetShaderResources(&self, startslot: u32, numviews: u32, ppshaderresourceviews: *mut ::std::option::Option<ID3D10ShaderResourceView>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).51)(::std::mem::transmute_copy(self), ::std::mem::transmute(startslot), ::std::mem::transmute(numviews), ::std::mem::transmute(ppshaderresourceviews)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn VSGetSamplers(&self, startslot: u32, numsamplers: u32, ppsamplers: *mut ::std::option::Option<ID3D10SamplerState>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).52)(::std::mem::transmute_copy(self), ::std::mem::transmute(startslot), ::std::mem::transmute(numsamplers), ::std::mem::transmute(ppsamplers)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetPredication(&self, pppredicate: *mut ::std::option::Option<ID3D10Predicate>, ppredicatevalue: *mut super::super::Foundation::BOOL) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).53)(::std::mem::transmute_copy(self), ::std::mem::transmute(pppredicate), ::std::mem::transmute(ppredicatevalue)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GSGetShaderResources(&self, startslot: u32, numviews: u32, ppshaderresourceviews: *mut ::std::option::Option<ID3D10ShaderResourceView>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).54)(::std::mem::transmute_copy(self), ::std::mem::transmute(startslot), ::std::mem::transmute(numviews), ::std::mem::transmute(ppshaderresourceviews)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GSGetSamplers(&self, startslot: u32, numsamplers: u32, ppsamplers: *mut ::std::option::Option<ID3D10SamplerState>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).55)(::std::mem::transmute_copy(self), ::std::mem::transmute(startslot), ::std::mem::transmute(numsamplers), ::std::mem::transmute(ppsamplers)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn OMGetRenderTargets(&self, numviews: u32, pprendertargetviews: *mut ::std::option::Option<ID3D10RenderTargetView>, ppdepthstencilview: *mut ::std::option::Option<ID3D10DepthStencilView>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).56)(::std::mem::transmute_copy(self), ::std::mem::transmute(numviews), ::std::mem::transmute(pprendertargetviews), ::std::mem::transmute(ppdepthstencilview)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn OMGetBlendState(&self, ppblendstate: *mut ::std::option::Option<ID3D10BlendState>, blendfactor: *mut f32, psamplemask: *mut u32) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).57)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppblendstate), ::std::mem::transmute(blendfactor), ::std::mem::transmute(psamplemask)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn OMGetDepthStencilState(&self, ppdepthstencilstate: *mut ::std::option::Option<ID3D10DepthStencilState>, pstencilref: *mut u32) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).58)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppdepthstencilstate), ::std::mem::transmute(pstencilref)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SOGetTargets(&self, numbuffers: u32, ppsotargets: *mut ::std::option::Option<ID3D10Buffer>, poffsets: *mut u32) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).59)(::std::mem::transmute_copy(self), ::std::mem::transmute(numbuffers), ::std::mem::transmute(ppsotargets), ::std::mem::transmute(poffsets)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn RSGetState(&self, pprasterizerstate: *mut ::std::option::Option<ID3D10RasterizerState>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).60)(::std::mem::transmute_copy(self), ::std::mem::transmute(pprasterizerstate)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn RSGetViewports(&self, numviewports: *mut u32, pviewports: *mut D3D10_VIEWPORT) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).61)(::std::mem::transmute_copy(self), ::std::mem::transmute(numviewports), ::std::mem::transmute(pviewports)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn RSGetScissorRects(&self, numrects: *mut u32, prects: *mut super::super::Foundation::RECT) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).62)(::std::mem::transmute_copy(self), ::std::mem::transmute(numrects), ::std::mem::transmute(prects)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetDeviceRemovedReason(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).63)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetExceptionMode(&self, raiseflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).64)(::std::mem::transmute_copy(self), ::std::mem::transmute(raiseflags)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetExceptionMode(&self) -> u32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).65)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, pdatasize: *mut u32, pdata: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).66)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(pdatasize), ::std::mem::transmute(pdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: u32, pdata: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).67)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(pdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, guid: *const ::windows::runtime::GUID, pdata: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).68)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn ClearState(&self) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).69)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn Flush(&self) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).70)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn CreateBuffer(&self, pdesc: *const D3D10_BUFFER_DESC, pinitialdata: *const D3D10_SUBRESOURCE_DATA) -> ::windows::runtime::Result<ID3D10Buffer> {
         let mut result__: <ID3D10Buffer as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).71)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdesc), ::std::mem::transmute(pinitialdata), &mut result__).from_abi::<ID3D10Buffer>(result__)
     }
     #[cfg(feature = "Win32_Graphics_Dxgi")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Graphics_Dxgi`*"]
     pub unsafe fn CreateTexture1D(&self, pdesc: *const D3D10_TEXTURE1D_DESC, pinitialdata: *const D3D10_SUBRESOURCE_DATA) -> ::windows::runtime::Result<ID3D10Texture1D> {
         let mut result__: <ID3D10Texture1D as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).72)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdesc), ::std::mem::transmute(pinitialdata), &mut result__).from_abi::<ID3D10Texture1D>(result__)
     }
     #[cfg(feature = "Win32_Graphics_Dxgi")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Graphics_Dxgi`*"]
     pub unsafe fn CreateTexture2D(&self, pdesc: *const D3D10_TEXTURE2D_DESC, pinitialdata: *const D3D10_SUBRESOURCE_DATA) -> ::windows::runtime::Result<ID3D10Texture2D> {
         let mut result__: <ID3D10Texture2D as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).73)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdesc), ::std::mem::transmute(pinitialdata), &mut result__).from_abi::<ID3D10Texture2D>(result__)
     }
     #[cfg(feature = "Win32_Graphics_Dxgi")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Graphics_Dxgi`*"]
     pub unsafe fn CreateTexture3D(&self, pdesc: *const D3D10_TEXTURE3D_DESC, pinitialdata: *const D3D10_SUBRESOURCE_DATA) -> ::windows::runtime::Result<ID3D10Texture3D> {
         let mut result__: <ID3D10Texture3D as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).74)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdesc), ::std::mem::transmute(pinitialdata), &mut result__).from_abi::<ID3D10Texture3D>(result__)
     }
     #[cfg(all(feature = "Win32_Graphics_Direct3D11", feature = "Win32_Graphics_Dxgi"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Graphics_Direct3D11`, `Win32_Graphics_Dxgi`*"]
     pub unsafe fn CreateShaderResourceView<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D10Resource>>(&self, presource: Param0, pdesc: *const D3D10_SHADER_RESOURCE_VIEW_DESC) -> ::windows::runtime::Result<ID3D10ShaderResourceView> {
         let mut result__: <ID3D10ShaderResourceView as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).75)(::std::mem::transmute_copy(self), presource.into_param().abi(), ::std::mem::transmute(pdesc), &mut result__).from_abi::<ID3D10ShaderResourceView>(result__)
     }
     #[cfg(feature = "Win32_Graphics_Dxgi")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Graphics_Dxgi`*"]
     pub unsafe fn CreateRenderTargetView<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D10Resource>>(&self, presource: Param0, pdesc: *const D3D10_RENDER_TARGET_VIEW_DESC) -> ::windows::runtime::Result<ID3D10RenderTargetView> {
         let mut result__: <ID3D10RenderTargetView as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).76)(::std::mem::transmute_copy(self), presource.into_param().abi(), ::std::mem::transmute(pdesc), &mut result__).from_abi::<ID3D10RenderTargetView>(result__)
     }
     #[cfg(feature = "Win32_Graphics_Dxgi")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Graphics_Dxgi`*"]
     pub unsafe fn CreateDepthStencilView<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D10Resource>>(&self, presource: Param0, pdesc: *const D3D10_DEPTH_STENCIL_VIEW_DESC) -> ::windows::runtime::Result<ID3D10DepthStencilView> {
         let mut result__: <ID3D10DepthStencilView as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).77)(::std::mem::transmute_copy(self), presource.into_param().abi(), ::std::mem::transmute(pdesc), &mut result__).from_abi::<ID3D10DepthStencilView>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`, `Win32_Graphics_Dxgi`*"]
     pub unsafe fn CreateInputLayout(&self, pinputelementdescs: *const D3D10_INPUT_ELEMENT_DESC, numelements: u32, pshaderbytecodewithinputsignature: *const ::std::ffi::c_void, bytecodelength: usize) -> ::windows::runtime::Result<ID3D10InputLayout> {
         let mut result__: <ID3D10InputLayout as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).78)(::std::mem::transmute_copy(self), ::std::mem::transmute(pinputelementdescs), ::std::mem::transmute(numelements), ::std::mem::transmute(pshaderbytecodewithinputsignature), ::std::mem::transmute(bytecodelength), &mut result__).from_abi::<ID3D10InputLayout>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn CreateVertexShader(&self, pshaderbytecode: *const ::std::ffi::c_void, bytecodelength: usize) -> ::windows::runtime::Result<ID3D10VertexShader> {
         let mut result__: <ID3D10VertexShader as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).79)(::std::mem::transmute_copy(self), ::std::mem::transmute(pshaderbytecode), ::std::mem::transmute(bytecodelength), &mut result__).from_abi::<ID3D10VertexShader>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn CreateGeometryShader(&self, pshaderbytecode: *const ::std::ffi::c_void, bytecodelength: usize) -> ::windows::runtime::Result<ID3D10GeometryShader> {
         let mut result__: <ID3D10GeometryShader as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).80)(::std::mem::transmute_copy(self), ::std::mem::transmute(pshaderbytecode), ::std::mem::transmute(bytecodelength), &mut result__).from_abi::<ID3D10GeometryShader>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn CreateGeometryShaderWithStreamOutput(&self, pshaderbytecode: *const ::std::ffi::c_void, bytecodelength: usize, psodeclaration: *const D3D10_SO_DECLARATION_ENTRY, numentries: u32, outputstreamstride: u32) -> ::windows::runtime::Result<ID3D10GeometryShader> {
         let mut result__: <ID3D10GeometryShader as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).81)(::std::mem::transmute_copy(self), ::std::mem::transmute(pshaderbytecode), ::std::mem::transmute(bytecodelength), ::std::mem::transmute(psodeclaration), ::std::mem::transmute(numentries), ::std::mem::transmute(outputstreamstride), &mut result__).from_abi::<ID3D10GeometryShader>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn CreatePixelShader(&self, pshaderbytecode: *const ::std::ffi::c_void, bytecodelength: usize) -> ::windows::runtime::Result<ID3D10PixelShader> {
         let mut result__: <ID3D10PixelShader as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).82)(::std::mem::transmute_copy(self), ::std::mem::transmute(pshaderbytecode), ::std::mem::transmute(bytecodelength), &mut result__).from_abi::<ID3D10PixelShader>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn CreateBlendState(&self, pblendstatedesc: *const D3D10_BLEND_DESC) -> ::windows::runtime::Result<ID3D10BlendState> {
         let mut result__: <ID3D10BlendState as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).83)(::std::mem::transmute_copy(self), ::std::mem::transmute(pblendstatedesc), &mut result__).from_abi::<ID3D10BlendState>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn CreateDepthStencilState(&self, pdepthstencildesc: *const D3D10_DEPTH_STENCIL_DESC) -> ::windows::runtime::Result<ID3D10DepthStencilState> {
         let mut result__: <ID3D10DepthStencilState as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).84)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdepthstencildesc), &mut result__).from_abi::<ID3D10DepthStencilState>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn CreateRasterizerState(&self, prasterizerdesc: *const D3D10_RASTERIZER_DESC) -> ::windows::runtime::Result<ID3D10RasterizerState> {
         let mut result__: <ID3D10RasterizerState as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).85)(::std::mem::transmute_copy(self), ::std::mem::transmute(prasterizerdesc), &mut result__).from_abi::<ID3D10RasterizerState>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn CreateSamplerState(&self, psamplerdesc: *const D3D10_SAMPLER_DESC) -> ::windows::runtime::Result<ID3D10SamplerState> {
         let mut result__: <ID3D10SamplerState as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).86)(::std::mem::transmute_copy(self), ::std::mem::transmute(psamplerdesc), &mut result__).from_abi::<ID3D10SamplerState>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn CreateQuery(&self, pquerydesc: *const D3D10_QUERY_DESC) -> ::windows::runtime::Result<ID3D10Query> {
         let mut result__: <ID3D10Query as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).87)(::std::mem::transmute_copy(self), ::std::mem::transmute(pquerydesc), &mut result__).from_abi::<ID3D10Query>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn CreatePredicate(&self, ppredicatedesc: *const D3D10_QUERY_DESC) -> ::windows::runtime::Result<ID3D10Predicate> {
         let mut result__: <ID3D10Predicate as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).88)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppredicatedesc), &mut result__).from_abi::<ID3D10Predicate>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn CreateCounter(&self, pcounterdesc: *const D3D10_COUNTER_DESC) -> ::windows::runtime::Result<ID3D10Counter> {
         let mut result__: <ID3D10Counter as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).89)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcounterdesc), &mut result__).from_abi::<ID3D10Counter>(result__)
     }
     #[cfg(feature = "Win32_Graphics_Dxgi")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Graphics_Dxgi`*"]
     pub unsafe fn CheckFormatSupport(&self, format: super::Dxgi::DXGI_FORMAT) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).90)(::std::mem::transmute_copy(self), ::std::mem::transmute(format), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Graphics_Dxgi")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Graphics_Dxgi`*"]
     pub unsafe fn CheckMultisampleQualityLevels(&self, format: super::Dxgi::DXGI_FORMAT, samplecount: u32) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).91)(::std::mem::transmute_copy(self), ::std::mem::transmute(format), ::std::mem::transmute(samplecount), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn CheckCounterInfo(&self, pcounterinfo: *mut D3D10_COUNTER_INFO) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).92)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcounterinfo)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn CheckCounter(&self, pdesc: *const D3D10_COUNTER_DESC, ptype: *mut D3D10_COUNTER_TYPE, pactivecounters: *mut u32, szname: super::super::Foundation::PSTR, pnamelength: *mut u32, szunits: super::super::Foundation::PSTR, punitslength: *mut u32, szdescription: super::super::Foundation::PSTR, pdescriptionlength: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).93)(
             ::std::mem::transmute_copy(self),
@@ -6770,29 +7462,36 @@ impl ID3D10Device1 {
         )
         .ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetCreationFlags(&self) -> u32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).94)(::std::mem::transmute_copy(self)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn OpenSharedResource<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, hresource: Param0, returnedinterface: *const ::windows::runtime::GUID, ppresource: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).95)(::std::mem::transmute_copy(self), hresource.into_param().abi(), ::std::mem::transmute(returnedinterface), ::std::mem::transmute(ppresource)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetTextFilterSize(&self, width: u32, height: u32) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).96)(::std::mem::transmute_copy(self), ::std::mem::transmute(width), ::std::mem::transmute(height)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetTextFilterSize(&self, pwidth: *mut u32, pheight: *mut u32) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).97)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwidth), ::std::mem::transmute(pheight)))
     }
     #[cfg(all(feature = "Win32_Graphics_Direct3D11", feature = "Win32_Graphics_Dxgi"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Graphics_Direct3D11`, `Win32_Graphics_Dxgi`*"]
     pub unsafe fn CreateShaderResourceView1<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D10Resource>>(&self, presource: Param0, pdesc: *const D3D10_SHADER_RESOURCE_VIEW_DESC1) -> ::windows::runtime::Result<ID3D10ShaderResourceView1> {
         let mut result__: <ID3D10ShaderResourceView1 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).98)(::std::mem::transmute_copy(self), presource.into_param().abi(), ::std::mem::transmute(pdesc), &mut result__).from_abi::<ID3D10ShaderResourceView1>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn CreateBlendState1(&self, pblendstatedesc: *const D3D10_BLEND_DESC1) -> ::windows::runtime::Result<ID3D10BlendState1> {
         let mut result__: <ID3D10BlendState1 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).99)(::std::mem::transmute_copy(self), ::std::mem::transmute(pblendstatedesc), &mut result__).from_abi::<ID3D10BlendState1>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetFeatureLevel(&self) -> D3D10_FEATURE_LEVEL1 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).100)(::std::mem::transmute_copy(self)))
     }
@@ -6972,19 +7671,24 @@ pub struct ID3D10Device1_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> D3D10_FEATURE_LEVEL1,
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ID3D10DeviceChild(::windows::runtime::IUnknown);
 impl ID3D10DeviceChild {
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D10Device>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppdevice)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, pdatasize: *mut u32, pdata: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(pdatasize), ::std::mem::transmute(pdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: u32, pdata: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(pdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, guid: *const ::windows::runtime::GUID, pdata: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
@@ -7024,56 +7728,70 @@ pub struct ID3D10DeviceChild_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, datasize: u32, pdata: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, pdata: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ID3D10Effect(::windows::runtime::IUnknown);
 impl ID3D10Effect {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn IsValid(&self) -> super::super::Foundation::BOOL {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn IsPool(&self) -> super::super::Foundation::BOOL {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetDevice(&self) -> ::windows::runtime::Result<ID3D10Device> {
         let mut result__: <ID3D10Device as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ID3D10Device>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetDesc(&self) -> ::windows::runtime::Result<D3D10_EFFECT_DESC> {
         let mut result__: <D3D10_EFFECT_DESC as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<D3D10_EFFECT_DESC>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetConstantBufferByIndex(&self, index: u32) -> ::std::option::Option<ID3D10EffectConstantBuffer> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(index)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetConstantBufferByName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, name: Param0) -> ::std::option::Option<ID3D10EffectConstantBuffer> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), name.into_param().abi()))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetVariableByIndex(&self, index: u32) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(index)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetVariableByName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, name: Param0) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), name.into_param().abi()))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetVariableBySemantic<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, semantic: Param0) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), semantic.into_param().abi()))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetTechniqueByIndex(&self, index: u32) -> ::std::option::Option<ID3D10EffectTechnique> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(index)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetTechniqueByName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, name: Param0) -> ::std::option::Option<ID3D10EffectTechnique> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), name.into_param().abi()))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn Optimize(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn IsOptimized(&self) -> super::super::Foundation::BOOL {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self)))
     }
@@ -7130,96 +7848,124 @@ pub struct ID3D10Effect_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> super::super::Foundation::BOOL,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ID3D10EffectBlendVariable(::windows::runtime::IUnknown);
 impl ID3D10EffectBlendVariable {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn IsValid(&self) -> super::super::Foundation::BOOL {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetType(&self) -> ::std::option::Option<ID3D10EffectType> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetDesc(&self) -> ::windows::runtime::Result<D3D10_EFFECT_VARIABLE_DESC> {
         let mut result__: <D3D10_EFFECT_VARIABLE_DESC as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<D3D10_EFFECT_VARIABLE_DESC>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetAnnotationByIndex(&self, index: u32) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(index)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetAnnotationByName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, name: Param0) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), name.into_param().abi()))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetMemberByIndex(&self, index: u32) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(index)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetMemberByName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, name: Param0) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), name.into_param().abi()))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetMemberBySemantic<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, semantic: Param0) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), semantic.into_param().abi()))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetElement(&self, index: u32) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(index)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetParentConstantBuffer(&self) -> ::std::option::Option<ID3D10EffectConstantBuffer> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsScalar(&self) -> ::std::option::Option<ID3D10EffectScalarVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsVector(&self) -> ::std::option::Option<ID3D10EffectVectorVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsMatrix(&self) -> ::std::option::Option<ID3D10EffectMatrixVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsString(&self) -> ::std::option::Option<ID3D10EffectStringVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsShaderResource(&self) -> ::std::option::Option<ID3D10EffectShaderResourceVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsRenderTargetView(&self) -> ::std::option::Option<ID3D10EffectRenderTargetViewVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsDepthStencilView(&self) -> ::std::option::Option<ID3D10EffectDepthStencilViewVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsConstantBuffer(&self) -> ::std::option::Option<ID3D10EffectConstantBuffer> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsShader(&self) -> ::std::option::Option<ID3D10EffectShaderVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsBlend(&self) -> ::std::option::Option<ID3D10EffectBlendVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsDepthStencil(&self) -> ::std::option::Option<ID3D10EffectDepthStencilVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsRasterizer(&self) -> ::std::option::Option<ID3D10EffectRasterizerVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsSampler(&self) -> ::std::option::Option<ID3D10EffectSamplerVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetRawValue(&self, pdata: *const ::std::ffi::c_void, offset: u32, bytecount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata), ::std::mem::transmute(offset), ::std::mem::transmute(bytecount)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetRawValue(&self, pdata: *mut ::std::ffi::c_void, offset: u32, bytecount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata), ::std::mem::transmute(offset), ::std::mem::transmute(bytecount)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetBlendState(&self, index: u32) -> ::windows::runtime::Result<ID3D10BlendState> {
         let mut result__: <ID3D10BlendState as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), &mut result__).from_abi::<ID3D10BlendState>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetBackingStore(&self, index: u32, pblenddesc: *mut D3D10_BLEND_DESC) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), ::std::mem::transmute(pblenddesc)).ok()
     }
@@ -7308,101 +8054,131 @@ pub struct ID3D10EffectBlendVariable_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, index: u32, pblenddesc: *mut D3D10_BLEND_DESC) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ID3D10EffectConstantBuffer(::windows::runtime::IUnknown);
 impl ID3D10EffectConstantBuffer {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn IsValid(&self) -> super::super::Foundation::BOOL {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetType(&self) -> ::std::option::Option<ID3D10EffectType> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetDesc(&self) -> ::windows::runtime::Result<D3D10_EFFECT_VARIABLE_DESC> {
         let mut result__: <D3D10_EFFECT_VARIABLE_DESC as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<D3D10_EFFECT_VARIABLE_DESC>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetAnnotationByIndex(&self, index: u32) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(index)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetAnnotationByName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, name: Param0) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), name.into_param().abi()))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetMemberByIndex(&self, index: u32) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(index)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetMemberByName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, name: Param0) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), name.into_param().abi()))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetMemberBySemantic<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, semantic: Param0) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), semantic.into_param().abi()))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetElement(&self, index: u32) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(index)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetParentConstantBuffer(&self) -> ::std::option::Option<ID3D10EffectConstantBuffer> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsScalar(&self) -> ::std::option::Option<ID3D10EffectScalarVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsVector(&self) -> ::std::option::Option<ID3D10EffectVectorVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsMatrix(&self) -> ::std::option::Option<ID3D10EffectMatrixVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsString(&self) -> ::std::option::Option<ID3D10EffectStringVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsShaderResource(&self) -> ::std::option::Option<ID3D10EffectShaderResourceVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsRenderTargetView(&self) -> ::std::option::Option<ID3D10EffectRenderTargetViewVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsDepthStencilView(&self) -> ::std::option::Option<ID3D10EffectDepthStencilViewVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsConstantBuffer(&self) -> ::std::option::Option<ID3D10EffectConstantBuffer> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsShader(&self) -> ::std::option::Option<ID3D10EffectShaderVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsBlend(&self) -> ::std::option::Option<ID3D10EffectBlendVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsDepthStencil(&self) -> ::std::option::Option<ID3D10EffectDepthStencilVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsRasterizer(&self) -> ::std::option::Option<ID3D10EffectRasterizerVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsSampler(&self) -> ::std::option::Option<ID3D10EffectSamplerVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetRawValue(&self, pdata: *const ::std::ffi::c_void, offset: u32, bytecount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata), ::std::mem::transmute(offset), ::std::mem::transmute(bytecount)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetRawValue(&self, pdata: *mut ::std::ffi::c_void, offset: u32, bytecount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata), ::std::mem::transmute(offset), ::std::mem::transmute(bytecount)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetConstantBuffer<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D10Buffer>>(&self, pconstantbuffer: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), pconstantbuffer.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetConstantBuffer(&self) -> ::windows::runtime::Result<ID3D10Buffer> {
         let mut result__: <ID3D10Buffer as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ID3D10Buffer>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetTextureBuffer<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D10ShaderResourceView>>(&self, ptexturebuffer: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), ptexturebuffer.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetTextureBuffer(&self) -> ::windows::runtime::Result<ID3D10ShaderResourceView> {
         let mut result__: <ID3D10ShaderResourceView as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ID3D10ShaderResourceView>(result__)
@@ -7493,96 +8269,124 @@ pub struct ID3D10EffectConstantBuffer_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ptexturebuffer: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pptexturebuffer: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ID3D10EffectDepthStencilVariable(::windows::runtime::IUnknown);
 impl ID3D10EffectDepthStencilVariable {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn IsValid(&self) -> super::super::Foundation::BOOL {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetType(&self) -> ::std::option::Option<ID3D10EffectType> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetDesc(&self) -> ::windows::runtime::Result<D3D10_EFFECT_VARIABLE_DESC> {
         let mut result__: <D3D10_EFFECT_VARIABLE_DESC as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<D3D10_EFFECT_VARIABLE_DESC>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetAnnotationByIndex(&self, index: u32) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(index)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetAnnotationByName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, name: Param0) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), name.into_param().abi()))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetMemberByIndex(&self, index: u32) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(index)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetMemberByName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, name: Param0) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), name.into_param().abi()))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetMemberBySemantic<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, semantic: Param0) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), semantic.into_param().abi()))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetElement(&self, index: u32) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(index)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetParentConstantBuffer(&self) -> ::std::option::Option<ID3D10EffectConstantBuffer> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsScalar(&self) -> ::std::option::Option<ID3D10EffectScalarVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsVector(&self) -> ::std::option::Option<ID3D10EffectVectorVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsMatrix(&self) -> ::std::option::Option<ID3D10EffectMatrixVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsString(&self) -> ::std::option::Option<ID3D10EffectStringVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsShaderResource(&self) -> ::std::option::Option<ID3D10EffectShaderResourceVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsRenderTargetView(&self) -> ::std::option::Option<ID3D10EffectRenderTargetViewVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsDepthStencilView(&self) -> ::std::option::Option<ID3D10EffectDepthStencilViewVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsConstantBuffer(&self) -> ::std::option::Option<ID3D10EffectConstantBuffer> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsShader(&self) -> ::std::option::Option<ID3D10EffectShaderVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsBlend(&self) -> ::std::option::Option<ID3D10EffectBlendVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsDepthStencil(&self) -> ::std::option::Option<ID3D10EffectDepthStencilVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsRasterizer(&self) -> ::std::option::Option<ID3D10EffectRasterizerVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsSampler(&self) -> ::std::option::Option<ID3D10EffectSamplerVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetRawValue(&self, pdata: *const ::std::ffi::c_void, offset: u32, bytecount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata), ::std::mem::transmute(offset), ::std::mem::transmute(bytecount)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetRawValue(&self, pdata: *mut ::std::ffi::c_void, offset: u32, bytecount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata), ::std::mem::transmute(offset), ::std::mem::transmute(bytecount)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetDepthStencilState(&self, index: u32) -> ::windows::runtime::Result<ID3D10DepthStencilState> {
         let mut result__: <ID3D10DepthStencilState as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), &mut result__).from_abi::<ID3D10DepthStencilState>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetBackingStore(&self, index: u32) -> ::windows::runtime::Result<D3D10_DEPTH_STENCIL_DESC> {
         let mut result__: <D3D10_DEPTH_STENCIL_DESC as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), &mut result__).from_abi::<D3D10_DEPTH_STENCIL_DESC>(result__)
@@ -7672,101 +8476,131 @@ pub struct ID3D10EffectDepthStencilVariable_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, index: u32, pdepthstencildesc: *mut D3D10_DEPTH_STENCIL_DESC) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ID3D10EffectDepthStencilViewVariable(::windows::runtime::IUnknown);
 impl ID3D10EffectDepthStencilViewVariable {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn IsValid(&self) -> super::super::Foundation::BOOL {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetType(&self) -> ::std::option::Option<ID3D10EffectType> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetDesc(&self) -> ::windows::runtime::Result<D3D10_EFFECT_VARIABLE_DESC> {
         let mut result__: <D3D10_EFFECT_VARIABLE_DESC as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<D3D10_EFFECT_VARIABLE_DESC>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetAnnotationByIndex(&self, index: u32) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(index)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetAnnotationByName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, name: Param0) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), name.into_param().abi()))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetMemberByIndex(&self, index: u32) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(index)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetMemberByName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, name: Param0) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), name.into_param().abi()))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetMemberBySemantic<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, semantic: Param0) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), semantic.into_param().abi()))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetElement(&self, index: u32) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(index)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetParentConstantBuffer(&self) -> ::std::option::Option<ID3D10EffectConstantBuffer> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsScalar(&self) -> ::std::option::Option<ID3D10EffectScalarVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsVector(&self) -> ::std::option::Option<ID3D10EffectVectorVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsMatrix(&self) -> ::std::option::Option<ID3D10EffectMatrixVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsString(&self) -> ::std::option::Option<ID3D10EffectStringVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsShaderResource(&self) -> ::std::option::Option<ID3D10EffectShaderResourceVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsRenderTargetView(&self) -> ::std::option::Option<ID3D10EffectRenderTargetViewVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsDepthStencilView(&self) -> ::std::option::Option<ID3D10EffectDepthStencilViewVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsConstantBuffer(&self) -> ::std::option::Option<ID3D10EffectConstantBuffer> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsShader(&self) -> ::std::option::Option<ID3D10EffectShaderVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsBlend(&self) -> ::std::option::Option<ID3D10EffectBlendVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsDepthStencil(&self) -> ::std::option::Option<ID3D10EffectDepthStencilVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsRasterizer(&self) -> ::std::option::Option<ID3D10EffectRasterizerVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsSampler(&self) -> ::std::option::Option<ID3D10EffectSamplerVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetRawValue(&self, pdata: *const ::std::ffi::c_void, offset: u32, bytecount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata), ::std::mem::transmute(offset), ::std::mem::transmute(bytecount)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetRawValue(&self, pdata: *mut ::std::ffi::c_void, offset: u32, bytecount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata), ::std::mem::transmute(offset), ::std::mem::transmute(bytecount)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetDepthStencil<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D10DepthStencilView>>(&self, presource: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), presource.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetDepthStencil(&self) -> ::windows::runtime::Result<ID3D10DepthStencilView> {
         let mut result__: <ID3D10DepthStencilView as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ID3D10DepthStencilView>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetDepthStencilArray(&self, ppresources: *const ::std::option::Option<ID3D10DepthStencilView>, offset: u32, count: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppresources), ::std::mem::transmute(offset), ::std::mem::transmute(count)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetDepthStencilArray(&self, ppresources: *mut ::std::option::Option<ID3D10DepthStencilView>, offset: u32, count: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppresources), ::std::mem::transmute(offset), ::std::mem::transmute(count)).ok()
     }
@@ -7856,112 +8690,146 @@ pub struct ID3D10EffectDepthStencilViewVariable_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppresources: *const ::windows::runtime::RawPtr, offset: u32, count: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppresources: *mut ::windows::runtime::RawPtr, offset: u32, count: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ID3D10EffectMatrixVariable(::windows::runtime::IUnknown);
 impl ID3D10EffectMatrixVariable {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn IsValid(&self) -> super::super::Foundation::BOOL {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetType(&self) -> ::std::option::Option<ID3D10EffectType> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetDesc(&self) -> ::windows::runtime::Result<D3D10_EFFECT_VARIABLE_DESC> {
         let mut result__: <D3D10_EFFECT_VARIABLE_DESC as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<D3D10_EFFECT_VARIABLE_DESC>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetAnnotationByIndex(&self, index: u32) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(index)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetAnnotationByName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, name: Param0) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), name.into_param().abi()))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetMemberByIndex(&self, index: u32) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(index)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetMemberByName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, name: Param0) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), name.into_param().abi()))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetMemberBySemantic<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, semantic: Param0) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), semantic.into_param().abi()))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetElement(&self, index: u32) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(index)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetParentConstantBuffer(&self) -> ::std::option::Option<ID3D10EffectConstantBuffer> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsScalar(&self) -> ::std::option::Option<ID3D10EffectScalarVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsVector(&self) -> ::std::option::Option<ID3D10EffectVectorVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsMatrix(&self) -> ::std::option::Option<ID3D10EffectMatrixVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsString(&self) -> ::std::option::Option<ID3D10EffectStringVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsShaderResource(&self) -> ::std::option::Option<ID3D10EffectShaderResourceVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsRenderTargetView(&self) -> ::std::option::Option<ID3D10EffectRenderTargetViewVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsDepthStencilView(&self) -> ::std::option::Option<ID3D10EffectDepthStencilViewVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsConstantBuffer(&self) -> ::std::option::Option<ID3D10EffectConstantBuffer> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsShader(&self) -> ::std::option::Option<ID3D10EffectShaderVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsBlend(&self) -> ::std::option::Option<ID3D10EffectBlendVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsDepthStencil(&self) -> ::std::option::Option<ID3D10EffectDepthStencilVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsRasterizer(&self) -> ::std::option::Option<ID3D10EffectRasterizerVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsSampler(&self) -> ::std::option::Option<ID3D10EffectSamplerVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetRawValue(&self, pdata: *const ::std::ffi::c_void, offset: u32, bytecount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata), ::std::mem::transmute(offset), ::std::mem::transmute(bytecount)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetRawValue(&self, pdata: *mut ::std::ffi::c_void, offset: u32, bytecount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata), ::std::mem::transmute(offset), ::std::mem::transmute(bytecount)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetMatrix(&self, pdata: *mut f32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetMatrix(&self, pdata: *mut f32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetMatrixArray(&self, pdata: *mut f32, offset: u32, count: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata), ::std::mem::transmute(offset), ::std::mem::transmute(count)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetMatrixArray(&self, pdata: *mut f32, offset: u32, count: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata), ::std::mem::transmute(offset), ::std::mem::transmute(count)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetMatrixTranspose(&self, pdata: *mut f32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).32)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetMatrixTranspose(&self, pdata: *mut f32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).33)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetMatrixTransposeArray(&self, pdata: *mut f32, offset: u32, count: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).34)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata), ::std::mem::transmute(offset), ::std::mem::transmute(count)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetMatrixTransposeArray(&self, pdata: *mut f32, offset: u32, count: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).35)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata), ::std::mem::transmute(offset), ::std::mem::transmute(count)).ok()
     }
@@ -8055,37 +8923,47 @@ pub struct ID3D10EffectMatrixVariable_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdata: *mut f32, offset: u32, count: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdata: *mut f32, offset: u32, count: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ID3D10EffectPass(::windows::runtime::IUnknown);
 impl ID3D10EffectPass {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn IsValid(&self) -> super::super::Foundation::BOOL {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetDesc(&self, pdesc: *mut D3D10_PASS_DESC) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdesc)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetVertexShaderDesc(&self, pdesc: *mut D3D10_PASS_SHADER_DESC) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdesc)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetGeometryShaderDesc(&self, pdesc: *mut D3D10_PASS_SHADER_DESC) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdesc)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetPixelShaderDesc(&self, pdesc: *mut D3D10_PASS_SHADER_DESC) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdesc)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetAnnotationByIndex(&self, index: u32) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(index)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetAnnotationByName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, name: Param0) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), name.into_param().abi()))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn Apply(&self, flags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(flags)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn ComputeStateBlockMask(&self) -> ::windows::runtime::Result<D3D10_STATE_BLOCK_MASK> {
         let mut result__: <D3D10_STATE_BLOCK_MASK as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<D3D10_STATE_BLOCK_MASK>(result__)
@@ -8134,10 +9012,12 @@ pub struct ID3D10EffectPass_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, flags: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pstateblockmask: *mut D3D10_STATE_BLOCK_MASK) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ID3D10EffectPool(::windows::runtime::IUnknown);
 impl ID3D10EffectPool {
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsEffect(&self) -> ::std::option::Option<ID3D10Effect> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)))
     }
@@ -8174,96 +9054,124 @@ pub struct ID3D10EffectPool_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::RawPtr,
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ID3D10EffectRasterizerVariable(::windows::runtime::IUnknown);
 impl ID3D10EffectRasterizerVariable {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn IsValid(&self) -> super::super::Foundation::BOOL {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetType(&self) -> ::std::option::Option<ID3D10EffectType> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetDesc(&self) -> ::windows::runtime::Result<D3D10_EFFECT_VARIABLE_DESC> {
         let mut result__: <D3D10_EFFECT_VARIABLE_DESC as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<D3D10_EFFECT_VARIABLE_DESC>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetAnnotationByIndex(&self, index: u32) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(index)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetAnnotationByName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, name: Param0) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), name.into_param().abi()))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetMemberByIndex(&self, index: u32) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(index)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetMemberByName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, name: Param0) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), name.into_param().abi()))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetMemberBySemantic<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, semantic: Param0) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), semantic.into_param().abi()))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetElement(&self, index: u32) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(index)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetParentConstantBuffer(&self) -> ::std::option::Option<ID3D10EffectConstantBuffer> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsScalar(&self) -> ::std::option::Option<ID3D10EffectScalarVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsVector(&self) -> ::std::option::Option<ID3D10EffectVectorVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsMatrix(&self) -> ::std::option::Option<ID3D10EffectMatrixVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsString(&self) -> ::std::option::Option<ID3D10EffectStringVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsShaderResource(&self) -> ::std::option::Option<ID3D10EffectShaderResourceVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsRenderTargetView(&self) -> ::std::option::Option<ID3D10EffectRenderTargetViewVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsDepthStencilView(&self) -> ::std::option::Option<ID3D10EffectDepthStencilViewVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsConstantBuffer(&self) -> ::std::option::Option<ID3D10EffectConstantBuffer> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsShader(&self) -> ::std::option::Option<ID3D10EffectShaderVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsBlend(&self) -> ::std::option::Option<ID3D10EffectBlendVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsDepthStencil(&self) -> ::std::option::Option<ID3D10EffectDepthStencilVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsRasterizer(&self) -> ::std::option::Option<ID3D10EffectRasterizerVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsSampler(&self) -> ::std::option::Option<ID3D10EffectSamplerVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetRawValue(&self, pdata: *const ::std::ffi::c_void, offset: u32, bytecount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata), ::std::mem::transmute(offset), ::std::mem::transmute(bytecount)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetRawValue(&self, pdata: *mut ::std::ffi::c_void, offset: u32, bytecount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata), ::std::mem::transmute(offset), ::std::mem::transmute(bytecount)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetRasterizerState(&self, index: u32) -> ::windows::runtime::Result<ID3D10RasterizerState> {
         let mut result__: <ID3D10RasterizerState as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), &mut result__).from_abi::<ID3D10RasterizerState>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetBackingStore(&self, index: u32) -> ::windows::runtime::Result<D3D10_RASTERIZER_DESC> {
         let mut result__: <D3D10_RASTERIZER_DESC as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), &mut result__).from_abi::<D3D10_RASTERIZER_DESC>(result__)
@@ -8353,101 +9261,131 @@ pub struct ID3D10EffectRasterizerVariable_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, index: u32, prasterizerdesc: *mut D3D10_RASTERIZER_DESC) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ID3D10EffectRenderTargetViewVariable(::windows::runtime::IUnknown);
 impl ID3D10EffectRenderTargetViewVariable {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn IsValid(&self) -> super::super::Foundation::BOOL {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetType(&self) -> ::std::option::Option<ID3D10EffectType> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetDesc(&self) -> ::windows::runtime::Result<D3D10_EFFECT_VARIABLE_DESC> {
         let mut result__: <D3D10_EFFECT_VARIABLE_DESC as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<D3D10_EFFECT_VARIABLE_DESC>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetAnnotationByIndex(&self, index: u32) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(index)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetAnnotationByName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, name: Param0) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), name.into_param().abi()))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetMemberByIndex(&self, index: u32) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(index)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetMemberByName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, name: Param0) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), name.into_param().abi()))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetMemberBySemantic<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, semantic: Param0) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), semantic.into_param().abi()))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetElement(&self, index: u32) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(index)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetParentConstantBuffer(&self) -> ::std::option::Option<ID3D10EffectConstantBuffer> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsScalar(&self) -> ::std::option::Option<ID3D10EffectScalarVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsVector(&self) -> ::std::option::Option<ID3D10EffectVectorVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsMatrix(&self) -> ::std::option::Option<ID3D10EffectMatrixVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsString(&self) -> ::std::option::Option<ID3D10EffectStringVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsShaderResource(&self) -> ::std::option::Option<ID3D10EffectShaderResourceVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsRenderTargetView(&self) -> ::std::option::Option<ID3D10EffectRenderTargetViewVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsDepthStencilView(&self) -> ::std::option::Option<ID3D10EffectDepthStencilViewVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsConstantBuffer(&self) -> ::std::option::Option<ID3D10EffectConstantBuffer> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsShader(&self) -> ::std::option::Option<ID3D10EffectShaderVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsBlend(&self) -> ::std::option::Option<ID3D10EffectBlendVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsDepthStencil(&self) -> ::std::option::Option<ID3D10EffectDepthStencilVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsRasterizer(&self) -> ::std::option::Option<ID3D10EffectRasterizerVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsSampler(&self) -> ::std::option::Option<ID3D10EffectSamplerVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetRawValue(&self, pdata: *const ::std::ffi::c_void, offset: u32, bytecount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata), ::std::mem::transmute(offset), ::std::mem::transmute(bytecount)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetRawValue(&self, pdata: *mut ::std::ffi::c_void, offset: u32, bytecount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata), ::std::mem::transmute(offset), ::std::mem::transmute(bytecount)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetRenderTarget<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D10RenderTargetView>>(&self, presource: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), presource.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetRenderTarget(&self) -> ::windows::runtime::Result<ID3D10RenderTargetView> {
         let mut result__: <ID3D10RenderTargetView as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ID3D10RenderTargetView>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetRenderTargetArray(&self, ppresources: *const ::std::option::Option<ID3D10RenderTargetView>, offset: u32, count: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppresources), ::std::mem::transmute(offset), ::std::mem::transmute(count)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetRenderTargetArray(&self, ppresources: *mut ::std::option::Option<ID3D10RenderTargetView>, offset: u32, count: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppresources), ::std::mem::transmute(offset), ::std::mem::transmute(count)).ok()
     }
@@ -8537,95 +9475,123 @@ pub struct ID3D10EffectRenderTargetViewVariable_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppresources: *const ::windows::runtime::RawPtr, offset: u32, count: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppresources: *mut ::windows::runtime::RawPtr, offset: u32, count: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ID3D10EffectSamplerVariable(::windows::runtime::IUnknown);
 impl ID3D10EffectSamplerVariable {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn IsValid(&self) -> super::super::Foundation::BOOL {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetType(&self) -> ::std::option::Option<ID3D10EffectType> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetDesc(&self) -> ::windows::runtime::Result<D3D10_EFFECT_VARIABLE_DESC> {
         let mut result__: <D3D10_EFFECT_VARIABLE_DESC as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<D3D10_EFFECT_VARIABLE_DESC>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetAnnotationByIndex(&self, index: u32) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(index)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetAnnotationByName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, name: Param0) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), name.into_param().abi()))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetMemberByIndex(&self, index: u32) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(index)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetMemberByName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, name: Param0) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), name.into_param().abi()))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetMemberBySemantic<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, semantic: Param0) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), semantic.into_param().abi()))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetElement(&self, index: u32) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(index)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetParentConstantBuffer(&self) -> ::std::option::Option<ID3D10EffectConstantBuffer> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsScalar(&self) -> ::std::option::Option<ID3D10EffectScalarVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsVector(&self) -> ::std::option::Option<ID3D10EffectVectorVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsMatrix(&self) -> ::std::option::Option<ID3D10EffectMatrixVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsString(&self) -> ::std::option::Option<ID3D10EffectStringVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsShaderResource(&self) -> ::std::option::Option<ID3D10EffectShaderResourceVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsRenderTargetView(&self) -> ::std::option::Option<ID3D10EffectRenderTargetViewVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsDepthStencilView(&self) -> ::std::option::Option<ID3D10EffectDepthStencilViewVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsConstantBuffer(&self) -> ::std::option::Option<ID3D10EffectConstantBuffer> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsShader(&self) -> ::std::option::Option<ID3D10EffectShaderVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsBlend(&self) -> ::std::option::Option<ID3D10EffectBlendVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsDepthStencil(&self) -> ::std::option::Option<ID3D10EffectDepthStencilVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsRasterizer(&self) -> ::std::option::Option<ID3D10EffectRasterizerVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsSampler(&self) -> ::std::option::Option<ID3D10EffectSamplerVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetRawValue(&self, pdata: *const ::std::ffi::c_void, offset: u32, bytecount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata), ::std::mem::transmute(offset), ::std::mem::transmute(bytecount)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetRawValue(&self, pdata: *mut ::std::ffi::c_void, offset: u32, bytecount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata), ::std::mem::transmute(offset), ::std::mem::transmute(bytecount)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetSampler(&self, index: u32) -> ::windows::runtime::Result<ID3D10SamplerState> {
         let mut result__: <ID3D10SamplerState as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), &mut result__).from_abi::<ID3D10SamplerState>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetBackingStore(&self, index: u32) -> ::windows::runtime::Result<D3D10_SAMPLER_DESC> {
         let mut result__: <D3D10_SAMPLER_DESC as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), &mut result__).from_abi::<D3D10_SAMPLER_DESC>(result__)
@@ -8714,131 +9680,169 @@ pub struct ID3D10EffectSamplerVariable_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, index: u32, ppsampler: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, index: u32, psamplerdesc: *mut D3D10_SAMPLER_DESC) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ID3D10EffectScalarVariable(::windows::runtime::IUnknown);
 impl ID3D10EffectScalarVariable {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn IsValid(&self) -> super::super::Foundation::BOOL {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetType(&self) -> ::std::option::Option<ID3D10EffectType> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetDesc(&self) -> ::windows::runtime::Result<D3D10_EFFECT_VARIABLE_DESC> {
         let mut result__: <D3D10_EFFECT_VARIABLE_DESC as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<D3D10_EFFECT_VARIABLE_DESC>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetAnnotationByIndex(&self, index: u32) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(index)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetAnnotationByName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, name: Param0) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), name.into_param().abi()))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetMemberByIndex(&self, index: u32) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(index)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetMemberByName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, name: Param0) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), name.into_param().abi()))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetMemberBySemantic<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, semantic: Param0) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), semantic.into_param().abi()))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetElement(&self, index: u32) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(index)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetParentConstantBuffer(&self) -> ::std::option::Option<ID3D10EffectConstantBuffer> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsScalar(&self) -> ::std::option::Option<ID3D10EffectScalarVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsVector(&self) -> ::std::option::Option<ID3D10EffectVectorVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsMatrix(&self) -> ::std::option::Option<ID3D10EffectMatrixVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsString(&self) -> ::std::option::Option<ID3D10EffectStringVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsShaderResource(&self) -> ::std::option::Option<ID3D10EffectShaderResourceVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsRenderTargetView(&self) -> ::std::option::Option<ID3D10EffectRenderTargetViewVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsDepthStencilView(&self) -> ::std::option::Option<ID3D10EffectDepthStencilViewVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsConstantBuffer(&self) -> ::std::option::Option<ID3D10EffectConstantBuffer> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsShader(&self) -> ::std::option::Option<ID3D10EffectShaderVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsBlend(&self) -> ::std::option::Option<ID3D10EffectBlendVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsDepthStencil(&self) -> ::std::option::Option<ID3D10EffectDepthStencilVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsRasterizer(&self) -> ::std::option::Option<ID3D10EffectRasterizerVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsSampler(&self) -> ::std::option::Option<ID3D10EffectSamplerVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetRawValue(&self, pdata: *const ::std::ffi::c_void, offset: u32, bytecount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata), ::std::mem::transmute(offset), ::std::mem::transmute(bytecount)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetRawValue(&self, pdata: *mut ::std::ffi::c_void, offset: u32, bytecount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata), ::std::mem::transmute(offset), ::std::mem::transmute(bytecount)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetFloat(&self, value: f32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), ::std::mem::transmute(value)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetFloat(&self) -> ::windows::runtime::Result<f32> {
         let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetFloatArray(&self, pdata: *const f32, offset: u32, count: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata), ::std::mem::transmute(offset), ::std::mem::transmute(count)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetFloatArray(&self, pdata: *mut f32, offset: u32, count: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata), ::std::mem::transmute(offset), ::std::mem::transmute(count)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetInt(&self, value: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).32)(::std::mem::transmute_copy(self), ::std::mem::transmute(value)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetInt(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).33)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetIntArray(&self, pdata: *const i32, offset: u32, count: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).34)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata), ::std::mem::transmute(offset), ::std::mem::transmute(count)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetIntArray(&self, pdata: *mut i32, offset: u32, count: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).35)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata), ::std::mem::transmute(offset), ::std::mem::transmute(count)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn SetBool<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).36)(::std::mem::transmute_copy(self), value.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetBool(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).37)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn SetBoolArray(&self, pdata: *const super::super::Foundation::BOOL, offset: u32, count: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).38)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata), ::std::mem::transmute(offset), ::std::mem::transmute(count)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetBoolArray(&self, pdata: *mut super::super::Foundation::BOOL, offset: u32, count: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).39)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata), ::std::mem::transmute(offset), ::std::mem::transmute(count)).ok()
     }
@@ -8940,101 +9944,131 @@ pub struct ID3D10EffectScalarVariable_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdata: *mut super::super::Foundation::BOOL, offset: u32, count: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ID3D10EffectShaderResourceVariable(::windows::runtime::IUnknown);
 impl ID3D10EffectShaderResourceVariable {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn IsValid(&self) -> super::super::Foundation::BOOL {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetType(&self) -> ::std::option::Option<ID3D10EffectType> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetDesc(&self) -> ::windows::runtime::Result<D3D10_EFFECT_VARIABLE_DESC> {
         let mut result__: <D3D10_EFFECT_VARIABLE_DESC as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<D3D10_EFFECT_VARIABLE_DESC>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetAnnotationByIndex(&self, index: u32) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(index)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetAnnotationByName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, name: Param0) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), name.into_param().abi()))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetMemberByIndex(&self, index: u32) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(index)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetMemberByName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, name: Param0) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), name.into_param().abi()))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetMemberBySemantic<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, semantic: Param0) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), semantic.into_param().abi()))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetElement(&self, index: u32) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(index)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetParentConstantBuffer(&self) -> ::std::option::Option<ID3D10EffectConstantBuffer> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsScalar(&self) -> ::std::option::Option<ID3D10EffectScalarVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsVector(&self) -> ::std::option::Option<ID3D10EffectVectorVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsMatrix(&self) -> ::std::option::Option<ID3D10EffectMatrixVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsString(&self) -> ::std::option::Option<ID3D10EffectStringVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsShaderResource(&self) -> ::std::option::Option<ID3D10EffectShaderResourceVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsRenderTargetView(&self) -> ::std::option::Option<ID3D10EffectRenderTargetViewVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsDepthStencilView(&self) -> ::std::option::Option<ID3D10EffectDepthStencilViewVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsConstantBuffer(&self) -> ::std::option::Option<ID3D10EffectConstantBuffer> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsShader(&self) -> ::std::option::Option<ID3D10EffectShaderVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsBlend(&self) -> ::std::option::Option<ID3D10EffectBlendVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsDepthStencil(&self) -> ::std::option::Option<ID3D10EffectDepthStencilVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsRasterizer(&self) -> ::std::option::Option<ID3D10EffectRasterizerVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsSampler(&self) -> ::std::option::Option<ID3D10EffectSamplerVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetRawValue(&self, pdata: *const ::std::ffi::c_void, offset: u32, bytecount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata), ::std::mem::transmute(offset), ::std::mem::transmute(bytecount)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetRawValue(&self, pdata: *mut ::std::ffi::c_void, offset: u32, bytecount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata), ::std::mem::transmute(offset), ::std::mem::transmute(bytecount)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetResource<'a, Param0: ::windows::runtime::IntoParam<'a, ID3D10ShaderResourceView>>(&self, presource: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), presource.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetResource(&self) -> ::windows::runtime::Result<ID3D10ShaderResourceView> {
         let mut result__: <ID3D10ShaderResourceView as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ID3D10ShaderResourceView>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetResourceArray(&self, ppresources: *const ::std::option::Option<ID3D10ShaderResourceView>, offset: u32, count: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppresources), ::std::mem::transmute(offset), ::std::mem::transmute(count)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetResourceArray(&self, ppresources: *mut ::std::option::Option<ID3D10ShaderResourceView>, offset: u32, count: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppresources), ::std::mem::transmute(offset), ::std::mem::transmute(count)).ok()
     }
@@ -9124,114 +10158,146 @@ pub struct ID3D10EffectShaderResourceVariable_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppresources: *const ::windows::runtime::RawPtr, offset: u32, count: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppresources: *mut ::windows::runtime::RawPtr, offset: u32, count: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ID3D10EffectShaderVariable(::windows::runtime::IUnknown);
 impl ID3D10EffectShaderVariable {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn IsValid(&self) -> super::super::Foundation::BOOL {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetType(&self) -> ::std::option::Option<ID3D10EffectType> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetDesc(&self) -> ::windows::runtime::Result<D3D10_EFFECT_VARIABLE_DESC> {
         let mut result__: <D3D10_EFFECT_VARIABLE_DESC as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<D3D10_EFFECT_VARIABLE_DESC>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetAnnotationByIndex(&self, index: u32) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(index)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetAnnotationByName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, name: Param0) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), name.into_param().abi()))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetMemberByIndex(&self, index: u32) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(index)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetMemberByName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, name: Param0) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), name.into_param().abi()))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetMemberBySemantic<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, semantic: Param0) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), semantic.into_param().abi()))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetElement(&self, index: u32) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(index)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetParentConstantBuffer(&self) -> ::std::option::Option<ID3D10EffectConstantBuffer> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsScalar(&self) -> ::std::option::Option<ID3D10EffectScalarVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsVector(&self) -> ::std::option::Option<ID3D10EffectVectorVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsMatrix(&self) -> ::std::option::Option<ID3D10EffectMatrixVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsString(&self) -> ::std::option::Option<ID3D10EffectStringVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsShaderResource(&self) -> ::std::option::Option<ID3D10EffectShaderResourceVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsRenderTargetView(&self) -> ::std::option::Option<ID3D10EffectRenderTargetViewVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsDepthStencilView(&self) -> ::std::option::Option<ID3D10EffectDepthStencilViewVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsConstantBuffer(&self) -> ::std::option::Option<ID3D10EffectConstantBuffer> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsShader(&self) -> ::std::option::Option<ID3D10EffectShaderVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsBlend(&self) -> ::std::option::Option<ID3D10EffectBlendVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsDepthStencil(&self) -> ::std::option::Option<ID3D10EffectDepthStencilVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsRasterizer(&self) -> ::std::option::Option<ID3D10EffectRasterizerVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsSampler(&self) -> ::std::option::Option<ID3D10EffectSamplerVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetRawValue(&self, pdata: *const ::std::ffi::c_void, offset: u32, bytecount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata), ::std::mem::transmute(offset), ::std::mem::transmute(bytecount)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetRawValue(&self, pdata: *mut ::std::ffi::c_void, offset: u32, bytecount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata), ::std::mem::transmute(offset), ::std::mem::transmute(bytecount)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetShaderDesc(&self, shaderindex: u32) -> ::windows::runtime::Result<D3D10_EFFECT_SHADER_DESC> {
         let mut result__: <D3D10_EFFECT_SHADER_DESC as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), ::std::mem::transmute(shaderindex), &mut result__).from_abi::<D3D10_EFFECT_SHADER_DESC>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetVertexShader(&self, shaderindex: u32) -> ::windows::runtime::Result<ID3D10VertexShader> {
         let mut result__: <ID3D10VertexShader as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), ::std::mem::transmute(shaderindex), &mut result__).from_abi::<ID3D10VertexShader>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetGeometryShader(&self, shaderindex: u32) -> ::windows::runtime::Result<ID3D10GeometryShader> {
         let mut result__: <ID3D10GeometryShader as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), ::std::mem::transmute(shaderindex), &mut result__).from_abi::<ID3D10GeometryShader>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetPixelShader(&self, shaderindex: u32) -> ::windows::runtime::Result<ID3D10PixelShader> {
         let mut result__: <ID3D10PixelShader as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self), ::std::mem::transmute(shaderindex), &mut result__).from_abi::<ID3D10PixelShader>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`, `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn GetInputSignatureElementDesc(&self, shaderindex: u32, element: u32) -> ::windows::runtime::Result<D3D10_SIGNATURE_PARAMETER_DESC> {
         let mut result__: <D3D10_SIGNATURE_PARAMETER_DESC as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).32)(::std::mem::transmute_copy(self), ::std::mem::transmute(shaderindex), ::std::mem::transmute(element), &mut result__).from_abi::<D3D10_SIGNATURE_PARAMETER_DESC>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`, `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn GetOutputSignatureElementDesc(&self, shaderindex: u32, element: u32) -> ::windows::runtime::Result<D3D10_SIGNATURE_PARAMETER_DESC> {
         let mut result__: <D3D10_SIGNATURE_PARAMETER_DESC as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).33)(::std::mem::transmute_copy(self), ::std::mem::transmute(shaderindex), ::std::mem::transmute(element), &mut result__).from_abi::<D3D10_SIGNATURE_PARAMETER_DESC>(result__)
@@ -9327,97 +10393,125 @@ pub struct ID3D10EffectShaderVariable_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, shaderindex: u32, element: u32, pdesc: *mut D3D10_SIGNATURE_PARAMETER_DESC) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11")))] usize,
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ID3D10EffectStringVariable(::windows::runtime::IUnknown);
 impl ID3D10EffectStringVariable {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn IsValid(&self) -> super::super::Foundation::BOOL {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetType(&self) -> ::std::option::Option<ID3D10EffectType> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetDesc(&self) -> ::windows::runtime::Result<D3D10_EFFECT_VARIABLE_DESC> {
         let mut result__: <D3D10_EFFECT_VARIABLE_DESC as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<D3D10_EFFECT_VARIABLE_DESC>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetAnnotationByIndex(&self, index: u32) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(index)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetAnnotationByName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, name: Param0) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), name.into_param().abi()))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetMemberByIndex(&self, index: u32) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(index)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetMemberByName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, name: Param0) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), name.into_param().abi()))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetMemberBySemantic<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, semantic: Param0) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), semantic.into_param().abi()))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetElement(&self, index: u32) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(index)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetParentConstantBuffer(&self) -> ::std::option::Option<ID3D10EffectConstantBuffer> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsScalar(&self) -> ::std::option::Option<ID3D10EffectScalarVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsVector(&self) -> ::std::option::Option<ID3D10EffectVectorVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsMatrix(&self) -> ::std::option::Option<ID3D10EffectMatrixVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsString(&self) -> ::std::option::Option<ID3D10EffectStringVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsShaderResource(&self) -> ::std::option::Option<ID3D10EffectShaderResourceVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsRenderTargetView(&self) -> ::std::option::Option<ID3D10EffectRenderTargetViewVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsDepthStencilView(&self) -> ::std::option::Option<ID3D10EffectDepthStencilViewVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsConstantBuffer(&self) -> ::std::option::Option<ID3D10EffectConstantBuffer> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsShader(&self) -> ::std::option::Option<ID3D10EffectShaderVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsBlend(&self) -> ::std::option::Option<ID3D10EffectBlendVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsDepthStencil(&self) -> ::std::option::Option<ID3D10EffectDepthStencilVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsRasterizer(&self) -> ::std::option::Option<ID3D10EffectRasterizerVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsSampler(&self) -> ::std::option::Option<ID3D10EffectSamplerVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetRawValue(&self, pdata: *const ::std::ffi::c_void, offset: u32, bytecount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata), ::std::mem::transmute(offset), ::std::mem::transmute(bytecount)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetRawValue(&self, pdata: *mut ::std::ffi::c_void, offset: u32, bytecount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata), ::std::mem::transmute(offset), ::std::mem::transmute(bytecount)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetString(&self) -> ::windows::runtime::Result<super::super::Foundation::PSTR> {
         let mut result__: <super::super::Foundation::PSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::PSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetStringArray(&self, ppstrings: *mut super::super::Foundation::PSTR, offset: u32, count: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppstrings), ::std::mem::transmute(offset), ::std::mem::transmute(count)).ok()
     }
@@ -9507,32 +10601,40 @@ pub struct ID3D10EffectStringVariable_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppstrings: *mut super::super::Foundation::PSTR, offset: u32, count: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ID3D10EffectTechnique(::windows::runtime::IUnknown);
 impl ID3D10EffectTechnique {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn IsValid(&self) -> super::super::Foundation::BOOL {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetDesc(&self, pdesc: *mut D3D10_TECHNIQUE_DESC) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdesc)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetAnnotationByIndex(&self, index: u32) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(index)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetAnnotationByName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, name: Param0) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), name.into_param().abi()))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetPassByIndex(&self, index: u32) -> ::std::option::Option<ID3D10EffectPass> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(index)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetPassByName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, name: Param0) -> ::std::option::Option<ID3D10EffectPass> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), name.into_param().abi()))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn ComputeStateBlockMask(&self) -> ::windows::runtime::Result<D3D10_STATE_BLOCK_MASK> {
         let mut result__: <D3D10_STATE_BLOCK_MASK as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<D3D10_STATE_BLOCK_MASK>(result__)
@@ -9580,34 +10682,42 @@ pub struct ID3D10EffectTechnique_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pstateblockmask: *mut D3D10_STATE_BLOCK_MASK) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ID3D10EffectType(::windows::runtime::IUnknown);
 impl ID3D10EffectType {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn IsValid(&self) -> super::super::Foundation::BOOL {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)))
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`, `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn GetDesc(&self, pdesc: *mut D3D10_EFFECT_TYPE_DESC) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdesc)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetMemberTypeByIndex(&self, index: u32) -> ::std::option::Option<ID3D10EffectType> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(index)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetMemberTypeByName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, name: Param0) -> ::std::option::Option<ID3D10EffectType> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), name.into_param().abi()))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetMemberTypeBySemantic<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, semantic: Param0) -> ::std::option::Option<ID3D10EffectType> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), semantic.into_param().abi()))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetMemberName(&self, index: u32) -> super::super::Foundation::PSTR {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(index)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetMemberSemantic(&self, index: u32) -> super::super::Foundation::PSTR {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(index)))
     }
@@ -9656,88 +10766,114 @@ pub struct ID3D10EffectType_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, index: u32) -> super::super::Foundation::PSTR,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ID3D10EffectVariable(::windows::runtime::IUnknown);
 impl ID3D10EffectVariable {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn IsValid(&self) -> super::super::Foundation::BOOL {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetType(&self) -> ::std::option::Option<ID3D10EffectType> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetDesc(&self) -> ::windows::runtime::Result<D3D10_EFFECT_VARIABLE_DESC> {
         let mut result__: <D3D10_EFFECT_VARIABLE_DESC as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<D3D10_EFFECT_VARIABLE_DESC>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetAnnotationByIndex(&self, index: u32) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(index)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetAnnotationByName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, name: Param0) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), name.into_param().abi()))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetMemberByIndex(&self, index: u32) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(index)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetMemberByName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, name: Param0) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), name.into_param().abi()))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetMemberBySemantic<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, semantic: Param0) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), semantic.into_param().abi()))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetElement(&self, index: u32) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(index)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetParentConstantBuffer(&self) -> ::std::option::Option<ID3D10EffectConstantBuffer> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsScalar(&self) -> ::std::option::Option<ID3D10EffectScalarVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsVector(&self) -> ::std::option::Option<ID3D10EffectVectorVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsMatrix(&self) -> ::std::option::Option<ID3D10EffectMatrixVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsString(&self) -> ::std::option::Option<ID3D10EffectStringVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsShaderResource(&self) -> ::std::option::Option<ID3D10EffectShaderResourceVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsRenderTargetView(&self) -> ::std::option::Option<ID3D10EffectRenderTargetViewVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsDepthStencilView(&self) -> ::std::option::Option<ID3D10EffectDepthStencilViewVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsConstantBuffer(&self) -> ::std::option::Option<ID3D10EffectConstantBuffer> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsShader(&self) -> ::std::option::Option<ID3D10EffectShaderVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsBlend(&self) -> ::std::option::Option<ID3D10EffectBlendVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsDepthStencil(&self) -> ::std::option::Option<ID3D10EffectDepthStencilVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsRasterizer(&self) -> ::std::option::Option<ID3D10EffectRasterizerVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsSampler(&self) -> ::std::option::Option<ID3D10EffectSamplerVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetRawValue(&self, pdata: *const ::std::ffi::c_void, offset: u32, bytecount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata), ::std::mem::transmute(offset), ::std::mem::transmute(bytecount)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetRawValue(&self, pdata: *mut ::std::ffi::c_void, offset: u32, bytecount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata), ::std::mem::transmute(offset), ::std::mem::transmute(bytecount)).ok()
     }
@@ -9803,128 +10939,166 @@ pub struct ID3D10EffectVariable_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdata: *const ::std::ffi::c_void, offset: u32, bytecount: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdata: *mut ::std::ffi::c_void, offset: u32, bytecount: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ID3D10EffectVectorVariable(::windows::runtime::IUnknown);
 impl ID3D10EffectVectorVariable {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn IsValid(&self) -> super::super::Foundation::BOOL {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetType(&self) -> ::std::option::Option<ID3D10EffectType> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetDesc(&self) -> ::windows::runtime::Result<D3D10_EFFECT_VARIABLE_DESC> {
         let mut result__: <D3D10_EFFECT_VARIABLE_DESC as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<D3D10_EFFECT_VARIABLE_DESC>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetAnnotationByIndex(&self, index: u32) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(index)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetAnnotationByName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, name: Param0) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), name.into_param().abi()))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetMemberByIndex(&self, index: u32) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(index)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetMemberByName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, name: Param0) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), name.into_param().abi()))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetMemberBySemantic<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, semantic: Param0) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), semantic.into_param().abi()))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetElement(&self, index: u32) -> ::std::option::Option<ID3D10EffectVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(index)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetParentConstantBuffer(&self) -> ::std::option::Option<ID3D10EffectConstantBuffer> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsScalar(&self) -> ::std::option::Option<ID3D10EffectScalarVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsVector(&self) -> ::std::option::Option<ID3D10EffectVectorVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsMatrix(&self) -> ::std::option::Option<ID3D10EffectMatrixVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsString(&self) -> ::std::option::Option<ID3D10EffectStringVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsShaderResource(&self) -> ::std::option::Option<ID3D10EffectShaderResourceVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsRenderTargetView(&self) -> ::std::option::Option<ID3D10EffectRenderTargetViewVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsDepthStencilView(&self) -> ::std::option::Option<ID3D10EffectDepthStencilViewVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsConstantBuffer(&self) -> ::std::option::Option<ID3D10EffectConstantBuffer> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsShader(&self) -> ::std::option::Option<ID3D10EffectShaderVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsBlend(&self) -> ::std::option::Option<ID3D10EffectBlendVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsDepthStencil(&self) -> ::std::option::Option<ID3D10EffectDepthStencilVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsRasterizer(&self) -> ::std::option::Option<ID3D10EffectRasterizerVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AsSampler(&self) -> ::std::option::Option<ID3D10EffectSamplerVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetRawValue(&self, pdata: *const ::std::ffi::c_void, offset: u32, bytecount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata), ::std::mem::transmute(offset), ::std::mem::transmute(bytecount)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetRawValue(&self, pdata: *mut ::std::ffi::c_void, offset: u32, bytecount: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata), ::std::mem::transmute(offset), ::std::mem::transmute(bytecount)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn SetBoolVector(&self, pdata: *mut super::super::Foundation::BOOL) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetIntVector(&self, pdata: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetFloatVector(&self, pdata: *mut f32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetBoolVector(&self, pdata: *mut super::super::Foundation::BOOL) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetIntVector(&self, pdata: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).32)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetFloatVector(&self, pdata: *mut f32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).33)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn SetBoolVectorArray(&self, pdata: *mut super::super::Foundation::BOOL, offset: u32, count: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).34)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata), ::std::mem::transmute(offset), ::std::mem::transmute(count)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetIntVectorArray(&self, pdata: *mut i32, offset: u32, count: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).35)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata), ::std::mem::transmute(offset), ::std::mem::transmute(count)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetFloatVectorArray(&self, pdata: *mut f32, offset: u32, count: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).36)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata), ::std::mem::transmute(offset), ::std::mem::transmute(count)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetBoolVectorArray(&self, pdata: *mut super::super::Foundation::BOOL, offset: u32, count: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).37)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata), ::std::mem::transmute(offset), ::std::mem::transmute(count)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetIntVectorArray(&self, pdata: *mut i32, offset: u32, count: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).38)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata), ::std::mem::transmute(offset), ::std::mem::transmute(count)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetFloatVectorArray(&self, pdata: *mut f32, offset: u32, count: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).39)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata), ::std::mem::transmute(offset), ::std::mem::transmute(count)).ok()
     }
@@ -10026,19 +11200,24 @@ pub struct ID3D10EffectVectorVariable_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdata: *mut i32, offset: u32, count: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdata: *mut f32, offset: u32, count: u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ID3D10GeometryShader(::windows::runtime::IUnknown);
 impl ID3D10GeometryShader {
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D10Device>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppdevice)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, pdatasize: *mut u32, pdata: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(pdatasize), ::std::mem::transmute(pdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: u32, pdata: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(pdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, guid: *const ::windows::runtime::GUID, pdata: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
@@ -10098,122 +11277,158 @@ pub struct ID3D10GeometryShader_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, datasize: u32, pdata: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, pdata: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ID3D10InfoQueue(::windows::runtime::IUnknown);
 impl ID3D10InfoQueue {
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetMessageCountLimit(&self, messagecountlimit: u64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(messagecountlimit)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn ClearStoredMessages(&self) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetMessage(&self, messageindex: u64, pmessage: *mut D3D10_MESSAGE, pmessagebytelength: *mut usize) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(messageindex), ::std::mem::transmute(pmessage), ::std::mem::transmute(pmessagebytelength)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetNumMessagesAllowedByStorageFilter(&self) -> u64 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetNumMessagesDeniedByStorageFilter(&self) -> u64 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetNumStoredMessages(&self) -> u64 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetNumStoredMessagesAllowedByRetrievalFilter(&self) -> u64 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetNumMessagesDiscardedByMessageCountLimit(&self) -> u64 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetMessageCountLimit(&self) -> u64 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AddStorageFilterEntries(&self, pfilter: *const D3D10_INFO_QUEUE_FILTER) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(pfilter)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetStorageFilter(&self, pfilter: *mut D3D10_INFO_QUEUE_FILTER, pfilterbytelength: *mut usize) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(pfilter), ::std::mem::transmute(pfilterbytelength)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn ClearStorageFilter(&self) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn PushEmptyStorageFilter(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn PushCopyOfStorageFilter(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn PushStorageFilter(&self, pfilter: *const D3D10_INFO_QUEUE_FILTER) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(pfilter)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn PopStorageFilter(&self) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetStorageFilterStackSize(&self) -> u32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn AddRetrievalFilterEntries(&self, pfilter: *const D3D10_INFO_QUEUE_FILTER) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(pfilter)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetRetrievalFilter(&self, pfilter: *mut D3D10_INFO_QUEUE_FILTER, pfilterbytelength: *mut usize) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(pfilter), ::std::mem::transmute(pfilterbytelength)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn ClearRetrievalFilter(&self) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn PushEmptyRetrievalFilter(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn PushCopyOfRetrievalFilter(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn PushRetrievalFilter(&self, pfilter: *const D3D10_INFO_QUEUE_FILTER) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), ::std::mem::transmute(pfilter)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn PopRetrievalFilter(&self) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetRetrievalFilterStackSize(&self) -> u32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn AddMessage<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, category: D3D10_MESSAGE_CATEGORY, severity: D3D10_MESSAGE_SEVERITY, id: D3D10_MESSAGE_ID, pdescription: Param3) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), ::std::mem::transmute(category), ::std::mem::transmute(severity), ::std::mem::transmute(id), pdescription.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn AddApplicationMessage<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, severity: D3D10_MESSAGE_SEVERITY, pdescription: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), ::std::mem::transmute(severity), pdescription.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn SetBreakOnCategory<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, category: D3D10_MESSAGE_CATEGORY, benable: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), ::std::mem::transmute(category), benable.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn SetBreakOnSeverity<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, severity: D3D10_MESSAGE_SEVERITY, benable: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self), ::std::mem::transmute(severity), benable.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn SetBreakOnID<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, id: D3D10_MESSAGE_ID, benable: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).32)(::std::mem::transmute_copy(self), ::std::mem::transmute(id), benable.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetBreakOnCategory(&self, category: D3D10_MESSAGE_CATEGORY) -> super::super::Foundation::BOOL {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).33)(::std::mem::transmute_copy(self), ::std::mem::transmute(category)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetBreakOnSeverity(&self, severity: D3D10_MESSAGE_SEVERITY) -> super::super::Foundation::BOOL {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).34)(::std::mem::transmute_copy(self), ::std::mem::transmute(severity)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetBreakOnID(&self, id: D3D10_MESSAGE_ID) -> super::super::Foundation::BOOL {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).35)(::std::mem::transmute_copy(self), ::std::mem::transmute(id)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn SetMuteDebugOutput<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bmute: Param0) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).36)(::std::mem::transmute_copy(self), bmute.into_param().abi()))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetMuteDebugOutput(&self) -> super::super::Foundation::BOOL {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).37)(::std::mem::transmute_copy(self)))
     }
@@ -10294,19 +11509,24 @@ pub struct ID3D10InfoQueue_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> super::super::Foundation::BOOL,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ID3D10InputLayout(::windows::runtime::IUnknown);
 impl ID3D10InputLayout {
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D10Device>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppdevice)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, pdatasize: *mut u32, pdata: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(pdatasize), ::std::mem::transmute(pdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: u32, pdata: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(pdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, guid: *const ::windows::runtime::GUID, pdata: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
@@ -10366,21 +11586,26 @@ pub struct ID3D10InputLayout_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, datasize: u32, pdata: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, pdata: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ID3D10Multithread(::windows::runtime::IUnknown);
 impl ID3D10Multithread {
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn Enter(&self) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn Leave(&self) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn SetMultithreadProtected<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bmtprotect: Param0) -> super::super::Foundation::BOOL {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), bmtprotect.into_param().abi()))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetMultithreadProtected(&self) -> super::super::Foundation::BOOL {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self)))
     }
@@ -10422,19 +11647,24 @@ pub struct ID3D10Multithread_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> super::super::Foundation::BOOL,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ID3D10PixelShader(::windows::runtime::IUnknown);
 impl ID3D10PixelShader {
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D10Device>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppdevice)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, pdatasize: *mut u32, pdata: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(pdatasize), ::std::mem::transmute(pdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: u32, pdata: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(pdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, guid: *const ::windows::runtime::GUID, pdata: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
@@ -10494,34 +11724,44 @@ pub struct ID3D10PixelShader_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, datasize: u32, pdata: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, pdata: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ID3D10Predicate(::windows::runtime::IUnknown);
 impl ID3D10Predicate {
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D10Device>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppdevice)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, pdatasize: *mut u32, pdata: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(pdatasize), ::std::mem::transmute(pdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: u32, pdata: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(pdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, guid: *const ::windows::runtime::GUID, pdata: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn Begin(&self) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn End(&self) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetData(&self, pdata: *mut ::std::ffi::c_void, datasize: u32, getdataflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata), ::std::mem::transmute(datasize), ::std::mem::transmute(getdataflags)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetDataSize(&self) -> u32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetDesc(&self, pdesc: *mut D3D10_QUERY_DESC) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdesc)))
     }
@@ -10626,34 +11866,44 @@ pub struct ID3D10Predicate_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut D3D10_QUERY_DESC),
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ID3D10Query(::windows::runtime::IUnknown);
 impl ID3D10Query {
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D10Device>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppdevice)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, pdatasize: *mut u32, pdata: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(pdatasize), ::std::mem::transmute(pdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: u32, pdata: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(pdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, guid: *const ::windows::runtime::GUID, pdata: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn Begin(&self) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn End(&self) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetData(&self, pdata: *mut ::std::ffi::c_void, datasize: u32, getdataflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata), ::std::mem::transmute(datasize), ::std::mem::transmute(getdataflags)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetDataSize(&self) -> u32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetDesc(&self, pdesc: *mut D3D10_QUERY_DESC) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdesc)))
     }
@@ -10738,23 +11988,29 @@ pub struct ID3D10Query_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut D3D10_QUERY_DESC),
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ID3D10RasterizerState(::windows::runtime::IUnknown);
 impl ID3D10RasterizerState {
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D10Device>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppdevice)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, pdatasize: *mut u32, pdata: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(pdatasize), ::std::mem::transmute(pdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: u32, pdata: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(pdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, guid: *const ::windows::runtime::GUID, pdata: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetDesc(&self, pdesc: *mut D3D10_RASTERIZER_DESC) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdesc)))
     }
@@ -10816,26 +12072,33 @@ pub struct ID3D10RasterizerState_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut D3D10_RASTERIZER_DESC),
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ID3D10RenderTargetView(::windows::runtime::IUnknown);
 impl ID3D10RenderTargetView {
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D10Device>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppdevice)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, pdatasize: *mut u32, pdata: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(pdatasize), ::std::mem::transmute(pdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: u32, pdata: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(pdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, guid: *const ::windows::runtime::GUID, pdata: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetResource(&self, ppresource: *mut ::std::option::Option<ID3D10Resource>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppresource)))
     }
     #[cfg(feature = "Win32_Graphics_Dxgi")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Graphics_Dxgi`*"]
     pub unsafe fn GetDesc(&self, pdesc: *mut D3D10_RENDER_TARGET_VIEW_DESC) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdesc)))
     }
@@ -10918,28 +12181,36 @@ pub struct ID3D10RenderTargetView_abi(
     #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut D3D10_RENDER_TARGET_VIEW_DESC),
     #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ID3D10Resource(::windows::runtime::IUnknown);
 impl ID3D10Resource {
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D10Device>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppdevice)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, pdatasize: *mut u32, pdata: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(pdatasize), ::std::mem::transmute(pdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: u32, pdata: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(pdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, guid: *const ::windows::runtime::GUID, pdata: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetType(&self, rtype: *mut D3D10_RESOURCE_DIMENSION) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(rtype)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetEvictionPriority(&self, evictionpriority: u32) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(evictionpriority)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetEvictionPriority(&self) -> u32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self)))
     }
@@ -11002,22 +12273,28 @@ pub struct ID3D10Resource_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, evictionpriority: u32),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ID3D10SamplerState(::windows::runtime::IUnknown);
 impl ID3D10SamplerState {
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D10Device>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppdevice)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, pdatasize: *mut u32, pdata: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(pdatasize), ::std::mem::transmute(pdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: u32, pdata: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(pdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, guid: *const ::windows::runtime::GUID, pdata: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetDesc(&self, pdesc: *mut D3D10_SAMPLER_DESC) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdesc)))
     }
@@ -11078,33 +12355,40 @@ pub struct ID3D10SamplerState_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, pdata: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut D3D10_SAMPLER_DESC),
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ID3D10ShaderReflection(::windows::runtime::IUnknown);
 impl ID3D10ShaderReflection {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`, `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn GetDesc(&self) -> ::windows::runtime::Result<D3D10_SHADER_DESC> {
         let mut result__: <D3D10_SHADER_DESC as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<D3D10_SHADER_DESC>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetConstantBufferByIndex(&self, index: u32) -> ::std::option::Option<ID3D10ShaderReflectionConstantBuffer> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(index)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetConstantBufferByName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, name: Param0) -> ::std::option::Option<ID3D10ShaderReflectionConstantBuffer> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), name.into_param().abi()))
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`, `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn GetResourceBindingDesc(&self, resourceindex: u32) -> ::windows::runtime::Result<D3D10_SHADER_INPUT_BIND_DESC> {
         let mut result__: <D3D10_SHADER_INPUT_BIND_DESC as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(resourceindex), &mut result__).from_abi::<D3D10_SHADER_INPUT_BIND_DESC>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`, `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn GetInputParameterDesc(&self, parameterindex: u32) -> ::windows::runtime::Result<D3D10_SIGNATURE_PARAMETER_DESC> {
         let mut result__: <D3D10_SIGNATURE_PARAMETER_DESC as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(parameterindex), &mut result__).from_abi::<D3D10_SIGNATURE_PARAMETER_DESC>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`, `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn GetOutputParameterDesc(&self, parameterindex: u32) -> ::windows::runtime::Result<D3D10_SIGNATURE_PARAMETER_DESC> {
         let mut result__: <D3D10_SIGNATURE_PARAMETER_DESC as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(parameterindex), &mut result__).from_abi::<D3D10_SIGNATURE_PARAMETER_DESC>(result__)
@@ -11152,73 +12436,89 @@ pub struct ID3D10ShaderReflection_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, parameterindex: u32, pdesc: *mut D3D10_SIGNATURE_PARAMETER_DESC) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11")))] usize,
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ID3D10ShaderReflection1(::windows::runtime::IUnknown);
 impl ID3D10ShaderReflection1 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`, `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn GetDesc(&self) -> ::windows::runtime::Result<D3D10_SHADER_DESC> {
         let mut result__: <D3D10_SHADER_DESC as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<D3D10_SHADER_DESC>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetConstantBufferByIndex(&self, index: u32) -> ::std::option::Option<ID3D10ShaderReflectionConstantBuffer> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(index)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetConstantBufferByName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, name: Param0) -> ::std::option::Option<ID3D10ShaderReflectionConstantBuffer> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), name.into_param().abi()))
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`, `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn GetResourceBindingDesc(&self, resourceindex: u32) -> ::windows::runtime::Result<D3D10_SHADER_INPUT_BIND_DESC> {
         let mut result__: <D3D10_SHADER_INPUT_BIND_DESC as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(resourceindex), &mut result__).from_abi::<D3D10_SHADER_INPUT_BIND_DESC>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`, `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn GetInputParameterDesc(&self, parameterindex: u32) -> ::windows::runtime::Result<D3D10_SIGNATURE_PARAMETER_DESC> {
         let mut result__: <D3D10_SIGNATURE_PARAMETER_DESC as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(parameterindex), &mut result__).from_abi::<D3D10_SIGNATURE_PARAMETER_DESC>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`, `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn GetOutputParameterDesc(&self, parameterindex: u32) -> ::windows::runtime::Result<D3D10_SIGNATURE_PARAMETER_DESC> {
         let mut result__: <D3D10_SIGNATURE_PARAMETER_DESC as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(parameterindex), &mut result__).from_abi::<D3D10_SIGNATURE_PARAMETER_DESC>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetVariableByName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, name: Param0) -> ::std::option::Option<ID3D10ShaderReflectionVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), name.into_param().abi()))
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`, `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn GetResourceBindingDescByName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, name: Param0) -> ::windows::runtime::Result<D3D10_SHADER_INPUT_BIND_DESC> {
         let mut result__: <D3D10_SHADER_INPUT_BIND_DESC as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), name.into_param().abi(), &mut result__).from_abi::<D3D10_SHADER_INPUT_BIND_DESC>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetMovInstructionCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetMovcInstructionCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetConversionInstructionCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetBitwiseInstructionCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Graphics_Direct3D11")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn GetGSInputPrimitive(&self) -> ::windows::runtime::Result<super::Direct3D11::D3D_PRIMITIVE> {
         let mut result__: <super::Direct3D11::D3D_PRIMITIVE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::Direct3D11::D3D_PRIMITIVE>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn IsLevel9Shader(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn IsSampleFrequencyShader(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
         let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
@@ -11280,19 +12580,23 @@ pub struct ID3D10ShaderReflection1_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbsamplefrequency: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ID3D10ShaderReflectionConstantBuffer(::windows::runtime::IUnknown);
 impl ID3D10ShaderReflectionConstantBuffer {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`, `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn GetDesc(&self) -> ::windows::runtime::Result<D3D10_SHADER_BUFFER_DESC> {
         let mut result__: <D3D10_SHADER_BUFFER_DESC as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<D3D10_SHADER_BUFFER_DESC>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetVariableByIndex(&self, index: u32) -> ::std::option::Option<ID3D10ShaderReflectionVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(index)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetVariableByName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, name: Param0) -> ::std::option::Option<ID3D10ShaderReflectionVariable> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), name.into_param().abi()))
     }
@@ -11333,22 +12637,27 @@ pub struct ID3D10ShaderReflectionConstantBuffer_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: super::super::Foundation::PSTR) -> ::windows::runtime::RawPtr,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ID3D10ShaderReflectionType(::windows::runtime::IUnknown);
 impl ID3D10ShaderReflectionType {
     #[cfg(feature = "Win32_Graphics_Direct3D11")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Graphics_Direct3D11`*"]
     pub unsafe fn GetDesc(&self, pdesc: *mut D3D10_SHADER_TYPE_DESC) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdesc)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetMemberTypeByIndex(&self, index: u32) -> ::std::option::Option<ID3D10ShaderReflectionType> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(index)))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetMemberTypeByName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, name: Param0) -> ::std::option::Option<ID3D10ShaderReflectionType> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), name.into_param().abi()))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetMemberTypeName(&self, index: u32) -> super::super::Foundation::PSTR {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(index)))
     }
@@ -11391,15 +12700,18 @@ pub struct ID3D10ShaderReflectionType_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, index: u32) -> super::super::Foundation::PSTR,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ID3D10ShaderReflectionVariable(::windows::runtime::IUnknown);
 impl ID3D10ShaderReflectionVariable {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetDesc(&self) -> ::windows::runtime::Result<D3D10_SHADER_VARIABLE_DESC> {
         let mut result__: <D3D10_SHADER_VARIABLE_DESC as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<D3D10_SHADER_VARIABLE_DESC>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetType(&self) -> ::std::option::Option<ID3D10ShaderReflectionType> {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)))
     }
@@ -11438,26 +12750,33 @@ pub struct ID3D10ShaderReflectionVariable_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::RawPtr,
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ID3D10ShaderResourceView(::windows::runtime::IUnknown);
 impl ID3D10ShaderResourceView {
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D10Device>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppdevice)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, pdatasize: *mut u32, pdata: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(pdatasize), ::std::mem::transmute(pdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: u32, pdata: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(pdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, guid: *const ::windows::runtime::GUID, pdata: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetResource(&self, ppresource: *mut ::std::option::Option<ID3D10Resource>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppresource)))
     }
     #[cfg(all(feature = "Win32_Graphics_Direct3D11", feature = "Win32_Graphics_Dxgi"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Graphics_Direct3D11`, `Win32_Graphics_Dxgi`*"]
     pub unsafe fn GetDesc(&self, pdesc: *mut D3D10_SHADER_RESOURCE_VIEW_DESC) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdesc)))
     }
@@ -11540,30 +12859,38 @@ pub struct ID3D10ShaderResourceView_abi(
     #[cfg(all(feature = "Win32_Graphics_Direct3D11", feature = "Win32_Graphics_Dxgi"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut D3D10_SHADER_RESOURCE_VIEW_DESC),
     #[cfg(not(all(feature = "Win32_Graphics_Direct3D11", feature = "Win32_Graphics_Dxgi")))] usize,
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ID3D10ShaderResourceView1(::windows::runtime::IUnknown);
 impl ID3D10ShaderResourceView1 {
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D10Device>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppdevice)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, pdatasize: *mut u32, pdata: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(pdatasize), ::std::mem::transmute(pdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: u32, pdata: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(pdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, guid: *const ::windows::runtime::GUID, pdata: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetResource(&self, ppresource: *mut ::std::option::Option<ID3D10Resource>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppresource)))
     }
     #[cfg(all(feature = "Win32_Graphics_Direct3D11", feature = "Win32_Graphics_Dxgi"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Graphics_Direct3D11`, `Win32_Graphics_Dxgi`*"]
     pub unsafe fn GetDesc(&self, pdesc: *mut D3D10_SHADER_RESOURCE_VIEW_DESC) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdesc)))
     }
     #[cfg(all(feature = "Win32_Graphics_Direct3D11", feature = "Win32_Graphics_Dxgi"))]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Graphics_Direct3D11`, `Win32_Graphics_Dxgi`*"]
     pub unsafe fn GetDesc1(&self, pdesc: *mut D3D10_SHADER_RESOURCE_VIEW_DESC1) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdesc)))
     }
@@ -11668,19 +12995,24 @@ pub struct ID3D10ShaderResourceView1_abi(
     #[cfg(all(feature = "Win32_Graphics_Direct3D11", feature = "Win32_Graphics_Dxgi"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut D3D10_SHADER_RESOURCE_VIEW_DESC1),
     #[cfg(not(all(feature = "Win32_Graphics_Direct3D11", feature = "Win32_Graphics_Dxgi")))] usize,
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ID3D10StateBlock(::windows::runtime::IUnknown);
 impl ID3D10StateBlock {
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn Capture(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn Apply(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn ReleaseAllDeviceObjects(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetDevice(&self) -> ::windows::runtime::Result<ID3D10Device> {
         let mut result__: <ID3D10Device as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ID3D10Device>(result__)
@@ -11721,15 +13053,18 @@ pub struct ID3D10StateBlock_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppdevice: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ID3D10SwitchToRef(::windows::runtime::IUnknown);
 impl ID3D10SwitchToRef {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn SetUseRef<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, useref: Param0) -> super::super::Foundation::BOOL {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), useref.into_param().abi()))
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`*"]
     pub unsafe fn GetUseRef(&self) -> super::super::Foundation::BOOL {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)))
     }
@@ -11769,38 +13104,49 @@ pub struct ID3D10SwitchToRef_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> super::super::Foundation::BOOL,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ID3D10Texture1D(::windows::runtime::IUnknown);
 impl ID3D10Texture1D {
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D10Device>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppdevice)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, pdatasize: *mut u32, pdata: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(pdatasize), ::std::mem::transmute(pdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: u32, pdata: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(pdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, guid: *const ::windows::runtime::GUID, pdata: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetType(&self, rtype: *mut D3D10_RESOURCE_DIMENSION) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(rtype)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetEvictionPriority(&self, evictionpriority: u32) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(evictionpriority)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetEvictionPriority(&self) -> u32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn Map(&self, subresource: u32, maptype: D3D10_MAP, mapflags: u32, ppdata: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(subresource), ::std::mem::transmute(maptype), ::std::mem::transmute(mapflags), ::std::mem::transmute(ppdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn Unmap(&self, subresource: u32) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(subresource)))
     }
     #[cfg(feature = "Win32_Graphics_Dxgi")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Graphics_Dxgi`*"]
     pub unsafe fn GetDesc(&self, pdesc: *mut D3D10_TEXTURE1D_DESC) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdesc)))
     }
@@ -11887,39 +13233,50 @@ pub struct ID3D10Texture1D_abi(
     #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut D3D10_TEXTURE1D_DESC),
     #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ID3D10Texture2D(::windows::runtime::IUnknown);
 impl ID3D10Texture2D {
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D10Device>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppdevice)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, pdatasize: *mut u32, pdata: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(pdatasize), ::std::mem::transmute(pdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: u32, pdata: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(pdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, guid: *const ::windows::runtime::GUID, pdata: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetType(&self, rtype: *mut D3D10_RESOURCE_DIMENSION) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(rtype)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetEvictionPriority(&self, evictionpriority: u32) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(evictionpriority)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetEvictionPriority(&self) -> u32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn Map(&self, subresource: u32, maptype: D3D10_MAP, mapflags: u32) -> ::windows::runtime::Result<D3D10_MAPPED_TEXTURE2D> {
         let mut result__: <D3D10_MAPPED_TEXTURE2D as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(subresource), ::std::mem::transmute(maptype), ::std::mem::transmute(mapflags), &mut result__).from_abi::<D3D10_MAPPED_TEXTURE2D>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn Unmap(&self, subresource: u32) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(subresource)))
     }
     #[cfg(feature = "Win32_Graphics_Dxgi")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Graphics_Dxgi`*"]
     pub unsafe fn GetDesc(&self, pdesc: *mut D3D10_TEXTURE2D_DESC) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdesc)))
     }
@@ -12006,39 +13363,50 @@ pub struct ID3D10Texture2D_abi(
     #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut D3D10_TEXTURE2D_DESC),
     #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ID3D10Texture3D(::windows::runtime::IUnknown);
 impl ID3D10Texture3D {
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D10Device>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppdevice)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, pdatasize: *mut u32, pdata: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(pdatasize), ::std::mem::transmute(pdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: u32, pdata: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(pdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, guid: *const ::windows::runtime::GUID, pdata: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetType(&self, rtype: *mut D3D10_RESOURCE_DIMENSION) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(rtype)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetEvictionPriority(&self, evictionpriority: u32) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(evictionpriority)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetEvictionPriority(&self) -> u32 {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn Map(&self, subresource: u32, maptype: D3D10_MAP, mapflags: u32) -> ::windows::runtime::Result<D3D10_MAPPED_TEXTURE3D> {
         let mut result__: <D3D10_MAPPED_TEXTURE3D as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(subresource), ::std::mem::transmute(maptype), ::std::mem::transmute(mapflags), &mut result__).from_abi::<D3D10_MAPPED_TEXTURE3D>(result__)
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn Unmap(&self, subresource: u32) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(subresource)))
     }
     #[cfg(feature = "Win32_Graphics_Dxgi")]
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Graphics_Dxgi`*"]
     pub unsafe fn GetDesc(&self, pdesc: *mut D3D10_TEXTURE3D_DESC) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdesc)))
     }
@@ -12125,19 +13493,24 @@ pub struct ID3D10Texture3D_abi(
     #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdesc: *mut D3D10_TEXTURE3D_DESC),
     #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ID3D10VertexShader(::windows::runtime::IUnknown);
 impl ID3D10VertexShader {
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D10Device>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppdevice)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, pdatasize: *mut u32, pdata: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(pdatasize), ::std::mem::transmute(pdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: u32, pdata: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(pdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, guid: *const ::windows::runtime::GUID, pdata: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
@@ -12197,22 +13570,28 @@ pub struct ID3D10VertexShader_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, datasize: u32, pdata: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, pdata: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ID3D10View(::windows::runtime::IUnknown);
 impl ID3D10View {
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::std::option::Option<ID3D10Device>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppdevice)))
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, pdatasize: *mut u32, pdata: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(pdatasize), ::std::mem::transmute(pdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: u32, pdata: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(pdata)).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, guid: *const ::windows::runtime::GUID, pdata: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
     pub unsafe fn GetResource(&self, ppresource: *mut ::std::option::Option<ID3D10Resource>) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppresource)))
     }
@@ -12277,4 +13656,5 @@ pub struct ID3D10View_abi(
 pub type PFN_D3D10_CREATE_DEVICE1 = unsafe extern "system" fn(param0: ::windows::runtime::RawPtr, param1: D3D10_DRIVER_TYPE, param2: super::super::Foundation::HINSTANCE, param3: u32, param4: D3D10_FEATURE_LEVEL1, param5: u32, param6: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
 pub type PFN_D3D10_CREATE_DEVICE_AND_SWAP_CHAIN1 = unsafe extern "system" fn(param0: ::windows::runtime::RawPtr, param1: D3D10_DRIVER_TYPE, param2: super::super::Foundation::HINSTANCE, param3: u32, param4: D3D10_FEATURE_LEVEL1, param5: u32, param6: *mut super::Dxgi::DXGI_SWAP_CHAIN_DESC, param7: *mut ::windows::runtime::RawPtr, param8: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]
 pub const _FACD3D10: u32 = 2169u32;

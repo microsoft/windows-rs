@@ -1,8 +1,10 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Devices_SerialCommunication`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ErrorReceivedEventArgs(::windows::runtime::IInspectable);
 impl ErrorReceivedEventArgs {
+    #[doc = "*Required features: `Devices_SerialCommunication`*"]
     pub fn Error(&self) -> ::windows::runtime::Result<SerialError> {
         let this = self;
         unsafe {
@@ -185,10 +187,12 @@ pub struct ISerialDeviceStatics_abi(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, deviceid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: `Devices_SerialCommunication`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PinChangedEventArgs(::windows::runtime::IInspectable);
 impl PinChangedEventArgs {
+    #[doc = "*Required features: `Devices_SerialCommunication`*"]
     pub fn PinChange(&self) -> ::windows::runtime::Result<SerialPinChange> {
         let this = self;
         unsafe {
@@ -249,10 +253,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for PinChangedEventArgs {}
 unsafe impl ::std::marker::Sync for PinChangedEventArgs {}
+#[doc = "*Required features: `Devices_SerialCommunication`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SerialDevice(::windows::runtime::IInspectable);
 impl SerialDevice {
+    #[doc = "*Required features: `Devices_SerialCommunication`*"]
     pub fn BaudRate(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -260,10 +266,12 @@ impl SerialDevice {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_SerialCommunication`*"]
     pub fn SetBaudRate(&self, value: u32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Devices_SerialCommunication`*"]
     pub fn BreakSignalState(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -271,10 +279,12 @@ impl SerialDevice {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_SerialCommunication`*"]
     pub fn SetBreakSignalState(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Devices_SerialCommunication`*"]
     pub fn BytesReceived(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -282,6 +292,7 @@ impl SerialDevice {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_SerialCommunication`*"]
     pub fn CarrierDetectState(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -289,6 +300,7 @@ impl SerialDevice {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_SerialCommunication`*"]
     pub fn ClearToSendState(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -296,6 +308,7 @@ impl SerialDevice {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_SerialCommunication`*"]
     pub fn DataBits(&self) -> ::windows::runtime::Result<u16> {
         let this = self;
         unsafe {
@@ -303,10 +316,12 @@ impl SerialDevice {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_SerialCommunication`*"]
     pub fn SetDataBits(&self, value: u16) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Devices_SerialCommunication`*"]
     pub fn DataSetReadyState(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -314,6 +329,7 @@ impl SerialDevice {
             (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_SerialCommunication`*"]
     pub fn Handshake(&self) -> ::windows::runtime::Result<SerialHandshake> {
         let this = self;
         unsafe {
@@ -321,10 +337,12 @@ impl SerialDevice {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SerialHandshake>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_SerialCommunication`*"]
     pub fn SetHandshake(&self, value: SerialHandshake) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Devices_SerialCommunication`*"]
     pub fn IsDataTerminalReadyEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -332,10 +350,12 @@ impl SerialDevice {
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_SerialCommunication`*"]
     pub fn SetIsDataTerminalReadyEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Devices_SerialCommunication`*"]
     pub fn IsRequestToSendEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -343,10 +363,12 @@ impl SerialDevice {
             (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_SerialCommunication`*"]
     pub fn SetIsRequestToSendEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Devices_SerialCommunication`*"]
     pub fn Parity(&self) -> ::windows::runtime::Result<SerialParity> {
         let this = self;
         unsafe {
@@ -354,10 +376,12 @@ impl SerialDevice {
             (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SerialParity>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_SerialCommunication`*"]
     pub fn SetParity(&self, value: SerialParity) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Devices_SerialCommunication`*"]
     pub fn PortName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -366,6 +390,7 @@ impl SerialDevice {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_SerialCommunication`, `Foundation`*"]
     pub fn ReadTimeout(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -374,10 +399,12 @@ impl SerialDevice {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_SerialCommunication`, `Foundation`*"]
     pub fn SetReadTimeout<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Devices_SerialCommunication`*"]
     pub fn StopBits(&self) -> ::windows::runtime::Result<SerialStopBitCount> {
         let this = self;
         unsafe {
@@ -385,10 +412,12 @@ impl SerialDevice {
             (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SerialStopBitCount>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_SerialCommunication`*"]
     pub fn SetStopBits(&self, value: SerialStopBitCount) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).28)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Devices_SerialCommunication`*"]
     pub fn UsbVendorId(&self) -> ::windows::runtime::Result<u16> {
         let this = self;
         unsafe {
@@ -396,6 +425,7 @@ impl SerialDevice {
             (::windows::runtime::Interface::vtable(this).29)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_SerialCommunication`*"]
     pub fn UsbProductId(&self) -> ::windows::runtime::Result<u16> {
         let this = self;
         unsafe {
@@ -404,6 +434,7 @@ impl SerialDevice {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_SerialCommunication`, `Foundation`*"]
     pub fn WriteTimeout(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -412,11 +443,13 @@ impl SerialDevice {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_SerialCommunication`, `Foundation`*"]
     pub fn SetWriteTimeout<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).32)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Devices_SerialCommunication`, `Storage_Streams`*"]
     pub fn InputStream(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IInputStream> {
         let this = self;
         unsafe {
@@ -425,6 +458,7 @@ impl SerialDevice {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Devices_SerialCommunication`, `Storage_Streams`*"]
     pub fn OutputStream(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IOutputStream> {
         let this = self;
         unsafe {
@@ -433,6 +467,7 @@ impl SerialDevice {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_SerialCommunication`, `Foundation`*"]
     pub fn ErrorReceived<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<SerialDevice, ErrorReceivedEventArgs>>>(&self, reporthandler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -441,11 +476,13 @@ impl SerialDevice {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_SerialCommunication`, `Foundation`*"]
     pub fn RemoveErrorReceived<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).36)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_SerialCommunication`, `Foundation`*"]
     pub fn PinChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<SerialDevice, PinChangedEventArgs>>>(&self, reporthandler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -454,27 +491,32 @@ impl SerialDevice {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_SerialCommunication`, `Foundation`*"]
     pub fn RemovePinChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).38)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_SerialCommunication`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Devices_SerialCommunication`*"]
     pub fn GetDeviceSelector() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ISerialDeviceStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_SerialCommunication`*"]
     pub fn GetDeviceSelectorFromPortName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(portname: Param0) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ISerialDeviceStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), portname.into_param().abi(), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_SerialCommunication`*"]
     pub fn GetDeviceSelectorFromUsbVidPid(vendorid: u16, productid: u16) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ISerialDeviceStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
@@ -482,6 +524,7 @@ impl SerialDevice {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_SerialCommunication`, `Foundation`*"]
     pub fn FromIdAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(deviceid: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<SerialDevice>> {
         Self::ISerialDeviceStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -571,6 +614,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> 
 }
 unsafe impl ::std::marker::Send for SerialDevice {}
 unsafe impl ::std::marker::Sync for SerialDevice {}
+#[doc = "*Required features: `Devices_SerialCommunication`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SerialError(pub i32);
@@ -593,6 +637,7 @@ unsafe impl ::windows::runtime::Abi for SerialError {
 unsafe impl ::windows::runtime::RuntimeType for SerialError {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.SerialCommunication.SerialError;i4)");
 }
+#[doc = "*Required features: `Devices_SerialCommunication`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SerialHandshake(pub i32);
@@ -614,6 +659,7 @@ unsafe impl ::windows::runtime::Abi for SerialHandshake {
 unsafe impl ::windows::runtime::RuntimeType for SerialHandshake {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.SerialCommunication.SerialHandshake;i4)");
 }
+#[doc = "*Required features: `Devices_SerialCommunication`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SerialParity(pub i32);
@@ -636,6 +682,7 @@ unsafe impl ::windows::runtime::Abi for SerialParity {
 unsafe impl ::windows::runtime::RuntimeType for SerialParity {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.SerialCommunication.SerialParity;i4)");
 }
+#[doc = "*Required features: `Devices_SerialCommunication`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SerialPinChange(pub i32);
@@ -658,6 +705,7 @@ unsafe impl ::windows::runtime::Abi for SerialPinChange {
 unsafe impl ::windows::runtime::RuntimeType for SerialPinChange {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.SerialCommunication.SerialPinChange;i4)");
 }
+#[doc = "*Required features: `Devices_SerialCommunication`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SerialStopBitCount(pub i32);

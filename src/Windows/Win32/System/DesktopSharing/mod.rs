@@ -1,4 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ATTENDEE_DISCONNECT_REASON(pub i32);
@@ -16,6 +17,7 @@ unsafe impl ::windows::runtime::Abi for ATTENDEE_DISCONNECT_REASON {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CHANNEL_ACCESS_ENUM(pub i32);
@@ -30,6 +32,7 @@ unsafe impl ::windows::runtime::Abi for CHANNEL_ACCESS_ENUM {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CHANNEL_FLAGS(pub i32);
@@ -45,6 +48,7 @@ unsafe impl ::windows::runtime::Abi for CHANNEL_FLAGS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CHANNEL_PRIORITY(pub i32);
@@ -60,6 +64,7 @@ unsafe impl ::windows::runtime::Abi for CHANNEL_PRIORITY {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CTRL_LEVEL(pub i32);
@@ -80,154 +85,285 @@ unsafe impl ::windows::runtime::Abi for CTRL_LEVEL {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPAPI_EVENT_ON_BOUNDING_RECT_CHANGED: u32 = 340u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_EVENT_ON_APPFILTER_UPDATE: u32 = 322u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_EVENT_ON_APPLICATION_CLOSE: u32 = 317u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_EVENT_ON_APPLICATION_OPEN: u32 = 316u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_EVENT_ON_APPLICATION_UPDATE: u32 = 318u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_EVENT_ON_ATTENDEE_CONNECTED: u32 = 301u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_EVENT_ON_ATTENDEE_DISCONNECTED: u32 = 302u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_EVENT_ON_ATTENDEE_UPDATE: u32 = 303u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_EVENT_ON_CTRLLEVEL_CHANGE_REQUEST: u32 = 309u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_EVENT_ON_CTRLLEVEL_CHANGE_RESPONSE: u32 = 338u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_EVENT_ON_ERROR: u32 = 304u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_EVENT_ON_FOCUSRELEASED: u32 = 324u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_EVENT_ON_GRAPHICS_STREAM_PAUSED: u32 = 310u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_EVENT_ON_GRAPHICS_STREAM_RESUMED: u32 = 311u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_EVENT_ON_SHARED_DESKTOP_SETTINGS_CHANGED: u32 = 325u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_EVENT_ON_SHARED_RECT_CHANGED: u32 = 323u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_EVENT_ON_STREAM_CLOSED: u32 = 634u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_EVENT_ON_STREAM_DATARECEIVED: u32 = 633u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_EVENT_ON_STREAM_SENDCOMPLETED: u32 = 632u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_EVENT_ON_VIEWER_AUTHENTICATED: u32 = 307u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_EVENT_ON_VIEWER_CONNECTED: u32 = 305u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_EVENT_ON_VIEWER_CONNECTFAILED: u32 = 308u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_EVENT_ON_VIEWER_DISCONNECTED: u32 = 306u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_EVENT_ON_VIRTUAL_CHANNEL_DATARECEIVED: u32 = 314u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_EVENT_ON_VIRTUAL_CHANNEL_JOIN: u32 = 312u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_EVENT_ON_VIRTUAL_CHANNEL_LEAVE: u32 = 313u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_EVENT_ON_VIRTUAL_CHANNEL_SENDCOMPLETED: u32 = 315u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_EVENT_ON_WINDOW_CLOSE: u32 = 320u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_EVENT_ON_WINDOW_OPEN: u32 = 319u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_EVENT_ON_WINDOW_UPDATE: u32 = 321u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_EVENT_VIEW_MOUSE_BUTTON_RECEIVED: u32 = 700u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_EVENT_VIEW_MOUSE_MOVE_RECEIVED: u32 = 701u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_EVENT_VIEW_MOUSE_WHEEL_RECEIVED: u32 = 702u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_METHOD_ADD_TOUCH_INPUT: u32 = 125u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_METHOD_BEGIN_TOUCH_FRAME: u32 = 124u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_METHOD_CLOSE: u32 = 101u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_METHOD_CONNECTTOCLIENT: u32 = 117u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_METHOD_CONNECTUSINGTRANSPORTSTREAM: u32 = 127u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_METHOD_CREATE_INVITATION: u32 = 107u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_METHOD_END_TOUCH_FRAME: u32 = 126u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_METHOD_GETFRAMEBUFFERBITS: u32 = 149u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_METHOD_GETSHAREDRECT: u32 = 103u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_METHOD_OPEN: u32 = 100u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_METHOD_PAUSE: u32 = 112u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_METHOD_REQUEST_COLOR_DEPTH_CHANGE: u32 = 115u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_METHOD_REQUEST_CONTROL: u32 = 108u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_METHOD_RESUME: u32 = 113u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_METHOD_SENDCONTROLLEVELCHANGERESPONSE: u32 = 148u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_METHOD_SEND_KEYBOARD_EVENT: u32 = 122u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_METHOD_SEND_MOUSE_BUTTON_EVENT: u32 = 119u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_METHOD_SEND_MOUSE_MOVE_EVENT: u32 = 120u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_METHOD_SEND_MOUSE_WHEEL_EVENT: u32 = 121u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_METHOD_SEND_SYNC_EVENT: u32 = 123u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_METHOD_SETSHAREDRECT: u32 = 102u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_METHOD_SET_RENDERING_SURFACE: u32 = 118u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_METHOD_SHOW_WINDOW: u32 = 114u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_METHOD_STARTREVCONNECTLISTENER: u32 = 116u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_METHOD_STREAMCLOSE: u32 = 426u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_METHOD_STREAMOPEN: u32 = 425u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_METHOD_STREAMREADDATA: u32 = 424u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_METHOD_STREAMSENDDATA: u32 = 423u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_METHOD_STREAM_ALLOCBUFFER: u32 = 421u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_METHOD_STREAM_FREEBUFFER: u32 = 422u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_METHOD_TERMINATE_CONNECTION: u32 = 106u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_METHOD_VIEWERCONNECT: u32 = 104u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_METHOD_VIEWERDISCONNECT: u32 = 105u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_METHOD_VIRTUAL_CHANNEL_CREATE: u32 = 109u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_METHOD_VIRTUAL_CHANNEL_SEND_DATA: u32 = 110u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_METHOD_VIRTUAL_CHANNEL_SET_ACCESS: u32 = 111u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_PROP_APPFILTERENABLED: u32 = 219u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_PROP_APPFILTER_ENABLED: u32 = 218u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_PROP_APPFLAGS: u32 = 223u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_PROP_APPLICATION: u32 = 211u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_PROP_APPLICATION_FILTER: u32 = 215u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_PROP_APPLICATION_LIST: u32 = 217u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_PROP_APPNAME: u32 = 214u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_PROP_ATTENDEELIMIT: u32 = 235u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_PROP_ATTENDEES: u32 = 203u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_PROP_ATTENDEE_FLAGS: u32 = 230u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_PROP_CHANNELMANAGER: u32 = 206u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_PROP_CODE: u32 = 241u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_PROP_CONINFO: u32 = 231u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_PROP_CONNECTION_STRING: u32 = 232u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_PROP_COUNT: u32 = 244u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_PROP_CTRL_LEVEL: u32 = 242u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_PROP_DBG_CLX_CMDLINE: u32 = 222u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_PROP_DISCONNECTED_STRING: u32 = 237u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_PROP_DISPIDVALUE: u32 = 200u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_PROP_FRAMEBUFFER: u32 = 254u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_PROP_FRAMEBUFFER_BPP: u32 = 253u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_PROP_FRAMEBUFFER_HEIGHT: u32 = 251u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_PROP_FRAMEBUFFER_WIDTH: u32 = 252u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_PROP_GROUP_NAME: u32 = 233u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_PROP_ID: u32 = 201u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_PROP_INVITATION: u32 = 205u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_PROP_INVITATIONITEM: u32 = 221u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_PROP_INVITATIONS: u32 = 204u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_PROP_LOCAL_IP: u32 = 227u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_PROP_LOCAL_PORT: u32 = 226u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_PROP_PASSWORD: u32 = 234u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_PROP_PEER_IP: u32 = 229u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_PROP_PEER_PORT: u32 = 228u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_PROP_PROTOCOL_TYPE: u32 = 225u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_PROP_REASON: u32 = 240u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_PROP_REMOTENAME: u32 = 243u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_PROP_REVOKED: u32 = 236u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_PROP_SESSION_COLORDEPTH: u32 = 239u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_PROP_SESSION_PROPERTIES: u32 = 202u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_PROP_SHARED: u32 = 220u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_PROP_STREAMBUFFER_CONTEXT: u32 = 560u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_PROP_STREAMBUFFER_FLAGS: u32 = 561u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_PROP_STREAMBUFFER_PAYLOADOFFSET: u32 = 559u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_PROP_STREAMBUFFER_PAYLOADSIZE: u32 = 558u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_PROP_STREAMBUFFER_STORAGE: u32 = 555u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_PROP_STREAMBUFFER_STORESIZE: u32 = 562u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_PROP_USESMARTSIZING: u32 = 238u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_PROP_VIRTUAL_CHANNEL_GETFLAGS: u32 = 208u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_PROP_VIRTUAL_CHANNEL_GETNAME: u32 = 207u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_PROP_VIRTUAL_CHANNEL_GETPRIORITY: u32 = 209u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_PROP_WINDOWID: u32 = 210u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_PROP_WINDOWNAME: u32 = 213u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_PROP_WINDOWSHARED: u32 = 212u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_PROP_WINDOW_LIST: u32 = 216u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPSRAPI_PROP_WNDFLAGS: u32 = 224u32;
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRDPSRAPIApplication(::windows::runtime::IUnknown);
 impl IRDPSRAPIApplication {
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn Windows(&self) -> ::windows::runtime::Result<IRDPSRAPIWindowList> {
         let mut result__: <IRDPSRAPIWindowList as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRDPSRAPIWindowList>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn Id(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn Shared(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn SetShared(&self, newval: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(newval)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DesktopSharing`, `Win32_Foundation`*"]
     pub unsafe fn Name(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn Flags(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
@@ -303,22 +439,27 @@ pub struct IRDPSRAPIApplication_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwflags: *mut u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRDPSRAPIApplicationFilter(::windows::runtime::IUnknown);
 impl IRDPSRAPIApplicationFilter {
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn Applications(&self) -> ::windows::runtime::Result<IRDPSRAPIApplicationList> {
         let mut result__: <IRDPSRAPIApplicationList as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRDPSRAPIApplicationList>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn Windows(&self) -> ::windows::runtime::Result<IRDPSRAPIWindowList> {
         let mut result__: <IRDPSRAPIWindowList as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRDPSRAPIWindowList>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn Enabled(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn SetEnabled(&self, newval: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(newval)).ok()
     }
@@ -390,14 +531,17 @@ pub struct IRDPSRAPIApplicationFilter_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pretval: *mut i16) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, newval: i16) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRDPSRAPIApplicationList(::windows::runtime::IUnknown);
 impl IRDPSRAPIApplicationList {
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
         let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn Item(&self, item: i32) -> ::windows::runtime::Result<IRDPSRAPIApplication> {
         let mut result__: <IRDPSRAPIApplication as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(item), &mut result__).from_abi::<IRDPSRAPIApplication>(result__)
@@ -468,37 +612,46 @@ pub struct IRDPSRAPIApplicationList_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, retval: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, item: i32, papplication: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRDPSRAPIAttendee(::windows::runtime::IUnknown);
 impl IRDPSRAPIAttendee {
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn Id(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DesktopSharing`, `Win32_Foundation`*"]
     pub unsafe fn RemoteName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn ControlLevel(&self) -> ::windows::runtime::Result<CTRL_LEVEL> {
         let mut result__: <CTRL_LEVEL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<CTRL_LEVEL>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn SetControlLevel(&self, pnewval: CTRL_LEVEL) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(pnewval)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn Invitation(&self) -> ::windows::runtime::Result<IRDPSRAPIInvitation> {
         let mut result__: <IRDPSRAPIInvitation as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRDPSRAPIInvitation>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn TerminateConnection(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn Flags(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn ConnectivityInfo(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
         let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
@@ -576,18 +729,22 @@ pub struct IRDPSRAPIAttendee_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, plflags: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppval: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRDPSRAPIAttendeeDisconnectInfo(::windows::runtime::IUnknown);
 impl IRDPSRAPIAttendeeDisconnectInfo {
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn Attendee(&self) -> ::windows::runtime::Result<IRDPSRAPIAttendee> {
         let mut result__: <IRDPSRAPIAttendee as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRDPSRAPIAttendee>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn Reason(&self) -> ::windows::runtime::Result<ATTENDEE_DISCONNECT_REASON> {
         let mut result__: <ATTENDEE_DISCONNECT_REASON as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ATTENDEE_DISCONNECT_REASON>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn Code(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
@@ -659,14 +816,17 @@ pub struct IRDPSRAPIAttendeeDisconnectInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, preason: *mut ATTENDEE_DISCONNECT_REASON) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pval: *mut i32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRDPSRAPIAttendeeManager(::windows::runtime::IUnknown);
 impl IRDPSRAPIAttendeeManager {
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
         let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn Item(&self, id: i32) -> ::windows::runtime::Result<IRDPSRAPIAttendee> {
         let mut result__: <IRDPSRAPIAttendee as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(id), &mut result__).from_abi::<IRDPSRAPIAttendee>(result__)
@@ -737,23 +897,29 @@ pub struct IRDPSRAPIAttendeeManager_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, retval: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, id: i32, ppitem: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRDPSRAPIAudioStream(::windows::runtime::IUnknown);
 impl IRDPSRAPIAudioStream {
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn Initialize(&self) -> ::windows::runtime::Result<i64> {
         let mut result__: <i64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i64>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn Start(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn Stop(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn GetBuffer(&self, ppbdata: *mut *mut u8, pcbdata: *mut u32, ptimestamp: *mut u64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppbdata), ::std::mem::transmute(pcbdata), ::std::mem::transmute(ptimestamp)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn FreeBuffer(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)).ok()
     }
@@ -794,11 +960,13 @@ pub struct IRDPSRAPIAudioStream_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppbdata: *mut *mut u8, pcbdata: *mut u32, ptimestamp: *mut u64) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRDPSRAPIClipboardUseEvents(::windows::runtime::IUnknown);
 impl IRDPSRAPIClipboardUseEvents {
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_DesktopSharing`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn OnPasteFromClipboard<'a, Param1: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>>(&self, clipboardformat: u32, pattendee: Param1) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(clipboardformat), pattendee.into_param().abi(), &mut result__).from_abi::<i16>(result__)
@@ -837,15 +1005,18 @@ pub struct IRDPSRAPIClipboardUseEvents_abi(
     #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, clipboardformat: u32, pattendee: ::windows::runtime::RawPtr, pretval: *mut i16) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRDPSRAPIDebug(::windows::runtime::IUnknown);
 impl IRDPSRAPIDebug {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DesktopSharing`, `Win32_Foundation`*"]
     pub unsafe fn SetCLXCmdLine<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, clxcmdline: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), clxcmdline.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DesktopSharing`, `Win32_Foundation`*"]
     pub unsafe fn CLXCmdLine(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
@@ -886,23 +1057,28 @@ pub struct IRDPSRAPIDebug_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pclxcmdline: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRDPSRAPIFrameBuffer(::windows::runtime::IUnknown);
 impl IRDPSRAPIFrameBuffer {
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn Width(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn Height(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn Bpp(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `Win32_System_DesktopSharing`, `Win32_System_Com`*"]
     pub unsafe fn GetFrameBufferBits(&self, x: i32, y: i32, width: i32, heigth: i32) -> ::windows::runtime::Result<*mut super::Com::SAFEARRAY> {
         let mut result__: <*mut super::Com::SAFEARRAY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(x), ::std::mem::transmute(y), ::std::mem::transmute(width), ::std::mem::transmute(heigth), &mut result__).from_abi::<*mut super::Com::SAFEARRAY>(result__)
@@ -976,36 +1152,44 @@ pub struct IRDPSRAPIFrameBuffer_abi(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, x: i32, y: i32, width: i32, heigth: i32, ppbits: *mut *mut super::Com::SAFEARRAY) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRDPSRAPIInvitation(::windows::runtime::IUnknown);
 impl IRDPSRAPIInvitation {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DesktopSharing`, `Win32_Foundation`*"]
     pub unsafe fn ConnectionString(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DesktopSharing`, `Win32_Foundation`*"]
     pub unsafe fn GroupName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DesktopSharing`, `Win32_Foundation`*"]
     pub unsafe fn Password(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn AttendeeLimit(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn SetAttendeeLimit(&self, newval: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(newval)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn Revoked(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn SetRevoked(&self, newval: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(newval)).ok()
     }
@@ -1083,24 +1267,29 @@ pub struct IRDPSRAPIInvitation_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pretval: *mut i16) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, newval: i16) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRDPSRAPIInvitationManager(::windows::runtime::IUnknown);
 impl IRDPSRAPIInvitationManager {
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
         let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_DesktopSharing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Item<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::VARIANT>>(&self, item: Param0) -> ::windows::runtime::Result<IRDPSRAPIInvitation> {
         let mut result__: <IRDPSRAPIInvitation as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), item.into_param().abi(), &mut result__).from_abi::<IRDPSRAPIInvitation>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DesktopSharing`, `Win32_Foundation`*"]
     pub unsafe fn CreateInvitation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrauthstring: Param0, bstrgroupname: Param1, bstrpassword: Param2, attendeelimit: i32) -> ::windows::runtime::Result<IRDPSRAPIInvitation> {
         let mut result__: <IRDPSRAPIInvitation as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), bstrauthstring.into_param().abi(), bstrgroupname.into_param().abi(), bstrpassword.into_param().abi(), ::std::mem::transmute(attendeelimit), &mut result__).from_abi::<IRDPSRAPIInvitation>(result__)
@@ -1175,10 +1364,12 @@ pub struct IRDPSRAPIInvitationManager_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bstrauthstring: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrgroupname: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrpassword: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, attendeelimit: i32, ppinvitation: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRDPSRAPIPerfCounterLogger(::windows::runtime::IUnknown);
 impl IRDPSRAPIPerfCounterLogger {
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn LogValue(&self, lvalue: i64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(lvalue)).ok()
     }
@@ -1215,11 +1406,13 @@ pub struct IRDPSRAPIPerfCounterLogger_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lvalue: i64) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRDPSRAPIPerfCounterLoggingManager(::windows::runtime::IUnknown);
 impl IRDPSRAPIPerfCounterLoggingManager {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DesktopSharing`, `Win32_Foundation`*"]
     pub unsafe fn CreateLogger<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrcountername: Param0) -> ::windows::runtime::Result<IRDPSRAPIPerfCounterLogger> {
         let mut result__: <IRDPSRAPIPerfCounterLogger as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), bstrcountername.into_param().abi(), &mut result__).from_abi::<IRDPSRAPIPerfCounterLogger>(result__)
@@ -1258,16 +1451,19 @@ pub struct IRDPSRAPIPerfCounterLoggingManager_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bstrcountername: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, pplogger: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRDPSRAPISessionProperties(::windows::runtime::IUnknown);
 impl IRDPSRAPISessionProperties {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_DesktopSharing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Property<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, propertyname: Param0) -> ::windows::runtime::Result<super::Com::VARIANT> {
         let mut result__: <super::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), propertyname.into_param().abi(), &mut result__).from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_DesktopSharing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn SetProperty<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::Com::VARIANT>>(&self, propertyname: Param0, newval: Param1) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), propertyname.into_param().abi(), newval.into_param().abi()).ok()
     }
@@ -1339,56 +1535,71 @@ pub struct IRDPSRAPISessionProperties_abi(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, propertyname: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, newval: ::std::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
 );
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRDPSRAPISharingSession(::windows::runtime::IUnknown);
 impl IRDPSRAPISharingSession {
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn Open(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn Close(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn SetColorDepth(&self, colordepth: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(colordepth)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn ColorDepth(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn Properties(&self) -> ::windows::runtime::Result<IRDPSRAPISessionProperties> {
         let mut result__: <IRDPSRAPISessionProperties as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRDPSRAPISessionProperties>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn Attendees(&self) -> ::windows::runtime::Result<IRDPSRAPIAttendeeManager> {
         let mut result__: <IRDPSRAPIAttendeeManager as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRDPSRAPIAttendeeManager>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn Invitations(&self) -> ::windows::runtime::Result<IRDPSRAPIInvitationManager> {
         let mut result__: <IRDPSRAPIInvitationManager as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRDPSRAPIInvitationManager>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn ApplicationFilter(&self) -> ::windows::runtime::Result<IRDPSRAPIApplicationFilter> {
         let mut result__: <IRDPSRAPIApplicationFilter as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRDPSRAPIApplicationFilter>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn VirtualChannelManager(&self) -> ::windows::runtime::Result<IRDPSRAPIVirtualChannelManager> {
         let mut result__: <IRDPSRAPIVirtualChannelManager as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRDPSRAPIVirtualChannelManager>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn Pause(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn Resume(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DesktopSharing`, `Win32_Foundation`*"]
     pub unsafe fn ConnectToClient<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrconnectionstring: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), bstrconnectionstring.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn SetDesktopSharedRect(&self, left: i32, top: i32, right: i32, bottom: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(left), ::std::mem::transmute(top), ::std::mem::transmute(right), ::std::mem::transmute(bottom)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn GetDesktopSharedRect(&self, pleft: *mut i32, ptop: *mut i32, pright: *mut i32, pbottom: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(pleft), ::std::mem::transmute(ptop), ::std::mem::transmute(pright), ::std::mem::transmute(pbottom)).ok()
     }
@@ -1471,84 +1682,106 @@ pub struct IRDPSRAPISharingSession_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, left: i32, top: i32, right: i32, bottom: i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pleft: *mut i32, ptop: *mut i32, pright: *mut i32, pbottom: *mut i32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRDPSRAPISharingSession2(::windows::runtime::IUnknown);
 impl IRDPSRAPISharingSession2 {
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
+    #[doc = "*Required features: `Win32_System_DesktopSharing`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::Ole::Automation::ITypeInfo> {
         let mut result__: <super::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DesktopSharing`, `Win32_Foundation`*"]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_DesktopSharing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Ole::Automation::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn Open(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn Close(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn SetColorDepth(&self, colordepth: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(colordepth)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn ColorDepth(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn Properties(&self) -> ::windows::runtime::Result<IRDPSRAPISessionProperties> {
         let mut result__: <IRDPSRAPISessionProperties as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRDPSRAPISessionProperties>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn Attendees(&self) -> ::windows::runtime::Result<IRDPSRAPIAttendeeManager> {
         let mut result__: <IRDPSRAPIAttendeeManager as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRDPSRAPIAttendeeManager>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn Invitations(&self) -> ::windows::runtime::Result<IRDPSRAPIInvitationManager> {
         let mut result__: <IRDPSRAPIInvitationManager as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRDPSRAPIInvitationManager>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn ApplicationFilter(&self) -> ::windows::runtime::Result<IRDPSRAPIApplicationFilter> {
         let mut result__: <IRDPSRAPIApplicationFilter as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRDPSRAPIApplicationFilter>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn VirtualChannelManager(&self) -> ::windows::runtime::Result<IRDPSRAPIVirtualChannelManager> {
         let mut result__: <IRDPSRAPIVirtualChannelManager as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRDPSRAPIVirtualChannelManager>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn Pause(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn Resume(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DesktopSharing`, `Win32_Foundation`*"]
     pub unsafe fn ConnectToClient<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrconnectionstring: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), bstrconnectionstring.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn SetDesktopSharedRect(&self, left: i32, top: i32, right: i32, bottom: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(left), ::std::mem::transmute(top), ::std::mem::transmute(right), ::std::mem::transmute(bottom)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn GetDesktopSharedRect(&self, pleft: *mut i32, ptop: *mut i32, pright: *mut i32, pbottom: *mut i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(pleft), ::std::mem::transmute(ptop), ::std::mem::transmute(pright), ::std::mem::transmute(pbottom)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DesktopSharing`, `Win32_Foundation`*"]
     pub unsafe fn ConnectUsingTransportStream<'a, Param0: ::windows::runtime::IntoParam<'a, IRDPSRAPITransportStream>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, pstream: Param0, bstrgroup: Param1, bstrauthenticatedattendeename: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), pstream.into_param().abi(), bstrgroup.into_param().abi(), bstrauthenticatedattendeename.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn FrameBuffer(&self) -> ::windows::runtime::Result<IRDPSRAPIFrameBuffer> {
         let mut result__: <IRDPSRAPIFrameBuffer as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRDPSRAPIFrameBuffer>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn SendControlLevelChangeResponse<'a, Param0: ::windows::runtime::IntoParam<'a, IRDPSRAPIAttendee>>(&self, pattendee: Param0, requestedlevel: CTRL_LEVEL, reasoncode: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), pattendee.into_param().abi(), ::std::mem::transmute(requestedlevel), ::std::mem::transmute(reasoncode)).ok()
     }
@@ -1655,28 +1888,34 @@ pub struct IRDPSRAPISharingSession2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppval: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pattendee: ::windows::runtime::RawPtr, requestedlevel: CTRL_LEVEL, reasoncode: i32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRDPSRAPITcpConnectionInfo(::windows::runtime::IUnknown);
 impl IRDPSRAPITcpConnectionInfo {
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn Protocol(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn LocalPort(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DesktopSharing`, `Win32_Foundation`*"]
     pub unsafe fn LocalIP(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn PeerPort(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DesktopSharing`, `Win32_Foundation`*"]
     pub unsafe fn PeerIP(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
@@ -1752,26 +1991,33 @@ pub struct IRDPSRAPITcpConnectionInfo_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbstrip: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRDPSRAPITransportStream(::windows::runtime::IUnknown);
 impl IRDPSRAPITransportStream {
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn AllocBuffer(&self, maxpayload: i32) -> ::windows::runtime::Result<IRDPSRAPITransportStreamBuffer> {
         let mut result__: <IRDPSRAPITransportStreamBuffer as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(maxpayload), &mut result__).from_abi::<IRDPSRAPITransportStreamBuffer>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn FreeBuffer<'a, Param0: ::windows::runtime::IntoParam<'a, IRDPSRAPITransportStreamBuffer>>(&self, pbuffer: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pbuffer.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn WriteBuffer<'a, Param0: ::windows::runtime::IntoParam<'a, IRDPSRAPITransportStreamBuffer>>(&self, pbuffer: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), pbuffer.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn ReadBuffer<'a, Param0: ::windows::runtime::IntoParam<'a, IRDPSRAPITransportStreamBuffer>>(&self, pbuffer: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), pbuffer.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn Open<'a, Param0: ::windows::runtime::IntoParam<'a, IRDPSRAPITransportStreamEvents>>(&self, pcallbacks: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), pcallbacks.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn Close(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
     }
@@ -1813,43 +2059,54 @@ pub struct IRDPSRAPITransportStream_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcallbacks: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRDPSRAPITransportStreamBuffer(::windows::runtime::IUnknown);
 impl IRDPSRAPITransportStreamBuffer {
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn Storage(&self) -> ::windows::runtime::Result<*mut u8> {
         let mut result__: <*mut u8 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut u8>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn StorageSize(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn PayloadSize(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn SetPayloadSize(&self, lval: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(lval)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn PayloadOffset(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn SetPayloadOffset(&self, lretval: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(lretval)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn Flags(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn SetFlags(&self, lflags: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(lflags)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn Context(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
         let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn SetContext<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, pcontext: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), pcontext.into_param().abi()).ok()
     }
@@ -1895,16 +2152,20 @@ pub struct IRDPSRAPITransportStreamBuffer_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppcontext: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcontext: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRDPSRAPITransportStreamEvents(::windows::runtime::IUnknown);
 impl IRDPSRAPITransportStreamEvents {
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn OnWriteCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, IRDPSRAPITransportStreamBuffer>>(&self, pbuffer: Param0) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pbuffer.into_param().abi()))
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn OnReadCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, IRDPSRAPITransportStreamBuffer>>(&self, pbuffer: Param0) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pbuffer.into_param().abi()))
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn OnStreamClosed(&self, hrreason: ::windows::runtime::HRESULT) {
         ::std::mem::transmute((::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(hrreason)))
     }
@@ -1943,60 +2204,75 @@ pub struct IRDPSRAPITransportStreamEvents_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbuffer: ::windows::runtime::RawPtr),
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hrreason: ::windows::runtime::HRESULT),
 );
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRDPSRAPIViewer(::windows::runtime::IUnknown);
 impl IRDPSRAPIViewer {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DesktopSharing`, `Win32_Foundation`*"]
     pub unsafe fn Connect<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrconnectionstring: Param0, bstrname: Param1, bstrpassword: Param2) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), bstrconnectionstring.into_param().abi(), bstrname.into_param().abi(), bstrpassword.into_param().abi()).ok()
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn Disconnect(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn Attendees(&self) -> ::windows::runtime::Result<IRDPSRAPIAttendeeManager> {
         let mut result__: <IRDPSRAPIAttendeeManager as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRDPSRAPIAttendeeManager>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn Invitations(&self) -> ::windows::runtime::Result<IRDPSRAPIInvitationManager> {
         let mut result__: <IRDPSRAPIInvitationManager as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRDPSRAPIInvitationManager>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn ApplicationFilter(&self) -> ::windows::runtime::Result<IRDPSRAPIApplicationFilter> {
         let mut result__: <IRDPSRAPIApplicationFilter as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRDPSRAPIApplicationFilter>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn VirtualChannelManager(&self) -> ::windows::runtime::Result<IRDPSRAPIVirtualChannelManager> {
         let mut result__: <IRDPSRAPIVirtualChannelManager as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRDPSRAPIVirtualChannelManager>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn SetSmartSizing(&self, vbsmartsizing: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(vbsmartsizing)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn SmartSizing(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn RequestControl(&self, ctrllevel: CTRL_LEVEL) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(ctrllevel)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DesktopSharing`, `Win32_Foundation`*"]
     pub unsafe fn SetDisconnectedText<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdisconnectedtext: Param0) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), bstrdisconnectedtext.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DesktopSharing`, `Win32_Foundation`*"]
     pub unsafe fn DisconnectedText(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn RequestColorDepthChange(&self, bpp: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(bpp)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn Properties(&self) -> ::windows::runtime::Result<IRDPSRAPISessionProperties> {
         let mut result__: <IRDPSRAPISessionProperties as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRDPSRAPISessionProperties>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DesktopSharing`, `Win32_Foundation`*"]
     pub unsafe fn StartReverseConnectListener<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrconnectionstring: Param0, bstrusername: Param1, bstrpassword: Param2) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), bstrconnectionstring.into_param().abi(), bstrusername.into_param().abi(), bstrpassword.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
@@ -2083,26 +2359,32 @@ pub struct IRDPSRAPIViewer_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bstrconnectionstring: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrusername: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrpassword: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbstrreverseconnectstring: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRDPSRAPIVirtualChannel(::windows::runtime::IUnknown);
 impl IRDPSRAPIVirtualChannel {
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DesktopSharing`, `Win32_Foundation`*"]
     pub unsafe fn SendData<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdata: Param0, lattendeeid: i32, channelsendflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), bstrdata.into_param().abi(), ::std::mem::transmute(lattendeeid), ::std::mem::transmute(channelsendflags)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn SetAccess(&self, lattendeeid: i32, accesstype: CHANNEL_ACCESS_ENUM) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(lattendeeid), ::std::mem::transmute(accesstype)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DesktopSharing`, `Win32_Foundation`*"]
     pub unsafe fn Name(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn Flags(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn Priority(&self) -> ::windows::runtime::Result<CHANNEL_PRIORITY> {
         let mut result__: <CHANNEL_PRIORITY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<CHANNEL_PRIORITY>(result__)
@@ -2178,20 +2460,24 @@ pub struct IRDPSRAPIVirtualChannel_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, plflags: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppriority: *mut CHANNEL_PRIORITY) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRDPSRAPIVirtualChannelManager(::windows::runtime::IUnknown);
 impl IRDPSRAPIVirtualChannelManager {
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
         let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    #[doc = "*Required features: `Win32_System_DesktopSharing`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
     pub unsafe fn Item<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::VARIANT>>(&self, item: Param0) -> ::windows::runtime::Result<IRDPSRAPIVirtualChannel> {
         let mut result__: <IRDPSRAPIVirtualChannel as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), item.into_param().abi(), &mut result__).from_abi::<IRDPSRAPIVirtualChannel>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DesktopSharing`, `Win32_Foundation`*"]
     pub unsafe fn CreateVirtualChannel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrchannelname: Param0, priority: CHANNEL_PRIORITY, channelflags: u32) -> ::windows::runtime::Result<IRDPSRAPIVirtualChannel> {
         let mut result__: <IRDPSRAPIVirtualChannel as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), bstrchannelname.into_param().abi(), ::std::mem::transmute(priority), ::std::mem::transmute(channelflags), &mut result__).from_abi::<IRDPSRAPIVirtualChannel>(result__)
@@ -2265,33 +2551,41 @@ pub struct IRDPSRAPIVirtualChannelManager_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bstrchannelname: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, priority: CHANNEL_PRIORITY, channelflags: u32, ppchannel: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRDPSRAPIWindow(::windows::runtime::IUnknown);
 impl IRDPSRAPIWindow {
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn Id(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn Application(&self) -> ::windows::runtime::Result<IRDPSRAPIApplication> {
         let mut result__: <IRDPSRAPIApplication as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IRDPSRAPIApplication>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn Shared(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn SetShared(&self, newval: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(newval)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `Win32_System_DesktopSharing`, `Win32_Foundation`*"]
     pub unsafe fn Name(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn Show(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn Flags(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
@@ -2368,14 +2662,17 @@ pub struct IRDPSRAPIWindow_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwflags: *mut u32) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRDPSRAPIWindowList(::windows::runtime::IUnknown);
 impl IRDPSRAPIWindowList {
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
         let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn Item(&self, item: i32) -> ::windows::runtime::Result<IRDPSRAPIWindow> {
         let mut result__: <IRDPSRAPIWindow as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(item), &mut result__).from_abi::<IRDPSRAPIWindow>(result__)
@@ -2446,31 +2743,40 @@ pub struct IRDPSRAPIWindowList_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, retval: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, item: i32, pwindow: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IRDPViewerInputSink(::windows::runtime::IUnknown);
 impl IRDPViewerInputSink {
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn SendMouseButtonEvent(&self, buttontype: RDPSRAPI_MOUSE_BUTTON_TYPE, vbbuttondown: i16, xpos: u32, ypos: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(buttontype), ::std::mem::transmute(vbbuttondown), ::std::mem::transmute(xpos), ::std::mem::transmute(ypos)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn SendMouseMoveEvent(&self, xpos: u32, ypos: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(xpos), ::std::mem::transmute(ypos)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn SendMouseWheelEvent(&self, wheelrotation: u16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(wheelrotation)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn SendKeyboardEvent(&self, codetype: RDPSRAPI_KBD_CODE_TYPE, keycode: u16, vbkeyup: i16, vbrepeat: i16, vbextended: i16) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(codetype), ::std::mem::transmute(keycode), ::std::mem::transmute(vbkeyup), ::std::mem::transmute(vbrepeat), ::std::mem::transmute(vbextended)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn SendSyncEvent(&self, syncflags: u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(syncflags)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn BeginTouchFrame(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn AddTouchInput(&self, contactid: u32, event: u32, x: i32, y: i32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(contactid), ::std::mem::transmute(event), ::std::mem::transmute(x), ::std::mem::transmute(y)).ok()
     }
+    #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
     pub unsafe fn EndTouchFrame(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)).ok()
     }
@@ -2514,6 +2820,7 @@ pub struct IRDPViewerInputSink_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, contactid: u32, event: u32, x: i32, y: i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RDPENCOMAPI_ATTENDEE_FLAGS(pub i32);
@@ -2540,6 +2847,7 @@ pub const RDPSRAPISessionProperties: ::windows::runtime::GUID = ::windows::runti
 pub const RDPSRAPITcpConnectionInfo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3192511295, 60342, 17016, [140, 224, 213, 69, 88, 51, 234, 238]);
 pub const RDPSRAPIWindow: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(63915739, 52805, 19766, [134, 237, 237, 40, 183, 67, 152, 191]);
 pub const RDPSRAPIWindowList: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2619466424, 24020, 17100, [129, 186, 28, 9, 152, 82, 230, 250]);
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RDPSRAPI_APP_FLAGS(pub i32);
@@ -2553,6 +2861,7 @@ unsafe impl ::windows::runtime::Abi for RDPSRAPI_APP_FLAGS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RDPSRAPI_KBD_CODE_TYPE(pub i32);
@@ -2567,6 +2876,7 @@ unsafe impl ::windows::runtime::Abi for RDPSRAPI_KBD_CODE_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RDPSRAPI_KBD_SYNC_FLAG(pub i32);
@@ -2583,6 +2893,7 @@ unsafe impl ::windows::runtime::Abi for RDPSRAPI_KBD_SYNC_FLAG {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RDPSRAPI_MOUSE_BUTTON_TYPE(pub i32);
@@ -2601,6 +2912,7 @@ unsafe impl ::windows::runtime::Abi for RDPSRAPI_MOUSE_BUTTON_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RDPSRAPI_WND_FLAGS(pub i32);
@@ -2618,6 +2930,7 @@ pub const RDPSession: ::windows::runtime::GUID = ::windows::runtime::GUID::from_
 pub const RDPTransportStreamBuffer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2370444393, 61823, 17737, [166, 153, 118, 28, 110, 107, 92, 10]);
 pub const RDPTransportStreamEvents: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(837004064, 21328, 18495, [157, 198, 103, 72, 102, 94, 253, 235]);
 pub const RDPViewer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(851336914, 23686, 18447, [169, 20, 15, 248, 136, 90, 27, 63]);
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct _IRDPSessionEvents(::windows::runtime::IUnknown);
@@ -2685,6 +2998,7 @@ pub struct _IRDPSessionEvents_abi(
     pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Ole::Automation::DISPPARAMS, pvarresult: *mut ::std::mem::ManuallyDrop<super::Com::VARIANT>, pexcepinfo: *mut ::std::mem::ManuallyDrop<super::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
 );
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001(pub i32);
@@ -2706,6 +3020,7 @@ unsafe impl ::windows::runtime::Abi for __MIDL___MIDL_itf_rdpencomapi_0000_0027_
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub struct __ReferenceRemainingTypes__ {
     pub __ctrlLevel__: CTRL_LEVEL,
     pub __attendeeDisconnectReason__: ATTENDEE_DISCONNECT_REASON,

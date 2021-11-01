@@ -7,10 +7,12 @@ pub mod Background;
 pub mod GenericAttributeProfile;
 #[cfg(feature = "Devices_Bluetooth_Rfcomm")]
 pub mod Rfcomm;
+#[doc = "*Required features: `Devices_Bluetooth`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct BluetoothAdapter(::windows::runtime::IInspectable);
 impl BluetoothAdapter {
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn DeviceId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -18,6 +20,7 @@ impl BluetoothAdapter {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn BluetoothAddress(&self) -> ::windows::runtime::Result<u64> {
         let this = self;
         unsafe {
@@ -25,6 +28,7 @@ impl BluetoothAdapter {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn IsClassicSupported(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -32,6 +36,7 @@ impl BluetoothAdapter {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn IsLowEnergySupported(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -39,6 +44,7 @@ impl BluetoothAdapter {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn IsPeripheralRoleSupported(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -46,6 +52,7 @@ impl BluetoothAdapter {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn IsCentralRoleSupported(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -53,6 +60,7 @@ impl BluetoothAdapter {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn IsAdvertisementOffloadSupported(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -61,6 +69,7 @@ impl BluetoothAdapter {
         }
     }
     #[cfg(all(feature = "Devices_Radios", feature = "Foundation"))]
+    #[doc = "*Required features: `Devices_Bluetooth`, `Devices_Radios`, `Foundation`*"]
     pub fn GetRadioAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::Radios::Radio>> {
         let this = self;
         unsafe {
@@ -68,6 +77,7 @@ impl BluetoothAdapter {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::Radios::Radio>>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn GetDeviceSelector() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IBluetoothAdapterStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
@@ -75,6 +85,7 @@ impl BluetoothAdapter {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Bluetooth`, `Foundation`*"]
     pub fn FromIdAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(deviceid: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<BluetoothAdapter>> {
         Self::IBluetoothAdapterStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -82,12 +93,14 @@ impl BluetoothAdapter {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Bluetooth`, `Foundation`*"]
     pub fn GetDefaultAsync() -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<BluetoothAdapter>> {
         Self::IBluetoothAdapterStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<BluetoothAdapter>>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn AreClassicSecureConnectionsSupported(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IBluetoothAdapter2>(self)?;
         unsafe {
@@ -95,6 +108,7 @@ impl BluetoothAdapter {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn AreLowEnergySecureConnectionsSupported(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IBluetoothAdapter2>(self)?;
         unsafe {
@@ -102,6 +116,7 @@ impl BluetoothAdapter {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn IsExtendedAdvertisingSupported(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IBluetoothAdapter3>(self)?;
         unsafe {
@@ -109,6 +124,7 @@ impl BluetoothAdapter {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn MaxAdvertisementDataLength(&self) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<IBluetoothAdapter3>(self)?;
         unsafe {
@@ -173,6 +189,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for BluetoothAdapter {}
 unsafe impl ::std::marker::Sync for BluetoothAdapter {}
+#[doc = "*Required features: `Devices_Bluetooth`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct BluetoothAddressType(pub i32);
@@ -193,6 +210,7 @@ unsafe impl ::windows::runtime::Abi for BluetoothAddressType {
 unsafe impl ::windows::runtime::RuntimeType for BluetoothAddressType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.BluetoothAddressType;i4)");
 }
+#[doc = "*Required features: `Devices_Bluetooth`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct BluetoothCacheMode(pub i32);
@@ -212,10 +230,12 @@ unsafe impl ::windows::runtime::Abi for BluetoothCacheMode {
 unsafe impl ::windows::runtime::RuntimeType for BluetoothCacheMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.BluetoothCacheMode;i4)");
 }
+#[doc = "*Required features: `Devices_Bluetooth`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct BluetoothClassOfDevice(::windows::runtime::IInspectable);
 impl BluetoothClassOfDevice {
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn RawValue(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -223,6 +243,7 @@ impl BluetoothClassOfDevice {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn MajorClass(&self) -> ::windows::runtime::Result<BluetoothMajorClass> {
         let this = self;
         unsafe {
@@ -230,6 +251,7 @@ impl BluetoothClassOfDevice {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<BluetoothMajorClass>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn MinorClass(&self) -> ::windows::runtime::Result<BluetoothMinorClass> {
         let this = self;
         unsafe {
@@ -237,6 +259,7 @@ impl BluetoothClassOfDevice {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<BluetoothMinorClass>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn ServiceCapabilities(&self) -> ::windows::runtime::Result<BluetoothServiceCapabilities> {
         let this = self;
         unsafe {
@@ -244,12 +267,14 @@ impl BluetoothClassOfDevice {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<BluetoothServiceCapabilities>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn FromRawValue(rawvalue: u32) -> ::windows::runtime::Result<BluetoothClassOfDevice> {
         Self::IBluetoothClassOfDeviceStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), rawvalue, &mut result__).from_abi::<BluetoothClassOfDevice>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn FromParts(majorclass: BluetoothMajorClass, minorclass: BluetoothMinorClass, servicecapabilities: BluetoothServiceCapabilities) -> ::windows::runtime::Result<BluetoothClassOfDevice> {
         Self::IBluetoothClassOfDeviceStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -313,6 +338,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for BluetoothClassOfDevice {}
 unsafe impl ::std::marker::Sync for BluetoothClassOfDevice {}
+#[doc = "*Required features: `Devices_Bluetooth`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct BluetoothConnectionStatus(pub i32);
@@ -332,10 +358,12 @@ unsafe impl ::windows::runtime::Abi for BluetoothConnectionStatus {
 unsafe impl ::windows::runtime::RuntimeType for BluetoothConnectionStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.BluetoothConnectionStatus;i4)");
 }
+#[doc = "*Required features: `Devices_Bluetooth`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct BluetoothDevice(::windows::runtime::IInspectable);
 impl BluetoothDevice {
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn DeviceId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -344,6 +372,7 @@ impl BluetoothDevice {
         }
     }
     #[cfg(feature = "Networking")]
+    #[doc = "*Required features: `Devices_Bluetooth`, `Networking`*"]
     pub fn HostName(&self) -> ::windows::runtime::Result<super::super::Networking::HostName> {
         let this = self;
         unsafe {
@@ -351,6 +380,7 @@ impl BluetoothDevice {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Networking::HostName>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -358,6 +388,7 @@ impl BluetoothDevice {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn ClassOfDevice(&self) -> ::windows::runtime::Result<BluetoothClassOfDevice> {
         let this = self;
         unsafe {
@@ -366,6 +397,7 @@ impl BluetoothDevice {
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Devices_Bluetooth`, `Foundation_Collections`, `Storage_Streams`*"]
     pub fn SdpRecords(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<super::super::Storage::Streams::IBuffer>> {
         let this = self;
         unsafe {
@@ -375,6 +407,7 @@ impl BluetoothDevice {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(all(feature = "Devices_Bluetooth_Rfcomm", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Devices_Bluetooth`, `Devices_Bluetooth_Rfcomm`, `Foundation_Collections`*"]
     pub fn RfcommServices(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<Rfcomm::RfcommDeviceService>> {
         let this = self;
         unsafe {
@@ -382,6 +415,7 @@ impl BluetoothDevice {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<Rfcomm::RfcommDeviceService>>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn ConnectionStatus(&self) -> ::windows::runtime::Result<BluetoothConnectionStatus> {
         let this = self;
         unsafe {
@@ -389,6 +423,7 @@ impl BluetoothDevice {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<BluetoothConnectionStatus>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn BluetoothAddress(&self) -> ::windows::runtime::Result<u64> {
         let this = self;
         unsafe {
@@ -397,6 +432,7 @@ impl BluetoothDevice {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Bluetooth`, `Foundation`*"]
     pub fn NameChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<BluetoothDevice, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -405,11 +441,13 @@ impl BluetoothDevice {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Bluetooth`, `Foundation`*"]
     pub fn RemoveNameChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Bluetooth`, `Foundation`*"]
     pub fn SdpRecordsChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<BluetoothDevice, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -418,11 +456,13 @@ impl BluetoothDevice {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Bluetooth`, `Foundation`*"]
     pub fn RemoveSdpRecordsChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Bluetooth`, `Foundation`*"]
     pub fn ConnectionStatusChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<BluetoothDevice, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -431,16 +471,19 @@ impl BluetoothDevice {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Bluetooth`, `Foundation`*"]
     pub fn RemoveConnectionStatusChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Bluetooth`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Bluetooth`, `Foundation`*"]
     pub fn FromIdAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(deviceid: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<BluetoothDevice>> {
         Self::IBluetoothDeviceStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -448,6 +491,7 @@ impl BluetoothDevice {
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Networking"))]
+    #[doc = "*Required features: `Devices_Bluetooth`, `Foundation`, `Networking`*"]
     pub fn FromHostNameAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Networking::HostName>>(hostname: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<BluetoothDevice>> {
         Self::IBluetoothDeviceStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -455,12 +499,14 @@ impl BluetoothDevice {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Bluetooth`, `Foundation`*"]
     pub fn FromBluetoothAddressAsync(address: u64) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<BluetoothDevice>> {
         Self::IBluetoothDeviceStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), address, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<BluetoothDevice>>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn GetDeviceSelector() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IBluetoothDeviceStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
@@ -468,6 +514,7 @@ impl BluetoothDevice {
         })
     }
     #[cfg(feature = "Devices_Enumeration")]
+    #[doc = "*Required features: `Devices_Bluetooth`, `Devices_Enumeration`*"]
     pub fn DeviceInformation(&self) -> ::windows::runtime::Result<super::Enumeration::DeviceInformation> {
         let this = &::windows::runtime::Interface::cast::<IBluetoothDevice2>(self)?;
         unsafe {
@@ -475,30 +522,35 @@ impl BluetoothDevice {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Enumeration::DeviceInformation>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn GetDeviceSelectorFromPairingState(pairingstate: bool) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IBluetoothDeviceStatics2(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), pairingstate, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn GetDeviceSelectorFromConnectionStatus(connectionstatus: BluetoothConnectionStatus) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IBluetoothDeviceStatics2(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), connectionstatus, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn GetDeviceSelectorFromDeviceName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(devicename: Param0) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IBluetoothDeviceStatics2(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), devicename.into_param().abi(), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn GetDeviceSelectorFromBluetoothAddress(bluetoothaddress: u64) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IBluetoothDeviceStatics2(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), bluetoothaddress, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn GetDeviceSelectorFromClassOfDevice<'a, Param0: ::windows::runtime::IntoParam<'a, BluetoothClassOfDevice>>(classofdevice: Param0) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IBluetoothDeviceStatics2(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
@@ -506,6 +558,7 @@ impl BluetoothDevice {
         })
     }
     #[cfg(feature = "Devices_Enumeration")]
+    #[doc = "*Required features: `Devices_Bluetooth`, `Devices_Enumeration`*"]
     pub fn DeviceAccessInformation(&self) -> ::windows::runtime::Result<super::Enumeration::DeviceAccessInformation> {
         let this = &::windows::runtime::Interface::cast::<IBluetoothDevice3>(self)?;
         unsafe {
@@ -514,6 +567,7 @@ impl BluetoothDevice {
         }
     }
     #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation"))]
+    #[doc = "*Required features: `Devices_Bluetooth`, `Devices_Enumeration`, `Foundation`*"]
     pub fn RequestAccessAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::Enumeration::DeviceAccessStatus>> {
         let this = &::windows::runtime::Interface::cast::<IBluetoothDevice3>(self)?;
         unsafe {
@@ -522,6 +576,7 @@ impl BluetoothDevice {
         }
     }
     #[cfg(all(feature = "Devices_Bluetooth_Rfcomm", feature = "Foundation"))]
+    #[doc = "*Required features: `Devices_Bluetooth`, `Devices_Bluetooth_Rfcomm`, `Foundation`*"]
     pub fn GetRfcommServicesAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<Rfcomm::RfcommDeviceServicesResult>> {
         let this = &::windows::runtime::Interface::cast::<IBluetoothDevice3>(self)?;
         unsafe {
@@ -530,6 +585,7 @@ impl BluetoothDevice {
         }
     }
     #[cfg(all(feature = "Devices_Bluetooth_Rfcomm", feature = "Foundation"))]
+    #[doc = "*Required features: `Devices_Bluetooth`, `Devices_Bluetooth_Rfcomm`, `Foundation`*"]
     pub fn GetRfcommServicesWithCacheModeAsync(&self, cachemode: BluetoothCacheMode) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<Rfcomm::RfcommDeviceServicesResult>> {
         let this = &::windows::runtime::Interface::cast::<IBluetoothDevice3>(self)?;
         unsafe {
@@ -538,6 +594,7 @@ impl BluetoothDevice {
         }
     }
     #[cfg(all(feature = "Devices_Bluetooth_Rfcomm", feature = "Foundation"))]
+    #[doc = "*Required features: `Devices_Bluetooth`, `Devices_Bluetooth_Rfcomm`, `Foundation`*"]
     pub fn GetRfcommServicesForIdAsync<'a, Param0: ::windows::runtime::IntoParam<'a, Rfcomm::RfcommServiceId>>(&self, serviceid: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<Rfcomm::RfcommDeviceServicesResult>> {
         let this = &::windows::runtime::Interface::cast::<IBluetoothDevice3>(self)?;
         unsafe {
@@ -546,6 +603,7 @@ impl BluetoothDevice {
         }
     }
     #[cfg(all(feature = "Devices_Bluetooth_Rfcomm", feature = "Foundation"))]
+    #[doc = "*Required features: `Devices_Bluetooth`, `Devices_Bluetooth_Rfcomm`, `Foundation`*"]
     pub fn GetRfcommServicesForIdWithCacheModeAsync<'a, Param0: ::windows::runtime::IntoParam<'a, Rfcomm::RfcommServiceId>>(&self, serviceid: Param0, cachemode: BluetoothCacheMode) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<Rfcomm::RfcommDeviceServicesResult>> {
         let this = &::windows::runtime::Interface::cast::<IBluetoothDevice3>(self)?;
         unsafe {
@@ -553,6 +611,7 @@ impl BluetoothDevice {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), serviceid.into_param().abi(), cachemode, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<Rfcomm::RfcommDeviceServicesResult>>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn BluetoothDeviceId(&self) -> ::windows::runtime::Result<BluetoothDeviceId> {
         let this = &::windows::runtime::Interface::cast::<IBluetoothDevice4>(self)?;
         unsafe {
@@ -560,6 +619,7 @@ impl BluetoothDevice {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<BluetoothDeviceId>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn WasSecureConnectionUsedForPairing(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IBluetoothDevice5>(self)?;
         unsafe {
@@ -654,10 +714,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> 
 }
 unsafe impl ::std::marker::Send for BluetoothDevice {}
 unsafe impl ::std::marker::Sync for BluetoothDevice {}
+#[doc = "*Required features: `Devices_Bluetooth`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct BluetoothDeviceId(::windows::runtime::IInspectable);
 impl BluetoothDeviceId {
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -665,6 +727,7 @@ impl BluetoothDeviceId {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn IsClassicDevice(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -672,6 +735,7 @@ impl BluetoothDeviceId {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn IsLowEnergyDevice(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -679,6 +743,7 @@ impl BluetoothDeviceId {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn FromId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(deviceid: Param0) -> ::windows::runtime::Result<BluetoothDeviceId> {
         Self::IBluetoothDeviceIdStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -742,6 +807,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for BluetoothDeviceId {}
 unsafe impl ::std::marker::Sync for BluetoothDeviceId {}
+#[doc = "*Required features: `Devices_Bluetooth`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct BluetoothError(pub i32);
@@ -769,10 +835,12 @@ unsafe impl ::windows::runtime::Abi for BluetoothError {
 unsafe impl ::windows::runtime::RuntimeType for BluetoothError {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.BluetoothError;i4)");
 }
+#[doc = "*Required features: `Devices_Bluetooth`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct BluetoothLEAppearance(::windows::runtime::IInspectable);
 impl BluetoothLEAppearance {
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn RawValue(&self) -> ::windows::runtime::Result<u16> {
         let this = self;
         unsafe {
@@ -780,6 +848,7 @@ impl BluetoothLEAppearance {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn Category(&self) -> ::windows::runtime::Result<u16> {
         let this = self;
         unsafe {
@@ -787,6 +856,7 @@ impl BluetoothLEAppearance {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn SubCategory(&self) -> ::windows::runtime::Result<u16> {
         let this = self;
         unsafe {
@@ -794,12 +864,14 @@ impl BluetoothLEAppearance {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn FromRawValue(rawvalue: u16) -> ::windows::runtime::Result<BluetoothLEAppearance> {
         Self::IBluetoothLEAppearanceStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), rawvalue, &mut result__).from_abi::<BluetoothLEAppearance>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn FromParts(appearancecategory: u16, appearancesubcategory: u16) -> ::windows::runtime::Result<BluetoothLEAppearance> {
         Self::IBluetoothLEAppearanceStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -863,134 +935,157 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for BluetoothLEAppearance {}
 unsafe impl ::std::marker::Sync for BluetoothLEAppearance {}
+#[doc = "*Required features: `Devices_Bluetooth`*"]
 pub struct BluetoothLEAppearanceCategories {}
 impl BluetoothLEAppearanceCategories {
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn Uncategorized() -> ::windows::runtime::Result<u16> {
         Self::IBluetoothLEAppearanceCategoriesStatics(|this| unsafe {
             let mut result__: u16 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn Phone() -> ::windows::runtime::Result<u16> {
         Self::IBluetoothLEAppearanceCategoriesStatics(|this| unsafe {
             let mut result__: u16 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn Computer() -> ::windows::runtime::Result<u16> {
         Self::IBluetoothLEAppearanceCategoriesStatics(|this| unsafe {
             let mut result__: u16 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn Watch() -> ::windows::runtime::Result<u16> {
         Self::IBluetoothLEAppearanceCategoriesStatics(|this| unsafe {
             let mut result__: u16 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn Clock() -> ::windows::runtime::Result<u16> {
         Self::IBluetoothLEAppearanceCategoriesStatics(|this| unsafe {
             let mut result__: u16 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn Display() -> ::windows::runtime::Result<u16> {
         Self::IBluetoothLEAppearanceCategoriesStatics(|this| unsafe {
             let mut result__: u16 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn RemoteControl() -> ::windows::runtime::Result<u16> {
         Self::IBluetoothLEAppearanceCategoriesStatics(|this| unsafe {
             let mut result__: u16 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn EyeGlasses() -> ::windows::runtime::Result<u16> {
         Self::IBluetoothLEAppearanceCategoriesStatics(|this| unsafe {
             let mut result__: u16 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn Tag() -> ::windows::runtime::Result<u16> {
         Self::IBluetoothLEAppearanceCategoriesStatics(|this| unsafe {
             let mut result__: u16 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn Keyring() -> ::windows::runtime::Result<u16> {
         Self::IBluetoothLEAppearanceCategoriesStatics(|this| unsafe {
             let mut result__: u16 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn MediaPlayer() -> ::windows::runtime::Result<u16> {
         Self::IBluetoothLEAppearanceCategoriesStatics(|this| unsafe {
             let mut result__: u16 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn BarcodeScanner() -> ::windows::runtime::Result<u16> {
         Self::IBluetoothLEAppearanceCategoriesStatics(|this| unsafe {
             let mut result__: u16 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn Thermometer() -> ::windows::runtime::Result<u16> {
         Self::IBluetoothLEAppearanceCategoriesStatics(|this| unsafe {
             let mut result__: u16 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn HeartRate() -> ::windows::runtime::Result<u16> {
         Self::IBluetoothLEAppearanceCategoriesStatics(|this| unsafe {
             let mut result__: u16 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn BloodPressure() -> ::windows::runtime::Result<u16> {
         Self::IBluetoothLEAppearanceCategoriesStatics(|this| unsafe {
             let mut result__: u16 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn HumanInterfaceDevice() -> ::windows::runtime::Result<u16> {
         Self::IBluetoothLEAppearanceCategoriesStatics(|this| unsafe {
             let mut result__: u16 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn GlucoseMeter() -> ::windows::runtime::Result<u16> {
         Self::IBluetoothLEAppearanceCategoriesStatics(|this| unsafe {
             let mut result__: u16 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn RunningWalking() -> ::windows::runtime::Result<u16> {
         Self::IBluetoothLEAppearanceCategoriesStatics(|this| unsafe {
             let mut result__: u16 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn Cycling() -> ::windows::runtime::Result<u16> {
         Self::IBluetoothLEAppearanceCategoriesStatics(|this| unsafe {
             let mut result__: u16 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn PulseOximeter() -> ::windows::runtime::Result<u16> {
         Self::IBluetoothLEAppearanceCategoriesStatics(|this| unsafe {
             let mut result__: u16 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn WeightScale() -> ::windows::runtime::Result<u16> {
         Self::IBluetoothLEAppearanceCategoriesStatics(|this| unsafe {
             let mut result__: u16 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn OutdoorSportActivity() -> ::windows::runtime::Result<u16> {
         Self::IBluetoothLEAppearanceCategoriesStatics(|this| unsafe {
             let mut result__: u16 = ::std::mem::zeroed();
@@ -1005,170 +1100,199 @@ impl BluetoothLEAppearanceCategories {
 impl ::windows::runtime::RuntimeName for BluetoothLEAppearanceCategories {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothLEAppearanceCategories";
 }
+#[doc = "*Required features: `Devices_Bluetooth`*"]
 pub struct BluetoothLEAppearanceSubcategories {}
 impl BluetoothLEAppearanceSubcategories {
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn Generic() -> ::windows::runtime::Result<u16> {
         Self::IBluetoothLEAppearanceSubcategoriesStatics(|this| unsafe {
             let mut result__: u16 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn SportsWatch() -> ::windows::runtime::Result<u16> {
         Self::IBluetoothLEAppearanceSubcategoriesStatics(|this| unsafe {
             let mut result__: u16 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn ThermometerEar() -> ::windows::runtime::Result<u16> {
         Self::IBluetoothLEAppearanceSubcategoriesStatics(|this| unsafe {
             let mut result__: u16 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn HeartRateBelt() -> ::windows::runtime::Result<u16> {
         Self::IBluetoothLEAppearanceSubcategoriesStatics(|this| unsafe {
             let mut result__: u16 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn BloodPressureArm() -> ::windows::runtime::Result<u16> {
         Self::IBluetoothLEAppearanceSubcategoriesStatics(|this| unsafe {
             let mut result__: u16 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn BloodPressureWrist() -> ::windows::runtime::Result<u16> {
         Self::IBluetoothLEAppearanceSubcategoriesStatics(|this| unsafe {
             let mut result__: u16 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn Keyboard() -> ::windows::runtime::Result<u16> {
         Self::IBluetoothLEAppearanceSubcategoriesStatics(|this| unsafe {
             let mut result__: u16 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn Mouse() -> ::windows::runtime::Result<u16> {
         Self::IBluetoothLEAppearanceSubcategoriesStatics(|this| unsafe {
             let mut result__: u16 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn Joystick() -> ::windows::runtime::Result<u16> {
         Self::IBluetoothLEAppearanceSubcategoriesStatics(|this| unsafe {
             let mut result__: u16 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn Gamepad() -> ::windows::runtime::Result<u16> {
         Self::IBluetoothLEAppearanceSubcategoriesStatics(|this| unsafe {
             let mut result__: u16 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn DigitizerTablet() -> ::windows::runtime::Result<u16> {
         Self::IBluetoothLEAppearanceSubcategoriesStatics(|this| unsafe {
             let mut result__: u16 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn CardReader() -> ::windows::runtime::Result<u16> {
         Self::IBluetoothLEAppearanceSubcategoriesStatics(|this| unsafe {
             let mut result__: u16 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn DigitalPen() -> ::windows::runtime::Result<u16> {
         Self::IBluetoothLEAppearanceSubcategoriesStatics(|this| unsafe {
             let mut result__: u16 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn BarcodeScanner() -> ::windows::runtime::Result<u16> {
         Self::IBluetoothLEAppearanceSubcategoriesStatics(|this| unsafe {
             let mut result__: u16 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn RunningWalkingInShoe() -> ::windows::runtime::Result<u16> {
         Self::IBluetoothLEAppearanceSubcategoriesStatics(|this| unsafe {
             let mut result__: u16 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn RunningWalkingOnShoe() -> ::windows::runtime::Result<u16> {
         Self::IBluetoothLEAppearanceSubcategoriesStatics(|this| unsafe {
             let mut result__: u16 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn RunningWalkingOnHip() -> ::windows::runtime::Result<u16> {
         Self::IBluetoothLEAppearanceSubcategoriesStatics(|this| unsafe {
             let mut result__: u16 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn CyclingComputer() -> ::windows::runtime::Result<u16> {
         Self::IBluetoothLEAppearanceSubcategoriesStatics(|this| unsafe {
             let mut result__: u16 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn CyclingSpeedSensor() -> ::windows::runtime::Result<u16> {
         Self::IBluetoothLEAppearanceSubcategoriesStatics(|this| unsafe {
             let mut result__: u16 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn CyclingCadenceSensor() -> ::windows::runtime::Result<u16> {
         Self::IBluetoothLEAppearanceSubcategoriesStatics(|this| unsafe {
             let mut result__: u16 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn CyclingPowerSensor() -> ::windows::runtime::Result<u16> {
         Self::IBluetoothLEAppearanceSubcategoriesStatics(|this| unsafe {
             let mut result__: u16 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn CyclingSpeedCadenceSensor() -> ::windows::runtime::Result<u16> {
         Self::IBluetoothLEAppearanceSubcategoriesStatics(|this| unsafe {
             let mut result__: u16 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn OximeterFingertip() -> ::windows::runtime::Result<u16> {
         Self::IBluetoothLEAppearanceSubcategoriesStatics(|this| unsafe {
             let mut result__: u16 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).28)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn OximeterWristWorn() -> ::windows::runtime::Result<u16> {
         Self::IBluetoothLEAppearanceSubcategoriesStatics(|this| unsafe {
             let mut result__: u16 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).29)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn LocationDisplay() -> ::windows::runtime::Result<u16> {
         Self::IBluetoothLEAppearanceSubcategoriesStatics(|this| unsafe {
             let mut result__: u16 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).30)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn LocationNavigationDisplay() -> ::windows::runtime::Result<u16> {
         Self::IBluetoothLEAppearanceSubcategoriesStatics(|this| unsafe {
             let mut result__: u16 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).31)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn LocationPod() -> ::windows::runtime::Result<u16> {
         Self::IBluetoothLEAppearanceSubcategoriesStatics(|this| unsafe {
             let mut result__: u16 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).32)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn LocationNavigationPod() -> ::windows::runtime::Result<u16> {
         Self::IBluetoothLEAppearanceSubcategoriesStatics(|this| unsafe {
             let mut result__: u16 = ::std::mem::zeroed();
@@ -1183,10 +1307,12 @@ impl BluetoothLEAppearanceSubcategories {
 impl ::windows::runtime::RuntimeName for BluetoothLEAppearanceSubcategories {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothLEAppearanceSubcategories";
 }
+#[doc = "*Required features: `Devices_Bluetooth`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct BluetoothLEConnectionParameters(::windows::runtime::IInspectable);
 impl BluetoothLEConnectionParameters {
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn LinkTimeout(&self) -> ::windows::runtime::Result<u16> {
         let this = self;
         unsafe {
@@ -1194,6 +1320,7 @@ impl BluetoothLEConnectionParameters {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn ConnectionLatency(&self) -> ::windows::runtime::Result<u16> {
         let this = self;
         unsafe {
@@ -1201,6 +1328,7 @@ impl BluetoothLEConnectionParameters {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn ConnectionInterval(&self) -> ::windows::runtime::Result<u16> {
         let this = self;
         unsafe {
@@ -1261,10 +1389,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for BluetoothLEConnectionParameters {}
 unsafe impl ::std::marker::Sync for BluetoothLEConnectionParameters {}
+#[doc = "*Required features: `Devices_Bluetooth`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct BluetoothLEConnectionPhy(::windows::runtime::IInspectable);
 impl BluetoothLEConnectionPhy {
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn TransmitInfo(&self) -> ::windows::runtime::Result<BluetoothLEConnectionPhyInfo> {
         let this = self;
         unsafe {
@@ -1272,6 +1402,7 @@ impl BluetoothLEConnectionPhy {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<BluetoothLEConnectionPhyInfo>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn ReceiveInfo(&self) -> ::windows::runtime::Result<BluetoothLEConnectionPhyInfo> {
         let this = self;
         unsafe {
@@ -1332,10 +1463,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for BluetoothLEConnectionPhy {}
 unsafe impl ::std::marker::Sync for BluetoothLEConnectionPhy {}
+#[doc = "*Required features: `Devices_Bluetooth`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct BluetoothLEConnectionPhyInfo(::windows::runtime::IInspectable);
 impl BluetoothLEConnectionPhyInfo {
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn IsUncoded1MPhy(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1343,6 +1476,7 @@ impl BluetoothLEConnectionPhyInfo {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn IsUncoded2MPhy(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1350,6 +1484,7 @@ impl BluetoothLEConnectionPhyInfo {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn IsCodedPhy(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1410,10 +1545,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for BluetoothLEConnectionPhyInfo {}
 unsafe impl ::std::marker::Sync for BluetoothLEConnectionPhyInfo {}
+#[doc = "*Required features: `Devices_Bluetooth`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct BluetoothLEDevice(::windows::runtime::IInspectable);
 impl BluetoothLEDevice {
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn DeviceId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1421,6 +1558,7 @@ impl BluetoothLEDevice {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1430,6 +1568,7 @@ impl BluetoothLEDevice {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(all(feature = "Devices_Bluetooth_GenericAttributeProfile", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Devices_Bluetooth`, `Devices_Bluetooth_GenericAttributeProfile`, `Foundation_Collections`*"]
     pub fn GattServices(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<GenericAttributeProfile::GattDeviceService>> {
         let this = self;
         unsafe {
@@ -1437,6 +1576,7 @@ impl BluetoothLEDevice {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<GenericAttributeProfile::GattDeviceService>>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn ConnectionStatus(&self) -> ::windows::runtime::Result<BluetoothConnectionStatus> {
         let this = self;
         unsafe {
@@ -1444,6 +1584,7 @@ impl BluetoothLEDevice {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<BluetoothConnectionStatus>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn BluetoothAddress(&self) -> ::windows::runtime::Result<u64> {
         let this = self;
         unsafe {
@@ -1453,6 +1594,7 @@ impl BluetoothLEDevice {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Devices_Bluetooth_GenericAttributeProfile")]
+    #[doc = "*Required features: `Devices_Bluetooth`, `Devices_Bluetooth_GenericAttributeProfile`*"]
     pub fn GetGattService<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, serviceuuid: Param0) -> ::windows::runtime::Result<GenericAttributeProfile::GattDeviceService> {
         let this = self;
         unsafe {
@@ -1461,6 +1603,7 @@ impl BluetoothLEDevice {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Bluetooth`, `Foundation`*"]
     pub fn NameChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<BluetoothLEDevice, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1469,11 +1612,13 @@ impl BluetoothLEDevice {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Bluetooth`, `Foundation`*"]
     pub fn RemoveNameChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Bluetooth`, `Foundation`*"]
     pub fn GattServicesChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<BluetoothLEDevice, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1482,11 +1627,13 @@ impl BluetoothLEDevice {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Bluetooth`, `Foundation`*"]
     pub fn RemoveGattServicesChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Bluetooth`, `Foundation`*"]
     pub fn ConnectionStatusChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<BluetoothLEDevice, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1495,16 +1642,19 @@ impl BluetoothLEDevice {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Bluetooth`, `Foundation`*"]
     pub fn RemoveConnectionStatusChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Bluetooth`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Bluetooth`, `Foundation`*"]
     pub fn FromIdAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(deviceid: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<BluetoothLEDevice>> {
         Self::IBluetoothLEDeviceStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1512,12 +1662,14 @@ impl BluetoothLEDevice {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Bluetooth`, `Foundation`*"]
     pub fn FromBluetoothAddressAsync(bluetoothaddress: u64) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<BluetoothLEDevice>> {
         Self::IBluetoothLEDeviceStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), bluetoothaddress, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<BluetoothLEDevice>>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn GetDeviceSelector() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IBluetoothLEDeviceStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
@@ -1525,6 +1677,7 @@ impl BluetoothLEDevice {
         })
     }
     #[cfg(feature = "Devices_Enumeration")]
+    #[doc = "*Required features: `Devices_Bluetooth`, `Devices_Enumeration`*"]
     pub fn DeviceInformation(&self) -> ::windows::runtime::Result<super::Enumeration::DeviceInformation> {
         let this = &::windows::runtime::Interface::cast::<IBluetoothLEDevice2>(self)?;
         unsafe {
@@ -1532,6 +1685,7 @@ impl BluetoothLEDevice {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Enumeration::DeviceInformation>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn Appearance(&self) -> ::windows::runtime::Result<BluetoothLEAppearance> {
         let this = &::windows::runtime::Interface::cast::<IBluetoothLEDevice2>(self)?;
         unsafe {
@@ -1539,6 +1693,7 @@ impl BluetoothLEDevice {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<BluetoothLEAppearance>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn BluetoothAddressType(&self) -> ::windows::runtime::Result<BluetoothAddressType> {
         let this = &::windows::runtime::Interface::cast::<IBluetoothLEDevice2>(self)?;
         unsafe {
@@ -1546,36 +1701,42 @@ impl BluetoothLEDevice {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<BluetoothAddressType>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn GetDeviceSelectorFromPairingState(pairingstate: bool) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IBluetoothLEDeviceStatics2(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), pairingstate, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn GetDeviceSelectorFromConnectionStatus(connectionstatus: BluetoothConnectionStatus) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IBluetoothLEDeviceStatics2(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), connectionstatus, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn GetDeviceSelectorFromDeviceName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(devicename: Param0) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IBluetoothLEDeviceStatics2(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), devicename.into_param().abi(), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn GetDeviceSelectorFromBluetoothAddress(bluetoothaddress: u64) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IBluetoothLEDeviceStatics2(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), bluetoothaddress, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn GetDeviceSelectorFromBluetoothAddressWithBluetoothAddressType(bluetoothaddress: u64, bluetoothaddresstype: BluetoothAddressType) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IBluetoothLEDeviceStatics2(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), bluetoothaddress, bluetoothaddresstype, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn GetDeviceSelectorFromAppearance<'a, Param0: ::windows::runtime::IntoParam<'a, BluetoothLEAppearance>>(appearance: Param0) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IBluetoothLEDeviceStatics2(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
@@ -1583,6 +1744,7 @@ impl BluetoothLEDevice {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Bluetooth`, `Foundation`*"]
     pub fn FromBluetoothAddressWithBluetoothAddressTypeAsync(bluetoothaddress: u64, bluetoothaddresstype: BluetoothAddressType) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<BluetoothLEDevice>> {
         Self::IBluetoothLEDeviceStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1590,6 +1752,7 @@ impl BluetoothLEDevice {
         })
     }
     #[cfg(feature = "Devices_Enumeration")]
+    #[doc = "*Required features: `Devices_Bluetooth`, `Devices_Enumeration`*"]
     pub fn DeviceAccessInformation(&self) -> ::windows::runtime::Result<super::Enumeration::DeviceAccessInformation> {
         let this = &::windows::runtime::Interface::cast::<IBluetoothLEDevice3>(self)?;
         unsafe {
@@ -1598,6 +1761,7 @@ impl BluetoothLEDevice {
         }
     }
     #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation"))]
+    #[doc = "*Required features: `Devices_Bluetooth`, `Devices_Enumeration`, `Foundation`*"]
     pub fn RequestAccessAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::Enumeration::DeviceAccessStatus>> {
         let this = &::windows::runtime::Interface::cast::<IBluetoothLEDevice3>(self)?;
         unsafe {
@@ -1606,6 +1770,7 @@ impl BluetoothLEDevice {
         }
     }
     #[cfg(all(feature = "Devices_Bluetooth_GenericAttributeProfile", feature = "Foundation"))]
+    #[doc = "*Required features: `Devices_Bluetooth`, `Devices_Bluetooth_GenericAttributeProfile`, `Foundation`*"]
     pub fn GetGattServicesAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<GenericAttributeProfile::GattDeviceServicesResult>> {
         let this = &::windows::runtime::Interface::cast::<IBluetoothLEDevice3>(self)?;
         unsafe {
@@ -1614,6 +1779,7 @@ impl BluetoothLEDevice {
         }
     }
     #[cfg(all(feature = "Devices_Bluetooth_GenericAttributeProfile", feature = "Foundation"))]
+    #[doc = "*Required features: `Devices_Bluetooth`, `Devices_Bluetooth_GenericAttributeProfile`, `Foundation`*"]
     pub fn GetGattServicesWithCacheModeAsync(&self, cachemode: BluetoothCacheMode) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<GenericAttributeProfile::GattDeviceServicesResult>> {
         let this = &::windows::runtime::Interface::cast::<IBluetoothLEDevice3>(self)?;
         unsafe {
@@ -1622,6 +1788,7 @@ impl BluetoothLEDevice {
         }
     }
     #[cfg(all(feature = "Devices_Bluetooth_GenericAttributeProfile", feature = "Foundation"))]
+    #[doc = "*Required features: `Devices_Bluetooth`, `Devices_Bluetooth_GenericAttributeProfile`, `Foundation`*"]
     pub fn GetGattServicesForUuidAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, serviceuuid: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<GenericAttributeProfile::GattDeviceServicesResult>> {
         let this = &::windows::runtime::Interface::cast::<IBluetoothLEDevice3>(self)?;
         unsafe {
@@ -1630,6 +1797,7 @@ impl BluetoothLEDevice {
         }
     }
     #[cfg(all(feature = "Devices_Bluetooth_GenericAttributeProfile", feature = "Foundation"))]
+    #[doc = "*Required features: `Devices_Bluetooth`, `Devices_Bluetooth_GenericAttributeProfile`, `Foundation`*"]
     pub fn GetGattServicesForUuidWithCacheModeAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, serviceuuid: Param0, cachemode: BluetoothCacheMode) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<GenericAttributeProfile::GattDeviceServicesResult>> {
         let this = &::windows::runtime::Interface::cast::<IBluetoothLEDevice3>(self)?;
         unsafe {
@@ -1637,6 +1805,7 @@ impl BluetoothLEDevice {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), serviceuuid.into_param().abi(), cachemode, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<GenericAttributeProfile::GattDeviceServicesResult>>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn BluetoothDeviceId(&self) -> ::windows::runtime::Result<BluetoothDeviceId> {
         let this = &::windows::runtime::Interface::cast::<IBluetoothLEDevice4>(self)?;
         unsafe {
@@ -1644,6 +1813,7 @@ impl BluetoothLEDevice {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<BluetoothDeviceId>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn WasSecureConnectionUsedForPairing(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IBluetoothLEDevice5>(self)?;
         unsafe {
@@ -1651,6 +1821,7 @@ impl BluetoothLEDevice {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn GetConnectionParameters(&self) -> ::windows::runtime::Result<BluetoothLEConnectionParameters> {
         let this = &::windows::runtime::Interface::cast::<IBluetoothLEDevice6>(self)?;
         unsafe {
@@ -1658,6 +1829,7 @@ impl BluetoothLEDevice {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<BluetoothLEConnectionParameters>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn GetConnectionPhy(&self) -> ::windows::runtime::Result<BluetoothLEConnectionPhy> {
         let this = &::windows::runtime::Interface::cast::<IBluetoothLEDevice6>(self)?;
         unsafe {
@@ -1665,6 +1837,7 @@ impl BluetoothLEDevice {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<BluetoothLEConnectionPhy>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn RequestPreferredConnectionParameters<'a, Param0: ::windows::runtime::IntoParam<'a, BluetoothLEPreferredConnectionParameters>>(&self, preferredconnectionparameters: Param0) -> ::windows::runtime::Result<BluetoothLEPreferredConnectionParametersRequest> {
         let this = &::windows::runtime::Interface::cast::<IBluetoothLEDevice6>(self)?;
         unsafe {
@@ -1673,6 +1846,7 @@ impl BluetoothLEDevice {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Bluetooth`, `Foundation`*"]
     pub fn ConnectionParametersChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<BluetoothLEDevice, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<IBluetoothLEDevice6>(self)?;
         unsafe {
@@ -1681,11 +1855,13 @@ impl BluetoothLEDevice {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Bluetooth`, `Foundation`*"]
     pub fn RemoveConnectionParametersChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IBluetoothLEDevice6>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Bluetooth`, `Foundation`*"]
     pub fn ConnectionPhyChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<BluetoothLEDevice, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<IBluetoothLEDevice6>(self)?;
         unsafe {
@@ -1694,6 +1870,7 @@ impl BluetoothLEDevice {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Bluetooth`, `Foundation`*"]
     pub fn RemoveConnectionPhyChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IBluetoothLEDevice6>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
@@ -1785,10 +1962,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> 
 }
 unsafe impl ::std::marker::Send for BluetoothLEDevice {}
 unsafe impl ::std::marker::Sync for BluetoothLEDevice {}
+#[doc = "*Required features: `Devices_Bluetooth`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct BluetoothLEPreferredConnectionParameters(::windows::runtime::IInspectable);
 impl BluetoothLEPreferredConnectionParameters {
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn LinkTimeout(&self) -> ::windows::runtime::Result<u16> {
         let this = self;
         unsafe {
@@ -1796,6 +1975,7 @@ impl BluetoothLEPreferredConnectionParameters {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn ConnectionLatency(&self) -> ::windows::runtime::Result<u16> {
         let this = self;
         unsafe {
@@ -1803,6 +1983,7 @@ impl BluetoothLEPreferredConnectionParameters {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn MinConnectionInterval(&self) -> ::windows::runtime::Result<u16> {
         let this = self;
         unsafe {
@@ -1810,6 +1991,7 @@ impl BluetoothLEPreferredConnectionParameters {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn MaxConnectionInterval(&self) -> ::windows::runtime::Result<u16> {
         let this = self;
         unsafe {
@@ -1817,18 +1999,21 @@ impl BluetoothLEPreferredConnectionParameters {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn Balanced() -> ::windows::runtime::Result<BluetoothLEPreferredConnectionParameters> {
         Self::IBluetoothLEPreferredConnectionParametersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<BluetoothLEPreferredConnectionParameters>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn ThroughputOptimized() -> ::windows::runtime::Result<BluetoothLEPreferredConnectionParameters> {
         Self::IBluetoothLEPreferredConnectionParametersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<BluetoothLEPreferredConnectionParameters>(result__)
         })
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn PowerOptimized() -> ::windows::runtime::Result<BluetoothLEPreferredConnectionParameters> {
         Self::IBluetoothLEPreferredConnectionParametersStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1892,15 +2077,18 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for BluetoothLEPreferredConnectionParameters {}
 unsafe impl ::std::marker::Sync for BluetoothLEPreferredConnectionParameters {}
+#[doc = "*Required features: `Devices_Bluetooth`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct BluetoothLEPreferredConnectionParametersRequest(::windows::runtime::IInspectable);
 impl BluetoothLEPreferredConnectionParametersRequest {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Bluetooth`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<BluetoothLEPreferredConnectionParametersRequestStatus> {
         let this = self;
         unsafe {
@@ -1987,6 +2175,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> 
 }
 unsafe impl ::std::marker::Send for BluetoothLEPreferredConnectionParametersRequest {}
 unsafe impl ::std::marker::Sync for BluetoothLEPreferredConnectionParametersRequest {}
+#[doc = "*Required features: `Devices_Bluetooth`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct BluetoothLEPreferredConnectionParametersRequestStatus(pub i32);
@@ -2008,6 +2197,7 @@ unsafe impl ::windows::runtime::Abi for BluetoothLEPreferredConnectionParameters
 unsafe impl ::windows::runtime::RuntimeType for BluetoothLEPreferredConnectionParametersRequestStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.BluetoothLEPreferredConnectionParametersRequestStatus;i4)");
 }
+#[doc = "*Required features: `Devices_Bluetooth`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct BluetoothMajorClass(pub i32);
@@ -2035,6 +2225,7 @@ unsafe impl ::windows::runtime::Abi for BluetoothMajorClass {
 unsafe impl ::windows::runtime::RuntimeType for BluetoothMajorClass {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.BluetoothMajorClass;i4)");
 }
+#[doc = "*Required features: `Devices_Bluetooth`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct BluetoothMinorClass(pub i32);
@@ -2123,6 +2314,7 @@ unsafe impl ::windows::runtime::Abi for BluetoothMinorClass {
 unsafe impl ::windows::runtime::RuntimeType for BluetoothMinorClass {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.BluetoothMinorClass;i4)");
 }
+#[doc = "*Required features: `Devices_Bluetooth`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct BluetoothServiceCapabilities(pub u32);
@@ -2178,6 +2370,7 @@ impl ::std::ops::Not for BluetoothServiceCapabilities {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Devices_Bluetooth`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct BluetoothSignalStrengthFilter(::windows::runtime::IInspectable);
@@ -2190,6 +2383,7 @@ impl BluetoothSignalStrengthFilter {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Bluetooth`, `Foundation`*"]
     pub fn InRangeThresholdInDBm(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<i16>> {
         let this = self;
         unsafe {
@@ -2198,11 +2392,13 @@ impl BluetoothSignalStrengthFilter {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Bluetooth`, `Foundation`*"]
     pub fn SetInRangeThresholdInDBm<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<i16>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Bluetooth`, `Foundation`*"]
     pub fn OutOfRangeThresholdInDBm(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<i16>> {
         let this = self;
         unsafe {
@@ -2211,11 +2407,13 @@ impl BluetoothSignalStrengthFilter {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Bluetooth`, `Foundation`*"]
     pub fn SetOutOfRangeThresholdInDBm<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<i16>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Bluetooth`, `Foundation`*"]
     pub fn OutOfRangeTimeout(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
         let this = self;
         unsafe {
@@ -2224,11 +2422,13 @@ impl BluetoothSignalStrengthFilter {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Bluetooth`, `Foundation`*"]
     pub fn SetOutOfRangeTimeout<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Bluetooth`, `Foundation`*"]
     pub fn SamplingInterval(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
         let this = self;
         unsafe {
@@ -2237,6 +2437,7 @@ impl BluetoothSignalStrengthFilter {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Bluetooth`, `Foundation`*"]
     pub fn SetSamplingInterval<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -2294,8 +2495,10 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for BluetoothSignalStrengthFilter {}
 unsafe impl ::std::marker::Sync for BluetoothSignalStrengthFilter {}
+#[doc = "*Required features: `Devices_Bluetooth`*"]
 pub struct BluetoothUuidHelper {}
 impl BluetoothUuidHelper {
+    #[doc = "*Required features: `Devices_Bluetooth`*"]
     pub fn FromShortId(shortid: u32) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         Self::IBluetoothUuidHelperStatics(|this| unsafe {
             let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
@@ -2303,6 +2506,7 @@ impl BluetoothUuidHelper {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Bluetooth`, `Foundation`*"]
     pub fn TryGetShortId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(uuid: Param0) -> ::windows::runtime::Result<super::super::Foundation::IReference<u32>> {
         Self::IBluetoothUuidHelperStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();

@@ -39,19 +39,23 @@ pub struct IVibrationDeviceStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Phone_Devices_Notification`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct VibrationDevice(::windows::runtime::IInspectable);
 impl VibrationDevice {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Phone_Devices_Notification`, `Foundation`*"]
     pub fn Vibrate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TimeSpan>>(&self, duration: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), duration.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Phone_Devices_Notification`*"]
     pub fn Cancel(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Phone_Devices_Notification`*"]
     pub fn GetDefault() -> ::windows::runtime::Result<VibrationDevice> {
         Self::IVibrationDeviceStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();

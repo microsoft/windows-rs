@@ -1,5 +1,6 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn AddSecureMemoryCacheCallback(pfncallback: ::std::option::Option<PSECURE_MEMORY_CACHE_CALLBACK>) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14,6 +15,7 @@ pub unsafe fn AddSecureMemoryCacheCallback(pfncallback: ::std::option::Option<PS
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn AllocateUserPhysicalPages<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, numberofpages: *mut usize, pagearray: *mut usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -28,6 +30,7 @@ pub unsafe fn AllocateUserPhysicalPages<'a, Param0: ::windows::runtime::IntoPara
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
 #[inline]
 pub unsafe fn AllocateUserPhysicalPages2<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(objecthandle: Param0, numberofpages: *mut usize, pagearray: *mut usize, extendedparameters: *mut super::SystemServices::MEM_EXTENDED_PARAMETER, extendedparametercount: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -42,6 +45,7 @@ pub unsafe fn AllocateUserPhysicalPages2<'a, Param0: ::windows::runtime::IntoPar
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn AllocateUserPhysicalPagesNuma<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, numberofpages: *mut usize, pagearray: *mut usize, nndpreferred: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -56,6 +60,7 @@ pub unsafe fn AllocateUserPhysicalPagesNuma<'a, Param0: ::windows::runtime::Into
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_SystemServices"))]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`, `Win32_Security`, `Win32_System_SystemServices`*"]
 #[inline]
 pub unsafe fn CreateFileMapping2<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
     file: Param0,
@@ -90,6 +95,7 @@ pub unsafe fn CreateFileMapping2<'a, Param0: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`, `Win32_Security`*"]
 #[inline]
 pub unsafe fn CreateFileMappingA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hfile: Param0, lpfilemappingattributes: *const super::super::Security::SECURITY_ATTRIBUTES, flprotect: PAGE_PROTECTION_FLAGS, dwmaximumsizehigh: u32, dwmaximumsizelow: u32, lpname: Param5) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
@@ -104,6 +110,7 @@ pub unsafe fn CreateFileMappingA<'a, Param0: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`, `Win32_Security`*"]
 #[inline]
 pub unsafe fn CreateFileMappingFromApp<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hfile: Param0, securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, pageprotection: PAGE_PROTECTION_FLAGS, maximumsize: u64, name: Param4) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
@@ -118,6 +125,7 @@ pub unsafe fn CreateFileMappingFromApp<'a, Param0: ::windows::runtime::IntoParam
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`, `Win32_Security`*"]
 #[inline]
 pub unsafe fn CreateFileMappingNumaA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hfile: Param0, lpfilemappingattributes: *const super::super::Security::SECURITY_ATTRIBUTES, flprotect: PAGE_PROTECTION_FLAGS, dwmaximumsizehigh: u32, dwmaximumsizelow: u32, lpname: Param5, nndpreferred: u32) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
@@ -132,6 +140,7 @@ pub unsafe fn CreateFileMappingNumaA<'a, Param0: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`, `Win32_Security`*"]
 #[inline]
 pub unsafe fn CreateFileMappingNumaW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hfile: Param0, lpfilemappingattributes: *const super::super::Security::SECURITY_ATTRIBUTES, flprotect: PAGE_PROTECTION_FLAGS, dwmaximumsizehigh: u32, dwmaximumsizelow: u32, lpname: Param5, nndpreferred: u32) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
@@ -146,6 +155,7 @@ pub unsafe fn CreateFileMappingNumaW<'a, Param0: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`, `Win32_Security`*"]
 #[inline]
 pub unsafe fn CreateFileMappingW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hfile: Param0, lpfilemappingattributes: *const super::super::Security::SECURITY_ATTRIBUTES, flprotect: PAGE_PROTECTION_FLAGS, dwmaximumsizehigh: u32, dwmaximumsizelow: u32, lpname: Param5) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
@@ -160,6 +170,7 @@ pub unsafe fn CreateFileMappingW<'a, Param0: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CreateMemoryResourceNotification(notificationtype: MEMORY_RESOURCE_NOTIFICATION_TYPE) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
@@ -173,6 +184,7 @@ pub unsafe fn CreateMemoryResourceNotification(notificationtype: MEMORY_RESOURCE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Memory`*"]
 #[inline]
 pub unsafe fn DiscardVirtualMemory(virtualaddress: *mut ::std::ffi::c_void, size: usize) -> u32 {
     #[cfg(windows)]
@@ -186,10 +198,15 @@ pub unsafe fn DiscardVirtualMemory(virtualaddress: *mut ::std::ffi::c_void, size
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Memory`*"]
 pub const FILE_CACHE_MAX_HARD_DISABLE: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Memory`*"]
 pub const FILE_CACHE_MAX_HARD_ENABLE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Memory`*"]
 pub const FILE_CACHE_MIN_HARD_DISABLE: u32 = 8u32;
+#[doc = "*Required features: `Win32_System_Memory`*"]
 pub const FILE_CACHE_MIN_HARD_ENABLE: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Memory`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FILE_MAP(pub u32);
@@ -239,6 +256,7 @@ impl ::std::ops::Not for FILE_MAP {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn FlushViewOfFile(lpbaseaddress: *const ::std::ffi::c_void, dwnumberofbytestoflush: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -253,6 +271,7 @@ pub unsafe fn FlushViewOfFile(lpbaseaddress: *const ::std::ffi::c_void, dwnumber
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn FreeUserPhysicalPages<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, numberofpages: *mut usize, pagearray: *const usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -266,6 +285,7 @@ pub unsafe fn FreeUserPhysicalPages<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Memory`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GLOBAL_ALLOC_FLAGS(pub u32);
@@ -311,6 +331,7 @@ impl ::std::ops::Not for GLOBAL_ALLOC_FLAGS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_System_Memory`*"]
 #[inline]
 pub unsafe fn GetLargePageMinimum() -> usize {
     #[cfg(windows)]
@@ -325,6 +346,7 @@ pub unsafe fn GetLargePageMinimum() -> usize {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetMemoryErrorHandlingCapabilities(capabilities: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -338,6 +360,7 @@ pub unsafe fn GetMemoryErrorHandlingCapabilities(capabilities: *mut u32) -> supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Memory`*"]
 #[inline]
 pub unsafe fn GetProcessHeap() -> HeapHandle {
     #[cfg(windows)]
@@ -351,6 +374,7 @@ pub unsafe fn GetProcessHeap() -> HeapHandle {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Memory`*"]
 #[inline]
 pub unsafe fn GetProcessHeaps(numberofheaps: u32, processheaps: *mut HeapHandle) -> u32 {
     #[cfg(windows)]
@@ -365,6 +389,7 @@ pub unsafe fn GetProcessHeaps(numberofheaps: u32, processheaps: *mut HeapHandle)
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetProcessWorkingSetSizeEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, lpminimumworkingsetsize: *mut usize, lpmaximumworkingsetsize: *mut usize, flags: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -379,6 +404,7 @@ pub unsafe fn GetProcessWorkingSetSizeEx<'a, Param0: ::windows::runtime::IntoPar
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetSystemFileCacheSize(lpminimumfilecachesize: *mut usize, lpmaximumfilecachesize: *mut usize, lpflags: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -392,6 +418,7 @@ pub unsafe fn GetSystemFileCacheSize(lpminimumfilecachesize: *mut usize, lpmaxim
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Memory`*"]
 #[inline]
 pub unsafe fn GetWriteWatch(dwflags: u32, lpbaseaddress: *const ::std::ffi::c_void, dwregionsize: usize, lpaddresses: *mut *mut ::std::ffi::c_void, lpdwcount: *mut usize, lpdwgranularity: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -405,6 +432,7 @@ pub unsafe fn GetWriteWatch(dwflags: u32, lpbaseaddress: *const ::std::ffi::c_vo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Memory`*"]
 #[inline]
 pub unsafe fn GlobalAlloc(uflags: GLOBAL_ALLOC_FLAGS, dwbytes: usize) -> isize {
     #[cfg(windows)]
@@ -418,6 +446,7 @@ pub unsafe fn GlobalAlloc(uflags: GLOBAL_ALLOC_FLAGS, dwbytes: usize) -> isize {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Memory`*"]
 #[inline]
 pub unsafe fn GlobalFlags(hmem: isize) -> u32 {
     #[cfg(windows)]
@@ -431,6 +460,7 @@ pub unsafe fn GlobalFlags(hmem: isize) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Memory`*"]
 #[inline]
 pub unsafe fn GlobalFree(hmem: isize) -> isize {
     #[cfg(windows)]
@@ -444,6 +474,7 @@ pub unsafe fn GlobalFree(hmem: isize) -> isize {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Memory`*"]
 #[inline]
 pub unsafe fn GlobalHandle(pmem: *const ::std::ffi::c_void) -> isize {
     #[cfg(windows)]
@@ -457,6 +488,7 @@ pub unsafe fn GlobalHandle(pmem: *const ::std::ffi::c_void) -> isize {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Memory`*"]
 #[inline]
 pub unsafe fn GlobalLock(hmem: isize) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
@@ -470,6 +502,7 @@ pub unsafe fn GlobalLock(hmem: isize) -> *mut ::std::ffi::c_void {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Memory`*"]
 #[inline]
 pub unsafe fn GlobalReAlloc(hmem: isize, dwbytes: usize, uflags: u32) -> isize {
     #[cfg(windows)]
@@ -483,6 +516,7 @@ pub unsafe fn GlobalReAlloc(hmem: isize, dwbytes: usize, uflags: u32) -> isize {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Memory`*"]
 #[inline]
 pub unsafe fn GlobalSize(hmem: isize) -> usize {
     #[cfg(windows)]
@@ -497,6 +531,7 @@ pub unsafe fn GlobalSize(hmem: isize) -> usize {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GlobalUnlock(hmem: isize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -510,6 +545,7 @@ pub unsafe fn GlobalUnlock(hmem: isize) -> super::super::Foundation::BOOL {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Memory`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HEAP_FLAGS(pub u32);
@@ -569,6 +605,7 @@ impl ::std::ops::Not for HEAP_FLAGS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Memory`*"]
 pub struct HEAP_SUMMARY {
     pub cb: u32,
     pub cbAllocated: usize,
@@ -597,6 +634,7 @@ unsafe impl ::windows::runtime::Abi for HEAP_SUMMARY {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Memory`*"]
 #[inline]
 pub unsafe fn HeapAlloc<'a, Param0: ::windows::runtime::IntoParam<'a, HeapHandle>>(hheap: Param0, dwflags: HEAP_FLAGS, dwbytes: usize) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
@@ -610,6 +648,7 @@ pub unsafe fn HeapAlloc<'a, Param0: ::windows::runtime::IntoParam<'a, HeapHandle
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Memory`*"]
 #[inline]
 pub unsafe fn HeapCompact<'a, Param0: ::windows::runtime::IntoParam<'a, HeapHandle>>(hheap: Param0, dwflags: HEAP_FLAGS) -> usize {
     #[cfg(windows)]
@@ -623,6 +662,7 @@ pub unsafe fn HeapCompact<'a, Param0: ::windows::runtime::IntoParam<'a, HeapHand
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Memory`*"]
 #[inline]
 pub unsafe fn HeapCreate(floptions: HEAP_FLAGS, dwinitialsize: usize, dwmaximumsize: usize) -> HeapHandle {
     #[cfg(windows)]
@@ -637,6 +677,7 @@ pub unsafe fn HeapCreate(floptions: HEAP_FLAGS, dwinitialsize: usize, dwmaximums
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn HeapDestroy<'a, Param0: ::windows::runtime::IntoParam<'a, HeapHandle>>(hheap: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -651,6 +692,7 @@ pub unsafe fn HeapDestroy<'a, Param0: ::windows::runtime::IntoParam<'a, HeapHand
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn HeapFree<'a, Param0: ::windows::runtime::IntoParam<'a, HeapHandle>>(hheap: Param0, dwflags: HEAP_FLAGS, lpmem: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -678,6 +720,7 @@ unsafe impl ::windows::runtime::Abi for HeapHandle {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn HeapLock<'a, Param0: ::windows::runtime::IntoParam<'a, HeapHandle>>(hheap: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -692,6 +735,7 @@ pub unsafe fn HeapLock<'a, Param0: ::windows::runtime::IntoParam<'a, HeapHandle>
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
 #[inline]
 pub unsafe fn HeapQueryInformation<'a, Param0: ::windows::runtime::IntoParam<'a, HeapHandle>>(heaphandle: Param0, heapinformationclass: super::SystemServices::HEAP_INFORMATION_CLASS, heapinformation: *mut ::std::ffi::c_void, heapinformationlength: usize, returnlength: *mut usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -705,6 +749,7 @@ pub unsafe fn HeapQueryInformation<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Memory`*"]
 #[inline]
 pub unsafe fn HeapReAlloc<'a, Param0: ::windows::runtime::IntoParam<'a, HeapHandle>>(hheap: Param0, dwflags: HEAP_FLAGS, lpmem: *const ::std::ffi::c_void, dwbytes: usize) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
@@ -719,6 +764,7 @@ pub unsafe fn HeapReAlloc<'a, Param0: ::windows::runtime::IntoParam<'a, HeapHand
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
 #[inline]
 pub unsafe fn HeapSetInformation<'a, Param0: ::windows::runtime::IntoParam<'a, HeapHandle>>(heaphandle: Param0, heapinformationclass: super::SystemServices::HEAP_INFORMATION_CLASS, heapinformation: *const ::std::ffi::c_void, heapinformationlength: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -732,6 +778,7 @@ pub unsafe fn HeapSetInformation<'a, Param0: ::windows::runtime::IntoParam<'a, H
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Memory`*"]
 #[inline]
 pub unsafe fn HeapSize<'a, Param0: ::windows::runtime::IntoParam<'a, HeapHandle>>(hheap: Param0, dwflags: HEAP_FLAGS, lpmem: *const ::std::ffi::c_void) -> usize {
     #[cfg(windows)]
@@ -746,6 +793,7 @@ pub unsafe fn HeapSize<'a, Param0: ::windows::runtime::IntoParam<'a, HeapHandle>
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn HeapSummary<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hheap: Param0, dwflags: u32, lpsummary: *mut HEAP_SUMMARY) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -760,6 +808,7 @@ pub unsafe fn HeapSummary<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn HeapUnlock<'a, Param0: ::windows::runtime::IntoParam<'a, HeapHandle>>(hheap: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -774,6 +823,7 @@ pub unsafe fn HeapUnlock<'a, Param0: ::windows::runtime::IntoParam<'a, HeapHandl
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn HeapValidate<'a, Param0: ::windows::runtime::IntoParam<'a, HeapHandle>>(hheap: Param0, dwflags: HEAP_FLAGS, lpmem: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -788,6 +838,7 @@ pub unsafe fn HeapValidate<'a, Param0: ::windows::runtime::IntoParam<'a, HeapHan
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
 #[inline]
 pub unsafe fn HeapWalk<'a, Param0: ::windows::runtime::IntoParam<'a, HeapHandle>>(hheap: Param0, lpentry: *mut super::SystemServices::PROCESS_HEAP_ENTRY) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -802,6 +853,7 @@ pub unsafe fn HeapWalk<'a, Param0: ::windows::runtime::IntoParam<'a, HeapHandle>
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn IsBadCodePtr(lpfn: ::std::option::Option<super::super::Foundation::FARPROC>) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -816,6 +868,7 @@ pub unsafe fn IsBadCodePtr(lpfn: ::std::option::Option<super::super::Foundation:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn IsBadReadPtr(lp: *const ::std::ffi::c_void, ucb: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -830,6 +883,7 @@ pub unsafe fn IsBadReadPtr(lp: *const ::std::ffi::c_void, ucb: usize) -> super::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn IsBadStringPtrA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpsz: Param0, ucchmax: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -844,6 +898,7 @@ pub unsafe fn IsBadStringPtrA<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn IsBadStringPtrW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpsz: Param0, ucchmax: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -858,6 +913,7 @@ pub unsafe fn IsBadStringPtrW<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn IsBadWritePtr(lp: *const ::std::ffi::c_void, ucb: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -871,6 +927,7 @@ pub unsafe fn IsBadWritePtr(lp: *const ::std::ffi::c_void, ucb: usize) -> super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Memory`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct LOCAL_ALLOC_FLAGS(pub u32);
@@ -918,6 +975,7 @@ impl ::std::ops::Not for LOCAL_ALLOC_FLAGS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_System_Memory`*"]
 #[inline]
 pub unsafe fn LocalAlloc(uflags: LOCAL_ALLOC_FLAGS, ubytes: usize) -> isize {
     #[cfg(windows)]
@@ -931,6 +989,7 @@ pub unsafe fn LocalAlloc(uflags: LOCAL_ALLOC_FLAGS, ubytes: usize) -> isize {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Memory`*"]
 #[inline]
 pub unsafe fn LocalFlags(hmem: isize) -> u32 {
     #[cfg(windows)]
@@ -944,6 +1003,7 @@ pub unsafe fn LocalFlags(hmem: isize) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Memory`*"]
 #[inline]
 pub unsafe fn LocalFree(hmem: isize) -> isize {
     #[cfg(windows)]
@@ -957,6 +1017,7 @@ pub unsafe fn LocalFree(hmem: isize) -> isize {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Memory`*"]
 #[inline]
 pub unsafe fn LocalHandle(pmem: *const ::std::ffi::c_void) -> isize {
     #[cfg(windows)]
@@ -970,6 +1031,7 @@ pub unsafe fn LocalHandle(pmem: *const ::std::ffi::c_void) -> isize {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Memory`*"]
 #[inline]
 pub unsafe fn LocalLock(hmem: isize) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
@@ -983,6 +1045,7 @@ pub unsafe fn LocalLock(hmem: isize) -> *mut ::std::ffi::c_void {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Memory`*"]
 #[inline]
 pub unsafe fn LocalReAlloc(hmem: isize, ubytes: usize, uflags: u32) -> isize {
     #[cfg(windows)]
@@ -996,6 +1059,7 @@ pub unsafe fn LocalReAlloc(hmem: isize, ubytes: usize, uflags: u32) -> isize {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Memory`*"]
 #[inline]
 pub unsafe fn LocalSize(hmem: isize) -> usize {
     #[cfg(windows)]
@@ -1010,6 +1074,7 @@ pub unsafe fn LocalSize(hmem: isize) -> usize {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn LocalUnlock(hmem: isize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1023,9 +1088,11 @@ pub unsafe fn LocalUnlock(hmem: isize) -> super::super::Foundation::BOOL {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Memory`*"]
 pub const MEHC_PATROL_SCRUBBER_PRESENT: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Memory`*"]
 pub struct MEMORY_BASIC_INFORMATION {
     pub BaseAddress: *mut ::std::ffi::c_void,
     pub AllocationBase: *mut ::std::ffi::c_void,
@@ -1068,6 +1135,7 @@ unsafe impl ::windows::runtime::Abi for MEMORY_BASIC_INFORMATION {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Memory`*"]
 pub struct MEMORY_BASIC_INFORMATION32 {
     pub BaseAddress: u32,
     pub AllocationBase: u32,
@@ -1108,6 +1176,7 @@ unsafe impl ::windows::runtime::Abi for MEMORY_BASIC_INFORMATION32 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Memory`*"]
 pub struct MEMORY_BASIC_INFORMATION64 {
     pub BaseAddress: u64,
     pub AllocationBase: u64,
@@ -1150,6 +1219,7 @@ unsafe impl ::windows::runtime::Abi for MEMORY_BASIC_INFORMATION64 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Memory`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MEMORY_RESOURCE_NOTIFICATION_TYPE(pub i32);
@@ -1165,6 +1235,7 @@ unsafe impl ::windows::runtime::Abi for MEMORY_RESOURCE_NOTIFICATION_TYPE {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MapUserPhysicalPages(virtualaddress: *const ::std::ffi::c_void, numberofpages: usize, pagearray: *const usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1179,6 +1250,7 @@ pub unsafe fn MapUserPhysicalPages(virtualaddress: *const ::std::ffi::c_void, nu
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MapUserPhysicalPagesScatter(virtualaddresses: *const *const ::std::ffi::c_void, numberofpages: usize, pagearray: *const usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1193,6 +1265,7 @@ pub unsafe fn MapUserPhysicalPagesScatter(virtualaddresses: *const *const ::std:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MapViewOfFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hfilemappingobject: Param0, dwdesiredaccess: FILE_MAP, dwfileoffsethigh: u32, dwfileoffsetlow: u32, dwnumberofbytestomap: usize) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
@@ -1207,6 +1280,7 @@ pub unsafe fn MapViewOfFile<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
 #[inline]
 pub unsafe fn MapViewOfFile3<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(filemapping: Param0, process: Param1, baseaddress: *const ::std::ffi::c_void, offset: u64, viewsize: usize, allocationtype: VIRTUAL_ALLOCATION_TYPE, pageprotection: u32, extendedparameters: *mut super::SystemServices::MEM_EXTENDED_PARAMETER, parametercount: u32) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
@@ -1231,6 +1305,7 @@ pub unsafe fn MapViewOfFile3<'a, Param0: ::windows::runtime::IntoParam<'a, super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
 #[inline]
 pub unsafe fn MapViewOfFile3FromApp<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(filemapping: Param0, process: Param1, baseaddress: *const ::std::ffi::c_void, offset: u64, viewsize: usize, allocationtype: VIRTUAL_ALLOCATION_TYPE, pageprotection: u32, extendedparameters: *mut super::SystemServices::MEM_EXTENDED_PARAMETER, parametercount: u32) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
@@ -1255,6 +1330,7 @@ pub unsafe fn MapViewOfFile3FromApp<'a, Param0: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MapViewOfFileEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hfilemappingobject: Param0, dwdesiredaccess: FILE_MAP, dwfileoffsethigh: u32, dwfileoffsetlow: u32, dwnumberofbytestomap: usize, lpbaseaddress: *const ::std::ffi::c_void) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
@@ -1269,6 +1345,7 @@ pub unsafe fn MapViewOfFileEx<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MapViewOfFileExNuma<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hfilemappingobject: Param0, dwdesiredaccess: FILE_MAP, dwfileoffsethigh: u32, dwfileoffsetlow: u32, dwnumberofbytestomap: usize, lpbaseaddress: *const ::std::ffi::c_void, nndpreferred: u32) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
@@ -1283,6 +1360,7 @@ pub unsafe fn MapViewOfFileExNuma<'a, Param0: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MapViewOfFileFromApp<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hfilemappingobject: Param0, desiredaccess: FILE_MAP, fileoffset: u64, numberofbytestomap: usize) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
@@ -1297,6 +1375,7 @@ pub unsafe fn MapViewOfFileFromApp<'a, Param0: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn MapViewOfFileNuma2<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(filemappinghandle: Param0, processhandle: Param1, offset: u64, baseaddress: *const ::std::ffi::c_void, viewsize: usize, allocationtype: u32, pageprotection: u32, preferrednode: u32) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
@@ -1319,6 +1398,7 @@ pub unsafe fn MapViewOfFileNuma2<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Memory`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct OFFER_PRIORITY(pub i32);
@@ -1335,6 +1415,7 @@ unsafe impl ::windows::runtime::Abi for OFFER_PRIORITY {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Memory`*"]
 #[inline]
 pub unsafe fn OfferVirtualMemory(virtualaddress: *mut ::std::ffi::c_void, size: usize, priority: OFFER_PRIORITY) -> u32 {
     #[cfg(windows)]
@@ -1349,6 +1430,7 @@ pub unsafe fn OfferVirtualMemory(virtualaddress: *mut ::std::ffi::c_void, size: 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn OpenDedicatedMemoryPartition<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(partition: Param0, dedicatedmemorytypeid: u64, desiredaccess: u32, inherithandle: Param3) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
@@ -1363,6 +1445,7 @@ pub unsafe fn OpenDedicatedMemoryPartition<'a, Param0: ::windows::runtime::IntoP
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn OpenFileMappingA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(dwdesiredaccess: u32, binherithandle: Param1, lpname: Param2) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
@@ -1377,6 +1460,7 @@ pub unsafe fn OpenFileMappingA<'a, Param1: ::windows::runtime::IntoParam<'a, sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn OpenFileMappingFromApp<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(desiredaccess: u32, inherithandle: Param1, name: Param2) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
@@ -1391,6 +1475,7 @@ pub unsafe fn OpenFileMappingFromApp<'a, Param1: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn OpenFileMappingW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dwdesiredaccess: u32, binherithandle: Param1, lpname: Param2) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
@@ -1404,6 +1489,7 @@ pub unsafe fn OpenFileMappingW<'a, Param1: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Memory`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PAGE_PROTECTION_FLAGS(pub u32);
@@ -1483,6 +1569,7 @@ impl ::std::ops::Not for PAGE_PROTECTION_FLAGS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_System_Memory`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PAGE_TYPE(pub u32);
@@ -1530,6 +1617,7 @@ pub type PBAD_MEMORY_CALLBACK_ROUTINE = unsafe extern "system" fn();
 #[cfg(feature = "Win32_Foundation")]
 pub type PSECURE_MEMORY_CACHE_CALLBACK = unsafe extern "system" fn(addr: *const ::std::ffi::c_void, range: usize) -> super::super::Foundation::BOOLEAN;
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PrefetchVirtualMemory<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, numberofentries: usize, virtualaddresses: *const WIN32_MEMORY_RANGE_ENTRY, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1544,6 +1632,7 @@ pub unsafe fn PrefetchVirtualMemory<'a, Param0: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn QueryMemoryResourceNotification<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(resourcenotificationhandle: Param0, resourcestate: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1558,6 +1647,7 @@ pub unsafe fn QueryMemoryResourceNotification<'a, Param0: ::windows::runtime::In
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn QueryPartitionInformation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(partition: Param0, partitioninformationclass: WIN32_MEMORY_PARTITION_INFORMATION_CLASS, partitioninformation: *mut ::std::ffi::c_void, partitioninformationlength: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1572,6 +1662,7 @@ pub unsafe fn QueryPartitionInformation<'a, Param0: ::windows::runtime::IntoPara
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn QueryVirtualMemoryInformation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(process: Param0, virtualaddress: *const ::std::ffi::c_void, memoryinformationclass: WIN32_MEMORY_INFORMATION_CLASS, memoryinformation: *mut ::std::ffi::c_void, memoryinformationsize: usize, returnsize: *mut usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1585,6 +1676,7 @@ pub unsafe fn QueryVirtualMemoryInformation<'a, Param0: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Memory`*"]
 #[inline]
 pub unsafe fn ReclaimVirtualMemory(virtualaddress: *const ::std::ffi::c_void, size: usize) -> u32 {
     #[cfg(windows)]
@@ -1598,6 +1690,7 @@ pub unsafe fn ReclaimVirtualMemory(virtualaddress: *const ::std::ffi::c_void, si
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Memory`*"]
 #[inline]
 pub unsafe fn RegisterBadMemoryNotification(callback: ::std::option::Option<PBAD_MEMORY_CALLBACK_ROUTINE>) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
@@ -1612,6 +1705,7 @@ pub unsafe fn RegisterBadMemoryNotification(callback: ::std::option::Option<PBAD
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn RemoveSecureMemoryCacheCallback(pfncallback: ::std::option::Option<PSECURE_MEMORY_CACHE_CALLBACK>) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1625,6 +1719,7 @@ pub unsafe fn RemoveSecureMemoryCacheCallback(pfncallback: ::std::option::Option
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Memory`*"]
 #[inline]
 pub unsafe fn ResetWriteWatch(lpbaseaddress: *const ::std::ffi::c_void, dwregionsize: usize) -> u32 {
     #[cfg(windows)]
@@ -1639,6 +1734,7 @@ pub unsafe fn ResetWriteWatch(lpbaseaddress: *const ::std::ffi::c_void, dwregion
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
 #[inline]
 pub unsafe fn SetProcessValidCallTargets<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, virtualaddress: *const ::std::ffi::c_void, regionsize: usize, numberofoffsets: u32, offsetinformation: *mut super::SystemServices::CFG_CALL_TARGET_INFO) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1653,6 +1749,7 @@ pub unsafe fn SetProcessValidCallTargets<'a, Param0: ::windows::runtime::IntoPar
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
 #[inline]
 pub unsafe fn SetProcessValidCallTargetsForMappedView<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(process: Param0, virtualaddress: *const ::std::ffi::c_void, regionsize: usize, numberofoffsets: u32, offsetinformation: *mut super::SystemServices::CFG_CALL_TARGET_INFO, section: Param5, expectedfileoffset: u64) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1667,6 +1764,7 @@ pub unsafe fn SetProcessValidCallTargetsForMappedView<'a, Param0: ::windows::run
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SetProcessWorkingSetSizeEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, dwminimumworkingsetsize: usize, dwmaximumworkingsetsize: usize, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1681,6 +1779,7 @@ pub unsafe fn SetProcessWorkingSetSizeEx<'a, Param0: ::windows::runtime::IntoPar
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SetSystemFileCacheSize(minimumfilecachesize: usize, maximumfilecachesize: usize, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1694,6 +1793,7 @@ pub unsafe fn SetSystemFileCacheSize(minimumfilecachesize: usize, maximumfilecac
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Memory`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct UNMAP_VIEW_OF_FILE_FLAGS(pub u32);
@@ -1738,6 +1838,7 @@ impl ::std::ops::Not for UNMAP_VIEW_OF_FILE_FLAGS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn UnmapViewOfFile(lpbaseaddress: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1752,6 +1853,7 @@ pub unsafe fn UnmapViewOfFile(lpbaseaddress: *const ::std::ffi::c_void) -> super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn UnmapViewOfFile2<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(process: Param0, baseaddress: *const ::std::ffi::c_void, unmapflags: UNMAP_VIEW_OF_FILE_FLAGS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1766,6 +1868,7 @@ pub unsafe fn UnmapViewOfFile2<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn UnmapViewOfFileEx(baseaddress: *const ::std::ffi::c_void, unmapflags: UNMAP_VIEW_OF_FILE_FLAGS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1780,6 +1883,7 @@ pub unsafe fn UnmapViewOfFileEx(baseaddress: *const ::std::ffi::c_void, unmapfla
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn UnregisterBadMemoryNotification(registrationhandle: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1793,6 +1897,7 @@ pub unsafe fn UnregisterBadMemoryNotification(registrationhandle: *const ::std::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Memory`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct VIRTUAL_ALLOCATION_TYPE(pub u32);
@@ -1841,6 +1946,7 @@ impl ::std::ops::Not for VIRTUAL_ALLOCATION_TYPE {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_System_Memory`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct VIRTUAL_FREE_TYPE(pub u32);
@@ -1883,6 +1989,7 @@ impl ::std::ops::Not for VIRTUAL_FREE_TYPE {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_System_Memory`*"]
 #[inline]
 pub unsafe fn VirtualAlloc(lpaddress: *const ::std::ffi::c_void, dwsize: usize, flallocationtype: VIRTUAL_ALLOCATION_TYPE, flprotect: PAGE_PROTECTION_FLAGS) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
@@ -1897,6 +2004,7 @@ pub unsafe fn VirtualAlloc(lpaddress: *const ::std::ffi::c_void, dwsize: usize, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
 #[inline]
 pub unsafe fn VirtualAlloc2<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(process: Param0, baseaddress: *const ::std::ffi::c_void, size: usize, allocationtype: VIRTUAL_ALLOCATION_TYPE, pageprotection: u32, extendedparameters: *mut super::SystemServices::MEM_EXTENDED_PARAMETER, parametercount: u32) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
@@ -1911,6 +2019,7 @@ pub unsafe fn VirtualAlloc2<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
 #[inline]
 pub unsafe fn VirtualAlloc2FromApp<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(process: Param0, baseaddress: *const ::std::ffi::c_void, size: usize, allocationtype: VIRTUAL_ALLOCATION_TYPE, pageprotection: u32, extendedparameters: *mut super::SystemServices::MEM_EXTENDED_PARAMETER, parametercount: u32) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
@@ -1925,6 +2034,7 @@ pub unsafe fn VirtualAlloc2FromApp<'a, Param0: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VirtualAllocEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, lpaddress: *const ::std::ffi::c_void, dwsize: usize, flallocationtype: VIRTUAL_ALLOCATION_TYPE, flprotect: PAGE_PROTECTION_FLAGS) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
@@ -1939,6 +2049,7 @@ pub unsafe fn VirtualAllocEx<'a, Param0: ::windows::runtime::IntoParam<'a, super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VirtualAllocExNuma<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, lpaddress: *const ::std::ffi::c_void, dwsize: usize, flallocationtype: VIRTUAL_ALLOCATION_TYPE, flprotect: u32, nndpreferred: u32) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
@@ -1952,6 +2063,7 @@ pub unsafe fn VirtualAllocExNuma<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Memory`*"]
 #[inline]
 pub unsafe fn VirtualAllocFromApp(baseaddress: *const ::std::ffi::c_void, size: usize, allocationtype: VIRTUAL_ALLOCATION_TYPE, protection: u32) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
@@ -1966,6 +2078,7 @@ pub unsafe fn VirtualAllocFromApp(baseaddress: *const ::std::ffi::c_void, size: 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VirtualFree(lpaddress: *mut ::std::ffi::c_void, dwsize: usize, dwfreetype: VIRTUAL_FREE_TYPE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1980,6 +2093,7 @@ pub unsafe fn VirtualFree(lpaddress: *mut ::std::ffi::c_void, dwsize: usize, dwf
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VirtualFreeEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, lpaddress: *mut ::std::ffi::c_void, dwsize: usize, dwfreetype: VIRTUAL_FREE_TYPE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1994,6 +2108,7 @@ pub unsafe fn VirtualFreeEx<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VirtualLock(lpaddress: *const ::std::ffi::c_void, dwsize: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -2008,6 +2123,7 @@ pub unsafe fn VirtualLock(lpaddress: *const ::std::ffi::c_void, dwsize: usize) -
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VirtualProtect(lpaddress: *const ::std::ffi::c_void, dwsize: usize, flnewprotect: PAGE_PROTECTION_FLAGS, lpfloldprotect: *mut PAGE_PROTECTION_FLAGS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -2022,6 +2138,7 @@ pub unsafe fn VirtualProtect(lpaddress: *const ::std::ffi::c_void, dwsize: usize
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VirtualProtectEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, lpaddress: *const ::std::ffi::c_void, dwsize: usize, flnewprotect: PAGE_PROTECTION_FLAGS, lpfloldprotect: *mut PAGE_PROTECTION_FLAGS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -2036,6 +2153,7 @@ pub unsafe fn VirtualProtectEx<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VirtualProtectFromApp(address: *const ::std::ffi::c_void, size: usize, newprotection: u32, oldprotection: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -2049,6 +2167,7 @@ pub unsafe fn VirtualProtectFromApp(address: *const ::std::ffi::c_void, size: us
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Memory`*"]
 #[inline]
 pub unsafe fn VirtualQuery(lpaddress: *const ::std::ffi::c_void, lpbuffer: *mut MEMORY_BASIC_INFORMATION, dwlength: usize) -> usize {
     #[cfg(windows)]
@@ -2063,6 +2182,7 @@ pub unsafe fn VirtualQuery(lpaddress: *const ::std::ffi::c_void, lpbuffer: *mut 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VirtualQueryEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, lpaddress: *const ::std::ffi::c_void, lpbuffer: *mut MEMORY_BASIC_INFORMATION, dwlength: usize) -> usize {
     #[cfg(windows)]
@@ -2077,6 +2197,7 @@ pub unsafe fn VirtualQueryEx<'a, Param0: ::windows::runtime::IntoParam<'a, super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VirtualUnlock(lpaddress: *const ::std::ffi::c_void, dwsize: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -2091,6 +2212,7 @@ pub unsafe fn VirtualUnlock(lpaddress: *const ::std::ffi::c_void, dwsize: usize)
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn VirtualUnlockEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(process: Param0, address: *const ::std::ffi::c_void, size: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -2104,6 +2226,7 @@ pub unsafe fn VirtualUnlockEx<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Memory`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WIN32_MEMORY_INFORMATION_CLASS(pub i32);
@@ -2119,6 +2242,7 @@ unsafe impl ::windows::runtime::Abi for WIN32_MEMORY_INFORMATION_CLASS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Memory`*"]
 pub struct WIN32_MEMORY_PARTITION_INFORMATION {
     pub Flags: u32,
     pub NumaNode: u32,
@@ -2193,6 +2317,7 @@ unsafe impl ::windows::runtime::Abi for WIN32_MEMORY_PARTITION_INFORMATION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_System_Memory`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WIN32_MEMORY_PARTITION_INFORMATION_CLASS(pub i32);
@@ -2209,6 +2334,7 @@ unsafe impl ::windows::runtime::Abi for WIN32_MEMORY_PARTITION_INFORMATION_CLASS
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Memory`*"]
 pub struct WIN32_MEMORY_RANGE_ENTRY {
     pub VirtualAddress: *mut ::std::ffi::c_void,
     pub NumberOfBytes: usize,
@@ -2236,6 +2362,7 @@ unsafe impl ::windows::runtime::Abi for WIN32_MEMORY_RANGE_ENTRY {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Memory`*"]
 pub struct WIN32_MEMORY_REGION_INFORMATION {
     pub AllocationBase: *mut ::std::ffi::c_void,
     pub AllocationProtect: u32,
@@ -2261,6 +2388,7 @@ unsafe impl ::windows::runtime::Abi for WIN32_MEMORY_REGION_INFORMATION {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Memory`*"]
 pub union WIN32_MEMORY_REGION_INFORMATION_0 {
     pub Flags: u32,
     pub Anonymous: WIN32_MEMORY_REGION_INFORMATION_0_0,
@@ -2283,6 +2411,7 @@ unsafe impl ::windows::runtime::Abi for WIN32_MEMORY_REGION_INFORMATION_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_System_Memory`*"]
 pub struct WIN32_MEMORY_REGION_INFORMATION_0_0 {
     pub _bitfield: u32,
 }

@@ -1,4 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Graphics_Imaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct BitmapAlphaMode(pub i32);
@@ -21,6 +22,7 @@ unsafe impl ::windows::runtime::RuntimeType for BitmapAlphaMode {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Graphics_Imaging`*"]
 pub struct BitmapBounds {
     pub X: u32,
     pub Y: u32,
@@ -51,10 +53,12 @@ unsafe impl ::windows::runtime::Abi for BitmapBounds {
 unsafe impl ::windows::runtime::RuntimeType for BitmapBounds {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Graphics.Imaging.BitmapBounds;u4;u4;u4;u4)");
 }
+#[doc = "*Required features: `Graphics_Imaging`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct BitmapBuffer(::windows::runtime::IInspectable);
 impl BitmapBuffer {
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn GetPlaneCount(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -62,6 +66,7 @@ impl BitmapBuffer {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn GetPlaneDescription(&self, index: i32) -> ::windows::runtime::Result<BitmapPlaneDescription> {
         let this = self;
         unsafe {
@@ -70,11 +75,13 @@ impl BitmapBuffer {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Graphics_Imaging`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Graphics_Imaging`, `Foundation`*"]
     pub fn CreateReference(&self) -> ::windows::runtime::Result<super::super::Foundation::IMemoryBufferReference> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IMemoryBuffer>(self)?;
         unsafe {
@@ -187,6 +194,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IMemoryBuff
 }
 unsafe impl ::std::marker::Send for BitmapBuffer {}
 unsafe impl ::std::marker::Sync for BitmapBuffer {}
+#[doc = "*Required features: `Graphics_Imaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct BitmapBufferAccessMode(pub i32);
@@ -207,10 +215,12 @@ unsafe impl ::windows::runtime::Abi for BitmapBufferAccessMode {
 unsafe impl ::windows::runtime::RuntimeType for BitmapBufferAccessMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.BitmapBufferAccessMode;i4)");
 }
+#[doc = "*Required features: `Graphics_Imaging`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct BitmapCodecInformation(::windows::runtime::IInspectable);
 impl BitmapCodecInformation {
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn CodecId(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
         let this = self;
         unsafe {
@@ -219,6 +229,7 @@ impl BitmapCodecInformation {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Graphics_Imaging`, `Foundation_Collections`*"]
     pub fn FileExtensions(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -226,6 +237,7 @@ impl BitmapCodecInformation {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn FriendlyName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -234,6 +246,7 @@ impl BitmapCodecInformation {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Graphics_Imaging`, `Foundation_Collections`*"]
     pub fn MimeTypes(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -294,10 +307,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for BitmapCodecInformation {}
 unsafe impl ::std::marker::Sync for BitmapCodecInformation {}
+#[doc = "*Required features: `Graphics_Imaging`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct BitmapDecoder(::windows::runtime::IInspectable);
 impl BitmapDecoder {
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn BitmapContainerProperties(&self) -> ::windows::runtime::Result<BitmapPropertiesView> {
         let this = self;
         unsafe {
@@ -305,6 +320,7 @@ impl BitmapDecoder {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<BitmapPropertiesView>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn DecoderInformation(&self) -> ::windows::runtime::Result<BitmapCodecInformation> {
         let this = self;
         unsafe {
@@ -312,6 +328,7 @@ impl BitmapDecoder {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<BitmapCodecInformation>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn FrameCount(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -320,6 +337,7 @@ impl BitmapDecoder {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Graphics_Imaging`, `Foundation`, `Storage_Streams`*"]
     pub fn GetPreviewAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<ImageStream>> {
         let this = self;
         unsafe {
@@ -328,6 +346,7 @@ impl BitmapDecoder {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Graphics_Imaging`, `Foundation`*"]
     pub fn GetFrameAsync(&self, frameindex: u32) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<BitmapFrame>> {
         let this = self;
         unsafe {
@@ -336,6 +355,7 @@ impl BitmapDecoder {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Graphics_Imaging`, `Foundation`, `Storage_Streams`*"]
     pub fn GetThumbnailAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<ImageStream>> {
         let this = &::windows::runtime::Interface::cast::<IBitmapFrame>(self)?;
         unsafe {
@@ -343,6 +363,7 @@ impl BitmapDecoder {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ImageStream>>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn BitmapProperties(&self) -> ::windows::runtime::Result<BitmapPropertiesView> {
         let this = &::windows::runtime::Interface::cast::<IBitmapFrame>(self)?;
         unsafe {
@@ -350,6 +371,7 @@ impl BitmapDecoder {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<BitmapPropertiesView>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn BitmapPixelFormat(&self) -> ::windows::runtime::Result<BitmapPixelFormat> {
         let this = &::windows::runtime::Interface::cast::<IBitmapFrame>(self)?;
         unsafe {
@@ -357,6 +379,7 @@ impl BitmapDecoder {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<BitmapPixelFormat>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn BitmapAlphaMode(&self) -> ::windows::runtime::Result<BitmapAlphaMode> {
         let this = &::windows::runtime::Interface::cast::<IBitmapFrame>(self)?;
         unsafe {
@@ -364,6 +387,7 @@ impl BitmapDecoder {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<BitmapAlphaMode>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn DpiX(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<IBitmapFrame>(self)?;
         unsafe {
@@ -371,6 +395,7 @@ impl BitmapDecoder {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn DpiY(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<IBitmapFrame>(self)?;
         unsafe {
@@ -378,6 +403,7 @@ impl BitmapDecoder {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn PixelWidth(&self) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<IBitmapFrame>(self)?;
         unsafe {
@@ -385,6 +411,7 @@ impl BitmapDecoder {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn PixelHeight(&self) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<IBitmapFrame>(self)?;
         unsafe {
@@ -392,6 +419,7 @@ impl BitmapDecoder {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn OrientedPixelWidth(&self) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<IBitmapFrame>(self)?;
         unsafe {
@@ -399,6 +427,7 @@ impl BitmapDecoder {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn OrientedPixelHeight(&self) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<IBitmapFrame>(self)?;
         unsafe {
@@ -407,6 +436,7 @@ impl BitmapDecoder {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Graphics_Imaging`, `Foundation`*"]
     pub fn GetPixelDataAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<PixelDataProvider>> {
         let this = &::windows::runtime::Interface::cast::<IBitmapFrame>(self)?;
         unsafe {
@@ -415,6 +445,7 @@ impl BitmapDecoder {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Graphics_Imaging`, `Foundation`*"]
     pub fn GetPixelDataTransformedAsync<'a, Param2: ::windows::runtime::IntoParam<'a, BitmapTransform>>(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode, transform: Param2, exiforientationmode: ExifOrientationMode, colormanagementmode: ColorManagementMode) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<PixelDataProvider>> {
         let this = &::windows::runtime::Interface::cast::<IBitmapFrame>(self)?;
         unsafe {
@@ -423,6 +454,7 @@ impl BitmapDecoder {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Graphics_Imaging`, `Foundation`*"]
     pub fn GetSoftwareBitmapAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>> {
         let this = &::windows::runtime::Interface::cast::<IBitmapFrameWithSoftwareBitmap>(self)?;
         unsafe {
@@ -431,6 +463,7 @@ impl BitmapDecoder {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Graphics_Imaging`, `Foundation`*"]
     pub fn GetSoftwareBitmapConvertedAsync(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>> {
         let this = &::windows::runtime::Interface::cast::<IBitmapFrameWithSoftwareBitmap>(self)?;
         unsafe {
@@ -439,6 +472,7 @@ impl BitmapDecoder {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Graphics_Imaging`, `Foundation`*"]
     pub fn GetSoftwareBitmapTransformedAsync<'a, Param2: ::windows::runtime::IntoParam<'a, BitmapTransform>>(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode, transform: Param2, exiforientationmode: ExifOrientationMode, colormanagementmode: ColorManagementMode) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>> {
         let this = &::windows::runtime::Interface::cast::<IBitmapFrameWithSoftwareBitmap>(self)?;
         unsafe {
@@ -446,42 +480,49 @@ impl BitmapDecoder {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), pixelformat, alphamode, transform.into_param().abi(), exiforientationmode, colormanagementmode, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn BmpDecoderId() -> ::windows::runtime::Result<::windows::runtime::GUID> {
         Self::IBitmapDecoderStatics(|this| unsafe {
             let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         })
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn JpegDecoderId() -> ::windows::runtime::Result<::windows::runtime::GUID> {
         Self::IBitmapDecoderStatics(|this| unsafe {
             let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         })
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn PngDecoderId() -> ::windows::runtime::Result<::windows::runtime::GUID> {
         Self::IBitmapDecoderStatics(|this| unsafe {
             let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         })
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn TiffDecoderId() -> ::windows::runtime::Result<::windows::runtime::GUID> {
         Self::IBitmapDecoderStatics(|this| unsafe {
             let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         })
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn GifDecoderId() -> ::windows::runtime::Result<::windows::runtime::GUID> {
         Self::IBitmapDecoderStatics(|this| unsafe {
             let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         })
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn JpegXRDecoderId() -> ::windows::runtime::Result<::windows::runtime::GUID> {
         Self::IBitmapDecoderStatics(|this| unsafe {
             let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         })
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn IcoDecoderId() -> ::windows::runtime::Result<::windows::runtime::GUID> {
         Self::IBitmapDecoderStatics(|this| unsafe {
             let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
@@ -489,6 +530,7 @@ impl BitmapDecoder {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Graphics_Imaging`, `Foundation_Collections`*"]
     pub fn GetDecoderInformationEnumerator() -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<BitmapCodecInformation>> {
         Self::IBitmapDecoderStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -496,6 +538,7 @@ impl BitmapDecoder {
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Graphics_Imaging`, `Foundation`, `Storage_Streams`*"]
     pub fn CreateAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStream>>(stream: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<BitmapDecoder>> {
         Self::IBitmapDecoderStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -503,18 +546,21 @@ impl BitmapDecoder {
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Graphics_Imaging`, `Foundation`, `Storage_Streams`*"]
     pub fn CreateWithIdAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>, Param1: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStream>>(decoderid: Param0, stream: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<BitmapDecoder>> {
         Self::IBitmapDecoderStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), decoderid.into_param().abi(), stream.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<BitmapDecoder>>(result__)
         })
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn HeifDecoderId() -> ::windows::runtime::Result<::windows::runtime::GUID> {
         Self::IBitmapDecoderStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         })
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn WebpDecoderId() -> ::windows::runtime::Result<::windows::runtime::GUID> {
         Self::IBitmapDecoderStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
@@ -626,10 +672,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, IBitmapFrameWithSoftwareBitmap> for &
 }
 unsafe impl ::std::marker::Send for BitmapDecoder {}
 unsafe impl ::std::marker::Sync for BitmapDecoder {}
+#[doc = "*Required features: `Graphics_Imaging`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct BitmapEncoder(::windows::runtime::IInspectable);
 impl BitmapEncoder {
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn EncoderInformation(&self) -> ::windows::runtime::Result<BitmapCodecInformation> {
         let this = self;
         unsafe {
@@ -637,6 +685,7 @@ impl BitmapEncoder {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<BitmapCodecInformation>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn BitmapProperties(&self) -> ::windows::runtime::Result<BitmapProperties> {
         let this = self;
         unsafe {
@@ -644,6 +693,7 @@ impl BitmapEncoder {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<BitmapProperties>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn BitmapContainerProperties(&self) -> ::windows::runtime::Result<BitmapProperties> {
         let this = self;
         unsafe {
@@ -651,6 +701,7 @@ impl BitmapEncoder {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<BitmapProperties>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn IsThumbnailGenerated(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -658,10 +709,12 @@ impl BitmapEncoder {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn SetIsThumbnailGenerated(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn GeneratedThumbnailWidth(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -669,10 +722,12 @@ impl BitmapEncoder {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn SetGeneratedThumbnailWidth(&self, value: u32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn GeneratedThumbnailHeight(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -680,10 +735,12 @@ impl BitmapEncoder {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn SetGeneratedThumbnailHeight(&self, value: u32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn BitmapTransform(&self) -> ::windows::runtime::Result<BitmapTransform> {
         let this = self;
         unsafe {
@@ -691,11 +748,13 @@ impl BitmapEncoder {
             (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<BitmapTransform>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn SetPixelData(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode, width: u32, height: u32, dpix: f64, dpiy: f64, pixels: &[<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), pixelformat, alphamode, width, height, dpix, dpiy, pixels.len() as u32, ::std::mem::transmute(pixels.as_ptr())).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Graphics_Imaging`, `Foundation`*"]
     pub fn GoToNextFrameAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -704,6 +763,7 @@ impl BitmapEncoder {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Graphics_Imaging`, `Foundation`, `Foundation_Collections`*"]
     pub fn GoToNextFrameWithEncodingOptionsAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::HSTRING, BitmapTypedValue>>>>(&self, encodingoptions: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -712,6 +772,7 @@ impl BitmapEncoder {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Graphics_Imaging`, `Foundation`*"]
     pub fn FlushAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -719,40 +780,47 @@ impl BitmapEncoder {
             (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn SetSoftwareBitmap<'a, Param0: ::windows::runtime::IntoParam<'a, SoftwareBitmap>>(&self, bitmap: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IBitmapEncoderWithSoftwareBitmap>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), bitmap.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn BmpEncoderId() -> ::windows::runtime::Result<::windows::runtime::GUID> {
         Self::IBitmapEncoderStatics(|this| unsafe {
             let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         })
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn JpegEncoderId() -> ::windows::runtime::Result<::windows::runtime::GUID> {
         Self::IBitmapEncoderStatics(|this| unsafe {
             let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         })
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn PngEncoderId() -> ::windows::runtime::Result<::windows::runtime::GUID> {
         Self::IBitmapEncoderStatics(|this| unsafe {
             let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         })
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn TiffEncoderId() -> ::windows::runtime::Result<::windows::runtime::GUID> {
         Self::IBitmapEncoderStatics(|this| unsafe {
             let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         })
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn GifEncoderId() -> ::windows::runtime::Result<::windows::runtime::GUID> {
         Self::IBitmapEncoderStatics(|this| unsafe {
             let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
         })
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn JpegXREncoderId() -> ::windows::runtime::Result<::windows::runtime::GUID> {
         Self::IBitmapEncoderStatics(|this| unsafe {
             let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
@@ -760,6 +828,7 @@ impl BitmapEncoder {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Graphics_Imaging`, `Foundation_Collections`*"]
     pub fn GetEncoderInformationEnumerator() -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<BitmapCodecInformation>> {
         Self::IBitmapEncoderStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -767,6 +836,7 @@ impl BitmapEncoder {
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Graphics_Imaging`, `Foundation`, `Storage_Streams`*"]
     pub fn CreateAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>, Param1: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStream>>(encoderid: Param0, stream: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<BitmapEncoder>> {
         Self::IBitmapEncoderStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -774,6 +844,7 @@ impl BitmapEncoder {
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Graphics_Imaging`, `Foundation`, `Foundation_Collections`, `Storage_Streams`*"]
     pub fn CreateWithEncodingOptionsAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>, Param1: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::HSTRING, BitmapTypedValue>>>>(
         encoderid: Param0,
         stream: Param1,
@@ -785,6 +856,7 @@ impl BitmapEncoder {
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Graphics_Imaging`, `Foundation`, `Storage_Streams`*"]
     pub fn CreateForTranscodingAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Param1: ::windows::runtime::IntoParam<'a, BitmapDecoder>>(stream: Param0, bitmapdecoder: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<BitmapEncoder>> {
         Self::IBitmapEncoderStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -792,12 +864,14 @@ impl BitmapEncoder {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Graphics_Imaging`, `Foundation`*"]
     pub fn CreateForInPlacePropertyEncodingAsync<'a, Param0: ::windows::runtime::IntoParam<'a, BitmapDecoder>>(bitmapdecoder: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<BitmapEncoder>> {
         Self::IBitmapEncoderStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), bitmapdecoder.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<BitmapEncoder>>(result__)
         })
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn HeifEncoderId() -> ::windows::runtime::Result<::windows::runtime::GUID> {
         Self::IBitmapEncoderStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
@@ -865,6 +939,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for BitmapEncoder {}
 unsafe impl ::std::marker::Sync for BitmapEncoder {}
+#[doc = "*Required features: `Graphics_Imaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct BitmapFlip(pub i32);
@@ -885,11 +960,13 @@ unsafe impl ::windows::runtime::Abi for BitmapFlip {
 unsafe impl ::windows::runtime::RuntimeType for BitmapFlip {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.BitmapFlip;i4)");
 }
+#[doc = "*Required features: `Graphics_Imaging`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct BitmapFrame(::windows::runtime::IInspectable);
 impl BitmapFrame {
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Graphics_Imaging`, `Foundation`, `Storage_Streams`*"]
     pub fn GetThumbnailAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<ImageStream>> {
         let this = self;
         unsafe {
@@ -897,6 +974,7 @@ impl BitmapFrame {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ImageStream>>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn BitmapProperties(&self) -> ::windows::runtime::Result<BitmapPropertiesView> {
         let this = self;
         unsafe {
@@ -904,6 +982,7 @@ impl BitmapFrame {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<BitmapPropertiesView>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn BitmapPixelFormat(&self) -> ::windows::runtime::Result<BitmapPixelFormat> {
         let this = self;
         unsafe {
@@ -911,6 +990,7 @@ impl BitmapFrame {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<BitmapPixelFormat>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn BitmapAlphaMode(&self) -> ::windows::runtime::Result<BitmapAlphaMode> {
         let this = self;
         unsafe {
@@ -918,6 +998,7 @@ impl BitmapFrame {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<BitmapAlphaMode>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn DpiX(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -925,6 +1006,7 @@ impl BitmapFrame {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn DpiY(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -932,6 +1014,7 @@ impl BitmapFrame {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn PixelWidth(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -939,6 +1022,7 @@ impl BitmapFrame {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn PixelHeight(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -946,6 +1030,7 @@ impl BitmapFrame {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn OrientedPixelWidth(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -953,6 +1038,7 @@ impl BitmapFrame {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn OrientedPixelHeight(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -961,6 +1047,7 @@ impl BitmapFrame {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Graphics_Imaging`, `Foundation`*"]
     pub fn GetPixelDataAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<PixelDataProvider>> {
         let this = self;
         unsafe {
@@ -969,6 +1056,7 @@ impl BitmapFrame {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Graphics_Imaging`, `Foundation`*"]
     pub fn GetPixelDataTransformedAsync<'a, Param2: ::windows::runtime::IntoParam<'a, BitmapTransform>>(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode, transform: Param2, exiforientationmode: ExifOrientationMode, colormanagementmode: ColorManagementMode) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<PixelDataProvider>> {
         let this = self;
         unsafe {
@@ -977,6 +1065,7 @@ impl BitmapFrame {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Graphics_Imaging`, `Foundation`*"]
     pub fn GetSoftwareBitmapAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>> {
         let this = &::windows::runtime::Interface::cast::<IBitmapFrameWithSoftwareBitmap>(self)?;
         unsafe {
@@ -985,6 +1074,7 @@ impl BitmapFrame {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Graphics_Imaging`, `Foundation`*"]
     pub fn GetSoftwareBitmapConvertedAsync(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>> {
         let this = &::windows::runtime::Interface::cast::<IBitmapFrameWithSoftwareBitmap>(self)?;
         unsafe {
@@ -993,6 +1083,7 @@ impl BitmapFrame {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Graphics_Imaging`, `Foundation`*"]
     pub fn GetSoftwareBitmapTransformedAsync<'a, Param2: ::windows::runtime::IntoParam<'a, BitmapTransform>>(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode, transform: Param2, exiforientationmode: ExifOrientationMode, colormanagementmode: ColorManagementMode) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>> {
         let this = &::windows::runtime::Interface::cast::<IBitmapFrameWithSoftwareBitmap>(self)?;
         unsafe {
@@ -1095,6 +1186,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IBitmapFrameWithSoftwareBitmap> for &
 }
 unsafe impl ::std::marker::Send for BitmapFrame {}
 unsafe impl ::std::marker::Sync for BitmapFrame {}
+#[doc = "*Required features: `Graphics_Imaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct BitmapInterpolationMode(pub i32);
@@ -1116,6 +1208,7 @@ unsafe impl ::windows::runtime::Abi for BitmapInterpolationMode {
 unsafe impl ::windows::runtime::RuntimeType for BitmapInterpolationMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.BitmapInterpolationMode;i4)");
 }
+#[doc = "*Required features: `Graphics_Imaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct BitmapPixelFormat(pub i32);
@@ -1144,6 +1237,7 @@ unsafe impl ::windows::runtime::RuntimeType for BitmapPixelFormat {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Graphics_Imaging`*"]
 pub struct BitmapPlaneDescription {
     pub StartIndex: i32,
     pub Width: i32,
@@ -1174,11 +1268,13 @@ unsafe impl ::windows::runtime::Abi for BitmapPlaneDescription {
 unsafe impl ::windows::runtime::RuntimeType for BitmapPlaneDescription {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Graphics.Imaging.BitmapPlaneDescription;i4;i4;i4;i4)");
 }
+#[doc = "*Required features: `Graphics_Imaging`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct BitmapProperties(::windows::runtime::IInspectable);
 impl BitmapProperties {
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Graphics_Imaging`, `Foundation`, `Foundation_Collections`*"]
     pub fn SetPropertiesAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::HSTRING, BitmapTypedValue>>>>(&self, propertiestoset: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -1187,6 +1283,7 @@ impl BitmapProperties {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Graphics_Imaging`, `Foundation`, `Foundation_Collections`*"]
     pub fn GetPropertiesAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>>(&self, propertiestoretrieve: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<BitmapPropertySet>> {
         let this = &::windows::runtime::Interface::cast::<IBitmapPropertiesView>(self)?;
         unsafe {
@@ -1269,11 +1366,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, IBitmapPropertiesView> for &BitmapPro
 }
 unsafe impl ::std::marker::Send for BitmapProperties {}
 unsafe impl ::std::marker::Sync for BitmapProperties {}
+#[doc = "*Required features: `Graphics_Imaging`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct BitmapPropertiesView(::windows::runtime::IInspectable);
 impl BitmapPropertiesView {
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Graphics_Imaging`, `Foundation`, `Foundation_Collections`*"]
     pub fn GetPropertiesAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>>(&self, propertiestoretrieve: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<BitmapPropertySet>> {
         let this = self;
         unsafe {
@@ -1355,6 +1454,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IBitmapPropertiesView> for &BitmapPro
 unsafe impl ::std::marker::Send for BitmapPropertiesView {}
 unsafe impl ::std::marker::Sync for BitmapPropertiesView {}
 #[cfg(feature = "Foundation_Collections")]
+#[doc = "*Required features: `Graphics_Imaging`, `Foundation_Collections`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct BitmapPropertySet(::windows::runtime::IInspectable);
@@ -1368,6 +1468,7 @@ impl BitmapPropertySet {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Graphics_Imaging`, `Foundation_Collections`*"]
     pub fn Lookup<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, key: Param0) -> ::windows::runtime::Result<BitmapTypedValue> {
         let this = self;
         unsafe {
@@ -1376,6 +1477,7 @@ impl BitmapPropertySet {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Graphics_Imaging`, `Foundation_Collections`*"]
     pub fn Size(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -1384,6 +1486,7 @@ impl BitmapPropertySet {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Graphics_Imaging`, `Foundation_Collections`*"]
     pub fn HasKey<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, key: Param0) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1392,6 +1495,7 @@ impl BitmapPropertySet {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Graphics_Imaging`, `Foundation_Collections`*"]
     pub fn GetView(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, BitmapTypedValue>> {
         let this = self;
         unsafe {
@@ -1400,6 +1504,7 @@ impl BitmapPropertySet {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Graphics_Imaging`, `Foundation_Collections`*"]
     pub fn Insert<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, BitmapTypedValue>>(&self, key: Param0, value: Param1) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -1408,16 +1513,19 @@ impl BitmapPropertySet {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Graphics_Imaging`, `Foundation_Collections`*"]
     pub fn Remove<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, key: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), key.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Graphics_Imaging`, `Foundation_Collections`*"]
     pub fn Clear(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Graphics_Imaging`, `Foundation_Collections`*"]
     pub fn First(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IIterator<super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::HSTRING, BitmapTypedValue>>> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::HSTRING, BitmapTypedValue>>>(self)?;
         unsafe {
@@ -1557,6 +1665,7 @@ impl ::std::iter::IntoIterator for &BitmapPropertySet {
         self.First().unwrap()
     }
 }
+#[doc = "*Required features: `Graphics_Imaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct BitmapRotation(pub i32);
@@ -1580,6 +1689,7 @@ unsafe impl ::windows::runtime::RuntimeType for BitmapRotation {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Graphics_Imaging`*"]
 pub struct BitmapSize {
     pub Width: u32,
     pub Height: u32,
@@ -1608,6 +1718,7 @@ unsafe impl ::windows::runtime::Abi for BitmapSize {
 unsafe impl ::windows::runtime::RuntimeType for BitmapSize {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Graphics.Imaging.BitmapSize;u4;u4)");
 }
+#[doc = "*Required features: `Graphics_Imaging`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct BitmapTransform(::windows::runtime::IInspectable);
@@ -1619,6 +1730,7 @@ impl BitmapTransform {
         static mut SHARED: ::windows::runtime::FactoryCache<BitmapTransform, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn ScaledWidth(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -1626,10 +1738,12 @@ impl BitmapTransform {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn SetScaledWidth(&self, value: u32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn ScaledHeight(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -1637,10 +1751,12 @@ impl BitmapTransform {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn SetScaledHeight(&self, value: u32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn InterpolationMode(&self) -> ::windows::runtime::Result<BitmapInterpolationMode> {
         let this = self;
         unsafe {
@@ -1648,10 +1764,12 @@ impl BitmapTransform {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<BitmapInterpolationMode>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn SetInterpolationMode(&self, value: BitmapInterpolationMode) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn Flip(&self) -> ::windows::runtime::Result<BitmapFlip> {
         let this = self;
         unsafe {
@@ -1659,10 +1777,12 @@ impl BitmapTransform {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<BitmapFlip>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn SetFlip(&self, value: BitmapFlip) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn Rotation(&self) -> ::windows::runtime::Result<BitmapRotation> {
         let this = self;
         unsafe {
@@ -1670,10 +1790,12 @@ impl BitmapTransform {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<BitmapRotation>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn SetRotation(&self, value: BitmapRotation) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn Bounds(&self) -> ::windows::runtime::Result<BitmapBounds> {
         let this = self;
         unsafe {
@@ -1681,6 +1803,7 @@ impl BitmapTransform {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<BitmapBounds>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn SetBounds<'a, Param0: ::windows::runtime::IntoParam<'a, BitmapBounds>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -1738,10 +1861,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for BitmapTransform {}
 unsafe impl ::std::marker::Sync for BitmapTransform {}
+#[doc = "*Required features: `Graphics_Imaging`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct BitmapTypedValue(::windows::runtime::IInspectable);
 impl BitmapTypedValue {
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn Value(&self) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = self;
         unsafe {
@@ -1750,6 +1875,7 @@ impl BitmapTypedValue {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Graphics_Imaging`, `Foundation`*"]
     pub fn Type(&self) -> ::windows::runtime::Result<super::super::Foundation::PropertyType> {
         let this = self;
         unsafe {
@@ -1758,6 +1884,7 @@ impl BitmapTypedValue {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Graphics_Imaging`, `Foundation`*"]
     pub fn Create<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(value: Param0, r#type: super::super::Foundation::PropertyType) -> ::windows::runtime::Result<BitmapTypedValue> {
         Self::IBitmapTypedValueFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1821,6 +1948,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for BitmapTypedValue {}
 unsafe impl ::std::marker::Sync for BitmapTypedValue {}
+#[doc = "*Required features: `Graphics_Imaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ColorManagementMode(pub i32);
@@ -1840,6 +1968,7 @@ unsafe impl ::windows::runtime::Abi for ColorManagementMode {
 unsafe impl ::windows::runtime::RuntimeType for ColorManagementMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.ColorManagementMode;i4)");
 }
+#[doc = "*Required features: `Graphics_Imaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ExifOrientationMode(pub i32);
@@ -2088,6 +2217,7 @@ pub struct IBitmapEncoderWithSoftwareBitmap_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Graphics_Imaging`*"]
 pub struct IBitmapFrame(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBitmapFrame {
     type Vtable = IBitmapFrame_abi;
@@ -2095,6 +2225,7 @@ unsafe impl ::windows::runtime::Interface for IBitmapFrame {
 }
 impl IBitmapFrame {
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Graphics_Imaging`, `Foundation`, `Storage_Streams`*"]
     pub fn GetThumbnailAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<ImageStream>> {
         let this = self;
         unsafe {
@@ -2102,6 +2233,7 @@ impl IBitmapFrame {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ImageStream>>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn BitmapProperties(&self) -> ::windows::runtime::Result<BitmapPropertiesView> {
         let this = self;
         unsafe {
@@ -2109,6 +2241,7 @@ impl IBitmapFrame {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<BitmapPropertiesView>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn BitmapPixelFormat(&self) -> ::windows::runtime::Result<BitmapPixelFormat> {
         let this = self;
         unsafe {
@@ -2116,6 +2249,7 @@ impl IBitmapFrame {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<BitmapPixelFormat>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn BitmapAlphaMode(&self) -> ::windows::runtime::Result<BitmapAlphaMode> {
         let this = self;
         unsafe {
@@ -2123,6 +2257,7 @@ impl IBitmapFrame {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<BitmapAlphaMode>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn DpiX(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -2130,6 +2265,7 @@ impl IBitmapFrame {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn DpiY(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -2137,6 +2273,7 @@ impl IBitmapFrame {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn PixelWidth(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -2144,6 +2281,7 @@ impl IBitmapFrame {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn PixelHeight(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -2151,6 +2289,7 @@ impl IBitmapFrame {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn OrientedPixelWidth(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -2158,6 +2297,7 @@ impl IBitmapFrame {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn OrientedPixelHeight(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -2166,6 +2306,7 @@ impl IBitmapFrame {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Graphics_Imaging`, `Foundation`*"]
     pub fn GetPixelDataAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<PixelDataProvider>> {
         let this = self;
         unsafe {
@@ -2174,6 +2315,7 @@ impl IBitmapFrame {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Graphics_Imaging`, `Foundation`*"]
     pub fn GetPixelDataTransformedAsync<'a, Param2: ::windows::runtime::IntoParam<'a, BitmapTransform>>(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode, transform: Param2, exiforientationmode: ExifOrientationMode, colormanagementmode: ColorManagementMode) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<PixelDataProvider>> {
         let this = self;
         unsafe {
@@ -2252,6 +2394,7 @@ pub struct IBitmapFrame_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Graphics_Imaging`*"]
 pub struct IBitmapFrameWithSoftwareBitmap(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBitmapFrameWithSoftwareBitmap {
     type Vtable = IBitmapFrameWithSoftwareBitmap_abi;
@@ -2259,6 +2402,7 @@ unsafe impl ::windows::runtime::Interface for IBitmapFrameWithSoftwareBitmap {
 }
 impl IBitmapFrameWithSoftwareBitmap {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Graphics_Imaging`, `Foundation`*"]
     pub fn GetSoftwareBitmapAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>> {
         let this = self;
         unsafe {
@@ -2267,6 +2411,7 @@ impl IBitmapFrameWithSoftwareBitmap {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Graphics_Imaging`, `Foundation`*"]
     pub fn GetSoftwareBitmapConvertedAsync(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>> {
         let this = self;
         unsafe {
@@ -2275,6 +2420,7 @@ impl IBitmapFrameWithSoftwareBitmap {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Graphics_Imaging`, `Foundation`*"]
     pub fn GetSoftwareBitmapTransformedAsync<'a, Param2: ::windows::runtime::IntoParam<'a, BitmapTransform>>(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode, transform: Param2, exiforientationmode: ExifOrientationMode, colormanagementmode: ColorManagementMode) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>> {
         let this = self;
         unsafe {
@@ -2283,6 +2429,7 @@ impl IBitmapFrameWithSoftwareBitmap {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Graphics_Imaging`, `Foundation`, `Storage_Streams`*"]
     pub fn GetThumbnailAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<ImageStream>> {
         let this = &::windows::runtime::Interface::cast::<IBitmapFrame>(self)?;
         unsafe {
@@ -2290,6 +2437,7 @@ impl IBitmapFrameWithSoftwareBitmap {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ImageStream>>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn BitmapProperties(&self) -> ::windows::runtime::Result<BitmapPropertiesView> {
         let this = &::windows::runtime::Interface::cast::<IBitmapFrame>(self)?;
         unsafe {
@@ -2297,6 +2445,7 @@ impl IBitmapFrameWithSoftwareBitmap {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<BitmapPropertiesView>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn BitmapPixelFormat(&self) -> ::windows::runtime::Result<BitmapPixelFormat> {
         let this = &::windows::runtime::Interface::cast::<IBitmapFrame>(self)?;
         unsafe {
@@ -2304,6 +2453,7 @@ impl IBitmapFrameWithSoftwareBitmap {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<BitmapPixelFormat>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn BitmapAlphaMode(&self) -> ::windows::runtime::Result<BitmapAlphaMode> {
         let this = &::windows::runtime::Interface::cast::<IBitmapFrame>(self)?;
         unsafe {
@@ -2311,6 +2461,7 @@ impl IBitmapFrameWithSoftwareBitmap {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<BitmapAlphaMode>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn DpiX(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<IBitmapFrame>(self)?;
         unsafe {
@@ -2318,6 +2469,7 @@ impl IBitmapFrameWithSoftwareBitmap {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn DpiY(&self) -> ::windows::runtime::Result<f64> {
         let this = &::windows::runtime::Interface::cast::<IBitmapFrame>(self)?;
         unsafe {
@@ -2325,6 +2477,7 @@ impl IBitmapFrameWithSoftwareBitmap {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn PixelWidth(&self) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<IBitmapFrame>(self)?;
         unsafe {
@@ -2332,6 +2485,7 @@ impl IBitmapFrameWithSoftwareBitmap {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn PixelHeight(&self) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<IBitmapFrame>(self)?;
         unsafe {
@@ -2339,6 +2493,7 @@ impl IBitmapFrameWithSoftwareBitmap {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn OrientedPixelWidth(&self) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<IBitmapFrame>(self)?;
         unsafe {
@@ -2346,6 +2501,7 @@ impl IBitmapFrameWithSoftwareBitmap {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn OrientedPixelHeight(&self) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<IBitmapFrame>(self)?;
         unsafe {
@@ -2354,6 +2510,7 @@ impl IBitmapFrameWithSoftwareBitmap {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Graphics_Imaging`, `Foundation`*"]
     pub fn GetPixelDataAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<PixelDataProvider>> {
         let this = &::windows::runtime::Interface::cast::<IBitmapFrame>(self)?;
         unsafe {
@@ -2362,6 +2519,7 @@ impl IBitmapFrameWithSoftwareBitmap {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Graphics_Imaging`, `Foundation`*"]
     pub fn GetPixelDataTransformedAsync<'a, Param2: ::windows::runtime::IntoParam<'a, BitmapTransform>>(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode, transform: Param2, exiforientationmode: ExifOrientationMode, colormanagementmode: ColorManagementMode) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<PixelDataProvider>> {
         let this = &::windows::runtime::Interface::cast::<IBitmapFrame>(self)?;
         unsafe {
@@ -2473,6 +2631,7 @@ pub struct IBitmapProperties_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Graphics_Imaging`*"]
 pub struct IBitmapPropertiesView(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBitmapPropertiesView {
     type Vtable = IBitmapPropertiesView_abi;
@@ -2480,6 +2639,7 @@ unsafe impl ::windows::runtime::Interface for IBitmapPropertiesView {
 }
 impl IBitmapPropertiesView {
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Graphics_Imaging`, `Foundation`, `Foundation_Collections`*"]
     pub fn GetPropertiesAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>>(&self, propertiestoretrieve: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<BitmapPropertySet>> {
         let this = self;
         unsafe {
@@ -2717,17 +2877,20 @@ pub struct ISoftwareBitmapStatics_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Graphics_DirectX_Direct3D11")))] usize,
 );
 #[cfg(feature = "Storage_Streams")]
+#[doc = "*Required features: `Graphics_Imaging`, `Storage_Streams`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ImageStream(::windows::runtime::IInspectable);
 #[cfg(feature = "Storage_Streams")]
 impl ImageStream {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Graphics_Imaging`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Graphics_Imaging`, `Storage_Streams`*"]
     pub fn ContentType(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<super::super::Storage::Streams::IContentTypeProvider>(self)?;
         unsafe {
@@ -2736,6 +2899,7 @@ impl ImageStream {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Graphics_Imaging`, `Foundation`, `Storage_Streams`*"]
     pub fn ReadAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(&self, buffer: Param0, count: u32, options: super::super::Storage::Streams::InputStreamOptions) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u32>> {
         let this = &::windows::runtime::Interface::cast::<super::super::Storage::Streams::IInputStream>(self)?;
         unsafe {
@@ -2744,6 +2908,7 @@ impl ImageStream {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Graphics_Imaging`, `Foundation`, `Storage_Streams`*"]
     pub fn WriteAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(&self, buffer: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>> {
         let this = &::windows::runtime::Interface::cast::<super::super::Storage::Streams::IOutputStream>(self)?;
         unsafe {
@@ -2752,6 +2917,7 @@ impl ImageStream {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Graphics_Imaging`, `Foundation`, `Storage_Streams`*"]
     pub fn FlushAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows::runtime::Interface::cast::<super::super::Storage::Streams::IOutputStream>(self)?;
         unsafe {
@@ -2760,6 +2926,7 @@ impl ImageStream {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Graphics_Imaging`, `Storage_Streams`*"]
     pub fn Size(&self) -> ::windows::runtime::Result<u64> {
         let this = &::windows::runtime::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
         unsafe {
@@ -2768,11 +2935,13 @@ impl ImageStream {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Graphics_Imaging`, `Storage_Streams`*"]
     pub fn SetSize(&self, value: u64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Graphics_Imaging`, `Storage_Streams`*"]
     pub fn GetInputStreamAt(&self, position: u64) -> ::windows::runtime::Result<super::super::Storage::Streams::IInputStream> {
         let this = &::windows::runtime::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
         unsafe {
@@ -2781,6 +2950,7 @@ impl ImageStream {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Graphics_Imaging`, `Storage_Streams`*"]
     pub fn GetOutputStreamAt(&self, position: u64) -> ::windows::runtime::Result<super::super::Storage::Streams::IOutputStream> {
         let this = &::windows::runtime::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
         unsafe {
@@ -2789,6 +2959,7 @@ impl ImageStream {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Graphics_Imaging`, `Storage_Streams`*"]
     pub fn Position(&self) -> ::windows::runtime::Result<u64> {
         let this = &::windows::runtime::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
         unsafe {
@@ -2797,11 +2968,13 @@ impl ImageStream {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Graphics_Imaging`, `Storage_Streams`*"]
     pub fn Seek(&self, position: u64) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), position).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Graphics_Imaging`, `Storage_Streams`*"]
     pub fn CloneStream(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IRandomAccessStream> {
         let this = &::windows::runtime::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
         unsafe {
@@ -2810,6 +2983,7 @@ impl ImageStream {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Graphics_Imaging`, `Storage_Streams`*"]
     pub fn CanRead(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
         unsafe {
@@ -2818,6 +2992,7 @@ impl ImageStream {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Graphics_Imaging`, `Storage_Streams`*"]
     pub fn CanWrite(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
         unsafe {
@@ -3045,6 +3220,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IRand
 unsafe impl ::std::marker::Send for ImageStream {}
 #[cfg(feature = "Storage_Streams")]
 unsafe impl ::std::marker::Sync for ImageStream {}
+#[doc = "*Required features: `Graphics_Imaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct JpegSubsamplingMode(pub i32);
@@ -3066,10 +3242,12 @@ unsafe impl ::windows::runtime::Abi for JpegSubsamplingMode {
 unsafe impl ::windows::runtime::RuntimeType for JpegSubsamplingMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.JpegSubsamplingMode;i4)");
 }
+#[doc = "*Required features: `Graphics_Imaging`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PixelDataProvider(::windows::runtime::IInspectable);
 impl PixelDataProvider {
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn DetachPixelData(&self) -> ::windows::runtime::Result<::windows::runtime::Array<u8>> {
         let this = self;
         unsafe {
@@ -3130,6 +3308,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for PixelDataProvider {}
 unsafe impl ::std::marker::Sync for PixelDataProvider {}
+#[doc = "*Required features: `Graphics_Imaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PngFilterMode(pub i32);
@@ -3154,10 +3333,12 @@ unsafe impl ::windows::runtime::Abi for PngFilterMode {
 unsafe impl ::windows::runtime::RuntimeType for PngFilterMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.PngFilterMode;i4)");
 }
+#[doc = "*Required features: `Graphics_Imaging`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct SoftwareBitmap(::windows::runtime::IInspectable);
 impl SoftwareBitmap {
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn BitmapPixelFormat(&self) -> ::windows::runtime::Result<BitmapPixelFormat> {
         let this = self;
         unsafe {
@@ -3165,6 +3346,7 @@ impl SoftwareBitmap {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<BitmapPixelFormat>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn BitmapAlphaMode(&self) -> ::windows::runtime::Result<BitmapAlphaMode> {
         let this = self;
         unsafe {
@@ -3172,6 +3354,7 @@ impl SoftwareBitmap {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<BitmapAlphaMode>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn PixelWidth(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -3179,6 +3362,7 @@ impl SoftwareBitmap {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn PixelHeight(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -3186,6 +3370,7 @@ impl SoftwareBitmap {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn IsReadOnly(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -3193,10 +3378,12 @@ impl SoftwareBitmap {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn SetDpiX(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn DpiX(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -3204,10 +3391,12 @@ impl SoftwareBitmap {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn SetDpiY(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn DpiY(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -3215,6 +3404,7 @@ impl SoftwareBitmap {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn LockBuffer(&self, mode: BitmapBufferAccessMode) -> ::windows::runtime::Result<BitmapBuffer> {
         let this = self;
         unsafe {
@@ -3222,20 +3412,24 @@ impl SoftwareBitmap {
             (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), mode, &mut result__).from_abi::<BitmapBuffer>(result__)
         }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn CopyTo<'a, Param0: ::windows::runtime::IntoParam<'a, SoftwareBitmap>>(&self, bitmap: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), bitmap.into_param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Graphics_Imaging`, `Storage_Streams`*"]
     pub fn CopyFromBuffer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(&self, buffer: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), buffer.into_param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Graphics_Imaging`, `Storage_Streams`*"]
     pub fn CopyToBuffer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(&self, buffer: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), buffer.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn GetReadOnlyView(&self) -> ::windows::runtime::Result<SoftwareBitmap> {
         let this = self;
         unsafe {
@@ -3244,34 +3438,40 @@ impl SoftwareBitmap {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Graphics_Imaging`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn Create(format: BitmapPixelFormat, width: i32, height: i32) -> ::windows::runtime::Result<SoftwareBitmap> {
         Self::ISoftwareBitmapFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), format, width, height, &mut result__).from_abi::<SoftwareBitmap>(result__)
         })
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn CreateWithAlpha(format: BitmapPixelFormat, width: i32, height: i32, alpha: BitmapAlphaMode) -> ::windows::runtime::Result<SoftwareBitmap> {
         Self::ISoftwareBitmapFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), format, width, height, alpha, &mut result__).from_abi::<SoftwareBitmap>(result__)
         })
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn Copy<'a, Param0: ::windows::runtime::IntoParam<'a, SoftwareBitmap>>(source: Param0) -> ::windows::runtime::Result<SoftwareBitmap> {
         Self::ISoftwareBitmapStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), source.into_param().abi(), &mut result__).from_abi::<SoftwareBitmap>(result__)
         })
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn Convert<'a, Param0: ::windows::runtime::IntoParam<'a, SoftwareBitmap>>(source: Param0, format: BitmapPixelFormat) -> ::windows::runtime::Result<SoftwareBitmap> {
         Self::ISoftwareBitmapStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), source.into_param().abi(), format, &mut result__).from_abi::<SoftwareBitmap>(result__)
         })
     }
+    #[doc = "*Required features: `Graphics_Imaging`*"]
     pub fn ConvertWithAlpha<'a, Param0: ::windows::runtime::IntoParam<'a, SoftwareBitmap>>(source: Param0, format: BitmapPixelFormat, alpha: BitmapAlphaMode) -> ::windows::runtime::Result<SoftwareBitmap> {
         Self::ISoftwareBitmapStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -3279,6 +3479,7 @@ impl SoftwareBitmap {
         })
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Graphics_Imaging`, `Storage_Streams`*"]
     pub fn CreateCopyFromBuffer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(source: Param0, format: BitmapPixelFormat, width: i32, height: i32) -> ::windows::runtime::Result<SoftwareBitmap> {
         Self::ISoftwareBitmapStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -3286,6 +3487,7 @@ impl SoftwareBitmap {
         })
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Graphics_Imaging`, `Storage_Streams`*"]
     pub fn CreateCopyWithAlphaFromBuffer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(source: Param0, format: BitmapPixelFormat, width: i32, height: i32, alpha: BitmapAlphaMode) -> ::windows::runtime::Result<SoftwareBitmap> {
         Self::ISoftwareBitmapStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -3293,6 +3495,7 @@ impl SoftwareBitmap {
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Graphics_DirectX_Direct3D11"))]
+    #[doc = "*Required features: `Graphics_Imaging`, `Foundation`, `Graphics_DirectX_Direct3D11`*"]
     pub fn CreateCopyFromSurfaceAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::DirectX::Direct3D11::IDirect3DSurface>>(surface: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>> {
         Self::ISoftwareBitmapStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -3300,6 +3503,7 @@ impl SoftwareBitmap {
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Graphics_DirectX_Direct3D11"))]
+    #[doc = "*Required features: `Graphics_Imaging`, `Foundation`, `Graphics_DirectX_Direct3D11`*"]
     pub fn CreateCopyWithAlphaFromSurfaceAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::DirectX::Direct3D11::IDirect3DSurface>>(surface: Param0, alpha: BitmapAlphaMode) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>> {
         Self::ISoftwareBitmapStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -3393,6 +3597,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> 
 }
 unsafe impl ::std::marker::Send for SoftwareBitmap {}
 unsafe impl ::std::marker::Sync for SoftwareBitmap {}
+#[doc = "*Required features: `Graphics_Imaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TiffCompressionMode(pub i32);

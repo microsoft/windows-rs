@@ -60,10 +60,12 @@ pub struct IRadialControllerIndependentInputSourceStatics_abi(
     #[cfg(feature = "ApplicationModel_Core")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, view: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "ApplicationModel_Core"))] usize,
 );
+#[doc = "*Required features: `UI_Input_Core`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct RadialControllerIndependentInputSource(::windows::runtime::IInspectable);
 impl RadialControllerIndependentInputSource {
+    #[doc = "*Required features: `UI_Input_Core`*"]
     pub fn Controller(&self) -> ::windows::runtime::Result<super::RadialController> {
         let this = self;
         unsafe {
@@ -72,6 +74,7 @@ impl RadialControllerIndependentInputSource {
         }
     }
     #[cfg(feature = "UI_Core")]
+    #[doc = "*Required features: `UI_Input_Core`, `UI_Core`*"]
     pub fn Dispatcher(&self) -> ::windows::runtime::Result<super::super::Core::CoreDispatcher> {
         let this = self;
         unsafe {
@@ -80,6 +83,7 @@ impl RadialControllerIndependentInputSource {
         }
     }
     #[cfg(feature = "ApplicationModel_Core")]
+    #[doc = "*Required features: `UI_Input_Core`, `ApplicationModel_Core`*"]
     pub fn CreateForView<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::ApplicationModel::Core::CoreApplicationView>>(view: Param0) -> ::windows::runtime::Result<RadialControllerIndependentInputSource> {
         Self::IRadialControllerIndependentInputSourceStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -87,6 +91,7 @@ impl RadialControllerIndependentInputSource {
         })
     }
     #[cfg(feature = "System")]
+    #[doc = "*Required features: `UI_Input_Core`, `System`*"]
     pub fn DispatcherQueue(&self) -> ::windows::runtime::Result<super::super::super::System::DispatcherQueue> {
         let this = &::windows::runtime::Interface::cast::<IRadialControllerIndependentInputSource2>(self)?;
         unsafe {

@@ -1,8 +1,10 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Networking_Proximity`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ConnectionRequestedEventArgs(::windows::runtime::IInspectable);
 impl ConnectionRequestedEventArgs {
+    #[doc = "*Required features: `Networking_Proximity`*"]
     pub fn PeerInformation(&self) -> ::windows::runtime::Result<PeerInformation> {
         let this = self;
         unsafe {
@@ -63,6 +65,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for ConnectionRequestedEventArgs {}
 unsafe impl ::std::marker::Sync for ConnectionRequestedEventArgs {}
+#[doc = "*Required features: `Networking_Proximity`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct DeviceArrivedEventHandler(::windows::runtime::IUnknown);
@@ -75,6 +78,7 @@ impl DeviceArrivedEventHandler {
         };
         unsafe { std::mem::transmute(::std::boxed::Box::new(com)) }
     }
+    #[doc = "*Required features: `Networking_Proximity`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, ProximityDevice>>(&self, sender: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).3)(::std::mem::transmute_copy(this), sender.into_param().abi()).ok() }
@@ -134,6 +138,7 @@ impl<F: FnMut(&::std::option::Option<ProximityDevice>) -> ::windows::runtime::Re
         ((*this).invoke)(&*(&sender as *const <ProximityDevice as ::windows::runtime::Abi>::Abi as *const <ProximityDevice as ::windows::runtime::Abi>::DefaultType)).into()
     }
 }
+#[doc = "*Required features: `Networking_Proximity`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct DeviceDepartedEventHandler(::windows::runtime::IUnknown);
@@ -146,6 +151,7 @@ impl DeviceDepartedEventHandler {
         };
         unsafe { std::mem::transmute(::std::boxed::Box::new(com)) }
     }
+    #[doc = "*Required features: `Networking_Proximity`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, ProximityDevice>>(&self, sender: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).3)(::std::mem::transmute_copy(this), sender.into_param().abi()).ok() }
@@ -502,6 +508,7 @@ pub struct ITriggeredConnectionStateChangedEventArgs_abi(
     #[cfg(feature = "Networking_Sockets")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Networking_Sockets"))] usize,
 );
+#[doc = "*Required features: `Networking_Proximity`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MessageReceivedHandler(::windows::runtime::IUnknown);
@@ -514,6 +521,7 @@ impl MessageReceivedHandler {
         };
         unsafe { std::mem::transmute(::std::boxed::Box::new(com)) }
     }
+    #[doc = "*Required features: `Networking_Proximity`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, ProximityDevice>, Param1: ::windows::runtime::IntoParam<'a, ProximityMessage>>(&self, sender: Param0, message: Param1) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).3)(::std::mem::transmute_copy(this), sender.into_param().abi(), message.into_param().abi()).ok() }
@@ -573,6 +581,7 @@ impl<F: FnMut(&::std::option::Option<ProximityDevice>, &::std::option::Option<Pr
         ((*this).invoke)(&*(&sender as *const <ProximityDevice as ::windows::runtime::Abi>::Abi as *const <ProximityDevice as ::windows::runtime::Abi>::DefaultType), &*(&message as *const <ProximityMessage as ::windows::runtime::Abi>::Abi as *const <ProximityMessage as ::windows::runtime::Abi>::DefaultType)).into()
     }
 }
+#[doc = "*Required features: `Networking_Proximity`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MessageTransmittedHandler(::windows::runtime::IUnknown);
@@ -585,6 +594,7 @@ impl MessageTransmittedHandler {
         };
         unsafe { std::mem::transmute(::std::boxed::Box::new(com)) }
     }
+    #[doc = "*Required features: `Networking_Proximity`*"]
     pub fn Invoke<'a, Param0: ::windows::runtime::IntoParam<'a, ProximityDevice>>(&self, sender: Param0, messageid: i64) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).3)(::std::mem::transmute_copy(this), sender.into_param().abi(), messageid).ok() }
@@ -644,6 +654,7 @@ impl<F: FnMut(&::std::option::Option<ProximityDevice>, i64) -> ::windows::runtim
         ((*this).invoke)(&*(&sender as *const <ProximityDevice as ::windows::runtime::Abi>::Abi as *const <ProximityDevice as ::windows::runtime::Abi>::DefaultType), messageid).into()
     }
 }
+#[doc = "*Required features: `Networking_Proximity`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PeerDiscoveryTypes(pub u32);
@@ -692,44 +703,54 @@ impl ::std::ops::Not for PeerDiscoveryTypes {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Networking_Proximity`*"]
 pub struct PeerFinder {}
 impl PeerFinder {
+    #[doc = "*Required features: `Networking_Proximity`*"]
     pub fn AllowBluetooth() -> ::windows::runtime::Result<bool> {
         Self::IPeerFinderStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: `Networking_Proximity`*"]
     pub fn SetAllowBluetooth(value: bool) -> ::windows::runtime::Result<()> {
         Self::IPeerFinderStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() })
     }
+    #[doc = "*Required features: `Networking_Proximity`*"]
     pub fn AllowInfrastructure() -> ::windows::runtime::Result<bool> {
         Self::IPeerFinderStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: `Networking_Proximity`*"]
     pub fn SetAllowInfrastructure(value: bool) -> ::windows::runtime::Result<()> {
         Self::IPeerFinderStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() })
     }
+    #[doc = "*Required features: `Networking_Proximity`*"]
     pub fn AllowWiFiDirect() -> ::windows::runtime::Result<bool> {
         Self::IPeerFinderStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: `Networking_Proximity`*"]
     pub fn SetAllowWiFiDirect(value: bool) -> ::windows::runtime::Result<()> {
         Self::IPeerFinderStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() })
     }
+    #[doc = "*Required features: `Networking_Proximity`*"]
     pub fn DisplayName() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IPeerFinderStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Networking_Proximity`*"]
     pub fn SetDisplayName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(value: Param0) -> ::windows::runtime::Result<()> {
         Self::IPeerFinderStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() })
     }
+    #[doc = "*Required features: `Networking_Proximity`*"]
     pub fn SupportedDiscoveryTypes() -> ::windows::runtime::Result<PeerDiscoveryTypes> {
         Self::IPeerFinderStatics(|this| unsafe {
             let mut result__: PeerDiscoveryTypes = ::std::mem::zeroed();
@@ -737,22 +758,27 @@ impl PeerFinder {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Networking_Proximity`, `Foundation_Collections`*"]
     pub fn AlternateIdentities() -> ::windows::runtime::Result<super::super::Foundation::Collections::IMap<::windows::runtime::HSTRING, ::windows::runtime::HSTRING>> {
         Self::IPeerFinderStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IMap<::windows::runtime::HSTRING, ::windows::runtime::HSTRING>>(result__)
         })
     }
+    #[doc = "*Required features: `Networking_Proximity`*"]
     pub fn Start() -> ::windows::runtime::Result<()> {
         Self::IPeerFinderStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this)).ok() })
     }
+    #[doc = "*Required features: `Networking_Proximity`*"]
     pub fn StartWithMessage<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(peermessage: Param0) -> ::windows::runtime::Result<()> {
         Self::IPeerFinderStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), peermessage.into_param().abi()).ok() })
     }
+    #[doc = "*Required features: `Networking_Proximity`*"]
     pub fn Stop() -> ::windows::runtime::Result<()> {
         Self::IPeerFinderStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this)).ok() })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Networking_Proximity`, `Foundation`*"]
     pub fn TriggeredConnectionStateChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<::windows::runtime::IInspectable, TriggeredConnectionStateChangedEventArgs>>>(handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IPeerFinderStatics(|this| unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
@@ -760,10 +786,12 @@ impl PeerFinder {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Networking_Proximity`, `Foundation`*"]
     pub fn RemoveTriggeredConnectionStateChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(cookie: Param0) -> ::windows::runtime::Result<()> {
         Self::IPeerFinderStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), cookie.into_param().abi()).ok() })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Networking_Proximity`, `Foundation`*"]
     pub fn ConnectionRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<::windows::runtime::IInspectable, ConnectionRequestedEventArgs>>>(handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IPeerFinderStatics(|this| unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
@@ -771,10 +799,12 @@ impl PeerFinder {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Networking_Proximity`, `Foundation`*"]
     pub fn RemoveConnectionRequested<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(cookie: Param0) -> ::windows::runtime::Result<()> {
         Self::IPeerFinderStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), cookie.into_param().abi()).ok() })
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Networking_Proximity`, `Foundation`, `Foundation_Collections`*"]
     pub fn FindAllPeersAsync() -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PeerInformation>>> {
         Self::IPeerFinderStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -782,22 +812,26 @@ impl PeerFinder {
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Networking_Sockets"))]
+    #[doc = "*Required features: `Networking_Proximity`, `Foundation`, `Networking_Sockets`*"]
     pub fn ConnectAsync<'a, Param0: ::windows::runtime::IntoParam<'a, PeerInformation>>(peerinformation: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::Sockets::StreamSocket>> {
         Self::IPeerFinderStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), peerinformation.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::Sockets::StreamSocket>>(result__)
         })
     }
+    #[doc = "*Required features: `Networking_Proximity`*"]
     pub fn Role() -> ::windows::runtime::Result<PeerRole> {
         Self::IPeerFinderStatics2(|this| unsafe {
             let mut result__: PeerRole = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PeerRole>(result__)
         })
     }
+    #[doc = "*Required features: `Networking_Proximity`*"]
     pub fn SetRole(value: PeerRole) -> ::windows::runtime::Result<()> {
         Self::IPeerFinderStatics2(|this| unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() })
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Networking_Proximity`, `Storage_Streams`*"]
     pub fn DiscoveryData() -> ::windows::runtime::Result<super::super::Storage::Streams::IBuffer> {
         Self::IPeerFinderStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -805,9 +839,11 @@ impl PeerFinder {
         })
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Networking_Proximity`, `Storage_Streams`*"]
     pub fn SetDiscoveryData<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(value: Param0) -> ::windows::runtime::Result<()> {
         Self::IPeerFinderStatics2(|this| unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() })
     }
+    #[doc = "*Required features: `Networking_Proximity`*"]
     pub fn CreateWatcher() -> ::windows::runtime::Result<PeerWatcher> {
         Self::IPeerFinderStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -826,10 +862,12 @@ impl PeerFinder {
 impl ::windows::runtime::RuntimeName for PeerFinder {
     const NAME: &'static str = "Windows.Networking.Proximity.PeerFinder";
 }
+#[doc = "*Required features: `Networking_Proximity`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PeerInformation(::windows::runtime::IInspectable);
 impl PeerInformation {
+    #[doc = "*Required features: `Networking_Proximity`*"]
     pub fn DisplayName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -837,6 +875,7 @@ impl PeerInformation {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Networking_Proximity`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IPeerInformation3>(self)?;
         unsafe {
@@ -845,6 +884,7 @@ impl PeerInformation {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Networking_Proximity`, `Storage_Streams`*"]
     pub fn DiscoveryData(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IBuffer> {
         let this = &::windows::runtime::Interface::cast::<IPeerInformation3>(self)?;
         unsafe {
@@ -852,6 +892,7 @@ impl PeerInformation {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
+    #[doc = "*Required features: `Networking_Proximity`*"]
     pub fn HostName(&self) -> ::windows::runtime::Result<super::HostName> {
         let this = &::windows::runtime::Interface::cast::<IPeerInformationWithHostAndService>(self)?;
         unsafe {
@@ -859,6 +900,7 @@ impl PeerInformation {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::HostName>(result__)
         }
     }
+    #[doc = "*Required features: `Networking_Proximity`*"]
     pub fn ServiceName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IPeerInformationWithHostAndService>(self)?;
         unsafe {
@@ -919,6 +961,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for PeerInformation {}
 unsafe impl ::std::marker::Sync for PeerInformation {}
+#[doc = "*Required features: `Networking_Proximity`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PeerRole(pub i32);
@@ -939,11 +982,13 @@ unsafe impl ::windows::runtime::Abi for PeerRole {
 unsafe impl ::windows::runtime::RuntimeType for PeerRole {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.Proximity.PeerRole;i4)");
 }
+#[doc = "*Required features: `Networking_Proximity`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PeerWatcher(::windows::runtime::IInspectable);
 impl PeerWatcher {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Networking_Proximity`, `Foundation`*"]
     pub fn Added<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<PeerWatcher, PeerInformation>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -952,11 +997,13 @@ impl PeerWatcher {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Networking_Proximity`, `Foundation`*"]
     pub fn RemoveAdded<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Networking_Proximity`, `Foundation`*"]
     pub fn Removed<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<PeerWatcher, PeerInformation>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -965,11 +1012,13 @@ impl PeerWatcher {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Networking_Proximity`, `Foundation`*"]
     pub fn RemoveRemoved<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Networking_Proximity`, `Foundation`*"]
     pub fn Updated<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<PeerWatcher, PeerInformation>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -978,11 +1027,13 @@ impl PeerWatcher {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Networking_Proximity`, `Foundation`*"]
     pub fn RemoveUpdated<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Networking_Proximity`, `Foundation`*"]
     pub fn EnumerationCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<PeerWatcher, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -991,11 +1042,13 @@ impl PeerWatcher {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Networking_Proximity`, `Foundation`*"]
     pub fn RemoveEnumerationCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Networking_Proximity`, `Foundation`*"]
     pub fn Stopped<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<PeerWatcher, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1004,10 +1057,12 @@ impl PeerWatcher {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Networking_Proximity`, `Foundation`*"]
     pub fn RemoveStopped<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Networking_Proximity`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<PeerWatcherStatus> {
         let this = self;
         unsafe {
@@ -1015,10 +1070,12 @@ impl PeerWatcher {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PeerWatcherStatus>(result__)
         }
     }
+    #[doc = "*Required features: `Networking_Proximity`*"]
     pub fn Start(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Networking_Proximity`*"]
     pub fn Stop(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this)).ok() }
@@ -1076,6 +1133,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for PeerWatcher {}
 unsafe impl ::std::marker::Sync for PeerWatcher {}
+#[doc = "*Required features: `Networking_Proximity`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PeerWatcherStatus(pub i32);
@@ -1099,10 +1157,12 @@ unsafe impl ::windows::runtime::Abi for PeerWatcherStatus {
 unsafe impl ::windows::runtime::RuntimeType for PeerWatcherStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.Proximity.PeerWatcherStatus;i4)");
 }
+#[doc = "*Required features: `Networking_Proximity`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ProximityDevice(::windows::runtime::IInspectable);
 impl ProximityDevice {
+    #[doc = "*Required features: `Networking_Proximity`*"]
     pub fn SubscribeForMessage<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, MessageReceivedHandler>>(&self, messagetype: Param0, messagereceivedhandler: Param1) -> ::windows::runtime::Result<i64> {
         let this = self;
         unsafe {
@@ -1110,6 +1170,7 @@ impl ProximityDevice {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), messagetype.into_param().abi(), messagereceivedhandler.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
+    #[doc = "*Required features: `Networking_Proximity`*"]
     pub fn PublishMessage<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, messagetype: Param0, message: Param1) -> ::windows::runtime::Result<i64> {
         let this = self;
         unsafe {
@@ -1117,6 +1178,7 @@ impl ProximityDevice {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), messagetype.into_param().abi(), message.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
+    #[doc = "*Required features: `Networking_Proximity`*"]
     pub fn PublishMessageWithCallback<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, MessageTransmittedHandler>>(&self, messagetype: Param0, message: Param1, messagetransmittedhandler: Param2) -> ::windows::runtime::Result<i64> {
         let this = self;
         unsafe {
@@ -1125,6 +1187,7 @@ impl ProximityDevice {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Networking_Proximity`, `Storage_Streams`*"]
     pub fn PublishBinaryMessage<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(&self, messagetype: Param0, message: Param1) -> ::windows::runtime::Result<i64> {
         let this = self;
         unsafe {
@@ -1133,6 +1196,7 @@ impl ProximityDevice {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Networking_Proximity`, `Storage_Streams`*"]
     pub fn PublishBinaryMessageWithCallback<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IBuffer>, Param2: ::windows::runtime::IntoParam<'a, MessageTransmittedHandler>>(&self, messagetype: Param0, message: Param1, messagetransmittedhandler: Param2) -> ::windows::runtime::Result<i64> {
         let this = self;
         unsafe {
@@ -1141,6 +1205,7 @@ impl ProximityDevice {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Networking_Proximity`, `Foundation`*"]
     pub fn PublishUriMessage<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>>(&self, message: Param0) -> ::windows::runtime::Result<i64> {
         let this = self;
         unsafe {
@@ -1149,6 +1214,7 @@ impl ProximityDevice {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Networking_Proximity`, `Foundation`*"]
     pub fn PublishUriMessageWithCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Uri>, Param1: ::windows::runtime::IntoParam<'a, MessageTransmittedHandler>>(&self, message: Param0, messagetransmittedhandler: Param1) -> ::windows::runtime::Result<i64> {
         let this = self;
         unsafe {
@@ -1156,15 +1222,18 @@ impl ProximityDevice {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), message.into_param().abi(), messagetransmittedhandler.into_param().abi(), &mut result__).from_abi::<i64>(result__)
         }
     }
+    #[doc = "*Required features: `Networking_Proximity`*"]
     pub fn StopSubscribingForMessage(&self, subscriptionid: i64) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), subscriptionid).ok() }
     }
+    #[doc = "*Required features: `Networking_Proximity`*"]
     pub fn StopPublishingMessage(&self, messageid: i64) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), messageid).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Networking_Proximity`, `Foundation`*"]
     pub fn DeviceArrived<'a, Param0: ::windows::runtime::IntoParam<'a, DeviceArrivedEventHandler>>(&self, arrivedhandler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1173,11 +1242,13 @@ impl ProximityDevice {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Networking_Proximity`, `Foundation`*"]
     pub fn RemoveDeviceArrived<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Networking_Proximity`, `Foundation`*"]
     pub fn DeviceDeparted<'a, Param0: ::windows::runtime::IntoParam<'a, DeviceDepartedEventHandler>>(&self, departedhandler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1186,10 +1257,12 @@ impl ProximityDevice {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Networking_Proximity`, `Foundation`*"]
     pub fn RemoveDeviceDeparted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Networking_Proximity`*"]
     pub fn MaxMessageBytes(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -1197,6 +1270,7 @@ impl ProximityDevice {
             (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Networking_Proximity`*"]
     pub fn BitsPerSecond(&self) -> ::windows::runtime::Result<u64> {
         let this = self;
         unsafe {
@@ -1204,6 +1278,7 @@ impl ProximityDevice {
             (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
+    #[doc = "*Required features: `Networking_Proximity`*"]
     pub fn DeviceId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1211,18 +1286,21 @@ impl ProximityDevice {
             (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Networking_Proximity`*"]
     pub fn GetDeviceSelector() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IProximityDeviceStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Networking_Proximity`*"]
     pub fn GetDefault() -> ::windows::runtime::Result<ProximityDevice> {
         Self::IProximityDeviceStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ProximityDevice>(result__)
         })
     }
+    #[doc = "*Required features: `Networking_Proximity`*"]
     pub fn FromId<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(deviceid: Param0) -> ::windows::runtime::Result<ProximityDevice> {
         Self::IProximityDeviceStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1286,10 +1364,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for ProximityDevice {}
 unsafe impl ::std::marker::Sync for ProximityDevice {}
+#[doc = "*Required features: `Networking_Proximity`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ProximityMessage(::windows::runtime::IInspectable);
 impl ProximityMessage {
+    #[doc = "*Required features: `Networking_Proximity`*"]
     pub fn MessageType(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1297,6 +1377,7 @@ impl ProximityMessage {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Networking_Proximity`*"]
     pub fn SubscriptionId(&self) -> ::windows::runtime::Result<i64> {
         let this = self;
         unsafe {
@@ -1305,6 +1386,7 @@ impl ProximityMessage {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Networking_Proximity`, `Storage_Streams`*"]
     pub fn Data(&self) -> ::windows::runtime::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
@@ -1312,6 +1394,7 @@ impl ProximityMessage {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
+    #[doc = "*Required features: `Networking_Proximity`*"]
     pub fn DataAsString(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1372,6 +1455,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for ProximityMessage {}
 unsafe impl ::std::marker::Sync for ProximityMessage {}
+#[doc = "*Required features: `Networking_Proximity`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TriggeredConnectState(pub i32);
@@ -1395,10 +1479,12 @@ unsafe impl ::windows::runtime::Abi for TriggeredConnectState {
 unsafe impl ::windows::runtime::RuntimeType for TriggeredConnectState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.Proximity.TriggeredConnectState;i4)");
 }
+#[doc = "*Required features: `Networking_Proximity`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct TriggeredConnectionStateChangedEventArgs(::windows::runtime::IInspectable);
 impl TriggeredConnectionStateChangedEventArgs {
+    #[doc = "*Required features: `Networking_Proximity`*"]
     pub fn State(&self) -> ::windows::runtime::Result<TriggeredConnectState> {
         let this = self;
         unsafe {
@@ -1406,6 +1492,7 @@ impl TriggeredConnectionStateChangedEventArgs {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TriggeredConnectState>(result__)
         }
     }
+    #[doc = "*Required features: `Networking_Proximity`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -1414,6 +1501,7 @@ impl TriggeredConnectionStateChangedEventArgs {
         }
     }
     #[cfg(feature = "Networking_Sockets")]
+    #[doc = "*Required features: `Networking_Proximity`, `Networking_Sockets`*"]
     pub fn Socket(&self) -> ::windows::runtime::Result<super::Sockets::StreamSocket> {
         let this = self;
         unsafe {

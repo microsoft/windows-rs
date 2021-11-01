@@ -36,10 +36,10 @@ pub fn gen_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> TokenStr
 
         let is_exclusive = def.is_exclusive();
 
-        let hidden = if is_exclusive {
+        let doc = if is_exclusive {
             quote! { #[doc(hidden)] }
         } else {
-            quote! {}
+            gen.gen_cfg_doc(&BTreeSet::new())
         };
 
         // The exclusive interface may be a factory interface and then we still need a type to use
@@ -84,7 +84,7 @@ pub fn gen_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> TokenStr
         quote! {
             #[repr(transparent)]
             #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::std::fmt::Debug)]
-            #hidden
+            #doc
             pub struct #name(::windows::runtime::IInspectable, #(#struct_phantoms,)*) where #constraints;
             unsafe impl<#constraints> ::windows::runtime::Interface for #name {
                 type Vtable = #abi_name;

@@ -1,4 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Media_MediaProperties`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AudioEncodingProperties(::windows::runtime::IInspectable);
@@ -10,10 +11,12 @@ impl AudioEncodingProperties {
         static mut SHARED: ::windows::runtime::FactoryCache<AudioEncodingProperties, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn SetBitrate(&self, value: u32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn Bitrate(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -21,10 +24,12 @@ impl AudioEncodingProperties {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn SetChannelCount(&self, value: u32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn ChannelCount(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -32,10 +37,12 @@ impl AudioEncodingProperties {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn SetSampleRate(&self, value: u32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn SampleRate(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -43,10 +50,12 @@ impl AudioEncodingProperties {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn SetBitsPerSample(&self, value: u32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn BitsPerSample(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -54,15 +63,18 @@ impl AudioEncodingProperties {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn SetFormatUserData(&self, value: &[<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioEncodingPropertiesWithFormatUserData>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value.len() as u32, ::std::mem::transmute(value.as_ptr())).ok() }
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn GetFormatUserData(&self, value: &mut ::windows::runtime::Array<u8>) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IAudioEncodingPropertiesWithFormatUserData>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Media_MediaProperties`, `Foundation_Collections`*"]
     pub fn Properties(&self) -> ::windows::runtime::Result<MediaPropertySet> {
         let this = &::windows::runtime::Interface::cast::<IMediaEncodingProperties>(self)?;
         unsafe {
@@ -70,6 +82,7 @@ impl AudioEncodingProperties {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MediaPropertySet>(result__)
         }
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn Type(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IMediaEncodingProperties>(self)?;
         unsafe {
@@ -77,10 +90,12 @@ impl AudioEncodingProperties {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn SetSubtype<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IMediaEncodingProperties>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn Subtype(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IMediaEncodingProperties>(self)?;
         unsafe {
@@ -88,36 +103,42 @@ impl AudioEncodingProperties {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn CreateAac(samplerate: u32, channelcount: u32, bitrate: u32) -> ::windows::runtime::Result<AudioEncodingProperties> {
         Self::IAudioEncodingPropertiesStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), samplerate, channelcount, bitrate, &mut result__).from_abi::<AudioEncodingProperties>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn CreateAacAdts(samplerate: u32, channelcount: u32, bitrate: u32) -> ::windows::runtime::Result<AudioEncodingProperties> {
         Self::IAudioEncodingPropertiesStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), samplerate, channelcount, bitrate, &mut result__).from_abi::<AudioEncodingProperties>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn CreateMp3(samplerate: u32, channelcount: u32, bitrate: u32) -> ::windows::runtime::Result<AudioEncodingProperties> {
         Self::IAudioEncodingPropertiesStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), samplerate, channelcount, bitrate, &mut result__).from_abi::<AudioEncodingProperties>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn CreatePcm(samplerate: u32, channelcount: u32, bitspersample: u32) -> ::windows::runtime::Result<AudioEncodingProperties> {
         Self::IAudioEncodingPropertiesStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), samplerate, channelcount, bitspersample, &mut result__).from_abi::<AudioEncodingProperties>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn CreateWma(samplerate: u32, channelcount: u32, bitrate: u32) -> ::windows::runtime::Result<AudioEncodingProperties> {
         Self::IAudioEncodingPropertiesStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), samplerate, channelcount, bitrate, &mut result__).from_abi::<AudioEncodingProperties>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn IsSpatial(&self) -> ::windows::runtime::Result<bool> {
         let this = &::windows::runtime::Interface::cast::<IAudioEncodingProperties2>(self)?;
         unsafe {
@@ -125,18 +146,21 @@ impl AudioEncodingProperties {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn CreateAlac(samplerate: u32, channelcount: u32, bitspersample: u32) -> ::windows::runtime::Result<AudioEncodingProperties> {
         Self::IAudioEncodingPropertiesStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), samplerate, channelcount, bitspersample, &mut result__).from_abi::<AudioEncodingProperties>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn CreateFlac(samplerate: u32, channelcount: u32, bitspersample: u32) -> ::windows::runtime::Result<AudioEncodingProperties> {
         Self::IAudioEncodingPropertiesStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), samplerate, channelcount, bitspersample, &mut result__).from_abi::<AudioEncodingProperties>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn Copy(&self) -> ::windows::runtime::Result<AudioEncodingProperties> {
         let this = &::windows::runtime::Interface::cast::<IAudioEncodingProperties3>(self)?;
         unsafe {
@@ -227,6 +251,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IMediaEncodingProperties> for &AudioE
 }
 unsafe impl ::std::marker::Send for AudioEncodingProperties {}
 unsafe impl ::std::marker::Sync for AudioEncodingProperties {}
+#[doc = "*Required features: `Media_MediaProperties`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AudioEncodingQuality(pub i32);
@@ -248,6 +273,7 @@ unsafe impl ::windows::runtime::Abi for AudioEncodingQuality {
 unsafe impl ::windows::runtime::RuntimeType for AudioEncodingQuality {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.MediaProperties.AudioEncodingQuality;i4)");
 }
+#[doc = "*Required features: `Media_MediaProperties`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ContainerEncodingProperties(::windows::runtime::IInspectable);
@@ -260,6 +286,7 @@ impl ContainerEncodingProperties {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Media_MediaProperties`, `Foundation_Collections`*"]
     pub fn Properties(&self) -> ::windows::runtime::Result<MediaPropertySet> {
         let this = &::windows::runtime::Interface::cast::<IMediaEncodingProperties>(self)?;
         unsafe {
@@ -267,6 +294,7 @@ impl ContainerEncodingProperties {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MediaPropertySet>(result__)
         }
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn Type(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IMediaEncodingProperties>(self)?;
         unsafe {
@@ -274,10 +302,12 @@ impl ContainerEncodingProperties {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn SetSubtype<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IMediaEncodingProperties>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn Subtype(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IMediaEncodingProperties>(self)?;
         unsafe {
@@ -285,6 +315,7 @@ impl ContainerEncodingProperties {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn Copy(&self) -> ::windows::runtime::Result<ContainerEncodingProperties> {
         let this = &::windows::runtime::Interface::cast::<IContainerEncodingProperties2>(self)?;
         unsafe {
@@ -367,62 +398,73 @@ impl<'a> ::windows::runtime::IntoParam<'a, IMediaEncodingProperties> for &Contai
 }
 unsafe impl ::std::marker::Send for ContainerEncodingProperties {}
 unsafe impl ::std::marker::Sync for ContainerEncodingProperties {}
+#[doc = "*Required features: `Media_MediaProperties`*"]
 pub struct H264ProfileIds {}
 impl H264ProfileIds {
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn ConstrainedBaseline() -> ::windows::runtime::Result<i32> {
         Self::IH264ProfileIdsStatics(|this| unsafe {
             let mut result__: i32 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn Baseline() -> ::windows::runtime::Result<i32> {
         Self::IH264ProfileIdsStatics(|this| unsafe {
             let mut result__: i32 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn Extended() -> ::windows::runtime::Result<i32> {
         Self::IH264ProfileIdsStatics(|this| unsafe {
             let mut result__: i32 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn Main() -> ::windows::runtime::Result<i32> {
         Self::IH264ProfileIdsStatics(|this| unsafe {
             let mut result__: i32 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn High() -> ::windows::runtime::Result<i32> {
         Self::IH264ProfileIdsStatics(|this| unsafe {
             let mut result__: i32 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn High10() -> ::windows::runtime::Result<i32> {
         Self::IH264ProfileIdsStatics(|this| unsafe {
             let mut result__: i32 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn High422() -> ::windows::runtime::Result<i32> {
         Self::IH264ProfileIdsStatics(|this| unsafe {
             let mut result__: i32 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn High444() -> ::windows::runtime::Result<i32> {
         Self::IH264ProfileIdsStatics(|this| unsafe {
             let mut result__: i32 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn StereoHigh() -> ::windows::runtime::Result<i32> {
         Self::IH264ProfileIdsStatics(|this| unsafe {
             let mut result__: i32 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn MultiviewHigh() -> ::windows::runtime::Result<i32> {
         Self::IH264ProfileIdsStatics(|this| unsafe {
             let mut result__: i32 = ::std::mem::zeroed();
@@ -872,6 +914,7 @@ pub struct IMediaEncodingProfileStatics3_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Media_MediaProperties`*"]
 pub struct IMediaEncodingProperties(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaEncodingProperties {
     type Vtable = IMediaEncodingProperties_abi;
@@ -879,6 +922,7 @@ unsafe impl ::windows::runtime::Interface for IMediaEncodingProperties {
 }
 impl IMediaEncodingProperties {
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Media_MediaProperties`, `Foundation_Collections`*"]
     pub fn Properties(&self) -> ::windows::runtime::Result<MediaPropertySet> {
         let this = self;
         unsafe {
@@ -886,6 +930,7 @@ impl IMediaEncodingProperties {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MediaPropertySet>(result__)
         }
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn Type(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -893,10 +938,12 @@ impl IMediaEncodingProperties {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn SetSubtype<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn Subtype(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -1356,6 +1403,7 @@ pub struct IVideoEncodingPropertiesStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Media_MediaProperties`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ImageEncodingProperties(::windows::runtime::IInspectable);
@@ -1367,10 +1415,12 @@ impl ImageEncodingProperties {
         static mut SHARED: ::windows::runtime::FactoryCache<ImageEncodingProperties, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn SetWidth(&self, value: u32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn Width(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -1378,10 +1428,12 @@ impl ImageEncodingProperties {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn SetHeight(&self, value: u32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn Height(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -1390,6 +1442,7 @@ impl ImageEncodingProperties {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Media_MediaProperties`, `Foundation_Collections`*"]
     pub fn Properties(&self) -> ::windows::runtime::Result<MediaPropertySet> {
         let this = &::windows::runtime::Interface::cast::<IMediaEncodingProperties>(self)?;
         unsafe {
@@ -1397,6 +1450,7 @@ impl ImageEncodingProperties {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MediaPropertySet>(result__)
         }
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn Type(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IMediaEncodingProperties>(self)?;
         unsafe {
@@ -1404,10 +1458,12 @@ impl ImageEncodingProperties {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn SetSubtype<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IMediaEncodingProperties>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn Subtype(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IMediaEncodingProperties>(self)?;
         unsafe {
@@ -1415,36 +1471,42 @@ impl ImageEncodingProperties {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn CreateJpeg() -> ::windows::runtime::Result<ImageEncodingProperties> {
         Self::IImageEncodingPropertiesStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ImageEncodingProperties>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn CreatePng() -> ::windows::runtime::Result<ImageEncodingProperties> {
         Self::IImageEncodingPropertiesStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ImageEncodingProperties>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn CreateJpegXR() -> ::windows::runtime::Result<ImageEncodingProperties> {
         Self::IImageEncodingPropertiesStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ImageEncodingProperties>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn CreateUncompressed(format: MediaPixelFormat) -> ::windows::runtime::Result<ImageEncodingProperties> {
         Self::IImageEncodingPropertiesStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), format, &mut result__).from_abi::<ImageEncodingProperties>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn CreateBmp() -> ::windows::runtime::Result<ImageEncodingProperties> {
         Self::IImageEncodingPropertiesStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ImageEncodingProperties>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn Copy(&self) -> ::windows::runtime::Result<ImageEncodingProperties> {
         let this = &::windows::runtime::Interface::cast::<IImageEncodingProperties2>(self)?;
         unsafe {
@@ -1452,6 +1514,7 @@ impl ImageEncodingProperties {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ImageEncodingProperties>(result__)
         }
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn CreateHeif() -> ::windows::runtime::Result<ImageEncodingProperties> {
         Self::IImageEncodingPropertiesStatics3(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1545,6 +1608,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IMediaEncodingProperties> for &ImageE
 }
 unsafe impl ::std::marker::Send for ImageEncodingProperties {}
 unsafe impl ::std::marker::Sync for ImageEncodingProperties {}
+#[doc = "*Required features: `Media_MediaProperties`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MediaEncodingProfile(::windows::runtime::IInspectable);
@@ -1556,10 +1620,12 @@ impl MediaEncodingProfile {
         static mut SHARED: ::windows::runtime::FactoryCache<MediaEncodingProfile, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn SetAudio<'a, Param0: ::windows::runtime::IntoParam<'a, AudioEncodingProperties>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn Audio(&self) -> ::windows::runtime::Result<AudioEncodingProperties> {
         let this = self;
         unsafe {
@@ -1567,10 +1633,12 @@ impl MediaEncodingProfile {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AudioEncodingProperties>(result__)
         }
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn SetVideo<'a, Param0: ::windows::runtime::IntoParam<'a, VideoEncodingProperties>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn Video(&self) -> ::windows::runtime::Result<VideoEncodingProperties> {
         let this = self;
         unsafe {
@@ -1578,10 +1646,12 @@ impl MediaEncodingProfile {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<VideoEncodingProperties>(result__)
         }
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn SetContainer<'a, Param0: ::windows::runtime::IntoParam<'a, ContainerEncodingProperties>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn Container(&self) -> ::windows::runtime::Result<ContainerEncodingProperties> {
         let this = self;
         unsafe {
@@ -1589,30 +1659,35 @@ impl MediaEncodingProfile {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ContainerEncodingProperties>(result__)
         }
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn CreateM4a(quality: AudioEncodingQuality) -> ::windows::runtime::Result<MediaEncodingProfile> {
         Self::IMediaEncodingProfileStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), quality, &mut result__).from_abi::<MediaEncodingProfile>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn CreateMp3(quality: AudioEncodingQuality) -> ::windows::runtime::Result<MediaEncodingProfile> {
         Self::IMediaEncodingProfileStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), quality, &mut result__).from_abi::<MediaEncodingProfile>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn CreateWma(quality: AudioEncodingQuality) -> ::windows::runtime::Result<MediaEncodingProfile> {
         Self::IMediaEncodingProfileStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), quality, &mut result__).from_abi::<MediaEncodingProfile>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn CreateMp4(quality: VideoEncodingQuality) -> ::windows::runtime::Result<MediaEncodingProfile> {
         Self::IMediaEncodingProfileStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), quality, &mut result__).from_abi::<MediaEncodingProfile>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn CreateWmv(quality: VideoEncodingQuality) -> ::windows::runtime::Result<MediaEncodingProfile> {
         Self::IMediaEncodingProfileStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1620,6 +1695,7 @@ impl MediaEncodingProfile {
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
+    #[doc = "*Required features: `Media_MediaProperties`, `Foundation`, `Storage`*"]
     pub fn CreateFromFileAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::IStorageFile>>(file: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<MediaEncodingProfile>> {
         Self::IMediaEncodingProfileStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1627,36 +1703,42 @@ impl MediaEncodingProfile {
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Media_MediaProperties`, `Foundation`, `Storage_Streams`*"]
     pub fn CreateFromStreamAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStream>>(stream: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<MediaEncodingProfile>> {
         Self::IMediaEncodingProfileStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), stream.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<MediaEncodingProfile>>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn CreateWav(quality: AudioEncodingQuality) -> ::windows::runtime::Result<MediaEncodingProfile> {
         Self::IMediaEncodingProfileStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), quality, &mut result__).from_abi::<MediaEncodingProfile>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn CreateAvi(quality: VideoEncodingQuality) -> ::windows::runtime::Result<MediaEncodingProfile> {
         Self::IMediaEncodingProfileStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), quality, &mut result__).from_abi::<MediaEncodingProfile>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn CreateAlac(quality: AudioEncodingQuality) -> ::windows::runtime::Result<MediaEncodingProfile> {
         Self::IMediaEncodingProfileStatics3(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), quality, &mut result__).from_abi::<MediaEncodingProfile>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn CreateFlac(quality: AudioEncodingQuality) -> ::windows::runtime::Result<MediaEncodingProfile> {
         Self::IMediaEncodingProfileStatics3(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), quality, &mut result__).from_abi::<MediaEncodingProfile>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn CreateHevc(quality: VideoEncodingQuality) -> ::windows::runtime::Result<MediaEncodingProfile> {
         Self::IMediaEncodingProfileStatics3(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1664,11 +1746,13 @@ impl MediaEncodingProfile {
         })
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
+    #[doc = "*Required features: `Media_MediaProperties`, `Foundation_Collections`, `Media_Core`*"]
     pub fn SetAudioTracks<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::Core::AudioStreamDescriptor>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IMediaEncodingProfile2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
+    #[doc = "*Required features: `Media_MediaProperties`, `Foundation_Collections`, `Media_Core`*"]
     pub fn GetAudioTracks(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<super::Core::AudioStreamDescriptor>> {
         let this = &::windows::runtime::Interface::cast::<IMediaEncodingProfile2>(self)?;
         unsafe {
@@ -1677,11 +1761,13 @@ impl MediaEncodingProfile {
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
+    #[doc = "*Required features: `Media_MediaProperties`, `Foundation_Collections`, `Media_Core`*"]
     pub fn SetVideoTracks<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::Core::VideoStreamDescriptor>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IMediaEncodingProfile2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
+    #[doc = "*Required features: `Media_MediaProperties`, `Foundation_Collections`, `Media_Core`*"]
     pub fn GetVideoTracks(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<super::Core::VideoStreamDescriptor>> {
         let this = &::windows::runtime::Interface::cast::<IMediaEncodingProfile2>(self)?;
         unsafe {
@@ -1690,11 +1776,13 @@ impl MediaEncodingProfile {
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
+    #[doc = "*Required features: `Media_MediaProperties`, `Foundation_Collections`, `Media_Core`*"]
     pub fn SetTimedMetadataTracks<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::Core::TimedMetadataStreamDescriptor>>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IMediaEncodingProfile3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
+    #[doc = "*Required features: `Media_MediaProperties`, `Foundation_Collections`, `Media_Core`*"]
     pub fn GetTimedMetadataTracks(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVector<super::Core::TimedMetadataStreamDescriptor>> {
         let this = &::windows::runtime::Interface::cast::<IMediaEncodingProfile3>(self)?;
         unsafe {
@@ -1767,314 +1855,367 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for MediaEncodingProfile {}
 unsafe impl ::std::marker::Sync for MediaEncodingProfile {}
+#[doc = "*Required features: `Media_MediaProperties`*"]
 pub struct MediaEncodingSubtypes {}
 impl MediaEncodingSubtypes {
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn Aac() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn AacAdts() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn Ac3() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn AmrNb() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn AmrWb() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn Argb32() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn Asf() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn Avi() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn Bgra8() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn Bmp() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn Eac3() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn Float() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn Gif() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn H263() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn H264() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn H264Es() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn Hevc() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn HevcEs() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn Iyuv() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn Jpeg() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn JpegXr() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn Mjpg() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn Mpeg() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).28)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn Mpeg1() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).29)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn Mpeg2() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).30)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn Mp3() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).31)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn Mpeg4() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).32)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn Nv12() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).33)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn Pcm() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).34)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn Png() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).35)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn Rgb24() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).36)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn Rgb32() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).37)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn Tiff() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).38)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn Wave() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).39)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn Wma8() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).40)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn Wma9() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).41)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn Wmv3() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).42)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn Wvc1() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).43)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn Yuy2() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).44)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn Yv12() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).45)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn Vp9() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IMediaEncodingSubtypesStatics2(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn L8() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IMediaEncodingSubtypesStatics2(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn L16() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IMediaEncodingSubtypesStatics2(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn D16() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IMediaEncodingSubtypesStatics2(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn Alac() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IMediaEncodingSubtypesStatics3(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn Flac() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IMediaEncodingSubtypesStatics3(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn P010() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IMediaEncodingSubtypesStatics4(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn Heif() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IMediaEncodingSubtypesStatics5(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn Pgs() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IMediaEncodingSubtypesStatics6(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn Srt() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IMediaEncodingSubtypesStatics6(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn Ssa() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IMediaEncodingSubtypesStatics6(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn VobSub() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::IMediaEncodingSubtypesStatics6(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
@@ -2109,6 +2250,7 @@ impl MediaEncodingSubtypes {
 impl ::windows::runtime::RuntimeName for MediaEncodingSubtypes {
     const NAME: &'static str = "Windows.Media.MediaProperties.MediaEncodingSubtypes";
 }
+#[doc = "*Required features: `Media_MediaProperties`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MediaMirroringOptions(pub u32);
@@ -2157,6 +2299,7 @@ impl ::std::ops::Not for MediaMirroringOptions {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Media_MediaProperties`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MediaPixelFormat(pub i32);
@@ -2178,6 +2321,7 @@ unsafe impl ::windows::runtime::RuntimeType for MediaPixelFormat {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.MediaProperties.MediaPixelFormat;i4)");
 }
 #[cfg(feature = "Foundation_Collections")]
+#[doc = "*Required features: `Media_MediaProperties`, `Foundation_Collections`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MediaPropertySet(::windows::runtime::IInspectable);
@@ -2191,6 +2335,7 @@ impl MediaPropertySet {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Media_MediaProperties`, `Foundation_Collections`*"]
     pub fn Lookup<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, key: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = self;
         unsafe {
@@ -2199,6 +2344,7 @@ impl MediaPropertySet {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Media_MediaProperties`, `Foundation_Collections`*"]
     pub fn Size(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -2207,6 +2353,7 @@ impl MediaPropertySet {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Media_MediaProperties`, `Foundation_Collections`*"]
     pub fn HasKey<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, key: Param0) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -2215,6 +2362,7 @@ impl MediaPropertySet {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Media_MediaProperties`, `Foundation_Collections`*"]
     pub fn GetView(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IMapView<::windows::runtime::GUID, ::windows::runtime::IInspectable>> {
         let this = self;
         unsafe {
@@ -2223,6 +2371,7 @@ impl MediaPropertySet {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Media_MediaProperties`, `Foundation_Collections`*"]
     pub fn Insert<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, key: Param0, value: Param1) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -2231,16 +2380,19 @@ impl MediaPropertySet {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Media_MediaProperties`, `Foundation_Collections`*"]
     pub fn Remove<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, key: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), key.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Media_MediaProperties`, `Foundation_Collections`*"]
     pub fn Clear(&self) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Media_MediaProperties`, `Foundation_Collections`*"]
     pub fn First(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IIterator<super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::GUID, ::windows::runtime::IInspectable>>> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::GUID, ::windows::runtime::IInspectable>>>(self)?;
         unsafe {
@@ -2380,14 +2532,17 @@ impl ::std::iter::IntoIterator for &MediaPropertySet {
         self.First().unwrap()
     }
 }
+#[doc = "*Required features: `Media_MediaProperties`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct MediaRatio(::windows::runtime::IInspectable);
 impl MediaRatio {
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn SetNumerator(&self, value: u32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn Numerator(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -2395,10 +2550,12 @@ impl MediaRatio {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn SetDenominator(&self, value: u32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn Denominator(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -2459,6 +2616,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for MediaRatio {}
 unsafe impl ::std::marker::Sync for MediaRatio {}
+#[doc = "*Required features: `Media_MediaProperties`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MediaRotation(pub i32);
@@ -2480,6 +2638,7 @@ unsafe impl ::windows::runtime::Abi for MediaRotation {
 unsafe impl ::windows::runtime::RuntimeType for MediaRotation {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.MediaProperties.MediaRotation;i4)");
 }
+#[doc = "*Required features: `Media_MediaProperties`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MediaThumbnailFormat(pub i32);
@@ -2499,32 +2658,38 @@ unsafe impl ::windows::runtime::Abi for MediaThumbnailFormat {
 unsafe impl ::windows::runtime::RuntimeType for MediaThumbnailFormat {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.MediaProperties.MediaThumbnailFormat;i4)");
 }
+#[doc = "*Required features: `Media_MediaProperties`*"]
 pub struct Mpeg2ProfileIds {}
 impl Mpeg2ProfileIds {
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn Simple() -> ::windows::runtime::Result<i32> {
         Self::IMpeg2ProfileIdsStatics(|this| unsafe {
             let mut result__: i32 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn Main() -> ::windows::runtime::Result<i32> {
         Self::IMpeg2ProfileIdsStatics(|this| unsafe {
             let mut result__: i32 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn SignalNoiseRatioScalable() -> ::windows::runtime::Result<i32> {
         Self::IMpeg2ProfileIdsStatics(|this| unsafe {
             let mut result__: i32 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn SpatiallyScalable() -> ::windows::runtime::Result<i32> {
         Self::IMpeg2ProfileIdsStatics(|this| unsafe {
             let mut result__: i32 = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn High() -> ::windows::runtime::Result<i32> {
         Self::IMpeg2ProfileIdsStatics(|this| unsafe {
             let mut result__: i32 = ::std::mem::zeroed();
@@ -2539,6 +2704,7 @@ impl Mpeg2ProfileIds {
 impl ::windows::runtime::RuntimeName for Mpeg2ProfileIds {
     const NAME: &'static str = "Windows.Media.MediaProperties.Mpeg2ProfileIds";
 }
+#[doc = "*Required features: `Media_MediaProperties`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SphericalVideoFrameFormat(pub i32);
@@ -2559,6 +2725,7 @@ unsafe impl ::windows::runtime::Abi for SphericalVideoFrameFormat {
 unsafe impl ::windows::runtime::RuntimeType for SphericalVideoFrameFormat {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.MediaProperties.SphericalVideoFrameFormat;i4)");
 }
+#[doc = "*Required features: `Media_MediaProperties`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct StereoscopicVideoPackingMode(pub i32);
@@ -2579,6 +2746,7 @@ unsafe impl ::windows::runtime::Abi for StereoscopicVideoPackingMode {
 unsafe impl ::windows::runtime::RuntimeType for StereoscopicVideoPackingMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.MediaProperties.StereoscopicVideoPackingMode;i4)");
 }
+#[doc = "*Required features: `Media_MediaProperties`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct TimedMetadataEncodingProperties(::windows::runtime::IInspectable);
@@ -2591,6 +2759,7 @@ impl TimedMetadataEncodingProperties {
         unsafe { SHARED.call(callback) }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Media_MediaProperties`, `Foundation_Collections`*"]
     pub fn Properties(&self) -> ::windows::runtime::Result<MediaPropertySet> {
         let this = self;
         unsafe {
@@ -2598,6 +2767,7 @@ impl TimedMetadataEncodingProperties {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MediaPropertySet>(result__)
         }
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn Type(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2605,10 +2775,12 @@ impl TimedMetadataEncodingProperties {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn SetSubtype<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn Subtype(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -2616,14 +2788,17 @@ impl TimedMetadataEncodingProperties {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn SetFormatUserData(&self, value: &[<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITimedMetadataEncodingProperties>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value.len() as u32, ::std::mem::transmute(value.as_ptr())).ok() }
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn GetFormatUserData(&self, value: &mut ::windows::runtime::Array<u8>) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ITimedMetadataEncodingProperties>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn Copy(&self) -> ::windows::runtime::Result<TimedMetadataEncodingProperties> {
         let this = &::windows::runtime::Interface::cast::<ITimedMetadataEncodingProperties>(self)?;
         unsafe {
@@ -2631,24 +2806,28 @@ impl TimedMetadataEncodingProperties {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TimedMetadataEncodingProperties>(result__)
         }
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn CreatePgs() -> ::windows::runtime::Result<TimedMetadataEncodingProperties> {
         Self::ITimedMetadataEncodingPropertiesStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TimedMetadataEncodingProperties>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn CreateSrt() -> ::windows::runtime::Result<TimedMetadataEncodingProperties> {
         Self::ITimedMetadataEncodingPropertiesStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<TimedMetadataEncodingProperties>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn CreateSsa(formatuserdata: &[<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<TimedMetadataEncodingProperties> {
         Self::ITimedMetadataEncodingPropertiesStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), formatuserdata.len() as u32, ::std::mem::transmute(formatuserdata.as_ptr()), &mut result__).from_abi::<TimedMetadataEncodingProperties>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn CreateVobSub(formatuserdata: &[<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<TimedMetadataEncodingProperties> {
         Self::ITimedMetadataEncodingPropertiesStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -2732,6 +2911,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IMediaEncodingProperties> for &TimedM
 }
 unsafe impl ::std::marker::Send for TimedMetadataEncodingProperties {}
 unsafe impl ::std::marker::Sync for TimedMetadataEncodingProperties {}
+#[doc = "*Required features: `Media_MediaProperties`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct VideoEncodingProperties(::windows::runtime::IInspectable);
@@ -2743,10 +2923,12 @@ impl VideoEncodingProperties {
         static mut SHARED: ::windows::runtime::FactoryCache<VideoEncodingProperties, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn SetBitrate(&self, value: u32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn Bitrate(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -2754,10 +2936,12 @@ impl VideoEncodingProperties {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn SetWidth(&self, value: u32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn Width(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -2765,10 +2949,12 @@ impl VideoEncodingProperties {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn SetHeight(&self, value: u32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn Height(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -2776,6 +2962,7 @@ impl VideoEncodingProperties {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn FrameRate(&self) -> ::windows::runtime::Result<MediaRatio> {
         let this = self;
         unsafe {
@@ -2783,6 +2970,7 @@ impl VideoEncodingProperties {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MediaRatio>(result__)
         }
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn PixelAspectRatio(&self) -> ::windows::runtime::Result<MediaRatio> {
         let this = self;
         unsafe {
@@ -2791,6 +2979,7 @@ impl VideoEncodingProperties {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Media_MediaProperties`, `Foundation_Collections`*"]
     pub fn Properties(&self) -> ::windows::runtime::Result<MediaPropertySet> {
         let this = &::windows::runtime::Interface::cast::<IMediaEncodingProperties>(self)?;
         unsafe {
@@ -2798,6 +2987,7 @@ impl VideoEncodingProperties {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MediaPropertySet>(result__)
         }
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn Type(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IMediaEncodingProperties>(self)?;
         unsafe {
@@ -2805,10 +2995,12 @@ impl VideoEncodingProperties {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn SetSubtype<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IMediaEncodingProperties>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn Subtype(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IMediaEncodingProperties>(self)?;
         unsafe {
@@ -2816,18 +3008,22 @@ impl VideoEncodingProperties {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn SetFormatUserData(&self, value: &[<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IVideoEncodingProperties2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value.len() as u32, ::std::mem::transmute(value.as_ptr())).ok() }
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn GetFormatUserData(&self, value: &mut ::windows::runtime::Array<u8>) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IVideoEncodingProperties2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.set_abi_len(), value as *mut _ as _).ok() }
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn SetProfileId(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IVideoEncodingProperties2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn ProfileId(&self) -> ::windows::runtime::Result<i32> {
         let this = &::windows::runtime::Interface::cast::<IVideoEncodingProperties2>(self)?;
         unsafe {
@@ -2835,24 +3031,28 @@ impl VideoEncodingProperties {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn CreateH264() -> ::windows::runtime::Result<VideoEncodingProperties> {
         Self::IVideoEncodingPropertiesStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<VideoEncodingProperties>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn CreateMpeg2() -> ::windows::runtime::Result<VideoEncodingProperties> {
         Self::IVideoEncodingPropertiesStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<VideoEncodingProperties>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn CreateUncompressed<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(subtype: Param0, width: u32, height: u32) -> ::windows::runtime::Result<VideoEncodingProperties> {
         Self::IVideoEncodingPropertiesStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), subtype.into_param().abi(), width, height, &mut result__).from_abi::<VideoEncodingProperties>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn StereoscopicVideoPackingMode(&self) -> ::windows::runtime::Result<StereoscopicVideoPackingMode> {
         let this = &::windows::runtime::Interface::cast::<IVideoEncodingProperties3>(self)?;
         unsafe {
@@ -2860,6 +3060,7 @@ impl VideoEncodingProperties {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<StereoscopicVideoPackingMode>(result__)
         }
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn SphericalVideoFrameFormat(&self) -> ::windows::runtime::Result<SphericalVideoFrameFormat> {
         let this = &::windows::runtime::Interface::cast::<IVideoEncodingProperties4>(self)?;
         unsafe {
@@ -2867,12 +3068,14 @@ impl VideoEncodingProperties {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SphericalVideoFrameFormat>(result__)
         }
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn CreateHevc() -> ::windows::runtime::Result<VideoEncodingProperties> {
         Self::IVideoEncodingPropertiesStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<VideoEncodingProperties>(result__)
         })
     }
+    #[doc = "*Required features: `Media_MediaProperties`*"]
     pub fn Copy(&self) -> ::windows::runtime::Result<VideoEncodingProperties> {
         let this = &::windows::runtime::Interface::cast::<IVideoEncodingProperties5>(self)?;
         unsafe {
@@ -2963,6 +3166,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IMediaEncodingProperties> for &VideoE
 }
 unsafe impl ::std::marker::Send for VideoEncodingProperties {}
 unsafe impl ::std::marker::Sync for VideoEncodingProperties {}
+#[doc = "*Required features: `Media_MediaProperties`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct VideoEncodingQuality(pub i32);

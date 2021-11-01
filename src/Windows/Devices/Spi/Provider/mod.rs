@@ -48,12 +48,14 @@ pub struct IProviderSpiConnectionSettingsFactory_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Devices_Spi_Provider`*"]
 pub struct ISpiControllerProvider(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpiControllerProvider {
     type Vtable = ISpiControllerProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3244844292, 718, 16934, [163, 133, 79, 17, 251, 4, 180, 27]);
 }
 impl ISpiControllerProvider {
+    #[doc = "*Required features: `Devices_Spi_Provider`*"]
     pub fn GetDeviceProvider<'a, Param0: ::windows::runtime::IntoParam<'a, ProviderSpiConnectionSettings>>(&self, settings: Param0) -> ::windows::runtime::Result<ISpiDeviceProvider> {
         let this = self;
         unsafe {
@@ -118,6 +120,7 @@ pub struct ISpiControllerProvider_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Devices_Spi_Provider`*"]
 pub struct ISpiDeviceProvider(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpiDeviceProvider {
     type Vtable = ISpiDeviceProvider_abi;
@@ -125,10 +128,12 @@ unsafe impl ::windows::runtime::Interface for ISpiDeviceProvider {
 }
 impl ISpiDeviceProvider {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Spi_Provider`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Devices_Spi_Provider`*"]
     pub fn DeviceId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -136,6 +141,7 @@ impl ISpiDeviceProvider {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Spi_Provider`*"]
     pub fn ConnectionSettings(&self) -> ::windows::runtime::Result<ProviderSpiConnectionSettings> {
         let this = self;
         unsafe {
@@ -143,18 +149,22 @@ impl ISpiDeviceProvider {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ProviderSpiConnectionSettings>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Spi_Provider`*"]
     pub fn Write(&self, buffer: &[<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), buffer.len() as u32, ::std::mem::transmute(buffer.as_ptr())).ok() }
     }
+    #[doc = "*Required features: `Devices_Spi_Provider`*"]
     pub fn Read(&self, buffer: &mut [<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), buffer.len() as u32, ::std::mem::transmute_copy(&buffer)).ok() }
     }
+    #[doc = "*Required features: `Devices_Spi_Provider`*"]
     pub fn TransferSequential(&self, writebuffer: &[<u8 as ::windows::runtime::Abi>::DefaultType], readbuffer: &mut [<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), writebuffer.len() as u32, ::std::mem::transmute(writebuffer.as_ptr()), readbuffer.len() as u32, ::std::mem::transmute_copy(&readbuffer)).ok() }
     }
+    #[doc = "*Required features: `Devices_Spi_Provider`*"]
     pub fn TransferFullDuplex(&self, writebuffer: &[<u8 as ::windows::runtime::Abi>::DefaultType], readbuffer: &mut [<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), writebuffer.len() as u32, ::std::mem::transmute(writebuffer.as_ptr()), readbuffer.len() as u32, ::std::mem::transmute_copy(&readbuffer)).ok() }
@@ -247,6 +257,7 @@ pub struct ISpiDeviceProvider_abi(
 );
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[doc = "*Required features: `Devices_Spi_Provider`*"]
 pub struct ISpiProvider(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpiProvider {
     type Vtable = ISpiProvider_abi;
@@ -254,6 +265,7 @@ unsafe impl ::windows::runtime::Interface for ISpiProvider {
 }
 impl ISpiProvider {
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: `Devices_Spi_Provider`, `Foundation`, `Foundation_Collections`*"]
     pub fn GetControllersAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<ISpiControllerProvider>>> {
         let this = self;
         unsafe {
@@ -317,10 +329,12 @@ pub struct ISpiProvider_abi(
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
+#[doc = "*Required features: `Devices_Spi_Provider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ProviderSpiConnectionSettings(::windows::runtime::IInspectable);
 impl ProviderSpiConnectionSettings {
+    #[doc = "*Required features: `Devices_Spi_Provider`*"]
     pub fn ChipSelectLine(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -328,10 +342,12 @@ impl ProviderSpiConnectionSettings {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Spi_Provider`*"]
     pub fn SetChipSelectLine(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Devices_Spi_Provider`*"]
     pub fn Mode(&self) -> ::windows::runtime::Result<ProviderSpiMode> {
         let this = self;
         unsafe {
@@ -339,10 +355,12 @@ impl ProviderSpiConnectionSettings {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ProviderSpiMode>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Spi_Provider`*"]
     pub fn SetMode(&self, value: ProviderSpiMode) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Devices_Spi_Provider`*"]
     pub fn DataBitLength(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -350,10 +368,12 @@ impl ProviderSpiConnectionSettings {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Spi_Provider`*"]
     pub fn SetDataBitLength(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Devices_Spi_Provider`*"]
     pub fn ClockFrequency(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -361,10 +381,12 @@ impl ProviderSpiConnectionSettings {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Spi_Provider`*"]
     pub fn SetClockFrequency(&self, value: i32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Devices_Spi_Provider`*"]
     pub fn SharingMode(&self) -> ::windows::runtime::Result<ProviderSpiSharingMode> {
         let this = self;
         unsafe {
@@ -372,10 +394,12 @@ impl ProviderSpiConnectionSettings {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<ProviderSpiSharingMode>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Spi_Provider`*"]
     pub fn SetSharingMode(&self, value: ProviderSpiSharingMode) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Devices_Spi_Provider`*"]
     pub fn Create(chipselectline: i32) -> ::windows::runtime::Result<ProviderSpiConnectionSettings> {
         Self::IProviderSpiConnectionSettingsFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -439,6 +463,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for ProviderSpiConnectionSettings {}
 unsafe impl ::std::marker::Sync for ProviderSpiConnectionSettings {}
+#[doc = "*Required features: `Devices_Spi_Provider`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ProviderSpiMode(pub i32);
@@ -460,6 +485,7 @@ unsafe impl ::windows::runtime::Abi for ProviderSpiMode {
 unsafe impl ::windows::runtime::RuntimeType for ProviderSpiMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Spi.Provider.ProviderSpiMode;i4)");
 }
+#[doc = "*Required features: `Devices_Spi_Provider`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ProviderSpiSharingMode(pub i32);

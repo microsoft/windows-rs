@@ -184,10 +184,12 @@ pub struct ILampStatics_abi(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: `Devices_Lights`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct Lamp(::windows::runtime::IInspectable);
 impl Lamp {
+    #[doc = "*Required features: `Devices_Lights`*"]
     pub fn DeviceId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -195,6 +197,7 @@ impl Lamp {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Lights`*"]
     pub fn IsEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -202,10 +205,12 @@ impl Lamp {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Lights`*"]
     pub fn SetIsEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Devices_Lights`*"]
     pub fn BrightnessLevel(&self) -> ::windows::runtime::Result<f32> {
         let this = self;
         unsafe {
@@ -213,10 +218,12 @@ impl Lamp {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Lights`*"]
     pub fn SetBrightnessLevel(&self, value: f32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Devices_Lights`*"]
     pub fn IsColorSettable(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -225,6 +232,7 @@ impl Lamp {
         }
     }
     #[cfg(feature = "UI")]
+    #[doc = "*Required features: `Devices_Lights`, `UI`*"]
     pub fn Color(&self) -> ::windows::runtime::Result<super::super::UI::Color> {
         let this = self;
         unsafe {
@@ -233,11 +241,13 @@ impl Lamp {
         }
     }
     #[cfg(feature = "UI")]
+    #[doc = "*Required features: `Devices_Lights`, `UI`*"]
     pub fn SetColor<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::UI::Color>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Lights`, `Foundation`*"]
     pub fn AvailabilityChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::TypedEventHandler<Lamp, LampAvailabilityChangedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -246,15 +256,18 @@ impl Lamp {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Lights`, `Foundation`*"]
     pub fn RemoveAvailabilityChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Lights`, `Foundation`*"]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: `Devices_Lights`*"]
     pub fn GetDeviceSelector() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ILampStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
@@ -262,6 +275,7 @@ impl Lamp {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Lights`, `Foundation`*"]
     pub fn FromIdAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(deviceid: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<Lamp>> {
         Self::ILampStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -269,6 +283,7 @@ impl Lamp {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Lights`, `Foundation`*"]
     pub fn GetDefaultAsync() -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<Lamp>> {
         Self::ILampStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -358,10 +373,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> 
 }
 unsafe impl ::std::marker::Send for Lamp {}
 unsafe impl ::std::marker::Sync for Lamp {}
+#[doc = "*Required features: `Devices_Lights`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct LampArray(::windows::runtime::IInspectable);
 impl LampArray {
+    #[doc = "*Required features: `Devices_Lights`*"]
     pub fn DeviceId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -369,6 +386,7 @@ impl LampArray {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Lights`*"]
     pub fn HardwareVendorId(&self) -> ::windows::runtime::Result<u16> {
         let this = self;
         unsafe {
@@ -376,6 +394,7 @@ impl LampArray {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Lights`*"]
     pub fn HardwareProductId(&self) -> ::windows::runtime::Result<u16> {
         let this = self;
         unsafe {
@@ -383,6 +402,7 @@ impl LampArray {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Lights`*"]
     pub fn HardwareVersion(&self) -> ::windows::runtime::Result<u16> {
         let this = self;
         unsafe {
@@ -390,6 +410,7 @@ impl LampArray {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Lights`*"]
     pub fn LampArrayKind(&self) -> ::windows::runtime::Result<LampArrayKind> {
         let this = self;
         unsafe {
@@ -397,6 +418,7 @@ impl LampArray {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<LampArrayKind>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Lights`*"]
     pub fn LampCount(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -405,6 +427,7 @@ impl LampArray {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Lights`, `Foundation`*"]
     pub fn MinUpdateInterval(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -413,6 +436,7 @@ impl LampArray {
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Devices_Lights`, `Foundation_Numerics`*"]
     pub fn BoundingBox(&self) -> ::windows::runtime::Result<super::super::Foundation::Numerics::Vector3> {
         let this = self;
         unsafe {
@@ -420,6 +444,7 @@ impl LampArray {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Lights`*"]
     pub fn IsEnabled(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -427,10 +452,12 @@ impl LampArray {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Lights`*"]
     pub fn SetIsEnabled(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Devices_Lights`*"]
     pub fn BrightnessLevel(&self) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
@@ -438,10 +465,12 @@ impl LampArray {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Lights`*"]
     pub fn SetBrightnessLevel(&self, value: f64) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Devices_Lights`*"]
     pub fn IsConnected(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -449,6 +478,7 @@ impl LampArray {
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Lights`*"]
     pub fn SupportsVirtualKeys(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -456,6 +486,7 @@ impl LampArray {
             (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Lights`*"]
     pub fn GetLampInfo(&self, lampindex: i32) -> ::windows::runtime::Result<LampInfo> {
         let this = self;
         unsafe {
@@ -464,6 +495,7 @@ impl LampArray {
         }
     }
     #[cfg(feature = "System")]
+    #[doc = "*Required features: `Devices_Lights`, `System`*"]
     pub fn GetIndicesForKey(&self, key: super::super::System::VirtualKey) -> ::windows::runtime::Result<::windows::runtime::Array<i32>> {
         let this = self;
         unsafe {
@@ -471,6 +503,7 @@ impl LampArray {
             (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), key, ::windows::runtime::Array::<i32>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
         }
     }
+    #[doc = "*Required features: `Devices_Lights`*"]
     pub fn GetIndicesForPurposes(&self, purposes: LampPurposes) -> ::windows::runtime::Result<::windows::runtime::Array<i32>> {
         let this = self;
         unsafe {
@@ -479,41 +512,49 @@ impl LampArray {
         }
     }
     #[cfg(feature = "UI")]
+    #[doc = "*Required features: `Devices_Lights`, `UI`*"]
     pub fn SetColor<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::UI::Color>>(&self, desiredcolor: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), desiredcolor.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI")]
+    #[doc = "*Required features: `Devices_Lights`, `UI`*"]
     pub fn SetColorForIndex<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::UI::Color>>(&self, lampindex: i32, desiredcolor: Param1) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), lampindex, desiredcolor.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI")]
+    #[doc = "*Required features: `Devices_Lights`, `UI`*"]
     pub fn SetSingleColorForIndices<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::UI::Color>>(&self, desiredcolor: Param0, lampindexes: &[<i32 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), desiredcolor.into_param().abi(), lampindexes.len() as u32, ::std::mem::transmute(lampindexes.as_ptr())).ok() }
     }
     #[cfg(feature = "UI")]
+    #[doc = "*Required features: `Devices_Lights`, `UI`*"]
     pub fn SetColorsForIndices(&self, desiredcolors: &[<super::super::UI::Color as ::windows::runtime::Abi>::DefaultType], lampindexes: &[<i32 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), desiredcolors.len() as u32, ::std::mem::transmute(desiredcolors.as_ptr()), lampindexes.len() as u32, ::std::mem::transmute(lampindexes.as_ptr())).ok() }
     }
     #[cfg(all(feature = "System", feature = "UI"))]
+    #[doc = "*Required features: `Devices_Lights`, `System`, `UI`*"]
     pub fn SetColorsForKey<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::UI::Color>>(&self, desiredcolor: Param0, key: super::super::System::VirtualKey) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this), desiredcolor.into_param().abi(), key).ok() }
     }
     #[cfg(all(feature = "System", feature = "UI"))]
+    #[doc = "*Required features: `Devices_Lights`, `System`, `UI`*"]
     pub fn SetColorsForKeys(&self, desiredcolors: &[<super::super::UI::Color as ::windows::runtime::Abi>::DefaultType], keys: &[<super::super::System::VirtualKey as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).28)(::std::mem::transmute_copy(this), desiredcolors.len() as u32, ::std::mem::transmute(desiredcolors.as_ptr()), keys.len() as u32, ::std::mem::transmute(keys.as_ptr())).ok() }
     }
     #[cfg(feature = "UI")]
+    #[doc = "*Required features: `Devices_Lights`, `UI`*"]
     pub fn SetColorsForPurposes<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::UI::Color>>(&self, desiredcolor: Param0, purposes: LampPurposes) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).29)(::std::mem::transmute_copy(this), desiredcolor.into_param().abi(), purposes).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Devices_Lights`, `Foundation`, `Storage_Streams`*"]
     pub fn SendMessageAsync<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(&self, messageid: i32, message: Param1) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -522,6 +563,7 @@ impl LampArray {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    #[doc = "*Required features: `Devices_Lights`, `Foundation`, `Storage_Streams`*"]
     pub fn RequestMessageAsync(&self, messageid: i32) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>> {
         let this = self;
         unsafe {
@@ -529,6 +571,7 @@ impl LampArray {
             (::windows::runtime::Interface::vtable(this).31)(::std::mem::transmute_copy(this), messageid, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Lights`*"]
     pub fn GetDeviceSelector() -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         Self::ILampArrayStatics(|this| unsafe {
             let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
@@ -536,6 +579,7 @@ impl LampArray {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Lights`, `Foundation`*"]
     pub fn FromIdAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(deviceid: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<LampArray>> {
         Self::ILampArrayStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -599,6 +643,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for LampArray {}
 unsafe impl ::std::marker::Sync for LampArray {}
+#[doc = "*Required features: `Devices_Lights`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct LampArrayKind(pub i32);
@@ -627,10 +672,12 @@ unsafe impl ::windows::runtime::Abi for LampArrayKind {
 unsafe impl ::windows::runtime::RuntimeType for LampArrayKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Lights.LampArrayKind;i4)");
 }
+#[doc = "*Required features: `Devices_Lights`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct LampAvailabilityChangedEventArgs(::windows::runtime::IInspectable);
 impl LampAvailabilityChangedEventArgs {
+    #[doc = "*Required features: `Devices_Lights`*"]
     pub fn IsAvailable(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -691,10 +738,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for LampAvailabilityChangedEventArgs {}
 unsafe impl ::std::marker::Sync for LampAvailabilityChangedEventArgs {}
+#[doc = "*Required features: `Devices_Lights`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct LampInfo(::windows::runtime::IInspectable);
 impl LampInfo {
+    #[doc = "*Required features: `Devices_Lights`*"]
     pub fn Index(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -702,6 +751,7 @@ impl LampInfo {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Lights`*"]
     pub fn Purposes(&self) -> ::windows::runtime::Result<LampPurposes> {
         let this = self;
         unsafe {
@@ -710,6 +760,7 @@ impl LampInfo {
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
+    #[doc = "*Required features: `Devices_Lights`, `Foundation_Numerics`*"]
     pub fn Position(&self) -> ::windows::runtime::Result<super::super::Foundation::Numerics::Vector3> {
         let this = self;
         unsafe {
@@ -717,6 +768,7 @@ impl LampInfo {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Lights`*"]
     pub fn RedLevelCount(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -724,6 +776,7 @@ impl LampInfo {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Lights`*"]
     pub fn GreenLevelCount(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -731,6 +784,7 @@ impl LampInfo {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Lights`*"]
     pub fn BlueLevelCount(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -738,6 +792,7 @@ impl LampInfo {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: `Devices_Lights`*"]
     pub fn GainLevelCount(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
@@ -746,6 +801,7 @@ impl LampInfo {
         }
     }
     #[cfg(all(feature = "Foundation", feature = "UI"))]
+    #[doc = "*Required features: `Devices_Lights`, `Foundation`, `UI`*"]
     pub fn FixedColor(&self) -> ::windows::runtime::Result<super::super::Foundation::IReference<super::super::UI::Color>> {
         let this = self;
         unsafe {
@@ -754,6 +810,7 @@ impl LampInfo {
         }
     }
     #[cfg(feature = "UI")]
+    #[doc = "*Required features: `Devices_Lights`, `UI`*"]
     pub fn GetNearestSupportedColor<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::UI::Color>>(&self, desiredcolor: Param0) -> ::windows::runtime::Result<super::super::UI::Color> {
         let this = self;
         unsafe {
@@ -762,6 +819,7 @@ impl LampInfo {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Devices_Lights`, `Foundation`*"]
     pub fn UpdateLatency(&self) -> ::windows::runtime::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -822,6 +880,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for LampInfo {}
 unsafe impl ::std::marker::Sync for LampInfo {}
+#[doc = "*Required features: `Devices_Lights`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct LampPurposes(pub u32);

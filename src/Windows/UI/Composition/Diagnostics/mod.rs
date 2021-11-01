@@ -1,20 +1,25 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `UI_Composition_Diagnostics`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CompositionDebugHeatMaps(::windows::runtime::IInspectable);
 impl CompositionDebugHeatMaps {
+    #[doc = "*Required features: `UI_Composition_Diagnostics`*"]
     pub fn Hide<'a, Param0: ::windows::runtime::IntoParam<'a, super::Visual>>(&self, subtree: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), subtree.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Composition_Diagnostics`*"]
     pub fn ShowMemoryUsage<'a, Param0: ::windows::runtime::IntoParam<'a, super::Visual>>(&self, subtree: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), subtree.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `UI_Composition_Diagnostics`*"]
     pub fn ShowOverdraw<'a, Param0: ::windows::runtime::IntoParam<'a, super::Visual>>(&self, subtree: Param0, contentkinds: CompositionDebugOverdrawContentKinds) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), subtree.into_param().abi(), contentkinds).ok() }
     }
+    #[doc = "*Required features: `UI_Composition_Diagnostics`*"]
     pub fn ShowRedraw<'a, Param0: ::windows::runtime::IntoParam<'a, super::Visual>>(&self, subtree: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), subtree.into_param().abi()).ok() }
@@ -72,6 +77,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for CompositionDebugHeatMaps {}
 unsafe impl ::std::marker::Sync for CompositionDebugHeatMaps {}
+#[doc = "*Required features: `UI_Composition_Diagnostics`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CompositionDebugOverdrawContentKinds(pub u32);
@@ -126,10 +132,12 @@ impl ::std::ops::Not for CompositionDebugOverdrawContentKinds {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `UI_Composition_Diagnostics`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CompositionDebugSettings(::windows::runtime::IInspectable);
 impl CompositionDebugSettings {
+    #[doc = "*Required features: `UI_Composition_Diagnostics`*"]
     pub fn HeatMaps(&self) -> ::windows::runtime::Result<CompositionDebugHeatMaps> {
         let this = self;
         unsafe {
@@ -137,6 +145,7 @@ impl CompositionDebugSettings {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<CompositionDebugHeatMaps>(result__)
         }
     }
+    #[doc = "*Required features: `UI_Composition_Diagnostics`*"]
     pub fn TryGetSettings<'a, Param0: ::windows::runtime::IntoParam<'a, super::Compositor>>(compositor: Param0) -> ::windows::runtime::Result<CompositionDebugSettings> {
         Self::ICompositionDebugSettingsStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();

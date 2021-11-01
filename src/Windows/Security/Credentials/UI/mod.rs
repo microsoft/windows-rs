@@ -1,4 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Security_Credentials_UI`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AuthenticationProtocol(pub i32);
@@ -23,9 +24,11 @@ unsafe impl ::windows::runtime::Abi for AuthenticationProtocol {
 unsafe impl ::windows::runtime::RuntimeType for AuthenticationProtocol {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.UI.AuthenticationProtocol;i4)");
 }
+#[doc = "*Required features: `Security_Credentials_UI`*"]
 pub struct CredentialPicker {}
 impl CredentialPicker {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Security_Credentials_UI`, `Foundation`*"]
     pub fn PickWithOptionsAsync<'a, Param0: ::windows::runtime::IntoParam<'a, CredentialPickerOptions>>(options: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<CredentialPickerResults>> {
         Self::ICredentialPickerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -33,6 +36,7 @@ impl CredentialPicker {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Security_Credentials_UI`, `Foundation`*"]
     pub fn PickWithMessageAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(targetname: Param0, message: Param1) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<CredentialPickerResults>> {
         Self::ICredentialPickerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -40,6 +44,7 @@ impl CredentialPicker {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Security_Credentials_UI`, `Foundation`*"]
     pub fn PickWithCaptionAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(targetname: Param0, message: Param1, caption: Param2) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<CredentialPickerResults>> {
         Self::ICredentialPickerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -54,6 +59,7 @@ impl CredentialPicker {
 impl ::windows::runtime::RuntimeName for CredentialPicker {
     const NAME: &'static str = "Windows.Security.Credentials.UI.CredentialPicker";
 }
+#[doc = "*Required features: `Security_Credentials_UI`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CredentialPickerOptions(::windows::runtime::IInspectable);
@@ -65,10 +71,12 @@ impl CredentialPickerOptions {
         static mut SHARED: ::windows::runtime::FactoryCache<CredentialPickerOptions, ::windows::runtime::IActivationFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: `Security_Credentials_UI`*"]
     pub fn SetCaption<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Security_Credentials_UI`*"]
     pub fn Caption(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -76,10 +84,12 @@ impl CredentialPickerOptions {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Credentials_UI`*"]
     pub fn SetMessage<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Security_Credentials_UI`*"]
     pub fn Message(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -87,10 +97,12 @@ impl CredentialPickerOptions {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Credentials_UI`*"]
     pub fn SetErrorCode(&self, value: u32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Security_Credentials_UI`*"]
     pub fn ErrorCode(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -98,10 +110,12 @@ impl CredentialPickerOptions {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Credentials_UI`*"]
     pub fn SetTargetName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Security_Credentials_UI`*"]
     pub fn TargetName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -109,10 +123,12 @@ impl CredentialPickerOptions {
             (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Credentials_UI`*"]
     pub fn SetAuthenticationProtocol(&self, value: AuthenticationProtocol) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Security_Credentials_UI`*"]
     pub fn AuthenticationProtocol(&self) -> ::windows::runtime::Result<AuthenticationProtocol> {
         let this = self;
         unsafe {
@@ -120,10 +136,12 @@ impl CredentialPickerOptions {
             (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<AuthenticationProtocol>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Credentials_UI`*"]
     pub fn SetCustomAuthenticationProtocol<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `Security_Credentials_UI`*"]
     pub fn CustomAuthenticationProtocol(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -132,11 +150,13 @@ impl CredentialPickerOptions {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Security_Credentials_UI`, `Storage_Streams`*"]
     pub fn SetPreviousCredential<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Security_Credentials_UI`, `Storage_Streams`*"]
     pub fn PreviousCredential(&self) -> ::windows::runtime::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
@@ -144,10 +164,12 @@ impl CredentialPickerOptions {
             (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Credentials_UI`*"]
     pub fn SetAlwaysDisplayDialog(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Security_Credentials_UI`*"]
     pub fn AlwaysDisplayDialog(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -155,10 +177,12 @@ impl CredentialPickerOptions {
             (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Credentials_UI`*"]
     pub fn SetCallerSavesCredential(&self, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Security_Credentials_UI`*"]
     pub fn CallerSavesCredential(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -166,10 +190,12 @@ impl CredentialPickerOptions {
             (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Credentials_UI`*"]
     pub fn SetCredentialSaveOption(&self, value: CredentialSaveOption) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: `Security_Credentials_UI`*"]
     pub fn CredentialSaveOption(&self) -> ::windows::runtime::Result<CredentialSaveOption> {
         let this = self;
         unsafe {
@@ -228,10 +254,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
+#[doc = "*Required features: `Security_Credentials_UI`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct CredentialPickerResults(::windows::runtime::IInspectable);
 impl CredentialPickerResults {
+    #[doc = "*Required features: `Security_Credentials_UI`*"]
     pub fn ErrorCode(&self) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
@@ -239,6 +267,7 @@ impl CredentialPickerResults {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Credentials_UI`*"]
     pub fn CredentialSaveOption(&self) -> ::windows::runtime::Result<CredentialSaveOption> {
         let this = self;
         unsafe {
@@ -246,6 +275,7 @@ impl CredentialPickerResults {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<CredentialSaveOption>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Credentials_UI`*"]
     pub fn CredentialSaved(&self) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -254,6 +284,7 @@ impl CredentialPickerResults {
         }
     }
     #[cfg(feature = "Storage_Streams")]
+    #[doc = "*Required features: `Security_Credentials_UI`, `Storage_Streams`*"]
     pub fn Credential(&self) -> ::windows::runtime::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
@@ -261,6 +292,7 @@ impl CredentialPickerResults {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Credentials_UI`*"]
     pub fn CredentialDomainName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -268,6 +300,7 @@ impl CredentialPickerResults {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Credentials_UI`*"]
     pub fn CredentialUserName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -275,6 +308,7 @@ impl CredentialPickerResults {
             (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Security_Credentials_UI`*"]
     pub fn CredentialPassword(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -333,6 +367,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
+#[doc = "*Required features: `Security_Credentials_UI`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CredentialSaveOption(pub i32);
@@ -465,6 +500,7 @@ pub struct IUserConsentVerifierStatics_abi(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, message: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: `Security_Credentials_UI`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct UserConsentVerificationResult(pub i32);
@@ -489,9 +525,11 @@ unsafe impl ::windows::runtime::Abi for UserConsentVerificationResult {
 unsafe impl ::windows::runtime::RuntimeType for UserConsentVerificationResult {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.UI.UserConsentVerificationResult;i4)");
 }
+#[doc = "*Required features: `Security_Credentials_UI`*"]
 pub struct UserConsentVerifier {}
 impl UserConsentVerifier {
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Security_Credentials_UI`, `Foundation`*"]
     pub fn CheckAvailabilityAsync() -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<UserConsentVerifierAvailability>> {
         Self::IUserConsentVerifierStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -499,6 +537,7 @@ impl UserConsentVerifier {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Security_Credentials_UI`, `Foundation`*"]
     pub fn RequestVerificationAsync<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(message: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<UserConsentVerificationResult>> {
         Self::IUserConsentVerifierStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -513,6 +552,7 @@ impl UserConsentVerifier {
 impl ::windows::runtime::RuntimeName for UserConsentVerifier {
     const NAME: &'static str = "Windows.Security.Credentials.UI.UserConsentVerifier";
 }
+#[doc = "*Required features: `Security_Credentials_UI`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct UserConsentVerifierAvailability(pub i32);

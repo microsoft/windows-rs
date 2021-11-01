@@ -1,4 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ADDRESS_FAMILY(pub u32);
@@ -42,7 +43,9 @@ impl ::std::ops::Not for ADDRESS_FAMILY {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const ANY_SIZE: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[inline]
 pub unsafe fn AddIPAddress(address: u32, ipmask: u32, ifindex: u32, ntecontext: *mut u32, nteinstance: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -56,10 +59,14 @@ pub unsafe fn AddIPAddress(address: u32, ipmask: u32, ifindex: u32, ntecontext: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const BEST_IF: u32 = 20u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const BEST_ROUTE: u32 = 21u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const BROADCAST_NODETYPE: u32 = 1u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[inline]
 pub unsafe fn CancelIPChangeNotify(notifyoverlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -74,6 +81,7 @@ pub unsafe fn CancelIPChangeNotify(notifyoverlapped: *const super::super::System
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn CancelMibChangeNotify2<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(notificationhandle: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -87,6 +95,7 @@ pub unsafe fn CancelMibChangeNotify2<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[inline]
 pub unsafe fn CaptureInterfaceHardwareCrossTimestamp(interfaceluid: *const NET_LUID_LH, crosstimestamp: *mut INTERFACE_HARDWARE_CROSSTIMESTAMP) -> u32 {
     #[cfg(windows)]
@@ -101,6 +110,7 @@ pub unsafe fn CaptureInterfaceHardwareCrossTimestamp(interfaceluid: *const NET_L
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn ConvertCompartmentGuidToId(compartmentguid: *const ::windows::runtime::GUID, compartmentid: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -115,6 +125,7 @@ pub unsafe fn ConvertCompartmentGuidToId(compartmentguid: *const ::windows::runt
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn ConvertCompartmentIdToGuid(compartmentid: u32, compartmentguid: *mut ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -129,6 +140,7 @@ pub unsafe fn ConvertCompartmentIdToGuid(compartmentid: u32, compartmentguid: *m
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn ConvertInterfaceAliasToLuid<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(interfacealias: Param0, interfaceluid: *mut NET_LUID_LH) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -143,6 +155,7 @@ pub unsafe fn ConvertInterfaceAliasToLuid<'a, Param0: ::windows::runtime::IntoPa
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn ConvertInterfaceGuidToLuid(interfaceguid: *const ::windows::runtime::GUID, interfaceluid: *mut NET_LUID_LH) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -157,6 +170,7 @@ pub unsafe fn ConvertInterfaceGuidToLuid(interfaceguid: *const ::windows::runtim
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn ConvertInterfaceIndexToLuid(interfaceindex: u32, interfaceluid: *mut NET_LUID_LH) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -171,6 +185,7 @@ pub unsafe fn ConvertInterfaceIndexToLuid(interfaceindex: u32, interfaceluid: *m
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn ConvertInterfaceLuidToAlias(interfaceluid: *const NET_LUID_LH, interfacealias: super::super::Foundation::PWSTR, length: usize) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -185,6 +200,7 @@ pub unsafe fn ConvertInterfaceLuidToAlias(interfaceluid: *const NET_LUID_LH, int
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn ConvertInterfaceLuidToGuid(interfaceluid: *const NET_LUID_LH, interfaceguid: *mut ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -199,6 +215,7 @@ pub unsafe fn ConvertInterfaceLuidToGuid(interfaceluid: *const NET_LUID_LH, inte
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn ConvertInterfaceLuidToIndex(interfaceluid: *const NET_LUID_LH, interfaceindex: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -213,6 +230,7 @@ pub unsafe fn ConvertInterfaceLuidToIndex(interfaceluid: *const NET_LUID_LH, int
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn ConvertInterfaceLuidToNameA(interfaceluid: *const NET_LUID_LH, interfacename: super::super::Foundation::PSTR, length: usize) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -227,6 +245,7 @@ pub unsafe fn ConvertInterfaceLuidToNameA(interfaceluid: *const NET_LUID_LH, int
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn ConvertInterfaceLuidToNameW(interfaceluid: *const NET_LUID_LH, interfacename: super::super::Foundation::PWSTR, length: usize) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -241,6 +260,7 @@ pub unsafe fn ConvertInterfaceLuidToNameW(interfaceluid: *const NET_LUID_LH, int
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn ConvertInterfaceNameToLuidA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(interfacename: Param0, interfaceluid: *mut NET_LUID_LH) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -255,6 +275,7 @@ pub unsafe fn ConvertInterfaceNameToLuidA<'a, Param0: ::windows::runtime::IntoPa
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn ConvertInterfaceNameToLuidW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(interfacename: Param0, interfaceluid: *mut NET_LUID_LH) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -269,6 +290,7 @@ pub unsafe fn ConvertInterfaceNameToLuidW<'a, Param0: ::windows::runtime::IntoPa
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn ConvertIpv4MaskToLength(mask: u32, masklength: *mut u8) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -283,6 +305,7 @@ pub unsafe fn ConvertIpv4MaskToLength(mask: u32, masklength: *mut u8) -> ::windo
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn ConvertLengthToIpv4Mask(masklength: u32, mask: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -297,6 +320,7 @@ pub unsafe fn ConvertLengthToIpv4Mask(masklength: u32, mask: *mut u32) -> ::wind
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn CreateAnycastIpAddressEntry(row: *const MIB_ANYCASTIPADDRESS_ROW) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -311,6 +335,7 @@ pub unsafe fn CreateAnycastIpAddressEntry(row: *const MIB_ANYCASTIPADDRESS_ROW) 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn CreateIpForwardEntry(proute: *const MIB_IPFORWARDROW) -> u32 {
     #[cfg(windows)]
@@ -325,6 +350,7 @@ pub unsafe fn CreateIpForwardEntry(proute: *const MIB_IPFORWARDROW) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn CreateIpForwardEntry2(row: *const MIB_IPFORWARD_ROW2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -338,6 +364,7 @@ pub unsafe fn CreateIpForwardEntry2(row: *const MIB_IPFORWARD_ROW2) -> ::windows
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[inline]
 pub unsafe fn CreateIpNetEntry(parpentry: *const MIB_IPNETROW_LH) -> u32 {
     #[cfg(windows)]
@@ -352,6 +379,7 @@ pub unsafe fn CreateIpNetEntry(parpentry: *const MIB_IPNETROW_LH) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn CreateIpNetEntry2(row: *const MIB_IPNET_ROW2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -365,6 +393,7 @@ pub unsafe fn CreateIpNetEntry2(row: *const MIB_IPNET_ROW2) -> ::windows::runtim
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[inline]
 pub unsafe fn CreatePersistentTcpPortReservation(startport: u16, numberofports: u16, token: *mut u64) -> u32 {
     #[cfg(windows)]
@@ -378,6 +407,7 @@ pub unsafe fn CreatePersistentTcpPortReservation(startport: u16, numberofports: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[inline]
 pub unsafe fn CreatePersistentUdpPortReservation(startport: u16, numberofports: u16, token: *mut u64) -> u32 {
     #[cfg(windows)]
@@ -391,6 +421,7 @@ pub unsafe fn CreatePersistentUdpPortReservation(startport: u16, numberofports: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[inline]
 pub unsafe fn CreateProxyArpEntry(dwaddress: u32, dwmask: u32, dwifindex: u32) -> u32 {
     #[cfg(windows)]
@@ -405,6 +436,7 @@ pub unsafe fn CreateProxyArpEntry(dwaddress: u32, dwmask: u32, dwifindex: u32) -
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn CreateSortedAddressPairs(sourceaddresslist: *const super::super::Networking::WinSock::SOCKADDR_IN6, sourceaddresscount: u32, destinationaddresslist: *const super::super::Networking::WinSock::SOCKADDR_IN6, destinationaddresscount: u32, addresssortoptions: u32, sortedaddresspairlist: *mut *mut super::super::Networking::WinSock::SOCKADDR_IN6_PAIR, sortedaddresspaircount: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -428,6 +460,7 @@ pub unsafe fn CreateSortedAddressPairs(sourceaddresslist: *const super::super::N
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn CreateUnicastIpAddressEntry(row: *const MIB_UNICASTIPADDRESS_ROW) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -441,18 +474,28 @@ pub unsafe fn CreateUnicastIpAddressEntry(row: *const MIB_UNICASTIPADDRESS_ROW) 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const DEFAULT_MINIMUM_ENTITIES: u32 = 32u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const DEST_LONGER: u32 = 29u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const DEST_MATCHING: u32 = 28u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const DEST_SHORTER: u32 = 30u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const DNS_DOH_AUTO_UPGRADE_SERVER: u32 = 8u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const DNS_DOH_POLICY_AUTO: u32 = 16u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const DNS_DOH_POLICY_DISABLE: u32 = 8u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const DNS_DOH_POLICY_NOT_CONFIGURED: u32 = 4u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const DNS_DOH_POLICY_REQUIRED: u32 = 32u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 pub struct DNS_DOH_SERVER_SETTINGS {
     pub Template: super::super::Foundation::PWSTR,
     pub Flags: u64,
@@ -484,13 +527,18 @@ unsafe impl ::windows::runtime::Abi for DNS_DOH_SERVER_SETTINGS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const DNS_DOH_SERVER_SETTINGS_ENABLE: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const DNS_DOH_SERVER_SETTINGS_ENABLE_AUTO: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const DNS_DOH_SERVER_SETTINGS_FALLBACK_TO_UDP: u32 = 4u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const DNS_ENABLE_DOH: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 pub struct DNS_INTERFACE_SETTINGS {
     pub Version: u32,
     pub Flags: u64,
@@ -544,6 +592,7 @@ unsafe impl ::windows::runtime::Abi for DNS_INTERFACE_SETTINGS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 pub struct DNS_INTERFACE_SETTINGS3 {
     pub Version: u32,
     pub Flags: u64,
@@ -624,6 +673,7 @@ unsafe impl ::windows::runtime::Abi for DNS_INTERFACE_SETTINGS3 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 pub struct DNS_INTERFACE_SETTINGS_EX {
     pub SettingsV1: DNS_INTERFACE_SETTINGS,
     pub DisableUnconstrainedQueries: u32,
@@ -656,12 +706,16 @@ unsafe impl ::windows::runtime::Abi for DNS_INTERFACE_SETTINGS_EX {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const DNS_INTERFACE_SETTINGS_VERSION1: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const DNS_INTERFACE_SETTINGS_VERSION2: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const DNS_INTERFACE_SETTINGS_VERSION3: u32 = 3u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 pub struct DNS_SERVER_PROPERTY {
     pub Version: u32,
     pub ServerIndex: u32,
@@ -689,6 +743,7 @@ unsafe impl ::windows::runtime::Abi for DNS_SERVER_PROPERTY {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DNS_SERVER_PROPERTY_TYPE(pub i32);
@@ -706,6 +761,7 @@ unsafe impl ::windows::runtime::Abi for DNS_SERVER_PROPERTY_TYPE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 pub union DNS_SERVER_PROPERTY_TYPES {
     pub DohSettings: *mut DNS_DOH_SERVER_SETTINGS,
 }
@@ -730,10 +786,12 @@ unsafe impl ::windows::runtime::Abi for DNS_SERVER_PROPERTY_TYPES {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const DNS_SERVER_PROPERTY_VERSION1: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 pub struct DNS_SETTINGS {
     pub Version: u32,
     pub Flags: u64,
@@ -771,6 +829,7 @@ unsafe impl ::windows::runtime::Abi for DNS_SETTINGS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 pub struct DNS_SETTINGS2 {
     pub Version: u32,
     pub Flags: u64,
@@ -806,23 +865,40 @@ unsafe impl ::windows::runtime::Abi for DNS_SETTINGS2 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const DNS_SETTINGS_ENABLE_LLMNR: u32 = 128u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const DNS_SETTINGS_QUERY_ADAPTER_NAME: u32 = 256u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const DNS_SETTINGS_VERSION1: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const DNS_SETTINGS_VERSION2: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const DNS_SETTING_DISABLE_UNCONSTRAINED_QUERIES: u32 = 1024u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const DNS_SETTING_DOH: u32 = 4096u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const DNS_SETTING_DOH_PROFILE: u32 = 8192u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const DNS_SETTING_DOMAIN: u32 = 32u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const DNS_SETTING_HOSTNAME: u32 = 64u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const DNS_SETTING_IPV6: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const DNS_SETTING_NAMESERVER: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const DNS_SETTING_PROFILE_NAMESERVER: u32 = 512u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const DNS_SETTING_REGISTER_ADAPTER_NAME: u32 = 16u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const DNS_SETTING_REGISTRATION_ENABLED: u32 = 8u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const DNS_SETTING_SEARCHLIST: u32 = 4u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const DNS_SETTING_SUPPLEMENTAL_SEARCH_LIST: u32 = 2048u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn DeleteAnycastIpAddressEntry(row: *const MIB_ANYCASTIPADDRESS_ROW) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -836,6 +912,7 @@ pub unsafe fn DeleteAnycastIpAddressEntry(row: *const MIB_ANYCASTIPADDRESS_ROW) 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[inline]
 pub unsafe fn DeleteIPAddress(ntecontext: u32) -> u32 {
     #[cfg(windows)]
@@ -850,6 +927,7 @@ pub unsafe fn DeleteIPAddress(ntecontext: u32) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn DeleteIpForwardEntry(proute: *const MIB_IPFORWARDROW) -> u32 {
     #[cfg(windows)]
@@ -864,6 +942,7 @@ pub unsafe fn DeleteIpForwardEntry(proute: *const MIB_IPFORWARDROW) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn DeleteIpForwardEntry2(row: *const MIB_IPFORWARD_ROW2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -877,6 +956,7 @@ pub unsafe fn DeleteIpForwardEntry2(row: *const MIB_IPFORWARD_ROW2) -> ::windows
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[inline]
 pub unsafe fn DeleteIpNetEntry(parpentry: *const MIB_IPNETROW_LH) -> u32 {
     #[cfg(windows)]
@@ -891,6 +971,7 @@ pub unsafe fn DeleteIpNetEntry(parpentry: *const MIB_IPNETROW_LH) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn DeleteIpNetEntry2(row: *const MIB_IPNET_ROW2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -904,6 +985,7 @@ pub unsafe fn DeleteIpNetEntry2(row: *const MIB_IPNET_ROW2) -> ::windows::runtim
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[inline]
 pub unsafe fn DeletePersistentTcpPortReservation(startport: u16, numberofports: u16) -> u32 {
     #[cfg(windows)]
@@ -917,6 +999,7 @@ pub unsafe fn DeletePersistentTcpPortReservation(startport: u16, numberofports: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[inline]
 pub unsafe fn DeletePersistentUdpPortReservation(startport: u16, numberofports: u16) -> u32 {
     #[cfg(windows)]
@@ -930,6 +1013,7 @@ pub unsafe fn DeletePersistentUdpPortReservation(startport: u16, numberofports: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[inline]
 pub unsafe fn DeleteProxyArpEntry(dwaddress: u32, dwmask: u32, dwifindex: u32) -> u32 {
     #[cfg(windows)]
@@ -944,6 +1028,7 @@ pub unsafe fn DeleteProxyArpEntry(dwaddress: u32, dwmask: u32, dwifindex: u32) -
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn DeleteUnicastIpAddressEntry(row: *const MIB_UNICASTIPADDRESS_ROW) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -958,6 +1043,7 @@ pub unsafe fn DeleteUnicastIpAddressEntry(row: *const MIB_UNICASTIPADDRESS_ROW) 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[inline]
 pub unsafe fn DisableMediaSense(phandle: *mut super::super::Foundation::HANDLE, poverlapped: *const super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
@@ -971,9 +1057,12 @@ pub unsafe fn DisableMediaSense(phandle: *mut super::super::Foundation::HANDLE, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const ERROR_BASE: u32 = 23000u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const ERROR_IPV6_NOT_IMPLEMENTED: u32 = 23003u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[inline]
 pub unsafe fn EnableRouter(phandle: *mut super::super::Foundation::HANDLE, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
@@ -987,11 +1076,14 @@ pub unsafe fn EnableRouter(phandle: *mut super::super::Foundation::HANDLE, pover
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const FD_FLAGS_ALLFLAGS: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const FD_FLAGS_NOSYN: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 pub struct FIXED_INFO_W2KSP1 {
     pub HostName: [super::super::Foundation::CHAR; 132],
     pub DomainName: [super::super::Foundation::CHAR; 132],
@@ -1040,6 +1132,7 @@ unsafe impl ::windows::runtime::Abi for FIXED_INFO_W2KSP1 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[inline]
 pub unsafe fn FlushIpNetTable(dwifindex: u32) -> u32 {
     #[cfg(windows)]
@@ -1054,6 +1147,7 @@ pub unsafe fn FlushIpNetTable(dwifindex: u32) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn FlushIpNetTable2(family: u16, interfaceindex: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1068,6 +1162,7 @@ pub unsafe fn FlushIpNetTable2(family: u16, interfaceindex: u32) -> ::windows::r
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn FlushIpPathTable(family: u16) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1082,6 +1177,7 @@ pub unsafe fn FlushIpPathTable(family: u16) -> ::windows::runtime::Result<()> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn FreeDnsSettings(settings: *mut DNS_SETTINGS) {
     #[cfg(windows)]
@@ -1096,6 +1192,7 @@ pub unsafe fn FreeDnsSettings(settings: *mut DNS_SETTINGS) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn FreeInterfaceDnsSettings(settings: *mut DNS_INTERFACE_SETTINGS) {
     #[cfg(windows)]
@@ -1109,6 +1206,7 @@ pub unsafe fn FreeInterfaceDnsSettings(settings: *mut DNS_INTERFACE_SETTINGS) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[inline]
 pub unsafe fn FreeMibTable(memory: *const ::std::ffi::c_void) {
     #[cfg(windows)]
@@ -1122,7 +1220,9 @@ pub unsafe fn FreeMibTable(memory: *const ::std::ffi::c_void) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const GAA_FLAG_SKIP_DNS_INFO: u32 = 2048u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GET_ADAPTERS_ADDRESSES_FLAGS(pub u32);
@@ -1174,6 +1274,7 @@ impl ::std::ops::Not for GET_ADAPTERS_ADDRESSES_FLAGS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GLOBAL_FILTER(pub i32);
@@ -1190,6 +1291,7 @@ unsafe impl ::windows::runtime::Abi for GLOBAL_FILTER {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetAdapterIndex<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(adaptername: Param0, ifindex: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -1203,6 +1305,7 @@ pub unsafe fn GetAdapterIndex<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[inline]
 pub unsafe fn GetAdapterOrderMap() -> *mut IP_ADAPTER_ORDER_MAP {
     #[cfg(windows)]
@@ -1217,6 +1320,7 @@ pub unsafe fn GetAdapterOrderMap() -> *mut IP_ADAPTER_ORDER_MAP {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn GetAdaptersAddresses(family: ADDRESS_FAMILY, flags: GET_ADAPTERS_ADDRESSES_FLAGS, reserved: *mut ::std::ffi::c_void, adapteraddresses: *mut IP_ADAPTER_ADDRESSES_LH, sizepointer: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -1231,6 +1335,7 @@ pub unsafe fn GetAdaptersAddresses(family: ADDRESS_FAMILY, flags: GET_ADAPTERS_A
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetAdaptersInfo(adapterinfo: *mut IP_ADAPTER_INFO, sizepointer: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -1245,6 +1350,7 @@ pub unsafe fn GetAdaptersInfo(adapterinfo: *mut IP_ADAPTER_INFO, sizepointer: *m
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn GetAnycastIpAddressEntry(row: *mut MIB_ANYCASTIPADDRESS_ROW) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1259,6 +1365,7 @@ pub unsafe fn GetAnycastIpAddressEntry(row: *mut MIB_ANYCASTIPADDRESS_ROW) -> ::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn GetAnycastIpAddressTable(family: u16, table: *mut *mut MIB_ANYCASTIPADDRESS_TABLE) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1272,6 +1379,7 @@ pub unsafe fn GetAnycastIpAddressTable(family: u16, table: *mut *mut MIB_ANYCAST
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[inline]
 pub unsafe fn GetBestInterface(dwdestaddr: u32, pdwbestifindex: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -1286,6 +1394,7 @@ pub unsafe fn GetBestInterface(dwdestaddr: u32, pdwbestifindex: *mut u32) -> u32
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn GetBestInterfaceEx(pdestaddr: *const super::super::Networking::WinSock::SOCKADDR, pdwbestifindex: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -1300,6 +1409,7 @@ pub unsafe fn GetBestInterfaceEx(pdestaddr: *const super::super::Networking::Win
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn GetBestRoute(dwdestaddr: u32, dwsourceaddr: u32, pbestroute: *mut MIB_IPFORWARDROW) -> u32 {
     #[cfg(windows)]
@@ -1314,6 +1424,7 @@ pub unsafe fn GetBestRoute(dwdestaddr: u32, dwsourceaddr: u32, pbestroute: *mut 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn GetBestRoute2(interfaceluid: *const NET_LUID_LH, interfaceindex: u32, sourceaddress: *const super::super::Networking::WinSock::SOCKADDR_INET, destinationaddress: *const super::super::Networking::WinSock::SOCKADDR_INET, addresssortoptions: u32, bestroute: *mut MIB_IPFORWARD_ROW2, bestsourceaddress: *mut super::super::Networking::WinSock::SOCKADDR_INET) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1327,6 +1438,7 @@ pub unsafe fn GetBestRoute2(interfaceluid: *const NET_LUID_LH, interfaceindex: u
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[inline]
 pub unsafe fn GetCurrentThreadCompartmentId() -> u32 {
     #[cfg(windows)]
@@ -1340,6 +1452,7 @@ pub unsafe fn GetCurrentThreadCompartmentId() -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[inline]
 pub unsafe fn GetCurrentThreadCompartmentScope(compartmentscope: *mut u32, compartmentid: *mut u32) {
     #[cfg(windows)]
@@ -1353,6 +1466,7 @@ pub unsafe fn GetCurrentThreadCompartmentScope(compartmentscope: *mut u32, compa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[inline]
 pub unsafe fn GetDefaultCompartmentId() -> u32 {
     #[cfg(windows)]
@@ -1367,6 +1481,7 @@ pub unsafe fn GetDefaultCompartmentId() -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetDnsSettings(settings: *mut DNS_SETTINGS) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1381,6 +1496,7 @@ pub unsafe fn GetDnsSettings(settings: *mut DNS_SETTINGS) -> ::windows::runtime:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetExtendedTcpTable<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(ptcptable: *mut ::std::ffi::c_void, pdwsize: *mut u32, border: Param2, ulaf: u32, tableclass: TCP_TABLE_CLASS, reserved: u32) -> u32 {
     #[cfg(windows)]
@@ -1395,6 +1511,7 @@ pub unsafe fn GetExtendedTcpTable<'a, Param2: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetExtendedUdpTable<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(pudptable: *mut ::std::ffi::c_void, pdwsize: *mut u32, border: Param2, ulaf: u32, tableclass: UDP_TABLE_CLASS, reserved: u32) -> u32 {
     #[cfg(windows)]
@@ -1408,6 +1525,7 @@ pub unsafe fn GetExtendedUdpTable<'a, Param2: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[inline]
 pub unsafe fn GetFriendlyIfIndex(ifindex: u32) -> u32 {
     #[cfg(windows)]
@@ -1421,6 +1539,7 @@ pub unsafe fn GetFriendlyIfIndex(ifindex: u32) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[inline]
 pub unsafe fn GetIcmpStatistics(statistics: *mut MIB_ICMP) -> u32 {
     #[cfg(windows)]
@@ -1434,6 +1553,7 @@ pub unsafe fn GetIcmpStatistics(statistics: *mut MIB_ICMP) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[inline]
 pub unsafe fn GetIcmpStatisticsEx(statistics: *mut MIB_ICMP_EX_XPSP1, family: u32) -> u32 {
     #[cfg(windows)]
@@ -1447,6 +1567,7 @@ pub unsafe fn GetIcmpStatisticsEx(statistics: *mut MIB_ICMP_EX_XPSP1, family: u3
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[inline]
 pub unsafe fn GetIfEntry(pifrow: *mut MIB_IFROW) -> u32 {
     #[cfg(windows)]
@@ -1461,6 +1582,7 @@ pub unsafe fn GetIfEntry(pifrow: *mut MIB_IFROW) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_NetworkManagement_Ndis`*"]
 #[inline]
 pub unsafe fn GetIfEntry2(row: *mut MIB_IF_ROW2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1475,6 +1597,7 @@ pub unsafe fn GetIfEntry2(row: *mut MIB_IF_ROW2) -> ::windows::runtime::Result<(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_NetworkManagement_Ndis`*"]
 #[inline]
 pub unsafe fn GetIfEntry2Ex(level: MIB_IF_ENTRY_LEVEL, row: *mut MIB_IF_ROW2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1489,6 +1612,7 @@ pub unsafe fn GetIfEntry2Ex(level: MIB_IF_ENTRY_LEVEL, row: *mut MIB_IF_ROW2) ->
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetIfStackTable(table: *mut *mut MIB_IFSTACK_TABLE) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1503,6 +1627,7 @@ pub unsafe fn GetIfStackTable(table: *mut *mut MIB_IFSTACK_TABLE) -> ::windows::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetIfTable<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(piftable: *mut MIB_IFTABLE, pdwsize: *mut u32, border: Param2) -> u32 {
     #[cfg(windows)]
@@ -1517,6 +1642,7 @@ pub unsafe fn GetIfTable<'a, Param2: ::windows::runtime::IntoParam<'a, super::su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_NetworkManagement_Ndis`*"]
 #[inline]
 pub unsafe fn GetIfTable2(table: *mut *mut MIB_IF_TABLE2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1531,6 +1657,7 @@ pub unsafe fn GetIfTable2(table: *mut *mut MIB_IF_TABLE2) -> ::windows::runtime:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_NetworkManagement_Ndis`*"]
 #[inline]
 pub unsafe fn GetIfTable2Ex(level: MIB_IF_TABLE_LEVEL, table: *mut *mut MIB_IF_TABLE2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1545,6 +1672,7 @@ pub unsafe fn GetIfTable2Ex(level: MIB_IF_TABLE_LEVEL, table: *mut *mut MIB_IF_T
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetInterfaceActiveTimestampCapabilities(interfaceluid: *const NET_LUID_LH, timestampcapabilites: *mut INTERFACE_TIMESTAMP_CAPABILITIES) -> u32 {
     #[cfg(windows)]
@@ -1559,6 +1687,7 @@ pub unsafe fn GetInterfaceActiveTimestampCapabilities(interfaceluid: *const NET_
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetInterfaceDnsSettings<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(interface: Param0, settings: *mut DNS_INTERFACE_SETTINGS) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1572,6 +1701,7 @@ pub unsafe fn GetInterfaceDnsSettings<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[inline]
 pub unsafe fn GetInterfaceInfo(piftable: *mut IP_INTERFACE_INFO, dwoutbuflen: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -1586,6 +1716,7 @@ pub unsafe fn GetInterfaceInfo(piftable: *mut IP_INTERFACE_INFO, dwoutbuflen: *m
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetInterfaceSupportedTimestampCapabilities(interfaceluid: *const NET_LUID_LH, timestampcapabilites: *mut INTERFACE_TIMESTAMP_CAPABILITIES) -> u32 {
     #[cfg(windows)]
@@ -1600,6 +1731,7 @@ pub unsafe fn GetInterfaceSupportedTimestampCapabilities(interfaceluid: *const N
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetInvertedIfStackTable(table: *mut *mut MIB_INVERTEDIFSTACK_TABLE) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1614,6 +1746,7 @@ pub unsafe fn GetInvertedIfStackTable(table: *mut *mut MIB_INVERTEDIFSTACK_TABLE
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetIpAddrTable<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(pipaddrtable: *mut MIB_IPADDRTABLE, pdwsize: *mut u32, border: Param2) -> u32 {
     #[cfg(windows)]
@@ -1628,6 +1761,7 @@ pub unsafe fn GetIpAddrTable<'a, Param2: ::windows::runtime::IntoParam<'a, super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetIpErrorString(errorcode: u32, buffer: super::super::Foundation::PWSTR, size: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -1642,6 +1776,7 @@ pub unsafe fn GetIpErrorString(errorcode: u32, buffer: super::super::Foundation:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn GetIpForwardEntry2(row: *mut MIB_IPFORWARD_ROW2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1656,6 +1791,7 @@ pub unsafe fn GetIpForwardEntry2(row: *mut MIB_IPFORWARD_ROW2) -> ::windows::run
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn GetIpForwardTable<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(pipforwardtable: *mut MIB_IPFORWARDTABLE, pdwsize: *mut u32, border: Param2) -> u32 {
     #[cfg(windows)]
@@ -1670,6 +1806,7 @@ pub unsafe fn GetIpForwardTable<'a, Param2: ::windows::runtime::IntoParam<'a, su
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn GetIpForwardTable2(family: u16, table: *mut *mut MIB_IPFORWARD_TABLE2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1684,6 +1821,7 @@ pub unsafe fn GetIpForwardTable2(family: u16, table: *mut *mut MIB_IPFORWARD_TAB
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn GetIpInterfaceEntry(row: *mut MIB_IPINTERFACE_ROW) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1698,6 +1836,7 @@ pub unsafe fn GetIpInterfaceEntry(row: *mut MIB_IPINTERFACE_ROW) -> ::windows::r
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn GetIpInterfaceTable(family: u16, table: *mut *mut MIB_IPINTERFACE_TABLE) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1712,6 +1851,7 @@ pub unsafe fn GetIpInterfaceTable(family: u16, table: *mut *mut MIB_IPINTERFACE_
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn GetIpNetEntry2(row: *mut MIB_IPNET_ROW2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1726,6 +1866,7 @@ pub unsafe fn GetIpNetEntry2(row: *mut MIB_IPNET_ROW2) -> ::windows::runtime::Re
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetIpNetTable<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(ipnettable: *mut MIB_IPNETTABLE, sizepointer: *mut u32, order: Param2) -> u32 {
     #[cfg(windows)]
@@ -1740,6 +1881,7 @@ pub unsafe fn GetIpNetTable<'a, Param2: ::windows::runtime::IntoParam<'a, super:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn GetIpNetTable2(family: u16, table: *mut *mut MIB_IPNET_TABLE2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1754,6 +1896,7 @@ pub unsafe fn GetIpNetTable2(family: u16, table: *mut *mut MIB_IPNET_TABLE2) -> 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn GetIpNetworkConnectionBandwidthEstimates(interfaceindex: u32, addressfamily: u16, bandwidthestimates: *mut MIB_IP_NETWORK_CONNECTION_BANDWIDTH_ESTIMATES) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1768,6 +1911,7 @@ pub unsafe fn GetIpNetworkConnectionBandwidthEstimates(interfaceindex: u32, addr
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn GetIpPathEntry(row: *mut MIB_IPPATH_ROW) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1782,6 +1926,7 @@ pub unsafe fn GetIpPathEntry(row: *mut MIB_IPPATH_ROW) -> ::windows::runtime::Re
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn GetIpPathTable(family: u16, table: *mut *mut MIB_IPPATH_TABLE) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1795,6 +1940,7 @@ pub unsafe fn GetIpPathTable(family: u16, table: *mut *mut MIB_IPPATH_TABLE) -> 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[inline]
 pub unsafe fn GetIpStatistics(statistics: *mut MIB_IPSTATS_LH) -> u32 {
     #[cfg(windows)]
@@ -1808,6 +1954,7 @@ pub unsafe fn GetIpStatistics(statistics: *mut MIB_IPSTATS_LH) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[inline]
 pub unsafe fn GetIpStatisticsEx(statistics: *mut MIB_IPSTATS_LH, family: ADDRESS_FAMILY) -> u32 {
     #[cfg(windows)]
@@ -1822,6 +1969,7 @@ pub unsafe fn GetIpStatisticsEx(statistics: *mut MIB_IPSTATS_LH, family: ADDRESS
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetJobCompartmentId<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(jobhandle: Param0) -> u32 {
     #[cfg(windows)]
@@ -1836,6 +1984,7 @@ pub unsafe fn GetJobCompartmentId<'a, Param0: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn GetMulticastIpAddressEntry(row: *mut MIB_MULTICASTIPADDRESS_ROW) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1850,6 +1999,7 @@ pub unsafe fn GetMulticastIpAddressEntry(row: *mut MIB_MULTICASTIPADDRESS_ROW) -
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn GetMulticastIpAddressTable(family: u16, table: *mut *mut MIB_MULTICASTIPADDRESS_TABLE) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1864,6 +2014,7 @@ pub unsafe fn GetMulticastIpAddressTable(family: u16, table: *mut *mut MIB_MULTI
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn GetNetworkConnectivityHint(connectivityhint: *mut super::super::Networking::WinSock::NL_NETWORK_CONNECTIVITY_HINT) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1878,6 +2029,7 @@ pub unsafe fn GetNetworkConnectivityHint(connectivityhint: *mut super::super::Ne
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn GetNetworkConnectivityHintForInterface(interfaceindex: u32, connectivityhint: *mut super::super::Networking::WinSock::NL_NETWORK_CONNECTIVITY_HINT) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1892,6 +2044,7 @@ pub unsafe fn GetNetworkConnectivityHintForInterface(interfaceindex: u32, connec
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetNetworkInformation(networkguid: *const ::windows::runtime::GUID, compartmentid: *mut u32, siteid: *mut u32, networkname: super::super::Foundation::PWSTR, length: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1906,6 +2059,7 @@ pub unsafe fn GetNetworkInformation(networkguid: *const ::windows::runtime::GUID
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetNetworkParams(pfixedinfo: *mut FIXED_INFO_W2KSP1, poutbuflen: *mut u32) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
@@ -1919,6 +2073,7 @@ pub unsafe fn GetNetworkParams(pfixedinfo: *mut FIXED_INFO_W2KSP1, poutbuflen: *
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[inline]
 pub unsafe fn GetNumberOfInterfaces(pdwnumif: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -1932,6 +2087,7 @@ pub unsafe fn GetNumberOfInterfaces(pdwnumif: *mut u32) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[inline]
 pub unsafe fn GetOwnerModuleFromPidAndInfo(ulpid: u32, pinfo: *const u64, class: TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer: *mut ::std::ffi::c_void, pdwsize: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -1945,6 +2101,7 @@ pub unsafe fn GetOwnerModuleFromPidAndInfo(ulpid: u32, pinfo: *const u64, class:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[inline]
 pub unsafe fn GetOwnerModuleFromTcp6Entry(ptcpentry: *const MIB_TCP6ROW_OWNER_MODULE, class: TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer: *mut ::std::ffi::c_void, pdwsize: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -1958,6 +2115,7 @@ pub unsafe fn GetOwnerModuleFromTcp6Entry(ptcpentry: *const MIB_TCP6ROW_OWNER_MO
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[inline]
 pub unsafe fn GetOwnerModuleFromTcpEntry(ptcpentry: *const MIB_TCPROW_OWNER_MODULE, class: TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer: *mut ::std::ffi::c_void, pdwsize: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -1971,6 +2129,7 @@ pub unsafe fn GetOwnerModuleFromTcpEntry(ptcpentry: *const MIB_TCPROW_OWNER_MODU
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[inline]
 pub unsafe fn GetOwnerModuleFromUdp6Entry(pudpentry: *const MIB_UDP6ROW_OWNER_MODULE, class: TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer: *mut ::std::ffi::c_void, pdwsize: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -1984,6 +2143,7 @@ pub unsafe fn GetOwnerModuleFromUdp6Entry(pudpentry: *const MIB_UDP6ROW_OWNER_MO
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[inline]
 pub unsafe fn GetOwnerModuleFromUdpEntry(pudpentry: *const MIB_UDPROW_OWNER_MODULE, class: TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer: *mut ::std::ffi::c_void, pdwsize: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -1998,6 +2158,7 @@ pub unsafe fn GetOwnerModuleFromUdpEntry(pudpentry: *const MIB_UDPROW_OWNER_MODU
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetPerAdapterInfo(ifindex: u32, pperadapterinfo: *mut IP_PER_ADAPTER_INFO_W2KSP1, poutbuflen: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -2012,6 +2173,7 @@ pub unsafe fn GetPerAdapterInfo(ifindex: u32, pperadapterinfo: *mut IP_PER_ADAPT
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn GetPerTcp6ConnectionEStats(row: *const MIB_TCP6ROW, estatstype: TCP_ESTATS_TYPE, rw: *mut u8, rwversion: u32, rwsize: u32, ros: *mut u8, rosversion: u32, rossize: u32, rod: *mut u8, rodversion: u32, rodsize: u32) -> u32 {
     #[cfg(windows)]
@@ -2037,6 +2199,7 @@ pub unsafe fn GetPerTcp6ConnectionEStats(row: *const MIB_TCP6ROW, estatstype: TC
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[inline]
 pub unsafe fn GetPerTcpConnectionEStats(row: *const MIB_TCPROW_LH, estatstype: TCP_ESTATS_TYPE, rw: *mut u8, rwversion: u32, rwsize: u32, ros: *mut u8, rosversion: u32, rossize: u32, rod: *mut u8, rodversion: u32, rodsize: u32) -> u32 {
     #[cfg(windows)]
@@ -2063,6 +2226,7 @@ pub unsafe fn GetPerTcpConnectionEStats(row: *const MIB_TCPROW_LH, estatstype: T
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetRTTAndHopCount(destipaddress: u32, hopcount: *mut u32, maxhops: u32, rtt: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -2076,6 +2240,7 @@ pub unsafe fn GetRTTAndHopCount(destipaddress: u32, hopcount: *mut u32, maxhops:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[inline]
 pub unsafe fn GetSessionCompartmentId(sessionid: u32) -> u32 {
     #[cfg(windows)]
@@ -2090,6 +2255,7 @@ pub unsafe fn GetSessionCompartmentId(sessionid: u32) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn GetTcp6Table<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(tcptable: *mut MIB_TCP6TABLE, sizepointer: *mut u32, order: Param2) -> u32 {
     #[cfg(windows)]
@@ -2104,6 +2270,7 @@ pub unsafe fn GetTcp6Table<'a, Param2: ::windows::runtime::IntoParam<'a, super::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn GetTcp6Table2<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(tcptable: *mut MIB_TCP6TABLE2, sizepointer: *mut u32, order: Param2) -> u32 {
     #[cfg(windows)]
@@ -2117,6 +2284,7 @@ pub unsafe fn GetTcp6Table2<'a, Param2: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[inline]
 pub unsafe fn GetTcpStatistics(statistics: *mut MIB_TCPSTATS_LH) -> u32 {
     #[cfg(windows)]
@@ -2130,6 +2298,7 @@ pub unsafe fn GetTcpStatistics(statistics: *mut MIB_TCPSTATS_LH) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[inline]
 pub unsafe fn GetTcpStatisticsEx(statistics: *mut MIB_TCPSTATS_LH, family: ADDRESS_FAMILY) -> u32 {
     #[cfg(windows)]
@@ -2143,6 +2312,7 @@ pub unsafe fn GetTcpStatisticsEx(statistics: *mut MIB_TCPSTATS_LH, family: ADDRE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[inline]
 pub unsafe fn GetTcpStatisticsEx2(statistics: *mut MIB_TCPSTATS2, family: ADDRESS_FAMILY) -> u32 {
     #[cfg(windows)]
@@ -2157,6 +2327,7 @@ pub unsafe fn GetTcpStatisticsEx2(statistics: *mut MIB_TCPSTATS2, family: ADDRES
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetTcpTable<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(tcptable: *mut MIB_TCPTABLE, sizepointer: *mut u32, order: Param2) -> u32 {
     #[cfg(windows)]
@@ -2171,6 +2342,7 @@ pub unsafe fn GetTcpTable<'a, Param2: ::windows::runtime::IntoParam<'a, super::s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetTcpTable2<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(tcptable: *mut MIB_TCPTABLE2, sizepointer: *mut u32, order: Param2) -> u32 {
     #[cfg(windows)]
@@ -2185,6 +2357,7 @@ pub unsafe fn GetTcpTable2<'a, Param2: ::windows::runtime::IntoParam<'a, super::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetTeredoPort(port: *mut u16) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -2199,6 +2372,7 @@ pub unsafe fn GetTeredoPort(port: *mut u16) -> ::windows::runtime::Result<()> {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn GetUdp6Table<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(udp6table: *mut MIB_UDP6TABLE, sizepointer: *mut u32, order: Param2) -> u32 {
     #[cfg(windows)]
@@ -2212,6 +2386,7 @@ pub unsafe fn GetUdp6Table<'a, Param2: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[inline]
 pub unsafe fn GetUdpStatistics(stats: *mut MIB_UDPSTATS) -> u32 {
     #[cfg(windows)]
@@ -2225,6 +2400,7 @@ pub unsafe fn GetUdpStatistics(stats: *mut MIB_UDPSTATS) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[inline]
 pub unsafe fn GetUdpStatisticsEx(statistics: *mut MIB_UDPSTATS, family: ADDRESS_FAMILY) -> u32 {
     #[cfg(windows)]
@@ -2238,6 +2414,7 @@ pub unsafe fn GetUdpStatisticsEx(statistics: *mut MIB_UDPSTATS, family: ADDRESS_
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[inline]
 pub unsafe fn GetUdpStatisticsEx2(statistics: *mut MIB_UDPSTATS2, family: ADDRESS_FAMILY) -> u32 {
     #[cfg(windows)]
@@ -2252,6 +2429,7 @@ pub unsafe fn GetUdpStatisticsEx2(statistics: *mut MIB_UDPSTATS2, family: ADDRES
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn GetUdpTable<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(udptable: *mut MIB_UDPTABLE, sizepointer: *mut u32, order: Param2) -> u32 {
     #[cfg(windows)]
@@ -2265,6 +2443,7 @@ pub unsafe fn GetUdpTable<'a, Param2: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[inline]
 pub unsafe fn GetUniDirectionalAdapterInfo(pipifinfo: *mut IP_UNIDIRECTIONAL_ADAPTER_ADDRESS, dwoutbuflen: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -2279,6 +2458,7 @@ pub unsafe fn GetUniDirectionalAdapterInfo(pipifinfo: *mut IP_UNIDIRECTIONAL_ADA
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn GetUnicastIpAddressEntry(row: *mut MIB_UNICASTIPADDRESS_ROW) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -2293,6 +2473,7 @@ pub unsafe fn GetUnicastIpAddressEntry(row: *mut MIB_UNICASTIPADDRESS_ROW) -> ::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn GetUnicastIpAddressTable(family: u16, table: *mut *mut MIB_UNICASTIPADDRESS_TABLE) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -2319,7 +2500,9 @@ unsafe impl ::windows::runtime::Abi for HIFTIMESTAMPCHANGE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const HYBRID_NODETYPE: u32 = 8u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ICMP4_TYPE(pub i32);
@@ -2345,7 +2528,9 @@ unsafe impl ::windows::runtime::Abi for ICMP4_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const ICMP6_INFOMSG_MASK: u32 = 128u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ICMP6_TYPE(pub i32);
@@ -2373,7 +2558,9 @@ unsafe impl ::windows::runtime::Abi for ICMP6_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const ICMP_STATS: u32 = 11u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IF_ACCESS_TYPE(pub i32);
@@ -2392,6 +2579,7 @@ unsafe impl ::windows::runtime::Abi for IF_ACCESS_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IF_ADMINISTRATIVE_STATE(pub i32);
@@ -2407,17 +2595,27 @@ unsafe impl ::windows::runtime::Abi for IF_ADMINISTRATIVE_STATE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_ADMIN_STATUS_DOWN: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_ADMIN_STATUS_TESTING: u32 = 3u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_ADMIN_STATUS_UP: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_CHECK_MCAST: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_CHECK_NONE: u32 = 0u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_CHECK_SEND: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_CONNECTION_DEDICATED: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_CONNECTION_DEMAND: u32 = 3u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_CONNECTION_PASSIVE: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct IF_COUNTED_STRING_LH {
     pub Length: u16,
     pub String: [u16; 257],
@@ -2443,9 +2641,13 @@ unsafe impl ::windows::runtime::Abi for IF_COUNTED_STRING_LH {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_MAX_PHYS_ADDRESS_LENGTH: u32 = 32u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_MAX_STRING_SIZE: u32 = 256u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_NUMBER: u32 = 0u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IF_OPER_STATUS(pub i32);
@@ -2467,6 +2669,7 @@ unsafe impl ::windows::runtime::Abi for IF_OPER_STATUS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct IF_PHYSICAL_ADDRESS_LH {
     pub Length: u16,
     pub Address: [u8; 32],
@@ -2492,212 +2695,417 @@ unsafe impl ::windows::runtime::Abi for IF_PHYSICAL_ADDRESS_LH {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_ROW: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_STATUS: u32 = 25u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TABLE: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_A12MPPSWITCH: u32 = 130u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_AAL2: u32 = 187u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_AAL5: u32 = 49u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_ADSL: u32 = 94u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_AFLANE_8023: u32 = 59u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_AFLANE_8025: u32 = 60u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_ARAP: u32 = 88u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_ARCNET: u32 = 35u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_ARCNET_PLUS: u32 = 36u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_ASYNC: u32 = 84u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_ATM: u32 = 37u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_ATM_DXI: u32 = 105u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_ATM_FUNI: u32 = 106u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_ATM_IMA: u32 = 107u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_ATM_LOGICAL: u32 = 80u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_ATM_RADIO: u32 = 189u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_ATM_SUBINTERFACE: u32 = 134u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_ATM_VCI_ENDPT: u32 = 194u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_ATM_VIRTUAL: u32 = 149u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_BASIC_ISDN: u32 = 20u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_BGP_POLICY_ACCOUNTING: u32 = 162u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_BSC: u32 = 83u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_CCTEMUL: u32 = 61u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_CES: u32 = 133u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_CHANNEL: u32 = 70u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_CNR: u32 = 85u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_COFFEE: u32 = 132u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_COMPOSITELINK: u32 = 155u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_DCN: u32 = 141u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_DDN_X25: u32 = 4u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_DIGITALPOWERLINE: u32 = 138u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_DIGITAL_WRAPPER_OVERHEAD_CHANNEL: u32 = 186u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_DLSW: u32 = 74u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_DOCSCABLE_DOWNSTREAM: u32 = 128u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_DOCSCABLE_MACLAYER: u32 = 127u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_DOCSCABLE_UPSTREAM: u32 = 129u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_DS0: u32 = 81u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_DS0_BUNDLE: u32 = 82u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_DS1: u32 = 18u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_DS1_FDL: u32 = 170u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_DS3: u32 = 30u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_DTM: u32 = 140u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_DVBRCC_DOWNSTREAM: u32 = 147u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_DVBRCC_MACLAYER: u32 = 146u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_DVBRCC_UPSTREAM: u32 = 148u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_DVB_ASI_IN: u32 = 172u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_DVB_ASI_OUT: u32 = 173u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_E1: u32 = 19u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_EON: u32 = 25u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_EPLRS: u32 = 87u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_ESCON: u32 = 73u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_ETHERNET_3MBIT: u32 = 26u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_ETHERNET_CSMACD: u32 = 6u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_FAST: u32 = 125u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_FASTETHER: u32 = 62u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_FASTETHER_FX: u32 = 69u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_FDDI: u32 = 15u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_FIBRECHANNEL: u32 = 56u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_FRAMERELAY: u32 = 32u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_FRAMERELAY_INTERCONNECT: u32 = 58u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_FRAMERELAY_MPI: u32 = 92u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_FRAMERELAY_SERVICE: u32 = 44u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_FRF16_MFR_BUNDLE: u32 = 163u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_FR_DLCI_ENDPT: u32 = 193u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_FR_FORWARD: u32 = 158u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_G703_2MB: u32 = 67u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_G703_64K: u32 = 66u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_GIGABITETHERNET: u32 = 117u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_GR303_IDT: u32 = 178u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_GR303_RDT: u32 = 177u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_H323_GATEKEEPER: u32 = 164u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_H323_PROXY: u32 = 165u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_HDH_1822: u32 = 3u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_HDLC: u32 = 118u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_HDSL2: u32 = 168u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_HIPERLAN2: u32 = 183u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_HIPPI: u32 = 47u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_HIPPIINTERFACE: u32 = 57u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_HOSTPAD: u32 = 90u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_HSSI: u32 = 46u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_HYPERCHANNEL: u32 = 14u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_IBM370PARCHAN: u32 = 72u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_IDSL: u32 = 154u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_IEEE1394: u32 = 144u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_IEEE80211: u32 = 71u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_IEEE80212: u32 = 55u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_IEEE802154: u32 = 259u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_IEEE80216_WMAN: u32 = 237u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_IEEE8023AD_LAG: u32 = 161u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_IF_GSN: u32 = 145u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_IMT: u32 = 190u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_INTERLEAVE: u32 = 124u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_IP: u32 = 126u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_IPFORWARD: u32 = 142u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_IPOVER_ATM: u32 = 114u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_IPOVER_CDLC: u32 = 109u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_IPOVER_CLAW: u32 = 110u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_IPSWITCH: u32 = 78u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_IS088023_CSMACD: u32 = 7u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_ISDN: u32 = 63u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_ISDN_S: u32 = 75u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_ISDN_U: u32 = 76u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_ISO88022_LLC: u32 = 41u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_ISO88024_TOKENBUS: u32 = 8u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_ISO88025R_DTR: u32 = 86u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_ISO88025_CRFPRINT: u32 = 98u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_ISO88025_FIBER: u32 = 115u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_ISO88025_TOKENRING: u32 = 9u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_ISO88026_MAN: u32 = 10u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_ISUP: u32 = 179u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_L2_VLAN: u32 = 135u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_L3_IPVLAN: u32 = 136u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_L3_IPXVLAN: u32 = 137u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_LAP_B: u32 = 16u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_LAP_D: u32 = 77u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_LAP_F: u32 = 119u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_LOCALTALK: u32 = 42u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_MEDIAMAILOVERIP: u32 = 139u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_MF_SIGLINK: u32 = 167u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_MIO_X25: u32 = 38u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_MODEM: u32 = 48u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_MPC: u32 = 113u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_MPLS: u32 = 166u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_MPLS_TUNNEL: u32 = 150u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_MSDSL: u32 = 143u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_MVL: u32 = 191u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_MYRINET: u32 = 99u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_NFAS: u32 = 175u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_NSIP: u32 = 27u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_OPTICAL_CHANNEL: u32 = 195u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_OPTICAL_TRANSPORT: u32 = 196u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_OTHER: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_PARA: u32 = 34u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_PLC: u32 = 174u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_POS: u32 = 171u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_PPP: u32 = 23u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_PPPMULTILINKBUNDLE: u32 = 108u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_PRIMARY_ISDN: u32 = 21u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_PROP_BWA_P2MP: u32 = 184u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_PROP_CNLS: u32 = 89u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_PROP_DOCS_WIRELESS_DOWNSTREAM: u32 = 181u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_PROP_DOCS_WIRELESS_MACLAYER: u32 = 180u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_PROP_DOCS_WIRELESS_UPSTREAM: u32 = 182u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_PROP_MULTIPLEXOR: u32 = 54u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_PROP_POINT2POINT_SERIAL: u32 = 22u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_PROP_VIRTUAL: u32 = 53u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_PROP_WIRELESS_P2P: u32 = 157u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_PROTEON_10MBIT: u32 = 12u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_PROTEON_80MBIT: u32 = 13u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_QLLC: u32 = 68u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_RADIO_MAC: u32 = 188u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_RADSL: u32 = 95u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_REACH_DSL: u32 = 192u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_REGULAR_1822: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_RFC1483: u32 = 159u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_RFC877_X25: u32 = 5u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_RS232: u32 = 33u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_RSRB: u32 = 79u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_SDLC: u32 = 17u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_SDSL: u32 = 96u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_SHDSL: u32 = 169u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_SIP: u32 = 31u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_SLIP: u32 = 28u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_SMDS_DXI: u32 = 43u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_SMDS_ICIP: u32 = 52u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_SOFTWARE_LOOPBACK: u32 = 24u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_SONET: u32 = 39u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_SONET_OVERHEAD_CHANNEL: u32 = 185u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_SONET_PATH: u32 = 50u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_SONET_VT: u32 = 51u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_SRP: u32 = 151u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_SS7_SIGLINK: u32 = 156u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_STACKTOSTACK: u32 = 111u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_STARLAN: u32 = 11u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_TDLC: u32 = 116u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_TERMPAD: u32 = 91u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_TR008: u32 = 176u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_TRANSPHDLC: u32 = 123u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_TUNNEL: u32 = 131u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_ULTRA: u32 = 29u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_USB: u32 = 160u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_V11: u32 = 64u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_V35: u32 = 45u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_V36: u32 = 65u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_V37: u32 = 120u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_VDSL: u32 = 97u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_VIRTUALIPADDRESS: u32 = 112u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_VOICEOVERATM: u32 = 152u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_VOICEOVERFRAMERELAY: u32 = 153u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_VOICE_EM: u32 = 100u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_VOICE_ENCAP: u32 = 103u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_VOICE_FXO: u32 = 101u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_VOICE_FXS: u32 = 102u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_VOICE_OVERIP: u32 = 104u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_WWANPP: u32 = 243u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_WWANPP2: u32 = 244u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_X213: u32 = 93u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_X25_HUNTGROUP: u32 = 122u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_X25_MLP: u32 = 121u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_X25_PLE: u32 = 40u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IF_TYPE_XBOX_WIRELESS: u32 = 281u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct INTERFACE_HARDWARE_CROSSTIMESTAMP {
     pub SystemTimestamp1: u64,
     pub HardwareClockTimestamp: u64,
@@ -2727,6 +3135,7 @@ unsafe impl ::windows::runtime::Abi for INTERFACE_HARDWARE_CROSSTIMESTAMP {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 pub struct INTERFACE_HARDWARE_TIMESTAMP_CAPABILITIES {
     pub PtpV2OverUdpIPv4EventMessageReceive: super::super::Foundation::BOOLEAN,
     pub PtpV2OverUdpIPv4AllMessageReceive: super::super::Foundation::BOOLEAN,
@@ -2792,6 +3201,7 @@ unsafe impl ::windows::runtime::Abi for INTERFACE_HARDWARE_TIMESTAMP_CAPABILITIE
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 pub struct INTERFACE_SOFTWARE_TIMESTAMP_CAPABILITIES {
     pub AllReceive: super::super::Foundation::BOOLEAN,
     pub AllTransmit: super::super::Foundation::BOOLEAN,
@@ -2827,6 +3237,7 @@ unsafe impl ::windows::runtime::Abi for INTERFACE_SOFTWARE_TIMESTAMP_CAPABILITIE
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 pub struct INTERFACE_TIMESTAMP_CAPABILITIES {
     pub HardwareClockFrequencyHz: u64,
     pub SupportsCrossTimestamp: super::super::Foundation::BOOLEAN,
@@ -2865,6 +3276,7 @@ unsafe impl ::windows::runtime::Abi for INTERFACE_TIMESTAMP_CAPABILITIES {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct INTERNAL_IF_OPER_STATUS(pub i32);
@@ -2883,16 +3295,25 @@ unsafe impl ::windows::runtime::Abi for INTERNAL_IF_OPER_STATUS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IOCTL_ARP_SEND_REQUEST: u32 = 103u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IOCTL_IP_ADDCHANGE_NOTIFY_REQUEST: u32 = 102u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IOCTL_IP_GET_BEST_INTERFACE: u32 = 105u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IOCTL_IP_INTERFACE_INFO: u32 = 104u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IOCTL_IP_RTCHANGE_NOTIFY_REQUEST: u32 = 101u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IOCTL_IP_UNIDIRECTIONAL_ADAPTER_ADDRESS: u32 = 106u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP6_STATS: u32 = 36u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IPRTRMGR_PID: u32 = 10000u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct IPV6_ADDRESS_EX {
     pub sin6_port: u16,
     pub sin6_flowinfo: u32,
@@ -2915,11 +3336,14 @@ unsafe impl ::windows::runtime::Abi for IPV6_ADDRESS_EX {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IPV6_GLOBAL_INFO: u32 = 4294901775u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IPV6_ROUTE_INFO: u32 = 4294901776u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 pub struct IP_ADAPTER_ADDRESSES_LH {
     pub Anonymous1: IP_ADAPTER_ADDRESSES_LH_0,
     pub Next: *mut IP_ADAPTER_ADDRESSES_LH,
@@ -2981,6 +3405,7 @@ unsafe impl ::windows::runtime::Abi for IP_ADAPTER_ADDRESSES_LH {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub union IP_ADAPTER_ADDRESSES_LH_0 {
     pub Alignment: u64,
     pub Anonymous: IP_ADAPTER_ADDRESSES_LH_0_0,
@@ -3003,6 +3428,7 @@ unsafe impl ::windows::runtime::Abi for IP_ADAPTER_ADDRESSES_LH_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct IP_ADAPTER_ADDRESSES_LH_0_0 {
     pub Length: u32,
     pub IfIndex: u32,
@@ -3030,6 +3456,7 @@ unsafe impl ::windows::runtime::Abi for IP_ADAPTER_ADDRESSES_LH_0_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub union IP_ADAPTER_ADDRESSES_LH_1 {
     pub Flags: u32,
     pub Anonymous: IP_ADAPTER_ADDRESSES_LH_1_0,
@@ -3052,6 +3479,7 @@ unsafe impl ::windows::runtime::Abi for IP_ADAPTER_ADDRESSES_LH_1 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct IP_ADAPTER_ADDRESSES_LH_1_0 {
     pub _bitfield: u32,
 }
@@ -3079,6 +3507,7 @@ unsafe impl ::windows::runtime::Abi for IP_ADAPTER_ADDRESSES_LH_1_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 pub struct IP_ADAPTER_ADDRESSES_XP {
     pub Anonymous: IP_ADAPTER_ADDRESSES_XP_0,
     pub Next: *mut IP_ADAPTER_ADDRESSES_XP,
@@ -3123,6 +3552,7 @@ unsafe impl ::windows::runtime::Abi for IP_ADAPTER_ADDRESSES_XP {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub union IP_ADAPTER_ADDRESSES_XP_0 {
     pub Alignment: u64,
     pub Anonymous: IP_ADAPTER_ADDRESSES_XP_0_0,
@@ -3145,6 +3575,7 @@ unsafe impl ::windows::runtime::Abi for IP_ADAPTER_ADDRESSES_XP_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct IP_ADAPTER_ADDRESSES_XP_0_0 {
     pub Length: u32,
     pub IfIndex: u32,
@@ -3170,11 +3601,14 @@ unsafe impl ::windows::runtime::Abi for IP_ADAPTER_ADDRESSES_XP_0_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_ADAPTER_ADDRESS_DNS_ELIGIBLE: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_ADAPTER_ADDRESS_TRANSIENT: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 pub struct IP_ADAPTER_ANYCAST_ADDRESS_XP {
     pub Anonymous: IP_ADAPTER_ANYCAST_ADDRESS_XP_0,
     pub Next: *mut IP_ADAPTER_ANYCAST_ADDRESS_XP,
@@ -3203,6 +3637,7 @@ unsafe impl ::windows::runtime::Abi for IP_ADAPTER_ANYCAST_ADDRESS_XP {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub union IP_ADAPTER_ANYCAST_ADDRESS_XP_0 {
     pub Alignment: u64,
     pub Anonymous: IP_ADAPTER_ANYCAST_ADDRESS_XP_0_0,
@@ -3225,6 +3660,7 @@ unsafe impl ::windows::runtime::Abi for IP_ADAPTER_ANYCAST_ADDRESS_XP_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct IP_ADAPTER_ANYCAST_ADDRESS_XP_0_0 {
     pub Length: u32,
     pub Flags: u32,
@@ -3250,11 +3686,14 @@ unsafe impl ::windows::runtime::Abi for IP_ADAPTER_ANYCAST_ADDRESS_XP_0_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_ADAPTER_DDNS_ENABLED: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_ADAPTER_DHCP_ENABLED: u32 = 4u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 pub struct IP_ADAPTER_DNS_SERVER_ADDRESS_XP {
     pub Anonymous: IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0,
     pub Next: *mut IP_ADAPTER_DNS_SERVER_ADDRESS_XP,
@@ -3283,6 +3722,7 @@ unsafe impl ::windows::runtime::Abi for IP_ADAPTER_DNS_SERVER_ADDRESS_XP {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub union IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0 {
     pub Alignment: u64,
     pub Anonymous: IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0_0,
@@ -3305,6 +3745,7 @@ unsafe impl ::windows::runtime::Abi for IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0_0 {
     pub Length: u32,
     pub Reserved: u32,
@@ -3332,6 +3773,7 @@ unsafe impl ::windows::runtime::Abi for IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct IP_ADAPTER_DNS_SUFFIX {
     pub Next: *mut IP_ADAPTER_DNS_SUFFIX,
     pub String: [u16; 256],
@@ -3360,6 +3802,7 @@ unsafe impl ::windows::runtime::Abi for IP_ADAPTER_DNS_SUFFIX {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 pub struct IP_ADAPTER_GATEWAY_ADDRESS_LH {
     pub Anonymous: IP_ADAPTER_GATEWAY_ADDRESS_LH_0,
     pub Next: *mut IP_ADAPTER_GATEWAY_ADDRESS_LH,
@@ -3388,6 +3831,7 @@ unsafe impl ::windows::runtime::Abi for IP_ADAPTER_GATEWAY_ADDRESS_LH {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub union IP_ADAPTER_GATEWAY_ADDRESS_LH_0 {
     pub Alignment: u64,
     pub Anonymous: IP_ADAPTER_GATEWAY_ADDRESS_LH_0_0,
@@ -3410,6 +3854,7 @@ unsafe impl ::windows::runtime::Abi for IP_ADAPTER_GATEWAY_ADDRESS_LH_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct IP_ADAPTER_GATEWAY_ADDRESS_LH_0_0 {
     pub Length: u32,
     pub Reserved: u32,
@@ -3437,6 +3882,7 @@ unsafe impl ::windows::runtime::Abi for IP_ADAPTER_GATEWAY_ADDRESS_LH_0_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct IP_ADAPTER_INDEX_MAP {
     pub Index: u32,
     pub Name: [u16; 128],
@@ -3465,6 +3911,7 @@ unsafe impl ::windows::runtime::Abi for IP_ADAPTER_INDEX_MAP {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 pub struct IP_ADAPTER_INFO {
     pub Next: *mut IP_ADAPTER_INFO,
     pub ComboIndex: u32,
@@ -3548,13 +3995,18 @@ unsafe impl ::windows::runtime::Abi for IP_ADAPTER_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_ADAPTER_IPV4_ENABLED: u32 = 128u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_ADAPTER_IPV6_ENABLED: u32 = 256u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_ADAPTER_IPV6_MANAGE_ADDRESS_CONFIG: u32 = 512u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_ADAPTER_IPV6_OTHER_STATEFUL_CONFIG: u32 = 32u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 pub struct IP_ADAPTER_MULTICAST_ADDRESS_XP {
     pub Anonymous: IP_ADAPTER_MULTICAST_ADDRESS_XP_0,
     pub Next: *mut IP_ADAPTER_MULTICAST_ADDRESS_XP,
@@ -3583,6 +4035,7 @@ unsafe impl ::windows::runtime::Abi for IP_ADAPTER_MULTICAST_ADDRESS_XP {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub union IP_ADAPTER_MULTICAST_ADDRESS_XP_0 {
     pub Alignment: u64,
     pub Anonymous: IP_ADAPTER_MULTICAST_ADDRESS_XP_0_0,
@@ -3605,6 +4058,7 @@ unsafe impl ::windows::runtime::Abi for IP_ADAPTER_MULTICAST_ADDRESS_XP_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct IP_ADAPTER_MULTICAST_ADDRESS_XP_0_0 {
     pub Length: u32,
     pub Flags: u32,
@@ -3630,10 +4084,13 @@ unsafe impl ::windows::runtime::Abi for IP_ADAPTER_MULTICAST_ADDRESS_XP_0_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_ADAPTER_NETBIOS_OVER_TCPIP_ENABLED: u32 = 64u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_ADAPTER_NO_MULTICAST: u32 = 16u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct IP_ADAPTER_ORDER_MAP {
     pub NumAdapters: u32,
     pub AdapterOrder: [u32; 1],
@@ -3662,6 +4119,7 @@ unsafe impl ::windows::runtime::Abi for IP_ADAPTER_ORDER_MAP {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 pub struct IP_ADAPTER_PREFIX_XP {
     pub Anonymous: IP_ADAPTER_PREFIX_XP_0,
     pub Next: *mut IP_ADAPTER_PREFIX_XP,
@@ -3691,6 +4149,7 @@ unsafe impl ::windows::runtime::Abi for IP_ADAPTER_PREFIX_XP {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub union IP_ADAPTER_PREFIX_XP_0 {
     pub Alignment: u64,
     pub Anonymous: IP_ADAPTER_PREFIX_XP_0_0,
@@ -3713,6 +4172,7 @@ unsafe impl ::windows::runtime::Abi for IP_ADAPTER_PREFIX_XP_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct IP_ADAPTER_PREFIX_XP_0_0 {
     pub Length: u32,
     pub Flags: u32,
@@ -3738,11 +4198,14 @@ unsafe impl ::windows::runtime::Abi for IP_ADAPTER_PREFIX_XP_0_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_ADAPTER_RECEIVE_ONLY: u32 = 8u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_ADAPTER_REGISTER_ADAPTER_SUFFIX: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 pub struct IP_ADAPTER_UNICAST_ADDRESS_LH {
     pub Anonymous: IP_ADAPTER_UNICAST_ADDRESS_LH_0,
     pub Next: *mut IP_ADAPTER_UNICAST_ADDRESS_LH,
@@ -3778,6 +4241,7 @@ unsafe impl ::windows::runtime::Abi for IP_ADAPTER_UNICAST_ADDRESS_LH {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub union IP_ADAPTER_UNICAST_ADDRESS_LH_0 {
     pub Alignment: u64,
     pub Anonymous: IP_ADAPTER_UNICAST_ADDRESS_LH_0_0,
@@ -3800,6 +4264,7 @@ unsafe impl ::windows::runtime::Abi for IP_ADAPTER_UNICAST_ADDRESS_LH_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct IP_ADAPTER_UNICAST_ADDRESS_LH_0_0 {
     pub Length: u32,
     pub Flags: u32,
@@ -3828,6 +4293,7 @@ unsafe impl ::windows::runtime::Abi for IP_ADAPTER_UNICAST_ADDRESS_LH_0_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 pub struct IP_ADAPTER_UNICAST_ADDRESS_XP {
     pub Anonymous: IP_ADAPTER_UNICAST_ADDRESS_XP_0,
     pub Next: *mut IP_ADAPTER_UNICAST_ADDRESS_XP,
@@ -3862,6 +4328,7 @@ unsafe impl ::windows::runtime::Abi for IP_ADAPTER_UNICAST_ADDRESS_XP {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub union IP_ADAPTER_UNICAST_ADDRESS_XP_0 {
     pub Alignment: u64,
     pub Anonymous: IP_ADAPTER_UNICAST_ADDRESS_XP_0_0,
@@ -3884,6 +4351,7 @@ unsafe impl ::windows::runtime::Abi for IP_ADAPTER_UNICAST_ADDRESS_XP_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct IP_ADAPTER_UNICAST_ADDRESS_XP_0_0 {
     pub Length: u32,
     pub Flags: u32,
@@ -3912,6 +4380,7 @@ unsafe impl ::windows::runtime::Abi for IP_ADAPTER_UNICAST_ADDRESS_XP_0_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 pub struct IP_ADAPTER_WINS_SERVER_ADDRESS_LH {
     pub Anonymous: IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0,
     pub Next: *mut IP_ADAPTER_WINS_SERVER_ADDRESS_LH,
@@ -3940,6 +4409,7 @@ unsafe impl ::windows::runtime::Abi for IP_ADAPTER_WINS_SERVER_ADDRESS_LH {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub union IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0 {
     pub Alignment: u64,
     pub Anonymous: IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0_0,
@@ -3962,6 +4432,7 @@ unsafe impl ::windows::runtime::Abi for IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0_0 {
     pub Length: u32,
     pub Reserved: u32,
@@ -3990,6 +4461,7 @@ unsafe impl ::windows::runtime::Abi for IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 pub struct IP_ADDRESS_PREFIX {
     pub Prefix: super::super::Networking::WinSock::SOCKADDR_INET,
     pub PrefixLength: u8,
@@ -4018,6 +4490,7 @@ unsafe impl ::windows::runtime::Abi for IP_ADDRESS_PREFIX {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 pub struct IP_ADDRESS_STRING {
     pub String: [super::super::Foundation::CHAR; 16],
 }
@@ -4048,13 +4521,18 @@ unsafe impl ::windows::runtime::Abi for IP_ADDRESS_STRING {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_ADDRROW: u32 = 5u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_ADDRTABLE: u32 = 4u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_ADDR_ADDED: u32 = 11023u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_ADDR_DELETED: u32 = 11019u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 pub struct IP_ADDR_STRING {
     pub Next: *mut IP_ADDR_STRING,
     pub IpAddress: IP_ADDRESS_STRING,
@@ -4088,45 +4566,83 @@ unsafe impl ::windows::runtime::Abi for IP_ADDR_STRING {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_BAD_DESTINATION: u32 = 11018u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_BAD_HEADER: u32 = 11042u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_BAD_OPTION: u32 = 11007u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_BAD_REQ: u32 = 11011u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_BAD_ROUTE: u32 = 11012u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_BIND_ADAPTER: u32 = 11026u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_BUF_TOO_SMALL: u32 = 11001u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_DEMAND_DIAL_FILTER_INFO: u32 = 4294901769u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_DEMAND_DIAL_FILTER_INFO_V6: u32 = 4294901779u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_DEST_ADDR_UNREACHABLE: u32 = 11003u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_DEST_HOST_UNREACHABLE: u32 = 11003u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_DEST_NET_UNREACHABLE: u32 = 11002u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_DEST_NO_ROUTE: u32 = 11002u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_DEST_PORT_UNREACHABLE: u32 = 11005u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_DEST_PROHIBITED: u32 = 11004u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_DEST_PROT_UNREACHABLE: u32 = 11004u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_DEST_SCOPE_MISMATCH: u32 = 11045u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_DEST_UNREACHABLE: u32 = 11040u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_DEVICE_DOES_NOT_EXIST: u32 = 11028u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_DUPLICATE_ADDRESS: u32 = 11029u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_DUPLICATE_IPADD: u32 = 11034u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_EXPORT_INCLUDED: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_FILTER_ENABLE_INFO: u32 = 4294901781u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_FILTER_ENABLE_INFO_V6: u32 = 4294901782u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_FLAG_DF: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_FLAG_REVERSE: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_FORWARDNUMBER: u32 = 6u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_FORWARDROW: u32 = 8u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_FORWARDTABLE: u32 = 7u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_GENERAL_FAILURE: u32 = 11050u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_GENERAL_INFO_BASE: u32 = 4294901760u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_GLOBAL_INFO: u32 = 4294901763u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_HOP_LIMIT_EXCEEDED: u32 = 11013u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_HW_ERROR: u32 = 11008u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_ICMP_ERROR: u32 = 11044u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_IFFILTER_INFO: u32 = 4294901773u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_IFFILTER_INFO_V6: u32 = 4294901780u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct IP_INTERFACE_INFO {
     pub NumAdapters: i32,
     pub Adapter: [IP_ADAPTER_INDEX_MAP; 1],
@@ -4152,15 +4668,23 @@ unsafe impl ::windows::runtime::Abi for IP_INTERFACE_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_INTERFACE_METRIC_CHANGE: u32 = 11030u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_INTERFACE_STATUS_INFO: u32 = 4294901764u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_INTERFACE_WOL_CAPABILITY_CHANGE: u32 = 11033u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_IN_FILTER_INFO: u32 = 4294901761u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_IN_FILTER_INFO_V6: u32 = 4294901777u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_IPINIP_CFG_INFO: u32 = 4294901772u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_MCAST_BOUNDARY_INFO: u32 = 4294901771u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct IP_MCAST_COUNTER_INFO {
     pub InMcastOctets: u64,
     pub OutMcastOctets: u64,
@@ -4188,25 +4712,42 @@ unsafe impl ::windows::runtime::Abi for IP_MCAST_COUNTER_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_MCAST_HEARBEAT_INFO: u32 = 4294901770u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_MCAST_LIMIT_INFO: u32 = 4294901774u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_MEDIA_CONNECT: u32 = 11024u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_MEDIA_DISCONNECT: u32 = 11025u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_MTU_CHANGE: u32 = 11021u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_NEGOTIATING_IPSEC: u32 = 11032u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_NETROW: u32 = 10u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_NETTABLE: u32 = 9u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_NO_RESOURCES: u32 = 11006u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_OPTION_TOO_BIG: u32 = 11017u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_OUT_FILTER_INFO: u32 = 4294901762u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_OUT_FILTER_INFO_V6: u32 = 4294901778u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_PACKET_TOO_BIG: u32 = 11009u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_PARAMETER_PROBLEM: u32 = 11015u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_PARAM_PROBLEM: u32 = 11015u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_PENDING: u32 = 11255u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 pub struct IP_PER_ADAPTER_INFO_W2KSP1 {
     pub AutoconfigEnabled: u32,
     pub AutoconfigActive: u32,
@@ -4240,25 +4781,43 @@ unsafe impl ::windows::runtime::Abi for IP_PER_ADAPTER_INFO_W2KSP1 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_PROT_PRIORITY_INFO: u32 = 4294901766u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_PROT_PRIORITY_INFO_EX: u32 = 4294901783u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_REASSEMBLY_TIME_EXCEEDED: u32 = 11014u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_RECONFIG_SECFLTR: u32 = 11031u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_REQ_TIMED_OUT: u32 = 11010u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_ROUTER_DISC_INFO: u32 = 4294901767u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_ROUTER_MANAGER_VERSION: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_ROUTE_INFO: u32 = 4294901765u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_SOURCE_QUENCH: u32 = 11016u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_SPEC_MTU_CHANGE: u32 = 11020u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_STATS: u32 = 3u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_STATUS_BASE: u32 = 11000u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_SUCCESS: u32 = 0u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_TIME_EXCEEDED: u32 = 11041u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_TTL_EXPIRED_REASSEM: u32 = 11014u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_TTL_EXPIRED_TRANSIT: u32 = 11013u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_UNBIND_ADAPTER: u32 = 11027u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct IP_UNIDIRECTIONAL_ADAPTER_ADDRESS {
     pub NumAdapters: u32,
     pub Address: [u32; 1],
@@ -4284,8 +4843,11 @@ unsafe impl ::windows::runtime::Abi for IP_UNIDIRECTIONAL_ADAPTER_ADDRESS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_UNLOAD: u32 = 11022u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const IP_UNRECOGNIZED_NEXT_HEADER: u32 = 11043u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[inline]
 pub unsafe fn Icmp6CreateFile() -> IcmpHandle {
     #[cfg(windows)]
@@ -4299,6 +4861,7 @@ pub unsafe fn Icmp6CreateFile() -> IcmpHandle {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[inline]
 pub unsafe fn Icmp6ParseReplies(replybuffer: *mut ::std::ffi::c_void, replysize: u32) -> u32 {
     #[cfg(windows)]
@@ -4313,6 +4876,7 @@ pub unsafe fn Icmp6ParseReplies(replybuffer: *mut ::std::ffi::c_void, replysize:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_System_WindowsProgramming"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`, `Win32_System_WindowsProgramming`*"]
 #[inline]
 pub unsafe fn Icmp6SendEcho2<'a, Param0: ::windows::runtime::IntoParam<'a, IcmpHandle>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(
     icmphandle: Param0,
@@ -4354,6 +4918,7 @@ pub unsafe fn Icmp6SendEcho2<'a, Param0: ::windows::runtime::IntoParam<'a, IcmpH
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn IcmpCloseHandle<'a, Param0: ::windows::runtime::IntoParam<'a, IcmpHandle>>(icmphandle: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -4367,6 +4932,7 @@ pub unsafe fn IcmpCloseHandle<'a, Param0: ::windows::runtime::IntoParam<'a, Icmp
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[inline]
 pub unsafe fn IcmpCreateFile() -> IcmpHandle {
     #[cfg(windows)]
@@ -4393,6 +4959,7 @@ unsafe impl ::windows::runtime::Abi for IcmpHandle {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[inline]
 pub unsafe fn IcmpParseReplies(replybuffer: *mut ::std::ffi::c_void, replysize: u32) -> u32 {
     #[cfg(windows)]
@@ -4406,6 +4973,7 @@ pub unsafe fn IcmpParseReplies(replybuffer: *mut ::std::ffi::c_void, replysize: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[inline]
 pub unsafe fn IcmpSendEcho<'a, Param0: ::windows::runtime::IntoParam<'a, IcmpHandle>>(icmphandle: Param0, destinationaddress: u32, requestdata: *const ::std::ffi::c_void, requestsize: u16, requestoptions: *const ip_option_information, replybuffer: *mut ::std::ffi::c_void, replysize: u32, timeout: u32) -> u32 {
     #[cfg(windows)]
@@ -4420,6 +4988,7 @@ pub unsafe fn IcmpSendEcho<'a, Param0: ::windows::runtime::IntoParam<'a, IcmpHan
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_System_WindowsProgramming`*"]
 #[inline]
 pub unsafe fn IcmpSendEcho2<'a, Param0: ::windows::runtime::IntoParam<'a, IcmpHandle>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(
     icmphandle: Param0,
@@ -4458,6 +5027,7 @@ pub unsafe fn IcmpSendEcho2<'a, Param0: ::windows::runtime::IntoParam<'a, IcmpHa
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_System_WindowsProgramming`*"]
 #[inline]
 pub unsafe fn IcmpSendEcho2Ex<'a, Param0: ::windows::runtime::IntoParam<'a, IcmpHandle>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(
     icmphandle: Param0,
@@ -4498,6 +5068,7 @@ pub unsafe fn IcmpSendEcho2Ex<'a, Param0: ::windows::runtime::IntoParam<'a, Icmp
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn InitializeIpForwardEntry(row: *mut MIB_IPFORWARD_ROW2) {
     #[cfg(windows)]
@@ -4512,6 +5083,7 @@ pub unsafe fn InitializeIpForwardEntry(row: *mut MIB_IPFORWARD_ROW2) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn InitializeIpInterfaceEntry(row: *mut MIB_IPINTERFACE_ROW) {
     #[cfg(windows)]
@@ -4526,6 +5098,7 @@ pub unsafe fn InitializeIpInterfaceEntry(row: *mut MIB_IPINTERFACE_ROW) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn InitializeUnicastIpAddressEntry(row: *mut MIB_UNICASTIPADDRESS_ROW) {
     #[cfg(windows)]
@@ -4539,6 +5112,7 @@ pub unsafe fn InitializeUnicastIpAddressEntry(row: *mut MIB_UNICASTIPADDRESS_ROW
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[inline]
 pub unsafe fn IpReleaseAddress(adapterinfo: *const IP_ADAPTER_INDEX_MAP) -> u32 {
     #[cfg(windows)]
@@ -4552,6 +5126,7 @@ pub unsafe fn IpReleaseAddress(adapterinfo: *const IP_ADAPTER_INDEX_MAP) -> u32 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[inline]
 pub unsafe fn IpRenewAddress(adapterinfo: *const IP_ADAPTER_INDEX_MAP) -> u32 {
     #[cfg(windows)]
@@ -4565,12 +5140,19 @@ pub unsafe fn IpRenewAddress(adapterinfo: *const IP_ADAPTER_INDEX_MAP) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const LB_DST_ADDR_USE_DSTADDR_FLAG: u32 = 8u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const LB_DST_ADDR_USE_SRCADDR_FLAG: u32 = 4u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const LB_DST_MASK_LATE_FLAG: u32 = 32u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const LB_SRC_ADDR_USE_DSTADDR_FLAG: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const LB_SRC_ADDR_USE_SRCADDR_FLAG: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const LB_SRC_MASK_LATE_FLAG: u32 = 16u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[inline]
 pub unsafe fn LookupPersistentTcpPortReservation(startport: u16, numberofports: u16, token: *mut u64) -> u32 {
     #[cfg(windows)]
@@ -4584,6 +5166,7 @@ pub unsafe fn LookupPersistentTcpPortReservation(startport: u16, numberofports: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[inline]
 pub unsafe fn LookupPersistentUdpPortReservation(startport: u16, numberofports: u16, token: *mut u64) -> u32 {
     #[cfg(windows)]
@@ -4597,32 +5180,57 @@ pub unsafe fn LookupPersistentUdpPortReservation(startport: u16, numberofports: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const MAXLEN_IFDESCR: u32 = 256u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const MAXLEN_PHYSADDR: u32 = 8u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const MAX_ADAPTER_ADDRESS_LENGTH: u32 = 8u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const MAX_ADAPTER_DESCRIPTION_LENGTH: u32 = 128u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const MAX_ADAPTER_NAME: u32 = 128u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const MAX_ADAPTER_NAME_LENGTH: u32 = 256u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const MAX_DHCPV6_DUID_LENGTH: u32 = 130u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const MAX_DNS_SUFFIX_STRING_LENGTH: u32 = 256u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const MAX_DOMAIN_NAME_LEN: u32 = 128u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const MAX_HOSTNAME_LEN: u32 = 128u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const MAX_IF_TYPE: u32 = 281u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const MAX_INTERFACE_NAME_LEN: u32 = 256u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const MAX_IP_STATUS: u32 = 11050u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const MAX_MIB_OFFSET: u32 = 8u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const MAX_OPT_SIZE: u32 = 40u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const MAX_SCOPE_ID_LEN: u32 = 256u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const MAX_SCOPE_NAME_LEN: u32 = 255u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const MCAST_BOUNDARY: u32 = 26u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const MCAST_GLOBAL: u32 = 24u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const MCAST_IF_ENTRY: u32 = 23u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const MCAST_MFE: u32 = 18u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const MCAST_MFE_STATS: u32 = 19u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const MCAST_MFE_STATS_EX: u32 = 35u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const MCAST_SCOPE: u32 = 27u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIBICMPINFO {
     pub icmpInStats: MIBICMPSTATS,
     pub icmpOutStats: MIBICMPSTATS,
@@ -4650,6 +5258,7 @@ unsafe impl ::windows::runtime::Abi for MIBICMPINFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIBICMPSTATS {
     pub dwMsgs: u32,
     pub dwErrors: u32,
@@ -4714,6 +5323,7 @@ unsafe impl ::windows::runtime::Abi for MIBICMPSTATS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIBICMPSTATS_EX_XPSP1 {
     pub dwMsgs: u32,
     pub dwErrors: u32,
@@ -4743,6 +5353,7 @@ unsafe impl ::windows::runtime::Abi for MIBICMPSTATS_EX_XPSP1 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 pub struct MIB_ANYCASTIPADDRESS_ROW {
     pub Address: super::super::Networking::WinSock::SOCKADDR_INET,
     pub InterfaceLuid: NET_LUID_LH,
@@ -4773,6 +5384,7 @@ unsafe impl ::windows::runtime::Abi for MIB_ANYCASTIPADDRESS_ROW {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 pub struct MIB_ANYCASTIPADDRESS_TABLE {
     pub NumEntries: u32,
     pub Table: [MIB_ANYCASTIPADDRESS_ROW; 1],
@@ -4800,6 +5412,7 @@ unsafe impl ::windows::runtime::Abi for MIB_ANYCASTIPADDRESS_TABLE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_BEST_IF {
     pub dwDestAddr: u32,
     pub dwIfIndex: u32,
@@ -4827,6 +5440,7 @@ unsafe impl ::windows::runtime::Abi for MIB_BEST_IF {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_BOUNDARYROW {
     pub dwGroupAddress: u32,
     pub dwGroupMask: u32,
@@ -4854,6 +5468,7 @@ unsafe impl ::windows::runtime::Abi for MIB_BOUNDARYROW {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_ICMP {
     pub stats: MIBICMPINFO,
 }
@@ -4880,6 +5495,7 @@ unsafe impl ::windows::runtime::Abi for MIB_ICMP {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_ICMP_EX_XPSP1 {
     pub icmpInStats: MIBICMPSTATS_EX_XPSP1,
     pub icmpOutStats: MIBICMPSTATS_EX_XPSP1,
@@ -4907,6 +5523,7 @@ unsafe impl ::windows::runtime::Abi for MIB_ICMP_EX_XPSP1 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_IFNUMBER {
     pub dwValue: u32,
 }
@@ -4933,6 +5550,7 @@ unsafe impl ::windows::runtime::Abi for MIB_IFNUMBER {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_IFROW {
     pub wszName: [u16; 256],
     pub dwIndex: u32,
@@ -5030,6 +5648,7 @@ unsafe impl ::windows::runtime::Abi for MIB_IFROW {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_IFSTACK_ROW {
     pub HigherLayerInterfaceIndex: u32,
     pub LowerLayerInterfaceIndex: u32,
@@ -5057,6 +5676,7 @@ unsafe impl ::windows::runtime::Abi for MIB_IFSTACK_ROW {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_IFSTACK_TABLE {
     pub NumEntries: u32,
     pub Table: [MIB_IFSTACK_ROW; 1],
@@ -5085,6 +5705,7 @@ unsafe impl ::windows::runtime::Abi for MIB_IFSTACK_TABLE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 pub struct MIB_IFSTATUS {
     pub dwIfIndex: u32,
     pub dwAdminStatus: u32,
@@ -5121,6 +5742,7 @@ unsafe impl ::windows::runtime::Abi for MIB_IFSTATUS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_IFTABLE {
     pub dwNumEntries: u32,
     pub table: [MIB_IFROW; 1],
@@ -5146,9 +5768,13 @@ unsafe impl ::windows::runtime::Abi for MIB_IFTABLE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const MIB_IF_ADMIN_STATUS_DOWN: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const MIB_IF_ADMIN_STATUS_TESTING: u32 = 3u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const MIB_IF_ADMIN_STATUS_UP: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MIB_IF_ENTRY_LEVEL(pub i32);
@@ -5166,6 +5792,7 @@ unsafe impl ::windows::runtime::Abi for MIB_IF_ENTRY_LEVEL {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_NetworkManagement_Ndis`*"]
 pub struct MIB_IF_ROW2 {
     pub InterfaceLuid: NET_LUID_LH,
     pub InterfaceIndex: u32,
@@ -5232,6 +5859,7 @@ unsafe impl ::windows::runtime::Abi for MIB_IF_ROW2 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_IF_ROW2_0 {
     pub _bitfield: u8,
 }
@@ -5259,6 +5887,7 @@ unsafe impl ::windows::runtime::Abi for MIB_IF_ROW2_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_NetworkManagement_Ndis`*"]
 pub struct MIB_IF_TABLE2 {
     pub NumEntries: u32,
     pub Table: [MIB_IF_ROW2; 1],
@@ -5284,6 +5913,7 @@ unsafe impl ::windows::runtime::Abi for MIB_IF_TABLE2 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MIB_IF_TABLE_LEVEL(pub i32);
@@ -5299,16 +5929,25 @@ unsafe impl ::windows::runtime::Abi for MIB_IF_TABLE_LEVEL {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const MIB_IF_TYPE_ETHERNET: u32 = 6u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const MIB_IF_TYPE_FDDI: u32 = 15u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const MIB_IF_TYPE_LOOPBACK: u32 = 24u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const MIB_IF_TYPE_OTHER: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const MIB_IF_TYPE_PPP: u32 = 23u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const MIB_IF_TYPE_SLIP: u32 = 28u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const MIB_IF_TYPE_TOKENRING: u32 = 9u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const MIB_INVALID_TEREDO_PORT_NUMBER: u32 = 0u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_INVERTEDIFSTACK_ROW {
     pub LowerLayerInterfaceIndex: u32,
     pub HigherLayerInterfaceIndex: u32,
@@ -5336,6 +5975,7 @@ unsafe impl ::windows::runtime::Abi for MIB_INVERTEDIFSTACK_ROW {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_INVERTEDIFSTACK_TABLE {
     pub NumEntries: u32,
     pub Table: [MIB_INVERTEDIFSTACK_ROW; 1],
@@ -5363,6 +6003,7 @@ unsafe impl ::windows::runtime::Abi for MIB_INVERTEDIFSTACK_TABLE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_IPADDRROW_W2K {
     pub dwAddr: u32,
     pub dwIndex: u32,
@@ -5395,6 +6036,7 @@ unsafe impl ::windows::runtime::Abi for MIB_IPADDRROW_W2K {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_IPADDRROW_XP {
     pub dwAddr: u32,
     pub dwIndex: u32,
@@ -5427,6 +6069,7 @@ unsafe impl ::windows::runtime::Abi for MIB_IPADDRROW_XP {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_IPADDRTABLE {
     pub dwNumEntries: u32,
     pub table: [MIB_IPADDRROW_XP; 1],
@@ -5452,15 +6095,22 @@ unsafe impl ::windows::runtime::Abi for MIB_IPADDRTABLE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const MIB_IPADDR_DELETED: u32 = 64u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const MIB_IPADDR_DISCONNECTED: u32 = 8u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const MIB_IPADDR_DNS_ELIGIBLE: u32 = 256u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const MIB_IPADDR_DYNAMIC: u32 = 4u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const MIB_IPADDR_PRIMARY: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const MIB_IPADDR_TRANSIENT: u32 = 128u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Networking_WinSock`*"]
 pub struct MIB_IPDESTROW {
     pub ForwardRow: MIB_IPFORWARDROW,
     pub dwForwardPreference: u32,
@@ -5490,6 +6140,7 @@ unsafe impl ::windows::runtime::Abi for MIB_IPDESTROW {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Networking_WinSock`*"]
 pub struct MIB_IPDESTTABLE {
     pub dwNumEntries: u32,
     pub table: [MIB_IPDESTROW; 1],
@@ -5517,6 +6168,7 @@ unsafe impl ::windows::runtime::Abi for MIB_IPDESTTABLE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_IPFORWARDNUMBER {
     pub dwValue: u32,
 }
@@ -5544,6 +6196,7 @@ unsafe impl ::windows::runtime::Abi for MIB_IPFORWARDNUMBER {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Networking_WinSock`*"]
 pub struct MIB_IPFORWARDROW {
     pub dwForwardDest: u32,
     pub dwForwardMask: u32,
@@ -5583,6 +6236,7 @@ unsafe impl ::windows::runtime::Abi for MIB_IPFORWARDROW {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub union MIB_IPFORWARDROW_0 {
     pub dwForwardType: u32,
     pub ForwardType: MIB_IPFORWARD_TYPE,
@@ -5606,6 +6260,7 @@ unsafe impl ::windows::runtime::Abi for MIB_IPFORWARDROW_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Networking_WinSock`*"]
 pub union MIB_IPFORWARDROW_1 {
     pub dwForwardProto: u32,
     pub ForwardProto: super::super::Networking::WinSock::NL_ROUTE_PROTOCOL,
@@ -5634,6 +6289,7 @@ unsafe impl ::windows::runtime::Abi for MIB_IPFORWARDROW_1 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Networking_WinSock`*"]
 pub struct MIB_IPFORWARDTABLE {
     pub dwNumEntries: u32,
     pub table: [MIB_IPFORWARDROW; 1],
@@ -5662,6 +6318,7 @@ unsafe impl ::windows::runtime::Abi for MIB_IPFORWARDTABLE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 pub struct MIB_IPFORWARD_ROW2 {
     pub InterfaceLuid: NET_LUID_LH,
     pub InterfaceIndex: u32,
@@ -5703,6 +6360,7 @@ unsafe impl ::windows::runtime::Abi for MIB_IPFORWARD_ROW2 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 pub struct MIB_IPFORWARD_TABLE2 {
     pub NumEntries: u32,
     pub Table: [MIB_IPFORWARD_ROW2; 1],
@@ -5728,6 +6386,7 @@ unsafe impl ::windows::runtime::Abi for MIB_IPFORWARD_TABLE2 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MIB_IPFORWARD_TYPE(pub i32);
@@ -5747,6 +6406,7 @@ unsafe impl ::windows::runtime::Abi for MIB_IPFORWARD_TYPE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 pub struct MIB_IPINTERFACE_ROW {
     pub Family: u16,
     pub InterfaceLuid: NET_LUID_LH,
@@ -5808,6 +6468,7 @@ unsafe impl ::windows::runtime::Abi for MIB_IPINTERFACE_ROW {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 pub struct MIB_IPINTERFACE_TABLE {
     pub NumEntries: u32,
     pub Table: [MIB_IPINTERFACE_ROW; 1],
@@ -5835,6 +6496,7 @@ unsafe impl ::windows::runtime::Abi for MIB_IPINTERFACE_TABLE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_IPMCAST_BOUNDARY {
     pub dwIfIndex: u32,
     pub dwGroupAddress: u32,
@@ -5864,6 +6526,7 @@ unsafe impl ::windows::runtime::Abi for MIB_IPMCAST_BOUNDARY {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_IPMCAST_BOUNDARY_TABLE {
     pub dwNumEntries: u32,
     pub table: [MIB_IPMCAST_BOUNDARY; 1],
@@ -5891,6 +6554,7 @@ unsafe impl ::windows::runtime::Abi for MIB_IPMCAST_BOUNDARY_TABLE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_IPMCAST_GLOBAL {
     pub dwEnable: u32,
 }
@@ -5917,6 +6581,7 @@ unsafe impl ::windows::runtime::Abi for MIB_IPMCAST_GLOBAL {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_IPMCAST_IF_ENTRY {
     pub dwIfIndex: u32,
     pub dwTtl: u32,
@@ -5948,6 +6613,7 @@ unsafe impl ::windows::runtime::Abi for MIB_IPMCAST_IF_ENTRY {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_IPMCAST_IF_TABLE {
     pub dwNumEntries: u32,
     pub table: [MIB_IPMCAST_IF_ENTRY; 1],
@@ -5975,6 +6641,7 @@ unsafe impl ::windows::runtime::Abi for MIB_IPMCAST_IF_TABLE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_IPMCAST_MFE {
     pub dwGroup: u32,
     pub dwSource: u32,
@@ -6048,6 +6715,7 @@ unsafe impl ::windows::runtime::Abi for MIB_IPMCAST_MFE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_IPMCAST_MFE_STATS {
     pub dwGroup: u32,
     pub dwSource: u32,
@@ -6124,6 +6792,7 @@ unsafe impl ::windows::runtime::Abi for MIB_IPMCAST_MFE_STATS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_IPMCAST_MFE_STATS_EX_XP {
     pub dwGroup: u32,
     pub dwSource: u32,
@@ -6215,6 +6884,7 @@ unsafe impl ::windows::runtime::Abi for MIB_IPMCAST_MFE_STATS_EX_XP {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_IPMCAST_OIF_STATS_LH {
     pub dwOutIfIndex: u32,
     pub dwNextHopAddr: u32,
@@ -6255,6 +6925,7 @@ unsafe impl ::windows::runtime::Abi for MIB_IPMCAST_OIF_STATS_LH {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_IPMCAST_OIF_STATS_W2K {
     pub dwOutIfIndex: u32,
     pub dwNextHopAddr: u32,
@@ -6295,6 +6966,7 @@ unsafe impl ::windows::runtime::Abi for MIB_IPMCAST_OIF_STATS_W2K {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_IPMCAST_OIF_W2K {
     pub dwOutIfIndex: u32,
     pub dwNextHopAddr: u32,
@@ -6324,6 +6996,7 @@ unsafe impl ::windows::runtime::Abi for MIB_IPMCAST_OIF_W2K {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_IPMCAST_OIF_XP {
     pub dwOutIfIndex: u32,
     pub dwNextHopAddr: u32,
@@ -6353,6 +7026,7 @@ unsafe impl ::windows::runtime::Abi for MIB_IPMCAST_OIF_XP {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_IPMCAST_SCOPE {
     pub dwGroupAddress: u32,
     pub dwGroupMask: u32,
@@ -6382,6 +7056,7 @@ unsafe impl ::windows::runtime::Abi for MIB_IPMCAST_SCOPE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_IPNETROW_LH {
     pub dwIndex: u32,
     pub dwPhysAddrLen: u32,
@@ -6407,6 +7082,7 @@ unsafe impl ::windows::runtime::Abi for MIB_IPNETROW_LH {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub union MIB_IPNETROW_LH_0 {
     pub dwType: u32,
     pub Type: MIB_IPNET_TYPE,
@@ -6429,6 +7105,7 @@ unsafe impl ::windows::runtime::Abi for MIB_IPNETROW_LH_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_IPNETROW_W2K {
     pub dwIndex: u32,
     pub dwPhysAddrLen: u32,
@@ -6459,6 +7136,7 @@ unsafe impl ::windows::runtime::Abi for MIB_IPNETROW_W2K {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_IPNETTABLE {
     pub dwNumEntries: u32,
     pub table: [MIB_IPNETROW_LH; 1],
@@ -6482,6 +7160,7 @@ unsafe impl ::windows::runtime::Abi for MIB_IPNETTABLE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 pub struct MIB_IPNET_ROW2 {
     pub Address: super::super::Networking::WinSock::SOCKADDR_INET,
     pub InterfaceIndex: u32,
@@ -6515,6 +7194,7 @@ unsafe impl ::windows::runtime::Abi for MIB_IPNET_ROW2 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub union MIB_IPNET_ROW2_0 {
     pub Anonymous: MIB_IPNET_ROW2_0_0,
     pub Flags: u8,
@@ -6537,6 +7217,7 @@ unsafe impl ::windows::runtime::Abi for MIB_IPNET_ROW2_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_IPNET_ROW2_0_0 {
     pub _bitfield: u8,
 }
@@ -6563,6 +7244,7 @@ unsafe impl ::windows::runtime::Abi for MIB_IPNET_ROW2_0_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub union MIB_IPNET_ROW2_1 {
     pub LastReachable: u32,
     pub LastUnreachable: u32,
@@ -6586,6 +7268,7 @@ unsafe impl ::windows::runtime::Abi for MIB_IPNET_ROW2_1 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 pub struct MIB_IPNET_TABLE2 {
     pub NumEntries: u32,
     pub Table: [MIB_IPNET_ROW2; 1],
@@ -6611,6 +7294,7 @@ unsafe impl ::windows::runtime::Abi for MIB_IPNET_TABLE2 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MIB_IPNET_TYPE(pub i32);
@@ -6630,6 +7314,7 @@ unsafe impl ::windows::runtime::Abi for MIB_IPNET_TYPE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 pub struct MIB_IPPATH_ROW {
     pub Source: super::super::Networking::WinSock::SOCKADDR_INET,
     pub Destination: super::super::Networking::WinSock::SOCKADDR_INET,
@@ -6667,6 +7352,7 @@ unsafe impl ::windows::runtime::Abi for MIB_IPPATH_ROW {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub union MIB_IPPATH_ROW_0 {
     pub LastReachable: u32,
     pub LastUnreachable: u32,
@@ -6690,6 +7376,7 @@ unsafe impl ::windows::runtime::Abi for MIB_IPPATH_ROW_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 pub struct MIB_IPPATH_TABLE {
     pub NumEntries: u32,
     pub Table: [MIB_IPPATH_ROW; 1],
@@ -6715,7 +7402,9 @@ unsafe impl ::windows::runtime::Abi for MIB_IPPATH_TABLE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const MIB_IPROUTE_METRIC_UNUSED: u32 = 4294967295u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MIB_IPSTATS_FORWARDING(pub i32);
@@ -6732,6 +7421,7 @@ unsafe impl ::windows::runtime::Abi for MIB_IPSTATS_FORWARDING {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_IPSTATS_LH {
     pub Anonymous: MIB_IPSTATS_LH_0,
     pub dwDefaultTTL: u32,
@@ -6775,6 +7465,7 @@ unsafe impl ::windows::runtime::Abi for MIB_IPSTATS_LH {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub union MIB_IPSTATS_LH_0 {
     pub dwForwarding: u32,
     pub Forwarding: MIB_IPSTATS_FORWARDING,
@@ -6797,6 +7488,7 @@ unsafe impl ::windows::runtime::Abi for MIB_IPSTATS_LH_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_IPSTATS_W2K {
     pub dwForwarding: u32,
     pub dwDefaultTTL: u32,
@@ -6892,6 +7584,7 @@ unsafe impl ::windows::runtime::Abi for MIB_IPSTATS_W2K {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 pub struct MIB_IP_NETWORK_CONNECTION_BANDWIDTH_ESTIMATES {
     pub InboundBandwidthInformation: super::super::Networking::WinSock::NL_BANDWIDTH_INFORMATION,
     pub OutboundBandwidthInformation: super::super::Networking::WinSock::NL_BANDWIDTH_INFORMATION,
@@ -6925,6 +7618,7 @@ unsafe impl ::windows::runtime::Abi for MIB_IP_NETWORK_CONNECTION_BANDWIDTH_ESTI
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_MCAST_LIMIT_ROW {
     pub dwTtl: u32,
     pub dwRateLimit: u32,
@@ -6952,6 +7646,7 @@ unsafe impl ::windows::runtime::Abi for MIB_MCAST_LIMIT_ROW {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_MFE_STATS_TABLE {
     pub dwNumEntries: u32,
     pub table: [MIB_IPMCAST_MFE_STATS; 1],
@@ -6979,6 +7674,7 @@ unsafe impl ::windows::runtime::Abi for MIB_MFE_STATS_TABLE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_MFE_STATS_TABLE_EX_XP {
     pub dwNumEntries: u32,
     pub table: [*mut MIB_IPMCAST_MFE_STATS_EX_XP; 1],
@@ -7006,6 +7702,7 @@ unsafe impl ::windows::runtime::Abi for MIB_MFE_STATS_TABLE_EX_XP {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_MFE_TABLE {
     pub dwNumEntries: u32,
     pub table: [MIB_IPMCAST_MFE; 1],
@@ -7034,6 +7731,7 @@ unsafe impl ::windows::runtime::Abi for MIB_MFE_TABLE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 pub struct MIB_MULTICASTIPADDRESS_ROW {
     pub Address: super::super::Networking::WinSock::SOCKADDR_INET,
     pub InterfaceIndex: u32,
@@ -7064,6 +7762,7 @@ unsafe impl ::windows::runtime::Abi for MIB_MULTICASTIPADDRESS_ROW {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 pub struct MIB_MULTICASTIPADDRESS_TABLE {
     pub NumEntries: u32,
     pub Table: [MIB_MULTICASTIPADDRESS_ROW; 1],
@@ -7089,6 +7788,7 @@ unsafe impl ::windows::runtime::Abi for MIB_MULTICASTIPADDRESS_TABLE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MIB_NOTIFICATION_TYPE(pub i32);
@@ -7107,6 +7807,7 @@ unsafe impl ::windows::runtime::Abi for MIB_NOTIFICATION_TYPE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_OPAQUE_INFO {
     pub dwId: u32,
     pub Anonymous: MIB_OPAQUE_INFO_0,
@@ -7129,6 +7830,7 @@ unsafe impl ::windows::runtime::Abi for MIB_OPAQUE_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub union MIB_OPAQUE_INFO_0 {
     pub ullAlign: u64,
     pub rgbyData: [u8; 1],
@@ -7151,6 +7853,7 @@ unsafe impl ::windows::runtime::Abi for MIB_OPAQUE_INFO_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_OPAQUE_QUERY {
     pub dwVarId: u32,
     pub rgdwVarIndex: [u32; 1],
@@ -7178,6 +7881,7 @@ unsafe impl ::windows::runtime::Abi for MIB_OPAQUE_QUERY {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_PROXYARP {
     pub dwAddress: u32,
     pub dwMask: u32,
@@ -7207,6 +7911,7 @@ unsafe impl ::windows::runtime::Abi for MIB_PROXYARP {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 pub struct MIB_ROUTESTATE {
     pub bRoutesSetToStack: super::super::Foundation::BOOL,
 }
@@ -7240,6 +7945,7 @@ unsafe impl ::windows::runtime::Abi for MIB_ROUTESTATE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Networking_WinSock`*"]
 pub struct MIB_TCP6ROW {
     pub State: MIB_TCP_STATE,
     pub LocalAddr: super::super::Networking::WinSock::IN6_ADDR,
@@ -7273,6 +7979,7 @@ unsafe impl ::windows::runtime::Abi for MIB_TCP6ROW {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Networking_WinSock`*"]
 pub struct MIB_TCP6ROW2 {
     pub LocalAddr: super::super::Networking::WinSock::IN6_ADDR,
     pub dwLocalScopeId: u32,
@@ -7307,6 +8014,7 @@ unsafe impl ::windows::runtime::Abi for MIB_TCP6ROW2 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_TCP6ROW_OWNER_MODULE {
     pub ucLocalAddr: [u8; 16],
     pub dwLocalScopeId: u32,
@@ -7353,6 +8061,7 @@ unsafe impl ::windows::runtime::Abi for MIB_TCP6ROW_OWNER_MODULE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_TCP6ROW_OWNER_PID {
     pub ucLocalAddr: [u8; 16],
     pub dwLocalScopeId: u32,
@@ -7396,6 +8105,7 @@ unsafe impl ::windows::runtime::Abi for MIB_TCP6ROW_OWNER_PID {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Networking_WinSock`*"]
 pub struct MIB_TCP6TABLE {
     pub dwNumEntries: u32,
     pub table: [MIB_TCP6ROW; 1],
@@ -7424,6 +8134,7 @@ unsafe impl ::windows::runtime::Abi for MIB_TCP6TABLE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Networking_WinSock`*"]
 pub struct MIB_TCP6TABLE2 {
     pub dwNumEntries: u32,
     pub table: [MIB_TCP6ROW2; 1],
@@ -7451,6 +8162,7 @@ unsafe impl ::windows::runtime::Abi for MIB_TCP6TABLE2 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_TCP6TABLE_OWNER_MODULE {
     pub dwNumEntries: u32,
     pub table: [MIB_TCP6ROW_OWNER_MODULE; 1],
@@ -7478,6 +8190,7 @@ unsafe impl ::windows::runtime::Abi for MIB_TCP6TABLE_OWNER_MODULE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_TCP6TABLE_OWNER_PID {
     pub dwNumEntries: u32,
     pub table: [MIB_TCP6ROW_OWNER_PID; 1],
@@ -7505,6 +8218,7 @@ unsafe impl ::windows::runtime::Abi for MIB_TCP6TABLE_OWNER_PID {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_TCPROW2 {
     pub dwState: u32,
     pub dwLocalAddr: u32,
@@ -7545,6 +8259,7 @@ unsafe impl ::windows::runtime::Abi for MIB_TCPROW2 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_TCPROW_LH {
     pub Anonymous: MIB_TCPROW_LH_0,
     pub dwLocalAddr: u32,
@@ -7570,6 +8285,7 @@ unsafe impl ::windows::runtime::Abi for MIB_TCPROW_LH {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub union MIB_TCPROW_LH_0 {
     pub dwState: u32,
     pub State: MIB_TCP_STATE,
@@ -7592,6 +8308,7 @@ unsafe impl ::windows::runtime::Abi for MIB_TCPROW_LH_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_TCPROW_OWNER_MODULE {
     pub dwState: u32,
     pub dwLocalAddr: u32,
@@ -7634,6 +8351,7 @@ unsafe impl ::windows::runtime::Abi for MIB_TCPROW_OWNER_MODULE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_TCPROW_OWNER_PID {
     pub dwState: u32,
     pub dwLocalAddr: u32,
@@ -7665,6 +8383,7 @@ unsafe impl ::windows::runtime::Abi for MIB_TCPROW_OWNER_PID {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_TCPROW_W2K {
     pub dwState: u32,
     pub dwLocalAddr: u32,
@@ -7695,6 +8414,7 @@ unsafe impl ::windows::runtime::Abi for MIB_TCPROW_W2K {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_TCPSTATS2 {
     pub RtoAlgorithm: TCP_RTO_ALGORITHM,
     pub dwRtoMin: u32,
@@ -7765,6 +8485,7 @@ unsafe impl ::windows::runtime::Abi for MIB_TCPSTATS2 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_TCPSTATS_LH {
     pub Anonymous: MIB_TCPSTATS_LH_0,
     pub dwRtoMin: u32,
@@ -7800,6 +8521,7 @@ unsafe impl ::windows::runtime::Abi for MIB_TCPSTATS_LH {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub union MIB_TCPSTATS_LH_0 {
     pub dwRtoAlgorithm: u32,
     pub RtoAlgorithm: TCP_RTO_ALGORITHM,
@@ -7822,6 +8544,7 @@ unsafe impl ::windows::runtime::Abi for MIB_TCPSTATS_LH_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_TCPSTATS_W2K {
     pub dwRtoAlgorithm: u32,
     pub dwRtoMin: u32,
@@ -7892,6 +8615,7 @@ unsafe impl ::windows::runtime::Abi for MIB_TCPSTATS_W2K {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_TCPTABLE {
     pub dwNumEntries: u32,
     pub table: [MIB_TCPROW_LH; 1],
@@ -7914,6 +8638,7 @@ unsafe impl ::windows::runtime::Abi for MIB_TCPTABLE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_TCPTABLE2 {
     pub dwNumEntries: u32,
     pub table: [MIB_TCPROW2; 1],
@@ -7941,6 +8666,7 @@ unsafe impl ::windows::runtime::Abi for MIB_TCPTABLE2 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_TCPTABLE_OWNER_MODULE {
     pub dwNumEntries: u32,
     pub table: [MIB_TCPROW_OWNER_MODULE; 1],
@@ -7968,6 +8694,7 @@ unsafe impl ::windows::runtime::Abi for MIB_TCPTABLE_OWNER_MODULE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_TCPTABLE_OWNER_PID {
     pub dwNumEntries: u32,
     pub table: [MIB_TCPROW_OWNER_PID; 1],
@@ -7993,6 +8720,7 @@ unsafe impl ::windows::runtime::Abi for MIB_TCPTABLE_OWNER_PID {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MIB_TCP_STATE(pub i32);
@@ -8021,6 +8749,7 @@ unsafe impl ::windows::runtime::Abi for MIB_TCP_STATE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Networking_WinSock`*"]
 pub struct MIB_UDP6ROW {
     pub dwLocalAddr: super::super::Networking::WinSock::IN6_ADDR,
     pub dwLocalScopeId: u32,
@@ -8049,6 +8778,7 @@ unsafe impl ::windows::runtime::Abi for MIB_UDP6ROW {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_UDP6ROW2 {
     pub ucLocalAddr: [u8; 16],
     pub dwLocalScopeId: u32,
@@ -8079,6 +8809,7 @@ unsafe impl ::windows::runtime::Abi for MIB_UDP6ROW2 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub union MIB_UDP6ROW2_0 {
     pub Anonymous: MIB_UDP6ROW2_0_0,
     pub dwFlags: i32,
@@ -8101,6 +8832,7 @@ unsafe impl ::windows::runtime::Abi for MIB_UDP6ROW2_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_UDP6ROW2_0_0 {
     pub _bitfield: i32,
 }
@@ -8127,6 +8859,7 @@ unsafe impl ::windows::runtime::Abi for MIB_UDP6ROW2_0_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_UDP6ROW_OWNER_MODULE {
     pub ucLocalAddr: [u8; 16],
     pub dwLocalScopeId: u32,
@@ -8154,6 +8887,7 @@ unsafe impl ::windows::runtime::Abi for MIB_UDP6ROW_OWNER_MODULE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub union MIB_UDP6ROW_OWNER_MODULE_0 {
     pub Anonymous: MIB_UDP6ROW_OWNER_MODULE_0_0,
     pub dwFlags: i32,
@@ -8176,6 +8910,7 @@ unsafe impl ::windows::runtime::Abi for MIB_UDP6ROW_OWNER_MODULE_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_UDP6ROW_OWNER_MODULE_0_0 {
     pub _bitfield: i32,
 }
@@ -8202,6 +8937,7 @@ unsafe impl ::windows::runtime::Abi for MIB_UDP6ROW_OWNER_MODULE_0_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_UDP6ROW_OWNER_PID {
     pub ucLocalAddr: [u8; 16],
     pub dwLocalScopeId: u32,
@@ -8232,6 +8968,7 @@ unsafe impl ::windows::runtime::Abi for MIB_UDP6ROW_OWNER_PID {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Networking_WinSock`*"]
 pub struct MIB_UDP6TABLE {
     pub dwNumEntries: u32,
     pub table: [MIB_UDP6ROW; 1],
@@ -8259,6 +8996,7 @@ unsafe impl ::windows::runtime::Abi for MIB_UDP6TABLE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_UDP6TABLE2 {
     pub dwNumEntries: u32,
     pub table: [MIB_UDP6ROW2; 1],
@@ -8281,6 +9019,7 @@ unsafe impl ::windows::runtime::Abi for MIB_UDP6TABLE2 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_UDP6TABLE_OWNER_MODULE {
     pub dwNumEntries: u32,
     pub table: [MIB_UDP6ROW_OWNER_MODULE; 1],
@@ -8303,6 +9042,7 @@ unsafe impl ::windows::runtime::Abi for MIB_UDP6TABLE_OWNER_MODULE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_UDP6TABLE_OWNER_PID {
     pub dwNumEntries: u32,
     pub table: [MIB_UDP6ROW_OWNER_PID; 1],
@@ -8330,6 +9070,7 @@ unsafe impl ::windows::runtime::Abi for MIB_UDP6TABLE_OWNER_PID {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_UDPROW {
     pub dwLocalAddr: u32,
     pub dwLocalPort: u32,
@@ -8357,6 +9098,7 @@ unsafe impl ::windows::runtime::Abi for MIB_UDPROW {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_UDPROW2 {
     pub dwLocalAddr: u32,
     pub dwLocalPort: u32,
@@ -8385,6 +9127,7 @@ unsafe impl ::windows::runtime::Abi for MIB_UDPROW2 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub union MIB_UDPROW2_0 {
     pub Anonymous: MIB_UDPROW2_0_0,
     pub dwFlags: i32,
@@ -8407,6 +9150,7 @@ unsafe impl ::windows::runtime::Abi for MIB_UDPROW2_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_UDPROW2_0_0 {
     pub _bitfield: i32,
 }
@@ -8433,6 +9177,7 @@ unsafe impl ::windows::runtime::Abi for MIB_UDPROW2_0_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_UDPROW_OWNER_MODULE {
     pub dwLocalAddr: u32,
     pub dwLocalPort: u32,
@@ -8459,6 +9204,7 @@ unsafe impl ::windows::runtime::Abi for MIB_UDPROW_OWNER_MODULE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub union MIB_UDPROW_OWNER_MODULE_0 {
     pub Anonymous: MIB_UDPROW_OWNER_MODULE_0_0,
     pub dwFlags: i32,
@@ -8481,6 +9227,7 @@ unsafe impl ::windows::runtime::Abi for MIB_UDPROW_OWNER_MODULE_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_UDPROW_OWNER_MODULE_0_0 {
     pub _bitfield: i32,
 }
@@ -8507,6 +9254,7 @@ unsafe impl ::windows::runtime::Abi for MIB_UDPROW_OWNER_MODULE_0_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_UDPROW_OWNER_PID {
     pub dwLocalAddr: u32,
     pub dwLocalPort: u32,
@@ -8535,6 +9283,7 @@ unsafe impl ::windows::runtime::Abi for MIB_UDPROW_OWNER_PID {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_UDPSTATS {
     pub dwInDatagrams: u32,
     pub dwNoPorts: u32,
@@ -8565,6 +9314,7 @@ unsafe impl ::windows::runtime::Abi for MIB_UDPSTATS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_UDPSTATS2 {
     pub dw64InDatagrams: u64,
     pub dwNoPorts: u32,
@@ -8595,6 +9345,7 @@ unsafe impl ::windows::runtime::Abi for MIB_UDPSTATS2 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_UDPTABLE {
     pub dwNumEntries: u32,
     pub table: [MIB_UDPROW; 1],
@@ -8622,6 +9373,7 @@ unsafe impl ::windows::runtime::Abi for MIB_UDPTABLE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_UDPTABLE2 {
     pub dwNumEntries: u32,
     pub table: [MIB_UDPROW2; 1],
@@ -8644,6 +9396,7 @@ unsafe impl ::windows::runtime::Abi for MIB_UDPTABLE2 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_UDPTABLE_OWNER_MODULE {
     pub dwNumEntries: u32,
     pub table: [MIB_UDPROW_OWNER_MODULE; 1],
@@ -8666,6 +9419,7 @@ unsafe impl ::windows::runtime::Abi for MIB_UDPTABLE_OWNER_MODULE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct MIB_UDPTABLE_OWNER_PID {
     pub dwNumEntries: u32,
     pub table: [MIB_UDPROW_OWNER_PID; 1],
@@ -8694,6 +9448,7 @@ unsafe impl ::windows::runtime::Abi for MIB_UDPTABLE_OWNER_PID {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 pub struct MIB_UNICASTIPADDRESS_ROW {
     pub Address: super::super::Networking::WinSock::SOCKADDR_INET,
     pub InterfaceLuid: NET_LUID_LH,
@@ -8732,6 +9487,7 @@ unsafe impl ::windows::runtime::Abi for MIB_UNICASTIPADDRESS_ROW {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 pub struct MIB_UNICASTIPADDRESS_TABLE {
     pub NumEntries: u32,
     pub Table: [MIB_UNICASTIPADDRESS_ROW; 1],
@@ -8757,13 +9513,18 @@ unsafe impl ::windows::runtime::Abi for MIB_UNICASTIPADDRESS_TABLE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const MIB_USE_CURRENT_FORWARDING: u32 = 4294967295u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const MIB_USE_CURRENT_TTL: u32 = 4294967295u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const MIN_IF_TYPE: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const MIXED_NODETYPE: u32 = 4u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 pub struct NDIS_INTERFACE_INFORMATION {
     pub ifOperStatus: NET_IF_OPER_STATUS,
     pub ifOperStatusFlags: u32,
@@ -8889,6 +9650,7 @@ unsafe impl ::windows::runtime::Abi for NDIS_INTERFACE_INFORMATION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NET_ADDRESS_FORMAT(pub i32);
@@ -8905,7 +9667,9 @@ unsafe impl ::windows::runtime::Abi for NET_ADDRESS_FORMAT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const NET_IFLUID_UNSPECIFIED: u32 = 0u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NET_IF_ACCESS_TYPE(pub i32);
@@ -8923,6 +9687,7 @@ unsafe impl ::windows::runtime::Abi for NET_IF_ACCESS_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NET_IF_ADMIN_STATUS(pub i32);
@@ -8940,6 +9705,7 @@ unsafe impl ::windows::runtime::Abi for NET_IF_ADMIN_STATUS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct NET_IF_ALIAS_LH {
     pub ifAliasLength: u16,
     pub ifAliasOffset: u16,
@@ -8965,6 +9731,7 @@ unsafe impl ::windows::runtime::Abi for NET_IF_ALIAS_LH {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NET_IF_CONNECTION_TYPE(pub i32);
@@ -8981,6 +9748,7 @@ unsafe impl ::windows::runtime::Abi for NET_IF_CONNECTION_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NET_IF_DIRECTION_TYPE(pub i32);
@@ -8997,6 +9765,7 @@ unsafe impl ::windows::runtime::Abi for NET_IF_DIRECTION_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NET_IF_MEDIA_CONNECT_STATE(pub i32);
@@ -9012,6 +9781,7 @@ unsafe impl ::windows::runtime::Abi for NET_IF_MEDIA_CONNECT_STATE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NET_IF_MEDIA_DUPLEX_STATE(pub i32);
@@ -9027,10 +9797,15 @@ unsafe impl ::windows::runtime::Abi for NET_IF_MEDIA_DUPLEX_STATE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const NET_IF_OID_COMPARTMENT_ID: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const NET_IF_OID_IF_ALIAS: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const NET_IF_OID_IF_ENTRY: u32 = 4u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const NET_IF_OID_NETWORK_GUID: u32 = 3u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NET_IF_OPER_STATUS(pub i32);
@@ -9050,12 +9825,17 @@ unsafe impl ::windows::runtime::Abi for NET_IF_OPER_STATUS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const NET_IF_OPER_STATUS_DORMANT_LOW_POWER: u32 = 8u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const NET_IF_OPER_STATUS_DORMANT_PAUSED: u32 = 4u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const NET_IF_OPER_STATUS_DOWN_NOT_AUTHENTICATED: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const NET_IF_OPER_STATUS_DOWN_NOT_MEDIA_CONNECTED: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct NET_IF_RCV_ADDRESS_LH {
     pub ifRcvAddressType: NET_IF_RCV_ADDRESS_TYPE,
     pub ifRcvAddressLength: u16,
@@ -9082,6 +9862,7 @@ unsafe impl ::windows::runtime::Abi for NET_IF_RCV_ADDRESS_LH {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NET_IF_RCV_ADDRESS_TYPE(pub i32);
@@ -9099,6 +9880,7 @@ unsafe impl ::windows::runtime::Abi for NET_IF_RCV_ADDRESS_TYPE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub union NET_LUID_LH {
     pub Value: u64,
     pub Info: NET_LUID_LH_0,
@@ -9121,6 +9903,7 @@ unsafe impl ::windows::runtime::Abi for NET_LUID_LH {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct NET_LUID_LH_0 {
     pub _bitfield: u64,
 }
@@ -9147,6 +9930,7 @@ unsafe impl ::windows::runtime::Abi for NET_LUID_LH_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct NET_PHYSICAL_LOCATION_LH {
     pub BusNumber: u32,
     pub SlotNumber: u32,
@@ -9173,30 +9957,54 @@ unsafe impl ::windows::runtime::Abi for NET_PHYSICAL_LOCATION_LH {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const NET_SITEID_MAXSYSTEM: u32 = 268435455u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const NET_SITEID_MAXUSER: u32 = 134217727u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const NET_SITEID_UNSPECIFIED: u32 = 0u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const NET_STRING_IPV4_ADDRESS: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const NET_STRING_IPV4_NETWORK: u32 = 4u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const NET_STRING_IPV4_SERVICE: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const NET_STRING_IPV6_ADDRESS: u32 = 8u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const NET_STRING_IPV6_ADDRESS_NO_SCOPE: u32 = 16u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const NET_STRING_IPV6_NETWORK: u32 = 128u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const NET_STRING_IPV6_SERVICE: u32 = 32u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const NET_STRING_IPV6_SERVICE_NO_SCOPE: u32 = 64u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const NET_STRING_NAMED_ADDRESS: u32 = 256u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const NET_STRING_NAMED_SERVICE: u32 = 512u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const NIIF_FILTER_INTERFACE: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const NIIF_HARDWARE_INTERFACE: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const NIIF_NDIS_ENDPOINT_INTERFACE: u32 = 64u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const NIIF_NDIS_ISCSI_INTERFACE: u32 = 128u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const NIIF_NDIS_RESERVED1: u32 = 4u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const NIIF_NDIS_RESERVED2: u32 = 8u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const NIIF_NDIS_RESERVED3: u32 = 16u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const NIIF_NDIS_RESERVED4: u32 = 256u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const NIIF_NDIS_WDM_INTERFACE: u32 = 32u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const NUMBER_OF_EXPORTED_VARIABLES: u32 = 39u32;
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn NhpAllocateAndGetInterfaceInfoFromStack<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(pptable: *mut *mut ip_interface_name_info_w2ksp1, pdwcount: *mut u32, border: Param2, hheap: Param3, dwflags: u32) -> u32 {
     #[cfg(windows)]
@@ -9211,6 +10019,7 @@ pub unsafe fn NhpAllocateAndGetInterfaceInfoFromStack<'a, Param2: ::windows::run
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[inline]
 pub unsafe fn NotifyAddrChange(handle: *mut super::super::Foundation::HANDLE, overlapped: *const super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
@@ -9225,6 +10034,7 @@ pub unsafe fn NotifyAddrChange(handle: *mut super::super::Foundation::HANDLE, ov
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn NotifyIpInterfaceChange<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>>(family: u16, callback: ::std::option::Option<PIPINTERFACE_CHANGE_CALLBACK>, callercontext: *const ::std::ffi::c_void, initialnotification: Param3, notificationhandle: *mut super::super::Foundation::HANDLE) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -9239,6 +10049,7 @@ pub unsafe fn NotifyIpInterfaceChange<'a, Param3: ::windows::runtime::IntoParam<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn NotifyNetworkConnectivityHintChange<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>>(callback: ::std::option::Option<PNETWORK_CONNECTIVITY_HINT_CHANGE_CALLBACK>, callercontext: *const ::std::ffi::c_void, initialnotification: Param2, notificationhandle: *mut super::super::Foundation::HANDLE) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -9253,6 +10064,7 @@ pub unsafe fn NotifyNetworkConnectivityHintChange<'a, Param2: ::windows::runtime
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[inline]
 pub unsafe fn NotifyRouteChange(handle: *mut super::super::Foundation::HANDLE, overlapped: *const super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
@@ -9267,6 +10079,7 @@ pub unsafe fn NotifyRouteChange(handle: *mut super::super::Foundation::HANDLE, o
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn NotifyRouteChange2<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>>(addressfamily: u16, callback: ::std::option::Option<PIPFORWARD_CHANGE_CALLBACK>, callercontext: *const ::std::ffi::c_void, initialnotification: Param3, notificationhandle: *mut super::super::Foundation::HANDLE) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -9281,6 +10094,7 @@ pub unsafe fn NotifyRouteChange2<'a, Param3: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn NotifyStableUnicastIpAddressTable(family: u16, table: *mut *mut MIB_UNICASTIPADDRESS_TABLE, callercallback: ::std::option::Option<PSTABLE_UNICAST_IPADDRESS_TABLE_CALLBACK>, callercontext: *const ::std::ffi::c_void, notificationhandle: *mut super::super::Foundation::HANDLE) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -9295,6 +10109,7 @@ pub unsafe fn NotifyStableUnicastIpAddressTable(family: u16, table: *mut *mut MI
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn NotifyTeredoPortChange<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>>(callback: ::std::option::Option<PTEREDO_PORT_CHANGE_CALLBACK>, callercontext: *const ::std::ffi::c_void, initialnotification: Param2, notificationhandle: *mut super::super::Foundation::HANDLE) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -9309,6 +10124,7 @@ pub unsafe fn NotifyTeredoPortChange<'a, Param2: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn NotifyUnicastIpAddressChange<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>>(family: u16, callback: ::std::option::Option<PUNICAST_IPADDRESS_CHANGE_CALLBACK>, callercontext: *const ::std::ffi::c_void, initialnotification: Param3, notificationhandle: *mut super::super::Foundation::HANDLE) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -9322,7 +10138,9 @@ pub unsafe fn NotifyUnicastIpAddressChange<'a, Param3: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const PEER_TO_PEER_NODETYPE: u32 = 2u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PFADDRESSTYPE(pub i32);
@@ -9337,9 +10155,13 @@ unsafe impl ::windows::runtime::Abi for PFADDRESSTYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const PFERROR_BUFFER_TOO_SMALL: u32 = 23002u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const PFERROR_NO_FILTERS_GIVEN: u32 = 23001u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const PFERROR_NO_PF_INTERFACE: u32 = 23000u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PFFORWARD_ACTION(pub i32);
@@ -9354,6 +10176,7 @@ unsafe impl ::windows::runtime::Abi for PFFORWARD_ACTION {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PFFRAMETYPE(pub i32);
@@ -9371,6 +10194,7 @@ unsafe impl ::windows::runtime::Abi for PFFRAMETYPE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct PFLOGFRAME {
     pub Timestamp: i64,
     pub pfeTypeOfFrame: PFFRAMETYPE,
@@ -9415,6 +10239,7 @@ unsafe impl ::windows::runtime::Abi for PFLOGFRAME {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct PF_FILTER_DESCRIPTOR {
     pub dwFilterFlags: u32,
     pub dwRule: u32,
@@ -9479,6 +10304,7 @@ unsafe impl ::windows::runtime::Abi for PF_FILTER_DESCRIPTOR {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct PF_FILTER_STATS {
     pub dwNumPacketsFiltered: u32,
     pub info: PF_FILTER_DESCRIPTOR,
@@ -9506,6 +10332,7 @@ unsafe impl ::windows::runtime::Abi for PF_FILTER_STATS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct PF_INTERFACE_STATS {
     pub pvDriverContext: *mut ::std::ffi::c_void,
     pub dwFlags: u32,
@@ -9579,6 +10406,7 @@ unsafe impl ::windows::runtime::Abi for PF_INTERFACE_STATS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct PF_LATEBIND_INFO {
     pub SrcAddr: *mut u8,
     pub DstAddr: *mut u8,
@@ -9612,12 +10440,14 @@ pub type PIPFORWARD_CHANGE_CALLBACK = unsafe extern "system" fn(callercontext: *
 pub type PIPINTERFACE_CHANGE_CALLBACK = unsafe extern "system" fn(callercontext: *const ::std::ffi::c_void, row: *const MIB_IPINTERFACE_ROW, notificationtype: MIB_NOTIFICATION_TYPE);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub type PNETWORK_CONNECTIVITY_HINT_CHANGE_CALLBACK = unsafe extern "system" fn(callercontext: *const ::std::ffi::c_void, connectivityhint: super::super::Networking::WinSock::NL_NETWORK_CONNECTIVITY_HINT);
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const PROXY_ARP: u32 = 22u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub type PSTABLE_UNICAST_IPADDRESS_TABLE_CALLBACK = unsafe extern "system" fn(callercontext: *const ::std::ffi::c_void, addresstable: *const MIB_UNICASTIPADDRESS_TABLE);
 pub type PTEREDO_PORT_CHANGE_CALLBACK = unsafe extern "system" fn(callercontext: *const ::std::ffi::c_void, port: u16, notificationtype: MIB_NOTIFICATION_TYPE);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub type PUNICAST_IPADDRESS_CHANGE_CALLBACK = unsafe extern "system" fn(callercontext: *const ::std::ffi::c_void, row: *const MIB_UNICASTIPADDRESS_ROW, notificationtype: MIB_NOTIFICATION_TYPE);
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[inline]
 pub unsafe fn PfAddFiltersToInterface(ih: *mut ::std::ffi::c_void, cinfilters: u32, pfiltin: *mut PF_FILTER_DESCRIPTOR, coutfilters: u32, pfiltout: *mut PF_FILTER_DESCRIPTOR, pfhandle: *mut *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -9631,6 +10461,7 @@ pub unsafe fn PfAddFiltersToInterface(ih: *mut ::std::ffi::c_void, cinfilters: u
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[inline]
 pub unsafe fn PfAddGlobalFilterToInterface(pinterface: *mut ::std::ffi::c_void, gffilter: GLOBAL_FILTER) -> u32 {
     #[cfg(windows)]
@@ -9644,6 +10475,7 @@ pub unsafe fn PfAddGlobalFilterToInterface(pinterface: *mut ::std::ffi::c_void, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[inline]
 pub unsafe fn PfBindInterfaceToIPAddress(pinterface: *mut ::std::ffi::c_void, pfattype: PFADDRESSTYPE, ipaddress: *mut u8) -> u32 {
     #[cfg(windows)]
@@ -9657,6 +10489,7 @@ pub unsafe fn PfBindInterfaceToIPAddress(pinterface: *mut ::std::ffi::c_void, pf
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[inline]
 pub unsafe fn PfBindInterfaceToIndex(pinterface: *mut ::std::ffi::c_void, dwindex: u32, pfatlinktype: PFADDRESSTYPE, linkipaddress: *mut u8) -> u32 {
     #[cfg(windows)]
@@ -9671,6 +10504,7 @@ pub unsafe fn PfBindInterfaceToIndex(pinterface: *mut ::std::ffi::c_void, dwinde
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PfCreateInterface<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(dwname: u32, inaction: PFFORWARD_ACTION, outaction: PFFORWARD_ACTION, buselog: Param3, bmustbeunique: Param4, ppinterface: *mut *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -9684,6 +10518,7 @@ pub unsafe fn PfCreateInterface<'a, Param3: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[inline]
 pub unsafe fn PfDeleteInterface(pinterface: *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -9697,6 +10532,7 @@ pub unsafe fn PfDeleteInterface(pinterface: *mut ::std::ffi::c_void) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[inline]
 pub unsafe fn PfDeleteLog() -> u32 {
     #[cfg(windows)]
@@ -9711,6 +10547,7 @@ pub unsafe fn PfDeleteLog() -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PfGetInterfaceStatistics<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(pinterface: *mut ::std::ffi::c_void, ppfstats: *mut PF_INTERFACE_STATS, pdwbuffersize: *mut u32, fresetcounters: Param3) -> u32 {
     #[cfg(windows)]
@@ -9725,6 +10562,7 @@ pub unsafe fn PfGetInterfaceStatistics<'a, Param3: ::windows::runtime::IntoParam
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn PfMakeLog<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hevent: Param0) -> u32 {
     #[cfg(windows)]
@@ -9738,6 +10576,7 @@ pub unsafe fn PfMakeLog<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[inline]
 pub unsafe fn PfRebindFilters(pinterface: *mut ::std::ffi::c_void, platebindinfo: *mut PF_LATEBIND_INFO) -> u32 {
     #[cfg(windows)]
@@ -9751,6 +10590,7 @@ pub unsafe fn PfRebindFilters(pinterface: *mut ::std::ffi::c_void, platebindinfo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[inline]
 pub unsafe fn PfRemoveFilterHandles(pinterface: *mut ::std::ffi::c_void, cfilters: u32, pvhandles: *mut *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -9764,6 +10604,7 @@ pub unsafe fn PfRemoveFilterHandles(pinterface: *mut ::std::ffi::c_void, cfilter
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[inline]
 pub unsafe fn PfRemoveFiltersFromInterface(ih: *mut ::std::ffi::c_void, cinfilters: u32, pfiltin: *mut PF_FILTER_DESCRIPTOR, coutfilters: u32, pfiltout: *mut PF_FILTER_DESCRIPTOR) -> u32 {
     #[cfg(windows)]
@@ -9777,6 +10618,7 @@ pub unsafe fn PfRemoveFiltersFromInterface(ih: *mut ::std::ffi::c_void, cinfilte
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[inline]
 pub unsafe fn PfRemoveGlobalFilterFromInterface(pinterface: *mut ::std::ffi::c_void, gffilter: GLOBAL_FILTER) -> u32 {
     #[cfg(windows)]
@@ -9790,6 +10632,7 @@ pub unsafe fn PfRemoveGlobalFilterFromInterface(pinterface: *mut ::std::ffi::c_v
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[inline]
 pub unsafe fn PfSetLogBuffer(pbbuffer: *mut u8, dwsize: u32, dwthreshold: u32, dwentries: u32, pdwloggedentries: *mut u32, pdwlostentries: *mut u32, pdwsizeused: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -9803,6 +10646,7 @@ pub unsafe fn PfSetLogBuffer(pbbuffer: *mut u8, dwsize: u32, dwthreshold: u32, d
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[inline]
 pub unsafe fn PfTestPacket(pininterface: *mut ::std::ffi::c_void, poutinterface: *mut ::std::ffi::c_void, cbytes: u32, pbpacket: *mut u8, ppaction: *mut PFFORWARD_ACTION) -> u32 {
     #[cfg(windows)]
@@ -9816,6 +10660,7 @@ pub unsafe fn PfTestPacket(pininterface: *mut ::std::ffi::c_void, poutinterface:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[inline]
 pub unsafe fn PfUnBindInterface(pinterface: *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -9829,10 +10674,15 @@ pub unsafe fn PfUnBindInterface(pinterface: *mut ::std::ffi::c_void) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const ROUTE_LONGER: u32 = 32u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const ROUTE_MATCHING: u32 = 31u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const ROUTE_SHORTER: u32 = 33u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const ROUTE_STATE: u32 = 34u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[inline]
 pub unsafe fn RegisterInterfaceTimestampConfigChange(callback: ::std::option::Option<PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK>, callercontext: *const ::std::ffi::c_void, notificationhandle: *mut HIFTIMESTAMPCHANGE) -> u32 {
     #[cfg(windows)]
@@ -9847,6 +10697,7 @@ pub unsafe fn RegisterInterfaceTimestampConfigChange(callback: ::std::option::Op
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn ResolveIpNetEntry2(row: *mut MIB_IPNET_ROW2, sourceaddress: *const super::super::Networking::WinSock::SOCKADDR_INET) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -9861,6 +10712,7 @@ pub unsafe fn ResolveIpNetEntry2(row: *mut MIB_IPNET_ROW2, sourceaddress: *const
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn ResolveNeighbor(networkaddress: *const super::super::Networking::WinSock::SOCKADDR, physicaladdress: *mut ::std::ffi::c_void, physicaladdresslength: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -9875,6 +10727,7 @@ pub unsafe fn ResolveNeighbor(networkaddress: *const super::super::Networking::W
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[inline]
 pub unsafe fn RestoreMediaSense(poverlapped: *const super::super::System::IO::OVERLAPPED, lpdwenablecount: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -9888,6 +10741,7 @@ pub unsafe fn RestoreMediaSense(poverlapped: *const super::super::System::IO::OV
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[inline]
 pub unsafe fn SendARP(destip: u32, srcip: u32, pmacaddr: *mut ::std::ffi::c_void, phyaddrlen: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -9902,6 +10756,7 @@ pub unsafe fn SendARP(destip: u32, srcip: u32, pmacaddr: *mut ::std::ffi::c_void
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SetCurrentThreadCompartmentId(compartmentid: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -9916,6 +10771,7 @@ pub unsafe fn SetCurrentThreadCompartmentId(compartmentid: u32) -> ::windows::ru
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SetCurrentThreadCompartmentScope(compartmentscope: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -9930,6 +10786,7 @@ pub unsafe fn SetCurrentThreadCompartmentScope(compartmentscope: u32) -> ::windo
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SetDnsSettings(settings: *const DNS_SETTINGS) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -9943,6 +10800,7 @@ pub unsafe fn SetDnsSettings(settings: *const DNS_SETTINGS) -> ::windows::runtim
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[inline]
 pub unsafe fn SetIfEntry(pifrow: *const MIB_IFROW) -> u32 {
     #[cfg(windows)]
@@ -9957,6 +10815,7 @@ pub unsafe fn SetIfEntry(pifrow: *const MIB_IFROW) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SetInterfaceDnsSettings<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(interface: Param0, settings: *const DNS_INTERFACE_SETTINGS) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -9971,6 +10830,7 @@ pub unsafe fn SetInterfaceDnsSettings<'a, Param0: ::windows::runtime::IntoParam<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn SetIpForwardEntry(proute: *const MIB_IPFORWARDROW) -> u32 {
     #[cfg(windows)]
@@ -9985,6 +10845,7 @@ pub unsafe fn SetIpForwardEntry(proute: *const MIB_IPFORWARDROW) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn SetIpForwardEntry2(route: *const MIB_IPFORWARD_ROW2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -9999,6 +10860,7 @@ pub unsafe fn SetIpForwardEntry2(route: *const MIB_IPFORWARD_ROW2) -> ::windows:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn SetIpInterfaceEntry(row: *mut MIB_IPINTERFACE_ROW) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -10012,6 +10874,7 @@ pub unsafe fn SetIpInterfaceEntry(row: *mut MIB_IPINTERFACE_ROW) -> ::windows::r
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[inline]
 pub unsafe fn SetIpNetEntry(parpentry: *const MIB_IPNETROW_LH) -> u32 {
     #[cfg(windows)]
@@ -10026,6 +10889,7 @@ pub unsafe fn SetIpNetEntry(parpentry: *const MIB_IPNETROW_LH) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn SetIpNetEntry2(row: *const MIB_IPNET_ROW2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -10039,6 +10903,7 @@ pub unsafe fn SetIpNetEntry2(row: *const MIB_IPNET_ROW2) -> ::windows::runtime::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[inline]
 pub unsafe fn SetIpStatistics(pipstats: *const MIB_IPSTATS_LH) -> u32 {
     #[cfg(windows)]
@@ -10052,6 +10917,7 @@ pub unsafe fn SetIpStatistics(pipstats: *const MIB_IPSTATS_LH) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[inline]
 pub unsafe fn SetIpStatisticsEx(statistics: *const MIB_IPSTATS_LH, family: u32) -> u32 {
     #[cfg(windows)]
@@ -10065,6 +10931,7 @@ pub unsafe fn SetIpStatisticsEx(statistics: *const MIB_IPSTATS_LH, family: u32) 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[inline]
 pub unsafe fn SetIpTTL(nttl: u32) -> u32 {
     #[cfg(windows)]
@@ -10079,6 +10946,7 @@ pub unsafe fn SetIpTTL(nttl: u32) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SetJobCompartmentId<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(jobhandle: Param0, compartmentid: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -10093,6 +10961,7 @@ pub unsafe fn SetJobCompartmentId<'a, Param0: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SetNetworkInformation<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(networkguid: *const ::windows::runtime::GUID, compartmentid: u32, networkname: Param2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -10107,6 +10976,7 @@ pub unsafe fn SetNetworkInformation<'a, Param2: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn SetPerTcp6ConnectionEStats(row: *const MIB_TCP6ROW, estatstype: TCP_ESTATS_TYPE, rw: *const u8, rwversion: u32, rwsize: u32, offset: u32) -> u32 {
     #[cfg(windows)]
@@ -10120,6 +10990,7 @@ pub unsafe fn SetPerTcp6ConnectionEStats(row: *const MIB_TCP6ROW, estatstype: TC
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[inline]
 pub unsafe fn SetPerTcpConnectionEStats(row: *const MIB_TCPROW_LH, estatstype: TCP_ESTATS_TYPE, rw: *const u8, rwversion: u32, rwsize: u32, offset: u32) -> u32 {
     #[cfg(windows)]
@@ -10134,6 +11005,7 @@ pub unsafe fn SetPerTcpConnectionEStats(row: *const MIB_TCPROW_LH, estatstype: T
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn SetSessionCompartmentId(sessionid: u32, compartmentid: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -10147,6 +11019,7 @@ pub unsafe fn SetSessionCompartmentId(sessionid: u32, compartmentid: u32) -> ::w
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[inline]
 pub unsafe fn SetTcpEntry(ptcprow: *const MIB_TCPROW_LH) -> u32 {
     #[cfg(windows)]
@@ -10161,6 +11034,7 @@ pub unsafe fn SetTcpEntry(ptcprow: *const MIB_TCPROW_LH) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[inline]
 pub unsafe fn SetUnicastIpAddressEntry(row: *const MIB_UNICASTIPADDRESS_ROW) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -10174,10 +11048,12 @@ pub unsafe fn SetUnicastIpAddressEntry(row: *const MIB_UNICASTIPADDRESS_ROW) -> 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const TCP6_STATS: u32 = 38u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 pub struct TCPIP_OWNER_MODULE_BASIC_INFO {
     pub pModuleName: super::super::Foundation::PWSTR,
     pub pModulePath: super::super::Foundation::PWSTR,
@@ -10209,6 +11085,7 @@ unsafe impl ::windows::runtime::Abi for TCPIP_OWNER_MODULE_BASIC_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TCPIP_OWNER_MODULE_INFO_CLASS(pub i32);
@@ -10222,7 +11099,9 @@ unsafe impl ::windows::runtime::Abi for TCPIP_OWNER_MODULE_INFO_CLASS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const TCPIP_OWNING_MODULE_SIZE: u32 = 16u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TCP_BOOLEAN_OPTIONAL(pub i32);
@@ -10238,6 +11117,7 @@ unsafe impl ::windows::runtime::Abi for TCP_BOOLEAN_OPTIONAL {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TCP_CONNECTION_OFFLOAD_STATE(pub i32);
@@ -10258,6 +11138,7 @@ unsafe impl ::windows::runtime::Abi for TCP_CONNECTION_OFFLOAD_STATE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 pub struct TCP_ESTATS_BANDWIDTH_ROD_v0 {
     pub OutboundBandwidth: u64,
     pub InboundBandwidth: u64,
@@ -10302,6 +11183,7 @@ unsafe impl ::windows::runtime::Abi for TCP_ESTATS_BANDWIDTH_ROD_v0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct TCP_ESTATS_BANDWIDTH_RW_v0 {
     pub EnableCollectionOutbound: TCP_BOOLEAN_OPTIONAL,
     pub EnableCollectionInbound: TCP_BOOLEAN_OPTIONAL,
@@ -10329,6 +11211,7 @@ unsafe impl ::windows::runtime::Abi for TCP_ESTATS_BANDWIDTH_RW_v0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct TCP_ESTATS_DATA_ROD_v0 {
     pub DataBytesOut: u64,
     pub DataSegsOut: u64,
@@ -10397,6 +11280,7 @@ unsafe impl ::windows::runtime::Abi for TCP_ESTATS_DATA_ROD_v0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 pub struct TCP_ESTATS_DATA_RW_v0 {
     pub EnableCollection: super::super::Foundation::BOOLEAN,
 }
@@ -10429,6 +11313,7 @@ unsafe impl ::windows::runtime::Abi for TCP_ESTATS_DATA_RW_v0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct TCP_ESTATS_FINE_RTT_ROD_v0 {
     pub RttVar: u32,
     pub MaxRtt: u32,
@@ -10459,6 +11344,7 @@ unsafe impl ::windows::runtime::Abi for TCP_ESTATS_FINE_RTT_ROD_v0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 pub struct TCP_ESTATS_FINE_RTT_RW_v0 {
     pub EnableCollection: super::super::Foundation::BOOLEAN,
 }
@@ -10491,6 +11377,7 @@ unsafe impl ::windows::runtime::Abi for TCP_ESTATS_FINE_RTT_RW_v0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct TCP_ESTATS_OBS_REC_ROD_v0 {
     pub CurRwinRcvd: u32,
     pub MaxRwinRcvd: u32,
@@ -10521,6 +11408,7 @@ unsafe impl ::windows::runtime::Abi for TCP_ESTATS_OBS_REC_ROD_v0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 pub struct TCP_ESTATS_OBS_REC_RW_v0 {
     pub EnableCollection: super::super::Foundation::BOOLEAN,
 }
@@ -10553,6 +11441,7 @@ unsafe impl ::windows::runtime::Abi for TCP_ESTATS_OBS_REC_RW_v0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct TCP_ESTATS_PATH_ROD_v0 {
     pub FastRetran: u32,
     pub Timeouts: u32,
@@ -10699,6 +11588,7 @@ unsafe impl ::windows::runtime::Abi for TCP_ESTATS_PATH_ROD_v0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 pub struct TCP_ESTATS_PATH_RW_v0 {
     pub EnableCollection: super::super::Foundation::BOOLEAN,
 }
@@ -10731,6 +11621,7 @@ unsafe impl ::windows::runtime::Abi for TCP_ESTATS_PATH_RW_v0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct TCP_ESTATS_REC_ROD_v0 {
     pub CurRwinSent: u32,
     pub MaxRwinSent: u32,
@@ -10799,6 +11690,7 @@ unsafe impl ::windows::runtime::Abi for TCP_ESTATS_REC_ROD_v0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 pub struct TCP_ESTATS_REC_RW_v0 {
     pub EnableCollection: super::super::Foundation::BOOLEAN,
 }
@@ -10831,6 +11723,7 @@ unsafe impl ::windows::runtime::Abi for TCP_ESTATS_REC_RW_v0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct TCP_ESTATS_SEND_BUFF_ROD_v0 {
     pub CurRetxQueue: usize,
     pub MaxRetxQueue: usize,
@@ -10861,6 +11754,7 @@ unsafe impl ::windows::runtime::Abi for TCP_ESTATS_SEND_BUFF_ROD_v0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 pub struct TCP_ESTATS_SEND_BUFF_RW_v0 {
     pub EnableCollection: super::super::Foundation::BOOLEAN,
 }
@@ -10893,6 +11787,7 @@ unsafe impl ::windows::runtime::Abi for TCP_ESTATS_SEND_BUFF_RW_v0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct TCP_ESTATS_SND_CONG_ROD_v0 {
     pub SndLimTransRwin: u32,
     pub SndLimTimeRwin: u32,
@@ -10972,6 +11867,7 @@ unsafe impl ::windows::runtime::Abi for TCP_ESTATS_SND_CONG_ROD_v0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct TCP_ESTATS_SND_CONG_ROS_v0 {
     pub LimCwnd: u32,
 }
@@ -10999,6 +11895,7 @@ unsafe impl ::windows::runtime::Abi for TCP_ESTATS_SND_CONG_ROS_v0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 pub struct TCP_ESTATS_SND_CONG_RW_v0 {
     pub EnableCollection: super::super::Foundation::BOOLEAN,
 }
@@ -11032,6 +11929,7 @@ unsafe impl ::windows::runtime::Abi for TCP_ESTATS_SND_CONG_RW_v0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 pub struct TCP_ESTATS_SYN_OPTS_ROS_v0 {
     pub ActiveOpen: super::super::Foundation::BOOLEAN,
     pub MssRcvd: u32,
@@ -11064,6 +11962,7 @@ unsafe impl ::windows::runtime::Abi for TCP_ESTATS_SYN_OPTS_ROS_v0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TCP_ESTATS_TYPE(pub i32);
@@ -11086,7 +11985,9 @@ unsafe impl ::windows::runtime::Abi for TCP_ESTATS_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const TCP_ROW: u32 = 14u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TCP_RTO_ALGORITHM(pub i32);
@@ -11107,6 +12008,7 @@ unsafe impl ::windows::runtime::Abi for TCP_RTO_ALGORITHM {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TCP_SOFT_ERROR(pub i32);
@@ -11129,8 +12031,11 @@ unsafe impl ::windows::runtime::Abi for TCP_SOFT_ERROR {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const TCP_STATS: u32 = 12u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const TCP_TABLE: u32 = 13u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TCP_TABLE_CLASS(pub i32);
@@ -11152,6 +12057,7 @@ unsafe impl ::windows::runtime::Abi for TCP_TABLE_CLASS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TUNNEL_TYPE(pub i32);
@@ -11171,10 +12077,15 @@ unsafe impl ::windows::runtime::Abi for TUNNEL_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const UDP6_STATS: u32 = 37u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const UDP_ROW: u32 = 17u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const UDP_STATS: u32 = 15u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const UDP_TABLE: u32 = 16u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct UDP_TABLE_CLASS(pub i32);
@@ -11191,6 +12102,7 @@ unsafe impl ::windows::runtime::Abi for UDP_TABLE_CLASS {
     type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[inline]
 pub unsafe fn UnenableRouter(poverlapped: *const super::super::System::IO::OVERLAPPED, lpdwenablecount: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -11204,6 +12116,7 @@ pub unsafe fn UnenableRouter(poverlapped: *const super::super::System::IO::OVERL
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 #[inline]
 pub unsafe fn UnregisterInterfaceTimestampConfigChange<'a, Param0: ::windows::runtime::IntoParam<'a, HIFTIMESTAMPCHANGE>>(notificationhandle: Param0) {
     #[cfg(windows)]
@@ -11219,6 +12132,7 @@ pub unsafe fn UnregisterInterfaceTimestampConfigChange<'a, Param0: ::windows::ru
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct arp_send_reply {
     pub DestAddress: u32,
     pub SrcAddress: u32,
@@ -11246,6 +12160,7 @@ unsafe impl ::windows::runtime::Abi for arp_send_reply {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct icmp_echo_reply {
     pub Address: u32,
     pub Status: u32,
@@ -11278,6 +12193,7 @@ unsafe impl ::windows::runtime::Abi for icmp_echo_reply {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct icmp_echo_reply32 {
     pub Address: u32,
     pub Status: u32,
@@ -11310,6 +12226,7 @@ unsafe impl ::windows::runtime::Abi for icmp_echo_reply32 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct icmpv6_echo_reply_lh {
     pub Address: IPV6_ADDRESS_EX,
     pub Status: u32,
@@ -11332,6 +12249,7 @@ unsafe impl ::windows::runtime::Abi for icmpv6_echo_reply_lh {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn if_indextoname(interfaceindex: u32, interfacename: super::super::Foundation::PSTR) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
@@ -11346,6 +12264,7 @@ pub unsafe fn if_indextoname(interfaceindex: u32, interfacename: super::super::F
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn if_nametoindex<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(interfacename: Param0) -> u32 {
     #[cfg(windows)]
@@ -11361,6 +12280,7 @@ pub unsafe fn if_nametoindex<'a, Param0: ::windows::runtime::IntoParam<'a, super
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct ip_interface_name_info_w2ksp1 {
     pub Index: u32,
     pub MediaType: u32,
@@ -11392,6 +12312,7 @@ unsafe impl ::windows::runtime::Abi for ip_interface_name_info_w2ksp1 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct ip_option_information {
     pub Ttl: u8,
     pub Tos: u8,
@@ -11422,6 +12343,7 @@ unsafe impl ::windows::runtime::Abi for ip_option_information {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct ip_option_information32 {
     pub Ttl: u8,
     pub Tos: u8,
@@ -11452,6 +12374,7 @@ unsafe impl ::windows::runtime::Abi for ip_option_information32 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct tcp_reserve_port_range {
     pub UpperRange: u16,
     pub LowerRange: u16,

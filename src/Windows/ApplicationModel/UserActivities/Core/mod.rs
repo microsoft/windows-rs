@@ -1,6 +1,8 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `ApplicationModel_UserActivities_Core`*"]
 pub struct CoreUserActivityManager {}
 impl CoreUserActivityManager {
+    #[doc = "*Required features: `ApplicationModel_UserActivities_Core`*"]
     pub fn CreateUserActivitySessionInBackground<'a, Param0: ::windows::runtime::IntoParam<'a, super::UserActivity>>(activity: Param0) -> ::windows::runtime::Result<super::UserActivitySession> {
         Self::ICoreUserActivityManagerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -8,6 +10,7 @@ impl CoreUserActivityManager {
         })
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_UserActivities_Core`, `Foundation`*"]
     pub fn DeleteUserActivitySessionsInTimeRangeAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::UserActivityChannel>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::DateTime>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::DateTime>>(channel: Param0, starttime: Param1, endtime: Param2) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         Self::ICoreUserActivityManagerStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();

@@ -1,4 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `ApplicationModel_Contacts_Provider`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AddContactResult(pub i32);
@@ -19,11 +20,13 @@ unsafe impl ::windows::runtime::Abi for AddContactResult {
 unsafe impl ::windows::runtime::RuntimeType for AddContactResult {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.Provider.AddContactResult;i4)");
 }
+#[doc = "*Required features: `ApplicationModel_Contacts_Provider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ContactPickerUI(::windows::runtime::IInspectable);
 impl ContactPickerUI {
     #[cfg(feature = "deprecated")]
+    #[doc = "*Required features: `ApplicationModel_Contacts_Provider`*"]
     pub fn AddContact<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, super::Contact>>(&self, id: Param0, contact: Param1) -> ::windows::runtime::Result<AddContactResult> {
         let this = self;
         unsafe {
@@ -31,10 +34,12 @@ impl ContactPickerUI {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), id.into_param().abi(), contact.into_param().abi(), &mut result__).from_abi::<AddContactResult>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts_Provider`*"]
     pub fn RemoveContact<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, id: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), id.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts_Provider`*"]
     pub fn ContainsContact<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, id: Param0) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
@@ -44,6 +49,7 @@ impl ContactPickerUI {
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Contacts_Provider`, `Foundation_Collections`*"]
     pub fn DesiredFields(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -51,6 +57,7 @@ impl ContactPickerUI {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>>(result__)
         }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts_Provider`*"]
     pub fn SelectionMode(&self) -> ::windows::runtime::Result<super::ContactSelectionMode> {
         let this = self;
         unsafe {
@@ -59,6 +66,7 @@ impl ContactPickerUI {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts_Provider`, `Foundation`*"]
     pub fn ContactRemoved<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<ContactPickerUI, ContactRemovedEventArgs>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -67,10 +75,12 @@ impl ContactPickerUI {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `ApplicationModel_Contacts_Provider`, `Foundation`*"]
     pub fn RemoveContactRemoved<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: `ApplicationModel_Contacts_Provider`*"]
     pub fn AddContact2<'a, Param0: ::windows::runtime::IntoParam<'a, super::Contact>>(&self, contact: Param0) -> ::windows::runtime::Result<AddContactResult> {
         let this = &::windows::runtime::Interface::cast::<IContactPickerUI2>(self)?;
         unsafe {
@@ -79,6 +89,7 @@ impl ContactPickerUI {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `ApplicationModel_Contacts_Provider`, `Foundation_Collections`*"]
     pub fn DesiredFieldsWithContactFieldType(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVector<super::ContactFieldType>> {
         let this = &::windows::runtime::Interface::cast::<IContactPickerUI2>(self)?;
         unsafe {
@@ -137,10 +148,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
+#[doc = "*Required features: `ApplicationModel_Contacts_Provider`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ContactRemovedEventArgs(::windows::runtime::IInspectable);
 impl ContactRemovedEventArgs {
+    #[doc = "*Required features: `ApplicationModel_Contacts_Provider`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {

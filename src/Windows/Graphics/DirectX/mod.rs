@@ -1,6 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[cfg(feature = "Graphics_DirectX_Direct3D11")]
 pub mod Direct3D11;
+#[doc = "*Required features: `Graphics_DirectX`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DirectXAlphaMode(pub i32);
@@ -22,6 +23,7 @@ unsafe impl ::windows::runtime::Abi for DirectXAlphaMode {
 unsafe impl ::windows::runtime::RuntimeType for DirectXAlphaMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.DirectXAlphaMode;i4)");
 }
+#[doc = "*Required features: `Graphics_DirectX`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DirectXColorSpace(pub i32);
@@ -64,6 +66,7 @@ unsafe impl ::windows::runtime::Abi for DirectXColorSpace {
 unsafe impl ::windows::runtime::RuntimeType for DirectXColorSpace {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.DirectXColorSpace;i4)");
 }
+#[doc = "*Required features: `Graphics_DirectX`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DirectXPixelFormat(pub i32);
@@ -202,6 +205,7 @@ unsafe impl ::windows::runtime::Abi for DirectXPixelFormat {
 unsafe impl ::windows::runtime::RuntimeType for DirectXPixelFormat {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.DirectXPixelFormat;i4)");
 }
+#[doc = "*Required features: `Graphics_DirectX`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DirectXPrimitiveTopology(pub i32);

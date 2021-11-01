@@ -1,9 +1,11 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Globalization_DateTimeFormatting`*"]
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct DateTimeFormatter(::windows::runtime::IInspectable);
 impl DateTimeFormatter {
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Globalization_DateTimeFormatting`, `Foundation_Collections`*"]
     pub fn Languages(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -11,6 +13,7 @@ impl DateTimeFormatter {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>>(result__)
         }
     }
+    #[doc = "*Required features: `Globalization_DateTimeFormatting`*"]
     pub fn GeographicRegion(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -18,6 +21,7 @@ impl DateTimeFormatter {
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Globalization_DateTimeFormatting`*"]
     pub fn Calendar(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -25,6 +29,7 @@ impl DateTimeFormatter {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Globalization_DateTimeFormatting`*"]
     pub fn Clock(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -32,6 +37,7 @@ impl DateTimeFormatter {
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Globalization_DateTimeFormatting`*"]
     pub fn NumeralSystem(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -39,11 +45,13 @@ impl DateTimeFormatter {
             (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Globalization_DateTimeFormatting`*"]
     pub fn SetNumeralSystem<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Globalization_DateTimeFormatting`, `Foundation_Collections`*"]
     pub fn Patterns(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>> {
         let this = self;
         unsafe {
@@ -51,6 +59,7 @@ impl DateTimeFormatter {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>>(result__)
         }
     }
+    #[doc = "*Required features: `Globalization_DateTimeFormatting`*"]
     pub fn Template(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -59,6 +68,7 @@ impl DateTimeFormatter {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Globalization_DateTimeFormatting`, `Foundation`*"]
     pub fn Format<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::DateTime>>(&self, value: Param0) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -66,6 +76,7 @@ impl DateTimeFormatter {
             (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Globalization_DateTimeFormatting`*"]
     pub fn IncludeYear(&self) -> ::windows::runtime::Result<YearFormat> {
         let this = self;
         unsafe {
@@ -73,6 +84,7 @@ impl DateTimeFormatter {
             (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), &mut result__).from_abi::<YearFormat>(result__)
         }
     }
+    #[doc = "*Required features: `Globalization_DateTimeFormatting`*"]
     pub fn IncludeMonth(&self) -> ::windows::runtime::Result<MonthFormat> {
         let this = self;
         unsafe {
@@ -80,6 +92,7 @@ impl DateTimeFormatter {
             (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MonthFormat>(result__)
         }
     }
+    #[doc = "*Required features: `Globalization_DateTimeFormatting`*"]
     pub fn IncludeDayOfWeek(&self) -> ::windows::runtime::Result<DayOfWeekFormat> {
         let this = self;
         unsafe {
@@ -87,6 +100,7 @@ impl DateTimeFormatter {
             (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), &mut result__).from_abi::<DayOfWeekFormat>(result__)
         }
     }
+    #[doc = "*Required features: `Globalization_DateTimeFormatting`*"]
     pub fn IncludeDay(&self) -> ::windows::runtime::Result<DayFormat> {
         let this = self;
         unsafe {
@@ -94,6 +108,7 @@ impl DateTimeFormatter {
             (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), &mut result__).from_abi::<DayFormat>(result__)
         }
     }
+    #[doc = "*Required features: `Globalization_DateTimeFormatting`*"]
     pub fn IncludeHour(&self) -> ::windows::runtime::Result<HourFormat> {
         let this = self;
         unsafe {
@@ -101,6 +116,7 @@ impl DateTimeFormatter {
             (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), &mut result__).from_abi::<HourFormat>(result__)
         }
     }
+    #[doc = "*Required features: `Globalization_DateTimeFormatting`*"]
     pub fn IncludeMinute(&self) -> ::windows::runtime::Result<MinuteFormat> {
         let this = self;
         unsafe {
@@ -108,6 +124,7 @@ impl DateTimeFormatter {
             (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), &mut result__).from_abi::<MinuteFormat>(result__)
         }
     }
+    #[doc = "*Required features: `Globalization_DateTimeFormatting`*"]
     pub fn IncludeSecond(&self) -> ::windows::runtime::Result<SecondFormat> {
         let this = self;
         unsafe {
@@ -115,6 +132,7 @@ impl DateTimeFormatter {
             (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), &mut result__).from_abi::<SecondFormat>(result__)
         }
     }
+    #[doc = "*Required features: `Globalization_DateTimeFormatting`*"]
     pub fn ResolvedLanguage(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -122,6 +140,7 @@ impl DateTimeFormatter {
             (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Globalization_DateTimeFormatting`*"]
     pub fn ResolvedGeographicRegion(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
@@ -130,6 +149,7 @@ impl DateTimeFormatter {
         }
     }
     #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `Globalization_DateTimeFormatting`, `Foundation`*"]
     pub fn FormatUsingTimeZone<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::DateTime>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, datetime: Param0, timezoneid: Param1) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<IDateTimeFormatter2>(self)?;
         unsafe {
@@ -137,6 +157,7 @@ impl DateTimeFormatter {
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), datetime.into_param().abi(), timezoneid.into_param().abi(), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: `Globalization_DateTimeFormatting`*"]
     pub fn CreateDateTimeFormatter<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(formattemplate: Param0) -> ::windows::runtime::Result<DateTimeFormatter> {
         Self::IDateTimeFormatterFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -144,6 +165,7 @@ impl DateTimeFormatter {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Globalization_DateTimeFormatting`, `Foundation_Collections`*"]
     pub fn CreateDateTimeFormatterLanguages<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>>(formattemplate: Param0, languages: Param1) -> ::windows::runtime::Result<DateTimeFormatter> {
         Self::IDateTimeFormatterFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -151,6 +173,7 @@ impl DateTimeFormatter {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Globalization_DateTimeFormatting`, `Foundation_Collections`*"]
     pub fn CreateDateTimeFormatterContext<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param4: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(
         formattemplate: Param0,
         languages: Param1,
@@ -163,12 +186,14 @@ impl DateTimeFormatter {
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), formattemplate.into_param().abi(), languages.into_param().abi(), geographicregion.into_param().abi(), calendar.into_param().abi(), clock.into_param().abi(), &mut result__).from_abi::<DateTimeFormatter>(result__)
         })
     }
+    #[doc = "*Required features: `Globalization_DateTimeFormatting`*"]
     pub fn CreateDateTimeFormatterDate(yearformat: YearFormat, monthformat: MonthFormat, dayformat: DayFormat, dayofweekformat: DayOfWeekFormat) -> ::windows::runtime::Result<DateTimeFormatter> {
         Self::IDateTimeFormatterFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), yearformat, monthformat, dayformat, dayofweekformat, &mut result__).from_abi::<DateTimeFormatter>(result__)
         })
     }
+    #[doc = "*Required features: `Globalization_DateTimeFormatting`*"]
     pub fn CreateDateTimeFormatterTime(hourformat: HourFormat, minuteformat: MinuteFormat, secondformat: SecondFormat) -> ::windows::runtime::Result<DateTimeFormatter> {
         Self::IDateTimeFormatterFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -176,6 +201,7 @@ impl DateTimeFormatter {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Globalization_DateTimeFormatting`, `Foundation_Collections`*"]
     pub fn CreateDateTimeFormatterDateTimeLanguages<'a, Param7: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>>(yearformat: YearFormat, monthformat: MonthFormat, dayformat: DayFormat, dayofweekformat: DayOfWeekFormat, hourformat: HourFormat, minuteformat: MinuteFormat, secondformat: SecondFormat, languages: Param7) -> ::windows::runtime::Result<DateTimeFormatter> {
         Self::IDateTimeFormatterFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -183,6 +209,7 @@ impl DateTimeFormatter {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `Globalization_DateTimeFormatting`, `Foundation_Collections`*"]
     pub fn CreateDateTimeFormatterDateTimeContext<'a, Param7: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::runtime::HSTRING>>, Param8: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param9: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param10: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(
         yearformat: YearFormat,
         monthformat: MonthFormat,
@@ -201,24 +228,28 @@ impl DateTimeFormatter {
             (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), yearformat, monthformat, dayformat, dayofweekformat, hourformat, minuteformat, secondformat, languages.into_param().abi(), geographicregion.into_param().abi(), calendar.into_param().abi(), clock.into_param().abi(), &mut result__).from_abi::<DateTimeFormatter>(result__)
         })
     }
+    #[doc = "*Required features: `Globalization_DateTimeFormatting`*"]
     pub fn LongDate() -> ::windows::runtime::Result<DateTimeFormatter> {
         Self::IDateTimeFormatterStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<DateTimeFormatter>(result__)
         })
     }
+    #[doc = "*Required features: `Globalization_DateTimeFormatting`*"]
     pub fn LongTime() -> ::windows::runtime::Result<DateTimeFormatter> {
         Self::IDateTimeFormatterStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<DateTimeFormatter>(result__)
         })
     }
+    #[doc = "*Required features: `Globalization_DateTimeFormatting`*"]
     pub fn ShortDate() -> ::windows::runtime::Result<DateTimeFormatter> {
         Self::IDateTimeFormatterStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<DateTimeFormatter>(result__)
         })
     }
+    #[doc = "*Required features: `Globalization_DateTimeFormatting`*"]
     pub fn ShortTime() -> ::windows::runtime::Result<DateTimeFormatter> {
         Self::IDateTimeFormatterStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -286,6 +317,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 }
 unsafe impl ::std::marker::Send for DateTimeFormatter {}
 unsafe impl ::std::marker::Sync for DateTimeFormatter {}
+#[doc = "*Required features: `Globalization_DateTimeFormatting`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DayFormat(pub i32);
@@ -305,6 +337,7 @@ unsafe impl ::windows::runtime::Abi for DayFormat {
 unsafe impl ::windows::runtime::RuntimeType for DayFormat {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Globalization.DateTimeFormatting.DayFormat;i4)");
 }
+#[doc = "*Required features: `Globalization_DateTimeFormatting`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DayOfWeekFormat(pub i32);
@@ -326,6 +359,7 @@ unsafe impl ::windows::runtime::Abi for DayOfWeekFormat {
 unsafe impl ::windows::runtime::RuntimeType for DayOfWeekFormat {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Globalization.DateTimeFormatting.DayOfWeekFormat;i4)");
 }
+#[doc = "*Required features: `Globalization_DateTimeFormatting`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HourFormat(pub i32);
@@ -470,6 +504,7 @@ pub struct IDateTimeFormatterStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Globalization_DateTimeFormatting`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MinuteFormat(pub i32);
@@ -489,6 +524,7 @@ unsafe impl ::windows::runtime::Abi for MinuteFormat {
 unsafe impl ::windows::runtime::RuntimeType for MinuteFormat {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Globalization.DateTimeFormatting.MinuteFormat;i4)");
 }
+#[doc = "*Required features: `Globalization_DateTimeFormatting`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MonthFormat(pub i32);
@@ -511,6 +547,7 @@ unsafe impl ::windows::runtime::Abi for MonthFormat {
 unsafe impl ::windows::runtime::RuntimeType for MonthFormat {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Globalization.DateTimeFormatting.MonthFormat;i4)");
 }
+#[doc = "*Required features: `Globalization_DateTimeFormatting`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SecondFormat(pub i32);
@@ -530,6 +567,7 @@ unsafe impl ::windows::runtime::Abi for SecondFormat {
 unsafe impl ::windows::runtime::RuntimeType for SecondFormat {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Globalization.DateTimeFormatting.SecondFormat;i4)");
 }
+#[doc = "*Required features: `Globalization_DateTimeFormatting`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct YearFormat(pub i32);
